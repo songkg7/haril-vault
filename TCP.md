@@ -9,6 +9,8 @@ tags: [network, tcp, ip]
 categories: [Computer science, Network]
 ---
 
+[[Network]]
+
 > [!info] TCP
 > 전송 제어 프로토콜 (Transmission Control Protocol)
 

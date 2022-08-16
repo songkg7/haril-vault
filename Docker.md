@@ -7,8 +7,8 @@ fc-calendar: Gregorian Calendar
 fc-date: 2022-08-13
 ---
 
-- [[Volume]]
-- [[Network]]
+- [[Docker volume]]
+- [[Docker network]]
 
 # What is Docker?
 
