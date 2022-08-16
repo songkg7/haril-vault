@@ -9,6 +9,8 @@ tags: [network, ip]
 categories: [Computer science, Network]
 ---
 
+[[Network]]
+
 # What is IP?
 
 - 지정한 IP 주소에 데이터 전달

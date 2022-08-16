@@ -1,198 +1,57 @@
 ---
-title: "Docker network"
-date: 2022-08-13 22:21:00 +0900
-tags: [devops, docker, network]
-categories: [DevOps]
+title: "Network"
+date: 2022-08-16 13:43:00 +0900
+publish: false
 fc-calendar: Gregorian Calendar
-fc-date: 2022-08-13
+fc-date: 2022-08-16
+aliases: 
+tags: [network]
+categories: Network
 ---
 
-## Overview
+# 네트워크란 무엇인가?
 
-Docker 컨테이너는 격리된 환경에서 돌아가기 때문에 기본적으로 다른 컨테이너와 통신이 불가능하다. 하지만 여러개의 컨테이너를 하나의 Docker 네트워크에 연결시키면 서로 통신이 가능해진다. 이번에는 서로 다른 컨테이너들간에 통신을 위해서 네트워크를 어떻게 구성해야하는지 알아본다.
+네트워크는 Net + Work 의 합성어로서 컴퓨터들이 통신 기술을 이용하여 그물망처럼 연결된 통신 이용 형태를 의미한다. 좀 더 쉽게 말하자면 "두 대 이상의 컴퓨터들을 연결하고 서로 통신(이야기)할 수 있는 것" 이것이 바로 네트워크다. IEEE(Institute of Electrical and Engineers: 국제 전기 전자 공학회)에서는 네트워크를 다음과 같이 정의하였다.
 
-## 네트워크 종류
+> 몇 개의 독립적인 장치가 적절한 영역 내에서 적당히 빠른 속도의 물리적 통신 채널을 통하여 서로가 직접 통신할 수 있도록 지원해주는 데이터 통신 체계
 
-Docker 네트워크는 `bridge`, `host`, `overlay` 등 목적에 따라 다양한 종류의 네트워크 드라이버를 지원한다.
+# 네트워크의 장단점
 
-- `bridge`: 하나의 호스트 컴퓨터 내에서 여러 컨테이너들이 서로 소통할 수 있도록 해준다.
-- `host`: 컨테이너를 호스트 컴퓨터와 동일한 네트워크에서 컨테이너를 돌리기 위해서 사용된다.
-- `overlay`: 여러 호스트에 분산되어 돌아가는 컨테이너들 간의 네트워킹을 위해서 사용된다.
+## 장점
 
-## 네트워크 생성
+네트워크의 장점을 말하자면 우리는 파일 공유를 통해 다른 네트워크에 있는 컴퓨터의 파일에 접근할 수 있게 되고, 미디어 스트리밍으로 사진, 음악 또는 비디오 등의 디지털 미디어를 네트워크를 통해 재생할 수 있게 되며, 광대역 인터넷 연결을 공유할 수 있게 되어 각 PC 마다 별도의 인터넷 계정을 구입할 필요가 없게 된다. 또한 프린터 공유로써 각 PC 마다 프린터를 공유하는 대신 한대의 프린터를 구입하여 네트워크에 있는 모든 사람이 사용할 수 있게 되며, 무엇보다 인터넷에서 다른 사람과 만나 PC, 게임 콘솔 등을 통해 네트워크 게임을 즐길 수 있다. 또한 유선으로 책상에서만 PC 작업을 해야한다는 제약 조건이 있다면 무선 전파를 이용한 무선 네트워크로 책상에서 벗어나 웹 작업을 할 수 있다는 큰 장점을 가지게 된다.
 
-`docker network create` 커맨드를 사용해서 새로운 Docker 네트워크를 생성해보도록 하자.
+## 단점
 
-```bash
+단점으로는 바이러스나 악성코드, 원치 않는 정보를 받게 되며 해킹으로 인한 개인정보 유출 등 네트워크가 가능해지면서 보안상의 문제점이 생기게 되며 무엇보다 데이터 변조가 가능하다라고 볼 수 있다.
 
-docker network create my-net
+# 네트워크의 종류
 
-```
+![[스크린샷 2022-08-16 오후 1.56.08.png]]
 
-추가된 네트워크는 `docker network ls` 커맨드로 확인할 수 있다. `-d` 옵션을 사용하지 않았기 때문에 기본값인 `bridge` 네트워크로 생성된 것을 확인할 수 있다.
+- PAN (Personal Area Network): 가장 작은 규모의 네트워크
+- LAN (Local Area Network): 근거리 영역 네트워크
+- MAN (Metropolitan Area Network): 대도시 영역 네트워크
+- WAN (Wide Area Network): 광대역 네트워크
+- VAN (Value Added Network): 부가가치 통신망 정보의 축적과 제공, 통신속도와 형식의 변화, 통신경로의 선택 등 여러 종류의 정보서비스가 부가된 통신망
+- ISDN (Intergrated Services Digital Network): 종합정보 통신망(=BISDN) 전화, 팩스, 데이터 통신, 비디오텍스 등 통신관련 서비스를 종합하여 다루는 통합 서비스 디지털 통신망. 디지털 전송방식과 광섬유 케이블 사용. 꿈의 통신망이라 불린다.
 
-## 네트워크 상세 정보
+추가적인 네트워크 종류로는 WLAN, SAN, CAN, GAN, VPN, ISDN, Internet, Extranet.. 등 분류하게 된다.
 
-방금 추가한 네트워크의 상세 정보를 `docker network inspect` 커맨드로 확인해보도록 하자.
+# 네트워크의 회선 구성 방식
 
-```bash
-docker network inspect my-net
-```
+회선 구성 방식은 컴퓨터와 여러대의 단말기들을 연결하는 방식을 말한다.
 
-`Containers` 항목을 보면 이 네트워크에 아무 컨테이너도 연결되지 않은 것을 알 수 있다.
+- 포인트 투 포인트 방식: 중앙 컴퓨터와 단말기를 일대일로 연결하여 언제든지 데이터 전송이 가능하게 한 방식
+- 멀티 드롭 방식: 멀티 포인트 방식이라고도 하며 다수의 단말기들을 한개의 통신회선에 연결하여 사용하는 방식
+- 회선 다중 방식: 회선 다중 방식은 다중화 방식이라고도 한다. 여러대의 단말기들을 다중화 장치를 활용하여 중앙 컴퓨터와 연결하여 사용하는 방식
 
-## 네트워크에 컨테이너 연결
+# 네트워크의 데이터 교환 방식
 
-먼저 컨테이너 하나를 `one` 이라는 이름으로 실행해보도록 하자.
+- 회선 교환 방식: 회선 교환 방식은 통신을 원하는 두 지점을 교환기를 이용하여 물리적으로 접속시키는 방법을 말한다. 음성 전화망이 대표적.
+- 공간 분할 교환 방식: 기계식 접점과 전자 교환기의 전자식 접점 등을 이용하여 교환을 수행하는 방식으로, 음성 전화용 교환기가 이에 속한다.
+- 시분할 교환 방식: 전자부품이 갖는 고속성과 디지털 교환 기술을 이용하여 다수의 디지털 신호를 시분할적으로 동작시켜 다중화하는 방식을 말한다.
 
-```bash
-docker run -it -d --name one busybox
-# af588368c67b8a273cf63a330ee5191838f261de1f3e455de39352e0e95deac4
-```
+# Reference
 
-컨테이너를 실행할 때 `--network` 옵션을 명시해주지 않으면, 기본적으로 `bridge` 라는 이름의 디폴트 네트워크에 붙게 된다.
-
-> `busybox` 는 테스트용으로 사용하기 좋은 가벼운 명령어 라이브러리이다. 도커에서 공식적으로 제공된다.
-
-{: .prompt-info }
-
-```bash
-docker network inspect bridge
-```
-
-이 `one` 컨테이너를 위에서 생성한 `my-net` 네트워크에 연결해보도록 하자. Docker 네트워크에 컨테이너를 연결할 때는 `docker network connect` 커맨드를 사용한다.
-
-```bash
-docker network connect my-net one
-```
-
-`my-net` 네트워크의 상세 정보를 다시 확인해보면 `Containers` 항목에 `one` 컨테이너가 추가된 것을 볼 수 있다. `one` 컨테이너에 IP `172.18.0.2` 가 할당된 것도 확인할 수 있다.
-
-```bash
-docker network inspect my-net
-```
-
-## 네트워크로부터 컨테이너 연결 해제
-
-하나의 컨테이너는 여러 개의 네트워크에 동시에 연결할 수 있다. 최초에 `one` 컨테이너를 생성할 때 `bridge` 네트워크 붙었기 때문에, 현재 `one` 컨테이너는 `my-net` 네트워크와 `bridge` 네트워크에 동시에 붙어있게 된다.
-
-`one` 컨테이너를 `bridge` 네트워크로부터 떼어 내보자. Docker 네트워크로부터 컨테이너의 연결을 끊을 때는 `docker network disconnect` 커맨드를 사용한다.
-
-```bash
-docker network disconnect bridge one
-```
-
-## 두번 째 컨테이너 연결
-
-네트워크에 홀로 있는 컨테이너는 큰 의미가 없다. 하나의 컨테이너를 더 `my-net` 네트워크에 연결해보도록 하자.
-
-이번에는 `--network` 옵션을 사용해서 컨테이너를 실행하면서 바로 연결할 네트워크를 지정해보자.
-
-```bash
-docker run -it -d --name two --network my-net busybox
-# b1509c6fcdf8b2f0860902f204115017c3e2cc074810b330921c96e88ffb408e
-```
-
-`my-net` 네트워크의 상세 정보를 확인해보면 `two` 컨테이너에 IP `172.18.0.3` 가 할당되어 연결되어 있는 것을 확인할 수 있다.
-
-```bash
-docker network inspect my-net
-```
-
-## 컨테이너 간 네트워킹
-
-이제 두 개의 컨테이너가 네트워크를 통해 서로 소통이 가능한지 테스트해보자.
-
-먼저 `one` 컨테이너에서 `two` 컨테이너를 상대로 `ping` 명령어를 날려본다. 컨테이너 이름을 호스트네임(hostname)처럼 사용할 수 있다.
-
-```bash
-docker exec one ping two
-# PING two (172.18.0.3): 56 data bytes
-# 64 bytes from 172.18.0.3: seq=0 ttl=64 time=0.114 ms
-# 64 bytes from 172.18.0.3: seq=1 ttl=64 time=0.915 ms
-```
-
-다음은 `two` 컨테이너에서 `one` 컨테이너로 `ping` 을 날려보자.
-
-```bash
-
-docker exec two ping one
-
-# PING one (172.18.0.2): 56 data bytes
-
-# 64 bytes from 172.18.0.2: seq=0 ttl=64 time=0.108 ms
-
-# 64 bytes from 172.18.0.2: seq=1 ttl=64 time=0.734 ms
-
-# 64 bytes from 172.18.0.2: seq=2 ttl=64 time=0.270 ms
-
-# 64 bytes from 172.18.0.2: seq=3 ttl=64 time=0.353 ms
-
-# 64 bytes from 172.18.0.2: seq=4 ttl=64 time=0.371 ms
-
-```
-
-서로 원활한 통신이 가능한 것을 확인할 수 있다.
-
-## 네트워크 제거
-
-마지막으로 `docker network rm` 커맨드를 사용하여 `my-net` 네트워크를 제거해보자.
-
-```bash
-
-docker network rm my-net
-
-# Error response from daemon: error while removing network: network my-net id 05f28107caa4fc699ea71c07a0cb7a17f6be8ee65f6001ed549da137e555b648 has active endpoints
-
-```
-
-위와 같이 제거하려는 네트워크 상에서 실행 중인 컨테이너가 있을 때는 제거되지 않는다.
-
-그럴 때는 해당 네트워크에 연결되어 실행 중인 모든 컨테이너를 먼저 중지시키고, 네트워크를 삭제해야 한다.
-
-```bash
-
-docker stop one two
-
-# one
-
-# two
-
-docker network rm my-net
-
-# my-net
-
-```
-
-## 네트워크 청소
-
-하나의 호스트 컴퓨터에서 다수의 컨테이너를 돌리다보면 아무 컨테이너도 연결되어 있지 않은 네트워크가 생기기 마련이다. 이럴 때는 `docker network prune` 커맨드를 이용해서 불필요한 네트워크를 한번에 모두 제거할 수 있다.
-
-```bash
-
-docker network prune
-
-WARNING! This will remove all custom networks not used by at least one container.
-
-Are you sure you want to continue? [y/N] y
-
-```
-
-## Conclusion
-
-이번 글을 통해서 `docker network` 키워드들에 대해 알아보았다.
-
-- `ls`
-- `create`
-- `connect`
-- `disconnet`
-- `inspect`
-- `rm`
-- `prune`
-
-도커 컨테이너를 사용하게 되면 컨테이너 간 통신이 필요할 때가 있다. DB 를 컨테이너화하여 사용할 때 뿐만 아니라, 컨테이너 클러스터링을 직접 구현해야할 때 또한 네트워크에 대한 이해가 반드시 필요하다. 여러 개의 컨테이너를 다루기 위한 핵심 지식으로써, 네트워크에 대해 반드시 숙지하도록 하자.
-
-## Reference
-
-- [docker docs - network](https://docs.docker.com/engine/reference/commandline/network/)
-- [Dcoker 네트워크 사용법](https://www.daleseo.com/docker-networks/)
+- [coding-factory](https://coding-factory.tistory.com/340)
