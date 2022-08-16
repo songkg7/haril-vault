@@ -8,6 +8,5 @@
   "table-editor-obsidian",
   "templater-obsidian",
   "obsidian-linter",
-  "obsidian-git",
-  "obsidian-vimrc-support"
+  "obsidian-git"
 ]
