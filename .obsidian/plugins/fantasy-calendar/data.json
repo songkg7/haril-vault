@@ -579,6 +579,45 @@
           "end": null,
           "description": "",
           "auto": true
+        },
+        {
+          "id": "ID_2bc8eadbabe8",
+          "name": "kotlin loop",
+          "note": "kotlin loop.md",
+          "date": {
+            "year": 2022,
+            "month": 7,
+            "day": 16
+          },
+          "end": null,
+          "description": "",
+          "auto": true
+        },
+        {
+          "id": "ID_5a0878a909ca",
+          "name": "Infix functions",
+          "note": "Infix functions.md",
+          "date": {
+            "year": 2022,
+            "month": 7,
+            "day": 16
+          },
+          "end": null,
+          "description": "",
+          "auto": true
+        },
+        {
+          "id": "ID_c9bab8faeb59",
+          "name": "KafkaItemReader",
+          "note": "KafkaItemReader.md",
+          "date": {
+            "year": 2022,
+            "month": 7,
+            "day": 16
+          },
+          "end": null,
+          "description": "",
+          "auto": true
         }
       ],
       "id": "ID_e9791a6bf8aa",

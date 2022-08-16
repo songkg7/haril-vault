@@ -5,7 +5,7 @@ publish: false
 fc-calendar: Gregorian Calendar
 fc-date: 2022-08-14
 aliases: 
-tags: [backend, java, jvm, programming-language]
+tags: [backend, java, programming-language]
 categories: [Java]
 ---
 
