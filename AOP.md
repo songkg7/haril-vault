@@ -9,6 +9,8 @@ tags: [aop, aspect, spring]
 categories: Spring
 ---
 
+[[Spring framework|Spring]]
+
 # Overview
 
 > [!info] AOP?
