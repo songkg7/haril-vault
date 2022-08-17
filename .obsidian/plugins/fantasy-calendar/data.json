@@ -709,6 +709,58 @@
           "end": null,
           "description": "",
           "auto": true
+        },
+        {
+          "id": "ID_2ba9cb4b19f9",
+          "name": "JobRepository",
+          "note": "JobRepository.md",
+          "date": {
+            "year": 2022,
+            "month": 7,
+            "day": 17
+          },
+          "end": null,
+          "description": "",
+          "auto": true
+        },
+        {
+          "id": "ID_2aa93aa98bba",
+          "name": "ItemReader",
+          "note": "ItemReader.md",
+          "date": {
+            "year": 2022,
+            "month": 7,
+            "day": 17
+          },
+          "end": null,
+          "description": "",
+          "auto": true
+        },
+        {
+          "id": "ID_3ad8f9bb6ac8",
+          "name": "ItemProcessor",
+          "note": "ItemProcessor.md",
+          "date": {
+            "year": 2022,
+            "month": 7,
+            "day": 17
+          },
+          "end": null,
+          "description": "",
+          "auto": true
+        },
+        {
+          "id": "ID_e929bb9ac9da",
+          "name": "ItemWriter",
+          "note": "ItemWriter.md",
+          "date": {
+            "year": 2022,
+            "month": 7,
+            "day": 17
+          },
+          "end": null,
+          "description": "",
+          "auto": true
         }
       ],
       "id": "ID_e9791a6bf8aa",

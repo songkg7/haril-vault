@@ -50,3 +50,5 @@ public class SimpleJobConfiguration {
 `JobParameters` 는 Job 이 실행될 때 필요한 파라미터들을 `Map` 타입으로 저장하는 객체입니다.
 
 `JobParamters` 는 `JobInstance` 를 구분하는 기준이 되기도 합니다. 예를 들어서 Job 하나를 생성할 때 시작시간 등의 정보를 파라미터로 해서 하나의 `JobInstance` 를 생성합니다. 즉, `JobInstance` 와 `JobParamters` 는 1:1 관계입니다. 파라미터 타입으로는 `String`, `Long`, `Date`, `Double` 을 사용할 수 있습니다.
+
+## [[JobRepository]]
