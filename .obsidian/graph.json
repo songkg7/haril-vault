@@ -1,22 +1,37 @@
 {
   "collapse-filter": false,
   "search": "",
-  "showTags": true,
+  "showTags": false,
   "showAttachments": false,
   "hideUnresolved": false,
   "showOrphans": true,
   "collapse-color-groups": false,
-  "colorGroups": [],
-  "collapse-display": false,
+  "colorGroups": [
+    {
+      "query": "line:(Spring)",
+      "color": {
+        "a": 1,
+        "rgb": 6084190
+      }
+    },
+    {
+      "query": "tag:#kotlin",
+      "color": {
+        "a": 1,
+        "rgb": 13917398
+      }
+    }
+  ],
+  "collapse-display": true,
   "showArrow": false,
   "textFadeMultiplier": 0,
   "nodeSizeMultiplier": 0.99609375,
-  "lineSizeMultiplier": 1,
+  "lineSizeMultiplier": 1.92109375,
   "collapse-forces": true,
-  "centerStrength": 0.512396364795918,
-  "repelStrength": 10,
-  "linkStrength": 0.937220982142857,
-  "linkDistance": 228,
-  "scale": 1.2709737425289116,
+  "centerStrength": 0.391023596938776,
+  "repelStrength": 10.374681122449,
+  "linkStrength": 0.606425382653061,
+  "linkDistance": 196,
+  "scale": 0.73502698236363,
   "close": true
 }

@@ -190,7 +190,7 @@
       "current": {
         "year": 2022,
         "month": 7,
-        "day": 16
+        "day": 17
       },
       "events": [
         {
@@ -386,19 +386,6 @@
           "category": "miscellaneous-events"
         },
         {
-          "id": "ID_e8ba7a895b3a",
-          "name": "Dispatcher Servlet",
-          "note": "Dispatcher Servlet.md",
-          "date": {
-            "year": 2022,
-            "month": 7,
-            "day": 14
-          },
-          "end": null,
-          "description": "",
-          "auto": true
-        },
-        {
           "id": "ID_0adba85bb8db",
           "name": "Java",
           "note": "Java.md",
@@ -568,19 +555,6 @@
           "auto": true
         },
         {
-          "id": "ID_6b8b780ae8fb",
-          "name": "AOP",
-          "note": "AOP.md",
-          "date": {
-            "year": 2022,
-            "month": 7,
-            "day": 16
-          },
-          "end": null,
-          "description": "",
-          "auto": true
-        },
-        {
           "id": "ID_2bc8eadbabe8",
           "name": "kotlin loop",
           "note": "kotlin loop.md",
@@ -618,6 +592,123 @@
           "end": null,
           "description": "",
           "auto": true
+        },
+        {
+          "id": "ID_3b4b58882a68",
+          "name": "Spring batch",
+          "note": "Spring batch.md",
+          "date": {
+            "year": 2022,
+            "month": 7,
+            "day": 17
+          },
+          "end": null,
+          "description": "",
+          "auto": true
+        },
+        {
+          "id": "ID_abd9b9ebcbb9",
+          "name": "Job",
+          "note": "Job.md",
+          "date": {
+            "year": 2022,
+            "month": 7,
+            "day": 17
+          },
+          "end": null,
+          "description": "",
+          "auto": true
+        },
+        {
+          "id": "ID_9a4b7bb90b8a",
+          "name": "Step",
+          "note": "Step.md",
+          "date": {
+            "year": 2022,
+            "month": 7,
+            "day": 17
+          },
+          "end": null,
+          "description": "",
+          "auto": true
+        },
+        {
+          "id": "ID_99a85868f8d8",
+          "name": "Tasklet",
+          "note": "Tasklet.md",
+          "date": {
+            "year": 2022,
+            "month": 7,
+            "day": 17
+          },
+          "end": null,
+          "description": "",
+          "auto": true
+        },
+        {
+          "id": "ID_ea59a82b39ea",
+          "name": "MethodInvokingTaskletAdapter",
+          "note": "MethodInvokingTaskletAdapter.md",
+          "date": {
+            "year": 2022,
+            "month": 7,
+            "day": 17
+          },
+          "end": null,
+          "description": "",
+          "auto": true
+        },
+        {
+          "id": "ID_4b496b7a4978",
+          "name": "SystemCommandTasklet",
+          "note": "SystemCommandTasklet.md",
+          "date": {
+            "year": 2022,
+            "month": 7,
+            "day": 17
+          },
+          "end": null,
+          "description": "",
+          "auto": true
+        },
+        {
+          "id": "ID_fbfa0bbbe8c8",
+          "name": "AOP",
+          "note": "AOP.md",
+          "date": {
+            "year": 2022,
+            "month": 7,
+            "day": 16
+          },
+          "end": null,
+          "description": "",
+          "auto": true
+        },
+        {
+          "id": "ID_2beb99aa79ba",
+          "name": "CallableTaskletAdapter",
+          "note": "CallableTaskletAdapter.md",
+          "date": {
+            "year": 2022,
+            "month": 7,
+            "day": 17
+          },
+          "end": null,
+          "description": "",
+          "auto": true
+        },
+        {
+          "id": "ID_ebf9da6ba92a",
+          "name": "Dispatcher Servlet",
+          "note": "Dispatcher Servlet.md",
+          "date": {
+            "year": 2022,
+            "month": 7,
+            "day": 14
+          },
+          "end": null,
+          "description": "",
+          "auto": true
         }
       ],
       "id": "ID_e9791a6bf8aa",
@@ -648,7 +739,7 @@
           "color": "#0288D1"
         }
       ],
-      "date": 1660610507213,
+      "date": 1660693917117,
       "displayWeeks": false
     }
   ],
