@@ -1,7 +1,7 @@
 ---
 title: "[Kotlin] Infix functions"
 categories: [Kotlin]
-tags: [kotlin, infix-functions, infix]
+tags: [kotlin, infix]
 date: 2022-08-16 21:15:00 +0900
 publish: true
 fc-calendar: Gregorian Calendar
