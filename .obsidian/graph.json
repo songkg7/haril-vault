@@ -5,7 +5,7 @@
   "showAttachments": false,
   "hideUnresolved": false,
   "showOrphans": true,
-  "collapse-color-groups": false,
+  "collapse-color-groups": true,
   "colorGroups": [
     {
       "query": "line:(Spring)",
@@ -20,18 +20,25 @@
         "a": 1,
         "rgb": 13917398
       }
+    },
+    {
+      "query": "tag:#docker",
+      "color": {
+        "a": 1,
+        "rgb": 8246770
+      }
     }
   ],
-  "collapse-display": true,
+  "collapse-display": false,
   "showArrow": false,
   "textFadeMultiplier": 0,
   "nodeSizeMultiplier": 0.99609375,
-  "lineSizeMultiplier": 1.92109375,
+  "lineSizeMultiplier": 1.501953125,
   "collapse-forces": true,
   "centerStrength": 0.391023596938776,
   "repelStrength": 10.374681122449,
   "linkStrength": 0.606425382653061,
   "linkDistance": 196,
-  "scale": 0.73502698236363,
+  "scale": 0.5609305702484398,
   "close": true
 }
