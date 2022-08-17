@@ -8,5 +8,7 @@
     "README",
     "private/"
   ],
-  "promptDelete": false
+  "promptDelete": false,
+  "newFileLocation": "folder",
+  "newFileFolderPath": "inbox"
 }
