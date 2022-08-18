@@ -18,7 +18,7 @@
       "query": "line:(categories java)",
       "color": {
         "a": 1,
-        "rgb": 10779974
+        "rgb": 8475396
       }
     },
     {
@@ -36,16 +36,16 @@
       }
     }
   ],
-  "collapse-display": true,
+  "collapse-display": false,
   "showArrow": false,
   "textFadeMultiplier": 0,
-  "nodeSizeMultiplier": 1.001171875,
-  "lineSizeMultiplier": 1.503515625,
-  "collapse-forces": true,
-  "centerStrength": 0.243144132653061,
-  "repelStrength": 8.09151785714286,
-  "linkStrength": 0.801419005102041,
-  "linkDistance": 129,
-  "scale": 0.7512742768415424,
+  "nodeSizeMultiplier": 0.99609375,
+  "lineSizeMultiplier": 1.501953125,
+  "collapse-forces": false,
+  "centerStrength": 0.391023596938776,
+  "repelStrength": 10.374681122449,
+  "linkStrength": 0.606425382653061,
+  "linkDistance": 121,
+  "scale": 1.2347442611520518,
   "close": true
 }
