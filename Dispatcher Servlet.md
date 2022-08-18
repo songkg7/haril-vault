@@ -2,7 +2,7 @@
 title: "Dispatcher Servlet"
 date: 2022-08-14 00:11:00 +0900
 tags: [network, http, spring]
-categories: [Spring]
+categories: Spring
 publish: false
 aliases: 
 fc-calendar: Gregorian Calendar

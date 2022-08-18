@@ -190,7 +190,7 @@
       "current": {
         "year": 2022,
         "month": 7,
-        "day": 17
+        "day": 19
       },
       "events": [
         {
@@ -386,19 +386,6 @@
           "category": "miscellaneous-events"
         },
         {
-          "id": "ID_0adba85bb8db",
-          "name": "Java",
-          "note": "Java.md",
-          "date": {
-            "year": 2022,
-            "month": 7,
-            "day": 14
-          },
-          "end": null,
-          "description": "",
-          "auto": true
-        },
-        {
           "id": "ID_ab384aa8c8ba",
           "name": "floating point",
           "note": "floating point.md",
@@ -542,19 +529,6 @@
           "auto": true
         },
         {
-          "id": "ID_4b98d9c9b8a9",
-          "name": "Spring framework",
-          "note": "Spring framework.md",
-          "date": {
-            "year": 2022,
-            "month": 7,
-            "day": 14
-          },
-          "end": null,
-          "description": "",
-          "auto": true
-        },
-        {
           "id": "ID_2bc8eadbabe8",
           "name": "kotlin loop",
           "note": "kotlin loop.md",
@@ -588,19 +562,6 @@
             "year": 2022,
             "month": 7,
             "day": 16
-          },
-          "end": null,
-          "description": "",
-          "auto": true
-        },
-        {
-          "id": "ID_3b4b58882a68",
-          "name": "Spring batch",
-          "note": "Spring batch.md",
-          "date": {
-            "year": 2022,
-            "month": 7,
-            "day": 17
           },
           "end": null,
           "description": "",
@@ -761,6 +722,123 @@
           "end": null,
           "description": "",
           "auto": true
+        },
+        {
+          "id": "ID_49eacaaafbda",
+          "name": "Strategy pattern",
+          "note": "inbox/Strategy pattern.md",
+          "date": {
+            "year": 2022,
+            "month": 7,
+            "day": 18
+          },
+          "end": null,
+          "description": "",
+          "auto": true
+        },
+        {
+          "id": "ID_1b7ae9dbbaa9",
+          "name": "Linked List",
+          "note": "inbox/Linked List.md",
+          "date": {
+            "year": 2022,
+            "month": 7,
+            "day": 18
+          },
+          "end": null,
+          "description": "",
+          "auto": true
+        },
+        {
+          "id": "ID_ea9b1a9b3bca",
+          "name": "Impl naming 의 부적절성",
+          "note": "inbox/Impl naming 의 부적절성.md",
+          "date": {
+            "year": 2022,
+            "month": 7,
+            "day": 18
+          },
+          "end": null,
+          "description": "",
+          "auto": true
+        },
+        {
+          "id": "ID_8aca187a68a8",
+          "name": "GitLab 에서 docker registry 사용하기",
+          "note": "inbox/GitLab 에서 docker registry 사용하기.md",
+          "date": {
+            "year": 2022,
+            "month": 7,
+            "day": 18
+          },
+          "end": null,
+          "description": "",
+          "auto": true
+        },
+        {
+          "id": "ID_c878487bd96b",
+          "name": "Spring framework",
+          "note": "Spring framework.md",
+          "date": {
+            "year": 2022,
+            "month": 7,
+            "day": 14
+          },
+          "end": null,
+          "description": "",
+          "auto": true
+        },
+        {
+          "id": "ID_7a3a1a6bd91a",
+          "name": "Spring batch",
+          "note": "Spring batch.md",
+          "date": {
+            "year": 2022,
+            "month": 7,
+            "day": 17
+          },
+          "end": null,
+          "description": "",
+          "auto": true
+        },
+        {
+          "id": "ID_d92b0879cb2a",
+          "name": "JUnit",
+          "note": "inbox/JUnit.md",
+          "date": {
+            "year": 2022,
+            "month": 7,
+            "day": 18
+          },
+          "end": null,
+          "description": "",
+          "auto": true
+        },
+        {
+          "id": "ID_5bfb095829c8",
+          "name": "Kotlin",
+          "note": "inbox/Kotlin.md",
+          "date": {
+            "year": 2022,
+            "month": 7,
+            "day": 18
+          },
+          "end": null,
+          "description": "",
+          "auto": true
+        },
+        {
+          "id": "ID_b82ada880b09",
+          "name": "Java",
+          "note": "Java.md",
+          "date": {
+            "year": 2022,
+            "month": 7,
+            "day": 14
+          },
+          "end": null,
+          "description": "",
+          "auto": true
         }
       ],
       "id": "ID_e9791a6bf8aa",
@@ -791,7 +869,7 @@
           "color": "#0288D1"
         }
       ],
-      "date": 1660693917117,
+      "date": 1660786945328,
       "displayWeeks": false
     }
   ],
