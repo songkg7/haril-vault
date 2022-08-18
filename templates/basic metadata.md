@@ -8,13 +8,3 @@ aliases:
 tags: 
 categories: 
 ---
-
-## Overview
-
-## Contents
-
-## Conclusion
-
-## Reference
-
-## Links
