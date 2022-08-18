@@ -839,6 +839,45 @@
           "end": null,
           "description": "",
           "auto": true
+        },
+        {
+          "id": "ID_6af98a7b5aeb",
+          "name": "Java Collection Framework",
+          "note": "inbox/Java Collection Framework.md",
+          "date": {
+            "year": 2022,
+            "month": 7,
+            "day": 18
+          },
+          "end": null,
+          "description": "",
+          "auto": true
+        },
+        {
+          "id": "ID_49f8e9c82858",
+          "name": "HashMap",
+          "note": "inbox/HashMap.md",
+          "date": {
+            "year": 2022,
+            "month": 7,
+            "day": 18
+          },
+          "end": null,
+          "description": "",
+          "auto": true
+        },
+        {
+          "id": "ID_199bda185839",
+          "name": "ArrayList",
+          "note": "inbox/ArrayList.md",
+          "date": {
+            "year": 2022,
+            "month": 7,
+            "day": 18
+          },
+          "end": null,
+          "description": "",
+          "auto": true
         }
       ],
       "id": "ID_e9791a6bf8aa",
