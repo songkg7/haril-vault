@@ -2,7 +2,7 @@
 title: "Spring framework"
 date: 2021-04-15 23:31:00 +0900
 tags: [java, framework, backend, spring]
-categories: [Spring]
+categories: Spring
 publish: false
 aliases: [Spring]
 fc-calendar: Gregorian Calendar
