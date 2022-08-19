@@ -25,3 +25,7 @@ Spring MVC 는 Dispatcher Servlet 이 등장함에 따라 `web.xml` 의 역할�
 ![[dispatcher-servlet.png]]
 
 개발자는 Handler 만 직접 구현해주면 되고 나머지 객체들은 Dispatcher servlet 이 스프링 컨테이너로부터 주입받아서 사용하고 동작하게 된다.
+
+## Links
+
+- [[Spring MVC]]
