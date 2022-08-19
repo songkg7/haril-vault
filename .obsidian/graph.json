@@ -8,20 +8,6 @@
   "collapse-color-groups": true,
   "colorGroups": [
     {
-      "query": "line:(categories spring)",
-      "color": {
-        "a": 1,
-        "rgb": 6084190
-      }
-    },
-    {
-      "query": "line:(categories java)",
-      "color": {
-        "a": 1,
-        "rgb": 8475396
-      }
-    },
-    {
       "query": "tag:#kotlin",
       "color": {
         "a": 1,
@@ -34,9 +20,23 @@
         "a": 1,
         "rgb": 8246770
       }
+    },
+    {
+      "query": "line:(categories spring)",
+      "color": {
+        "a": 1,
+        "rgb": 6084190
+      }
+    },
+    {
+      "query": "line:(categories java)",
+      "color": {
+        "a": 1,
+        "rgb": 8475396
+      }
     }
   ],
-  "collapse-display": false,
+  "collapse-display": true,
   "showArrow": false,
   "textFadeMultiplier": 0,
   "nodeSizeMultiplier": 0.99609375,
@@ -46,6 +46,6 @@
   "repelStrength": 10.374681122449,
   "linkStrength": 0.606425382653061,
   "linkDistance": 121,
-  "scale": 1.2347442611520518,
+  "scale": 0.6106660618569236,
   "close": true
 }
