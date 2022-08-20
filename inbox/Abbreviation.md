@@ -96,3 +96,7 @@ AFAIK
 > Too Long; Didn’t Read
 
 너무 길어서 안읽었다.
+
+## Links
+
+- [[Code convention 과 개발자가 지켜야할 수칙에 관하여]]
