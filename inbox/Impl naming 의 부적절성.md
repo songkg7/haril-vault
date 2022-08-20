@@ -24,3 +24,5 @@ Class 는 기본적으로 자신의 역할을 명확하게 표현할 수 있어�
 # Reference
 
 # Links
+
+- [[Code convention 과 개발자가 지켜야할 수칙에 관하여]]

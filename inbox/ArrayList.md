@@ -6,7 +6,7 @@ fc-calendar: Gregorian Calendar
 fc-date: 2022-08-18
 aliases: 
 tags: [java]
-categories: [Data structure]
+categories: [Data structure, Java]
 ---
 
 ## Overview
