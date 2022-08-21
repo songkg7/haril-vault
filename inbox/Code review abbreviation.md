@@ -5,7 +5,7 @@ publish: false
 fc-calendar: Gregorian Calendar
 fc-date: 2022-08-19
 aliases: 
-tags: [git, convention, code-review]
+tags: [git, convention, code-review, github, gitlab]
 categories: 
 ---
 
