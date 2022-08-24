@@ -10,5 +10,10 @@
   ],
   "promptDelete": false,
   "newFileLocation": "folder",
-  "newFileFolderPath": "inbox"
+  "newFileFolderPath": "inbox",
+  "readableLineLength": true,
+  "showIndentGuide": true,
+  "lineWrap": true,
+  "rightToLeft": false,
+  "smartIndentList": true
 }
