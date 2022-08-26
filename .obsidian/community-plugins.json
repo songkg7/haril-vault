@@ -7,5 +7,6 @@
   "table-editor-obsidian",
   "templater-obsidian",
   "obsidian-linter",
-  "obsidian-git"
+  "obsidian-git",
+  "code-block-copy"
 ]
