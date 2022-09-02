@@ -51,3 +51,7 @@ map Q gq
   
 " Find more examples here: https://jb.gg/share-ideavimrc
 ```
+
+## Reference
+
+- [ideaVim](https://bylee5.tistory.com/102)
