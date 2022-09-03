@@ -4,9 +4,15 @@ date: 2022-08-26 10:11:00 +0900
 fc-calendar: Gregorian Calendar
 fc-date: 2022-08-26
 aliases: 
-tags: 
+tags: [vim]
 categories: 
 ---
+
+## Overview
+
+이 글에서는 [[Vim]] 에서의 다양한 플러그인 및 설정을 소개한다.
+
+## Contents
 
 ### Multi cursor
 
