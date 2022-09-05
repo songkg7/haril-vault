@@ -8,5 +8,6 @@
   "templater-obsidian",
   "obsidian-linter",
   "obsidian-git",
-  "code-block-copy"
+  "code-block-copy",
+  "obsidian-markdown-formatting-assistant-plugin"
 ]

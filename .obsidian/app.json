@@ -15,5 +15,8 @@
   "showIndentGuide": true,
   "lineWrap": true,
   "rightToLeft": false,
-  "smartIndentList": true
+  "smartIndentList": true,
+  "livePreview": true,
+  "strictLineBreaks": false,
+  "showFrontmatter": false
 }
