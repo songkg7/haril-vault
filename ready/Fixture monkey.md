@@ -26,7 +26,7 @@ Naver 에서 2021 년에 공개한 오픈소스이며, 테스트를 위한 객�
 
 도메인 구현 방법에 따른 객체 생성 예제를 위해 `ArbitraryGenerator` 를 위주로 설명한다. `ArbitraryGenerator` 는 객체를 생성하는 역할을 갖고 있으며 조건을 따라 객체를 생성해준다.
 
-메인이 되는 도메인으로는 이해하기 쉬운 개념인 로또를 사용해서 만들어보자. 실제 로또 번호 생성을 구현하는 것은 아니므로 데이터 관점에서 바라봐주시길 바란다.
+메인이 되는 도메인으로는 이해하기 쉬운 개념인 로또를 사용해서 만들어보자. 실제 로또 생성기를 구현하는 것은 아니므로 데이터 관점에서 바라봐주시길 바란다.
 
 ### 기본 domain
 
@@ -77,7 +77,9 @@ lottoNumber: LottoNumber(number=-1640)
 
 따라서, `BeanArbitraryGenerator` 는 대부분의 상황에서 기본 전략으로 쓰기 부적합하다.
 
-### Setter 제거
+## 객체 생성 전략 ArbitraryGenerator
+
+### ConstructorPropertiesArbitraryGenerator
 
 `Setter` 를 제거하고 사용하려면 `ConstructorPropertiesArbitraryGenerator` 를 사용해야하니 코드를 약간 수정해보자.
 
@@ -117,7 +119,7 @@ class LottoNumberTest {
 
 `LottoNumber` 에서 `Setter` 를 제거하고 `FixtureMonkey.builder()` 를 사용해서 기본 동작하는 Generator 를 바꿔주면 `Setter` 가 없어도 객체 생성을 할 수 있다.
 
-### 불변 객체
+### 불변 객체엔 BuilderArbitraryGenerator
 
 이번에는 공식 문서에서 불변객체 생성이 가능하다고 알려주고 있는 `BuilderArbitraryGenerator` 를 한 번 살펴보자.
 
@@ -183,6 +185,14 @@ public class LottoNumber {
 ```
 
 이러나 저러나 production 코드의 수정이 가해지는 것은 피할 수 없지만 그나마 `@Builder` 를 통한 방법은 허용할 수 있는 수준이 아닌가 생각한다. 생성자 자체의 접근 제어를 `package-private` 으로 조절하는 것보다 `@Builder` 를 `private` 으로 사용하는 편이 **캡슐화를 더욱 엄격하게 유지할 수 있기 때문**이다.
+
+### FieldReflectionArbitraryGenerator
+
+Reflection 을 사용하여 field 에 값을 주입하는 방식의 객체 생성 전략이다. `final`, `transient` 의 경우 생성할 수 없고, `package-private` 이상의 `NoArgsConstructor` 가 필요하다.
+
+```java
+
+```
 
 ## Usage
 
@@ -319,6 +329,10 @@ Process finished with exit code 0
 단지 `ConstructorPropertiesArbitraryGenerator` 를 사용하기 위해서, `@ConstructorProperties` 라는 자주 사용되지 않는 어노테이션을 사용해야 되는 점도 마치 Swagger 를 사용하는 듯한 인상을 준다. Swagger 가 annotaion 으로 문서화를 하도록 강요하면서 production 코드를 얼마나 지저분하게 만드는지 떠올려보면 역시 적극적으로 받아들이기 힘들다.
 
 물론 개발자 세계에서 유일한 진리로 여겨지는 **"은총알은 없다"** 라는 말을 떠올려보면 어느 정도 트레이드 오프가 필요한 영역일 수 있으니, 다양한 Generator 를 제공하고 OCP 를 준수하여 기능을 추가하거나 개발자가 커스텀할 수 있게 열려있는 것을 감사히 여겨야할 수도 있겠다.
+
+### Record 를 사용할 수 없다.
+
+Java 16 부터 정식으로 추가된 `record` 는 DTO 같은 데이터를 담는 객체를 설계할 때 아주 유용한데, `record` 는 기본적으로 불변 객체로 생성되며 생성자는 `AllArgsConstructor` 하나만 존재한다. 따라서 대부분의 객체 생성에 `NoArgsConstructor` 가 필요한 Fixture monkey 에서는 `record` 타입을 지원하지 않는다.
 
 ## Conclusion
 
