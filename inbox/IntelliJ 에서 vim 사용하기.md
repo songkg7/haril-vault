@@ -8,7 +8,7 @@ tags: [vim, ideavim, intellij]
 categories: Vim
 ---
 
-intelliJ 에서는 vim 을 위해 `ideaVim` 이라는 플러그인을 제공한다.
+intelliJ 에서는 [[Vim]] 을 위해 `ideaVim` 이라는 플러그인을 제공한다.
 
 ```
 "" Source your .vimrc  

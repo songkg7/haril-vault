@@ -8,7 +8,7 @@ tags: [vim, intellij]
 categories: 
 ---
 
-아래에서 적당한 기능을 찾아서 mapping 해주면 단축키로 활용할 수 있다.
+아래에서 적당한 기능을 찾아서 mapping 해주면 [[Vim]] 단축키로 활용할 수 있다.
 
 ```text
 --- Actions ---
