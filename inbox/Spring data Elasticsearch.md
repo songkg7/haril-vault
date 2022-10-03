@@ -77,7 +77,7 @@ ip         heap.percent ram.percent cpu load_1m load_5m load_15m node.role maste
 elasticsearch 기본 환경이 준비되었으니 본격적으로 코드를 작성해보자.
 
 Spring data Elasticsearch 는 많은 부분을 추상화하여 제공하기 때문에, 설정해야하는 부분이 많지는 않다.
-[]()
+
 
 
 ## Reference
