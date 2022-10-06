@@ -89,7 +89,7 @@ public class LottoNumber {
 
     private final int number;
 
-    @ConstructorProperties({"number"}) // 해당 generator 의 사용 조건이며 자세한건 문서를 참조
+    @ConstructorProperties({"number"}) // 해당 generator 의 사용 조건
     public LottoNumber(int number) {
         this.number = number;
     }
@@ -135,16 +135,15 @@ public class LottoNumber {
 
 ```java
 ...
-        FixtureMonkey fixtureMonkey = FixtureMonkey.builder()
-                .defaultGenerator(BuilderArbitraryGenerator.INSTANCE)
-                .build();
+	FixtureMonkey fixtureMonkey = FixtureMonkey.builder()
+			.defaultGenerator(BuilderArbitraryGenerator.INSTANCE)
+			.build();
 ... 
 ```
 
 테스트를 실행해보니 잘 생성해주는 것 같다. `@Builder` 를 응용할 수 있는 또 다른 예제를 살펴보자.
 
 ```java
-@ToString
 public class LottoNumber {
 
     private final int number;
@@ -167,7 +166,6 @@ public class LottoNumber {
 SFM 을 사용하면서 Fixture monkey 를 사용하려면 어쩔 수 없이 생성자의 접근 제한 레벨을 조정하거나, 아래처럼 `@Builder` 의 접근 제어를 `private` 으로 설정한 후 `BuilderArbitraryGenerator` 를 사용해야 한다.
 
 ```java
-@ToString
 public class LottoNumber {
 
     private final int number;
@@ -208,14 +206,6 @@ void between1to45() {
 	assertThat(number).isGreaterThanOrEqualTo(LottoNumber.of(1));
 	assertThat(number).isLessThanOrEqualTo(LottoNumber.of(45));
 }
-
-@Test
-@DisplayName("범위를 벗어난 로또 번호는 IllegalArgumentException 발생")
-void outOfRange() {
-	assertThatThrownBy(() -> LottoNumber.of(46))
-			.isInstanceOf(IllegalArgumentException.class)
-			.hasMessage("로또 번호는 1~45 사이의 숫자만 가능합니다.");
-} 
 ```
 
 테스트 통과를 위해 `LottoNumber` 를 수정해준다.
@@ -326,7 +316,7 @@ Process finished with exit code 0
 
 **Test 를 위한 설계가 아닌, Test 가 쉬운 설계를 해야 한다**는 말은 요즘들어 자주 들을 수 있게 되었다. 이 말이 진리인지 아닌지를 떠나서 Test 를 쓰기 위해서 구조적으로나 기능적으로 불필요했던 코드를 작성해야하는 것은 어딘지 꺼림칙한 느낌을 준다. 하물며 생성자의 접근 범위를 상향해야하는 것은 더욱 그렇다. 불필요한 `NoArgsConstructor` 를 추가하여 객체의 필드를 초기화하지 않고 생성할 수 있게 하는 방법을 여는 것, 생성자가 개방됨으로써 Static factory method 의 존재 의의가 희석되는 것 모두 개발자가 원치 않았던 상황을 만들어낼 수 있다.
 
-단지 `ConstructorPropertiesArbitraryGenerator` 를 사용하기 위해서, `@ConstructorProperties` 라는 자주 사용되지 않는 어노테이션을 사용해야 되는 점도 마치 Swagger 를 사용하는 듯한 인상을 준다. Swagger 가 annotaion 으로 문서화를 하도록 강요하면서 production 코드를 얼마나 지저분하게 만드는지 떠올려보면 역시 적극적으로 받아들이기 힘들다.
+단지 `ConstructorPropertiesArbitraryGenerator` 를 사용하기 위해서, `@ConstructorProperties` 라는 자주 사용되지 않는 어노테이션을 사용해야 되는 점도 마치 Swagger 를 사용하는 듯한 인상을 준다. Swagger 가 annotaion 으로 문서화를 하도록 강요하면서 production 코드를 얼마나 지저분하게 만드는지 떠올려보면 아무런 거리낌없이 받아들이기 힘든 부분이 분명 존재한다.
 
 물론 개발자 세계에서 유일한 진리로 여겨지는 **"은총알은 없다"** 라는 말을 떠올려보면 어느 정도 트레이드 오프가 필요한 영역일 수 있으니, 다양한 Generator 를 제공하고 OCP 를 준수하여 기능을 추가하거나 개발자가 커스텀할 수 있게 열려있는 것을 감사히 여겨야할 수도 있겠다.
 
@@ -336,7 +326,7 @@ Java 16 부터 정식으로 추가된 `record` 는 DTO 같은 데이터를 담�
 
 ## Conclusion
 
-쓰다보니 전체적으로 비판적인 어조로 글을 작성하게 된 것 같다. 오해를 막기 위해 덧붙이자면 Fixture monkey 는 굉장히 매력적인 오픈소스이다. 지금 버전에서도 실무에서 써볼까 생각 중이니 말이다.
+쓰다보니 전체적으로 비판적인 어조로 글을 작성하게 된 것 같다. 오해를 막기 위해 덧붙이자면 Fixture monkey 는 굉장히 매력적인 오픈소스이다. 지금 버전에서도 실무에서 조금씩 사용해보고 있고, 어느 정도 만족하고 있다.
 
 평소 테스트를 작성하면서 테스트 객체 생성을 위한 Factory 를 직접 구현하여 테스트를 적곤 했었는데, 그 귀찮음을 한 방에 날려줄 있다는 점이 매력적이다. 아직은 아쉬운 부분이 몇 군데 보이지만 얼마든지 개선될 수 있는 점이고 기여할만한 부분이 있다면 얼마든지 PR 을 생성해보려고 한다. 이후 발전 방향이 기대된다.
 
