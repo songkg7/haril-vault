@@ -52,6 +52,9 @@ map Q gq
 " Find more examples here: https://jb.gg/share-ideavimrc
 ```
 
+프로젝트 디렉토리 같은 위치에서 마우스 우클릭이 필요할 경우: m
+
+
 ## Reference
 
 - [ideaVim](https://bylee5.tistory.com/102)
