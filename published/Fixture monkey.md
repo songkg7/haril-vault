@@ -197,7 +197,7 @@ Reflection 을 사용하여 field 에 값을 주입하는 방식의 객체 생�
 마저 Lotto 의 기능을 구현해보자. `LottoNumber` 는 1~45 범위에서만 생성되어야 한다. 하지만 현재 테스트에서는 랜덤한 숫자로 생성되어 -1640 같은 명백하게 이상한 숫자도 생성되고 있다. 랜덤으로 생성하되 그 범위를 조절할 수 있어야 원하는 테스트를 실행할 수 있다.
 
 ```java
-@RepeatedTest(1000) // 1000회 반복 테스트 실행, 모든 테스트마다 랜덤한 숫자가 생성되므로 테스트의 신뢰성이 더욱 공고해진다.
+@RepeatedTest(1000) // 1000회 반복 테스트 실행, 모든 테스트마다 랜덤한 숫자가 생성되므로 테스트의 신뢰성이 더욱 견고해진다.
 void between1to45() {
 	LottoNumber number = fixtureMonkey.giveMeBuilder(LottoNumber.class)
 			.set("number", Arbitraries.integers().between(1, 45))
@@ -264,9 +264,9 @@ void createRandomLottoNumbers() {
 앞서 설명한 Generator 외에도 Field Reflection 을 사용하는 `FieldReflectionArbitraryGenerator` 도 있지만 `package-private` `NoArgsConstructor` 가 필요하다. 또한 `final`, `transient` 는 생성할 수 없어서 여전히 production 코드를 수정해야하는 문제가 있을 수 있다.
 
 > [!INFO] package-private
-> 어째선지 Fixture monkey 공식 문서에는 `package-public` 이라고 되어있지만, 해당 용어의 출처를 알 수 없어 일반적으로 Java 에서 `default` 접근 제어자를 뜻하는 `package-private` 으로 작성합니다.
+> 어째선지 Fixture monkey 공식 문서에는 `package-public` 이라고 되어있지만, 일반적으로 Java 에서 `default` 접근 제어자를 뜻하는 `package-private` 으로 작성합니다.
 
-사실 Java 의 `Reflection` 은 `final` field 도 수정할 수 있고 `private` 이여도 데이터를 읽어올 수 있으므로 field 나 constructor 에 `final` 이 붙어있다고 해서 객체를 생성하지 못할 이유는 없다.
+사실 Java 의 `Reflection` 은 `final` field 도 수정할 수 있고 `private` 이여도 데이터를 읽어올 수 있으므로 field 나 constructor 에 `final` 이 붙어있는 것만으로는 Reflection 을 통한 객체 생성을 막을 수 없다.
 
 `FieldReflectionArbitraryGenerator` 의 `generateObject()` 에서 `ReflectionUtils.newInstance(clazz)` 를 호출하여 객체를 생성해오기 때문에 내부적으로 기본 생성자가 호출된다.
 
@@ -312,21 +312,19 @@ Process finished with exit code 0
 
 물론 이론상 가능하다는 것이고 실제로 기능을 반영하려면 아키텍처에 관련된 깊은 고민이 필요할 것이다.
 
-### 일부 Generator 는 production 코드의 수정이 필요할 수 있다.
-
-**Test 를 위한 설계가 아닌, Test 가 쉬운 설계를 해야 한다**는 말은 요즘들어 자주 들을 수 있게 되었다. 이 말이 진리인지 아닌지를 떠나서 Test 를 쓰기 위해서 구조적으로나 기능적으로 불필요했던 코드를 작성해야하는 것은 어딘지 꺼림칙한 느낌을 준다. 하물며 생성자의 접근 범위를 상향해야하는 것은 더욱 그렇다. 불필요한 `NoArgsConstructor` 를 추가하여 객체의 필드를 초기화하지 않고 생성할 수 있게 하는 방법을 여는 것, 생성자가 개방됨으로써 Static factory method 의 존재 의의가 희석되는 것 모두 개발자가 원치 않았던 상황을 만들어낼 수 있다.
-
-단지 `ConstructorPropertiesArbitraryGenerator` 를 사용하기 위해서, `@ConstructorProperties` 라는 자주 사용되지 않는 어노테이션을 사용해야 되는 점도 마치 Swagger 를 사용하는 듯한 인상을 준다. Swagger 가 annotaion 으로 문서화를 하도록 강요하면서 production 코드를 얼마나 지저분하게 만드는지 떠올려보면 아무런 거리낌없이 받아들이기 힘든 부분이 분명 존재한다.
-
-물론 개발자 세계에서 유일한 진리로 여겨지는 **"은총알은 없다"** 라는 말을 떠올려보면 어느 정도 트레이드 오프가 필요한 영역일 수 있으니, 다양한 Generator 를 제공하고 OCP 를 준수하여 기능을 추가하거나 개발자가 커스텀할 수 있게 열려있는 것을 감사히 여겨야할 수도 있겠다.
-
 ### Record 를 사용할 수 없다.
 
 Java 16 부터 정식으로 추가된 `record` 는 DTO 같은 데이터를 담는 객체를 설계할 때 아주 유용한데, `record` 는 기본적으로 불변 객체로 생성되며 생성자는 `AllArgsConstructor` 하나만 존재한다. 따라서 대부분의 객체 생성에 `NoArgsConstructor` 가 필요한 Fixture monkey 에서는 `record` 타입을 지원하지 않는다.
 
-## Conclusion
+### 일부 Generator 는 production 코드의 수정이 필요할 수 있다.
 
-쓰다보니 전체적으로 비판적인 어조로 글을 작성하게 된 것 같다. 오해를 막기 위해 덧붙이자면 Fixture monkey 는 굉장히 매력적인 오픈소스이다. 지금 버전에서도 실무에서 조금씩 사용해보고 있고, 어느 정도 만족하고 있다.
+**Test 를 위한 설계가 아닌, Test 가 쉬운 설계를 해야 한다**는 말은 요즘들어 자주 들을 수 있게 되었다. 이 말이 진리인지 아닌지를 떠나서 Test 를 쓰기 위해서 구조적으로나 기능적으로 불필요했던 코드를 작성해야하는 것은 어딘지 꺼림칙한 느낌을 준다. 하물며 생성자의 접근 범위를 상향해야하는 것은 더욱 그렇다. 불필요한 `NoArgsConstructor` 를 추가하여 객체의 필드를 초기화하지 않고 생성할 수 있게 하는 방법을 여는 것, 생성자가 개방됨으로써 Static factory method 의 존재 의의가 희석되는 것 모두 개발자가 의도하지 않았던 상황을 만들어낼 수 있다.
+
+단지 `ConstructorPropertiesArbitraryGenerator` 를 사용하기 위해서, `@ConstructorProperties` 라는 자주 사용되지 않는 어노테이션을 사용해야 되는 점도 마치 Swagger 를 사용하는 듯한 인상을 준다. Swagger 가 annotaion 으로 문서화를 하도록 강요하면서 production 코드를 얼마나 지저분하게 만드는지 떠올려보면 아무런 거리낌없이 받아들이기 힘든 부분이 분명 존재한다.
+
+물론 개발자 세계에서 유일한 진리로 여겨지는 **"은총알은 없다"** 라는 말을 떠올려보면 어느 정도 트레이드 오프가 필요한 영역이라고 생각되며, 상황에 따라 적절한 생성 전략을 선택하면 되겠다. 향후 업데이트로 다른 객체 생성 전략이 추가될 것 같기도 하니 기대할만한 오픈소스임에는 틀림없다고 생각한다.
+
+## Conclusion
 
 평소 테스트를 작성하면서 테스트 객체 생성을 위한 Factory 를 직접 구현하여 테스트를 적곤 했었는데, 그 귀찮음을 한 방에 날려줄 있다는 점이 매력적이다. 아직은 아쉬운 부분이 몇 군데 보이지만 얼마든지 개선될 수 있는 점이고 기여할만한 부분이 있다면 얼마든지 PR 을 생성해보려고 한다. 이후 발전 방향이 기대된다.
 
