@@ -49,5 +49,6 @@
       ],
       "key": "ArrowDown"
     }
-  ]
+  ],
+  "editor:toggle-checklist-status": []
 }
