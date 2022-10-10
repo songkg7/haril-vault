@@ -9,5 +9,6 @@
   "obsidian-linter",
   "obsidian-git",
   "code-block-copy",
-  "obsidian-markdown-formatting-assistant-plugin"
+  "obsidian-markdown-formatting-assistant-plugin",
+  "obsidian-vimrc-support"
 ]

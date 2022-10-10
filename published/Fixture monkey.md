@@ -189,7 +189,29 @@ public class LottoNumber {
 Reflection 을 사용하여 field 에 값을 주입하는 방식의 객체 생성 전략이다. `final`, `transient` 의 경우 생성할 수 없고, `package-private` 이상의 `NoArgsConstructor` 가 필요하다.
 
 ```java
+public class LottoNumber {
 
+    private int number;
+
+    LottoNumber() {
+    }
+
+// 이하 생략 
+```
+
+```java
+    @Test
+    void fieldReflection() {
+        FixtureMonkey monkey = FixtureMonkey.builder()
+                .defaultGenerator(FieldReflectionArbitraryGenerator.INSTANCE)
+                .build();
+
+        LottoNumber lottoNumber = monkey.giveMeBuilder(LottoNumber.class)
+                .set("number", 1)
+                .sample();
+
+        assertThat(lottoNumber).isEqualTo(LottoNumber.of(1));
+    }
 ```
 
 ## Usage
