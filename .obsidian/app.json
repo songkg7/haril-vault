@@ -18,5 +18,6 @@
   "smartIndentList": true,
   "livePreview": true,
   "strictLineBreaks": false,
-  "showFrontmatter": false
+  "showFrontmatter": false,
+  "spellcheck": false
 }

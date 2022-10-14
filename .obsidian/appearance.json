@@ -1,5 +1,6 @@
 {
-  "cssTheme": "Minimal",
-  "theme": "system",
-  "translucency": false
+  "cssTheme": "Sanctum",
+  "theme": "moonstone",
+  "translucency": false,
+  "accentColor": ""
 }
