@@ -54,6 +54,11 @@ map Q gq
 
 프로젝트 디렉토리 같은 위치에서 마우스 우클릭이 필요할 경우: m
 
+### 장점
+
+When using vim with [[IntelliJ]],  you can:
+
+- You can use a key as a shotcut that is not usually used as a shotcut. For example, you can edit keymap TAB + C for create changelist.
 
 ## Reference
 
