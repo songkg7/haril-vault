@@ -1,5 +1,4 @@
 [
-  "fantasy-calendar",
   "cm-editor-syntax-highlight-obsidian",
   "dataview",
   "obsidian-kanban",
@@ -10,5 +9,6 @@
   "obsidian-git",
   "code-block-copy",
   "obsidian-markdown-formatting-assistant-plugin",
-  "obsidian-vimrc-support"
+  "obsidian-vimrc-support",
+  "calendar"
 ]
