@@ -13,41 +13,14 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "private/선사 api 아키텍처 설계.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "c4281b099b28cc7c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "inbox/Kotest.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "f2154379c113ef20",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "inbox/WebTestClient 에서 post request body 의 json 처리 과정에 대한 고찰.md",
+                "file": "inbox/Vim settings.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -114,7 +87,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "inbox/WebTestClient 에서 post request body 의 json 처리 과정에 대한 고찰.md",
+                "file": "inbox/Vim settings.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -131,7 +104,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "inbox/WebTestClient 에서 post request body 의 json 처리 과정에 대한 고찰.md",
+                "file": "inbox/Vim settings.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -154,7 +127,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "inbox/WebTestClient 에서 post request body 의 json 처리 과정에 대한 고찰.md"
+                "file": "inbox/Vim settings.md"
               }
             }
           },
@@ -183,27 +156,26 @@
             }
           }
         ],
-        "currentTab": 6
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "ribbon": {
     "mostRecentAction": ""
   },
-  "active": "f2154379c113ef20",
+  "active": "23fa6e7570a03213",
   "lastOpenFiles": [
     "inbox/Kotest.md",
-    "inbox/fzf.md",
     "private/선사 api 아키텍처 설계.md",
+    "inbox/Vim settings.md",
+    "inbox/WebTestClient 에서 post request body 의 json 처리 과정에 대한 고찰.md",
+    "inbox/Untitled.md",
+    "inbox/fzf.md",
     "templates/daily metadata.md",
     "daily/2022-10-17.md",
     "templates/metadata.md",
-    "inbox/IntelliJ 에서 vim 사용하기.md",
-    "2022-10-17.md",
-    "2022-10-18.md",
-    "inbox/Kotlin 에서 builder 는 정말 의미가 없을까?.md"
+    "inbox/IntelliJ 에서 vim 사용하기.md"
   ]
 }
