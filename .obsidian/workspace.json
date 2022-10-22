@@ -4,37 +4,68 @@
     "type": "split",
     "children": [
       {
-        "id": "8e51ff9270ffaef7",
+        "id": "669cd21a24597343",
         "type": "tabs",
+        "dimension": 64.97134670487105,
         "children": [
           {
-            "id": "23fa6e7570a03213",
+            "id": "2933edd356fa9890",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "inbox/NeoVim.md",
+                "file": "inbox/Vim.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
               }
-            }
-          },
-          {
-            "id": "3cccb4f09f9ef31f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "inbox/Dockerfile CMD vs ENTRYPOINT.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
-            }
+            },
+            "group": "01b714c45fb903ec"
           }
-        ],
-        "currentTab": 1
+        ]
+      },
+      {
+        "id": "1db557079b76ce11",
+        "type": "tabs",
+        "dimension": 35.02865329512894,
+        "children": [
+          {
+            "id": "c852547cd3be1367",
+            "type": "leaf",
+            "state": {
+              "type": "localgraph",
+              "state": {
+                "file": "inbox/Vim.md",
+                "options": {
+                  "collapse-filter": true,
+                  "search": "",
+                  "localJumps": 1,
+                  "localBacklinks": true,
+                  "localForelinks": true,
+                  "localInterlinks": false,
+                  "showTags": false,
+                  "showAttachments": false,
+                  "hideUnresolved": false,
+                  "collapse-color-groups": true,
+                  "colorGroups": [],
+                  "collapse-display": true,
+                  "showArrow": false,
+                  "textFadeMultiplier": 0,
+                  "nodeSizeMultiplier": 1,
+                  "lineSizeMultiplier": 1,
+                  "collapse-forces": true,
+                  "centerStrength": 0.518713248970312,
+                  "repelStrength": 10,
+                  "linkStrength": 1,
+                  "linkDistance": 250,
+                  "scale": 1,
+                  "close": true
+                }
+              }
+            },
+            "group": "01b714c45fb903ec"
+          }
+        ]
       }
     ],
     "direction": "vertical"
@@ -101,7 +132,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "inbox/Dockerfile CMD vs ENTRYPOINT.md",
+                "file": "inbox/Vim.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +149,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "inbox/Dockerfile CMD vs ENTRYPOINT.md",
+                "file": "inbox/Vim.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -141,7 +172,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "inbox/Dockerfile CMD vs ENTRYPOINT.md"
+                "file": "inbox/Vim.md"
               }
             }
           },
@@ -174,22 +205,23 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "ribbon": {
     "mostRecentAction": ""
   },
-  "active": "3cccb4f09f9ef31f",
+  "active": "2933edd356fa9890",
   "lastOpenFiles": [
-    "inbox/NeoVim.md",
-    "inbox/fzf.md",
-    "inbox/Vim.md",
-    "inbox/IntelliJ 에서 vim 사용하기.md",
+    "inbox/Spring WebFlux.md",
+    "inbox/Kotlin.md",
     "inbox/Kotest.md",
-    "inbox/Vim settings.md",
-    "private/선사 api 아키텍처 설계.md",
     "inbox/WebTestClient 에서 post request body 의 json 처리 과정에 대한 고찰.md",
-    "inbox/Google Adsence 설정하기.md",
-    "templates/daily metadata.md"
+    "inbox/ArrayList.md",
+    "inbox/ArchUnit.md",
+    "inbox/Spring batch 에서 Quartz 사용에 대한 고찰.md",
+    "inbox/Surround.vim.md",
+    "inbox/Vim settings.md",
+    "inbox/Vim.md"
   ]
 }

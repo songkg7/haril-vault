@@ -1,7 +1,7 @@
 ---
 title: "Google Adsence"
 date: 2022-10-22 15:05:00 +0900
-aliases: Adsence
+aliases: 
 tags: [adsence]
 categories: 
 ---

@@ -12,6 +12,8 @@ clipboard 복사: `"+y`
 
 ## Settings
 
+자세한 내용은 [[Vim settings]] 를 참조
+
 ### .vimrc
 
 ```
