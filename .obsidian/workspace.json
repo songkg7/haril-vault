@@ -14,7 +14,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "inbox/Vim.md",
+                "file": "inbox/Chirpy blog 관리하기.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -35,7 +35,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "inbox/Vim.md",
+                "file": "inbox/Chirpy blog 관리하기.md",
                 "options": {
                   "collapse-filter": true,
                   "search": "",
@@ -132,7 +132,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "inbox/Vim.md",
+                "file": "inbox/Chirpy blog 관리하기.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -149,7 +149,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "inbox/Vim.md",
+                "file": "inbox/Chirpy blog 관리하기.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -172,7 +172,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "inbox/Vim.md"
+                "file": "inbox/Chirpy blog 관리하기.md"
               }
             }
           },
@@ -213,15 +213,15 @@
   },
   "active": "2933edd356fa9890",
   "lastOpenFiles": [
+    "inbox/Google AdSense.md",
+    "inbox/Chirpy blog 관리하기.md",
+    "inbox/Vim.md",
     "inbox/Spring WebFlux.md",
     "inbox/Kotlin.md",
     "inbox/Kotest.md",
     "inbox/WebTestClient 에서 post request body 의 json 처리 과정에 대한 고찰.md",
     "inbox/ArrayList.md",
     "inbox/ArchUnit.md",
-    "inbox/Spring batch 에서 Quartz 사용에 대한 고찰.md",
-    "inbox/Surround.vim.md",
-    "inbox/Vim settings.md",
-    "inbox/Vim.md"
+    "inbox/Spring batch 에서 Quartz 사용에 대한 고찰.md"
   ]
 }
