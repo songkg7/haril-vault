@@ -6,7 +6,7 @@
       {
         "id": "669cd21a24597343",
         "type": "tabs",
-        "dimension": 64.97134670487105,
+        "dimension": 68.04451510333863,
         "children": [
           {
             "id": "2933edd356fa9890",
@@ -14,20 +14,35 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "inbox/Chirpy blog 관리하기.md",
+                "file": "inbox/WebFlux tutorial.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
               }
-            },
-            "group": "01b714c45fb903ec"
+            }
+          },
+          {
+            "id": "e46815a28bfb9b3e",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "inbox/Consideration of the appropriate type with the ID of Entity.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              },
+              "pinned": true
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       },
       {
         "id": "1db557079b76ce11",
         "type": "tabs",
-        "dimension": 35.02865329512894,
+        "dimension": 31.955484896661368,
         "children": [
           {
             "id": "c852547cd3be1367",
@@ -35,7 +50,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "inbox/Chirpy blog 관리하기.md",
+                "file": "inbox/Consideration of the appropriate type with the ID of Entity.md",
                 "options": {
                   "collapse-filter": true,
                   "search": "",
@@ -58,12 +73,11 @@
                   "repelStrength": 10,
                   "linkStrength": 1,
                   "linkDistance": 250,
-                  "scale": 1,
+                  "scale": 0.737787946466882,
                   "close": true
                 }
               }
-            },
-            "group": "01b714c45fb903ec"
+            }
           }
         ]
       }
@@ -132,7 +146,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "inbox/Chirpy blog 관리하기.md",
+                "file": "inbox/Consideration of the appropriate type with the ID of Entity.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -149,7 +163,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "inbox/Chirpy blog 관리하기.md",
+                "file": "inbox/Consideration of the appropriate type with the ID of Entity.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -172,7 +186,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "inbox/Chirpy blog 관리하기.md"
+                "file": "inbox/Consideration of the appropriate type with the ID of Entity.md"
               }
             }
           },
@@ -211,17 +225,17 @@
   "ribbon": {
     "mostRecentAction": ""
   },
-  "active": "2933edd356fa9890",
+  "active": "e46815a28bfb9b3e",
   "lastOpenFiles": [
+    "inbox/WebFlux tutorial.md",
+    "inbox/Spring framework.md",
     "inbox/Google AdSense.md",
     "inbox/Chirpy blog 관리하기.md",
+    "inbox/Create custom annotation to validate request parameter.md",
     "inbox/Vim.md",
     "inbox/Spring WebFlux.md",
     "inbox/Kotlin.md",
     "inbox/Kotest.md",
-    "inbox/WebTestClient 에서 post request body 의 json 처리 과정에 대한 고찰.md",
-    "inbox/ArrayList.md",
-    "inbox/ArchUnit.md",
-    "inbox/Spring batch 에서 Quartz 사용에 대한 고찰.md"
+    "inbox/WebTestClient 에서 post request body 의 json 처리 과정에 대한 고찰.md"
   ]
 }
