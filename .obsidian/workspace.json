@@ -6,7 +6,6 @@
       {
         "id": "669cd21a24597343",
         "type": "tabs",
-        "dimension": 68.04451510333863,
         "children": [
           {
             "id": "2933edd356fa9890",
@@ -35,51 +34,22 @@
               },
               "pinned": true
             }
-          }
-        ],
-        "currentTab": 1
-      },
-      {
-        "id": "1db557079b76ce11",
-        "type": "tabs",
-        "dimension": 31.955484896661368,
-        "children": [
+          },
           {
-            "id": "c852547cd3be1367",
+            "id": "e12cd4054065fd21",
             "type": "leaf",
             "state": {
-              "type": "localgraph",
+              "type": "markdown",
               "state": {
-                "file": "inbox/Consideration of the appropriate type with the ID of Entity.md",
-                "options": {
-                  "collapse-filter": true,
-                  "search": "",
-                  "localJumps": 1,
-                  "localBacklinks": true,
-                  "localForelinks": true,
-                  "localInterlinks": false,
-                  "showTags": false,
-                  "showAttachments": false,
-                  "hideUnresolved": false,
-                  "collapse-color-groups": true,
-                  "colorGroups": [],
-                  "collapse-display": true,
-                  "showArrow": false,
-                  "textFadeMultiplier": 0,
-                  "nodeSizeMultiplier": 1,
-                  "lineSizeMultiplier": 1,
-                  "collapse-forces": true,
-                  "centerStrength": 0.518713248970312,
-                  "repelStrength": 10,
-                  "linkStrength": 1,
-                  "linkDistance": 250,
-                  "scale": 0.737787946466882,
-                  "close": true
-                }
+                "file": "inbox/unique index.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -146,7 +116,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "inbox/Consideration of the appropriate type with the ID of Entity.md",
+                "file": "inbox/unique index.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -163,7 +133,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "inbox/Consideration of the appropriate type with the ID of Entity.md",
+                "file": "inbox/unique index.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -186,7 +156,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "inbox/Consideration of the appropriate type with the ID of Entity.md"
+                "file": "inbox/unique index.md"
               }
             }
           },
@@ -215,18 +185,19 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "ribbon": {
     "mostRecentAction": ""
   },
-  "active": "e46815a28bfb9b3e",
+  "active": "2567fb8b28f58d58",
   "lastOpenFiles": [
+    "inbox/Consideration of the appropriate type with the ID of Entity.md",
+    "inbox/unique index.md",
     "inbox/WebFlux tutorial.md",
     "inbox/Spring framework.md",
     "inbox/Google AdSense.md",
@@ -234,8 +205,6 @@
     "inbox/Create custom annotation to validate request parameter.md",
     "inbox/Vim.md",
     "inbox/Spring WebFlux.md",
-    "inbox/Kotlin.md",
-    "inbox/Kotest.md",
-    "inbox/WebTestClient 에서 post request body 의 json 처리 과정에 대한 고찰.md"
+    "inbox/Kotlin.md"
   ]
 }
