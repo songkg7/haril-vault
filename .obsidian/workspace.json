@@ -8,48 +8,19 @@
         "type": "tabs",
         "children": [
           {
-            "id": "2933edd356fa9890",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "inbox/WebFlux tutorial.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "e46815a28bfb9b3e",
-            "type": "leaf",
-            "pinned": true,
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "inbox/Consideration of the appropriate type with the ID of Entity.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              },
-              "pinned": true
-            }
-          },
-          {
             "id": "e12cd4054065fd21",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "inbox/unique index.md",
+                "file": "inbox/데이터 무결성을 유지하는 다양한 방법.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -99,8 +70,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 297.5,
-    "collapsed": true
+    "width": 297.5
   },
   "right": {
     "id": "41a576e0627fcea3",
@@ -116,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "inbox/unique index.md",
+                "file": "inbox/데이터 무결성을 유지하는 다양한 방법.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -133,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "inbox/unique index.md",
+                "file": "inbox/데이터 무결성을 유지하는 다양한 방법.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -156,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "inbox/unique index.md"
+                "file": "inbox/데이터 무결성을 유지하는 다양한 방법.md"
               }
             }
           },
@@ -191,20 +161,17 @@
     "direction": "horizontal",
     "width": 300
   },
-  "ribbon": {
-    "mostRecentAction": ""
-  },
-  "active": "2567fb8b28f58d58",
+  "active": "e12cd4054065fd21",
   "lastOpenFiles": [
     "inbox/Consideration of the appropriate type with the ID of Entity.md",
-    "inbox/unique index.md",
+    "inbox/데이터 무결성을 유지하는 다양한 방법.md",
+    "inbox/Index.md",
+    "inbox/DBMS 의 트랜잭션에 대한 이해.md",
     "inbox/WebFlux tutorial.md",
     "inbox/Spring framework.md",
     "inbox/Google AdSense.md",
     "inbox/Chirpy blog 관리하기.md",
     "inbox/Create custom annotation to validate request parameter.md",
-    "inbox/Vim.md",
-    "inbox/Spring WebFlux.md",
-    "inbox/Kotlin.md"
+    "inbox/Vim.md"
   ]
 }
