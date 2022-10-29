@@ -31,7 +31,8 @@
                 "backlinks": true,
                 "source": false
               }
-            }
+            },
+            "group": "da786eb0782877a7"
           },
           {
             "id": "4f2b57d083342f4b",
@@ -48,6 +49,48 @@
           }
         ],
         "currentTab": 1
+      },
+      {
+        "id": "bb9511130e4bdc8a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "fd1076ab5cb86c07",
+            "type": "leaf",
+            "state": {
+              "type": "localgraph",
+              "state": {
+                "file": "inbox/Generic wildcard 에 대한 이해.md",
+                "options": {
+                  "collapse-filter": true,
+                  "search": "",
+                  "localJumps": 1,
+                  "localBacklinks": true,
+                  "localForelinks": true,
+                  "localInterlinks": false,
+                  "showTags": false,
+                  "showAttachments": false,
+                  "hideUnresolved": false,
+                  "collapse-color-groups": true,
+                  "colorGroups": [],
+                  "collapse-display": true,
+                  "showArrow": false,
+                  "textFadeMultiplier": 0,
+                  "nodeSizeMultiplier": 1,
+                  "lineSizeMultiplier": 1,
+                  "collapse-forces": true,
+                  "centerStrength": 0.518713248970312,
+                  "repelStrength": 10,
+                  "linkStrength": 1,
+                  "linkDistance": 250,
+                  "scale": 1,
+                  "close": false
+                }
+              }
+            },
+            "group": "da786eb0782877a7"
+          }
+        ]
       }
     ],
     "direction": "vertical"
@@ -187,10 +230,13 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "active": "4b9a02481b5aa38d",
   "lastOpenFiles": [
+    "inbox/Java.md",
+    "inbox/Generic wildcard 에 대한 이해.md",
     "ready/Memory repository.md",
     "published/Could not find a valid Docker environment.md",
     "private/Sverify.md",
@@ -198,8 +244,6 @@
     "inbox/Spring 6.0 overview.md",
     "inbox/Consideration of the appropriate type with the ID of Entity.md",
     "ready/운영체제 (Operating system).md",
-    "ready/테스트 구성 파일 관리.md",
-    "ready/key generation error.md",
-    "inbox/Index.md"
+    "ready/테스트 구성 파일 관리.md"
   ]
 }
