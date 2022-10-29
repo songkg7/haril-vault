@@ -8,12 +8,25 @@
         "type": "tabs",
         "children": [
           {
-            "id": "e12cd4054065fd21",
+            "id": "105b837bb7765559",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "inbox/데이터 무결성을 유지하는 다양한 방법.md",
+                "file": "published/Could not find a valid Docker environment.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "4f2b57d083342f4b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "inbox/Spring 6.0 overview.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -70,7 +83,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 297.5
+    "width": 297.5,
+    "collapsed": true
   },
   "right": {
     "id": "41a576e0627fcea3",
@@ -86,7 +100,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "inbox/데이터 무결성을 유지하는 다양한 방법.md",
+                "file": "published/Could not find a valid Docker environment.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +117,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "inbox/데이터 무결성을 유지하는 다양한 방법.md",
+                "file": "published/Could not find a valid Docker environment.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +140,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "inbox/데이터 무결성을 유지하는 다양한 방법.md"
+                "file": "published/Could not find a valid Docker environment.md"
               }
             }
           },
@@ -155,23 +169,23 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
     "width": 300
   },
-  "active": "e12cd4054065fd21",
+  "active": "105b837bb7765559",
   "lastOpenFiles": [
+    "private/Sverify.md",
+    "inbox/fzf.md",
+    "published/Could not find a valid Docker environment.md",
+    "ready/Memory repository.md",
+    "inbox/Spring 6.0 overview.md",
     "inbox/Consideration of the appropriate type with the ID of Entity.md",
-    "inbox/데이터 무결성을 유지하는 다양한 방법.md",
-    "inbox/Index.md",
-    "inbox/DBMS 의 트랜잭션에 대한 이해.md",
-    "inbox/WebFlux tutorial.md",
-    "inbox/Spring framework.md",
-    "inbox/Google AdSense.md",
-    "inbox/Chirpy blog 관리하기.md",
-    "inbox/Create custom annotation to validate request parameter.md",
-    "inbox/Vim.md"
+    "ready/운영체제 (Operating system).md",
+    "ready/테스트 구성 파일 관리.md",
+    "ready/key generation error.md",
+    "inbox/Index.md"
   ]
 }
