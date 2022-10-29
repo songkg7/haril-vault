@@ -24,7 +24,7 @@ repositories {
     maven { url "https://jitpack.io" }
 }
 dependencies {
-    implementation 'com.github.next-operation:memory-repository:1.0.8'
+    implementation 'com.github.next-operation:memory-repository:<version>'
 }
 ```
 
