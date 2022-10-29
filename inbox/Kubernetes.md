@@ -18,7 +18,7 @@ categories: [Kubernetes]
 
 ## Links
 
-- [[Docker]]
+- [[published/Docker]]
 - [[Istio]]
 - [[Minikube]]
 - [[Helm]]

@@ -19,7 +19,7 @@ categories:
 
 # Links
 
-- [[Docker]]
+- [[published/Docker]]
 - [[JPA]]
 - [[JUnit]]
 - [[Java]]

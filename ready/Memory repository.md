@@ -1,8 +1,6 @@
 ---
 title: "Memory repository"
 date: 2022-09-08 09:49:00 +0900
-fc-calendar: Gregorian Calendar
-fc-date: 2022-09-08
 aliases: 
 tags: [java, library, memory]
 categories: 
@@ -16,13 +14,28 @@ categories:
 2. A step 에 구성된 reader 는 A entity reader 이므로 B entity reader 를 구성하기 위해 B step 를 구현하였다.
 3. 이제 Job 은 B step -> A step 순서로 실행된다. 하지만 B step 에서 읽어온 B entity 를 A step 에서 사용할 수 있을까?
 
+## Getting started
+
+릴리즈되었기 때문에 maven 또는 gradle 에서 의존성 추가로 사용이 가능하다.
+
+```gradle
+repositories {
+    mavenCentral()
+    maven { url "https://jitpack.io" }
+}
+dependencies {
+    implementation 'com.github.next-operation:memory-repository:1.0.8'
+}
+```
+
+## Architecture
 
 
 
 ## 장점 및 단점
 
 - 간단하게 사용이 가능하다. read only 로 구현하였으며, thread-safe 하기 때문에 멀티 쓰레드에서도 안전하다.
-- JPA 의 naming convention 을 참고하였기 때문에 모든 method 는 예상하는대로 동작한다. 
+- JPA 의 naming convention 을 참고하였기 때문에 모든 method 는 예상하는대로 동작한다.
 - in-memory 기반이기 때문에 재실행할 경우 offset 을 알 수 없고, 다시 memory 로 불러오는 작업을 거쳐야 한다. 만약 memory 에 저장해야하는 데이터가 부담스러울 정도로 클 경우는 [[Redis]] 같은 외부 memory 기반 저장소를 사용하는 것이 좋다.
 
 ## 개발 회고
@@ -40,3 +53,4 @@ categories:
 ## Reference
 
 - [docs.spring](https://docs.spring.io/spring-batch/docs/current/reference/html/common-patterns.html#passingDataToFutureSteps)
+- [Github](https://github.com/next-operation/memory-repository)
