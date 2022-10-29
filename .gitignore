@@ -1,3 +1,5 @@
 .obsidian/plugins/fantasy-calendar/data.json
 private/
-.obsidian/workspace
+.obsidian/workspace*
+.obsidian/graph.json
+
