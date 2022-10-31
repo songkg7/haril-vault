@@ -2,13 +2,13 @@
 title: "DBA"
 date: 2022-10-30 17:49:00 +0900
 aliases: DBA
-tags: 
+tags: [database]
 categories: 
 ---
 
 ## DBA
 
-> Database administrator
+> [[Database]] administrator
 
 - 안정적으로 DB 를 사용할 수 있도록 용량 산정
 - 스키마 구성 및 관리
