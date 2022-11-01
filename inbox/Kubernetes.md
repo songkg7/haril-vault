@@ -12,6 +12,57 @@ categories: [Kubernetes]
 
 ## Contents
 
+### Private registry 사용하기
+
+#### Secret 생성
+
+```bash 
+kubectl create secret docker-registry regcred --docker-server=registry.gitlab.com --docker-username=kyunggeun.song --docker-password=glpat-ccLzzvhnfYd93xfibZHz --[docker-email=kyunggeun.song@seavantage.com](mailto:docker-email=kyunggeun.song@seavantage.com)
+ ``` 
+
+#### Secret 정상 생성 확인
+
+```bash
+kubectl get secret regcred --output=yaml
+```
+
+#### base64 로 인코딩된 부분을 인식가능하도록 출력
+
+```bash 
+kubectl get secret regcred --output="jsonpath={.data.\.dockerconfigjson}" | base64 --decode
+```
+
+#### private-reg-pod.yaml 작성
+
+```bash
+vi private-reg-pod.yaml
+```
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: private-reg
+spec:
+  containers:
+  - name: carrier
+    image: registry.gitlab.com/seavantage/backend/hub/api/carrier:latest
+  imagePullSecrets:
+  - name: regcred 
+```
+
+#### yaml 적용
+
+```bash 
+kubectl apply -f private-reg-pod.yaml
+```
+
+#### Pod 실행
+
+```bash
+kubectl get pod private-reg
+```
+
 ## Conclusion
 
 ## Reference
