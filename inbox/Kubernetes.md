@@ -17,7 +17,7 @@ categories: [Kubernetes]
 #### Secret 생성
 
 ```bash 
-kubectl create secret docker-registry regcred --docker-server=registry.gitlab.com --docker-username=kyunggeun.song --docker-password=glpat-ccLzzvhnfYd93xfibZHz --docker-email=kyunggeun.song@seavantage.com
+kubectl create secret docker-registry regcred --docker-server=registry.gitlab.com --docker-username=<username> --docker-password=<password> --docker-email=<email>
 ``` 
 
 #### Secret 정상 생성 확인
@@ -45,8 +45,8 @@ metadata:
   name: private-reg
 spec:
   containers:
-  - name: carrier
-    image: registry.gitlab.com/seavantage/backend/hub/api/carrier:latest
+  - name: <name>
+    image: <your-image>
   imagePullSecrets:
   - name: regcred 
 ```
