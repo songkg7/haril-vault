@@ -17,8 +17,8 @@ categories: [Kubernetes]
 #### Secret 생성
 
 ```bash 
-kubectl create secret docker-registry regcred --docker-server=registry.gitlab.com --docker-username=kyunggeun.song --docker-password=glpat-ccLzzvhnfYd93xfibZHz --[docker-email=kyunggeun.song@seavantage.com](mailto:docker-email=kyunggeun.song@seavantage.com)
- ``` 
+kubectl create secret docker-registry regcred --docker-server=registry.gitlab.com --docker-username=kyunggeun.song --docker-password=glpat-ccLzzvhnfYd93xfibZHz --docker-email=kyunggeun.song@seavantage.com
+``` 
 
 #### Secret 정상 생성 확인
 
