@@ -338,6 +338,10 @@ Process finished with exit code 0
 
 Java 16 부터 정식으로 추가된 `record` 는 DTO 같은 데이터를 담는 객체를 설계할 때 아주 유용한데, `record` 는 기본적으로 불변 객체로 생성되며 생성자는 `AllArgsConstructor` 하나만 존재한다. 따라서 대부분의 객체 생성에 `NoArgsConstructor` 가 필요한 Fixture monkey 에서는 `record` 타입을 지원하지 않는다.
 
+#### 11.03
+
+22.11.03 이후로 새로운 버전으로 업데이트 되면서 record 타입도 지원하게 되었다.
+
 ### 일부 Generator 는 production 코드의 수정이 필요할 수 있다.
 
 **Test 를 위한 설계가 아닌, Test 가 쉬운 설계를 해야 한다**는 말은 요즘들어 자주 들을 수 있게 되었다. 이 말이 진리인지 아닌지를 떠나서 Test 를 쓰기 위해서 구조적으로나 기능적으로 불필요했던 코드를 작성해야하는 것은 어딘지 꺼림칙한 느낌을 준다. 하물며 생성자의 접근 범위를 상향해야하는 것은 더욱 그렇다. 불필요한 `NoArgsConstructor` 를 추가하여 객체의 필드를 초기화하지 않고 생성할 수 있게 하는 방법을 여는 것, 생성자가 개방됨으로써 Static factory method 의 존재 의의가 희석되는 것 모두 개발자가 의도하지 않았던 상황을 만들어낼 수 있다.
