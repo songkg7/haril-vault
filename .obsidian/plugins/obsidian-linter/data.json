@@ -2,7 +2,6 @@
   "ruleConfigs": {
     "Escape YAML Special Characters": {
       "Escapes colons with a space after them (: ), single quotes ('), and double quotes (\") in YAML.": false,
-      "Default Escape Character": "\"",
       "Try to Escape Single Line Arrays": false
     },
     "Format Tags in YAML": {
@@ -36,7 +35,6 @@
     },
     "YAML Title Alias": {
       "Inserts the title of the file into the YAML frontmatter's aliases section. Gets the title from the first H1 or filename.": false,
-      "YAML aliases section style": "Multi-line array",
       "Preserve existing aliases section style": true,
       "Keep alias that matches the filename": false
     },
@@ -145,5 +143,12 @@
   "displayChanged": true,
   "foldersToIgnore": [],
   "linterLocale": "system-default",
-  "logLevel": 4
+  "logLevel": 4,
+  "lintCommands": [],
+  "commonStyles": {
+    "aliasArrayStyle": "single-line",
+    "tagArrayStyle": "single-line",
+    "minimumNumberOfDollarSignsToBeAMathBlock": 2,
+    "escapeCharacter": "\""
+  }
 }
