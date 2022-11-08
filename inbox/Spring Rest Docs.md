@@ -1,9 +1,30 @@
 ---
-title: "Spring Rest Docs"
+title: "Spring REST Docs"
 date: 2022-11-04 18:59:00 +0900
 aliases: 
-tags: [spring-rest-docs, java]
+tags: [spring-rest-docs, java, documentation]
 categories: Spring
 ---
 
 ## Overview
+
+## Error
+
+[Github issue](https://github.com/asciidoctor/asciidoctor-gradle-plugin/issues/652) 에서 공유되고 있는 문제.
+
+```logs
+A problem occurred configuring root project 'demo'.
+> Could not resolve all files for configuration ':classpath'.
+   > Could not find org.ysb33r.gradle:grolifant:0.16.1.
+     Searched in the following locations:
+       - https://plugins.gradle.org/m2/org/ysb33r/gradle/grolifant/0.16.1/grolifant-0.16.1.pom
+     If the artifact you are trying to retrieve can be found in the repository but without metadata in 'Maven POM' format, you need to adjust the 'metadataSources { ... }' of the repository declaration.
+     Required by:
+         project : > org.asciidoctor.jvm.convert:org.asciidoctor.jvm.convert.gradle.plugin:3.3.2 > org.asciidoctor:asciidoctor-gradle-jvm:3.3.2
+         project : > org.asciidoctor.jvm.convert:org.asciidoctor.jvm.convert.gradle.plugin:3.3.2 > org.asciidoctor:asciidoctor-gradle-jvm:3.3.2 > org.asciidoctor:asciidoctor-gradle-base:3.3.2
+
+Possible solution:
+ - Declare repository providing the artifact, see the documentation at https://docs.gradle.org/current/userguide/declaring_repositories.html 
+```
+
+JCenter 에 있던 grolifant 의존성이 MavenCentral 로 이동하게 되면서 기존 의존성을 찾지 못해 발생한 에러로 보인다. `org.asciidoctor.jvm.convert` plugin 이 외부의 라이브러리에 의존하고 있다가 그 라이브러리가 사라지면서 멀쩡하던 plugin 이 망가지게 되었다는 뜻인데, 특정 라이브러리에 대한 의존이 어떤 문제를 가져올 수 있는지 보여줄 수 있는 일련의 예가 될 수 있겠다.

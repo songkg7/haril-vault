@@ -55,7 +55,7 @@ npx semantic-release
 
 name, channel, prerelease, range 옵션이 존재
 
-channel 의 경우 특정 브랜치마다 버전 전략을 다르게 가져가고 싶을 때 사용할 수 있는 일종의 그룹같은 것이라고 이해하고 있다.jjj
+channel 의 경우 특정 브랜치마다 버전 전략을 다르게 가져가고 싶을 때 사용할 수 있는 일종의 그룹같은 것이라고 이해하고 있다.
 
 prerelease 옵션을 true 로 할 경우 name 을 sufix 로 사용하여 x.x.x.name-x 같은 형식으로 나온다.
 
