@@ -28,3 +28,50 @@ Possible solution:
 ```
 
 JCenter 에 있던 grolifant 의존성이 MavenCentral 로 이동하게 되면서 기존 의존성을 찾지 못해 발생한 에러로 보인다. `org.asciidoctor.jvm.convert` plugin 이 외부의 라이브러리에 의존하고 있다가 그 라이브러리가 사라지면서 멀쩡하던 plugin 이 망가지게 되었다는 뜻인데, 특정 라이브러리에 대한 의존이 어떤 문제를 가져올 수 있는지 보여줄 수 있는 일련의 예가 될 수 있겠다.
+
+```groovy
+plugins {
+    id 'org.springframework.boot' version '2.7.5'
+    id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+    id "org.asciidoctor.jvm.convert" version "3.3.2"
+    id 'java'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    set('snippetsDir', file("build/generated-snippets"))
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'io.projectreactor:reactor-test'
+    asciidoctorExt 'org.springframework.restdocs:spring-restdocs-asciidoctor'
+    testImplementation 'org.springframework.restdocs:spring-restdocs-webtestclient'
+}
+
+configurations {
+    asciidoctorExt
+}
+
+ext {
+    snippetsDir = file('build/generated-snippets')
+}
+
+test {
+    outputs.dir snippetsDir
+}
+
+asciidoctor {
+    inputs.dir snippetsDir
+    configurations 'asciidoctorExt'
+    dependsOn test
+} 
+```
