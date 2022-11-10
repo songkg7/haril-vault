@@ -67,6 +67,8 @@ kubectl get pod private-reg
 
 ## Reference
 
+- [cheatsheet](https://kubernetes.io/ko/docs/reference/kubectl/cheatsheet/)
+
 ## Links
 
 - [[published/Docker]]
