@@ -14,6 +14,9 @@ categories:
 > [!WARNING] There may be some differences from the facts.
 > 이 글은 오픈소스를 개인적으로 살펴보며 작성한 글이므로 잘못된 부분이 있을 수 있습니다. 얼마든지 지적해주시면 감사하겠습니다.
 
+> [!INFO] LabMonkey
+> `fixturemonkey:0.4.0` 이 release 되면서 이 글에서 설명하는 기능들이 일부 변경되었습니다. 해당 정보는 [[LabMonkey]] 를 살펴봐주시기 바랍니다.
+
 ## Overview
 
 Naver 에서 2021 년에 공개한 오픈소스이며, 테스트를 위한 객체 생성을 편리하게 할 수 있도록 도와준다.
