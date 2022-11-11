@@ -98,4 +98,3 @@ map g<C-N> g<A-N>
 ### Copilot
 
 ### fzf.vim
-

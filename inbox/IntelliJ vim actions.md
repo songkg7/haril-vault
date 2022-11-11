@@ -4,11 +4,17 @@ date: 2022-08-26 10:25:00 +0900
 fc-calendar: Gregorian Calendar
 fc-date: 2022-08-26
 aliases: 
-tags: [vim, intellij]
+tags: [vim, intellij, ideavim]
 categories: 
 ---
 
 아래에서 적당한 기능을 찾아서 mapping 해주면 [[Vim]] 단축키로 활용할 수 있다.
+
+다음 명령어로 해당하는 기능을 실행시킬 수 있다.
+
+```
+:action <action-command>
+```
 
 ```text
 --- Actions ---
