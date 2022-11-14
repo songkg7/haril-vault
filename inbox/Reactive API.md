@@ -14,6 +14,10 @@ Reactor 는 [[Spring WebFlux]]가 선택한 리액티브 라이브러리다. 리
 
 Webflux 는 리액터를 핵심 라이브러리로 사용하지만, 다른 리액티브 라이브러리를 써도 리액티브 스트림으로 상호 작용할 수 있다. Webflux API 의 일반적인 룰은, 순수한 publisher 를 입력으로 받아 내부적으로 리액터 타입으로 맞추고, 이걸 사용하여 `Flux`나 `Mono`를 반환한다. 따라서 어떤 Publisher 든 입력으로 전달하고 연산할 수 있지만, 다른 리액티브 라이브러리를 사용하려면 출력 형식을 맞춰줘야 한다. Webflux 는 가능만 하다면(e.g. 어노테이션을 선언한 컨트롤러) 투명한 방식으로 RxJava 나 다른 리액티브 라이브러리에 맞게 바꿔준다.
 
+## Reference
+
+- [언제 어떤 operator 를 써야할까?](https://luvstudy.tistory.com/m/100)
+
 ## Links
 
 - [[Reactive 에 대해]]
