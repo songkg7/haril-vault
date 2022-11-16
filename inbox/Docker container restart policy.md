@@ -16,6 +16,10 @@ categories:
 docker run --restart always
 ```
 
+```bash
+docker update --restart=always TestContainer
+```
+
 사용할 수 있는 옵션의 종류는 다음과 같다.
 
 - no

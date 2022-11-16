@@ -16,6 +16,14 @@ git reset HEAD@{1}
 
 이러면 커밋됐었던 파일들이 unstage 상태로 돌아오고 다시 git command 를 제대로 사용할 수 있다. 이후에 다시 repository 에 push 해주면 되겠다.
 
+### 2. fetch
+
+```bash
+git fetch
+```
+
+원격 저장소와 비교하며 잘못된 부분을 받는다.
+
 ## Links
 
 [[Git]]
