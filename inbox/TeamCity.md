@@ -5,7 +5,7 @@ fc-calendar: Gregorian Calendar
 fc-date: 2022-08-20
 aliases: 
 tags: [CI, CD, teamcity, jetbrains]
-categories: 
+categories: DevOps
 ---
 
 ## Overview
@@ -60,4 +60,4 @@ Jenkins 에 비해 유려한 UI 및 기능에도 불구하고, 여전히 Jenkins
 ## Links
 
 - [[Spring batch]]
-- [[Jenkins]]
+- [[Docker 로 Jenkins 운영하기]]
