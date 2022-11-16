@@ -13,6 +13,12 @@ categories:
 
 이 글에서는 Spring data JPA 를 사용하는 환경을 가정하고 TestContainer 를 사용하여 DB 를 어떻게 테스트할 수 있을지 알아본다.
 
+## Contents
+
+linux 환경에서 docker enviroment 관련 error 메세지와 함께 실행이 안되는 경우, 권한 관련 문제일 가능성이 높다.
+
+[[Docker 로 Jenkins 운영하기]] 에 설명되어 있는 방법을 참고한다.
+
 ## Example
 
 ## Conclusion
