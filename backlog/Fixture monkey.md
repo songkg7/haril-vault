@@ -1,8 +1,6 @@
 ---
 title: "Fixture monkey"
 date: 2022-09-19 18:34:00 +0900
-fc-calendar: Gregorian Calendar
-fc-date: 2022-09-19
 aliases: 
 tags: [test, naver, open-source]
 categories:
