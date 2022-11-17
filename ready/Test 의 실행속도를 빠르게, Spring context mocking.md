@@ -1,8 +1,6 @@
 ---
 title: "Test 의 실행속도를 빠르게, Spring context mocking"
 date: 2022-09-05 12:33:00 +0900
-fc-calendar: Gregorian Calendar
-fc-date: 2022-09-05
 aliases: 
 tags: [test, spring, mockito, junit]
 categories: 
@@ -35,7 +33,7 @@ class SpringApplicationTest {
 
 특정 어노테이션을 사용하면, 관련 테스트에 필요한 Bean 만 자동으로 불러와진다. 덕분에 모든 Bean 을 Context loading 하는 것이 아닌, 진짜 필요한 Bean 만 불러와서 테스트 수행시간을 최소화 할 수 있다.
 
-또는 [[Mockito]] 를 활용하면 의존관계를 최소화하면서 테스트를 작성할 수 있다. 이 두 개념을 적절히 사용한다면 대부분의 유닛 테스트는 크게 어렵지 않다.
+[[Mockito]] 를 활용하면 복잡한 의존관계를 간편하게 해결하여 테스트를 작성할 수 있다. 이 두 개념을 적절히 사용한다면 대부분의 유닛 테스트는 크게 어렵지 않다.
 
 ## 그렇다면 SpringApplication 은?
 
