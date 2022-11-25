@@ -13,6 +13,14 @@ agent 설치
 
 GCP CLI 설치 후 local 에서 kubernetes engine 접근
 
+```bash
+kubectl config get-context
+```
+
+```bash
+kubectl config set-context my-context
+```
+
 gitlab 에서 infrastructure > kubernetes 메뉴의 connect cluster
 
 helm 설치 후 gitlab chart 적용
