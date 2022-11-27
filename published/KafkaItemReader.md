@@ -14,7 +14,7 @@ aliases:
 
 ## KafkaItemReader..?
 
-[[Spring batch]] 에서는 [[Kafka]] Topic 의 데이터를 처리하는 경우를 위해서 [[ItemReader]] 의 구현체인[[KafkaItemReader]] 를 제공하고 있습니다.
+[[Spring Batch]] 에서는 [[Kafka]] Topic 의 데이터를 처리하는 경우를 위해서 [[ItemReader]] 의 구현체인[[KafkaItemReader]] 를 제공하고 있습니다.
 
 간단한 배치를 하나 만들어보겠습니다.
 

@@ -10,7 +10,7 @@ categories: Spring
 
 ## Overview
 
-[[Spring batch]] 에서 주로 사용되는 스케쥴러인 [[Quartz]] 에 대해 간단히 살펴보고 batch processing 운영을 위한 최적의 방법은 무엇일지 알아본다.
+[[Spring Batch]] 에서 주로 사용되는 스케쥴러인 [[Quartz]] 에 대해 간단히 살펴보고 batch processing 운영을 위한 최적의 방법은 무엇일지 알아본다.
 
 ## Quartz
 
