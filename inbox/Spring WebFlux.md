@@ -18,7 +18,7 @@ categories: Spring
 
 Webflux 가 탄생한 이유 중 하나는 적은 쓰레드로 동시 처리를 제어하고, 적은 하드웨어 리소스로 확장하기 위해 non-blocking 웹 스택이 필요했기 때문이다. 이전에도 서블릿 3.1 은 non-blocking I/O 를 위한 API 를 제공했다. 하지만 서블릿으로 non-blocking 을 구현하려면 다른 동기 처리(`filter`, `servlet`)나, blocking 방식(`getParameter`, `getPart`)을 쓰는 API 를 사용하기 어렵다. 이런 점 때문에 어떤 non-blocking 방식과도 잘 동작하는 새 공통 API 를 만들게 됐다. 이미 비동기 논블로킹 환경에서 자리를 잡은 서버(e.g. Netty) 때문에라도 새 API 가 필요했다.
 
-또 다른 이유는 [[Functional programming]]이다. Java 5 에서의 어노테이션 등장으로 선택의 폭이 넓어진 것처럼, Java 8 에서 추가된 람다 표현식 덕분에 자바에서도 함수형 API 를 작성할 수 있게 됐다. 이 기능은 논블로킹 애플리케이션을 만들 때도 요긴하게 쓰이며, 이제는 Continuation-style API(CompletableFuture 와 ReactiveX 로 대중화된)로 비동기 로직을 선언적으로 작성할 수 있다. 프로그래밍 모델 관점에서 보면, Webflux 에서 어노테이션을 선언한 컨트롤러와 더불어 함수형 웹 Endpoint 를 사용할 수 있는건 Java 8 덕분이다.
+또 다른 이유는 [[Functional programming]]이다. Java 5 에서의 어노테이션 등장으로 선택의 폭이 넓어진 것처럼, [[Java]] 8 에서 추가된 람다 표현식 덕분에 자바에서도 함수형 API 를 작성할 수 있게 됐다. 이 기능은 논블로킹 애플리케이션을 만들 때도 요긴하게 쓰이며, 이제는 Continuation-style API(CompletableFuture 와 ReactiveX 로 대중화된)로 비동기 로직을 선언적으로 작성할 수 있다. 프로그래밍 모델 관점에서 보면, Webflux 에서 어노테이션을 선언한 컨트롤러와 더불어 함수형 웹 Endpoint 를 사용할 수 있는건 Java 8 덕분이다.
 
 ## Webflux 의 장단점
 

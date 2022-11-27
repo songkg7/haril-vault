@@ -1,5 +1,5 @@
 ---
-title: "Spring batch"
+title: "Spring Batch"
 date: 2022-08-17 08:53:00 +0900
 publish: false
 fc-calendar: Gregorian Calendar
@@ -11,7 +11,7 @@ categories: Spring
 
 [[Spring framework|Spring]]
 
-# Spring batch 를 왜 사용할까?
+# Spring Batch 를 왜 사용할까?
 
 - 대용량 데이터 처리에 최적화되어 고성능을 발휘합니다.
 - 효과적인 로깅, 통계 처리, 트랜잭션 관리 등 재사용 가능한 필수 기능을 지원합니다.

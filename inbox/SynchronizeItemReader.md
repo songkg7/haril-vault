@@ -75,7 +75,7 @@ public class SynchronizedItemReader<T> implements ItemReader<T> {
 
 `SynchronizedItemReader` 의 특징은 다음과 같다.
 
-- [[Spring batch]]의 `SynchronizedItemStreamReader` 와는 달리 delegate 하지 않고 `collection` 을 복사하여 동작한다.
+- [[Spring Batch]]의 `SynchronizedItemStreamReader` 와는 달리 delegate 하지 않고 `collection` 을 복사하여 동작한다.
 - `ConcurrentLinkedQueue` 를 사용하여 thread-safe 하게 성능을 최적화한다.
 - `Queue.poll()` 을 사용하여 `read()` 를 처리한다. `poll()` 은 `Queue` 가 비면 null 을 반환하기 때문에 로직을 단순화할 수 있다.
 	- `ListItemReader`의 `read()` method 는 `List.remove()` 를 사용하기 때문에 `OutOfRangeException` 을 방지하기 위해서 비어있는지 체크해야했다.
@@ -151,5 +151,5 @@ class SynchronizedItemReaderTest {
 
 ## Links
 
-- [[Spring batch]]
+- [[Spring Batch]]
 - [[ItemReader]]

@@ -59,5 +59,5 @@ Jenkins 에 비해 유려한 UI 및 기능에도 불구하고, 여전히 Jenkins
 
 ## Links
 
-- [[Spring batch]]
+- [[Spring Batch]]
 - [[Docker 로 Jenkins 운영하기]]
