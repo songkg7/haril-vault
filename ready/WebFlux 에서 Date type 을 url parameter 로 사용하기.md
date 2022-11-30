@@ -77,7 +77,7 @@ class EventControllerTest {
 테스트 코드를 실행하면 아래와 같은 요청이 발생하는 것과 같습니다.
 
 ```bash
-$ http localhost:8080/event Accept=application/stream+json name==Spring time==2022-01-01T00:00
+$ http localhost:8080/event Accept=application/stream+json name==Spring time==2021-08-01T12:00
 HTTP/1.1 200 OK
 Content-Length: 44
 Content-Type: application/stream+json
@@ -95,7 +95,7 @@ Content-Type: application/stream+json
 ![[스크린샷 2022-11-29 오후 8.56.16.png]]
 
 ```bash
-$ http localhost:8080/event Accept=application/stream+json name==Spring time==2022-01-01T00:00:00Z
+$ http localhost:8080/event Accept=application/stream+json name==Spring time==2021-08-01T12:00:00Z
 HTTP/1.1 500 Internal Server Error
 Content-Length: 131
 Content-Type: application/stream+json
@@ -128,7 +128,7 @@ public record Event(
 다시 테스트를 실행해주면 정상적으로 통과하는 것을 확인할 수 있습니다.
 
 > [!WARN] Response model 까지 변하진 않는다.
-> 눈치 빠른 분들은 벌써 알아채셨겠지만, 요청 포맷을 바꿀 수 있었을 뿐이지 응답 포맷까지 변하진 않습니다.
+> 요청 포맷을 바꿀 수 있을 뿐이지 응답 포맷까지 변하진 않습니다. 응답 포맷 변경은 이 글에서 다루지 않습니다.
 
 간단하게 문제를 해결했지만, 항상 최선의 해결책은 아닙니다. 변환해야하는 필드가 많다면 하나하나 annotation 을 붙이는 건 꽤나 귀찮은 작업이 되고, 실수로 annotation 을 작성하지 않아서 버그가 발생할 수도 있습니다. [[ArchUnit]] 등의 test library 를 사용해서 체크하게 하는 것도 가능하지만, 코드를 파악하기 위해 들여야하는 노력이 늘어난다는 것은 부정할 수 없는 사실입니다.
 
@@ -191,7 +191,7 @@ public record Event(
 
 ## Conclusion
 
-`WebFluxConfigurer` 를 사용하는 방식은 전역적으로 일관된 포맷을 구현할 수 있습니다. 특정 포맷을 적용해야하는 필드가 여러 클래스에 걸쳐 분포한 경우, `@DateTimeFormat` 을 붙이는 것보다 훨씬 간편하게 적용할 수 있으니 상황에 맞게 적용하는 것이 중요하다고 할 수 있겠습니다.
+`WebFluxConfigurer` 를 사용하는 방식은 전역적으로 일관된 포맷을 구현할 수 있습니다. 특정 포맷을 적용해야하는 필드가 여러 클래스에 걸쳐 분포한 경우, `@DateTimeFormat` 을 붙이는 것보다 훨씬 간편하게 적용할 수 있으니 상황에 맞게 적용하시면 됩니다.
 
 - `@DateTimeFormat` : 적용이 간단. 전역 설정보다 우선도가 높으므로 특정 필드만 다른 포맷을 사용해야할 경우 등 타겟팅하여 적용하는 것이 가능.
 - `WebFluxConfigurer` : 적용이 상대적으로 복잡하지만, 프로젝트 규모가 어느 정도 커져서 일관된 설정 적용이 필요할 경우 `@DateTimeFormat` 에 비해 압도적 유리. 일부 필드에 실수로 annotation 을 작성하지 않는 등의 휴먼 에러를 방지할 수 있음.
