@@ -15,7 +15,7 @@ categories:
 
 ### 변경된 사항
 
-LabMonkey: FixtureMonkey 를 상속하여 기존 기능을 지원하면서 몇가지 메서드들이 추가되
+LabMonkey: FixtureMonkey 를 상속하여 기존 기능을 지원하면서 몇가지 메서드들이 추가되었다.
 
 Record 지원
 
