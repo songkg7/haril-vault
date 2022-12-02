@@ -12,10 +12,15 @@ categories:
 
 ## Contents
 
-### 추가된 사항
 
 ### 변경된 사항
 
+LabMonkey: FixtureMonkey 를 상속하여 기존 기능을 지원하면서 몇가지 메서드들이 추가되
+
+Record 지원
+
+static factory method 로 객체 생성 지원
+
 ## Conclusion
 
-이전 글에서 아쉽다고 지적했던 부분이 대폭 개선되어서 정말 만족스럽다.
+이전 글에서 아쉽다고 지적했던 부분이 대폭 개선되어서 정말 만족스럽다. 근데 document 는 왜 이렇게 없어졌는지 모르겠다..
