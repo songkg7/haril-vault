@@ -6,8 +6,7 @@ tags:
 categories: 
 ---
 
-repository 의 .gitlab/<agent-name>/config.yaml 파일 생성. `yml` 이 아닌 `yaml` 이여야 함.
-
+repository 의 `.gitlab/<agent-name>/config.yaml` 파일 생성. `yml` 이 아닌 `yaml` 이여야 함.
 
 agent 설치
 
@@ -25,3 +24,6 @@ gitlab 에서 infrastructure > kubernetes 메뉴의 connect cluster
 
 helm 설치 후 gitlab chart 적용
 
+```bash
+brew install helm
+```
