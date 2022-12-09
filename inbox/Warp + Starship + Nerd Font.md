@@ -24,6 +24,8 @@ iTerm2 에서 많이 사용하는 powerlevel10k 는 아직 warp 에서 지원하
 
 ### Nerd Font
 
+터미널에 특화되어있는 이모티콘을 출력하기 위해 필요한 font 입니다. 관련 폰트들이 설치되어 있지 않을 경우, 아이콘이 출력되지 않을 수 있습니다.
+
 아래에서 원하는 폰트만 설치하셔도 무방합니다.
 
 ```bash
@@ -82,3 +84,5 @@ brew tap homebrew/cask-fonts && brew install --cask font-victor-mono-nerd-font
 ## Conclusion
 
 ## Reference
+
+- [Warp](https://www.warp.dev)
