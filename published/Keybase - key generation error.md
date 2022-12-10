@@ -1,14 +1,14 @@
 ---
 title: "key generation error"
 date: 2022-09-11 11:36:00 +0900
-fc-calendar: Gregorian Calendar
-fc-date: 2022-09-11
 aliases: 
 tags: [gpg, keybase, security]
 categories: 
 ---
 
-> key generation error: Unknown signature subpacket: 34
+```console
+key generation error: Unknown signature subpacket: 34
+```
 
 [[Keybase]] 에 gpg key 를 등록하려던 중 위와 같은 에러가 발생했다.  해결을 위해 방법을 찾다보니 github 에 다음과 같은 해결법이 등록되어 있었다.
 
