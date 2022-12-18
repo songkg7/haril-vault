@@ -3,7 +3,7 @@ title: "MongoDB"
 date: 2022-09-13 11:45:00 +0900
 aliases: 
 tags: [mongodb, nosql]
-categories: 
+categories: MongoDB
 ---
 
 ## Overview
