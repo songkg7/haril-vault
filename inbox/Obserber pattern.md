@@ -16,18 +16,118 @@ categories:
 
 [[Java]] 와 [[Kotlin]] 에서 각각의 사용법을 살펴보고 비교해봅니다.
 
+날씨 정보가 갱신되면 구독하고 있는 객체들에게 알려주는 예제입니다.
+
 ### Java
 
 #### Direct implementation
 
 ```java
+public interface Observer {
 
+    void update(float temp, float humidity, float pressure);
+
+} 
+```
+
+데이터가 변경되면 `Observer` 의 정보를 `update` 를 통해 변경합니다.
+
+```java
+public interface Subject {
+
+    void registerObserver(Observer o);
+    void removeObserver(Observer o);
+    void notifyObservers();
+
+}
+```
+
+`notifiyObservers` 를 통해 `Subject` 를 구독하고 있는 객체들에게 변경사항을 통지합니다.
+
+```java
+public interface DisplayElement {
+
+        void display();
+
+}
+```
+
+데이터 출력의 역할을 해줄 `DisplayElement` 입니다.
+
+```java
+public class Weather implements Subject {
+    private final List<Observer> observers = new ArrayList<>();
+    private float temperature;
+    private float humidity;
+    private float pressure;
+
+    @Override
+    public void registerObserver(Observer o) {
+        observers.add(o);
+    }
+
+    @Override
+    public void removeObserver(Observer o) {
+        int i = observers.indexOf(o);
+        if (i >= 0) {
+            observers.remove(i);
+        }
+    }
+
+    @Override
+    public void notifyObservers() {
+        observers.forEach(observer -> observer.update(temperature, humidity, pressure));
+    }
+
+    public void measurementsChanged() {
+        notifyObservers();
+    }
+
+    public void setMeasurements(float temperature, float humidity, float pressure) {
+        this.temperature = temperature;
+        this.humidity = humidity;
+        this.pressure = pressure;
+        measurementsChanged();
+    }
+}
+```
+
+```java
+public class CurrentConditionsDisplay implements Observer, DisplayElement {
+
+    private int id;
+    private float temperature;
+    private float humidity;
+    private Subject weather;
+
+    public CurrentConditionsDisplay(Subject weather, int id) {
+        this.id = id;
+        this.weather = weather;
+        weather.registerObserver(this);
+    }
+
+    @Override
+    public void display() {
+        System.out.println(
+                "Divice ID: " + id + " Current conditions: " + temperature + " F degrees and " + humidity
+                        + "% humidity");
+    }
+
+    @Override
+    public void update(float temp, float humidity, float pressure) {
+        this.temperature = temp;
+        this.humidity = humidity;
+        display();
+    }
+}
 ```
 
 #### Observable
 
 ```java
 ```
+
+`Observable` 의 문제점은 인터페이스가 아닌 클래스라는 점. 때문에 다중 상속을 지원하지 않는 자바에서는 코드 재사용에 문제가 생긴다.
 
 #### Flow
 
