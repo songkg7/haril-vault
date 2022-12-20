@@ -59,6 +59,10 @@ channel 의 경우 특정 브랜치마다 버전 전략을 다르게 가져가�
 
 prerelease 옵션을 true 로 할 경우 name 을 sufix 로 사용하여 x.x.x.name-x 같은 형식으로 나온다. true 가 아닌 string value 를 지정해주면, x.x.x.custom-x 같은 형식으로도 만들 수 있다.
 
+## Exception case
+
+[tag 관련](https://stackoverflow.com/questions/58031165/how-to-get-rid-of-would-clobber-existing-tag)
+
 ## Reference
 
 - [semantic release](https://github.com/semantic-release/semantic-release/blob/master/docs/usage/configuration.md#branches)
