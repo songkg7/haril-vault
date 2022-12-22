@@ -138,6 +138,7 @@
     "Space between Chinese Japanese or Korean and English or numbers": {}
   },
   "lintOnSave": true,
+  "recordLintOnSaveLogs": false,
   "displayChanged": true,
   "foldersToIgnore": [],
   "linterLocale": "system-default",

@@ -10049,6 +10049,9 @@ body {
   display: unset;
   grid-template-columns: unset;
 }
+.callout[data-callout~=cards][data-callout-metadata~=dataview] br {
+  display: block;
+}
 .callout[data-callout~=cards][data-callout-metadata~=dataview] .dataview.table-view-table {
   display: grid;
 }
@@ -16287,7 +16290,6 @@ body .wotc-beyond.theme-dark .HyperMD-hr-bg {
   --callout-title-padding: 10px;
   --tag-radius: 0;
   --list-indent: 20px;
-  --dialog-width: unset;
   --dialog-max-width: 50vw;
   --link-decoration: none;
   --link-decoration-hover: none;
