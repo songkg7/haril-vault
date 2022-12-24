@@ -15,13 +15,31 @@ categories: Vim
 ## Install
 
 ```bash
-brew install nvim
+brew install neovim
 ```
+
+checkhealth
+```
+:checkhealth
+```
+
+![[스크린샷 2022-12-24 오후 11.28.31.png]]
+현재 nvim 의 상태를 확인하고 필요한 plugin 이 있다면 추가로 설치해준다. 대부분의 에러는 이 command 로 해결이 가능하다.
 
 ## Settings
 
 ```bash
 nvim ~/.config/nvim/init.vim
+```
+
+## Lua script
+
+nvim 은 lua 를 사용하여 강력한 커스텀 기능을 제공한다.
+
+기본 언어를 영어로 변경하는 방법은 아래와 같다.
+
+```lua
+vim.api.nvim_exec('language en_US', ture)
 ```
 
 ## Plugins
