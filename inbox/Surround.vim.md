@@ -36,6 +36,13 @@ I am "happy".
 
 `ysiw"`: `ys` 감싸고, `iw` 커서가 위치한 단어를 선택한 후, `"` " 로 감싸기
 
+b = )
+B = }
+r = ]
+a = >
+
+각 단어별로 괄호의 alias 로 지정되어 있다. ysiwa 의 경우 java 나 kotlin 에서 특히 유용하다.
+
 ## Reference
 
 - [surround.vim 소개](https://forteleaf.tistory.com/entry/VIM-Surroundvim-사용하기)

@@ -18,7 +18,17 @@ categories:
 npx semantic-release
 ```
 
-설정파일은 `.releaserc.json` 이라는 파일로 할 수 있다. 확장자를 여러 가지를 지원하니 공식 문서를 참고하면 되겠다.
+```bash
+# dry-run, 실제로 publish 되지는 않는다.
+npx semantic-release -d
+```
+
+```bash 
+# local 실행 옵션
+npx semantic-release --no-ci
+```
+
+설정파일은 `.releaserc.json` 이라는 파일로 할 수 있다. json 뿐만 아니라 여러 가지 파일 형식을 지원하니 공식 문서를 참고하면 되겠다.
 
 ```json
 {
@@ -53,11 +63,13 @@ npx semantic-release
 
 **branches**:
 
+remote 에 해당 브랜치가 존재하지 않으면 동작하지 않는다.
+
 name, channel, prerelease, range 옵션이 존재
 
 channel 의 경우 특정 브랜치마다 버전 전략을 다르게 가져가고 싶을 때 사용할 수 있는 일종의 그룹같은 것이라고 이해하고 있다.
 
-prerelease 옵션을 true 로 할 경우 name 을 sufix 로 사용하여 x.x.x.name-x 같은 형식으로 나온다. true 가 아닌 string value 를 지정해주면, x.x.x.custom-x 같은 형식으로도 만들 수 있다.
+prerelease 옵션을 true 로 할 경우 name 을 suffix 로 사용하여 x.x.x.name-x 같은 형식으로 나온다. true 가 아닌 string value 를 지정해주면, x.x.x.custom-x 같은 형식으로도 만들 수 있다.
 
 ## Exception case
 
