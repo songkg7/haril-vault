@@ -5,8 +5,10 @@ fc-calendar: Gregorian Calendar
 fc-date: 2022-08-28
 aliases: 
 tags: [git, error]
-categories: 
+categories: Git
 ---
+
+[[Git]]
 
 ```bash
 $ git add .

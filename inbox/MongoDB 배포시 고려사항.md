@@ -6,6 +6,8 @@ tags: [mongodb, nosql]
 categories: MongoDB
 ---
 
+[[MongoDB]]
+
 Write 요청이 압도적으로 많은 서비스: Sharded Cluster
 Replica Set 은 write 에 대한 분산이 불가능하다.
 

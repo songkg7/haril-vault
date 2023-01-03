@@ -6,6 +6,8 @@ tags: [book, kotlin]
 categories: 
 ---
 
+[[Kotlin]]
+
 Book review
 
 ### Smart Cast

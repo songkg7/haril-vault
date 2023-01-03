@@ -8,7 +8,7 @@ tags: [ci, cd, gitlab, cache]
 categories: 
 ---
 
-GitLab 에서 gradle build 속도가 로컬에 비해 월등히 느린 현상이 있다.
+[[GitLab]] 에서 gradle build 속도가 로컬에 비해 월등히 느린 현상이 있다.
 
 ### Cache
 

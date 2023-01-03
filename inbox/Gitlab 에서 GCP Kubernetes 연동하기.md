@@ -6,6 +6,9 @@ tags:
 categories: 
 ---
 
+[[GitLab]]
+[[Kubernetes]]
+
 repository 의 `.gitlab/<agent-name>/config.yaml` 파일 생성. `yml` 이 아닌 `yaml` 이여야 함.
 
 agent 설치
