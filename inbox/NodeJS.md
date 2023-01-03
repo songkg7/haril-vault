@@ -8,6 +8,8 @@ tags: [nodejs, javascript, server, backend]
 categories: [NodeJS]
 ---
 
+[[JavaScript]]
+
 ## Overview
 
 ## Install

@@ -6,6 +6,8 @@ tags: [linux, terminal, command]
 categories: 
 ---
 
+[[Linux]]
+
 ### Pipeline
 
 pipeline 을 사용하면 terminal 명령의 출력결과를 다음 명령의 입력으로 넘겨줄 수 있다.

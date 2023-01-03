@@ -8,6 +8,9 @@ tags: [test, jacoco, java]
 categories: 
 ---
 
+[[Java]]
+[[Jacoco]]
+
 ## Overview
 
 multi project 의 경우 project 별 생성되는 jacoco coverage 결과를 어떻게 집계할 수 있는지 알아본다.
