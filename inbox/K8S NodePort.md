@@ -1,7 +1,7 @@
 ---
 title: "K8S NodePort"
 date: 2023-01-09 16:37:00 +0900
-aliases: 
+aliases: nodeport
 tags: [k8s, gcp, nodeport, network]
 categories: 
 ---
