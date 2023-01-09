@@ -111,5 +111,5 @@ NordPort 는 ClusterIP 의 상위 개념이라 생성될 때 ClusterIP 를 같�
 
 ## Reference
 
-[kubernetes in action](https://gist.github.com/ShinJJang/b2f7acb9eb9849bef60d2dc3a2cef9e1)
-[google cloud](https://medium.com/google-cloud/kubernetes-nodeport-vs-loadbalancer-vs-ingress-when-should-i-use-what-922f010849e0)
+- [kubernetes in action](https://gist.github.com/ShinJJang/b2f7acb9eb9849bef60d2dc3a2cef9e1)
+- [google cloud](https://medium.com/google-cloud/kubernetes-nodeport-vs-loadbalancer-vs-ingress-when-should-i-use-what-922f010849e0)
