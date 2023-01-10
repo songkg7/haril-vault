@@ -64,3 +64,5 @@ logback 설정 추가
 ```
 
 민감한 정보 masking 가능
+
+[[Google Cloud Platform|GCP]] 같은 cloud 서비스는 structured logging 에 대한 지원을 하기 때문에 json 으로 stdout(표준출력) 하는 것만으로도 log 를 수집해주기도 한다.
