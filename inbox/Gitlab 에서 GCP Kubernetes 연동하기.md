@@ -13,7 +13,7 @@ repository 의 `.gitlab/<agent-name>/config.yaml` 파일 생성. `yml` 이 아�
 
 agent 설치
 
-GCP CLI 설치 후 local 에서 kubernetes engine 접근
+[[Google Cloud Platform|GCP]] CLI 설치 후 local 에서 kubernetes engine 접근
 
 ```bash
 kubectl config get-context
