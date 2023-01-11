@@ -1,9 +1,7 @@
 ---
-title: "AOP"
+title: "Spring AOP"
 date: 2022-08-16 17:05:00 +0900
 publish: false
-fc-calendar: Gregorian Calendar
-fc-date: 2022-08-16
 aliases: 
 tags: [aop, aspect, spring]
 categories: Spring
