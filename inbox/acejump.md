@@ -1,8 +1,8 @@
 ---
-title: "acejump"
+title: "AceJump"
 date: 2023-01-12 17:16:00 +0900
 aliases: 
-tags: [vim, plugin]
+tags: [vim, plugin, acejump, easymotion]
 categories: 
 ---
 
