@@ -16,5 +16,18 @@ categories:
 git ls-remote -h git@gitlab.com:seavantage/backend/bespoke/svmp-portinsight-batch-statistic.git HEAD
 ```
 
-permission denied (publickey) 가 발생할 경우, `.ssh` directory 의 실행권한을 확인해본다.
+#### permission denied
 
+permission denied (publickey) 가 발생할 경우, `.ssh` directory 의 실행권한을 확인해본다. directory 가 너무 많은 실행권한을 가지고 있으면 정상동작하지 않을 수 있다.
+
+```bash
+chmod 600 authorized_key
+```
+
+#### Known_hosts
+
+known_hosts 관련 에러가 발생할 경우, jenkins 가 신규 노드를 허용된 노드라고 인식할 수 있도록 다음 명령을 통해 jenkins home 디렉토리 아래 known_hosts 에 추가해줘야 한다.
+
+```bash
+ssh-keyscan -H {new node IP} >> /var/lib/jenkins/.ssh/known_hosts
+```
