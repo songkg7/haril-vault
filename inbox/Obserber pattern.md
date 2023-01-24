@@ -125,6 +125,10 @@ public class CurrentConditionsDisplay implements Observer, DisplayElement {
 #### Observable
 
 ```java
+@Deprecated(since="9")
+public class Observable {
+...
+}
 ```
 
 `Observable` 의 문제점은 인터페이스가 아닌 클래스라는 점. 때문에 다중 상속을 지원하지 않는 자바에서는 코드 재사용에 문제가 생긴다.
@@ -217,6 +221,5 @@ fun main() {
 
 ## Reference
 
-[observable](https://xzio.tistory.com/289)
-
-[Observer pattern in Kotlin](https://in-kotlin.com/design-patterns/observer/)
+- [observable](https://xzio.tistory.com/289) 
+- [Observer pattern in Kotlin](https://in-kotlin.com/design-patterns/observer/)
