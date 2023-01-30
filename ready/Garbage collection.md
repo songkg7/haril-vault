@@ -36,7 +36,6 @@ public class Main {
 ## Stop the world
 
 ![[the-world-jojo.gif]]
-
  _The World! 시간이여, 멈춰라! - 죠죠의 기묘한 모험 중_
 
 GC 을 실행하기 위해 JVM 이 애플리케이션 실행을 멈추는 것. **Stop the world 가 발생하면 GC 를 실행하는 쓰레드를 제외한 나머지는 모두 작업을 멈춘다.** GC 작업을 완료한 이후에야 중단했던 작업을 다시 시작한다. 어떤 GC 알고리즘을 사용하더라도 stop the world 는 발생하며, 대개 GC 튜닝이란 stop the world 시간을 줄이는 것이다.

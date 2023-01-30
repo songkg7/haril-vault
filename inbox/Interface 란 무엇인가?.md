@@ -12,13 +12,13 @@ categories:
 
 _객체지향을 잘 디자인하려면 클래스와 인터페이스의 관계를 잘 정의하라는데, 인터페이스는 무엇인가요?_
 
-이번 글에서는 이 질문에 대한 답을 나름대로 내려보고자 합니다.
+이번 글에서는 객체지향 프로그래밍에 대해 처음 배울 때를 떠올려보며 이 질문에 대한 답을 나름대로 내려보고자 합니다.
 
 ## What is interface?
 
 [[Java]] 에서 interface 는 다음과 같은 class 를 표현합니다.
 
-1. new 키워드를 통해 인스턴스화 될 수 없다.
+1. `new` 키워드를 통해 인스턴스화 될 수 없다.
 2. 모든 멤버 메서드는 public abstract 이기 때문에 sub class 에서의 구현을 강제한다.
 3. 상수를 포함할 수 있다.
 
@@ -82,7 +82,6 @@ public class Stack<E> extends Vector<E> {
 }
 ```
 
-
 ### 객체지향적인 인터페이스 설계
 
 #### Bird 를 잘 설계하려면...
@@ -108,23 +107,27 @@ public class Bat implements Flyable {
 ```
 
 ```java
-public class Eagle extends Bird implements Flyable, Predator {
+public class Eagle extends Bird implements Flyable {
 
 }
 ```
 
 `Bird` 를 통해 `Eagle` 이 조류임을 표현하며 `Flyable` 을 통해 날 수 있는 기능을 가지고 있다는 것을 나타낸다. interface 는 다중구현이 가능하므로, 포식자임을 나타내기 위해 `Predator` 라는 interface 또한 구현할 수 있다.
 
+```java
+public class Eagle extends Bird implements Flyable, Predator {
+
+}
+```
+
 이렇듯 기능의 확장에 유연하게 적용할 수 있다는 것이 인터페이스를 사용했을 때의 장점이다.
 
 #### 또 다른 예제
 
-선박
+다음 글은 좀 더 구체적으로 객체지향을 통해 구현하는 과정을 설명한다.
 
-컨테이너선, 전함, 항공모함, 요트
-
-컨테이너선과 전함은 모두 선박으로서 바다를 항해할 수 있는 능력을 갖추고 있음. 이 중에 전함은 다른 배를 공격할 수 있는 능력 또한 갖추고 있음. 항공모함은 다른 배를 직접 공격할 수는 없지만, 다른 비행기를 싣고 다닐 수 있는 능력이 있으며 이 비행기가 다른 배를 공격할 수 있음. 
+[[객체지향의 세계 - 바다]]
 
 ## Conclusion
 
-결국 인터페이스는 어떤 비즈니스 로직에서 책임과 역할을 분리해내는 도구로써, 추상화에 핵심적인 역할을 맡고 있다고 할 수 있습니다.
+결국 인터페이스는 어떤 비즈니스 로직에서 책임과 역할을 분리해내는 도구로써, 추상화를 통한 객체지향 프로그래밍의 핵심적인 역할을 맡고 있다고 할 수 있습니다.
