@@ -2,13 +2,13 @@
 title: "Google cloud kubernetes 를 local 에서 접근하기"
 date: 2022-11-24 13:38:00 +0900
 aliases: 
-tags: [gcp, kubernetes]
-categories:
+tags: [gcp, kubernetes, cli]
+categories: DevOps
 ---
 
 ## Overview
 
-간단한 명령어 한 줄을 치기 위해 web 으로 접근해서 cloud shell 을 열기보다 로컬에서 바로 입력 후 확인하는 것이 훨씬 하겠죠. 이번 글에서는 Google cloud [[Kubernetes]] 를 local 에서 CLI 를 통해 관리하기 위한 방법을 공유합니다.
+간단한 명령어 한 줄을 치기 위해 web 으로 접근해서 cloud shell 을 실행하는 것은 어디서나 실행할 수 있다는 점에서 편리한 방법이지만 시간이 오래 걸린다는 단점이 있습니다. 이번 글에서는 Google cloud [[Kubernetes]] 를 local 에서 CLI 를 통해 빠르게 관리하기 위한 방법을 공유합니다.
 
 ## Contents
 
@@ -48,8 +48,9 @@ kubeconfig entry generated for sv-dev-cluster.
 
 ```bash
 gcloud components install gke-gcloud-auth-plugin
+```
 
-
+```console
 Your current Google Cloud CLI version is: 408.0.1
 Installing components from version: 408.0.1
 
@@ -92,7 +93,7 @@ cluster 와 연결된 것을 확인할 수 있습니다. 연결이 성공하면 
 
 ![[스크린샷 2022-11-24 오후 1.38.01.png]]
 
-이후 local terminal 에서 `kubectl` 을 실행하게 되면 GCP kubernetes engine 에서 실행 중인 정보를 확인할 수 있게 됩니다.
+이후 local terminal 에서 `kubectl` 을 실행하게 되면 GCP kubernetes engine 의 리소스를 확인할 수 있게 됩니다.
 
 ```bash
 kubectl get deployments
