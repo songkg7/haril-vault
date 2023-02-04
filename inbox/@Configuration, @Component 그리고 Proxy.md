@@ -10,6 +10,14 @@ categories:
 
 많은 게시글에서 `@Configuration` 과 `@Component` 를 비교하는 내용을 확인할 수 있습니다. 이번 글에서는 각각의 어노테이션에 대해 간단한 설명부터 시작하여 좀 더 자세히 들여다 봅니다.
 
+@Configuration and @Component are both annotations used in Spring framework, but they serve different purposes.
+
+@Configuration: This annotation is used to indicate that a class defines a configuration for the application. Classes annotated with @Configuration are used to define beans and their dependencies using Java code, rather than using XML configuration files. The configuration is done using methods annotated with @Bean, which define the bean and its properties.
+
+@Component: This annotation is used to indicate that a class is a component. Components are simple Java classes that can be automatically detected and registered as beans by the Spring framework using component scanning. These classes can be used to define services, controllers, or other kinds of components that are part of the application.
+
+In summary, @Configuration is used for defining beans and their dependencies in Java code, while @Component is used to indicate that a class is a component that can be automatically detected and registered as a bean.
+
 ## Contents
 
 - Spring bean
@@ -40,6 +48,8 @@ public @interface Configuration
 Bean 은 ComponentScan 이라고 하는 과정을 통해 `@Component` 어노테이션이 정의된 모든 클래스가 등록된다.
 
 ### @Configuration
+
+> CGLIB is a Java library that provides code generation capabilities for creating dynamic proxies, used to implement aspects such as AOP (Aspect-Oriented Programming) and to extend classes at runtime. It is used as a supplement to the standard Java reflection API and works by generating bytecode for a subclass of a target class, allowing the subclass to override or extend the methods of the target class.
 
 `@Configuration` 을 통해 객체를 Bean 으로 등록하고 singleton 으로 관리할 수 있다.
 
@@ -161,7 +171,12 @@ CGLIB 라는 키워드를 확인할 수 있다. 내부적으로 `AbstractAopProx
 
 ### @Component
 
-[[@Component]] 를 통해서 Bean 을 등록하면 Lite mode 가 된다. Lite mode 가 되면 `@Configuration` 을 사용하는 것보다는 빠르지만 많은 차이는 없다. 중요한 것은 객체의 생명 주기이다. `@Component` 를 통해 Bean 을 등록한 경우, 해당 클래스 안에서 등록된 Bean 을 호출하면 실제 메서드를 호출한 것처럼 **객체가 새로 생성**된다. 그러나 **`@Configuration` 에서는 항상 같은 객체가 반환**된다.
+[[@Component]] 를 통해서 Bean 을 등록하면 Lite mode 가 된다. Lite mode 가 되면 바이트 코드를 조작하지 않으므로 `@Configuration` 을 사용하는 것보다는 빠르지만 많은 차이는 없다.
+
+> [!NOTE] Lite mode란?
+> CGLIB 를 통해 바이트 코드를 조작하지 않는 상태를 말한다. `@Configuration` 어노테이션이 잇다면 CGLIB 를 통해 메서드 호출이 1회로 제한되도록 바이트코드가 조작된다.
+
+중요한 것은 객체의 생명 주기이다. `@Component` 를 통해 Bean 을 등록한 경우, 해당 클래스 안에서 등록된 Bean 을 호출하면 실제 메서드를 호출한 것처럼 **객체가 새로 생성**된다. 그러나 **`@Configuration` 에서는 항상 같은 객체가 반환**된다.
 
 #### @Component 를 통한 Bean 등록
 
@@ -175,7 +190,6 @@ public class SecurityComponent {
     }
 
     // Lite mode 로 인해 객체가 다시 한 번 생성되므로 결과적으로 서로 다른 PasswordEncoder 가 생성된다.
-	// but, @Configuration 이라면 이미 생성된 Bean 객체가 반환된다.
     @Bean
     public PasswordEncoder anyPasswordEncoder() {
         return passwordEncoder();
@@ -232,8 +246,10 @@ public class SecurityComponent {
 
 ## Conclusion
 
+- Lite mode: CGLIB 를 통해 바이트 코드를 조작하지 않음을 의미
+
 ### 공통
- 
+
 - ComponentScan 을 통해 자기 자신을 Bean 으로 등록
 - `@Bean` 어노테이션을 사용하여 다른 객체들을 Bean 으로 등록할 수 있음
 	- ReadOnly 인 외부 라이브러리 클래스들도 Bean 으로 등록시킬 수 있음
@@ -248,7 +264,9 @@ public class SecurityComponent {
 
 ### @Configuration
 
+- CGLIB 를 통해 메서드 호출이 모두 1회만 일어나도록 바이트 코드가 수정된다.
 - 싱글톤으로 객체들의 생명주기를 관리
+- proxyBeanMethod 옵션을 false 로 하면 Component 와 마찬가지로 Lite mode 로 동작한다.
 
 Lite mode 의 장점은 신경써야 하는 점들에 비해서 미미하므로 `@Bean` 어노테이션을 통한 Bean 객체 생성은 `@Configuration` 에서만 하는 것을 권장한다.
 
