@@ -6,6 +6,35 @@ tags: [java, annotation, bean, proxy, spring, cglib, jdkdynamicproxy]
 categories: 
 ---
 
+너무 방대한 주제를 한 번에 다루려다 보니 글의 중심을 잡기 어려워서 다음 두개의 글로 분리
+
+java practice 다음 module 추가
+
+- proxy-example
+- spring-bean-example
+
+1. JDK Dynamic proxy 와 CGLIB
+	- JDK Dynamic proxy
+		- interface 의 필요성과 Reflection
+		- Proxy 객체
+	- CGLIB proxy
+		- 바이트코드를 직접 조작하는 Code Generator library
+		- class 상속을 사용하는 `Enhancer`
+		- 한계점
+2. Springboot 에서의 Bean 등록 방법
+	- Component Scanning
+	- `@Bean` 만 사용하여 등록해보기
+		- 테스트
+	- `@Component`
+		- Lite mode
+		- 테스트
+			- CGLIB proxy 동작 검증
+	- `@Configuration`
+		- `proxyMethod` option
+		- 테스트
+
+2번 글에서 1번 글을 link
+
 ## Overview
 
 많은 게시글에서 `@Configuration` 과 `@Component` 를 비교하는 내용을 확인할 수 있습니다. 이번 글에서는 각각의 어노테이션에 대해 간단한 설명부터 시작하여 좀 더 자세히 들여다 봅니다.
@@ -19,11 +48,6 @@ categories:
 In summary, @Configuration is used for defining beans and their dependencies in Java code, while @Component is used to indicate that a class is a component that can be automatically detected and registered as a bean.
 
 ## Contents
-
-- Spring bean
-- Configuration
-- Component
-- Concolusion
 
 ### Spring 에서의 Bean
 
@@ -51,7 +75,7 @@ Bean 은 ComponentScan 이라고 하는 과정을 통해 `@Component` 어노테�
 
 > CGLIB is a Java library that provides code generation capabilities for creating dynamic proxies, used to implement aspects such as AOP (Aspect-Oriented Programming) and to extend classes at runtime. It is used as a supplement to the standard Java reflection API and works by generating bytecode for a subclass of a target class, allowing the subclass to override or extend the methods of the target class.
 
-`@Configuration` 을 통해 객체를 Bean 으로 등록하고 singleton 으로 관리할 수 있다.
+`@Configuration` 이 선언된 객체에서 생성되는 Bean 은 CGLIB 에 의해 메서드가 단 1회만 호출되도록 조작된다. 즉, 싱글톤 객체임이 보장된다.
 
 ```java
 @Configuration
@@ -93,7 +117,7 @@ class BeanTest {
 ```
 
 > [!NOTE] AnnotationConfigApplicationContext
->  `AnnotationConfigApplicationContext` 를 사용하면 지정된 클래스는 별도의 annotation 이 없어도 Bean 으로 등록되지만, 실제 SpringApplication.run() 을 호출했을 때는 ComponentScan 을 통해 `@Component` 어노테이션이 붙은 클래스가 Bean 으로 등록된다.
+>  `AnnotationConfigApplicationContext` 를 사용하면 지정된 클래스는 별도의 annotation 이 없어도 Bean 으로 등록되지만, 실제 SpringApplication.run() 을 호출했을 때는 ComponentScan 을 통해 `@Component` 를 명시한 클래스가 Bean 으로 등록된다.
 
 ```console
 passwordEncoder.getClass(): class basic.configurationvscomponent.PasswordEncoder 
@@ -171,12 +195,12 @@ CGLIB 라는 키워드를 확인할 수 있다. 내부적으로 `AbstractAopProx
 
 ### @Component
 
-[[@Component]] 를 통해서 Bean 을 등록하면 Lite mode 가 된다. Lite mode 가 되면 바이트 코드를 조작하지 않으므로 `@Configuration` 을 사용하는 것보다는 빠르지만 많은 차이는 없다.
+[[@Component]] 를 통해서 Bean 을 등록하면 Lite mode 가 된다. Lite mode 가 되면 바이트 코드를 조작하지 않으므로 `@Configuration` 을 사용하는 것보다는 빠르지만 큰 차이는 없다.
 
 > [!NOTE] Lite mode란?
 > CGLIB 를 통해 바이트 코드를 조작하지 않는 상태를 말한다. `@Configuration` 어노테이션이 잇다면 CGLIB 를 통해 메서드 호출이 1회로 제한되도록 바이트코드가 조작된다.
 
-중요한 것은 객체의 생명 주기이다. `@Component` 를 통해 Bean 을 등록한 경우, 해당 클래스 안에서 등록된 Bean 을 호출하면 실제 메서드를 호출한 것처럼 **객체가 새로 생성**된다. 그러나 **`@Configuration` 에서는 항상 같은 객체가 반환**된다.
+중요한 것은 객체의 생명 주기이다. `@Component` 를 통해 Bean 을 등록한 경우 CGLIB 에 바이트 코드가 조작되지 않으므로, 해당 클래스 안에서 등록된 Bean 을 호출하면 실제 메서드를 호출한 것처럼 **객체가 새로 생성**된다. 즉, 싱글톤 객체임을 보장할 수 없다.
 
 #### @Component 를 통한 Bean 등록
 
