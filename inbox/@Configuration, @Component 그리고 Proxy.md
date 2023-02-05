@@ -6,7 +6,7 @@ tags: [java, annotation, bean, proxy, spring, cglib, jdkdynamicproxy]
 categories: 
 ---
 
-너무 방대한 주제를 한 번에 다루려다 보니 글의 중심을 잡기 어려워서 다음 두개의 글로 분리
+너무 방대한 주제를 한 번에 다루려다 보니 글의 중심을 잡기 어려워서 다음 세 개의 글로 분리
 
 java practice 다음 module 추가
 
@@ -32,6 +32,9 @@ java practice 다음 module 추가
 	- `@Configuration`
 		- `proxyMethod` option
 		- 테스트
+  3. Spring AOP
+	  - proxy 기반의 AOP
+	  - 어떤 proxy 가 사용될까?
 
 2번 글에서 1번 글을 link
 
