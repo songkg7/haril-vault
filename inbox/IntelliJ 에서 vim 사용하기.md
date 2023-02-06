@@ -3,7 +3,7 @@ title: "IntelliJ 에서 vim 사용하기"
 date: 2022-08-23 22:00:00 +0900
 fc-calendar: Gregorian Calendar
 fc-date: 2022-08-23
-aliases: 
+aliases: IdeaVim
 tags: [vim, ideavim, intellij]
 categories: Vim
 ---
@@ -47,7 +47,12 @@ map Q gq
   
 "" Map \b to toggle the breakpoint on the current line  
 "map \b <Action>(ToggleLineBreakpoint)  
-  
+
+map <Tab>to <C-w>o<CR>:tabonly<CR>
+
+"" switch buffered window
+map <C-[> :bprevious<CR>
+map <C-]> :bnext<CR> 
   
 " Find more examples here: https://jb.gg/share-ideavimrc
 ```
