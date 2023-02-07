@@ -50,9 +50,9 @@ map Q gq
 
 map <Tab>to <C-w>o<CR>:tabonly<CR>
 
-"" switch buffered window
-map <C-[> :bprevious<CR>
-map <C-]> :bnext<CR> 
+"" switch tab
+nmap <C-[> gT
+nmap <C-]> gt
   
 " Find more examples here: https://jb.gg/share-ideavimrc
 ```
