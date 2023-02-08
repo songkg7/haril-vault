@@ -69,6 +69,8 @@ void returning_the_same_value() {
 
 ### Method Interceptor
 
+첫 번째 방법은 항상 프록시 객체가 실행되기 때문에 경우에 따라 super class 를 호출하고 싶은 경우 처리가 힘들다는 단점이 있다. 이럴 때 `MethodInterceptor` 를 사용하면 프록시 호출을 가로채고 부모 클래스의 메서드를 호출할지 혹은 직접 구현한 부분이 실행되게할지를 결정할 수 있다.
+
 ```java
 @Test
 void returning_value_depending_on_method_signature() {
@@ -163,3 +165,4 @@ void mixin() {
 ## Reference
 
 - [Stackoverflow](https://stackoverflow.com/questions/66974846/java-lang-exceptionininitializererror-with-java-16-j-l-classformaterror-access)
+- [Baeldung](https://www.baeldung.com/cglib)

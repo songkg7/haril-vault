@@ -25,3 +25,4 @@ swap memory 는 저장장치의 자원을 빌려와서 RAM 처럼 사용하는 �
 ## Reference
 
 https://shanepark.tistory.com/378
+- [EC2 에 swap memory 설정하기](https://aws.amazon.com/ko/premiumsupport/knowledge-center/ec2-memory-swap-file/)
