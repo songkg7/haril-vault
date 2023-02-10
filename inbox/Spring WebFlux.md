@@ -43,3 +43,4 @@ Webflux 가 탄생한 이유 중 하나는 적은 쓰레드로 동시 처리를 
 ## Reference
 
 - [webflux 간단한 사용법](https://www.devkuma.com/docs/spring-webflux/)
+- https://pearlluck.tistory.com/712
