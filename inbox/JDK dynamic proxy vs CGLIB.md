@@ -2,7 +2,7 @@
 title: "JDK dynamic proxy vs CGLIB"
 date: 2023-02-05 15:56:00 +0900
 aliases: 
-tags: [proxy, cglib, jdk-dynamic-proxy]
+tags: [java, proxy, cglib, jdk-dynamic-proxy]
 categories: 
 ---
 
@@ -94,7 +94,11 @@ void returning_value_depending_on_method_signature() {
 }
 ```
 
+이 예제에서는, `Object` class 가 아닌 모든 method 호출을 가로챈다. 즉, `toString()` 또는 `hashCode()` 는 가로채지 않는다. 그 외에도, 오직 `PersonService` 에서 `String` 을 반환하는 메서드만 가로챈다. `lengthOfName()` 메서드는 `Integer` 를 반환하기 때문에 가로채지 않고 부모 클래스의 메서드가 호출된다.
+
 ### Bean Generator
+
+CGLIB 의 또다른 유용한 생성 방법으로는 `BeanGenerator` class 가 있다. `BeanGenerator` 는 setter getter 를 가진 필드를 포함한 동적 빈 생성이 가능하다. 이 방법은 간단한 POJO 객체를 생성하기 위한 code generation tools 들에서 많이 사용되고 있다.
 
 ```java
 @Test
@@ -113,6 +117,8 @@ void beanCreator() throws NoSuchMethodException, InvocationTargetException, Ille
 ```
 
 ### Mixin
+
+Mixin 은 다양한 객체들을 하나로 합치는 방식의 생성 방법이다. 서로 다른 동작을 하는 여러 클래스들을 단일 클래스 혹은 인터페이스로 사용할 수 있다. 그러나 반드시 인터페이스를 구현한 클래스여야 mixin 으로 사용할 수 있다.
 
 ```java
 public interface Interface1 {
@@ -144,6 +150,8 @@ public interface MixinInterface extends Interface1, Interface2 {
 }
  ```
 
+`Mixin.create()` 를 사용하여 서로 다른 동작을 하는 두 개의 클래스를 `MixinInterface` 로 사용할 수 있다.
+
 ```java
 @Test
 void mixin() {
@@ -157,6 +165,8 @@ void mixin() {
 	assertThat(mixinDelegate.second()).isEqualTo("second behavior");
 }
  ```
+
+`mixinDelegate` 를 호출하면 `Class1` 과 `Class2` 에서의 코드 구현이 호출된다.
 
 ### 한계
 
