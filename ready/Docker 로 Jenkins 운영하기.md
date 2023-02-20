@@ -2,7 +2,7 @@
 title: "Docker 로 Jenkins 운영하기"
 date: 2022-11-17 00:47:00 +0900
 aliases: 
-tags: [ci, cd, devops]
+tags: [ci, cd, devops, jenkins]
 categories: DevOps
 ---
 
@@ -52,7 +52,7 @@ node 는 Jenkins 의 역할을 효율적으로 분배할 수 있는 방법이다
 
 node 와 통신하기 위해 master 에 `ssh-keygen` 으로 키를 생성한다. 이미 생성해서 쓰고 있는게 있다면 재사용해도 무방하다.
 
-![[스크린샷 2022-11-17 오전 12.52.08.png]]
+![[jenkins-credentials-provider.png]]
 
 - `ID`: ssh 키를 jenkins 내에서 식별할 수 있게 해주는 값이다. 설정해두면 jenkinsfile 등에서 credential 사용이 어느 정도 편해지므로 가급적 유의미한 값으로 설정하는 것이 좋다. 설정하지 않는다면 UUID 값이 생성된다.
 - `Username`: linux 의 유저. 보통 jenkins 를 유저로 사용하므로 jenkins 를 입력해주면 된다. **입력하지 않을시 reject key error 를 볼 수 있으니 주의**한다.
@@ -96,9 +96,7 @@ docker update --restart=always jenkins-docker
 
 ## 주의사항
 
-아래의 내용은 다시 한 번 체크할 필요 있음. 도커 이미지 안의 젠킨스 버전도 시간이 지나면 유저가 업데이트할 수 있으므로 초기 이미지의 버전과는 관련이 없어야 하는데 왜 그 당시에는 업데이트가 되지 않았는지 불분명함.
-
-플러그인 업데이트의 경우 현재 운영중인 jenkins 의 버전과 호환되는지 신중하게 살펴본 후 업데이트해야 한다. 플러그인의 가장 최신 버전이 호환하는 버전보다 docker 로 운영되는 jenkins 의 버전이 낮을 수가 있는데, 이때 업데이트를 진행하면 Jenkins 가 플러그인과 호환되지 않는 문제가 발생할 수 있다. local 설치 버전으로 jenkins 를 설치했다면 jenkins 를 업데이트하면 그만이겠지만, docker image 의 jenkins 버전이 항상 latest 를 유지하는 것은 아니므로 업데이트하고 싶어도 못하게 되는 아찔한 상황이 연출될 수 있다.
+플러그인 업데이트의 경우 현재 운영중인 jenkins 의 버전과 호환되는지 신중하게 살펴본 후 업데이트해야 한다. Jenkins 의 버전과 플러그인의 버전이 맞지 않아서 pipeline 이 실패하는 일이 종종 생길 수 있다.
 
 ## Reference
 

@@ -12,7 +12,7 @@ categories:
 
 ## 문제인식
 
-jeykell 블로그를 사용하여 포스팅을 하고 있기 때문에 obsidian 의 markdown 문법과 일부 호환되지 않는 현상이 있다. 때문에 obsidian 에서 글을 작성한 이후 jeykell 문법으로 일일히 수작업으로 수정해줘야하는 워크플로우가 존재했다. 대표적으로는 아래와 같다.
+jeykell 블로그를 사용하여 포스팅을 하고 있기 때문에 [[Obsidian 사용 후기|Obsidian]] 의 markdown 문법과 일부 호환되지 않는 현상이 있다. 때문에 obsidian 에서 글을 작성한 이후 jeykell 문법으로 일일히 수작업으로 수정해줘야하는 워크플로우가 존재했다. 대표적으로는 아래와 같다.
 
 - [[]] 을 사용한 post 간 링크는 obsidian 고유 문법
 - img 파일의 경로를 하나하나 재지정해줘야 한다
