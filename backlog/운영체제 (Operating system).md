@@ -2,8 +2,6 @@
 title: "운영체제 (Operating system)"
 date: 2022-08-16 10:36:00 +0900
 publish: false
-fc-calendar: Gregorian Calendar
-fc-date: 2022-08-16
 aliases: OS
 tags: [os]
 categories: Computer science
