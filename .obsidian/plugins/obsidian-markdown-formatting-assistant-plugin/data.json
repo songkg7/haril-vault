@@ -31,7 +31,7 @@
     {
       "name": "latex",
       "active": true,
-      "visible": true
+      "visible": false
     },
     {
       "name": "greekLetters",
