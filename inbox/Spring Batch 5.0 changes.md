@@ -16,7 +16,7 @@ categories: Spring
 
 ### `@EnableBatchProcessing` 은 더 이상 권장되지 않음
 
-이전에는 `@EnableBatchProcessing` 어노테이션을 통해서 스프링 배치의 스프링 부트 자동설정을 활성화할 수 있었습니다. 하지만 이제는 스프링 부트의 자동설정을 사용하기 위해서는 삭제해야 합니다. `@EnableBatchProcessing` 명시하는 방법 또는 `DefaultBatchConfiguration` 을 상속하여 활성화되는 빈은 이제 스프링 부트의 자동설정을 초기화시키고, 애플리케이션의 설정을 커스텀하는 용도로 사용됩니다.
+이전에는 `@EnableBatchProcessing` 어노테이션을 통해서 스프링 배치의 스프링 부트 자동설정을 활성화할 수 있었습니다. 하지만 이제는 스프링 부트의 자동설정을 사용하기 위해서는 삭제해야 합니다. `@EnableBatchProcessing` 명시하는 방법 또는 `DefaultBatchConfiguration` 을 상속하여 활성화되는 빈은 이제 스프링 부트의 자동설정을 밀어내고(back-off), 애플리케이션의 설정을 커스텀하는 용도로 사용됩니다.
 
 따라서 `@EnableBatchProcessing` 이나 `DefaultBatchConfigration` 을 사용하면 `spring.batch.jdbc.initialize-schema` 등의 스프링 부트 설정이 동작하지 않습니다. 또한 부트를 실행시킬 때 Job 이 자동으로 실행되지 않으므로 Runner 의 구현이 필요합니다.
 
@@ -41,6 +41,26 @@ JobParameters jobParameters = jobLauncherTestUtils.getUniqueJobParametersBuilder
 해당 issue 가 해결된 모습
 
 2023-02-23 에 릴리즈되며 해결됨
+
+## initializeSchema
+
+```yaml
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres?currentSchema=mySchema
+    username: postgres
+    password: 1234
+    driver-class-name: org.postgresql.Driver
+  batch:
+    jdbc:
+      initialize-schema: always
+      table-prefix: mySchema.BATCH_
+  sql:
+    init:
+      mode: always
+```
+
+currentSchema 옵션을 지정해줘야 정확하게 동작한다.
 
 ## Reference
 

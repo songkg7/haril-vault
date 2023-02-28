@@ -8,6 +8,8 @@ tags: [vim, intellij, ideavim]
 categories: 
 ---
 
+[[IntelliJ 에서 vim 사용하기|IdeaVim]]
+
 아래에서 적당한 기능을 찾아서 mapping 해주면 [[Vim]] 단축키로 활용할 수 있다.
 
 다음 명령어로 해당하는 기능을 실행시킬 수 있다.
