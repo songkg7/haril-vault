@@ -237,6 +237,12 @@ Java 나 Kotlin 만 사용하다가 TypeScript 를 사용하려니 익숙하지 
 - 변환 과정에서 에러 발생시 롤백을 위한 트랜잭션 구현
 - 다른 모듈 추가를 위한 추상화 처리
 
+---
+
+## Release
+
+약 6일간의 Code review 를 거쳐서 PR 이 merge 되었습니다. 이제 Obsidian Community plugin 에서 사용할 수 있게 되었습니다. 🎉
+
 ## Reference
 
 - [Obsidian plugins](https://marcus.se.net/obsidian-plugin-docs/getting-started/create-your-first-plugin)
