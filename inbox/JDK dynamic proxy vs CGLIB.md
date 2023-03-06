@@ -16,7 +16,7 @@ categories:
 
 ## prerequisite
 
-- Java 11
+- [[Java]] 11
 
 Java 16+ 에서 실행할 경우
 
