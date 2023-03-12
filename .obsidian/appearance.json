@@ -2,5 +2,6 @@
   "cssTheme": "Things",
   "theme": "system",
   "translucency": false,
-  "accentColor": ""
+  "accentColor": "",
+  "baseFontSize": 17
 }
