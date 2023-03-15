@@ -35,7 +35,7 @@ jenkins 유저를 추가하고 `/home/jenkins` 경로가 홈으로 설정되었�
 permission denied (publickey) 가 발생할 경우, `.ssh` directory 의 실행권한을 확인해본다. directory 가 너무 많은 실행권한을 가지고 있으면 정상동작하지 않을 수 있다.
 
 ```bash
-chmod 600 /home/jenkins/authorized_key
+chmod 600 /home/jenkins/.ssh/authorized_key
 chmod 700 /home/jenkins/.ssh
 ```
 
