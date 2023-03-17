@@ -1,13 +1,12 @@
 ---
 title: "MethodInvokingTaskletAdapter"
 date: 2022-08-17 10:20:00 +0900
-publish: false
-fc-calendar: Gregorian Calendar
-fc-date: 2022-08-17
 aliases: 
 tags: [batch, step, tasklet]
 categories: Spring
 ---
+
+[[Spring Batch]]
 
 `MethodInvokingTaskletAdapter` 를 사용하면 기존의 다른 클래스의 메서드를 Step 내의 [[Tasklet]]으로 사용 가능하다.
 
