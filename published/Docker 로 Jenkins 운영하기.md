@@ -2,7 +2,7 @@
 title: "Docker 로 Jenkins 운영하기"
 date: 2022-11-17 00:47:00 +0900
 aliases: 
-tags: [ci, cd, devops, jenkins]
+tags: [ci, cd, devops, jenkins, docker]
 categories: DevOps
 ---
 
@@ -59,30 +59,7 @@ node 와 통신하기 위해 master 에 `ssh-keygen` 으로 키를 생성한다.
 
 #### Docker 접근 권한
 
-docker group 이 없을 경우 생성한다. 보통은 docker 를 설치하면 자동으로 생성된다.
-
-```bash
-sudo groupadd docker
-```
-
-다음 명령어를 통해 jenkins user 에게 docker 를 실행할 수 있는 권한을 부여한다.
-
-```bash
-sudo gpasswd -a jenkins docker
-# Adding user jenkins to group docker
-```
-
-```bash
-sudo chmod 666 /var/run/docker.sock
-```
-
-docker daemon 을 재시작하여 변경된 설정을 적용시키자.
-
-```bash
-systemctl restart docker
-```
-
-이후로 `docker ps` 명령이 실행되는 것을 확인할 수 있다.
+![[Linux 유저에 Docker 실행 권한 부여하기]]
 
 ### Restart
 
