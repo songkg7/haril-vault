@@ -1,7 +1,7 @@
 {
   "cssTheme": "Things",
-  "theme": "system",
-  "translucency": false,
+  "theme": "obsidian",
+  "translucency": true,
   "accentColor": "",
   "baseFontSize": 17
 }
