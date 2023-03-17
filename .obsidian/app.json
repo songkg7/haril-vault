@@ -19,5 +19,6 @@
   "livePreview": true,
   "strictLineBreaks": false,
   "showFrontmatter": false,
-  "spellcheck": false
+  "spellcheck": false,
+  "useTab": false
 }
