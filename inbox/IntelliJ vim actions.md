@@ -1,8 +1,6 @@
 ---
 title: "IntelliJ vim actions"
 date: 2022-08-26 10:25:00 +0900
-fc-calendar: Gregorian Calendar
-fc-date: 2022-08-26
 aliases: 
 tags: [vim, intellij, ideavim]
 categories: 
