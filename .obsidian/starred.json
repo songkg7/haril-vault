@@ -1,3 +1,9 @@
 {
-  "items": []
+  "items": [
+    {
+      "type": "file",
+      "title": "삶의 지도",
+      "path": "published/삶의 지도.md"
+    }
+  ]
 }
