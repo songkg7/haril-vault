@@ -12,45 +12,15 @@ categories:
 
 chezmoi 의 명령어 사용법은 `chezmoi help` 및 공식문서에서 확인할 수 있으니, 이 글에서는 chezmoi 를 좀 더 편리하게 사용하기 위한 응용을 설명해봅니다.
 
-### brew list 관리
-
-회사에서 업무 중 좋은 툴을 찾았다면, 잊지말고 개인 환경에서도 설치해줘야하죠. chezmoi 로 툴들의 목록을 관리해봅니다.
-
 ### Settings
 
 chezmoi 는 `~/.config/chezmoi/chezmoi.toml` 파일을 설정으로 사용합니다. 만약 툴 관련 설정이 필요하다면 이 파일을 사용하여 정의해주면 되고, `toml` 뿐만 아니라 `yaml`, `json`까지 지원하니 익숙한 포맷으로 작성해주면 됩니다. 공식 문서에는 `toml` 로 가이드하기 때문에 저도 `toml` 을 기본으로 설명합니다.
 
-### forget
+merge tool 및 기본 에디터 설정
 
-> 더 이상 관리하지 않고 싶지 않을 때
+템플릿을 활용한 gitconfig 관리
 
-remove 를 사용하면 chezmoi 에서는 물론 연결된 로컬파일까지 삭제합니다.
-
-### edit-config
-
-> chezmoi.toml 을 작성하거나 수정할 때
-
-### cd
-
-> working directory 로 이동
-
-## Secuirty
-
-gpg key 를 사용하여 민감한 내용은 encrypt 하여 repository 에 올릴 수 있다. 물론 repository 자체를 private 으로 해도 되지만 이 기능을 활용하면 repository 를 public 으로도 사용할 수 있다.
-
-## Tip
-
-만약 저처럼 인텔 맥과 M1 맥을 같이 사용하고 있다면 `brew` 의 설치경로가 달라서 동작하지 않는 설정파일들이 생길 수 있습니다. 때문에 shell script 및 환경변수를 적극적으로 활용해줘야 합니다.
-
-예를 들면 프로세서에 의한 `brew` 경로 차이는 아래처럼 보정할 수 있습니다.
-
-```bash
-# M1: source /opt/homebrew/~
-# Intel: /usr/local/~
-source $(brew --prfix)/share/
-```
-
-Template 을 활용하면 더 디테일한 작업이 가능하지만, 내용이 너무 길어지므로 생략. 자세한 내용은 공식 문서를 참조해주시길 바란다.
+회사와 개인 환경의 변수를 어떻게 관리할 수 있을까? 예를 들면 gitconfig 의 email
 
 활용한 예시
 
@@ -64,7 +34,7 @@ eval "$(/usr/local/bin/brew shellenv)"
 {{ end -}}
 ```
 
-### auto commit and push
+#### auto commit and push
 
 update 는 자동으로 되지만 설정의 변경이 자동으로 push 되진 않는다. 아래 설정을 적용하면 자동으로 push 할 수 있다.
 
@@ -77,6 +47,20 @@ update 는 자동으로 되지만 설정의 변경이 자동으로 push 되진 �
 
 다만 보안에 민감한 파일이 실수로 push 될 수 있으므로 주의.
 
-### brew bundle
+### brew list 관리
 
-Mac 을 가정할 때 가장 자주 쓰게 되는 패키지 매니저가 바로 brew 이다. brew 로 뭔가 중요한걸 설치한다면 다른 기기에서도 동일하게 설치될 수 있도록 자동화된 스크립트를 만들어줄 수 있다.
+회사에서 업무 중 좋은 툴을 찾았다면, 잊지말고 개인 환경에서도 설치해줘야하죠. chezmoi 로 툴들의 목록을 관리해봅니다.
+
+#### Templating
+
+## Tip
+
+만약 저처럼 인텔 맥과 M1 맥을 같이 사용하고 있다면 `brew` 의 설치경로가 달라서 동작하지 않는 설정파일들이 생길 수 있습니다. 때문에 shell script 및 환경변수를 적극적으로 활용해줘야 합니다.
+
+예를 들면 프로세서에 의한 `brew` 경로 차이는 아래처럼 보정할 수 있습니다.
+
+```bash
+# M1: source /opt/homebrew/~
+# Intel: /usr/local/~
+source $(brew --prfix)/share/
+```
