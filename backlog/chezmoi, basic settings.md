@@ -8,6 +8,14 @@ categories:
 
 ![[chezmoi, awesome dotfile manager|chezmoi]]
 
+## 어떻게 사용해야 할까
+
+chezmoi 의 명령어 사용법은 `chezmoi help` 및 공식문서에서 확인할 수 있으니, 이 글에서는 chezmoi 를 좀 더 편리하게 사용하기 위한 응용을 설명해봅니다.
+
+### brew list 관리
+
+회사에서 업무 중 좋은 툴을 찾았다면, 잊지말고 개인 환경에서도 설치해줘야하죠. chezmoi 로 툴들의 목록을 관리해봅니다.
+
 ### Settings
 
 chezmoi 는 `~/.config/chezmoi/chezmoi.toml` 파일을 설정으로 사용합니다. 만약 툴 관련 설정이 필요하다면 이 파일을 사용하여 정의해주면 되고, `toml` 뿐만 아니라 `yaml`, `json`까지 지원하니 익숙한 포맷으로 작성해주면 됩니다. 공식 문서에는 `toml` 로 가이드하기 때문에 저도 `toml` 을 기본으로 설명합니다.
