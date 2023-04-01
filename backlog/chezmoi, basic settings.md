@@ -6,32 +6,11 @@ tags: [chezmoi]
 categories: 
 ---
 
+![[chezmoi, awesome dotfile manager|chezmoi]]
+
 ### Settings
 
-chezmoi 는 `~/.local/share/chezmoi` 를 working directory 로 사용하며 이 디렉토리에 있는 파일은 chezmoi 가 관리합니다. 사용자는 명령어를 통해 이 디렉토리를 직접 제어함으로써 chezmoi 가 어떤 파일을 관리해야할지 알려주게 됩니다.
-
 chezmoi 는 `~/.config/chezmoi/chezmoi.toml` 파일을 설정으로 사용합니다. 만약 툴 관련 설정이 필요하다면 이 파일을 사용하여 정의해주면 되고, `toml` 뿐만 아니라 `yaml`, `json`까지 지원하니 익숙한 포맷으로 작성해주면 됩니다. 공식 문서에는 `toml` 로 가이드하기 때문에 저도 `toml` 을 기본으로 설명합니다.
-
-### add
-
-> 설정파일을 chezmoi 에 등록할 때
-
-관리하려는 파일을 chezmoi 에 추가해준다.
-
-```bash
-chezmoi add ~/.zshrc
-```
-
-그럼 chezmoi 가 local 에 특정한 디렉토리를 생성하고 변경사항을 감지하게 된다.
-
-> [!WARNING] `chezmoi.toml` 은 add 할 수 없다.
-> 아무래도 메인 툴의 설정인만큼 재귀를 막기 위해서인지 모르겠지만 protected 되어 있다는 에러가 출력된다.
-
-편집 방법은 아래와 같습니다.
-
-```bash
-chezmoi edit ~/.zshrc
-```
 
 ### forget
 
@@ -41,7 +20,7 @@ remove 를 사용하면 chezmoi 에서는 물론 연결된 로컬파일까지 �
 
 ### edit-config
 
-> chezmoi 자체 설정을 작성하거나 수정할 때
+> chezmoi.toml 을 작성하거나 수정할 때
 
 ### cd
 
@@ -64,6 +43,18 @@ source $(brew --prfix)/share/
 ```
 
 Template 을 활용하면 더 디테일한 작업이 가능하지만, 내용이 너무 길어지므로 생략. 자세한 내용은 공식 문서를 참조해주시길 바란다.
+
+활용한 예시
+
+```dot_zprofiles.tmpl
+{{ if stat "/opt/homebrew/bin/brew" -}}
+fpath+=("$(/opt/homebrew/bin/brew --prefix)/share/zsh/site-functions")
+eval "$(/opt/homebrew/bin/brew shellenv)"
+{{ else if stat "/usr/local/bin/brew" -}}
+fpath+=("$(/usr/local/bin/brew --prefix)/share/zsh/site-functions")
+eval "$(/usr/local/bin/brew shellenv)"
+{{ end -}}
+```
 
 ### auto commit and push
 
