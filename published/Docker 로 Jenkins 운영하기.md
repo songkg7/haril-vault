@@ -12,6 +12,10 @@ categories: DevOps
 
 ## Contents
 
+먼저 Jenkins 를 설치할 서버에 jenkins 유저를 추가해준다. 해당 내용은 아래 글을 참조.
+
+![[Linux 유저에 Docker 실행 권한 부여하기#add user]]
+
 ### Install
 
 #### Docker

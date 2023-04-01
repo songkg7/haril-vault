@@ -6,6 +6,16 @@ tags: [linux, docker]
 categories: 
 ---
 
+## add user
+
+```bash
+adduser jenkins
+```
+
+jenkins 유저를 추가하고 `/home/jenkins` 경로가 홈으로 설정되었는지 확인한다.
+
+## 
+
 docker group 이 없을 경우 생성한다. 보통은 docker 를 설치하면 자동으로 생성된다.
 
 ```bash
