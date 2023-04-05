@@ -150,6 +150,62 @@
           "lastUpdated": 1680589476570
         }
       }
+    },
+    "PostgreSQL": {
+      "PostgreSQL": {
+        "internalLink": {
+          "count": 1,
+          "lastUpdated": 1680655632917
+        }
+      }
+    },
+    "architecture": {
+      "architecture": {
+        "currentVault": {
+          "count": 1,
+          "lastUpdated": 1680655691920
+        }
+      }
+    },
+    "Spring Data JPA": {
+      "Spring Data JPA": {
+        "internalLink": {
+          "count": 1,
+          "lastUpdated": 1680676350312
+        }
+      }
+    },
+    "Kotlin": {
+      "Kotlin": {
+        "internalLink": {
+          "count": 1,
+          "lastUpdated": 1680676354819
+        }
+      }
+    },
+    "MySQL": {
+      "MySQL": {
+        "internalLink": {
+          "count": 1,
+          "lastUpdated": 1680676363546
+        }
+      }
+    },
+    "Kotest": {
+      "Kotest": {
+        "internalLink": {
+          "count": 1,
+          "lastUpdated": 1680676376432
+        }
+      }
+    },
+    "Overview": {
+      "Overview": {
+        "currentVault": {
+          "count": 1,
+          "lastUpdated": 1680676394977
+        }
+      }
     }
   }
 }
