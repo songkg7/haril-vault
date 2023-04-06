@@ -36,7 +36,7 @@
   "includeCurrentVaultPathPrefixPatterns": "",
   "excludeCurrentVaultPathPrefixPatterns": "",
   "includeCurrentVaultOnlyFilesUnderCurrentDirectory": false,
-  "enableCustomDictionaryComplement": false,
+  "enableCustomDictionaryComplement": true,
   "customDictionaryPaths": "https://raw.githubusercontent.com/first20hours/google-10000-english/master/google-10000-english-no-swears.txt",
   "columnDelimiter": "Tab",
   "customDictionaryWordRegexPattern": "",
@@ -146,8 +146,8 @@
     "repository": {
       "repository": {
         "currentFile": {
-          "count": 1,
-          "lastUpdated": 1680589476570
+          "count": 2,
+          "lastUpdated": 1680755741137
         }
       }
     },
@@ -204,6 +204,126 @@
         "currentVault": {
           "count": 1,
           "lastUpdated": 1680676394977
+        }
+      }
+    },
+    "REVIEW": {
+      "REVIEW": {
+        "currentFile": {
+          "count": 2,
+          "lastUpdated": 1680752337143
+        }
+      }
+    },
+    "CUSTOMER": {
+      "CUSTOMER": {
+        "currentFile": {
+          "count": 2,
+          "lastUpdated": 1680767979401
+        }
+      }
+    },
+    "ORDER": {
+      "ORDER": {
+        "currentFile": {
+          "count": 2,
+          "lastUpdated": 1680748365890
+        }
+      }
+    },
+    "customer": {
+      "customer": {
+        "currentFile": {
+          "count": 1,
+          "lastUpdated": 1680747783078
+        }
+      }
+    },
+    "RESTAURANT": {
+      "RESTAURANT": {
+        "currentFile": {
+          "count": 4,
+          "lastUpdated": 1680751337753
+        }
+      }
+    },
+    "restaurant_id": {
+      "restaurant_id": {
+        "currentFile": {
+          "count": 1,
+          "lastUpdated": 1680751349280
+        }
+      }
+    },
+    "bigint": {
+      "bigint": {
+        "currentFile": {
+          "count": 1,
+          "lastUpdated": 1680751517092
+        }
+      }
+    },
+    "ORDER_MENU": {
+      "ORDER_MENU": {
+        "currentFile": {
+          "count": 2,
+          "lastUpdated": 1680751631153
+        }
+      }
+    },
+    "contains": {
+      "contains": {
+        "currentFile": {
+          "count": 1,
+          "lastUpdated": 1680751675280
+        }
+      }
+    },
+    "chezmoi, awesome dotfile manager": {
+      "chezmoi, awesome dotfile manager": {
+        "internalLink": {
+          "count": 1,
+          "lastUpdated": 1680754025574
+        }
+      }
+    },
+    "Menu": {
+      "Menu": {
+        "customDictionary": {
+          "count": 2,
+          "lastUpdated": 1680771001088
+        }
+      }
+    },
+    "obviously": {
+      "obviously": {
+        "customDictionary": {
+          "count": 1,
+          "lastUpdated": 1680767413480
+        }
+      }
+    },
+    "delivery": {
+      "delivery": {
+        "customDictionary": {
+          "count": 1,
+          "lastUpdated": 1680768298075
+        }
+      }
+    },
+    "Optional": {
+      "Optional": {
+        "customDictionary": {
+          "count": 2,
+          "lastUpdated": 1680769865928
+        }
+      }
+    },
+    "Restaurant": {
+      "Restaurant": {
+        "customDictionary": {
+          "count": 2,
+          "lastUpdated": 1680770355702
         }
       }
     }

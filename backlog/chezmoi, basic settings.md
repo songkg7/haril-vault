@@ -6,6 +6,8 @@ tags: [chezmoi, dotfiles]
 categories: 
 ---
 
+지난 글 [[chezmoi, awesome dotfile manager]]에 이어 좀 더 편리하게 활용할 수 있는 방법들에 대해 공유합니다.
+
 ## 어떻게 사용해야 할까
 
 chezmoi 의 명령어 사용법은 `chezmoi help` 및 공식문서에서 확인할 수 있으니, 이 글에서는 chezmoi 를 좀 더 편리하게 사용하기 위한 응용을 설명해봅니다.
@@ -16,7 +18,7 @@ chezmoi 는 `~/.config/chezmoi/chezmoi.toml` 파일을 설정으로 사용합니
 
 #### merge tool 및 기본 에디터 설정
 
-chezmoi 는 기본 에디터로 vi 를 사용합니다. 저는 nvim 을 주로 사용하기 때문에 기본 에디터로 nvim 이 실행되도록 수정해보겠습니다.
+**chezmoi 는 기본 에디터로 vi 를 사용**합니다. 저는 nvim 을 주로 사용하기 때문에 기본 에디터로 nvim 이 실행되도록 수정해보겠습니다.
 
 ```bash
 chezmoi edit-config
@@ -41,9 +43,7 @@ VScode 를 사용하신다면 아래처럼 설정해주시면 됩니다.
 
 #### 템플릿을 활용한 gitconfig 관리
 
-회사와 개인 환경의 변수를 어떻게 관리할 수 있을까? 예를 들면 gitconfig 의 email
-
-chezmoi 에서는 일종의 로컬 변수 설정으로 환경마다 다를 수 있는 값들을 제어합니다.
+가끔은 통일된 설정이 아닌 분리된 설정이 필요할 수 있습니다. 예를 들면 회사와 개인 환경의 gitconfig 같은 경우가 있겠네요. 전체적으론 비슷하지만 특정 부분의 데이터만 분리되어야 하는 경우, 이럴 때를 위해 chezmoi 에서는 template 이라고 부르는 일종의 환경변수 주입방식을 통해 제어할 수 있습니다.
 
 먼저 gitconfig 파일을 만들어줍니다.
 
@@ -52,13 +52,13 @@ mkdir ~/.config/git
 touch ~/.config/git/config
 ```
 
-template 로 등록하여 data 변수를 사용할 수 있도록 해줍니다.
+gitconfig 를 template 로 등록하여 변수를 사용할 수 있도록 해줍니다.
 
 ```bash
 chezmoi add --template ~/.config/git/config
 ```
 
-설정을 작성합니다.
+데이터 치환이 필요한 부분을 작성해줍니다.
 
 ```bash
 chezmoi edit ~/.config/git/config
@@ -72,7 +72,7 @@ chezmoi edit ~/.config/git/config
 
 이 중괄호는 로컬 환경에서 정의한 변수가 들어가게 됩니다. 기본 변수 목록은 `chezmoi data` 로 확인할 수 있습니다.
 
-변수는 data 로 `chezmoi.toml` 에 작성해줍니다.
+변수는 `chezmoi.toml` 에 작성해줍니다.
 
 ```bash
 # chezmoi edit-config 가 아닌 로컬 설정을 작성해줍니다.
@@ -85,7 +85,7 @@ vi ~/.config/chezmoi/chezmoi.toml
     email=private@gmail.com
 ```
 
-다 작성한 후 `chezmoi apply -vn` 을 사용해보면 template 변수에 data 값으로 채워져서 config 파일이 생성되는 것을 확인할 수 있습니다.
+다 작성한 후 `chezmoi apply -vn` 혹은 `chezmoi init -vn` 을 사용해보면 template 변수에 data 값으로 채워져서 config 파일이 생성되는 것을 확인할 수 있습니다.
 
 #### auto commit and push
 
@@ -99,7 +99,7 @@ git commit -m "update something"
 git push
 ```
 
-이 과정을 자동으로 하기 위해서는 `chezmoi.toml` 에 설정을 작성해줘야 합니다.
+이 과정을 자동으로 하기 위해서는 `chezmoi.toml` 에 설정을 추가해줘야 합니다.
 
 ```toml
 # `~/.config/chezmoi/chezmoi.toml`
@@ -109,11 +109,11 @@ git push
     autoPush = true
 ```
 
-다만 push 까지 자동으로 할 경우, 보안에 민감한 파일이 실수로 remote repository 에 올라갈 수 있어서 개인적으로는 commit 까지만 auto 옵션을 활성화하시는 것을 추천드립니다.
+다만 push 까지 자동으로 할 경우, 보안에 민감한 파일이 실수로 remote repository 에 올라갈 수 있어서 개인적으로는 **commit 까지만 auto 옵션을 활성화하시는 것을 추천**드립니다.
 
 ### brew package 관리
 
-회사에서 업무 중 좋은 툴을 찾았다면, 잊지말고 개인 환경에서도 설치해줘야하죠. chezmoi 로 툴들의 목록을 관리해봅니다.
+회사에서 업무 중 좋은 툴을 찾았다면, 잊지말고 개인 환경에서도 설치해줘야하죠. chezmoi 로 관리해봅니다.
 
 ```bash
 chezmoi cd
@@ -194,11 +194,11 @@ brew install --cask ${CASKS[@]}
 
 sh 에 익숙하지 않더라도 이해하기 크게 어렵지 않으리라 생각합니다. `PACKAGE` 목록은 `brew install` 로 설치하는 패키지들을, `CASKS` 에는 `brew install --cask` 로 설치하는 애플리케이션들을 정의해주시면 이후 스크립트에 의해 설치과정이 진행됩니다.
 
-스크립트는 chezmoi 로 사용할 수 있는 기능 중에 상대적으로 복잡한 편입니다. 다양한 응용 방식이 있고 같은 기능을 다르게 정의할 수도 있기 때문에, 좀 더 디테일한 사용방법을 원하시면 [공식 문서](https://www.chezmoi.io/user-guide/use-scripts-to-perform-actions/#set-environment-variables)를 참고해주세요.
+스크립트는 chezmoi 로 사용할 수 있는 기능 중에 상대적으로 복잡한 편입니다. 다양한 응용 방식이 있고 같은 기능을 다르게 정의할 수도 있습니다. 좀 더 자세한 사용방법은 [공식 문서](https://www.chezmoi.io/user-guide/use-scripts-to-perform-actions/#set-environment-variables)를 참고해주세요.
 
 ## Conclusion
 
-이번 글에서는 기본 사용법을 설명했던 지난 글의 후속으로 chezmoi 의 설정에 대해 정리해보았습니다. 본문 뒷부분에 소개해드린 스크립트 사용법은 기본 설정이라는 타이틀이 무색하게 복잡할 수 있는 내용이지만, 적용해두면 굉장히 편리하게 사용할 수 있어서 어떻게든 내용을 넣어보았습니다.
+이번 글에서는 기본 사용법을 설명했던 지난 글에 이어, chezmoi 의 유용한 설정들에 대해 정리해보았습니다. 마지막에 소개해드린 스크립트 사용법은 기본 설정이라는 타이틀이 무색하게도 다소 복잡한 내용이지만, 적용해두면 굉장히 편리하게 사용할 수 있어서 넣어보았습니다.
 
 ## Reference
 
