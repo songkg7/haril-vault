@@ -1,7 +1,6 @@
 [
   "cm-editor-syntax-highlight-obsidian",
   "dataview",
-  "obsidian-kanban",
   "periodic-notes",
   "table-editor-obsidian",
   "templater-obsidian",
@@ -13,5 +12,6 @@
   "calendar",
   "obsidian-wakatime",
   "o2",
-  "various-complements"
+  "various-complements",
+  "obsidian-front-matter-title-plugin"
 ]

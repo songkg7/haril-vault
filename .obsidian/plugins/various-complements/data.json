@@ -34,7 +34,7 @@
   "enableCurrentVaultComplement": true,
   "currentVaultMinNumberOfCharacters": 0,
   "includeCurrentVaultPathPrefixPatterns": "",
-  "excludeCurrentVaultPathPrefixPatterns": "",
+  "excludeCurrentVaultPathPrefixPatterns": "private/",
   "includeCurrentVaultOnlyFilesUnderCurrentDirectory": false,
   "enableCustomDictionaryComplement": true,
   "customDictionaryPaths": "https://raw.githubusercontent.com/first20hours/google-10000-english/master/google-10000-english-no-swears.txt",
@@ -46,7 +46,7 @@
   "displayedTextSuffix": " => ...",
   "enableInternalLinkComplement": true,
   "suggestInternalLinkWithAlias": false,
-  "excludeInternalLinkPathPrefixPatterns": "",
+  "excludeInternalLinkPathPrefixPatterns": "private/",
   "updateInternalLinksOnSave": true,
   "insertAliasTransformedFromDisplayedInternalLink": {
     "enabled": false,
@@ -114,8 +114,8 @@
     "password": {
       "password": {
         "currentVault": {
-          "count": 1,
-          "lastUpdated": 1680584969700
+          "count": 2,
+          "lastUpdated": 1680783160752
         }
       }
     },
@@ -130,8 +130,8 @@
     "Conclusion": {
       "Conclusion": {
         "currentVault": {
-          "count": 1,
-          "lastUpdated": 1680589202175
+          "count": 2,
+          "lastUpdated": 1680780811908
         }
       }
     },
@@ -324,6 +324,78 @@
         "customDictionary": {
           "count": 2,
           "lastUpdated": 1680770355702
+        }
+      }
+    },
+    "library": {
+      "library": {
+        "frontMatter": {
+          "count": 1,
+          "lastUpdated": 1680780468222
+        }
+      }
+    },
+    "Reference": {
+      "Reference": {
+        "customDictionary": {
+          "count": 1,
+          "lastUpdated": 1680780491389
+        }
+      }
+    },
+    "Modern": {
+      "Modern": {
+        "customDictionary": {
+          "count": 1,
+          "lastUpdated": 1680780516215
+        }
+      }
+    },
+    "grey": {
+      "grey": {
+        "customDictionary": {
+          "count": 1,
+          "lastUpdated": 1680780525530
+        }
+      }
+    },
+    "Chrome": {
+      "Chrome": {
+        "internalLink": {
+          "count": 1,
+          "lastUpdated": 1680780819606
+        }
+      }
+    },
+    "Contract management": {
+      "Contract management": {
+        "internalLink": {
+          "count": 2,
+          "lastUpdated": 1680781165064
+        }
+      }
+    },
+    "Vimium": {
+      "Vimium": {
+        "internalLink": {
+          "count": 1,
+          "lastUpdated": 1680781306525
+        }
+      }
+    },
+    "Archive": {
+      "Archive": {
+        "customDictionary": {
+          "count": 1,
+          "lastUpdated": 1680781521131
+        }
+      }
+    },
+    "preference": {
+      "preference": {
+        "customDictionary": {
+          "count": 1,
+          "lastUpdated": 1680783158082
         }
       }
     }
