@@ -242,16 +242,16 @@
     "RESTAURANT": {
       "RESTAURANT": {
         "currentFile": {
-          "count": 4,
-          "lastUpdated": 1680751337753
+          "count": 5,
+          "lastUpdated": 1681530580661
         }
       }
     },
     "restaurant_id": {
       "restaurant_id": {
         "currentFile": {
-          "count": 1,
-          "lastUpdated": 1680751349280
+          "count": 2,
+          "lastUpdated": 1681530624775
         }
       }
     },
@@ -420,6 +420,22 @@
         "customDictionary": {
           "count": 1,
           "lastUpdated": 1681030493917
+        }
+      }
+    },
+    "Schedule": {
+      "Schedule": {
+        "customDictionary": {
+          "count": 1,
+          "lastUpdated": 1681348082650
+        }
+      }
+    },
+    "Previous": {
+      "Previous": {
+        "customDictionary": {
+          "count": 1,
+          "lastUpdated": 1681348538527
         }
       }
     }
