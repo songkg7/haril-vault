@@ -41,12 +41,14 @@ erDiagram
         Long customer_id FK
         Enum deliveryStatus
     }
-    ORDER ||--o| REVIEW : contains
+    RESTAURANT ||--o{ REVIEW : contains
     REVIEW {
         Long id PK
+        Long restaurant_id FK
         Long order_id FK
         Long customer_id FK
         String contents
+        Int rating
     }
     RESTAURANT ||--|{ MENU : contains
     RESTAURANT {
@@ -106,8 +108,13 @@ erDiagram
 
 - 식당을 등록한 Owner 만 Menu 를 등록할 수 있다.
 
+#### Rider
+
+- 라이더는 주문의 상태를 변경할 수 있다.
+
 ## Question
 
+- GenerateValue
 - 주문은 Order 를 통해서 생성되어야 할까? 아니면 OrderMenu 를 통해서 생성되어야 할까?
     - `CreateOrderController` 에서 요청을 받고, `CreateOrderUsecase` 에게 생성을 위임한다.
 - Review 는 어느 도메인과 연관관계를 맺어야 할까?
