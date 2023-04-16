@@ -76,6 +76,7 @@ erDiagram
     - [x] 회원가입시에는 이름을 입력해야 한다.
     - [x] 회원가입시에는 주소를 입력해야 한다.
     - [x] 회원가입시에는 전화번호를 입력해야 한다.
+- [ ] Spring Data Envers 를 적용하여 History 관리
 
 ### Order
 
@@ -114,9 +115,12 @@ erDiagram
 
 ## Question
 
-- GenerateValue
-- 주문은 Order 를 통해서 생성되어야 할까? 아니면 OrderMenu 를 통해서 생성되어야 할까?
+- [?] GenerateValue
+    - 0 으로 초기화되어 있으면 trasient save before flush 등의 error 가 발생하여, null 로 초기화해야 한다.
+- [?] 주문은 Order 를 통해서 생성되어야 할까? 아니면 OrderMenu 를 통해서 생성되어야 할까?
     - `CreateOrderController` 에서 요청을 받고, `CreateOrderUsecase` 에게 생성을 위임한다.
-- Review 는 어느 도메인과 연관관계를 맺어야 할까?
-- 한 번의 Order 에 5개의 menu 가 포함되어 있다면, OrderMenu 를 5번 insert 해야할까?
-    - 처음 Order 를 생성하고 바로 save 를 해야 orderMenu 를 정상적으로 save 할 수 있으며, Menu 개수마다 insert 를 생성한다.
+- [?] Review 는 어느 도메인과 연관관계를 맺어야 할까?
+    - [x] 조회 관점에서 볼 때 Restaurant 에서 접근할 가능성이 높으므로 Restaurant 과 연관관계를 형성한다.
+- [?] 한 번의 Order 에 5개의 menu 가 포함되어 있다면, OrderMenu 를 5번 insert 해야할까?
+    - [x] 처음 Order 를 생성하고 바로 save 를 해야 orderMenu 를 정상적으로 save 할 수 있으며, Menu 개수마다 insert 를 생성한다.
+- [?] `CreateOrderController` 와 `CreateReviewController` 를 보면 맡은 역할의 범위가 다르다. order 는 컨트롤러에서 usecase 를 호출하여 데이터를 설정해주지만, review 에서는 usecase 에서 repository 를 호출하여 데이터를 생성한다. 둘 중 어느 방식이 더 권장될까?
