@@ -148,6 +148,10 @@
         "currentFile": {
           "count": 2,
           "lastUpdated": 1680755741137
+        },
+        "customDictionary": {
+          "count": 1,
+          "lastUpdated": 1681652973013
         }
       }
     },
@@ -436,6 +440,98 @@
         "customDictionary": {
           "count": 1,
           "lastUpdated": 1681348538527
+        }
+      }
+    },
+    "chirpy": {
+      "chirpy": {
+        "currentVault": {
+          "count": 1,
+          "lastUpdated": 1681652453517
+        }
+      }
+    },
+    "Obituaries": {
+      "Obituaries": {
+        "customDictionary": {
+          "count": 1,
+          "lastUpdated": 1681652509216
+        }
+      }
+    },
+    "Obsidian": {
+      "Obsidian": {
+        "internalLink": {
+          "count": 6,
+          "lastUpdated": 1681660069643
+        },
+        "currentFile": {
+          "count": 1,
+          "lastUpdated": 1681652517915
+        }
+      }
+    },
+    "Shoutcut": {
+      "Shoutcut": {
+        "currentVault": {
+          "count": 1,
+          "lastUpdated": 1681656389919
+        }
+      }
+    },
+    "current": {
+      "current": {
+        "customDictionary": {
+          "count": 1,
+          "lastUpdated": 1681656423757
+        }
+      }
+    },
+    "flowchart": {
+      "flowchart": {
+        "currentVault": {
+          "count": 2,
+          "lastUpdated": 1681658945302
+        }
+      }
+    },
+    "Client": {
+      "Client": {
+        "customDictionary": {
+          "count": 1,
+          "lastUpdated": 1681657116530
+        }
+      }
+    },
+    "backlog": {
+      "backlog": {
+        "currentFile": {
+          "count": 1,
+          "lastUpdated": 1681657359300
+        }
+      }
+    },
+    "Notion": {
+      "Notion": {
+        "internalLink": {
+          "count": 1,
+          "lastUpdated": 1681658533570
+        }
+      }
+    },
+    "subgraph": {
+      "subgraph": {
+        "currentFile": {
+          "count": 2,
+          "lastUpdated": 1681659275480
+        }
+      }
+    },
+    "GitHub": {
+      "GitHub": {
+        "internalLink": {
+          "count": 1,
+          "lastUpdated": 1681660229365
         }
       }
     }
