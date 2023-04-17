@@ -95,7 +95,7 @@ flowchart TB
 
 [[Obsidian]] 은 [[Notion]] 과는 다르게 graph view 기능을 제공합니다. 해당 기능을 활용하면 작성한 노트들이 서로 어떻게 연관되어 있는지를 가시화하여 분석에 활용할 수 있습니다. 저는 이 기능을 아주 애용하며, Obsidian 으로 노트를 작성하는 가장 큰 이유 중 하나입니다.
 
-![[obsidian-graph-view-20230417.png]]
+![[obsidian-graph-view-20230417.webp]]
 
 _위 그래프에서 밝은 초록색만이 블로그에 발행된 글_
 
