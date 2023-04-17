@@ -1,0 +1,10 @@
+{
+  "attachmentDir": "resources",
+  "readyDir": "ready",
+  "publishedDir": "published",
+  "jekyllPath": "/Users/kgsong/Documents/projects/devlog",
+  "jekyllRelativeResourcePath": "assets/img",
+  "resourceDir": "resources",
+  "jekyllTargetPath": "/Users/kgsong/Documents/projects/devlog/_posts",
+  "jekyllResourcePath": "/Users/kgsong/Documents/projects/devlog/assets/img"
+}
