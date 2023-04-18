@@ -462,8 +462,8 @@
     "Obsidian": {
       "Obsidian": {
         "internalLink": {
-          "count": 6,
-          "lastUpdated": 1681660069643
+          "count": 7,
+          "lastUpdated": 1681798643250
         },
         "currentFile": {
           "count": 1,
@@ -532,6 +532,38 @@
         "internalLink": {
           "count": 1,
           "lastUpdated": 1681660229365
+        }
+      }
+    },
+    "obsidian": {
+      "obsidian": {
+        "frontMatter": {
+          "count": 1,
+          "lastUpdated": 1681798554529
+        }
+      }
+    },
+    "jekyll": {
+      "jekyll": {
+        "frontMatter": {
+          "count": 1,
+          "lastUpdated": 1681798557328
+        }
+      }
+    },
+    "Community": {
+      "Community": {
+        "customDictionary": {
+          "count": 1,
+          "lastUpdated": 1681799368436
+        }
+      }
+    },
+    "theater": {
+      "theater": {
+        "customDictionary": {
+          "count": 1,
+          "lastUpdated": 1681799832721
         }
       }
     }
