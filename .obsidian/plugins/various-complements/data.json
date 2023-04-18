@@ -130,8 +130,8 @@
     "Conclusion": {
       "Conclusion": {
         "currentVault": {
-          "count": 2,
-          "lastUpdated": 1680780811908
+          "count": 3,
+          "lastUpdated": 1681821713553
         }
       }
     },
@@ -462,8 +462,8 @@
     "Obsidian": {
       "Obsidian": {
         "internalLink": {
-          "count": 7,
-          "lastUpdated": 1681798643250
+          "count": 10,
+          "lastUpdated": 1681825744638
         },
         "currentFile": {
           "count": 1,
@@ -490,8 +490,8 @@
     "flowchart": {
       "flowchart": {
         "currentVault": {
-          "count": 2,
-          "lastUpdated": 1681658945302
+          "count": 4,
+          "lastUpdated": 1681825998055
         }
       }
     },
@@ -564,6 +564,14 @@
         "customDictionary": {
           "count": 1,
           "lastUpdated": 1681799832721
+        }
+      }
+    },
+    "javascript": {
+      "javascript": {
+        "frontMatter": {
+          "count": 1,
+          "lastUpdated": 1681827743811
         }
       }
     }
