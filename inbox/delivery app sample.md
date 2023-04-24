@@ -4,6 +4,7 @@ date: 2023-04-05 09:46:00 +0900
 aliases: 
 tags: [jpa, kotlin]
 categories: 
+updated: 2023-04-24 15:19:17 +0900
 ---
 
 ## Overview
@@ -116,7 +117,7 @@ erDiagram
 ## Question
 
 - [?] GenerateValue
-    - 0 으로 초기화되어 있으면 trasient save before flush 등의 error 가 발생하여, null 로 초기화해야 한다.
+    - 0 으로 초기화해놓고 사용 가능한가?
 - [?] 주문은 Order 를 통해서 생성되어야 할까? 아니면 OrderMenu 를 통해서 생성되어야 할까?
     - `CreateOrderController` 에서 요청을 받고, `CreateOrderUsecase` 에게 생성을 위임한다.
 - [?] Review 는 어느 도메인과 연관관계를 맺어야 할까?
@@ -124,3 +125,12 @@ erDiagram
 - [?] 한 번의 Order 에 5개의 menu 가 포함되어 있다면, OrderMenu 를 5번 insert 해야할까?
     - [x] 처음 Order 를 생성하고 바로 save 를 해야 orderMenu 를 정상적으로 save 할 수 있으며, Menu 개수마다 insert 를 생성한다.
 - [?] `CreateOrderController` 와 `CreateReviewController` 를 보면 맡은 역할의 범위가 다르다. order 는 컨트롤러에서 usecase 를 호출하여 데이터를 설정해주지만, review 에서는 usecase 에서 repository 를 호출하여 데이터를 생성한다. 둘 중 어느 방식이 더 권장될까?
+- [ ] Paging
+- [x] GenerateValue
+    - 0 으로 초기화되어 있으면 trasient save before flush 등의 error 가 발생하여, null 로 초기화해야 한다.
+    - 실제 db 에 save 쿼리가 발생해야 하는데, 영속성 컨텍스트에 이미 있다고 판단하고 save 쿼리가 발생하지 않고 자식 객체의 save 가 호출될 때, 부모의 외래키를 찾을 수 없기 때문이다.
+- [ ] Lazy Loading
+- [ ] 양방향 매핑 시 발생하는 순환참조 문제
+    - [ ] Menu Entity 에서 Repository 를 완전히 제거하고, 양방향 매핑이더라도 한쪽으로만 흐르게 변경한다.
+    - [ ] 모든 조회는 루트 애그리거트인 Restaurant 에서만 가능하다.
+- [ ] Restaurant 을 저장할 때 Menu 에 Restaurant 의 id 가 설정되지 않는 문제

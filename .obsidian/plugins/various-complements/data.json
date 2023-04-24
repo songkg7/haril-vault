@@ -326,8 +326,8 @@
     "Restaurant": {
       "Restaurant": {
         "customDictionary": {
-          "count": 5,
-          "lastUpdated": 1681643983112
+          "count": 8,
+          "lastUpdated": 1682317115441
         }
       }
     },
@@ -406,8 +406,8 @@
     "GenerateValue": {
       "GenerateValue": {
         "currentFile": {
-          "count": 1,
-          "lastUpdated": 1681030276886
+          "count": 2,
+          "lastUpdated": 1681903383144
         }
       }
     },
@@ -462,8 +462,8 @@
     "Obsidian": {
       "Obsidian": {
         "internalLink": {
-          "count": 10,
-          "lastUpdated": 1681825744638
+          "count": 13,
+          "lastUpdated": 1681890588558
         },
         "currentFile": {
           "count": 1,
@@ -530,8 +530,8 @@
     "GitHub": {
       "GitHub": {
         "internalLink": {
-          "count": 1,
-          "lastUpdated": 1681660229365
+          "count": 2,
+          "lastUpdated": 1681886553565
         }
       }
     },
@@ -572,6 +572,86 @@
         "frontMatter": {
           "count": 1,
           "lastUpdated": 1681827743811
+        }
+      }
+    },
+    "Secod": {
+      "Secod": {
+        "currentFile": {
+          "count": 1,
+          "lastUpdated": 1681879561457
+        }
+      }
+    },
+    "Second": {
+      "Second": {
+        "customDictionary": {
+          "count": 1,
+          "lastUpdated": 1681879563349
+        }
+      }
+    },
+    "Jekyll": {
+      "Jekyll": {
+        "internalLink": {
+          "count": 2,
+          "lastUpdated": 1682304652425
+        }
+      }
+    },
+    "Chirpy": {
+      "Chirpy": {
+        "currentVault": {
+          "count": 1,
+          "lastUpdated": 1681886458888
+        }
+      }
+    },
+    "VScode-Jekyll": {
+      "VScode-Jekyll": {
+        "currentFile": {
+          "count": 1,
+          "lastUpdated": 1681888443713
+        }
+      }
+    },
+    "PathVariable": {
+      "PathVariable": {
+        "currentFile": {
+          "count": 1,
+          "lastUpdated": 1681917037494
+        }
+      }
+    },
+    "Consistent": {
+      "Consistent": {
+        "customDictionary": {
+          "count": 1,
+          "lastUpdated": 1681965713756
+        }
+      }
+    },
+    "Hashing": {
+      "Hashing": {
+        "currentFile": {
+          "count": 2,
+          "lastUpdated": 1681966039613
+        }
+      }
+    },
+    "HotSpot": {
+      "HotSpot": {
+        "currentVault": {
+          "count": 1,
+          "lastUpdated": 1682055314466
+        }
+      }
+    },
+    "Docusaurus": {
+      "Docusaurus": {
+        "currentVault": {
+          "count": 2,
+          "lastUpdated": 1682304690796
         }
       }
     }

@@ -4,6 +4,7 @@ date: 2023-04-18 15:15:00 +0900
 aliases: 
 tags: [webp, imagemin, obsidian, jekyll, seo, javascript]
 categories: 
+updated: 2023-04-20 00:09:54 +0900
 ---
 
 블로그 포스팅 최적화를 위한 자동화 과정 중 이미지 최적화에 대해 이야기합니다.
