@@ -4,7 +4,7 @@ date: 2023-04-05 09:46:00 +0900
 aliases: 
 tags: [jpa, kotlin]
 categories: 
-updated: 2023-04-24 15:19:17 +0900
+updated: 2023-04-26 15:44:59 +0900
 ---
 
 ## Overview
@@ -134,3 +134,4 @@ erDiagram
     - [ ] Menu Entity 에서 Repository 를 완전히 제거하고, 양방향 매핑이더라도 한쪽으로만 흐르게 변경한다.
     - [ ] 모든 조회는 루트 애그리거트인 Restaurant 에서만 가능하다.
 - [ ] Restaurant 을 저장할 때 Menu 에 Restaurant 의 id 가 설정되지 않는 문제
+- [ ] 단순 검증 로직이 Adapter 에 있어도 되는지에 대한 고민
