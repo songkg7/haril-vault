@@ -462,8 +462,8 @@
     "Obsidian": {
       "Obsidian": {
         "internalLink": {
-          "count": 13,
-          "lastUpdated": 1681890588558
+          "count": 14,
+          "lastUpdated": 1682323614808
         },
         "currentFile": {
           "count": 1,
@@ -652,6 +652,22 @@
         "currentVault": {
           "count": 2,
           "lastUpdated": 1682304690796
+        }
+      }
+    },
+    "Concolusion": {
+      "Concolusion": {
+        "currentVault": {
+          "count": 1,
+          "lastUpdated": 1682384769667
+        }
+      }
+    },
+    "debugging": {
+      "debugging": {
+        "currentVault": {
+          "count": 1,
+          "lastUpdated": 1682493689141
         }
       }
     }

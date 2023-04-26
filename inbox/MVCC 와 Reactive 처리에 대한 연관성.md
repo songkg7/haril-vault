@@ -4,6 +4,7 @@ date: 2023-01-28 19:15:00 +0900
 aliases: 
 tags: [nosql, reactive, non-blocking, mvcc, rdb]
 categories: 
+updated: 2023-04-25 10:04:12 +0900
 ---
 
 ## MVCC 란?
@@ -27,3 +28,7 @@ categories:
 ## NoSQL 에서의 비동기 처리
 
 ## Conclusion
+
+## Reference
+
+- [MVCC 알아보기](https://medium.com/monday-9-pm/mvcc-multi-version-concurrency-control-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0-e4102cd97e59)
