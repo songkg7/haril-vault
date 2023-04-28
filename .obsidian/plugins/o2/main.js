@@ -1331,6 +1331,12 @@ var JekyllSetting = class {
   set isEnableCurlyBraceConvertMode(value) {
     this._isEnableCurlyBraceConvertMode = value;
   }
+  get isEnableUpdateFrontmatterTimeOnEdit() {
+    return this._isEnableUpdateFrontmatterTimeOnEdit;
+  }
+  set isEnableUpdateFrontmatterTimeOnEdit(value) {
+    this._isEnableUpdateFrontmatterTimeOnEdit = value;
+  }
   targetPath() {
     return `${this._jekyllPath}/_posts`;
   }
@@ -1357,18 +1363,32 @@ var O2SettingTab = class extends import_obsidian.PluginSettingTab {
   }
   display() {
     this.containerEl.empty();
+    this.containerEl.createEl("h1", {
+      text: "Settings for O2 plugin"
+    });
     this.containerEl.createEl("h2", {
-      text: "Settings for O2 plugin."
+      text: "Path Settings"
     });
     this.addReadyFolderSetting();
     this.addBackupFolderSetting();
     this.addAttachmentsFolderSetting();
     this.addJekyllPathSetting();
+    this.containerEl.createEl("h2", {
+      text: "Features"
+    });
     this.enableCurlyBraceSetting();
+    this.enableUpdateFrontmatterTimeOnEditSetting();
     this.containerEl.createEl("h2", {
       text: "Experimental features"
     });
     this.enableBannerSetting();
+  }
+  enableUpdateFrontmatterTimeOnEditSetting() {
+    const jekyllSetting = this.plugin.settings.jekyllSetting();
+    new import_obsidian.Setting(this.containerEl).setName("Replace date frontmatter to updated time").setDesc("If 'updated' frontmatter exists, replace the value of 'date' frontmatter with the value of 'updated' frontmatter.").addToggle((toggle) => toggle.setValue(jekyllSetting.isEnableUpdateFrontmatterTimeOnEdit).onChange(async (value) => {
+      jekyllSetting.isEnableUpdateFrontmatterTimeOnEdit = value;
+      await this.plugin.saveSettings();
+    }));
   }
   enableCurlyBraceSetting() {
     const jekyllSetting = this.plugin.settings.jekyllSetting();
@@ -6389,7 +6409,7 @@ var path = __toESM(require("path"));
 var ObsidianRegex = {
   ATTACHMENT_LINK: /!\[\[([^|\]]+)\.(\w+)\|?(\d*)x?(\d*)]](\n{0,2}(_.*_))?/g,
   EMBEDDED_LINK: /!\[\[([\w\s-]+)[#^]*([\w\s]*)]]/g,
-  WIKI_LINK: /(?<!!)\[\[([^|\]]+)\|?(.*)]]/g,
+  WIKI_LINK: /(?<!!)\[\[([^|\]]+)\|?([^|\]]*)]]/g,
   CALLOUT: /> \[!(.*)].*?\n(>.*)/ig,
   SIMPLE_FOOTNOTE: /\[\^(\d+)]/g,
   COMMENT: /%%(.*?)%%/g,
@@ -6507,10 +6527,11 @@ function replaceKeyword(target) {
 
 // src/jekyll/FrontMatterConverter.ts
 var FrontMatterConverter = class {
-  constructor(fileName, resourcePath, isEnable = false) {
+  constructor(fileName, resourcePath, isEnableBanner = false, isEnableUpdateFrontmatterTimeOnEdit = false) {
     this.fileName = fileName;
     this.resourcePath = resourcePath;
-    this.isEnable = isEnable;
+    this.isEnableBanner = isEnableBanner;
+    this.isEnableUpdateFrontmatterTimeOnEdit = isEnableUpdateFrontmatterTimeOnEdit;
   }
   parseFrontMatter(content) {
     const frontMatter = {};
@@ -6542,14 +6563,15 @@ var FrontMatterConverter = class {
       frontMatter.mermaid = true.toString();
     }
     const convertedFrontMatter = this.convertImageFrontMatter({ ...frontMatter });
+    const result = replaceDateFrontMatter({ ...convertedFrontMatter }, this.isEnableUpdateFrontmatterTimeOnEdit);
     return `---
-${Object.entries(convertedFrontMatter).map(([key, value]) => `${key}: ${value}`).join("\n")}
+${Object.entries(result).map(([key, value]) => `${key}: ${value}`).join("\n")}
 ---
 
 ${body}`;
   }
   convertImageFrontMatter(frontMatter) {
-    if (!this.isEnable) {
+    if (!this.isEnableBanner) {
       return frontMatter;
     }
     if (!frontMatter.image) {
@@ -6567,6 +6589,16 @@ ${body}`;
 };
 function convertImagePath(postTitle, imagePath, resourcePath) {
   return `/${resourcePath}/${postTitle}/${imagePath}`;
+}
+function replaceDateFrontMatter(frontMatter, isEnable) {
+  if (!isEnable) {
+    return frontMatter;
+  }
+  if (frontMatter.updated.length > 0) {
+    frontMatter.date = frontMatter.updated;
+    delete frontMatter.updated;
+  }
+  return frontMatter;
 }
 
 // src/utils.ts
@@ -6646,10 +6678,7 @@ var CurlyBraceConverter = class {
 
 // src/jekyll/chirpy.ts
 async function convertToChirpy(plugin) {
-  new import_obsidian4.Notice("Checking settings...");
   await validateSettings(plugin);
-  new import_obsidian4.Notice("Settings are valid.");
-  new import_obsidian4.Notice("Chirpy conversion started.");
   await backupOriginalNotes(plugin);
   const filenameConverter = new FilenameConverter();
   try {
@@ -6659,7 +6688,8 @@ async function convertToChirpy(plugin) {
       const frontMatterConverter = new FrontMatterConverter(
         fileName,
         plugin.settings.jekyllSetting().jekyllRelativeResourcePath,
-        plugin.settings.jekyllSetting().isEnableBanner
+        plugin.settings.jekyllSetting().isEnableBanner,
+        plugin.settings.jekyllSetting().isEnableUpdateFrontmatterTimeOnEdit
       );
       const resourceLinkConverter = new ResourceLinkConverter(
         fileName,
