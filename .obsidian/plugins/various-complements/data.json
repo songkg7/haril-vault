@@ -670,6 +670,22 @@
           "lastUpdated": 1682493689141
         }
       }
+    },
+    "application": {
+      "application": {
+        "customDictionary": {
+          "count": 1,
+          "lastUpdated": 1682668794008
+        }
+      }
+    },
+    "journal": {
+      "journal": {
+        "customDictionary": {
+          "count": 1,
+          "lastUpdated": 1682668798957
+        }
+      }
     }
   }
 }
