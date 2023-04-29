@@ -4,6 +4,7 @@ date: 2023-02-23 08:59:00 +0900
 aliases: O2
 tags: [obsidian, plugin, side-project, typescript, o2]
 categories: 
+updated: 2023-04-29 12:45:54 +0900
 ---
 
 # O2
