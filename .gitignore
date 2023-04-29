@@ -5,3 +5,6 @@ private/
 .obsidian/graph.json
 .DS_Store
 
+.obsidian/plugins/obsidian-textgenerator-plugin
+.obsidian/text-generator.json
+textgenerator/prompts
