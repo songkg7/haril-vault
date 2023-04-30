@@ -19,9 +19,9 @@
     "^~~~.*",
     "^```.*"
   ],
-  "showMatchStrategy": true,
+  "showMatchStrategy": false,
   "showComplementAutomatically": true,
-  "showIndexingStatus": true,
+  "showIndexingStatus": false,
   "descriptionOnSuggestion": "Short",
   "selectSuggestionKeys": "Tab",
   "additionalCycleThroughSuggestionsKeys": "None",
@@ -222,8 +222,8 @@
     "CUSTOMER": {
       "CUSTOMER": {
         "currentFile": {
-          "count": 2,
-          "lastUpdated": 1680767979401
+          "count": 3,
+          "lastUpdated": 1682833798539
         }
       }
     },
@@ -278,8 +278,8 @@
     "contains": {
       "contains": {
         "currentFile": {
-          "count": 1,
-          "lastUpdated": 1680751675280
+          "count": 2,
+          "lastUpdated": 1682833840147
         }
       }
     },
@@ -326,8 +326,8 @@
     "Restaurant": {
       "Restaurant": {
         "customDictionary": {
-          "count": 8,
-          "lastUpdated": 1682317115441
+          "count": 9,
+          "lastUpdated": 1682832071391
         }
       }
     },
@@ -692,6 +692,46 @@
         "customDictionary": {
           "count": 1,
           "lastUpdated": 1682746247859
+        }
+      }
+    },
+    "Dockerfile": {
+      "Dockerfile": {
+        "currentVault": {
+          "count": 1,
+          "lastUpdated": 1682774574342
+        }
+      }
+    },
+    "Sakamoto": {
+      "Sakamoto": {
+        "currentFile": {
+          "count": 1,
+          "lastUpdated": 1682782398814
+        }
+      }
+    },
+    "ryuichi": {
+      "ryuichi": {
+        "currentFile": {
+          "count": 1,
+          "lastUpdated": 1682782401145
+        }
+      }
+    },
+    "Address": {
+      "Address": {
+        "customDictionary": {
+          "count": 2,
+          "lastUpdated": 1682832849491
+        }
+      }
+    },
+    "addresses": {
+      "addresses": {
+        "customDictionary": {
+          "count": 2,
+          "lastUpdated": 1682832851268
         }
       }
     }
