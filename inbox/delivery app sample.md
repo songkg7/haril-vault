@@ -4,7 +4,7 @@ date: 2023-04-05 09:46:00 +0900
 aliases: 
 tags: [jpa, kotlin]
 categories: 
-updated: 2023-04-26 15:44:59 +0900
+updated: 2023-04-30 15:48:04 +0900
 ---
 
 ## Overview
@@ -28,13 +28,14 @@ JPA 학습 및 Kotlin 에 익숙해지기 위한 샘플 애플리케이션
 
 ```mermaid
 ---
-title: delivery table
+title: delivery application diagram
 ---
 erDiagram
     CUSTOMER ||--o{ ORDER : do
     CUSTOMER {
         Long id PK
         String name
+        Address[] addresses
     }
     ORDER ||--|{ ORDER_MENU : contains
     ORDER {
@@ -43,6 +44,12 @@ erDiagram
         Enum deliveryStatus
     }
     RESTAURANT ||--o{ REVIEW : contains
+    ADDRESS {
+        String city
+        String street
+        String zipcode
+    }
+
     REVIEW {
         Long id PK
         Long restaurant_id FK
@@ -55,6 +62,7 @@ erDiagram
     RESTAURANT {
         Long id PK
         String name
+        Address address
     }
     MENU {
         Long id PK
@@ -135,3 +143,13 @@ erDiagram
     - [ ] 모든 조회는 루트 애그리거트인 Restaurant 에서만 가능하다.
 - [ ] Restaurant 을 저장할 때 Menu 에 Restaurant 의 id 가 설정되지 않는 문제
 - [ ] 단순 검증 로직이 Adapter 에 있어도 되는지에 대한 고민
+
+- [ ] Hexagonal 아키텍처에서 JPA 의 사용은 영 불편한 감이 있다.
+    - [ ] 더티 체킹의 존재 자체가 불변성을 위반한다.
+
+- 고객은 여러 주소를 가질 수 있다.
+- Restaurant 은 하나의 주소만 가질 수 있다.
+- 그렇다면 주소는 어느 애그리거트에 속해야할까?
+
+envers
+jib
