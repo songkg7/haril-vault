@@ -63,54 +63,6 @@
   "disableOnMobile": false,
   "showLogAboutPerformanceInConsole": false,
   "selectionHistoryTree": {
-    "chezmoi": {
-      "chezmoi": {
-        "currentFile": {
-          "count": 1,
-          "lastUpdated": 1680370315986
-        }
-      }
-    },
-    "chezmoi-workflow": {
-      "chezmoi-workflow": {
-        "currentVault": {
-          "count": 2,
-          "lastUpdated": 1680370338077
-        }
-      }
-    },
-    "study": {
-      "study": {
-        "frontMatter": {
-          "count": 1,
-          "lastUpdated": 1680439539977
-        }
-      }
-    },
-    "dotfiles": {
-      "dotfiles": {
-        "frontMatter": {
-          "count": 1,
-          "lastUpdated": 1680583932088
-        }
-      }
-    },
-    "edit-config": {
-      "edit-config": {
-        "currentFile": {
-          "count": 1,
-          "lastUpdated": 1680584893231
-        }
-      }
-    },
-    "commit": {
-      "commit": {
-        "currentFile": {
-          "count": 1,
-          "lastUpdated": 1680584946589
-        }
-      }
-    },
     "password": {
       "password": {
         "currentVault": {
@@ -119,27 +71,11 @@
         }
       }
     },
-    "privateUser": {
-      "privateUser": {
-        "currentVault": {
-          "count": 1,
-          "lastUpdated": 1680585270818
-        }
-      }
-    },
     "Conclusion": {
       "Conclusion": {
         "currentVault": {
           "count": 3,
           "lastUpdated": 1681821713553
-        }
-      }
-    },
-    "package": {
-      "package": {
-        "currentFile": {
-          "count": 1,
-          "lastUpdated": 1680589215429
         }
       }
     },
@@ -342,8 +278,8 @@
     "Reference": {
       "Reference": {
         "customDictionary": {
-          "count": 1,
-          "lastUpdated": 1680780491389
+          "count": 2,
+          "lastUpdated": 1683182955247
         }
       }
     },
