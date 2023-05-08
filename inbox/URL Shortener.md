@@ -4,4 +4,5 @@ date: 2023-05-07 14:13:00 +0900
 aliases: 
 tags: [url, system-architecture]
 categories: 
+updated: 2023-05-07 14:14:27 +0900
 ---
