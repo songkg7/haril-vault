@@ -4,7 +4,7 @@ date: 2023-04-29 22:23:00 +0900
 aliases: JIB
 tags: [docker]
 categories: 
-updated: 2023-04-29 22:55:02 +0900
+updated: 2023-05-10 21:58:04 +0900
 ---
 
 ## JIB?
@@ -70,7 +70,6 @@ Maven:
         </plugin>   
     </plugins> 
 </build>
-
 ```
 
 마지막으로, Gradle에서 `./gradlew jib` 명령어를 실행하거나 Maven에서 `mvn jib:build` 명령어를 실행하여 Docker 이미지를 빌드할 수 있습니다.
