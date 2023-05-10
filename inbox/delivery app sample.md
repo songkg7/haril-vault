@@ -4,7 +4,7 @@ date: 2023-04-05 09:46:00 +0900
 aliases: 
 tags: [jpa, kotlin]
 categories: 
-updated: 2023-04-30 15:48:04 +0900
+updated: 2023-05-10 21:56:29 +0900
 ---
 
 ## Overview
@@ -31,6 +31,7 @@ JPA 학습 및 Kotlin 에 익숙해지기 위한 샘플 애플리케이션
 title: delivery application diagram
 ---
 erDiagram
+    CUSTOMER ||--|| CUSTOMER_ADDRESS : contains
     CUSTOMER ||--o{ ORDER : do
     CUSTOMER {
         Long id PK
@@ -44,7 +45,7 @@ erDiagram
         Enum deliveryStatus
     }
     RESTAURANT ||--o{ REVIEW : contains
-    ADDRESS {
+    CUSTOMER_ADDRESS {
         String city
         String street
         String zipcode
@@ -58,11 +59,17 @@ erDiagram
         String contents
         Int rating
     }
+    RESTAURANT ||--|| RESTAURANT_ADDRESS : contains
     RESTAURANT ||--|{ MENU : contains
     RESTAURANT {
         Long id PK
         String name
         Address address
+    }
+    RESTAURANT_ADDRESS {
+        String city
+        String street
+        String zipcode
     }
     MENU {
         Long id PK
@@ -150,6 +157,7 @@ erDiagram
 - 고객은 여러 주소를 가질 수 있다.
 - Restaurant 은 하나의 주소만 가질 수 있다.
 - 그렇다면 주소는 어느 애그리거트에 속해야할까?
+    - 주소 둘을 서로 엔티티 분리, CUSTOMER_ADDRESS, RESTAURANT_ADDRESS
 
 envers
 jib

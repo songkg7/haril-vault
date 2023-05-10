@@ -6,7 +6,8 @@
   "userIgnoreFilters": [
     "templates/",
     "README",
-    "private/"
+    "private/",
+    "textgenerator/"
   ],
   "promptDelete": false,
   "newFileLocation": "folder",
