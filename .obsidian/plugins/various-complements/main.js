@@ -790,9 +790,10 @@ function pickTokens(content, trimPattern) {
 var TRIM_CHAR_PATTERN = /[\n\t\[\]$/:?!=()<>"',|;*~ `]/g;
 var DefaultTokenizer = class {
   tokenize(content, raw) {
-    return raw ? Array.from(splitRaw(content, this.getTrimPattern())).filter(
+    const tokens = raw ? Array.from(splitRaw(content, this.getTrimPattern())).filter(
       (x) => x !== " "
     ) : pickTokens(content, this.getTrimPattern());
+    return tokens.map((x) => x.replace(/\.+$/g, ""));
   }
   recursiveTokenize(content) {
     const trimIndexes = Array.from(content.matchAll(this.getTrimPattern())).sort((a, b) => a.index - b.index).map((x) => x.index);
