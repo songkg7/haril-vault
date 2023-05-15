@@ -4,7 +4,7 @@ date: 2023-02-11 23:59:00 +0900
 aliases: 
 tags: [docker, devops]
 categories: DevOps
-updated: 2023-05-13 18:57:20 +0900
+updated: 2023-05-15 09:57:09 +0900
 ---
 
 ## Overview
@@ -15,7 +15,7 @@ updated: 2023-05-13 18:57:20 +0900
 
 Spring application + Redis 3대로 구성된 클러스터 + MySQL
 
-이런 상황에서는 MySQL 과 Redis 를 모두 합쳐서 4개의 컨테이너가 필요하다. 이러한 환경을 docker run 으로 구성하려면 굉장히 번거로운 설정 작업이 필요하게 된다. 이런 복잡함을 단순화하기 위해 docker compose 가 필요해진다.
+이런 상황에서는 MySQL 과 Redis 를 모두 합쳐서 5개의 컨테이너가 필요하다. 이러한 환경을 docker run 으로 구성하려면 굉장히 번거로운 설정 작업이 필요하게 된다. 이런 복잡함을 단순화하기 위해 docker compose 가 필요해진다.
 
 ### 장점
 
@@ -29,11 +29,8 @@ Spring application + Redis 3대로 구성된 클러스터 + MySQL
 Docker Compose 를 사용하기 위해서는 아래와 같은 구성 요소가 필요하다.
 
 1. Docker: Docker Compose 는 Docker 에 의존한다.
-
 2. Docker Compose CLI: Docker Compose 는 CLI(Command Line Interface) 로 사용한다.
-
 3. YAML 파일: Docker Compose 는 YAML 파일을 사용하여 컨테이너를 정의한다.
-
 
 ### 사용 예시
 
@@ -58,7 +55,7 @@ services:
 docker-compose up
 ```
 
-위 명령어를 실행하면 정의된 서비스들을 실행하고, 로그를 출력한다. 만약 배포를 위한 이미지 빌드나 컨테이너 삭제 등의 작업을 수행하려면 다른 옵션을 사용해야 한다. 
+위 명령어를 실행하면 정의된 서비스들을 실행하고, 로그를 출력한다. 만약 배포를 위한 이미지 빌드나 컨테이너 삭제 등의 작업을 수행하려면 다른 옵션을 사용해야 한다.
 
 ### 결론
 
