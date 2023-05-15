@@ -4,7 +4,7 @@ date: 2023-05-12 20:28:00 +0900
 aliases: 
 tags: [system-architecture]
 categories: 
-updated: 2023-05-15 10:07:29 +0900
+updated: 2023-05-15 10:19:04 +0900
 ---
 
 ## 문제 이해 및 설계 범위 확정
