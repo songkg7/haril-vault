@@ -669,6 +669,9 @@ var emoji_regex_default = () => {
 
 // src/util/strings.ts
 var regEmoji = new RegExp(` *(${emoji_regex_default().source}) *`, "g");
+function equalsAsLiterals(one, another) {
+  return one.replace(/[ \t]/g, "") === another.replace(/[ \t]/g, "");
+}
 function allNumbersOrFewSymbols(text2) {
   return Boolean(text2.match(/^[0-9_\-.]+$/));
 }
@@ -3839,6 +3842,7 @@ var AutoCompleteSuggest = class extends import_obsidian3.EditorSuggest {
   constructor(app2, statusBar) {
     super(app2);
     this.pastCurrentTokenSeparatedWhiteSpace = "";
+    this.previousCurrentLine = "";
     this.previousLinksCacheInActiveFile = /* @__PURE__ */ new Set();
     this.keymapEventHandler = [];
     this.appHelper = new AppHelper(app2);
@@ -4430,6 +4434,13 @@ var AutoCompleteSuggest = class extends import_obsidian3.EditorSuggest {
       onReturnNull("Don't show suggestions for IME");
       return null;
     }
+    const cl = this.appHelper.getCurrentLine(editor);
+    if (equalsAsLiterals(this.previousCurrentLine, cl) && !this.runManually) {
+      this.previousCurrentLine = cl;
+      onReturnNull("Don't show suggestions because there are no changes");
+      return null;
+    }
+    this.previousCurrentLine = cl;
     const currentLineUntilCursor = this.appHelper.getCurrentLineUntilCursor(editor);
     if (currentLineUntilCursor.startsWith("---")) {
       onReturnNull(
