@@ -4,13 +4,10 @@ date: 2023-02-24 13:38:00 +0900
 aliases: 
 tags: [spring, batch, changes]
 categories: Spring
+updated: 2023-05-16 10:16:19 +0900
 ---
 
 [[Spring Batch]] 5.0 이 되면서 변경된 사항들을 정리합니다.
-
-## Overview
-
-
 
 ## What's new?
 
@@ -63,7 +60,6 @@ spring:
 currentSchema 옵션을 지정해줘야 정확하게 동작한다.
 
 ## Reference
-
 
 - [Spring Boot 3.0 Migration Guide](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.0-Migration-Guide#spring-batch-changes)
 - [What's New in Spring Batch 5.0](https://docs.spring.io/spring-batch/docs/current/reference/html/whatsnew.html#job-parameters-handling-updates)
