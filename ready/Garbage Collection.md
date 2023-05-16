@@ -1,5 +1,5 @@
 ---
-title: "Garbage collection"
+title: "Garbage Collection 에 대한 이해"
 date: 2022-12-21 10:12:00 +0900
 aliases: GC
 tags: [gc, jvm, garbage-collection]

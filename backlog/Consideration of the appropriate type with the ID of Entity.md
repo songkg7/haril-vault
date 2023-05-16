@@ -1,9 +1,10 @@
 ---
-title: "What is the appropriate type as the ID of Entity?"
+title: "Entity 의 ID 로 적절한 타입은 무엇일까?"
 date: 2022-10-24 17:08:00 +0900
 aliases: 
 tags: [entity, id, ulid, uuid, long]
 categories: 
+updated: 2023-05-16 10:17:39 +0900
 ---
 
 ## Overview
