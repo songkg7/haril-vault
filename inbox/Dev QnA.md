@@ -4,8 +4,10 @@ date: 2023-05-18 16:55:00 +0900
 aliases: 
 tags: [qna]
 categories: 
-updated: 2023-05-18 22:21:55 +0900
+updated: 2023-05-18 22:52:27 +0900
 ---
+
+## Q
 
 1. [[Spring WebFlux|Spring WebFlux]] 사용 중 외부 N개 서버에 API 요청을 비동기적으로 보낸 후, 다음 동작은 앞선 요청의 결과를 모두 받은 다음 실행해야한다고 할 경우 어떻게 해야할까?
 
@@ -20,3 +22,6 @@ WebFlux 에서는 `block()` 을 사용할 수 없다. WebFlux 가 사용하는 [
 ### Actual
 
 `Mono.zip` 혹은 `Flux.zip` 을 사용하면 이전 퍼블리셔 응답이 완료된 이후 이어서 처리가 가능하다.
+
+https://gngsn.tistory.com/228
+

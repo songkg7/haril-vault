@@ -5,6 +5,7 @@ tags: [docker, devops, container]
 categories: [DevOps]
 fc-calendar: Gregorian Calendar
 fc-date: 2022-08-13
+updated: 2023-05-18 23:35:32 +0900
 ---
 
 - [[Docker volume]]
@@ -159,3 +160,7 @@ http localhost/ping
 # Conclusion
 
 현재 회사의 프로젝트 중 상당 수가 이미지화되어 있지않고 전통적 jar 배포 방식에 의존하고 있다. 도커 컨테이너를 사용하면 전통적인 방식에서 발생하는 문제를 해결하면서 편리한 운영을 가능하게 한다. 다음은 `Dockerfile` 을 통해 이미지화에 대해 알아본다.
+
+## Reference
+
+https://gngsn.tistory.com/128
