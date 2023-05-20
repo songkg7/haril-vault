@@ -1455,111 +1455,134 @@ function DefineIntrinsic(e2, r2) {
 function GetIntrinsic(e2) {
   return t[e2];
 }
-var r = "slot-epochNanoSeconds";
-var o = "slot-timezone-identifier";
-var n = "slot-year";
-var a = "slot-month";
-var i = "slot-day";
-var s = "slot-hour";
-var l = "slot-minute";
-var d = "slot-second";
-var m = "slot-millisecond";
-var c = "slot-microsecond";
-var h = "slot-nanosecond";
-var u = "slot-calendar";
-var T = "slot-cached-instant";
-var p = "slot-time-zone";
-var f = "slot-years";
-var y = "slot-months";
-var S = "slot-weeks";
-var w = "slot-days";
-var g = "slot-hours";
-var I = "slot-minutes";
-var D = "slot-seconds";
-var G = "slot-milliseconds";
-var v = "slot-microseconds";
-var O = "slot-nanoseconds";
-var C = "slot-calendar-identifier";
-var E = /* @__PURE__ */ new WeakMap();
-function CreateSlots(e2) {
-  E.set(e2, /* @__PURE__ */ Object.create(null));
-}
-function GetSlots(e2) {
-  return E.get(e2);
-}
+var r;
+var o;
+var n = "slot-epochNanoSeconds";
+var a = "slot-timezone-identifier";
+var i = "slot-year";
+var s = "slot-month";
+var l = "slot-day";
+var d = "slot-hour";
+var m = "slot-minute";
+var c = "slot-second";
+var h = "slot-millisecond";
+var u = "slot-microsecond";
+var T = "slot-nanosecond";
+var p = "slot-calendar";
+var f = "slot-date-brand";
+var y = "slot-year-month-brand";
+var I = "slot-month-day-brand";
+var S = "slot-cached-instant";
+var g = "slot-time-zone";
+var w = "slot-years";
+var D = "slot-months";
+var G = "slot-weeks";
+var v = "slot-days";
+var C = "slot-hours";
+var O = "slot-minutes";
+var b = "slot-seconds";
+var E = "slot-milliseconds";
+var M = "slot-microseconds";
+var R = "slot-nanoseconds";
+var F = "slot-calendar-identifier";
+var Y = /* @__PURE__ */ new WeakMap();
+var P = Symbol.for("@@Temporal__GetSlots");
+(r = globalThis)[P] || (r[P] = function _GetSlots(e2) {
+  return Y.get(e2);
+});
+var Z = globalThis[P];
+var B = Symbol.for("@@Temporal__CreateSlots");
+(o = globalThis)[B] || (o[B] = function _CreateSlots(e2) {
+  Y.set(e2, /* @__PURE__ */ Object.create(null));
+});
+var N = globalThis[B];
 function HasSlot(e2, ...t2) {
   if (!e2 || "object" != typeof e2)
     return false;
-  const r2 = GetSlots(e2);
-  return !!r2 && t2.reduce((e3, t3) => e3 && t3 in r2, true);
+  const r2 = Z(e2);
+  return !!r2 && t2.every((e3) => e3 in r2);
 }
 function GetSlot(e2, t2) {
-  const r2 = GetSlots(e2)[t2];
+  var _a;
+  const r2 = (_a = Z(e2)) == null ? void 0 : _a[t2];
   if (void 0 === r2)
     throw new TypeError(`Missing internal slot ${t2}`);
   return r2;
 }
 function SetSlot(e2, t2, r2) {
-  GetSlots(e2)[t2] = r2;
+  const o2 = Z(e2);
+  if (void 0 === o2)
+    throw new TypeError("Missing slots for the given container");
+  if (o2[t2])
+    throw new TypeError(`${t2} already has set`);
+  o2[t2] = r2;
 }
-var b = /\.[-A-Za-z_]|\.\.[-A-Za-z._]{1,12}|\.[-A-Za-z_][-A-Za-z._]{0,12}|[A-Za-z_][-A-Za-z._]{0,13}/;
-var M = new RegExp(`(?:(?:${b.source})(?:\\/(?:${b.source}))*|Etc/GMT[-+]\\d{1,2}|${/(?:[+\u2212-][0-2][0-9](?::?[0-5][0-9](?::?[0-5][0-9](?:[.,]\d{1,9})?)?)?)/.source})`);
-var R = /[A-Za-z0-9]{3,8}/;
-var Z = new RegExp(`(?:${R.source}(?:-${R.source})*)`);
-var P = /(?:[+\u2212-]\d{6}|\d{4})/;
-var F = /(?:0[1-9]|1[0-2])/;
-var Y = /(?:0[1-9]|[12]\d|3[01])/;
-var j = new RegExp(`(${P.source})(?:-(${F.source})-(${Y.source})|(${F.source})(${Y.source}))`);
-var $ = /(\d{2})(?::(\d{2})(?::(\d{2})(?:[.,](\d{1,9}))?)?|(\d{2})(?:(\d{2})(?:[.,](\d{1,9}))?)?)?/;
-var B = /([+\u2212-])([01][0-9]|2[0-3])(?::?([0-5][0-9])(?::?([0-5][0-9])(?:[.,](\d{1,9}))?)?)?/;
-var N = new RegExp(`(?:([zZ])|(?:${B.source})?)(?:\\[(${M.source})\\])?`);
-var k = new RegExp(`\\[u-ca=(${Z.source})\\]`);
-var A = new RegExp(`^${j.source}(?:(?:T|\\s+)${$.source})?${N.source}(?:${k.source})?$`, "i");
-var U = new RegExp(`^T?${$.source}(?:${N.source})?(?:${k.source})?$`, "i");
-var L = new RegExp(`^(${P.source})-?(${F.source})$`);
-var x = new RegExp(`^(?:--)?(${F.source})-?(${Y.source})$`);
-var H = /(\d+)(?:[.,](\d{1,9}))?/;
-var q = new RegExp(`(?:${H.source}H)?(?:${H.source}M)?(?:${H.source}S)?`);
-var W = new RegExp(`^([+\u2212-])?P${/(?:(\d+)Y)?(?:(\d+)M)?(?:(\d+)W)?(?:(\d+)D)?/.source}(?:T(?!$)${q.source})?$`, "i");
-var z = Array.prototype.includes;
-var _ = Array.prototype.push;
-var J = globalThis.Intl.DateTimeFormat;
-var V = Math.min;
-var X = Math.max;
-var K = Math.abs;
-var Q = Math.floor;
-var ee = Math.sign;
-var te = Math.trunc;
-var re = Number.isNaN;
-var oe = Number.isFinite;
-var ne = Number;
-var ae = String;
-var ie = Number.MAX_SAFE_INTEGER;
-var se = Object.assign;
-var le = Object.create;
-var de = Object.getOwnPropertyDescriptor;
-var me = Object.is;
-var ce = Reflect.apply;
-var he = import_jsbi.default.BigInt(0);
-var ue = import_jsbi.default.BigInt(1);
-var Te = import_jsbi.default.BigInt(60);
-var pe = import_jsbi.default.BigInt(1e3);
-var fe = import_jsbi.default.BigInt(1e6);
-var ye = import_jsbi.default.BigInt(1e9);
-var Se = import_jsbi.default.BigInt(-1);
-var we = import_jsbi.default.multiply(import_jsbi.default.BigInt(86400), ye);
-var ge = import_jsbi.default.multiply(import_jsbi.default.BigInt(-86400), import_jsbi.default.BigInt(1e17));
-var Ie = import_jsbi.default.multiply(import_jsbi.default.BigInt(86400), import_jsbi.default.BigInt(1e17));
-var De = import_jsbi.default.multiply(import_jsbi.default.BigInt(-388152), import_jsbi.default.BigInt(1e13));
-var Ge = import_jsbi.default.multiply(we, import_jsbi.default.BigInt(3660));
-var ve = import_jsbi.default.multiply(we, import_jsbi.default.BigInt(366));
-var Oe = import_jsbi.default.multiply(we, import_jsbi.default.BigInt(14));
-var Ce = ["iso8601", "hebrew", "islamic", "islamic-umalqura", "islamic-tbla", "islamic-civil", "islamic-rgsa", "islamicc", "persian", "ethiopic", "ethioaa", "coptic", "chinese", "dangi", "roc", "indian", "buddhist", "japanese", "gregory"];
-function IsInteger(e2) {
-  if ("number" != typeof e2 || !oe(e2))
-    return false;
-  const t2 = K(e2);
-  return Q(t2) === t2;
+var j = /\.[-A-Za-z_]|\.\.[-A-Za-z._]{1,12}|\.[-A-Za-z_][-A-Za-z._]{0,12}|[A-Za-z_][-A-Za-z._]{0,13}/;
+var $ = new RegExp("(?:" + [`(?:${j.source})(?:\\/(?:${j.source}))*`, "Etc/GMT(?:0|[-+]\\d{1,2})", "GMT[-+]?0", "EST5EDT", "CST6CDT", "MST7MDT", "PST8PDT", /(?:[+\u2212-][0-2][0-9](?::?[0-5][0-9](?::?[0-5][0-9](?:[.,]\d{1,9})?)?)?)/.source].join("|") + ")");
+var k = /(?:[+\u2212-]\d{6}|\d{4})/;
+var U = /(?:0[1-9]|1[0-2])/;
+var A = /(?:0[1-9]|[12]\d|3[01])/;
+var L = new RegExp(`(${k.source})(?:-(${U.source})-(${A.source})|(${U.source})(${A.source}))`);
+var x = /(\d{2})(?::(\d{2})(?::(\d{2})(?:[.,](\d{1,9}))?)?|(\d{2})(?:(\d{2})(?:[.,](\d{1,9}))?)?)?/;
+var W = /([+\u2212-])([01][0-9]|2[0-3])(?::?([0-5][0-9])(?::?([0-5][0-9])(?:[.,](\d{1,9}))?)?)?/;
+var q = new RegExp(`([zZ])|${W.source}?`);
+var H = /\[(!)?([a-z_][a-z0-9_-]*)=([A-Za-z0-9]+(?:-[A-Za-z0-9]+)*)\]/g;
+var V = new RegExp([`^${L.source}`, `(?:(?:T|\\s+)${x.source}(?:${q.source})?)?`, `(?:\\[!?(${$.source})\\])?`, `((?:${H.source})*)$`].join(""), "i");
+var z = new RegExp([`^T?${x.source}`, `(?:${q.source})?`, `(?:\\[!?${$.source}\\])?`, `((?:${H.source})*)$`].join(""), "i");
+var _ = new RegExp(`^(${k.source})-?(${U.source})(?:\\[!?${$.source}\\])?((?:${H.source})*)$`);
+var J = new RegExp(`^(?:--)?(${U.source})-?(${A.source})(?:\\[!?${$.source}\\])?((?:${H.source})*)$`);
+var K = /(\d+)(?:[.,](\d{1,9}))?/;
+var X = new RegExp(`(?:${K.source}H)?(?:${K.source}M)?(?:${K.source}S)?`);
+var Q = new RegExp(`^([+\u2212-])?P${/(?:(\d+)Y)?(?:(\d+)M)?(?:(\d+)W)?(?:(\d+)D)?/.source}(?:T(?!$)${X.source})?$`, "i");
+var ee = Array.prototype.includes;
+var te = Array.prototype.push;
+var re = globalThis.Intl.DateTimeFormat;
+var oe = Math.min;
+var ne = Math.max;
+var ae = Math.abs;
+var ie = Math.floor;
+var se = Math.sign;
+var le = Math.trunc;
+var de = Number.isNaN;
+var me = Number.isFinite;
+var ce = Number;
+var he = String;
+var ue = Number.MAX_SAFE_INTEGER;
+var Te = Object.create;
+var pe = Object.getOwnPropertyDescriptor;
+var fe = Reflect.apply;
+var ye = Reflect.ownKeys;
+var Ie = import_jsbi.default.BigInt(0);
+var Se = import_jsbi.default.BigInt(1);
+var ge = import_jsbi.default.BigInt(60);
+var we = import_jsbi.default.BigInt(24);
+var De = import_jsbi.default.BigInt(1e3);
+var Ge = import_jsbi.default.BigInt(1e6);
+var ve = import_jsbi.default.BigInt(1e9);
+var Ce = import_jsbi.default.BigInt(-1);
+var Oe = import_jsbi.default.multiply(import_jsbi.default.BigInt(3600), ve);
+var be = import_jsbi.default.multiply(ge, ve);
+var Ee = import_jsbi.default.multiply(Oe, we);
+var Me = import_jsbi.default.multiply(import_jsbi.default.BigInt(-86400), import_jsbi.default.BigInt(1e17));
+var Re = import_jsbi.default.multiply(import_jsbi.default.BigInt(86400), import_jsbi.default.BigInt(1e17));
+var Fe = -271821;
+var Ye = 275760;
+var Pe = import_jsbi.default.multiply(import_jsbi.default.BigInt(-388152), import_jsbi.default.BigInt(1e13));
+var Ze = import_jsbi.default.multiply(Ee, import_jsbi.default.BigInt(3660));
+var Be = import_jsbi.default.multiply(Ee, import_jsbi.default.BigInt(366));
+var Ne = import_jsbi.default.multiply(Ee, import_jsbi.default.BigInt(14));
+var je = ["iso8601", "hebrew", "islamic", "islamic-umalqura", "islamic-tbla", "islamic-civil", "islamic-rgsa", "islamicc", "persian", "ethiopic", "ethioaa", "coptic", "chinese", "dangi", "roc", "indian", "buddhist", "japanese", "gregory"];
+function isZero(t2) {
+  return import_jsbi.default.equal(t2, Ie);
+}
+function GetMethod(e2, t2) {
+  const r2 = e2[t2];
+  if (void 0 !== r2)
+    return r2;
+}
+function Call(e2, t2, r2) {
+  const o2 = arguments.length > 2 ? r2 : [];
+  return fe(e2, t2, o2);
 }
 function IsObject(e2) {
   return "object" == typeof e2 && null !== e2 || "function" == typeof e2;
@@ -1567,114 +1590,139 @@ function IsObject(e2) {
 function ToNumber(e2) {
   if ("bigint" == typeof e2)
     throw new TypeError("Cannot convert BigInt to number");
-  return ne(e2);
+  return ce(e2);
 }
-function ToInteger(e2) {
+function ToIntegerOrInfinity(e2) {
   const t2 = ToNumber(e2);
-  if (re(t2))
+  if (de(t2) || 0 === t2)
     return 0;
-  const r2 = te(t2);
-  return 0 === t2 ? 0 : r2;
+  if (!me(t2))
+    return t2;
+  const r2 = ie(ae(t2));
+  return 0 === r2 ? 0 : se(t2) * r2;
+}
+function IsIntegralNumber(e2) {
+  if ("number" != typeof e2 || de(e2) || !me(e2))
+    return false;
+  const t2 = ae(e2);
+  return ie(t2) === t2;
 }
 function ToString(e2) {
   if ("symbol" == typeof e2)
     throw new TypeError("Cannot convert a Symbol value to a String");
-  return ae(e2);
+  return he(e2);
 }
-function ToIntegerThrowOnInfinity(e2) {
-  const t2 = ToInteger(e2);
-  if (!oe(t2))
-    throw new RangeError("infinity is out of range");
-  return t2;
+function ToIntegerWithTruncation(e2) {
+  const t2 = ToNumber(e2);
+  if (0 === t2)
+    return 0;
+  if (de(t2) || !me(t2))
+    throw new RangeError("invalid number value");
+  const r2 = le(t2);
+  return 0 === r2 ? 0 : r2;
 }
-function ToPositiveInteger(e2, t2) {
-  const r2 = ToInteger(e2);
-  if (!oe(r2))
-    throw new RangeError("infinity is out of range");
-  if (r2 < 1) {
+function ToPositiveIntegerWithTruncation(e2, t2) {
+  const r2 = ToIntegerWithTruncation(e2);
+  if (r2 <= 0) {
     if (void 0 !== t2)
       throw new RangeError(`property '${t2}' cannot be a a number less than one`);
     throw new RangeError("Cannot convert a number less than one to a positive integer");
   }
   return r2;
 }
-function ToIntegerWithoutRounding(e2) {
+function ToIntegerIfIntegral(e2) {
   const t2 = ToNumber(e2);
-  if (re(t2))
-    return 0;
-  if (!oe(t2))
+  if (!me(t2))
     throw new RangeError("infinity is out of range");
-  if (!IsInteger(t2))
-    throw new RangeError(`unsupported fractional value ${t2}`);
-  return ToInteger(t2);
+  if (!IsIntegralNumber(t2))
+    throw new RangeError(`unsupported fractional value ${e2}`);
+  return 0 === t2 ? 0 : t2;
 }
 function divmod(t2, r2) {
   return { quotient: import_jsbi.default.divide(t2, r2), remainder: import_jsbi.default.remainder(t2, r2) };
 }
+function isNegativeJSBI(t2) {
+  return import_jsbi.default.lessThan(t2, Ie);
+}
+function signJSBI(e2) {
+  return isZero(e2) ? 0 : isNegativeJSBI(e2) ? -1 : 1;
+}
 function abs(t2) {
-  return import_jsbi.default.lessThan(t2, he) ? import_jsbi.default.multiply(t2, Se) : t2;
+  return import_jsbi.default.lessThan(t2, Ie) ? import_jsbi.default.multiply(t2, Ce) : t2;
 }
-function ArrayPush(e2, ...t2) {
-  return _.apply(e2, t2), e2;
-}
-var Ee = /* @__PURE__ */ new Map([["year", ToIntegerThrowOnInfinity], ["month", ToPositiveInteger], ["monthCode", ToString], ["day", ToPositiveInteger], ["hour", ToIntegerThrowOnInfinity], ["minute", ToIntegerThrowOnInfinity], ["second", ToIntegerThrowOnInfinity], ["millisecond", ToIntegerThrowOnInfinity], ["microsecond", ToIntegerThrowOnInfinity], ["nanosecond", ToIntegerThrowOnInfinity], ["years", ToIntegerWithoutRounding], ["months", ToIntegerWithoutRounding], ["weeks", ToIntegerWithoutRounding], ["days", ToIntegerWithoutRounding], ["hours", ToIntegerWithoutRounding], ["minutes", ToIntegerWithoutRounding], ["seconds", ToIntegerWithoutRounding], ["milliseconds", ToIntegerWithoutRounding], ["microseconds", ToIntegerWithoutRounding], ["nanoseconds", ToIntegerWithoutRounding], ["era", ToString], ["eraYear", ToInteger], ["offset", ToString]]);
-var be = /* @__PURE__ */ new Map([["hour", 0], ["minute", 0], ["second", 0], ["millisecond", 0], ["microsecond", 0], ["nanosecond", 0]]);
-var Me = [["years", "year", "date"], ["months", "month", "date"], ["weeks", "week", "date"], ["days", "day", "date"], ["hours", "hour", "time"], ["minutes", "minute", "time"], ["seconds", "second", "time"], ["milliseconds", "millisecond", "time"], ["microseconds", "microsecond", "time"], ["nanoseconds", "nanosecond", "time"]];
-var Re = new Map(Me.map((e2) => [e2[0], e2[1]]));
-var Ze = new Map(Me.map(([e2, t2]) => [t2, e2]));
-var Pe = Me.map(([, e2]) => e2);
-var Fe = Array.from(Re.keys()).sort();
-var Ye = /* @__PURE__ */ new Map();
+var $e = /* @__PURE__ */ new Map([["year", ToIntegerWithTruncation], ["month", ToPositiveIntegerWithTruncation], ["monthCode", ToString], ["day", ToPositiveIntegerWithTruncation], ["hour", ToIntegerWithTruncation], ["minute", ToIntegerWithTruncation], ["second", ToIntegerWithTruncation], ["millisecond", ToIntegerWithTruncation], ["microsecond", ToIntegerWithTruncation], ["nanosecond", ToIntegerWithTruncation], ["years", ToIntegerIfIntegral], ["months", ToIntegerIfIntegral], ["weeks", ToIntegerIfIntegral], ["days", ToIntegerIfIntegral], ["hours", ToIntegerIfIntegral], ["minutes", ToIntegerIfIntegral], ["seconds", ToIntegerIfIntegral], ["milliseconds", ToIntegerIfIntegral], ["microseconds", ToIntegerIfIntegral], ["nanoseconds", ToIntegerIfIntegral], ["era", ToString], ["eraYear", ToIntegerOrInfinity], ["offset", ToString]]);
+var ke = /* @__PURE__ */ new Map([["hour", 0], ["minute", 0], ["second", 0], ["millisecond", 0], ["microsecond", 0], ["nanosecond", 0]]);
+var Ue = [["years", "year", "date"], ["months", "month", "date"], ["weeks", "week", "date"], ["days", "day", "date"], ["hours", "hour", "time"], ["minutes", "minute", "time"], ["seconds", "second", "time"], ["milliseconds", "millisecond", "time"], ["microseconds", "microsecond", "time"], ["nanoseconds", "nanosecond", "time"]];
+var Ae = new Map(Ue.map((e2) => [e2[0], e2[1]]));
+var Le = new Map(Ue.map(([e2, t2]) => [t2, e2]));
+var xe = Ue.map(([, e2]) => e2);
+var We = Array.from(Ae.keys()).sort();
+var qe = /* @__PURE__ */ new Map();
 function getIntlDateTimeFormatEnUsForTimeZone(e2) {
-  let t2 = Ye.get(e2);
-  return void 0 === t2 && (t2 = new J("en-us", { timeZone: ae(e2), hour12: false, era: "short", year: "numeric", month: "numeric", day: "numeric", hour: "numeric", minute: "numeric", second: "numeric" }), Ye.set(e2, t2)), t2;
+  let t2 = qe.get(e2);
+  return void 0 === t2 && (t2 = new re("en-us", { timeZone: he(e2), hour12: false, era: "short", year: "numeric", month: "numeric", day: "numeric", hour: "numeric", minute: "numeric", second: "numeric" }), qe.set(e2, t2)), t2;
+}
+function ToObject(e2) {
+  if (null == e2)
+    throw new TypeError(`Expected object not ${e2}`);
+  return Object(e2);
+}
+function CopyDataProperties(e2, t2, r2, o2) {
+  if (null == t2)
+    return;
+  const n2 = ye(t2);
+  for (const a2 of n2)
+    if (!r2.some((e3) => Object.is(e3, a2)) && Object.prototype.propertyIsEnumerable.call(t2, a2)) {
+      const r3 = t2[a2];
+      if (o2 && o2.some((e3) => Object.is(e3, r3)))
+        continue;
+      e2[a2] = r3;
+    }
 }
 function IsTemporalInstant(e2) {
-  return HasSlot(e2, r) && !HasSlot(e2, p, u);
+  return HasSlot(e2, n) && !HasSlot(e2, g, p);
 }
 function IsTemporalTimeZone(e2) {
-  return HasSlot(e2, o);
+  return HasSlot(e2, a);
 }
 function IsTemporalCalendar(e2) {
-  return HasSlot(e2, C);
+  return HasSlot(e2, F);
 }
 function IsTemporalDuration(e2) {
-  return HasSlot(e2, f, y, w, g, I, D, G, v, O);
+  return HasSlot(e2, w, D, v, C, O, b, E, M, R);
 }
 function IsTemporalDate(e2) {
-  return HasSlot(e2, "slot-date-brand");
+  return HasSlot(e2, f);
 }
 function IsTemporalTime(e2) {
-  return HasSlot(e2, s, l, d, m, c, h) && !HasSlot(e2, n, a, i);
+  return HasSlot(e2, d, m, c, h, u, T) && !HasSlot(e2, i, s, l);
 }
 function IsTemporalDateTime(e2) {
-  return HasSlot(e2, n, a, i, s, l, d, m, c, h);
+  return HasSlot(e2, i, s, l, d, m, c, h, u, T);
 }
 function IsTemporalYearMonth(e2) {
-  return HasSlot(e2, "slot-year-month-brand");
+  return HasSlot(e2, y);
 }
 function IsTemporalMonthDay(e2) {
-  return HasSlot(e2, "slot-month-day-brand");
+  return HasSlot(e2, I);
 }
 function IsTemporalZonedDateTime(e2) {
-  return HasSlot(e2, r, p, u);
+  return HasSlot(e2, n, g, p);
 }
-function RejectObjectWithCalendarOrTimeZone(e2) {
-  if (HasSlot(e2, u) || HasSlot(e2, p))
+function RejectTemporalLikeObject(e2) {
+  if (HasSlot(e2, p) || HasSlot(e2, g))
     throw new TypeError("with() does not support a calendar or timeZone property");
+  if (IsTemporalTime(e2))
+    throw new TypeError("with() does not accept Temporal.PlainTime, use withPlainTime() instead");
   if (void 0 !== e2.calendar)
     throw new TypeError("with() does not support a calendar property");
   if (void 0 !== e2.timeZone)
     throw new TypeError("with() does not support a timeZone property");
 }
 function ParseTemporalTimeZone(e2) {
-  let { ianaName: t2, offset: r2, z: o2 } = function ParseTemporalTimeZoneString(e3) {
-    try {
-      let t3 = GetCanonicalTimeZoneIdentifier(e3);
-      if (t3)
-        return { ianaName: t3.toString() };
-    } catch (e4) {
-    }
+  const { ianaName: t2, offset: r2, z: o2 } = function ParseTemporalTimeZoneString(e3) {
+    if (new RegExp(`^${$.source}$`, "i").test(e3))
+      return { ianaName: e3 };
     try {
       const t3 = ParseISODateTime(e3);
       if (t3.z || t3.offset || t3.ianaName)
@@ -1683,22 +1731,33 @@ function ParseTemporalTimeZone(e2) {
     }
     throw new RangeError(`Invalid time zone: ${e3}`);
   }(e2);
-  return t2 || (o2 ? "UTC" : r2);
+  if (t2)
+    return GetCanonicalTimeZoneIdentifier(t2);
+  if (o2)
+    return "UTC";
+  return FormatTimeZoneOffsetString(ParseTimeZoneOffsetString(r2));
+}
+function MaybeFormatCalendarAnnotation(e2, t2) {
+  return "never" === t2 ? "" : FormatCalendarAnnotation(ToTemporalCalendarIdentifier(e2), t2);
 }
 function FormatCalendarAnnotation(e2, t2) {
-  return "never" === t2 || "auto" === t2 && "iso8601" === e2 ? "" : `[u-ca=${e2}]`;
+  if ("never" === t2)
+    return "";
+  if ("auto" === t2 && "iso8601" === e2)
+    return "";
+  return `[${"critical" === t2 ? "!" : ""}u-ca=${e2}]`;
 }
 function ParseISODateTime(e2) {
-  const t2 = A.exec(e2);
+  const t2 = V.exec(e2);
   if (!t2)
     throw new RangeError(`invalid ISO 8601 string: ${e2}`);
   let r2 = t2[1];
   if ("\u2212" === r2[0] && (r2 = `-${r2.slice(1)}`), "-000000" === r2)
     throw new RangeError(`invalid ISO 8601 string: ${e2}`);
-  const o2 = ToInteger(r2), n2 = ToInteger(t2[2] || t2[4]), a2 = ToInteger(t2[3] || t2[5]), i2 = ToInteger(t2[6]), s2 = void 0 !== t2[6], l2 = ToInteger(t2[7] || t2[10]);
-  let d2 = ToInteger(t2[8] || t2[11]);
+  const o2 = ToIntegerOrInfinity(r2), n2 = ToIntegerOrInfinity(t2[2] || t2[4]), a2 = ToIntegerOrInfinity(t2[3] || t2[5]), i2 = ToIntegerOrInfinity(t2[6]), s2 = void 0 !== t2[6], l2 = ToIntegerOrInfinity(t2[7] || t2[10]);
+  let d2 = ToIntegerOrInfinity(t2[8] || t2[11]);
   60 === d2 && (d2 = 59);
-  const m2 = (t2[9] || t2[12]) + "000000000", c2 = ToInteger(m2.slice(0, 3)), h2 = ToInteger(m2.slice(3, 6)), u2 = ToInteger(m2.slice(6, 9));
+  const m2 = (t2[9] || t2[12]) + "000000000", c2 = ToIntegerOrInfinity(m2.slice(0, 3)), h2 = ToIntegerOrInfinity(m2.slice(3, 6)), u2 = ToIntegerOrInfinity(m2.slice(6, 9));
   let T2, p2 = false;
   if (t2[13])
     T2 = void 0, p2 = true;
@@ -1713,23 +1772,31 @@ function ParseISODateTime(e2) {
       +n3 && (T2 += `:${n3}`);
     "-00:00" === T2 && (T2 = "+00:00");
   }
-  let f2 = t2[19];
-  if (f2)
-    try {
-      f2 = GetCanonicalTimeZoneIdentifier(f2).toString();
-    } catch (e3) {
-    }
-  const y2 = t2[20];
-  return RejectDateTime(o2, n2, a2, i2, l2, d2, c2, h2, u2), { year: o2, month: n2, day: a2, hasTime: s2, hour: i2, minute: l2, second: d2, millisecond: c2, microsecond: h2, nanosecond: u2, ianaName: f2, offset: T2, z: p2, calendar: y2 };
+  const f2 = t2[19], y2 = t2[20];
+  let I2;
+  for (const [, e3, t3, r3] of y2.matchAll(H))
+    if ("u-ca" === t3)
+      void 0 === I2 && (I2 = r3);
+    else if ("!" === e3)
+      throw new RangeError(`Unrecognized annotation: !${t3}=${r3}`);
+  return RejectDateTime(o2, n2, a2, i2, l2, d2, c2, h2, u2), { year: o2, month: n2, day: a2, hasTime: s2, hour: i2, minute: l2, second: d2, millisecond: c2, microsecond: h2, nanosecond: u2, ianaName: f2, offset: T2, z: p2, calendar: I2 };
 }
 function ParseTemporalYearMonthString(e2) {
-  const t2 = L.exec(e2);
+  const t2 = _.exec(e2);
   let r2, o2, n2, a2;
   if (t2) {
     let a3 = t2[1];
     if ("\u2212" === a3[0] && (a3 = `-${a3.slice(1)}`), "-000000" === a3)
       throw new RangeError(`invalid ISO 8601 string: ${e2}`);
-    r2 = ToInteger(a3), o2 = ToInteger(t2[2]), n2 = t2[3];
+    r2 = ToIntegerOrInfinity(a3), o2 = ToIntegerOrInfinity(t2[2]);
+    const i2 = t2[3];
+    for (const [, e3, t3, r3] of i2.matchAll(H))
+      if ("u-ca" === t3)
+        void 0 === n2 && (n2 = r3);
+      else if ("!" === e3)
+        throw new RangeError(`Unrecognized annotation: !${t3}=${r3}`);
+    if (void 0 !== n2 && "iso8601" !== n2)
+      throw new RangeError("YYYY-MM format is only valid with iso8601 calendar");
   } else {
     let t3;
     if ({ year: r2, month: o2, calendar: n2, day: a2, z: t3 } = ParseISODateTime(e2), t3)
@@ -1738,61 +1805,24 @@ function ParseTemporalYearMonthString(e2) {
   return { year: r2, month: o2, calendar: n2, referenceISODay: a2 };
 }
 function ParseTemporalMonthDayString(e2) {
-  const t2 = x.exec(e2);
+  const t2 = J.exec(e2);
   let r2, o2, n2, a2;
-  if (t2)
-    r2 = ToInteger(t2[1]), o2 = ToInteger(t2[2]);
-  else {
+  if (t2) {
+    r2 = ToIntegerOrInfinity(t2[1]), o2 = ToIntegerOrInfinity(t2[2]);
+    const e3 = t2[3];
+    for (const [, t3, r3, o3] of e3.matchAll(H))
+      if ("u-ca" === r3)
+        void 0 === n2 && (n2 = o3);
+      else if ("!" === t3)
+        throw new RangeError(`Unrecognized annotation: !${r3}=${o3}`);
+    if (void 0 !== n2 && "iso8601" !== n2)
+      throw new RangeError("MM-DD format is only valid with iso8601 calendar");
+  } else {
     let t3;
     if ({ month: r2, day: o2, calendar: n2, year: a2, z: t3 } = ParseISODateTime(e2), t3)
       throw new RangeError("Z designator not supported for PlainMonthDay");
   }
   return { month: r2, day: o2, calendar: n2, referenceISOYear: a2 };
-}
-function ParseTemporalDurationString(e2) {
-  const t2 = W.exec(e2);
-  if (!t2)
-    throw new RangeError(`invalid duration: ${e2}`);
-  if (t2.slice(2).every((e3) => void 0 === e3))
-    throw new RangeError(`invalid duration: ${e2}`);
-  const r2 = "-" === t2[1] || "\u2212" === t2[1] ? -1 : 1, o2 = ToInteger(t2[2]) * r2, n2 = ToInteger(t2[3]) * r2, a2 = ToInteger(t2[4]) * r2, i2 = ToInteger(t2[5]) * r2, s2 = ToInteger(t2[6]) * r2;
-  let l2 = t2[7], d2 = ToInteger(t2[8]) * r2, m2 = t2[9], c2 = ToInteger(t2[10]) * r2;
-  const h2 = t2[11] + "000000000";
-  let u2 = ToInteger(h2.slice(0, 3)) * r2, T2 = ToInteger(h2.slice(3, 6)) * r2, p2 = ToInteger(h2.slice(6, 9)) * r2;
-  return l2 = l2 ? r2 * ToInteger(l2) / 10 ** l2.length : 0, m2 = m2 ? r2 * ToInteger(m2) / 10 ** m2.length : 0, { minutes: d2, seconds: c2, milliseconds: u2, microseconds: T2, nanoseconds: p2 } = function DurationHandleFractions(e3, t3, r3, o3, n3, a3, i3) {
-    let s3 = e3, l3 = t3, d3 = r3, m3 = o3, c3 = n3, h3 = a3, u3 = i3;
-    if (0 !== s3) {
-      [l3, d3, m3, c3, h3, u3].forEach((e5) => {
-        if (0 !== e5)
-          throw new RangeError("only the smallest unit can be fractional");
-      });
-      const e4 = 60 * s3;
-      l3 = te(e4), d3 = e4 % 1;
-    }
-    if (0 !== d3) {
-      [m3, c3, h3, u3].forEach((e5) => {
-        if (0 !== e5)
-          throw new RangeError("only the smallest unit can be fractional");
-      });
-      const e4 = 60 * d3;
-      m3 = te(e4);
-      const t4 = e4 % 1;
-      if (0 !== t4) {
-        const e5 = 1e3 * t4;
-        c3 = te(e5);
-        const r4 = e5 % 1;
-        if (0 !== r4) {
-          const e6 = 1e3 * r4;
-          h3 = te(e6);
-          const t5 = e6 % 1;
-          if (0 !== t5) {
-            u3 = te(1e3 * t5);
-          }
-        }
-      }
-    }
-    return { minutes: l3, seconds: m3, milliseconds: c3, microseconds: h3, nanoseconds: u3 };
-  }(l2, d2, m2, c2, u2, T2, p2), RejectDuration(o2, n2, a2, i2, s2, d2, c2, u2, T2, p2), { years: o2, months: n2, weeks: a2, days: i2, hours: s2, minutes: d2, seconds: c2, milliseconds: u2, microseconds: T2, nanoseconds: p2 };
 }
 function ParseTemporalInstant(e2) {
   let { year: t2, month: r2, day: o2, hour: n2, minute: a2, second: i2, millisecond: s2, microsecond: l2, nanosecond: d2, offset: m2, z: c2 } = function ParseTemporalInstantString(e3) {
@@ -1805,7 +1835,7 @@ function ParseTemporalInstant(e2) {
     throw new RangeError("Temporal.Instant requires a time zone offset");
   const h2 = c2 ? 0 : ParseTimeZoneOffsetString(m2);
   ({ year: t2, month: r2, day: o2, hour: n2, minute: a2, second: i2, millisecond: s2, microsecond: l2, nanosecond: d2 } = BalanceISODateTime(t2, r2, o2, n2, a2, i2, s2, l2, d2 - h2));
-  const u2 = GetEpochFromISOParts(t2, r2, o2, n2, a2, i2, s2, l2, d2);
+  const u2 = GetUTCEpochNanoseconds(t2, r2, o2, n2, a2, i2, s2, l2, d2);
   if (null === u2)
     throw new RangeError("DateTime outside of supported range");
   return u2;
@@ -1837,24 +1867,45 @@ function RegulateTime(e2, t2, r2, o2, n2, a2, i2) {
 }
 function ToTemporalDurationRecord(e2) {
   if (!IsObject(e2))
-    return ParseTemporalDurationString(ToString(e2));
+    return function ParseTemporalDurationString(e3) {
+      var _a, _b;
+      const t3 = Q.exec(e3);
+      if (!t3)
+        throw new RangeError(`invalid duration: ${e3}`);
+      if (t3.slice(2).every((e4) => void 0 === e4))
+        throw new RangeError(`invalid duration: ${e3}`);
+      const r3 = "-" === t3[1] || "\u2212" === t3[1] ? -1 : 1, o3 = void 0 === t3[2] ? 0 : ToIntegerWithTruncation(t3[2]) * r3, n3 = void 0 === t3[3] ? 0 : ToIntegerWithTruncation(t3[3]) * r3, a3 = void 0 === t3[4] ? 0 : ToIntegerWithTruncation(t3[4]) * r3, i3 = void 0 === t3[5] ? 0 : ToIntegerWithTruncation(t3[5]) * r3, s3 = void 0 === t3[6] ? 0 : ToIntegerWithTruncation(t3[6]) * r3, l3 = t3[7], d3 = t3[8], m3 = t3[9], c3 = t3[10], h3 = t3[11];
+      let u2 = 0, T2 = 0, p2 = 0;
+      if (void 0 !== l3) {
+        if ((_b = (_a = d3 != null ? d3 : m3) != null ? _a : c3) != null ? _b : h3)
+          throw new RangeError("only the smallest unit can be fractional");
+        p2 = 3600 * ToIntegerOrInfinity((l3 + "000000000").slice(0, 9)) * r3;
+      } else if (u2 = void 0 === d3 ? 0 : ToIntegerWithTruncation(d3) * r3, void 0 !== m3) {
+        if (c3 != null ? c3 : h3)
+          throw new RangeError("only the smallest unit can be fractional");
+        p2 = 60 * ToIntegerOrInfinity((m3 + "000000000").slice(0, 9)) * r3;
+      } else
+        T2 = void 0 === c3 ? 0 : ToIntegerWithTruncation(c3) * r3, void 0 !== h3 && (p2 = ToIntegerOrInfinity((h3 + "000000000").slice(0, 9)) * r3);
+      const f2 = p2 % 1e3, y2 = le(p2 / 1e3) % 1e3, I2 = le(p2 / 1e6) % 1e3;
+      return T2 += le(p2 / 1e9) % 60, u2 += le(p2 / 6e10), RejectDuration(o3, n3, a3, i3, s3, u2, T2, I2, y2, f2), { years: o3, months: n3, weeks: a3, days: i3, hours: s3, minutes: u2, seconds: T2, milliseconds: I2, microseconds: y2, nanoseconds: f2 };
+    }(ToString(e2));
   if (IsTemporalDuration(e2))
-    return { years: GetSlot(e2, f), months: GetSlot(e2, y), weeks: GetSlot(e2, S), days: GetSlot(e2, w), hours: GetSlot(e2, g), minutes: GetSlot(e2, I), seconds: GetSlot(e2, D), milliseconds: GetSlot(e2, G), microseconds: GetSlot(e2, v), nanoseconds: GetSlot(e2, O) };
+    return { years: GetSlot(e2, w), months: GetSlot(e2, D), weeks: GetSlot(e2, G), days: GetSlot(e2, v), hours: GetSlot(e2, C), minutes: GetSlot(e2, O), seconds: GetSlot(e2, b), milliseconds: GetSlot(e2, E), microseconds: GetSlot(e2, M), nanoseconds: GetSlot(e2, R) };
   const t2 = { years: 0, months: 0, weeks: 0, days: 0, hours: 0, minutes: 0, seconds: 0, milliseconds: 0, microseconds: 0, nanoseconds: 0 };
   let r2 = function ToTemporalPartialDurationRecord(e3) {
     if (!IsObject(e3))
       throw new TypeError("invalid duration-like");
     const t3 = { years: void 0, months: void 0, weeks: void 0, days: void 0, hours: void 0, minutes: void 0, seconds: void 0, milliseconds: void 0, microseconds: void 0, nanoseconds: void 0 };
     let r3 = false;
-    for (const o3 of Fe) {
+    for (const o3 of We) {
       const n3 = e3[o3];
-      void 0 !== n3 && (r3 = true, t3[o3] = ToIntegerWithoutRounding(n3));
+      void 0 !== n3 && (r3 = true, t3[o3] = ToIntegerIfIntegral(n3));
     }
     if (!r3)
       throw new TypeError("invalid duration-like");
     return t3;
   }(e2);
-  for (const e3 of Fe) {
+  for (const e3 of We) {
     const o3 = r2[e3];
     void 0 !== o3 && (t2[e3] = o3);
   }
@@ -1868,50 +1919,48 @@ function ToTemporalDisambiguation(e2) {
   return void 0 === e2 ? "compatible" : GetOption(e2, "disambiguation", ["compatible", "earlier", "later", "reject"], "compatible");
 }
 function ToTemporalRoundingMode(e2, t2) {
-  return GetOption(e2, "roundingMode", ["ceil", "floor", "trunc", "halfExpand"], t2);
-}
-function NegateTemporalRoundingMode(e2) {
-  switch (e2) {
-    case "ceil":
-      return "floor";
-    case "floor":
-      return "ceil";
-    default:
-      return e2;
-  }
+  return GetOption(e2, "roundingMode", ["ceil", "floor", "expand", "trunc", "halfCeil", "halfFloor", "halfExpand", "halfTrunc", "halfEven"], t2);
 }
 function ToTemporalOffset(e2, t2) {
   return void 0 === e2 ? t2 : GetOption(e2, "offset", ["prefer", "use", "ignore", "reject"], t2);
 }
-function ToShowCalendarOption(e2) {
-  return GetOption(e2, "calendarName", ["auto", "always", "never"], "auto");
+function ToCalendarNameOption(e2) {
+  return GetOption(e2, "calendarName", ["auto", "always", "never", "critical"], "auto");
 }
-function ToTemporalRoundingIncrement(e2, t2, r2) {
-  let o2 = 1 / 0;
-  void 0 !== t2 && (o2 = t2), r2 || void 0 === t2 || (o2 = t2 > 1 ? t2 - 1 : 1);
-  const n2 = function GetNumberOption(e3, t3, r3, o3, n3) {
-    let a2 = e3[t3];
-    if (void 0 === a2)
-      return n3;
-    const i2 = ToNumber(a2);
-    if (re(i2) || i2 < r3 || i2 > o3)
-      throw new RangeError(`${String(t3)} must be between ${r3} and ${o3}, not ${i2}`);
-    return Q(i2);
-  }(e2, "roundingIncrement", 1, o2, 1);
-  if (void 0 !== t2 && t2 % n2 != 0)
+function ToTemporalRoundingIncrement(e2) {
+  let t2 = e2.roundingIncrement;
+  if (void 0 === t2)
+    return 1;
+  if (t2 = ToNumber(t2), !me(t2))
+    throw new RangeError("roundingIncrement must be finite");
+  const r2 = le(t2);
+  if (r2 < 1 || r2 > 1e9)
+    throw new RangeError(`roundingIncrement must be at least 1 and at most 1e9, not ${t2}`);
+  return r2;
+}
+function ValidateTemporalRoundingIncrement(e2, t2, r2) {
+  const o2 = r2 ? t2 : t2 - 1;
+  if (e2 > o2)
+    throw new RangeError(`roundingIncrement must be at least 1 and less than ${o2}, not ${e2}`);
+  if (t2 % e2 != 0)
     throw new RangeError(`Rounding increment must divide evenly into ${t2}`);
-  return n2;
 }
-function ToTemporalDateTimeRoundingIncrement(e2, t2) {
-  return ToTemporalRoundingIncrement(e2, { year: void 0, month: void 0, week: void 0, day: void 0, hour: 24, minute: 60, second: 60, millisecond: 1e3, microsecond: 1e3, nanosecond: 1e3 }[t2], false);
-}
-function ToSecondsStringPrecision(e2) {
-  const t2 = GetTemporalUnit(e2, "smallestUnit", "time", void 0);
-  if ("hour" === t2) {
-    const e3 = Me.reduce((e4, [t3, r3, o3]) => ("time" === o3 && "hour" !== r3 && e4.push(r3, t3), e4), []);
-    throw new RangeError(`smallestUnit must be one of ${e3.join(", ")}, not ${t2}`);
+function ToFractionalSecondDigits(e2) {
+  const t2 = e2.fractionalSecondDigits;
+  if (void 0 === t2)
+    return "auto";
+  if ("number" != typeof t2) {
+    if ("auto" !== ToString(t2))
+      throw new RangeError(`fractionalSecondDigits must be 'auto' or 0 through 9, not ${t2}`);
+    return "auto";
   }
-  switch (t2) {
+  const r2 = ie(t2);
+  if (!me(r2) || r2 < 0 || r2 > 9)
+    throw new RangeError(`fractionalSecondDigits must be 'auto' or 0 through 9, not ${t2}`);
+  return r2;
+}
+function ToSecondsStringPrecisionRecord(e2, t2) {
+  switch (e2) {
     case "minute":
       return { precision: "minute", unit: "minute", increment: 1 };
     case "second":
@@ -1923,52 +1972,44 @@ function ToSecondsStringPrecision(e2) {
     case "nanosecond":
       return { precision: 9, unit: "nanosecond", increment: 1 };
   }
-  let r2 = e2.fractionalSecondDigits;
-  if (void 0 === r2 && (r2 = "auto"), "number" != typeof r2) {
-    const e3 = ToString(r2);
-    if ("auto" === e3)
-      return { precision: "auto", unit: "nanosecond", increment: 1 };
-    throw new RangeError(`fractionalSecondDigits must be 'auto' or 0 through 9, not ${e3}`);
-  }
-  if (re(r2) || r2 < 0 || r2 > 9)
-    throw new RangeError(`fractionalSecondDigits must be 'auto' or 0 through 9, not ${r2}`);
-  const o2 = Q(r2);
-  switch (o2) {
+  switch (t2) {
+    case "auto":
+      return { precision: t2, unit: "nanosecond", increment: 1 };
     case 0:
-      return { precision: o2, unit: "second", increment: 1 };
+      return { precision: t2, unit: "second", increment: 1 };
     case 1:
     case 2:
     case 3:
-      return { precision: o2, unit: "millisecond", increment: 10 ** (3 - o2) };
+      return { precision: t2, unit: "millisecond", increment: 10 ** (3 - t2) };
     case 4:
     case 5:
     case 6:
-      return { precision: o2, unit: "microsecond", increment: 10 ** (6 - o2) };
+      return { precision: t2, unit: "microsecond", increment: 10 ** (6 - t2) };
     case 7:
     case 8:
     case 9:
-      return { precision: o2, unit: "nanosecond", increment: 10 ** (9 - o2) };
+      return { precision: t2, unit: "nanosecond", increment: 10 ** (9 - t2) };
     default:
-      throw new RangeError(`fractionalSecondDigits must be 'auto' or 0 through 9, not ${r2}`);
+      throw new RangeError(`fractionalSecondDigits must be 'auto' or 0 through 9, not ${t2}`);
   }
 }
-var je = Symbol("~required~");
+var He = Symbol("~required~");
 function GetTemporalUnit(e2, t2, r2, o2, n2 = []) {
   const a2 = [];
-  for (const [, e3, t3] of Me)
+  for (const [, e3, t3] of Ue)
     "datetime" !== r2 && r2 !== t3 || a2.push(e3);
   a2.push(...n2);
   let i2 = o2;
-  i2 === je ? i2 = void 0 : void 0 !== i2 && a2.push(i2);
+  i2 === He ? i2 = void 0 : void 0 !== i2 && a2.push(i2);
   const s2 = [...a2];
   for (const e3 of a2) {
-    const t3 = Ze.get(e3);
+    const t3 = Le.get(e3);
     void 0 !== t3 && s2.push(t3);
   }
   let l2 = GetOption(e2, t2, s2, i2);
-  if (void 0 === l2 && o2 === je)
+  if (void 0 === l2 && o2 === He)
     throw new RangeError(`${t2} is required`);
-  return Re.has(l2) ? Re.get(l2) : l2;
+  return Ae.has(l2) ? Ae.get(l2) : l2;
 }
 function ToRelativeTemporalObject(e2) {
   const t2 = e2.relativeTo;
@@ -1980,57 +2021,56 @@ function ToRelativeTemporalObject(e2) {
       return t2;
     if (IsTemporalDateTime(t2))
       return TemporalDateTimeToDate(t2);
-    c2 = GetTemporalCalendarWithISODefault(t2);
-    const e3 = PrepareTemporalFields(t2, CalendarFields(c2, ["day", "hour", "microsecond", "millisecond", "minute", "month", "monthCode", "nanosecond", "second", "year"]), []), p3 = le(null);
-    p3.overflow = "constrain", { year: r2, month: o2, day: n2, hour: a2, minute: i2, second: s2, millisecond: l2, microsecond: d2, nanosecond: m2 } = InterpretTemporalDateTimeFields(c2, e3, p3), u2 = t2.offset, void 0 === u2 && (T2 = "wall"), h2 = t2.timeZone;
+    c2 = GetTemporalCalendarSlotValueWithISODefault(t2);
+    const e3 = CalendarFields(c2, ["day", "hour", "microsecond", "millisecond", "minute", "month", "monthCode", "nanosecond", "second", "year"]);
+    e3.push("timeZone", "offset");
+    const p3 = PrepareTemporalFields(t2, e3, []), f2 = Te(null);
+    f2.overflow = "constrain", { year: r2, month: o2, day: n2, hour: a2, minute: i2, second: s2, millisecond: l2, microsecond: d2, nanosecond: m2 } = InterpretTemporalDateTimeFields(c2, p3, f2), u2 = p3.offset, void 0 === u2 && (T2 = "wall"), h2 = p3.timeZone, void 0 !== h2 && (h2 = ToTemporalTimeZoneSlotValue(h2));
   } else {
     let e3, f2;
-    ({ year: r2, month: o2, day: n2, hour: a2, minute: i2, second: s2, millisecond: l2, microsecond: d2, nanosecond: m2, calendar: c2, ianaName: e3, offset: u2, z: f2 } = ParseISODateTime(ToString(t2))), e3 && (h2 = e3), f2 ? T2 = "exact" : u2 || (T2 = "wall"), c2 || (c2 = GetISO8601Calendar()), c2 = ToTemporalCalendar(c2), p2 = true;
+    if ({ year: r2, month: o2, day: n2, hour: a2, minute: i2, second: s2, millisecond: l2, microsecond: d2, nanosecond: m2, calendar: c2, ianaName: e3, offset: u2, z: f2 } = ParseISODateTime(ToString(t2)), e3)
+      h2 = ToTemporalTimeZoneSlotValue(e3), f2 ? T2 = "exact" : u2 || (T2 = "wall"), p2 = true;
+    else if (f2)
+      throw new RangeError("Z designator not supported for PlainDate relativeTo; either remove the Z or add a bracketed time zone");
+    if (c2 || (c2 = "iso8601"), !IsBuiltinCalendar(c2))
+      throw new RangeError(`invalid calendar identifier ${c2}`);
+    c2 = ASCIILowercase(c2);
   }
-  if (void 0 !== h2) {
-    h2 = ToTemporalTimeZone(h2);
-    let e3 = 0;
-    "option" === T2 && (e3 = ParseTimeZoneOffsetString(ToString(u2)));
-    return CreateTemporalZonedDateTime(InterpretISODateTimeOffset(r2, o2, n2, a2, i2, s2, l2, d2, m2, T2, e3, h2, "compatible", "reject", p2), h2, c2);
-  }
-  return CreateTemporalDate(r2, o2, n2, c2);
+  if (void 0 === h2)
+    return CreateTemporalDate(r2, o2, n2, c2);
+  return CreateTemporalZonedDateTime(InterpretISODateTimeOffset(r2, o2, n2, a2, i2, s2, l2, d2, m2, T2, "option" === T2 ? ParseTimeZoneOffsetString(u2) : 0, h2, "compatible", "reject", p2), h2, c2);
 }
 function DefaultTemporalLargestUnit(e2, t2, r2, o2, n2, a2, i2, s2, l2, d2) {
   for (const [m2, c2] of [["years", e2], ["months", t2], ["weeks", r2], ["days", o2], ["hours", n2], ["minutes", a2], ["seconds", i2], ["milliseconds", s2], ["microseconds", l2], ["nanoseconds", d2]])
     if (0 !== c2)
-      return Re.get(m2);
+      return Ae.get(m2);
   return "nanosecond";
 }
 function LargerOfTwoTemporalUnits(e2, t2) {
-  return Pe.indexOf(e2) > Pe.indexOf(t2) ? t2 : e2;
-}
-function MergeLargestUnitOption(e2, t2) {
-  let r2 = e2;
-  return void 0 === r2 && (r2 = le(null)), se(le(null), r2, { largestUnit: t2 });
+  return xe.indexOf(e2) > xe.indexOf(t2) ? t2 : e2;
 }
 function PrepareTemporalFields(e2, t2, r2, { emptySourceErrorMessage: o2 } = { emptySourceErrorMessage: "no supported properties found" }) {
-  const n2 = le(null);
+  const n2 = Te(null);
   let a2 = false;
+  t2.sort();
   for (const o3 of t2) {
     let t3 = e2[o3];
     if (void 0 !== t3)
-      a2 = true, Ee.has(o3) && (t3 = Ee.get(o3)(t3)), n2[o3] = t3;
+      a2 = true, $e.has(o3) && (t3 = $e.get(o3)(t3)), n2[o3] = t3;
     else if ("partial" !== r2) {
-      if (z.call(r2, o3))
+      if (ee.call(r2, o3))
         throw new TypeError(`required property '${o3}' missing or undefined`);
-      t3 = be.get(o3), n2[o3] = t3;
+      t3 = ke.get(o3), n2[o3] = t3;
     }
   }
   if ("partial" === r2 && !a2)
     throw new TypeError(o2);
-  if (void 0 === n2.era != (void 0 === n2.eraYear))
-    throw new RangeError("properties 'era' and 'eraYear' must be provided together");
   return n2;
 }
 function ToTemporalTimeRecord(e2, t2 = "complete") {
   const r2 = ["hour", "microsecond", "millisecond", "minute", "nanosecond", "second"], o2 = PrepareTemporalFields(e2, r2, "partial", { emptySourceErrorMessage: "invalid time-like" }), n2 = {};
   for (const e3 of r2) {
-    const r3 = de(o2, e3);
+    const r3 = pe(o2, e3);
     void 0 !== r3 ? n2[e3] = r3.value : "complete" === t2 && (n2[e3] = 0);
   }
   return n2;
@@ -2040,45 +2080,49 @@ function ToTemporalDate(e2, t2) {
   if (IsObject(r2)) {
     if (IsTemporalDate(r2))
       return r2;
-    if (IsTemporalZonedDateTime(r2) && (ToTemporalOverflow(t2), r2 = BuiltinTimeZoneGetPlainDateTimeFor(GetSlot(r2, p), GetSlot(r2, T), GetSlot(r2, u))), IsTemporalDateTime(r2))
-      return ToTemporalOverflow(t2), CreateTemporalDate(GetSlot(r2, n), GetSlot(r2, a), GetSlot(r2, i), GetSlot(r2, u));
-    const e3 = GetTemporalCalendarWithISODefault(r2);
+    if (IsTemporalZonedDateTime(r2) && (ToTemporalOverflow(t2), r2 = GetPlainDateTimeFor(GetSlot(r2, g), GetSlot(r2, S), GetSlot(r2, p))), IsTemporalDateTime(r2))
+      return ToTemporalOverflow(t2), CreateTemporalDate(GetSlot(r2, i), GetSlot(r2, s), GetSlot(r2, l), GetSlot(r2, p));
+    const e3 = GetTemporalCalendarSlotValueWithISODefault(r2);
     return CalendarDateFromFields(e3, PrepareTemporalFields(r2, CalendarFields(e3, ["day", "month", "monthCode", "year"]), []), t2);
   }
   ToTemporalOverflow(t2);
-  const { year: o2, month: s2, day: l2, calendar: d2, z: m2 } = function ParseTemporalDateString(e3) {
+  let { year: o2, month: n2, day: a2, calendar: d2, z: m2 } = function ParseTemporalDateString(e3) {
     return ParseISODateTime(e3);
   }(ToString(r2));
   if (m2)
     throw new RangeError("Z designator not supported for PlainDate");
-  return new (GetIntrinsic("%Temporal.PlainDate%"))(o2, s2, l2, d2);
+  if (d2 || (d2 = "iso8601"), !IsBuiltinCalendar(d2))
+    throw new RangeError(`invalid calendar identifier ${d2}`);
+  return d2 = ASCIILowercase(d2), CreateTemporalDate(o2, n2, a2, d2);
 }
 function InterpretTemporalDateTimeFields(e2, t2, r2) {
-  let { hour: o2, minute: s2, second: l2, millisecond: d2, microsecond: m2, nanosecond: c2 } = ToTemporalTimeRecord(t2);
-  const h2 = ToTemporalOverflow(r2), u2 = CalendarDateFromFields(e2, t2, r2), T2 = GetSlot(u2, n), p2 = GetSlot(u2, a), f2 = GetSlot(u2, i);
-  return { hour: o2, minute: s2, second: l2, millisecond: d2, microsecond: m2, nanosecond: c2 } = RegulateTime(o2, s2, l2, d2, m2, c2, h2), { year: T2, month: p2, day: f2, hour: o2, minute: s2, second: l2, millisecond: d2, microsecond: m2, nanosecond: c2 };
+  let { hour: o2, minute: n2, second: a2, millisecond: d2, microsecond: m2, nanosecond: c2 } = ToTemporalTimeRecord(t2);
+  const h2 = ToTemporalOverflow(r2), u2 = CalendarDateFromFields(e2, t2, r2), T2 = GetSlot(u2, i), p2 = GetSlot(u2, s), f2 = GetSlot(u2, l);
+  return { hour: o2, minute: n2, second: a2, millisecond: d2, microsecond: m2, nanosecond: c2 } = RegulateTime(o2, n2, a2, d2, m2, c2, h2), { year: T2, month: p2, day: f2, hour: o2, minute: n2, second: a2, millisecond: d2, microsecond: m2, nanosecond: c2 };
 }
 function ToTemporalDateTime(e2, t2) {
-  let r2, o2, s2, l2, d2, m2, c2, h2, f2, y2;
+  let r2, o2, n2, a2, d2, m2, c2, h2, u2, T2;
   if (IsObject(e2)) {
     if (IsTemporalDateTime(e2))
       return e2;
     if (IsTemporalZonedDateTime(e2))
-      return ToTemporalOverflow(t2), BuiltinTimeZoneGetPlainDateTimeFor(GetSlot(e2, p), GetSlot(e2, T), GetSlot(e2, u));
+      return ToTemporalOverflow(t2), GetPlainDateTimeFor(GetSlot(e2, g), GetSlot(e2, S), GetSlot(e2, p));
     if (IsTemporalDate(e2))
-      return ToTemporalOverflow(t2), CreateTemporalDateTime(GetSlot(e2, n), GetSlot(e2, a), GetSlot(e2, i), 0, 0, 0, 0, 0, 0, GetSlot(e2, u));
-    y2 = GetTemporalCalendarWithISODefault(e2);
-    const S2 = PrepareTemporalFields(e2, CalendarFields(y2, ["day", "hour", "microsecond", "millisecond", "minute", "month", "monthCode", "nanosecond", "second", "year"]), []);
-    ({ year: r2, month: o2, day: s2, hour: l2, minute: d2, second: m2, millisecond: c2, microsecond: h2, nanosecond: f2 } = InterpretTemporalDateTimeFields(y2, S2, t2));
+      return ToTemporalOverflow(t2), CreateTemporalDateTime(GetSlot(e2, i), GetSlot(e2, s), GetSlot(e2, l), 0, 0, 0, 0, 0, 0, GetSlot(e2, p));
+    T2 = GetTemporalCalendarSlotValueWithISODefault(e2);
+    const f2 = PrepareTemporalFields(e2, CalendarFields(T2, ["day", "hour", "microsecond", "millisecond", "minute", "month", "monthCode", "nanosecond", "second", "year"]), []);
+    ({ year: r2, month: o2, day: n2, hour: a2, minute: d2, second: m2, millisecond: c2, microsecond: h2, nanosecond: u2 } = InterpretTemporalDateTimeFields(T2, f2, t2));
   } else {
-    let n2;
-    if (ToTemporalOverflow(t2), { year: r2, month: o2, day: s2, hour: l2, minute: d2, second: m2, millisecond: c2, microsecond: h2, nanosecond: f2, calendar: y2, z: n2 } = function ParseTemporalDateTimeString(e3) {
+    let i2;
+    if (ToTemporalOverflow(t2), { year: r2, month: o2, day: n2, hour: a2, minute: d2, second: m2, millisecond: c2, microsecond: h2, nanosecond: u2, calendar: T2, z: i2 } = function ParseTemporalDateTimeString(e3) {
       return ParseISODateTime(e3);
-    }(ToString(e2)), n2)
+    }(ToString(e2)), i2)
       throw new RangeError("Z designator not supported for PlainDateTime");
-    RejectDateTime(r2, o2, s2, l2, d2, m2, c2, h2, f2), void 0 === y2 && (y2 = GetISO8601Calendar()), y2 = ToTemporalCalendar(y2);
+    if (RejectDateTime(r2, o2, n2, a2, d2, m2, c2, h2, u2), T2 || (T2 = "iso8601"), !IsBuiltinCalendar(T2))
+      throw new RangeError(`invalid calendar identifier ${T2}`);
+    T2 = ASCIILowercase(T2);
   }
-  return CreateTemporalDateTime(r2, o2, s2, l2, d2, m2, c2, h2, f2, y2);
+  return CreateTemporalDateTime(r2, o2, n2, a2, d2, m2, c2, h2, u2, T2);
 }
 function ToTemporalDuration(e2) {
   if (IsTemporalDuration(e2))
@@ -2090,7 +2134,7 @@ function ToTemporalInstant(e2) {
   if (IsTemporalInstant(e2))
     return e2;
   if (IsTemporalZonedDateTime(e2)) {
-    return new (GetIntrinsic("%Temporal.Instant%"))(GetSlot(e2, r));
+    return new (GetIntrinsic("%Temporal.Instant%"))(GetSlot(e2, n));
   }
   const t2 = ParseTemporalInstant(ToString(e2));
   return new (GetIntrinsic("%Temporal.Instant%"))(t2);
@@ -2101,371 +2145,559 @@ function ToTemporalMonthDay(e2, t2) {
     if (IsTemporalMonthDay(r2))
       return r2;
     let e3, o3;
-    if (HasSlot(r2, u))
-      e3 = GetSlot(r2, u), o3 = false;
+    if (HasSlot(r2, p))
+      e3 = GetSlot(r2, p), o3 = false;
     else {
       let t3 = r2.calendar;
-      o3 = void 0 === t3, void 0 === t3 && (t3 = GetISO8601Calendar()), e3 = ToTemporalCalendar(t3);
+      o3 = void 0 === t3, void 0 === t3 && (t3 = "iso8601"), e3 = ToTemporalCalendarSlotValue(t3);
     }
-    r2 = r2;
     const n3 = PrepareTemporalFields(r2, CalendarFields(e3, ["day", "month", "monthCode", "year"]), []);
     return o3 && void 0 !== n3.month && void 0 === n3.monthCode && void 0 === n3.year && (n3.year = 1972), CalendarMonthDayFromFields(e3, n3, t2);
   }
   ToTemporalOverflow(t2);
-  let { month: o2, day: n2, referenceISOYear: a2, calendar: i2 } = ParseTemporalMonthDayString(ToString(r2)), s2 = i2;
-  if (void 0 === s2 && (s2 = GetISO8601Calendar()), s2 = ToTemporalCalendar(s2), void 0 === a2)
-    return RejectISODate(1972, o2, n2), CreateTemporalMonthDay(o2, n2, s2);
-  return CalendarMonthDayFromFields(s2, CreateTemporalMonthDay(o2, n2, s2, a2));
+  let { month: o2, day: n2, referenceISOYear: a2, calendar: i2 } = ParseTemporalMonthDayString(ToString(r2));
+  if (void 0 === i2 && (i2 = "iso8601"), !IsBuiltinCalendar(i2))
+    throw new RangeError(`invalid calendar identifier ${i2}`);
+  if (i2 = ASCIILowercase(i2), void 0 === a2)
+    return RejectISODate(1972, o2, n2), CreateTemporalMonthDay(o2, n2, i2);
+  return CalendarMonthDayFromFields(i2, CreateTemporalMonthDay(o2, n2, i2, a2));
 }
 function ToTemporalTime(e2, t2 = "constrain") {
-  let r2, o2, n2, a2, i2, f2, y2, S2 = e2;
-  if (IsObject(S2)) {
-    if (IsTemporalTime(S2))
-      return S2;
-    if (IsTemporalZonedDateTime(S2) && (S2 = BuiltinTimeZoneGetPlainDateTimeFor(GetSlot(S2, p), GetSlot(S2, T), GetSlot(S2, u))), IsTemporalDateTime(S2)) {
-      return new (GetIntrinsic("%Temporal.PlainTime%"))(GetSlot(S2, s), GetSlot(S2, l), GetSlot(S2, d), GetSlot(S2, m), GetSlot(S2, c), GetSlot(S2, h));
+  let r2, o2, n2, a2, i2, s2, l2 = e2;
+  if (IsObject(l2)) {
+    if (IsTemporalTime(l2))
+      return l2;
+    if (IsTemporalZonedDateTime(l2) && (l2 = GetPlainDateTimeFor(GetSlot(l2, g), GetSlot(l2, S), GetSlot(l2, p))), IsTemporalDateTime(l2)) {
+      return new (GetIntrinsic("%Temporal.PlainTime%"))(GetSlot(l2, d), GetSlot(l2, m), GetSlot(l2, c), GetSlot(l2, h), GetSlot(l2, u), GetSlot(l2, T));
     }
-    if (y2 = GetTemporalCalendarWithISODefault(S2), "iso8601" !== ToString(y2))
-      throw new RangeError("PlainTime can only have iso8601 calendar");
-    ({ hour: r2, minute: o2, second: n2, millisecond: a2, microsecond: i2, nanosecond: f2 } = ToTemporalTimeRecord(S2)), { hour: r2, minute: o2, second: n2, millisecond: a2, microsecond: i2, nanosecond: f2 } = RegulateTime(r2, o2, n2, a2, i2, f2, t2);
-  } else if ({ hour: r2, minute: o2, second: n2, millisecond: a2, microsecond: i2, nanosecond: f2, calendar: y2 } = function ParseTemporalTimeString(e3) {
-    const t3 = U.exec(e3);
-    let r3, o3, n3, a3, i3, s2, l2;
-    if (t3) {
-      r3 = ToInteger(t3[1]), o3 = ToInteger(t3[2] || t3[5]), n3 = ToInteger(t3[3] || t3[6]), 60 === n3 && (n3 = 59);
-      const e4 = (t3[4] || t3[7]) + "000000000";
-      a3 = ToInteger(e4.slice(0, 3)), i3 = ToInteger(e4.slice(3, 6)), s2 = ToInteger(e4.slice(6, 9)), l2 = t3[15];
-    } else {
-      let t4, d2;
-      if ({ hasTime: d2, hour: r3, minute: o3, second: n3, millisecond: a3, microsecond: i3, nanosecond: s2, calendar: l2, z: t4 } = ParseISODateTime(e3), !d2)
-        throw new RangeError(`time is missing in string: ${e3}`);
-      if (t4)
-        throw new RangeError("Z designator not supported for PlainTime");
-    }
-    if (/[tT ][0-9][0-9]/.test(e3))
-      return { hour: r3, minute: o3, second: n3, millisecond: a3, microsecond: i3, nanosecond: s2, calendar: l2 };
-    try {
-      const { month: t4, day: r4 } = ParseTemporalMonthDayString(e3);
-      RejectISODate(1972, t4, r4);
-    } catch (e4) {
-      try {
-        const { year: t4, month: r4 } = ParseTemporalYearMonthString(e3);
-        RejectISODate(t4, r4, 1);
-      } catch (e5) {
-        return { hour: r3, minute: o3, second: n3, millisecond: a3, microsecond: i3, nanosecond: s2, calendar: l2 };
+    ({ hour: r2, minute: o2, second: n2, millisecond: a2, microsecond: i2, nanosecond: s2 } = ToTemporalTimeRecord(l2)), { hour: r2, minute: o2, second: n2, millisecond: a2, microsecond: i2, nanosecond: s2 } = RegulateTime(r2, o2, n2, a2, i2, s2, t2);
+  } else
+    ({ hour: r2, minute: o2, second: n2, millisecond: a2, microsecond: i2, nanosecond: s2 } = function ParseTemporalTimeString(e3) {
+      const t3 = z.exec(e3);
+      let r3, o3, n3, a3, i3, s3, l3;
+      if (t3) {
+        r3 = ToIntegerOrInfinity(t3[1]), o3 = ToIntegerOrInfinity(t3[2] || t3[5]), n3 = ToIntegerOrInfinity(t3[3] || t3[6]), 60 === n3 && (n3 = 59);
+        const e4 = (t3[4] || t3[7]) + "000000000";
+        a3 = ToIntegerOrInfinity(e4.slice(0, 3)), i3 = ToIntegerOrInfinity(e4.slice(3, 6)), s3 = ToIntegerOrInfinity(e4.slice(6, 9)), l3 = t3[14];
+        for (const [, e5, t4, r4] of l3.matchAll(H))
+          if ("u-ca" !== t4 && "!" === e5)
+            throw new RangeError(`Unrecognized annotation: !${t4}=${r4}`);
+        if (t3[8])
+          throw new RangeError("Z designator not supported for PlainTime");
+      } else {
+        let t4, l4;
+        if ({ hasTime: l4, hour: r3, minute: o3, second: n3, millisecond: a3, microsecond: i3, nanosecond: s3, z: t4 } = ParseISODateTime(e3), !l4)
+          throw new RangeError(`time is missing in string: ${e3}`);
+        if (t4)
+          throw new RangeError("Z designator not supported for PlainTime");
       }
-    }
-    throw new RangeError(`invalid ISO 8601 time-only string ${e3}; may need a T prefix`);
-  }(ToString(S2)), RejectTime(r2, o2, n2, a2, i2, f2), void 0 !== y2 && "iso8601" !== y2)
-    throw new RangeError("PlainTime can only have iso8601 calendar");
-  return new (GetIntrinsic("%Temporal.PlainTime%"))(r2, o2, n2, a2, i2, f2);
+      if (/[tT ][0-9][0-9]/.test(e3))
+        return { hour: r3, minute: o3, second: n3, millisecond: a3, microsecond: i3, nanosecond: s3 };
+      try {
+        const { month: t4, day: r4 } = ParseTemporalMonthDayString(e3);
+        RejectISODate(1972, t4, r4);
+      } catch (e4) {
+        try {
+          const { year: t4, month: r4 } = ParseTemporalYearMonthString(e3);
+          RejectISODate(t4, r4, 1);
+        } catch (e5) {
+          return { hour: r3, minute: o3, second: n3, millisecond: a3, microsecond: i3, nanosecond: s3 };
+        }
+      }
+      throw new RangeError(`invalid ISO 8601 time-only string ${e3}; may need a T prefix`);
+    }(ToString(l2))), RejectTime(r2, o2, n2, a2, i2, s2);
+  return new (GetIntrinsic("%Temporal.PlainTime%"))(r2, o2, n2, a2, i2, s2);
 }
 function ToTemporalYearMonth(e2, t2) {
   if (IsObject(e2)) {
     if (IsTemporalYearMonth(e2))
       return e2;
-    const r3 = GetTemporalCalendarWithISODefault(e2);
+    const r3 = GetTemporalCalendarSlotValueWithISODefault(e2);
     return CalendarYearMonthFromFields(r3, PrepareTemporalFields(e2, CalendarFields(r3, ["month", "monthCode", "year"]), []), t2);
   }
   ToTemporalOverflow(t2);
-  let { year: r2, month: o2, referenceISODay: n2, calendar: a2 } = ParseTemporalYearMonthString(ToString(e2)), i2 = a2;
-  if (void 0 === i2 && (i2 = GetISO8601Calendar()), i2 = ToTemporalCalendar(i2), void 0 === n2)
-    return RejectISODate(r2, o2, 1), CreateTemporalYearMonth(r2, o2, i2);
-  return CalendarYearMonthFromFields(i2, CreateTemporalYearMonth(r2, o2, i2, n2));
+  let { year: r2, month: o2, referenceISODay: n2, calendar: a2 } = ParseTemporalYearMonthString(ToString(e2));
+  if (void 0 === a2 && (a2 = "iso8601"), !IsBuiltinCalendar(a2))
+    throw new RangeError(`invalid calendar identifier ${a2}`);
+  if (a2 = ASCIILowercase(a2), void 0 === n2)
+    return RejectISODate(r2, o2, 1), CreateTemporalYearMonth(r2, o2, a2);
+  return CalendarYearMonthFromFields(a2, CreateTemporalYearMonth(r2, o2, a2, n2));
 }
-function InterpretISODateTimeOffset(t2, n2, a2, i2, s2, l2, d2, m2, c2, h2, u2, T2, p2, f2, y2) {
-  const S2 = new (GetIntrinsic("%Temporal.PlainDateTime%"))(t2, n2, a2, i2, s2, l2, d2, m2, c2);
+function InterpretISODateTimeOffset(t2, r2, o2, i2, s2, l2, d2, m2, c2, h2, u2, T2, p2, f2, y2) {
+  const I2 = new (GetIntrinsic("%Temporal.PlainDateTime%"))(t2, r2, o2, i2, s2, l2, d2, m2, c2);
   if ("wall" === h2 || "ignore" === f2) {
-    return GetSlot(BuiltinTimeZoneGetInstantFor(T2, S2, p2), r);
+    return GetSlot(GetInstantFor(T2, I2, p2), n);
   }
   if ("exact" === h2 || "use" === f2) {
-    const r2 = GetEpochFromISOParts(t2, n2, a2, i2, s2, l2, d2, m2, c2);
-    if (null === r2)
+    const n2 = GetUTCEpochNanoseconds(t2, r2, o2, i2, s2, l2, d2, m2, c2);
+    if (null === n2)
       throw new RangeError("ZonedDateTime outside of supported range");
-    return import_jsbi.default.subtract(r2, import_jsbi.default.BigInt(u2));
+    return import_jsbi.default.subtract(n2, import_jsbi.default.BigInt(u2));
   }
-  const w2 = GetPossibleInstantsFor(T2, S2);
-  for (const t3 of w2) {
-    const o2 = GetOffsetNanosecondsFor(T2, t3), n3 = import_jsbi.default.toNumber(RoundNumberToIncrement(import_jsbi.default.BigInt(o2), 6e10, "halfExpand"));
-    if (o2 === u2 || y2 && n3 === u2)
-      return GetSlot(t3, r);
+  const S2 = GetPossibleInstantsFor(T2, I2);
+  for (const t3 of S2) {
+    const r3 = GetOffsetNanosecondsFor(T2, t3), o3 = import_jsbi.default.toNumber(RoundNumberToIncrement(import_jsbi.default.BigInt(r3), be, "halfExpand"));
+    if (r3 === u2 || y2 && o3 === u2)
+      return GetSlot(t3, n);
   }
   if ("reject" === f2) {
-    const e2 = FormatTimeZoneOffsetString(u2), t3 = IsTemporalTimeZone(T2) ? GetSlot(T2, o) : "time zone";
-    throw new RangeError(`Offset ${e2} is invalid for ${S2.toString()} in ${t3}`);
+    const e2 = FormatTimeZoneOffsetString(u2), t3 = IsTemporalTimeZone(T2) ? GetSlot(T2, a) : "time zone";
+    throw new RangeError(`Offset ${e2} is invalid for ${I2.toString()} in ${t3}`);
   }
-  return GetSlot(DisambiguatePossibleInstants(w2, T2, S2, p2), r);
+  return GetSlot(DisambiguatePossibleInstants(S2, T2, I2, p2), n);
 }
 function ToTemporalZonedDateTime(e2, t2) {
-  let r2, o2, n2, a2, i2, s2, l2, d2, m2, c2, h2, u2, T2 = false, p2 = "option";
+  let r2, o2, n2, a2, i2, s2, l2, d2, m2, c2, h2, u2, T2, p2, f2 = false, y2 = "option";
   if (IsObject(e2)) {
     if (IsTemporalZonedDateTime(e2))
       return e2;
-    u2 = GetTemporalCalendarWithISODefault(e2);
-    const T3 = PrepareTemporalFields(e2, ArrayPush(CalendarFields(u2, ["day", "hour", "microsecond", "millisecond", "minute", "month", "monthCode", "nanosecond", "second", "year"]), "timeZone", "offset"), ["timeZone"]);
-    ({ year: r2, month: o2, day: n2, hour: a2, minute: i2, second: s2, millisecond: l2, microsecond: d2, nanosecond: m2 } = InterpretTemporalDateTimeFields(u2, T3, t2)), c2 = ToTemporalTimeZone(T3.timeZone), h2 = T3.offset, void 0 === h2 ? p2 = "wall" : h2 = ToString(h2);
+    u2 = GetTemporalCalendarSlotValueWithISODefault(e2);
+    const f3 = CalendarFields(u2, ["day", "hour", "microsecond", "millisecond", "minute", "month", "monthCode", "nanosecond", "second", "year"]);
+    f3.push("timeZone", "offset");
+    const I3 = PrepareTemporalFields(e2, f3, ["timeZone"]);
+    c2 = ToTemporalTimeZoneSlotValue(I3.timeZone), h2 = I3.offset, void 0 === h2 && (y2 = "wall"), T2 = ToTemporalDisambiguation(t2), p2 = ToTemporalOffset(t2, "reject"), { year: r2, month: o2, day: n2, hour: a2, minute: i2, second: s2, millisecond: l2, microsecond: d2, nanosecond: m2 } = InterpretTemporalDateTimeFields(u2, I3, t2);
   } else {
-    let f3, y2;
-    if (ToTemporalOverflow(t2), { year: r2, month: o2, day: n2, hour: a2, minute: i2, second: s2, millisecond: l2, microsecond: d2, nanosecond: m2, ianaName: f3, offset: h2, z: y2, calendar: u2 } = function ParseTemporalZonedDateTimeString(e3) {
+    let I3, S2;
+    if ({ year: r2, month: o2, day: n2, hour: a2, minute: i2, second: s2, millisecond: l2, microsecond: d2, nanosecond: m2, ianaName: I3, offset: h2, z: S2, calendar: u2 } = function ParseTemporalZonedDateTimeString(e3) {
       const t3 = ParseISODateTime(e3);
       if (!t3.ianaName)
         throw new RangeError("Temporal.ZonedDateTime requires a time zone ID in brackets");
       return t3;
-    }(ToString(e2)), !f3)
-      throw new RangeError("time zone ID required in brackets");
-    y2 ? p2 = "exact" : h2 || (p2 = "wall");
-    c2 = new (GetIntrinsic("%Temporal.TimeZone%"))(f3), u2 || (u2 = GetISO8601Calendar()), u2 = ToTemporalCalendar(u2), T2 = true;
+    }(ToString(e2)), c2 = ToTemporalTimeZoneSlotValue(I3), S2 ? y2 = "exact" : h2 || (y2 = "wall"), u2 || (u2 = "iso8601"), !IsBuiltinCalendar(u2))
+      throw new RangeError(`invalid calendar identifier ${u2}`);
+    u2 = ASCIILowercase(u2), f2 = true, T2 = ToTemporalDisambiguation(t2), p2 = ToTemporalOffset(t2, "reject"), ToTemporalOverflow(t2);
   }
-  let f2 = 0;
-  "option" === p2 && (f2 = ParseTimeZoneOffsetString(h2));
-  return CreateTemporalZonedDateTime(InterpretISODateTimeOffset(r2, o2, n2, a2, i2, s2, l2, d2, m2, p2, f2, c2, ToTemporalDisambiguation(t2), ToTemporalOffset(t2, "reject"), T2), c2, u2);
+  let I2 = 0;
+  "option" === y2 && (I2 = ParseTimeZoneOffsetString(h2));
+  return CreateTemporalZonedDateTime(InterpretISODateTimeOffset(r2, o2, n2, a2, i2, s2, l2, d2, m2, y2, I2, c2, T2, p2, f2), c2, u2);
 }
-function CreateTemporalDateSlots(e2, t2, r2, o2, s2) {
-  RejectISODate(t2, r2, o2), RejectDateRange(t2, r2, o2), CreateSlots(e2), SetSlot(e2, n, t2), SetSlot(e2, a, r2), SetSlot(e2, i, o2), SetSlot(e2, u, s2), SetSlot(e2, "slot-date-brand", true);
+function CreateTemporalDateSlots(e2, t2, r2, o2, n2) {
+  RejectISODate(t2, r2, o2), RejectDateRange(t2, r2, o2), N(e2), SetSlot(e2, i, t2), SetSlot(e2, s, r2), SetSlot(e2, l, o2), SetSlot(e2, p, n2), SetSlot(e2, f, true);
 }
-function CreateTemporalDate(e2, t2, r2, o2 = GetISO8601Calendar()) {
-  const n2 = GetIntrinsic("%Temporal.PlainDate%"), a2 = le(n2.prototype);
+function CreateTemporalDate(e2, t2, r2, o2 = "iso8601") {
+  const n2 = GetIntrinsic("%Temporal.PlainDate%"), a2 = Te(n2.prototype);
   return CreateTemporalDateSlots(a2, e2, t2, r2, o2), a2;
 }
-function CreateTemporalDateTimeSlots(e2, t2, r2, o2, T2, p2, f2, y2, S2, w2, g2) {
-  RejectDateTime(t2, r2, o2, T2, p2, f2, y2, S2, w2), RejectDateTimeRange(t2, r2, o2, T2, p2, f2, y2, S2, w2), CreateSlots(e2), SetSlot(e2, n, t2), SetSlot(e2, a, r2), SetSlot(e2, i, o2), SetSlot(e2, s, T2), SetSlot(e2, l, p2), SetSlot(e2, d, f2), SetSlot(e2, m, y2), SetSlot(e2, c, S2), SetSlot(e2, h, w2), SetSlot(e2, u, g2);
+function CreateTemporalDateTimeSlots(e2, t2, r2, o2, n2, a2, f2, y2, I2, S2, g2) {
+  RejectDateTime(t2, r2, o2, n2, a2, f2, y2, I2, S2), RejectDateTimeRange(t2, r2, o2, n2, a2, f2, y2, I2, S2), N(e2), SetSlot(e2, i, t2), SetSlot(e2, s, r2), SetSlot(e2, l, o2), SetSlot(e2, d, n2), SetSlot(e2, m, a2), SetSlot(e2, c, f2), SetSlot(e2, h, y2), SetSlot(e2, u, I2), SetSlot(e2, T, S2), SetSlot(e2, p, g2);
 }
-function CreateTemporalDateTime(e2, t2, r2, o2, n2, a2, i2, s2, l2, d2 = GetISO8601Calendar()) {
-  const m2 = GetIntrinsic("%Temporal.PlainDateTime%"), c2 = le(m2.prototype);
+function CreateTemporalDateTime(e2, t2, r2, o2, n2, a2, i2, s2, l2, d2 = "iso8601") {
+  const m2 = GetIntrinsic("%Temporal.PlainDateTime%"), c2 = Te(m2.prototype);
   return CreateTemporalDateTimeSlots(c2, e2, t2, r2, o2, n2, a2, i2, s2, l2, d2), c2;
 }
-function CreateTemporalMonthDaySlots(e2, t2, r2, o2, s2) {
-  RejectISODate(s2, t2, r2), RejectDateRange(s2, t2, r2), CreateSlots(e2), SetSlot(e2, a, t2), SetSlot(e2, i, r2), SetSlot(e2, n, s2), SetSlot(e2, u, o2), SetSlot(e2, "slot-month-day-brand", true);
+function CreateTemporalMonthDaySlots(e2, t2, r2, o2, n2) {
+  RejectISODate(n2, t2, r2), RejectDateRange(n2, t2, r2), N(e2), SetSlot(e2, s, t2), SetSlot(e2, l, r2), SetSlot(e2, i, n2), SetSlot(e2, p, o2), SetSlot(e2, I, true);
 }
-function CreateTemporalMonthDay(e2, t2, r2 = GetISO8601Calendar(), o2 = 1972) {
-  const n2 = GetIntrinsic("%Temporal.PlainMonthDay%"), a2 = le(n2.prototype);
+function CreateTemporalMonthDay(e2, t2, r2 = "iso8601", o2 = 1972) {
+  const n2 = GetIntrinsic("%Temporal.PlainMonthDay%"), a2 = Te(n2.prototype);
   return CreateTemporalMonthDaySlots(a2, e2, t2, r2, o2), a2;
 }
-function CreateTemporalYearMonthSlots(e2, t2, r2, o2, s2) {
-  RejectISODate(t2, r2, s2), function RejectYearMonthRange(e3, t3) {
-    RejectToRange(e3, -271821, 275760), -271821 === e3 ? RejectToRange(t3, 4, 12) : 275760 === e3 && RejectToRange(t3, 1, 9);
-  }(t2, r2), CreateSlots(e2), SetSlot(e2, n, t2), SetSlot(e2, a, r2), SetSlot(e2, i, s2), SetSlot(e2, u, o2), SetSlot(e2, "slot-year-month-brand", true);
+function CreateTemporalYearMonthSlots(e2, t2, r2, o2, n2) {
+  RejectISODate(t2, r2, n2), function RejectYearMonthRange(e3, t3) {
+    RejectToRange(e3, Fe, Ye), e3 === Fe ? RejectToRange(t3, 4, 12) : e3 === Ye && RejectToRange(t3, 1, 9);
+  }(t2, r2), N(e2), SetSlot(e2, i, t2), SetSlot(e2, s, r2), SetSlot(e2, l, n2), SetSlot(e2, p, o2), SetSlot(e2, y, true);
 }
-function CreateTemporalYearMonth(e2, t2, r2 = GetISO8601Calendar(), o2 = 1) {
-  const n2 = GetIntrinsic("%Temporal.PlainYearMonth%"), a2 = le(n2.prototype);
+function CreateTemporalYearMonth(e2, t2, r2 = "iso8601", o2 = 1) {
+  const n2 = GetIntrinsic("%Temporal.PlainYearMonth%"), a2 = Te(n2.prototype);
   return CreateTemporalYearMonthSlots(a2, e2, t2, r2, o2), a2;
 }
-function CreateTemporalZonedDateTimeSlots(e2, t2, o2, n2) {
-  ValidateEpochNanoseconds(t2), CreateSlots(e2), SetSlot(e2, r, t2), SetSlot(e2, p, o2), SetSlot(e2, u, n2);
-  const a2 = new (GetIntrinsic("%Temporal.Instant%"))(GetSlot(e2, r));
-  SetSlot(e2, T, a2);
+function CreateTemporalZonedDateTimeSlots(e2, t2, r2, o2) {
+  ValidateEpochNanoseconds(t2), N(e2), SetSlot(e2, n, t2), SetSlot(e2, g, r2), SetSlot(e2, p, o2);
+  const a2 = new (GetIntrinsic("%Temporal.Instant%"))(GetSlot(e2, n));
+  SetSlot(e2, S, a2);
 }
-function CreateTemporalZonedDateTime(e2, t2, r2 = GetISO8601Calendar()) {
-  const o2 = GetIntrinsic("%Temporal.ZonedDateTime%"), n2 = le(o2.prototype);
+function CreateTemporalZonedDateTime(e2, t2, r2 = "iso8601") {
+  const o2 = GetIntrinsic("%Temporal.ZonedDateTime%"), n2 = Te(o2.prototype);
   return CreateTemporalZonedDateTimeSlots(n2, e2, t2, r2), n2;
 }
-function GetISO8601Calendar() {
-  return new (GetIntrinsic("%Temporal.Calendar%"))("iso8601");
-}
 function CalendarFields(e2, t2) {
-  let r2 = t2;
-  e2.fields && (r2 = e2.fields(r2));
-  const o2 = [];
+  if ("string" == typeof e2) {
+    const r3 = new (GetIntrinsic("%Temporal.Calendar%"))(e2);
+    return Call(GetIntrinsic("%Temporal.Calendar.prototype.fields%"), r3, [t2]);
+  }
+  const r2 = Call(GetMethod(e2, "fields"), e2, [t2]), o2 = [];
   for (const e3 of r2) {
     if ("string" != typeof e3)
       throw new TypeError("bad return from calendar.fields()");
-    _.call(o2, e3);
+    te.call(o2, e3);
   }
   return o2;
 }
 function CalendarMergeFields(e2, t2, r2) {
-  const o2 = e2.mergeFields;
-  if (!o2)
-    return { ...t2, ...r2 };
-  const n2 = Reflect.apply(o2, e2, [t2, r2]);
-  if (!IsObject(n2))
+  if ("string" == typeof e2) {
+    const o3 = new (GetIntrinsic("%Temporal.Calendar%"))(e2);
+    return Call(GetIntrinsic("%Temporal.Calendar.prototype.mergeFields%"), o3, [t2, r2]);
+  }
+  const o2 = Call(GetMethod(e2, "mergeFields"), e2, [t2, r2]);
+  if (!IsObject(o2))
     throw new TypeError("bad return from calendar.mergeFields()");
-  return n2;
+  return o2;
 }
 function CalendarDateAdd(e2, t2, r2, o2, n2) {
   let a2 = n2;
-  void 0 === a2 && (a2 = e2.dateAdd);
-  const i2 = ce(a2, e2, [t2, r2, o2]);
+  if ("string" == typeof e2) {
+    const n3 = new (GetIntrinsic("%Temporal.Calendar%"))(e2);
+    return Call(GetIntrinsic("%Temporal.Calendar.prototype.dateAdd%"), n3, [t2, r2, o2]);
+  }
+  void 0 === a2 && (a2 = GetMethod(e2, "dateAdd"));
+  const i2 = fe(a2, e2, [t2, r2, o2]);
   if (!IsTemporalDate(i2))
     throw new TypeError("invalid result");
   return i2;
 }
 function CalendarDateUntil(e2, t2, r2, o2, n2) {
   let a2 = n2;
-  void 0 === a2 && (a2 = e2.dateUntil);
-  const i2 = ce(a2, e2, [t2, r2, o2]);
+  if ("string" == typeof e2) {
+    const n3 = new (GetIntrinsic("%Temporal.Calendar%"))(e2);
+    return Call(GetIntrinsic("%Temporal.Calendar.prototype.dateUntil%"), n3, [t2, r2, o2]);
+  }
+  void 0 === a2 && (a2 = GetMethod(e2, "dateUntil"));
+  const i2 = fe(a2, e2, [t2, r2, o2]);
   if (!IsTemporalDuration(i2))
     throw new TypeError("invalid result");
   return i2;
 }
 function CalendarYear(e2, t2) {
-  const r2 = e2.year(t2);
-  if (void 0 === r2)
+  if ("string" == typeof e2) {
+    const r3 = new (GetIntrinsic("%Temporal.Calendar%"))(e2);
+    return Call(GetIntrinsic("%Temporal.Calendar.prototype.year%"), r3, [t2]);
+  }
+  let r2 = Call(GetMethod(e2, "year"), e2, [t2]);
+  if ("number" != typeof r2)
+    throw new TypeError("calendar year result must be an integer");
+  if (!IsIntegralNumber(r2))
     throw new RangeError("calendar year result must be an integer");
-  return ToIntegerThrowOnInfinity(r2);
+  return r2;
 }
 function CalendarMonth(e2, t2) {
-  const r2 = e2.month(t2);
-  if (void 0 === r2)
+  if ("string" == typeof e2) {
+    const r3 = new (GetIntrinsic("%Temporal.Calendar%"))(e2);
+    return Call(GetIntrinsic("%Temporal.Calendar.prototype.month%"), r3, [t2]);
+  }
+  let r2 = Call(GetMethod(e2, "month"), e2, [t2]);
+  if ("number" != typeof r2)
+    throw new TypeError("calendar month result must be a positive integer");
+  if (!IsIntegralNumber(r2) || r2 < 1)
     throw new RangeError("calendar month result must be a positive integer");
-  return ToPositiveInteger(r2);
+  return r2;
 }
 function CalendarMonthCode(e2, t2) {
-  const r2 = e2.monthCode(t2);
-  if (void 0 === r2)
-    throw new RangeError("calendar monthCode result must be a string");
-  return ToString(r2);
+  if ("string" == typeof e2) {
+    const r3 = new (GetIntrinsic("%Temporal.Calendar%"))(e2);
+    return Call(GetIntrinsic("%Temporal.Calendar.prototype.monthCode%"), r3, [t2]);
+  }
+  let r2 = Call(GetMethod(e2, "monthCode"), e2, [t2]);
+  if ("string" != typeof r2)
+    throw new TypeError("calendar monthCode result must be a string");
+  return r2;
 }
 function CalendarDay(e2, t2) {
-  const r2 = e2.day(t2);
-  if (void 0 === r2)
+  if ("string" == typeof e2) {
+    const r3 = new (GetIntrinsic("%Temporal.Calendar%"))(e2);
+    return Call(GetIntrinsic("%Temporal.Calendar.prototype.day%"), r3, [t2]);
+  }
+  const r2 = Call(GetMethod(e2, "day"), e2, [t2]);
+  if ("number" != typeof r2)
+    throw new TypeError("calendar day result must be a positive integer");
+  if (!IsIntegralNumber(r2) || r2 < 1)
     throw new RangeError("calendar day result must be a positive integer");
-  return ToPositiveInteger(r2);
+  return r2;
 }
 function CalendarEra(e2, t2) {
-  let r2 = e2.era(t2);
-  return void 0 !== r2 && (r2 = ToString(r2)), r2;
+  if ("string" == typeof e2) {
+    const r3 = new (GetIntrinsic("%Temporal.Calendar%"))(e2);
+    return Call(GetIntrinsic("%Temporal.Calendar.prototype.era%"), r3, [t2]);
+  }
+  let r2 = Call(GetMethod(e2, "era"), e2, [t2]);
+  if (void 0 === r2)
+    return r2;
+  if ("string" != typeof r2)
+    throw new TypeError("calendar era result must be a string or undefined");
+  return r2;
 }
 function CalendarEraYear(e2, t2) {
-  let r2 = e2.eraYear(t2);
-  return void 0 !== r2 && (r2 = ToIntegerThrowOnInfinity(r2)), r2;
+  if ("string" == typeof e2) {
+    const r3 = new (GetIntrinsic("%Temporal.Calendar%"))(e2);
+    return Call(GetIntrinsic("%Temporal.Calendar.prototype.eraYear%"), r3, [t2]);
+  }
+  let r2 = Call(GetMethod(e2, "eraYear"), e2, [t2]);
+  if (void 0 === r2)
+    return r2;
+  if ("number" != typeof r2)
+    throw new TypeError("calendar eraYear result must be an integer or undefined");
+  if (!IsIntegralNumber(r2))
+    throw new RangeError("calendar eraYear result must be an integer or undefined");
+  return r2;
 }
 function CalendarDayOfWeek(e2, t2) {
-  return e2.dayOfWeek(t2);
+  if ("string" == typeof e2) {
+    const r3 = new (GetIntrinsic("%Temporal.Calendar%"))(e2);
+    return Call(GetIntrinsic("%Temporal.Calendar.prototype.dayOfWeek%"), r3, [t2]);
+  }
+  const r2 = Call(GetMethod(e2, "dayOfWeek"), e2, [t2]);
+  if ("number" != typeof r2)
+    throw new TypeError("calendar dayOfWeek result must be a positive integer");
+  if (!IsIntegralNumber(r2) || r2 < 1)
+    throw new RangeError("calendar dayOfWeek result must be a positive integer");
+  return r2;
 }
 function CalendarDayOfYear(e2, t2) {
-  return e2.dayOfYear(t2);
+  if ("string" == typeof e2) {
+    const r3 = new (GetIntrinsic("%Temporal.Calendar%"))(e2);
+    return Call(GetIntrinsic("%Temporal.Calendar.prototype.dayOfYear%"), r3, [t2]);
+  }
+  const r2 = Call(GetMethod(e2, "dayOfYear"), e2, [t2]);
+  if ("number" != typeof r2)
+    throw new TypeError("calendar dayOfYear result must be a positive integer");
+  if (!IsIntegralNumber(r2) || r2 < 1)
+    throw new RangeError("calendar dayOfYear result must be a positive integer");
+  return r2;
 }
 function CalendarWeekOfYear(e2, t2) {
-  return e2.weekOfYear(t2);
+  if ("string" == typeof e2) {
+    const r3 = new (GetIntrinsic("%Temporal.Calendar%"))(e2);
+    return Call(GetIntrinsic("%Temporal.Calendar.prototype.weekOfYear%"), r3, [t2]);
+  }
+  const r2 = Call(GetMethod(e2, "weekOfYear"), e2, [t2]);
+  if ("number" != typeof r2)
+    throw new TypeError("calendar weekOfYear result must be a positive integer");
+  if (!IsIntegralNumber(r2) || r2 < 1)
+    throw new RangeError("calendar weekOfYear result must be a positive integer");
+  return r2;
+}
+function CalendarYearOfWeek(e2, t2) {
+  if ("string" == typeof e2) {
+    const r3 = new (GetIntrinsic("%Temporal.Calendar%"))(e2);
+    return Call(GetIntrinsic("%Temporal.Calendar.prototype.yearOfWeek%"), r3, [t2]);
+  }
+  const r2 = Call(GetMethod(e2, "yearOfWeek"), e2, [t2]);
+  if ("number" != typeof r2)
+    throw new TypeError("calendar yearOfWeek result must be an integer");
+  if (!IsIntegralNumber(r2))
+    throw new RangeError("calendar yearOfWeek result must be an integer");
+  return r2;
 }
 function CalendarDaysInWeek(e2, t2) {
-  return e2.daysInWeek(t2);
+  if ("string" == typeof e2) {
+    const r3 = new (GetIntrinsic("%Temporal.Calendar%"))(e2);
+    return Call(GetIntrinsic("%Temporal.Calendar.prototype.daysInWeek%"), r3, [t2]);
+  }
+  const r2 = Call(GetMethod(e2, "daysInWeek"), e2, [t2]);
+  if ("number" != typeof r2)
+    throw new TypeError("calendar daysInWeek result must be a positive integer");
+  if (!IsIntegralNumber(r2) || r2 < 1)
+    throw new RangeError("calendar daysInWeek result must be a positive integer");
+  return r2;
 }
 function CalendarDaysInMonth(e2, t2) {
-  return e2.daysInMonth(t2);
+  if ("string" == typeof e2) {
+    const r3 = new (GetIntrinsic("%Temporal.Calendar%"))(e2);
+    return Call(GetIntrinsic("%Temporal.Calendar.prototype.daysInMonth%"), r3, [t2]);
+  }
+  const r2 = Call(GetMethod(e2, "daysInMonth"), e2, [t2]);
+  if ("number" != typeof r2)
+    throw new TypeError("calendar daysInMonth result must be a positive integer");
+  if (!IsIntegralNumber(r2) || r2 < 1)
+    throw new RangeError("calendar daysInMonth result must be a positive integer");
+  return r2;
 }
 function CalendarDaysInYear(e2, t2) {
-  return e2.daysInYear(t2);
+  if ("string" == typeof e2) {
+    const r3 = new (GetIntrinsic("%Temporal.Calendar%"))(e2);
+    return Call(GetIntrinsic("%Temporal.Calendar.prototype.daysInYear%"), r3, [t2]);
+  }
+  const r2 = Call(GetMethod(e2, "daysInYear"), e2, [t2]);
+  if ("number" != typeof r2)
+    throw new TypeError("calendar daysInYear result must be a positive integer");
+  if (!IsIntegralNumber(r2) || r2 < 1)
+    throw new RangeError("calendar daysInYear result must be a positive integer");
+  return r2;
 }
 function CalendarMonthsInYear(e2, t2) {
-  return e2.monthsInYear(t2);
+  if ("string" == typeof e2) {
+    const r3 = new (GetIntrinsic("%Temporal.Calendar%"))(e2);
+    return Call(GetIntrinsic("%Temporal.Calendar.prototype.monthsInYear%"), r3, [t2]);
+  }
+  const r2 = Call(GetMethod(e2, "monthsInYear"), e2, [t2]);
+  if ("number" != typeof r2)
+    throw new TypeError("calendar monthsInYear result must be a positive integer");
+  if (!IsIntegralNumber(r2) || r2 < 1)
+    throw new RangeError("calendar monthsInYear result must be a positive integer");
+  return r2;
 }
 function CalendarInLeapYear(e2, t2) {
-  return e2.inLeapYear(t2);
-}
-function ToTemporalCalendar(e2) {
-  let t2 = e2;
-  if (IsObject(t2)) {
-    if (HasSlot(t2, u))
-      return GetSlot(t2, u);
-    if (!("calendar" in t2))
-      return t2;
-    if (t2 = t2.calendar, IsObject(t2) && !("calendar" in t2))
-      return t2;
+  if ("string" == typeof e2) {
+    const r3 = new (GetIntrinsic("%Temporal.Calendar%"))(e2);
+    return Call(GetIntrinsic("%Temporal.Calendar.prototype.inLeapYear%"), r3, [t2]);
   }
-  const r2 = ToString(t2), o2 = GetIntrinsic("%Temporal.Calendar%");
-  if (IsBuiltinCalendar(r2))
-    return new o2(r2);
-  let n2;
+  const r2 = Call(GetMethod(e2, "inLeapYear"), e2, [t2]);
+  if ("boolean" != typeof r2)
+    throw new TypeError("calendar inLeapYear result must be a boolean");
+  return r2;
+}
+function ToTemporalCalendarSlotValue(e2) {
+  if (IsObject(e2)) {
+    if (HasSlot(e2, p))
+      return GetSlot(e2, p);
+    if (!function ObjectImplementsTemporalCalendarProtocol(e3) {
+      return !!IsTemporalCalendar(e3) || "dateAdd" in e3 && "dateFromFields" in e3 && "dateUntil" in e3 && "day" in e3 && "dayOfWeek" in e3 && "dayOfYear" in e3 && "daysInMonth" in e3 && "daysInWeek" in e3 && "daysInYear" in e3 && "fields" in e3 && "id" in e3 && "inLeapYear" in e3 && "mergeFields" in e3 && "month" in e3 && "monthCode" in e3 && "monthDayFromFields" in e3 && "monthsInYear" in e3 && "weekOfYear" in e3 && "year" in e3 && "yearMonthFromFields" in e3 && "yearOfWeek" in e3;
+    }(e2))
+      throw new TypeError("expected a Temporal.Calendar or object implementing the Temporal.Calendar protocol");
+    return e2;
+  }
+  const t2 = ToString(e2);
+  if (IsBuiltinCalendar(t2))
+    return ASCIILowercase(t2);
+  let r2;
   try {
-    ({ calendar: n2 } = ParseISODateTime(r2));
+    ({ calendar: r2 } = ParseISODateTime(t2));
   } catch (e3) {
-    throw new RangeError(`Invalid calendar: ${r2}`);
+    try {
+      ({ calendar: r2 } = ParseTemporalYearMonthString(t2));
+    } catch (e4) {
+      ({ calendar: r2 } = ParseTemporalMonthDayString(t2));
+    }
   }
-  return n2 || (n2 = "iso8601"), new o2(n2);
+  if (r2 || (r2 = "iso8601"), !IsBuiltinCalendar(r2))
+    throw new RangeError(`invalid calendar identifier ${r2}`);
+  return ASCIILowercase(r2);
 }
-function GetTemporalCalendarWithISODefault(e2) {
-  if (HasSlot(e2, u))
-    return GetSlot(e2, u);
+function GetTemporalCalendarSlotValueWithISODefault(e2) {
+  if (HasSlot(e2, p))
+    return GetSlot(e2, p);
   const { calendar: t2 } = e2;
-  return void 0 === t2 ? GetISO8601Calendar() : ToTemporalCalendar(t2);
+  return void 0 === t2 ? "iso8601" : ToTemporalCalendarSlotValue(t2);
+}
+function ToTemporalCalendarIdentifier(e2) {
+  if ("string" == typeof e2)
+    return e2;
+  const t2 = e2.id;
+  if ("string" != typeof t2)
+    throw new TypeError("calendar.id should be a string");
+  return t2;
+}
+function ToTemporalCalendarObject(e2) {
+  if (IsObject(e2))
+    return e2;
+  return new (GetIntrinsic("%Temporal.Calendar%"))(e2);
 }
 function CalendarEquals(e2, t2) {
   if (e2 === t2)
     return true;
-  return ToString(e2) === ToString(t2);
+  return ToTemporalCalendarIdentifier(e2) === ToTemporalCalendarIdentifier(t2);
+}
+function ThrowIfCalendarsNotEqual(e2, t2, r2) {
+  if (e2 === t2)
+    return;
+  const o2 = ToTemporalCalendarIdentifier(e2), n2 = ToTemporalCalendarIdentifier(t2);
+  if (o2 !== n2)
+    throw new RangeError(`cannot ${r2} of ${o2} and ${n2} calendars`);
 }
 function ConsolidateCalendars(e2, t2) {
   if (e2 === t2)
     return t2;
-  const r2 = ToString(e2), o2 = ToString(t2);
+  const r2 = ToTemporalCalendarIdentifier(e2), o2 = ToTemporalCalendarIdentifier(t2);
   if (r2 === o2 || "iso8601" === r2)
     return t2;
   if ("iso8601" === o2)
     return e2;
   throw new RangeError("irreconcilable calendars");
 }
-function CalendarDateFromFields(e2, t2, r2) {
-  const o2 = e2.dateFromFields(t2, r2);
-  if (!IsTemporalDate(o2))
+function CalendarDateFromFields(e2, t2, r2, o2) {
+  if ("string" == typeof e2) {
+    const o3 = new (GetIntrinsic("%Temporal.Calendar%"))(e2);
+    return Call(GetIntrinsic("%Temporal.Calendar.prototype.dateFromFields%"), o3, [t2, r2]);
+  }
+  const n2 = Call(o2 != null ? o2 : GetMethod(e2, "dateFromFields"), e2, [t2, r2]);
+  if (!IsTemporalDate(n2))
     throw new TypeError("invalid result");
-  return o2;
+  return n2;
 }
 function CalendarYearMonthFromFields(e2, t2, r2) {
-  const o2 = e2.yearMonthFromFields(t2, r2);
+  if ("string" == typeof e2) {
+    const o3 = new (GetIntrinsic("%Temporal.Calendar%"))(e2);
+    return Call(GetIntrinsic("%Temporal.Calendar.prototype.yearMonthFromFields%"), o3, [t2, r2]);
+  }
+  let o2 = Call(GetMethod(e2, "yearMonthFromFields"), e2, [t2, r2]);
   if (!IsTemporalYearMonth(o2))
     throw new TypeError("invalid result");
   return o2;
 }
 function CalendarMonthDayFromFields(e2, t2, r2) {
-  const o2 = e2.monthDayFromFields(t2, r2);
+  if ("string" == typeof e2) {
+    const o3 = new (GetIntrinsic("%Temporal.Calendar%"))(e2);
+    return Call(GetIntrinsic("%Temporal.Calendar.prototype.monthDayFromFields%"), o3, [t2, r2]);
+  }
+  let o2 = Call(GetMethod(e2, "monthDayFromFields"), e2, [t2, r2]);
   if (!IsTemporalMonthDay(o2))
     throw new TypeError("invalid result");
   return o2;
 }
-function ToTemporalTimeZone(e2) {
-  let t2 = e2;
-  if (IsObject(t2)) {
-    if (IsTemporalZonedDateTime(t2))
-      return GetSlot(t2, p);
-    if (!("timeZone" in t2))
-      return t2;
-    if (t2 = t2.timeZone, IsObject(t2) && !("timeZone" in t2))
-      return t2;
+function ToTemporalTimeZoneSlotValue(e2) {
+  if (IsObject(e2)) {
+    if (IsTemporalZonedDateTime(e2))
+      return GetSlot(e2, g);
+    if (!function ObjectImplementsTemporalTimeZoneProtocol(e3) {
+      return !!IsTemporalTimeZone(e3) || "getOffsetNanosecondsFor" in e3 && "getPossibleInstantsFor" in e3 && "id" in e3;
+    }(e2))
+      throw new TypeError("expected a Temporal.TimeZone or object implementing the Temporal.TimeZone protocol");
+    return e2;
   }
-  const r2 = ParseTemporalTimeZone(ToString(t2));
-  return new (GetIntrinsic("%Temporal.TimeZone%"))(r2);
+  return ParseTemporalTimeZone(ToString(e2));
+}
+function ToTemporalTimeZoneIdentifier(e2) {
+  if ("string" == typeof e2)
+    return e2;
+  const t2 = e2.id;
+  if ("string" != typeof t2)
+    throw new TypeError("timeZone.id should be a string");
+  return t2;
+}
+function ToTemporalTimeZoneObject(e2) {
+  if (IsObject(e2))
+    return e2;
+  return new (GetIntrinsic("%Temporal.TimeZone%"))(e2);
 }
 function TimeZoneEquals(e2, t2) {
   if (e2 === t2)
     return true;
-  return ToString(e2) === ToString(t2);
+  return ToTemporalTimeZoneIdentifier(e2) === ToTemporalTimeZoneIdentifier(t2);
 }
 function TemporalDateTimeToDate(e2) {
-  return CreateTemporalDate(GetSlot(e2, n), GetSlot(e2, a), GetSlot(e2, i), GetSlot(e2, u));
+  return CreateTemporalDate(GetSlot(e2, i), GetSlot(e2, s), GetSlot(e2, l), GetSlot(e2, p));
 }
 function TemporalDateTimeToTime(e2) {
-  return new (GetIntrinsic("%Temporal.PlainTime%"))(GetSlot(e2, s), GetSlot(e2, l), GetSlot(e2, d), GetSlot(e2, m), GetSlot(e2, c), GetSlot(e2, h));
+  return new (GetIntrinsic("%Temporal.PlainTime%"))(GetSlot(e2, d), GetSlot(e2, m), GetSlot(e2, c), GetSlot(e2, h), GetSlot(e2, u), GetSlot(e2, T));
 }
-function GetOffsetNanosecondsFor(e2, t2) {
-  let r2 = e2.getOffsetNanosecondsFor;
-  if ("function" != typeof r2)
-    throw new TypeError("getOffsetNanosecondsFor not callable");
-  const o2 = Reflect.apply(r2, e2, [t2]);
+function GetOffsetNanosecondsFor(e2, t2, r2) {
+  if ("string" == typeof e2) {
+    const r3 = new (GetIntrinsic("%Temporal.TimeZone%"))(e2);
+    return Call(GetIntrinsic("%Temporal.TimeZone.prototype.getOffsetNanosecondsFor%"), r3, [t2]);
+  }
+  const o2 = Call(r2 != null ? r2 : GetMethod(e2, "getOffsetNanosecondsFor"), e2, [t2]);
   if ("number" != typeof o2)
     throw new TypeError("bad return from getOffsetNanosecondsFor");
-  if (!IsInteger(o2) || K(o2) > 864e11)
+  if (!IsIntegralNumber(o2) || ae(o2) >= 864e11)
     throw new RangeError("out-of-range return from getOffsetNanosecondsFor");
   return o2;
 }
-function BuiltinTimeZoneGetOffsetStringFor(e2, t2) {
+function GetOffsetStringFor(e2, t2) {
   return FormatTimeZoneOffsetString(GetOffsetNanosecondsFor(e2, t2));
 }
-function BuiltinTimeZoneGetPlainDateTimeFor(e2, t2, o2) {
-  const n2 = GetSlot(t2, r), a2 = GetOffsetNanosecondsFor(e2, t2);
-  let { year: i2, month: s2, day: l2, hour: d2, minute: m2, second: c2, millisecond: h2, microsecond: u2, nanosecond: T2 } = GetISOPartsFromEpoch(n2);
-  return { year: i2, month: s2, day: l2, hour: d2, minute: m2, second: c2, millisecond: h2, microsecond: u2, nanosecond: T2 } = BalanceISODateTime(i2, s2, l2, d2, m2, c2, h2, u2, T2 + a2), CreateTemporalDateTime(i2, s2, l2, d2, m2, c2, h2, u2, T2, o2);
+function GetPlainDateTimeFor(e2, t2, r2) {
+  const o2 = GetSlot(t2, n), a2 = GetOffsetNanosecondsFor(e2, t2);
+  let { year: i2, month: s2, day: l2, hour: d2, minute: m2, second: c2, millisecond: h2, microsecond: u2, nanosecond: T2 } = GetISOPartsFromEpoch(o2);
+  return { year: i2, month: s2, day: l2, hour: d2, minute: m2, second: c2, millisecond: h2, microsecond: u2, nanosecond: T2 } = BalanceISODateTime(i2, s2, l2, d2, m2, c2, h2, u2, T2 + a2), CreateTemporalDateTime(i2, s2, l2, d2, m2, c2, h2, u2, T2, r2);
 }
-function BuiltinTimeZoneGetInstantFor(e2, t2, r2) {
+function GetInstantFor(e2, t2, r2) {
   return DisambiguatePossibleInstants(GetPossibleInstantsFor(e2, t2), e2, t2, r2);
 }
-function DisambiguatePossibleInstants(t2, r2, o2, T2) {
-  const p2 = GetIntrinsic("%Temporal.Instant%"), f2 = t2.length;
+function DisambiguatePossibleInstants(t2, r2, o2, n2) {
+  const a2 = GetIntrinsic("%Temporal.Instant%"), f2 = t2.length;
   if (1 === f2)
     return t2[0];
   if (f2)
-    switch (T2) {
+    switch (n2) {
       case "compatible":
       case "earlier":
         return t2[0];
@@ -2474,37 +2706,41 @@ function DisambiguatePossibleInstants(t2, r2, o2, T2) {
       case "reject":
         throw new RangeError("multiple instants found");
     }
-  const y2 = GetSlot(o2, n), S2 = GetSlot(o2, a), w2 = GetSlot(o2, i), g2 = GetSlot(o2, s), I2 = GetSlot(o2, l), D2 = GetSlot(o2, d), G2 = GetSlot(o2, m), v2 = GetSlot(o2, c), O2 = GetSlot(o2, h), C2 = GetEpochFromISOParts(y2, S2, w2, g2, I2, D2, G2, v2, O2);
-  if (null === C2)
+  const y2 = GetSlot(o2, i), I2 = GetSlot(o2, s), S2 = GetSlot(o2, l), g2 = GetSlot(o2, d), w2 = GetSlot(o2, m), D2 = GetSlot(o2, c), G2 = GetSlot(o2, h), v2 = GetSlot(o2, u), C2 = GetSlot(o2, T), O2 = GetUTCEpochNanoseconds(y2, I2, S2, g2, w2, D2, G2, v2, C2);
+  if (null === O2)
     throw new RangeError("DateTime outside of supported range");
-  const E2 = new p2(import_jsbi.default.subtract(C2, we)), b2 = new p2(import_jsbi.default.add(C2, we)), M2 = GetOffsetNanosecondsFor(r2, E2), R2 = GetOffsetNanosecondsFor(r2, b2) - M2;
-  switch (T2) {
+  const b2 = new a2(import_jsbi.default.subtract(O2, Ee)), E2 = new a2(import_jsbi.default.add(O2, Ee)), M2 = GetOffsetNanosecondsFor(r2, b2), R2 = GetOffsetNanosecondsFor(r2, E2) - M2;
+  switch (n2) {
     case "earlier": {
-      const e2 = GetSlot(o2, u), t3 = GetIntrinsic("%Temporal.PlainDateTime%"), n2 = AddDateTime(y2, S2, w2, g2, I2, D2, G2, v2, O2, e2, 0, 0, 0, 0, 0, 0, 0, 0, 0, -R2, void 0);
-      return GetPossibleInstantsFor(r2, new t3(n2.year, n2.month, n2.day, n2.hour, n2.minute, n2.second, n2.millisecond, n2.microsecond, n2.nanosecond, e2))[0];
+      const e2 = GetSlot(o2, p), t3 = GetIntrinsic("%Temporal.PlainDateTime%"), n3 = AddDateTime(y2, I2, S2, g2, w2, D2, G2, v2, C2, e2, 0, 0, 0, 0, 0, 0, 0, 0, 0, -R2, void 0);
+      return GetPossibleInstantsFor(r2, new t3(n3.year, n3.month, n3.day, n3.hour, n3.minute, n3.second, n3.millisecond, n3.microsecond, n3.nanosecond, e2))[0];
     }
     case "compatible":
     case "later": {
-      const e2 = GetSlot(o2, u), t3 = GetIntrinsic("%Temporal.PlainDateTime%"), n2 = AddDateTime(y2, S2, w2, g2, I2, D2, G2, v2, O2, e2, 0, 0, 0, 0, 0, 0, 0, 0, 0, R2, void 0), a2 = GetPossibleInstantsFor(r2, new t3(n2.year, n2.month, n2.day, n2.hour, n2.minute, n2.second, n2.millisecond, n2.microsecond, n2.nanosecond, e2));
-      return a2[a2.length - 1];
+      const e2 = GetSlot(o2, p), t3 = GetIntrinsic("%Temporal.PlainDateTime%"), n3 = AddDateTime(y2, I2, S2, g2, w2, D2, G2, v2, C2, e2, 0, 0, 0, 0, 0, 0, 0, 0, 0, R2, void 0), a3 = GetPossibleInstantsFor(r2, new t3(n3.year, n3.month, n3.day, n3.hour, n3.minute, n3.second, n3.millisecond, n3.microsecond, n3.nanosecond, e2));
+      return a3[a3.length - 1];
     }
     case "reject":
       throw new RangeError("no such instant found");
   }
 }
-function GetPossibleInstantsFor(e2, t2) {
-  const r2 = e2.getPossibleInstantsFor(t2), o2 = [];
-  for (const e3 of r2) {
+function GetPossibleInstantsFor(e2, t2, r2) {
+  if ("string" == typeof e2) {
+    const r3 = new (GetIntrinsic("%Temporal.TimeZone%"))(e2);
+    return Call(GetIntrinsic("%Temporal.TimeZone.prototype.getPossibleInstantsFor%"), r3, [t2]);
+  }
+  const o2 = Call(r2 != null ? r2 : GetMethod(e2, "getPossibleInstantsFor"), e2, [t2]), n2 = [];
+  for (const e3 of o2) {
     if (!IsTemporalInstant(e3))
       throw new TypeError("bad return from getPossibleInstantsFor");
-    _.call(o2, e3);
+    te.call(n2, e3);
   }
-  return o2;
+  return n2;
 }
 function ISOYearString(e2) {
   let t2;
   if (e2 < 0 || e2 > 9999) {
-    t2 = (e2 < 0 ? "-" : "+") + `000000${K(e2)}`.slice(-6);
+    t2 = (e2 < 0 ? "-" : "+") + `000000${ae(e2)}`.slice(-6);
   } else
     t2 = `0000${e2}`.slice(-4);
   return t2;
@@ -2531,110 +2767,108 @@ function FormatSecondsStringPart(e2, t2, r2, o2, n2) {
 }
 function TemporalInstantToString(e2, t2, r2) {
   let o2 = t2;
-  if (void 0 === o2) {
-    o2 = new (GetIntrinsic("%Temporal.TimeZone%"))("UTC");
-  }
-  const u2 = BuiltinTimeZoneGetPlainDateTimeFor(o2, e2, GetISO8601Calendar()), T2 = ISOYearString(GetSlot(u2, n)), p2 = ISODateTimePartString(GetSlot(u2, a)), f2 = ISODateTimePartString(GetSlot(u2, i)), y2 = ISODateTimePartString(GetSlot(u2, s)), S2 = ISODateTimePartString(GetSlot(u2, l)), w2 = FormatSecondsStringPart(GetSlot(u2, d), GetSlot(u2, m), GetSlot(u2, c), GetSlot(u2, h), r2);
+  void 0 === o2 && (o2 = "UTC");
+  const n2 = GetPlainDateTimeFor(o2, e2, "iso8601"), a2 = ISOYearString(GetSlot(n2, i)), p2 = ISODateTimePartString(GetSlot(n2, s)), f2 = ISODateTimePartString(GetSlot(n2, l)), y2 = ISODateTimePartString(GetSlot(n2, d)), I2 = ISODateTimePartString(GetSlot(n2, m)), S2 = FormatSecondsStringPart(GetSlot(n2, c), GetSlot(n2, h), GetSlot(n2, u), GetSlot(n2, T), r2);
   let g2 = "Z";
   if (void 0 !== t2) {
     g2 = FormatISOTimeZoneOffsetString(GetOffsetNanosecondsFor(o2, e2));
   }
-  return `${T2}-${p2}-${f2}T${y2}:${S2}${w2}${g2}`;
+  return `${a2}-${p2}-${f2}T${y2}:${I2}${S2}${g2}`;
 }
 function TemporalDurationToString(t2, r2 = "auto", o2) {
   function formatNumber(t3) {
-    return t3 <= ie ? t3.toString(10) : import_jsbi.default.BigInt(t3).toString(10);
+    return t3 <= ue ? t3.toString(10) : import_jsbi.default.BigInt(t3).toString(10);
   }
-  const n2 = GetSlot(t2, f), a2 = GetSlot(t2, y), i2 = GetSlot(t2, S), s2 = GetSlot(t2, w), l2 = GetSlot(t2, g), d2 = GetSlot(t2, I);
-  let m2 = GetSlot(t2, D), c2 = GetSlot(t2, G), h2 = GetSlot(t2, v), u2 = GetSlot(t2, O);
+  const n2 = GetSlot(t2, w), a2 = GetSlot(t2, D), i2 = GetSlot(t2, G), s2 = GetSlot(t2, v), l2 = GetSlot(t2, C), d2 = GetSlot(t2, O);
+  let m2 = GetSlot(t2, b), c2 = GetSlot(t2, E), h2 = GetSlot(t2, M), u2 = GetSlot(t2, R);
   const T2 = DurationSign(n2, a2, i2, s2, l2, d2, m2, c2, h2, u2);
   if (o2) {
     const { unit: e2, increment: t3, roundingMode: r3 } = o2;
     ({ seconds: m2, milliseconds: c2, microseconds: h2, nanoseconds: u2 } = RoundDuration(0, 0, 0, 0, 0, 0, m2, c2, h2, u2, t3, e2, r3));
   }
   const p2 = [];
-  n2 && p2.push(`${formatNumber(K(n2))}Y`), a2 && p2.push(`${formatNumber(K(a2))}M`), i2 && p2.push(`${formatNumber(K(i2))}W`), s2 && p2.push(`${formatNumber(K(s2))}D`);
-  const C2 = [];
-  l2 && C2.push(`${formatNumber(K(l2))}H`), d2 && C2.push(`${formatNumber(K(d2))}M`);
-  const E2 = [];
-  let b2, M2, R2, Z2, P2 = TotalDurationNanoseconds(0, 0, 0, m2, c2, h2, u2, 0);
-  ({ quotient: P2, remainder: b2 } = divmod(P2, pe)), { quotient: P2, remainder: M2 } = divmod(P2, pe), { quotient: Z2, remainder: R2 } = divmod(P2, pe);
-  const F2 = 1e6 * K(import_jsbi.default.toNumber(R2)) + 1e3 * K(import_jsbi.default.toNumber(M2)) + K(import_jsbi.default.toNumber(b2));
-  let Y2;
+  n2 && p2.push(`${formatNumber(ae(n2))}Y`), a2 && p2.push(`${formatNumber(ae(a2))}M`), i2 && p2.push(`${formatNumber(ae(i2))}W`), s2 && p2.push(`${formatNumber(ae(s2))}D`);
+  const f2 = [];
+  l2 && f2.push(`${formatNumber(ae(l2))}H`), d2 && f2.push(`${formatNumber(ae(d2))}M`);
+  const y2 = [];
+  let I2, S2, g2, F2, Y2 = TotalDurationNanoseconds(0, 0, 0, m2, c2, h2, u2, 0);
+  ({ quotient: Y2, remainder: I2 } = divmod(Y2, De)), { quotient: Y2, remainder: S2 } = divmod(Y2, De), { quotient: F2, remainder: g2 } = divmod(Y2, De);
+  const P2 = 1e6 * ae(import_jsbi.default.toNumber(g2)) + 1e3 * ae(import_jsbi.default.toNumber(S2)) + ae(import_jsbi.default.toNumber(I2));
+  let Z2;
   if ("auto" === r2) {
-    if (0 !== F2)
-      for (Y2 = `${F2}`.padStart(9, "0"); "0" === Y2[Y2.length - 1]; )
-        Y2 = Y2.slice(0, -1);
+    if (0 !== P2)
+      for (Z2 = `${P2}`.padStart(9, "0"); "0" === Z2[Z2.length - 1]; )
+        Z2 = Z2.slice(0, -1);
   } else
-    0 !== r2 && (Y2 = `${F2}`.padStart(9, "0").slice(0, r2));
-  return Y2 && E2.unshift(".", Y2), import_jsbi.default.equal(Z2, he) && !E2.length && "auto" === r2 || E2.unshift(abs(Z2).toString()), E2.length && C2.push(`${E2.join("")}S`), C2.length && C2.unshift("T"), p2.length || C2.length ? `${T2 < 0 ? "-" : ""}P${p2.join("")}${C2.join("")}` : "PT0S";
+    0 !== r2 && (Z2 = `${P2}`.padStart(9, "0").slice(0, r2));
+  return Z2 && y2.unshift(".", Z2), import_jsbi.default.equal(F2, Ie) && !y2.length && "auto" === r2 || y2.unshift(abs(F2).toString()), y2.length && f2.push(`${y2.join("")}S`), f2.length && f2.unshift("T"), p2.length || f2.length ? `${T2 < 0 ? "-" : ""}P${p2.join("")}${f2.join("")}` : "PT0S";
 }
 function TemporalDateToString(e2, t2 = "auto") {
-  return `${ISOYearString(GetSlot(e2, n))}-${ISODateTimePartString(GetSlot(e2, a))}-${ISODateTimePartString(GetSlot(e2, i))}${FormatCalendarAnnotation(ToString(GetSlot(e2, u)), t2)}`;
+  return `${ISOYearString(GetSlot(e2, i))}-${ISODateTimePartString(GetSlot(e2, s))}-${ISODateTimePartString(GetSlot(e2, l))}${MaybeFormatCalendarAnnotation(GetSlot(e2, p), t2)}`;
 }
 function TemporalDateTimeToString(e2, t2, r2 = "auto", o2) {
-  let T2 = GetSlot(e2, n), p2 = GetSlot(e2, a), f2 = GetSlot(e2, i), y2 = GetSlot(e2, s), S2 = GetSlot(e2, l), w2 = GetSlot(e2, d), g2 = GetSlot(e2, m), I2 = GetSlot(e2, c), D2 = GetSlot(e2, h);
+  let n2 = GetSlot(e2, i), a2 = GetSlot(e2, s), f2 = GetSlot(e2, l), y2 = GetSlot(e2, d), I2 = GetSlot(e2, m), S2 = GetSlot(e2, c), g2 = GetSlot(e2, h), w2 = GetSlot(e2, u), D2 = GetSlot(e2, T);
   if (o2) {
     const { unit: e3, increment: t3, roundingMode: r3 } = o2;
-    ({ year: T2, month: p2, day: f2, hour: y2, minute: S2, second: w2, millisecond: g2, microsecond: I2, nanosecond: D2 } = RoundISODateTime(T2, p2, f2, y2, S2, w2, g2, I2, D2, t3, e3, r3));
+    ({ year: n2, month: a2, day: f2, hour: y2, minute: I2, second: S2, millisecond: g2, microsecond: w2, nanosecond: D2 } = RoundISODateTime(n2, a2, f2, y2, I2, S2, g2, w2, D2, t3, e3, r3));
   }
-  return `${ISOYearString(T2)}-${ISODateTimePartString(p2)}-${ISODateTimePartString(f2)}T${ISODateTimePartString(y2)}:${ISODateTimePartString(S2)}${FormatSecondsStringPart(w2, g2, I2, D2, t2)}${FormatCalendarAnnotation(ToString(GetSlot(e2, u)), r2)}`;
+  return `${ISOYearString(n2)}-${ISODateTimePartString(a2)}-${ISODateTimePartString(f2)}T${ISODateTimePartString(y2)}:${ISODateTimePartString(I2)}${FormatSecondsStringPart(S2, g2, w2, D2, t2)}${MaybeFormatCalendarAnnotation(GetSlot(e2, p), r2)}`;
 }
 function TemporalMonthDayToString(e2, t2 = "auto") {
-  let r2 = `${ISODateTimePartString(GetSlot(e2, a))}-${ISODateTimePartString(GetSlot(e2, i))}`;
-  const o2 = ToString(GetSlot(e2, u));
-  if ("always" === t2 || "iso8601" !== o2) {
-    r2 = `${ISOYearString(GetSlot(e2, n))}-${r2}`;
+  let r2 = `${ISODateTimePartString(GetSlot(e2, s))}-${ISODateTimePartString(GetSlot(e2, l))}`;
+  const o2 = ToTemporalCalendarIdentifier(GetSlot(e2, p));
+  if ("always" === t2 || "critical" === t2 || "iso8601" !== o2) {
+    r2 = `${ISOYearString(GetSlot(e2, i))}-${r2}`;
   }
-  const s2 = FormatCalendarAnnotation(o2, t2);
-  return s2 && (r2 += s2), r2;
+  const n2 = FormatCalendarAnnotation(o2, t2);
+  return n2 && (r2 += n2), r2;
 }
 function TemporalYearMonthToString(e2, t2 = "auto") {
-  let r2 = `${ISOYearString(GetSlot(e2, n))}-${ISODateTimePartString(GetSlot(e2, a))}`;
-  const o2 = ToString(GetSlot(e2, u));
-  if ("always" === t2 || "iso8601" !== o2) {
-    r2 += `-${ISODateTimePartString(GetSlot(e2, i))}`;
+  let r2 = `${ISOYearString(GetSlot(e2, i))}-${ISODateTimePartString(GetSlot(e2, s))}`;
+  const o2 = ToTemporalCalendarIdentifier(GetSlot(e2, p));
+  if ("always" === t2 || "critical" === t2 || "iso8601" !== o2) {
+    r2 += `-${ISODateTimePartString(GetSlot(e2, l))}`;
   }
-  const s2 = FormatCalendarAnnotation(o2, t2);
-  return s2 && (r2 += s2), r2;
+  const n2 = FormatCalendarAnnotation(o2, t2);
+  return n2 && (r2 += n2), r2;
 }
-function TemporalZonedDateTimeToString(e2, t2, o2 = "auto", f2 = "auto", y2 = "auto", S2) {
-  let w2 = GetSlot(e2, T);
-  if (S2) {
-    const { unit: t3, increment: o3, roundingMode: n2 } = S2, a2 = RoundInstant(GetSlot(e2, r), o3, t3, n2);
-    w2 = new (GetIntrinsic("%Temporal.Instant%"))(a2);
+function TemporalZonedDateTimeToString(e2, t2, r2 = "auto", o2 = "auto", a2 = "auto", f2) {
+  let y2 = GetSlot(e2, S);
+  if (f2) {
+    const { unit: t3, increment: r3, roundingMode: o3 } = f2, a3 = RoundInstant(GetSlot(e2, n), r3, t3, o3);
+    y2 = new (GetIntrinsic("%Temporal.Instant%"))(a3);
   }
-  const g2 = GetSlot(e2, p), I2 = BuiltinTimeZoneGetPlainDateTimeFor(g2, w2, GetISO8601Calendar());
-  let D2 = `${ISOYearString(GetSlot(I2, n))}-${ISODateTimePartString(GetSlot(I2, a))}-${ISODateTimePartString(GetSlot(I2, i))}T${ISODateTimePartString(GetSlot(I2, s))}:${ISODateTimePartString(GetSlot(I2, l))}${FormatSecondsStringPart(GetSlot(I2, d), GetSlot(I2, m), GetSlot(I2, c), GetSlot(I2, h), t2)}`;
-  if ("never" !== y2) {
-    D2 += FormatISOTimeZoneOffsetString(GetOffsetNanosecondsFor(g2, w2));
+  const I2 = GetSlot(e2, g), w2 = GetPlainDateTimeFor(I2, y2, "iso8601");
+  let D2 = `${ISOYearString(GetSlot(w2, i))}-${ISODateTimePartString(GetSlot(w2, s))}-${ISODateTimePartString(GetSlot(w2, l))}T${ISODateTimePartString(GetSlot(w2, d))}:${ISODateTimePartString(GetSlot(w2, m))}${FormatSecondsStringPart(GetSlot(w2, c), GetSlot(w2, h), GetSlot(w2, u), GetSlot(w2, T), t2)}`;
+  if ("never" !== a2) {
+    D2 += FormatISOTimeZoneOffsetString(GetOffsetNanosecondsFor(I2, y2));
   }
-  "never" !== f2 && (D2 += `[${g2}]`);
-  return D2 += FormatCalendarAnnotation(ToString(GetSlot(e2, u)), o2), D2;
+  if ("never" !== o2) {
+    D2 += `[${"critical" === o2 ? "!" : ""}${ToTemporalTimeZoneIdentifier(I2)}]`;
+  }
+  return D2 += MaybeFormatCalendarAnnotation(GetSlot(e2, p), r2), D2;
 }
-function TestTimeZoneOffsetString(e2) {
-  return Be.test(ae(e2));
+function IsTimeZoneOffsetString(e2) {
+  return ze.test(he(e2));
 }
 function ParseTimeZoneOffsetString(e2) {
-  const t2 = Be.exec(ae(e2));
+  const t2 = ze.exec(he(e2));
   if (!t2)
     throw new RangeError(`invalid time zone offset: ${e2}`);
   return ("-" === t2[1] || "\u2212" === t2[1] ? -1 : 1) * (1e9 * (60 * (60 * +t2[2] + +(t2[3] || 0)) + +(t2[4] || 0)) + +((t2[5] || 0) + "000000000").slice(0, 9));
 }
 function GetCanonicalTimeZoneIdentifier(e2) {
-  if (TestTimeZoneOffsetString(e2)) {
+  if (IsTimeZoneOffsetString(e2)) {
     return FormatTimeZoneOffsetString(ParseTimeZoneOffsetString(e2));
   }
-  return getIntlDateTimeFormatEnUsForTimeZone(ae(e2)).resolvedOptions().timeZone;
+  return getIntlDateTimeFormatEnUsForTimeZone(he(e2)).resolvedOptions().timeZone;
 }
-function GetIANATimeZoneOffsetNanoseconds(t2, r2) {
-  const { year: o2, month: n2, day: a2, hour: i2, minute: s2, second: l2, millisecond: d2, microsecond: m2, nanosecond: c2 } = GetIANATimeZoneDateTimeParts(t2, r2), h2 = GetEpochFromISOParts(o2, n2, a2, i2, s2, l2, d2, m2, c2);
-  if (null === h2)
-    throw new RangeError("Date outside of supported range");
-  return import_jsbi.default.toNumber(import_jsbi.default.subtract(h2, t2));
+function GetNamedTimeZoneOffsetNanoseconds(t2, r2) {
+  const { year: o2, month: n2, day: a2, hour: i2, minute: s2, second: l2, millisecond: d2, microsecond: m2, nanosecond: c2 } = GetNamedTimeZoneDateTimeParts(t2, r2), h2 = o2 % 400, u2 = (o2 - h2) / 400, T2 = import_jsbi.default.multiply(import_jsbi.default.BigInt(146097), Ee), p2 = GetUTCEpochNanoseconds(h2, n2, a2, i2, s2, l2, d2, m2, c2), f2 = import_jsbi.default.add(p2, import_jsbi.default.multiply(T2, import_jsbi.default.BigInt(u2)));
+  return import_jsbi.default.toNumber(import_jsbi.default.subtract(f2, r2));
 }
 function FormatTimeZoneOffsetString(e2) {
-  const t2 = e2 < 0 ? "-" : "+", r2 = K(e2), o2 = r2 % 1e9, n2 = Q(r2 / 1e9) % 60, a2 = Q(r2 / 6e10) % 60, i2 = ISODateTimePartString(Q(r2 / 36e11)), s2 = ISODateTimePartString(a2), l2 = ISODateTimePartString(n2);
+  const t2 = e2 < 0 ? "-" : "+", r2 = ae(e2), o2 = r2 % 1e9, n2 = ie(r2 / 1e9) % 60, a2 = ie(r2 / 6e10) % 60, i2 = ISODateTimePartString(ie(r2 / 36e11)), s2 = ISODateTimePartString(a2), l2 = ISODateTimePartString(n2);
   let d2 = "";
   if (o2) {
     let e3 = `${o2}`.padStart(9, "0");
@@ -2646,31 +2880,31 @@ function FormatTimeZoneOffsetString(e2) {
   return `${t2}${i2}:${s2}${d2}`;
 }
 function FormatISOTimeZoneOffsetString(t2) {
-  let r2 = import_jsbi.default.toNumber(RoundNumberToIncrement(import_jsbi.default.BigInt(t2), 6e10, "halfExpand"));
+  let r2 = import_jsbi.default.toNumber(RoundNumberToIncrement(import_jsbi.default.BigInt(t2), be, "halfExpand"));
   const o2 = r2 < 0 ? "-" : "+";
-  r2 = K(r2);
+  r2 = ae(r2);
   const n2 = r2 / 6e10 % 60;
-  return `${o2}${ISODateTimePartString(Q(r2 / 36e11))}:${ISODateTimePartString(n2)}`;
+  return `${o2}${ISODateTimePartString(ie(r2 / 36e11))}:${ISODateTimePartString(n2)}`;
 }
-function GetEpochFromISOParts(t2, r2, o2, n2, a2, i2, s2, l2, d2) {
+function GetUTCEpochNanoseconds(t2, r2, o2, n2, a2, i2, s2, l2, d2) {
   const m2 = /* @__PURE__ */ new Date();
   m2.setUTCHours(n2, a2, i2, s2), m2.setUTCFullYear(t2, r2 - 1, o2);
   const c2 = m2.getTime();
-  if (re(c2))
+  if (de(c2))
     return null;
-  let h2 = import_jsbi.default.multiply(import_jsbi.default.BigInt(c2), fe);
-  return h2 = import_jsbi.default.add(h2, import_jsbi.default.multiply(import_jsbi.default.BigInt(l2), pe)), h2 = import_jsbi.default.add(h2, import_jsbi.default.BigInt(d2)), import_jsbi.default.lessThan(h2, ge) || import_jsbi.default.greaterThan(h2, Ie) ? null : h2;
+  let h2 = import_jsbi.default.multiply(import_jsbi.default.BigInt(c2), Ge);
+  return h2 = import_jsbi.default.add(h2, import_jsbi.default.multiply(import_jsbi.default.BigInt(l2), De)), h2 = import_jsbi.default.add(h2, import_jsbi.default.BigInt(d2)), import_jsbi.default.lessThan(h2, Me) || import_jsbi.default.greaterThan(h2, Re) ? null : h2;
 }
 function GetISOPartsFromEpoch(t2) {
-  const { quotient: r2, remainder: o2 } = divmod(t2, fe);
+  const { quotient: r2, remainder: o2 } = divmod(t2, Ge);
   let n2 = import_jsbi.default.toNumber(r2), a2 = import_jsbi.default.toNumber(o2);
   a2 < 0 && (a2 += 1e6, n2 -= 1);
-  const i2 = Q(a2 / 1e3) % 1e3, s2 = a2 % 1e3, l2 = new Date(n2);
+  const i2 = ie(a2 / 1e3) % 1e3, s2 = a2 % 1e3, l2 = new Date(n2);
   return { epochMilliseconds: n2, year: l2.getUTCFullYear(), month: l2.getUTCMonth() + 1, day: l2.getUTCDate(), hour: l2.getUTCHours(), minute: l2.getUTCMinutes(), second: l2.getUTCSeconds(), millisecond: l2.getUTCMilliseconds(), microsecond: i2, nanosecond: s2 };
 }
-function GetIANATimeZoneDateTimeParts(e2, t2) {
-  const { epochMilliseconds: r2, millisecond: o2, microsecond: n2, nanosecond: a2 } = GetISOPartsFromEpoch(e2), { year: i2, month: s2, day: l2, hour: d2, minute: m2, second: c2 } = function GetFormatterParts(e3, t3) {
-    const r3 = getIntlDateTimeFormatEnUsForTimeZone(e3);
+function GetNamedTimeZoneDateTimeParts(e2, t2) {
+  const { epochMilliseconds: r2, millisecond: o2, microsecond: n2, nanosecond: a2 } = GetISOPartsFromEpoch(t2), { year: i2, month: s2, day: l2, hour: d2, minute: m2, second: c2 } = function GetFormatterParts(e3, t3) {
+    const r3 = getIntlDateTimeFormatEnUsForTimeZone(e3).format(new Date(t3));
     return function parseFromEnUsFormat(e4) {
       const t4 = e4.split(/[^\w]+/);
       if (7 !== t4.length)
@@ -2685,33 +2919,60 @@ function GetIANATimeZoneDateTimeParts(e2, t2) {
       let i3 = +t4[4];
       24 === i3 && (i3 = 0);
       const s3 = +t4[5], l3 = +t4[6];
-      if (!(oe(n3) && oe(r4) && oe(o3) && oe(i3) && oe(s3) && oe(l3)))
+      if (!(me(n3) && me(r4) && me(o3) && me(i3) && me(s3) && me(l3)))
         throw new RangeError(`Invalid number in "${e4}`);
       return { year: n3, month: r4, day: o3, hour: i3, minute: s3, second: l3 };
-    }(r3.format(new Date(t3)));
-  }(t2, r2);
+    }(r3);
+  }(e2, r2);
   return BalanceISODateTime(i2, s2, l2, d2, m2, c2, o2, n2, a2);
 }
 function maxJSBI(t2, r2) {
   return import_jsbi.default.lessThan(t2, r2) ? r2 : t2;
 }
 function afterLatestPossibleTzdbRuleChange() {
-  return import_jsbi.default.add($e(), Ge);
+  return import_jsbi.default.add(Ve(), Ze);
 }
-function GetIANATimeZonePreviousTransition(t2, r2) {
-  const o2 = afterLatestPossibleTzdbRuleChange(), n2 = import_jsbi.default.greaterThan(t2, o2), a2 = n2 ? import_jsbi.default.subtract(t2, ve) : De;
-  let i2 = import_jsbi.default.subtract(t2, ue);
-  const s2 = GetIANATimeZoneOffsetNanoseconds(i2, r2);
-  let l2 = i2, d2 = s2;
-  for (; s2 === d2 && import_jsbi.default.greaterThan(i2, a2); )
-    l2 = import_jsbi.default.subtract(i2, Oe), d2 = GetIANATimeZoneOffsetNanoseconds(l2, r2), s2 === d2 && (i2 = l2);
-  if (s2 === d2) {
-    if (n2) {
-      return GetIANATimeZonePreviousTransition(import_jsbi.default.subtract(o2, we), r2);
+function GetNamedTimeZoneNextTransition(t2, r2) {
+  if (import_jsbi.default.lessThan(r2, Pe))
+    return GetNamedTimeZoneNextTransition(t2, Pe);
+  const o2 = import_jsbi.default.add(r2, Be), n2 = maxJSBI(afterLatestPossibleTzdbRuleChange(), o2);
+  let a2 = maxJSBI(Pe, r2);
+  const i2 = GetNamedTimeZoneOffsetNanoseconds(t2, a2);
+  let s2 = a2, l2 = i2;
+  for (; i2 === l2 && import_jsbi.default.lessThan(import_jsbi.default.BigInt(a2), n2); ) {
+    if (s2 = import_jsbi.default.add(a2, Ne), import_jsbi.default.greaterThan(s2, Re))
+      return null;
+    l2 = GetNamedTimeZoneOffsetNanoseconds(t2, s2), i2 === l2 && (a2 = s2);
+  }
+  if (i2 === l2)
+    return null;
+  return bisect((e2) => GetNamedTimeZoneOffsetNanoseconds(t2, e2), a2, s2, i2, l2);
+}
+function GetNamedTimeZonePreviousTransition(t2, r2) {
+  const o2 = afterLatestPossibleTzdbRuleChange(), a2 = import_jsbi.default.greaterThan(r2, o2), i2 = a2 ? import_jsbi.default.subtract(r2, Be) : Pe;
+  if ("Africa/Casablanca" === t2 || "Africa/El_Aaiun" === t2) {
+    const o3 = GetSlot(ToTemporalInstant("2088-01-01T00Z"), n);
+    if (import_jsbi.default.lessThan(o3, r2))
+      return GetNamedTimeZonePreviousTransition(t2, o3);
+  }
+  let s2 = import_jsbi.default.subtract(r2, Se);
+  if (import_jsbi.default.lessThan(s2, Pe))
+    return null;
+  const l2 = GetNamedTimeZoneOffsetNanoseconds(t2, s2);
+  let d2 = s2, m2 = l2;
+  for (; l2 === m2 && import_jsbi.default.greaterThan(s2, i2); ) {
+    if (d2 = import_jsbi.default.subtract(s2, Ne), import_jsbi.default.lessThan(d2, Pe))
+      return null;
+    m2 = GetNamedTimeZoneOffsetNanoseconds(t2, d2), l2 === m2 && (s2 = d2);
+  }
+  if (l2 === m2) {
+    if (a2) {
+      const r3 = import_jsbi.default.subtract(o2, Ee);
+      return GetNamedTimeZonePreviousTransition(t2, r3);
     }
     return null;
   }
-  return bisect((e2) => GetIANATimeZoneOffsetNanoseconds(e2, r2), l2, i2, d2, s2);
+  return bisect((e2) => GetNamedTimeZoneOffsetNanoseconds(t2, e2), d2, s2, m2, l2);
 }
 function LeapYear(e2) {
   if (void 0 === e2)
@@ -2722,7 +2983,7 @@ function ISODaysInMonth(e2, t2) {
   return { standard: [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31], leapyear: [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31] }[LeapYear(e2) ? "leapyear" : "standard"][t2 - 1];
 }
 function DayOfWeek(e2, t2, r2) {
-  const o2 = t2 + (t2 < 3 ? 10 : -2), n2 = e2 - (t2 < 3 ? 1 : 0), a2 = Q(n2 / 100), i2 = n2 - 100 * a2, s2 = (r2 + Q(2.6 * o2 - 0.2) + (i2 + Q(i2 / 4)) + (Q(a2 / 4) - 2 * a2)) % 7;
+  const o2 = t2 + (t2 < 3 ? 10 : -2), n2 = e2 - (t2 < 3 ? 1 : 0), a2 = ie(n2 / 100), i2 = n2 - 100 * a2, s2 = (r2 + ie(2.6 * o2 - 0.2) + (i2 + ie(i2 / 4)) + (ie(a2 / 4) - 2 * a2)) % 7;
   return s2 + (s2 <= 0 ? 7 : 0);
 }
 function DayOfYear(e2, t2, r2) {
@@ -2730,6 +2991,10 @@ function DayOfYear(e2, t2, r2) {
   for (let r3 = t2 - 1; r3 > 0; r3--)
     o2 += ISODaysInMonth(e2, r3);
   return o2;
+}
+function WeekOfYear(e2, t2, r2) {
+  const o2 = DayOfYear(e2, t2, r2), n2 = DayOfWeek(e2, t2, r2) || 7, a2 = DayOfWeek(e2, 1, 1), i2 = ie((o2 - n2 + 10) / 7);
+  return i2 < 1 ? 5 === a2 || 6 === a2 && LeapYear(e2 - 1) ? { week: 53, year: e2 - 1 } : { week: 52, year: e2 - 1 } : 53 === i2 && (LeapYear(e2) ? 366 : 365) - o2 < 4 - n2 ? { week: 1, year: e2 + 1 } : { week: i2, year: e2 };
 }
 function DurationSign(e2, t2, r2, o2, n2, a2, i2, s2, l2, d2) {
   for (const m2 of [e2, t2, r2, o2, n2, a2, i2, s2, l2, d2])
@@ -2739,20 +3004,25 @@ function DurationSign(e2, t2, r2, o2, n2, a2, i2, s2, l2, d2) {
 }
 function BalanceISOYearMonth(e2, t2) {
   let r2 = e2, o2 = t2;
-  if (!oe(r2) || !oe(o2))
+  if (!me(r2) || !me(o2))
     throw new RangeError("infinity is out of range");
-  return o2 -= 1, r2 += Q(o2 / 12), o2 %= 12, o2 < 0 && (o2 += 12), o2 += 1, { year: r2, month: o2 };
+  return o2 -= 1, r2 += ie(o2 / 12), o2 %= 12, o2 < 0 && (o2 += 12), o2 += 1, { year: r2, month: o2 };
 }
 function BalanceISODate(e2, t2, r2) {
   let o2 = e2, n2 = t2, a2 = r2;
-  if (!oe(a2))
+  if (!me(a2))
     throw new RangeError("infinity is out of range");
   ({ year: o2, month: n2 } = BalanceISOYearMonth(o2, n2));
-  let i2 = 0, s2 = n2 > 2 ? o2 : o2 - 1;
-  for (; i2 = LeapYear(s2) ? 366 : 365, a2 < -i2; )
-    o2 -= 1, s2 -= 1, a2 += i2;
-  for (s2 += 1; i2 = LeapYear(s2) ? 366 : 365, a2 > i2; )
-    o2 += 1, s2 += 1, a2 -= i2;
+  const i2 = 146097;
+  if (ae(a2) > i2) {
+    const e3 = le(a2 / i2);
+    o2 += 400 * e3, a2 -= e3 * i2;
+  }
+  let s2 = 0, l2 = n2 > 2 ? o2 : o2 - 1;
+  for (; s2 = LeapYear(l2) ? 366 : 365, a2 < -s2; )
+    o2 -= 1, l2 -= 1, a2 += s2;
+  for (l2 += 1; s2 = LeapYear(l2) ? 366 : 365, a2 > s2; )
+    o2 += 1, l2 += 1, a2 -= s2;
   for (; a2 < 1; )
     ({ year: o2, month: n2 } = BalanceISOYearMonth(o2, n2 - 1)), a2 += ISODaysInMonth(o2, n2);
   for (; a2 > ISODaysInMonth(o2, n2); )
@@ -2760,151 +3030,170 @@ function BalanceISODate(e2, t2, r2) {
   return { year: o2, month: n2, day: a2 };
 }
 function BalanceISODateTime(e2, t2, r2, o2, n2, a2, i2, s2, l2) {
-  const { deltaDays: d2, hour: m2, minute: c2, second: h2, millisecond: u2, microsecond: T2, nanosecond: p2 } = BalanceTime(o2, n2, a2, i2, s2, l2), { year: f2, month: y2, day: S2 } = BalanceISODate(e2, t2, r2 + d2);
-  return { year: f2, month: y2, day: S2, hour: m2, minute: c2, second: h2, millisecond: u2, microsecond: T2, nanosecond: p2 };
+  const { deltaDays: d2, hour: m2, minute: c2, second: h2, millisecond: u2, microsecond: T2, nanosecond: p2 } = BalanceTime(o2, n2, a2, i2, s2, l2), { year: f2, month: y2, day: I2 } = BalanceISODate(e2, t2, r2 + d2);
+  return { year: f2, month: y2, day: I2, hour: m2, minute: c2, second: h2, millisecond: u2, microsecond: T2, nanosecond: p2 };
 }
-function BalanceTime(e2, t2, r2, o2, n2, a2) {
-  let i2 = e2, s2 = t2, l2 = r2, d2 = o2, m2 = n2, c2 = a2;
-  if (!(oe(i2) && oe(s2) && oe(l2) && oe(d2) && oe(m2) && oe(c2)))
-    throw new RangeError("infinity is out of range");
-  m2 += Q(c2 / 1e3), c2 = NonNegativeModulo(c2, 1e3), d2 += Q(m2 / 1e3), m2 = NonNegativeModulo(m2, 1e3), l2 += Q(d2 / 1e3), d2 = NonNegativeModulo(d2, 1e3), s2 += Q(l2 / 60), l2 = NonNegativeModulo(l2, 60), i2 += Q(s2 / 60), s2 = NonNegativeModulo(s2, 60);
-  const h2 = Q(i2 / 24);
-  return i2 = NonNegativeModulo(i2, 24), { deltaDays: h2, hour: i2, minute: s2, second: l2, millisecond: d2, microsecond: m2, nanosecond: c2 };
+function BalanceTime(t2, r2, o2, n2, a2, i2) {
+  let s2, l2 = import_jsbi.default.BigInt(t2), d2 = import_jsbi.default.BigInt(r2), m2 = import_jsbi.default.BigInt(o2), c2 = import_jsbi.default.BigInt(n2), h2 = import_jsbi.default.BigInt(a2), u2 = import_jsbi.default.BigInt(i2);
+  return { quotient: s2, remainder: u2 } = NonNegativeBigIntDivmod(u2, De), h2 = import_jsbi.default.add(h2, s2), { quotient: s2, remainder: h2 } = NonNegativeBigIntDivmod(h2, De), c2 = import_jsbi.default.add(c2, s2), { quotient: s2, remainder: c2 } = NonNegativeBigIntDivmod(c2, De), m2 = import_jsbi.default.add(m2, s2), { quotient: s2, remainder: m2 } = NonNegativeBigIntDivmod(m2, ge), d2 = import_jsbi.default.add(d2, s2), { quotient: s2, remainder: d2 } = NonNegativeBigIntDivmod(d2, ge), l2 = import_jsbi.default.add(l2, s2), { quotient: s2, remainder: l2 } = NonNegativeBigIntDivmod(l2, we), { deltaDays: import_jsbi.default.toNumber(s2), hour: import_jsbi.default.toNumber(l2), minute: import_jsbi.default.toNumber(d2), second: import_jsbi.default.toNumber(m2), millisecond: import_jsbi.default.toNumber(c2), microsecond: import_jsbi.default.toNumber(h2), nanosecond: import_jsbi.default.toNumber(u2) };
 }
 function TotalDurationNanoseconds(t2, r2, o2, n2, a2, i2, s2, l2) {
   const d2 = import_jsbi.default.BigInt(t2);
   let m2 = import_jsbi.default.BigInt(s2);
   0 !== t2 && (m2 = import_jsbi.default.subtract(import_jsbi.default.BigInt(s2), import_jsbi.default.BigInt(l2)));
-  const c2 = import_jsbi.default.add(import_jsbi.default.BigInt(r2), import_jsbi.default.multiply(d2, import_jsbi.default.BigInt(24))), h2 = import_jsbi.default.add(import_jsbi.default.BigInt(o2), import_jsbi.default.multiply(c2, Te)), u2 = import_jsbi.default.add(import_jsbi.default.BigInt(n2), import_jsbi.default.multiply(h2, Te)), T2 = import_jsbi.default.add(import_jsbi.default.BigInt(a2), import_jsbi.default.multiply(u2, pe)), p2 = import_jsbi.default.add(import_jsbi.default.BigInt(i2), import_jsbi.default.multiply(T2, pe));
-  return import_jsbi.default.add(import_jsbi.default.BigInt(m2), import_jsbi.default.multiply(p2, pe));
+  const c2 = import_jsbi.default.add(import_jsbi.default.BigInt(r2), import_jsbi.default.multiply(d2, import_jsbi.default.BigInt(24))), h2 = import_jsbi.default.add(import_jsbi.default.BigInt(o2), import_jsbi.default.multiply(c2, ge)), u2 = import_jsbi.default.add(import_jsbi.default.BigInt(n2), import_jsbi.default.multiply(h2, ge)), T2 = import_jsbi.default.add(import_jsbi.default.BigInt(a2), import_jsbi.default.multiply(u2, De)), p2 = import_jsbi.default.add(import_jsbi.default.BigInt(i2), import_jsbi.default.multiply(T2, De));
+  return import_jsbi.default.add(import_jsbi.default.BigInt(m2), import_jsbi.default.multiply(p2, De));
 }
-function NanosecondsToDays(t2, o2) {
-  const f2 = GetIntrinsic("%Temporal.Instant%"), y2 = ee(import_jsbi.default.toNumber(t2));
-  let S2 = import_jsbi.default.BigInt(t2), w2 = 864e11;
-  if (0 === y2)
-    return { days: 0, nanoseconds: he, dayLengthNs: w2 };
-  if (!IsTemporalZonedDateTime(o2)) {
+function NanosecondsToDays(t2, r2) {
+  const o2 = GetIntrinsic("%Temporal.Instant%"), a2 = se(import_jsbi.default.toNumber(t2));
+  let f2 = import_jsbi.default.BigInt(t2), y2 = 864e11;
+  if (0 === a2)
+    return { days: 0, nanoseconds: Ie, dayLengthNs: y2 };
+  if (!IsTemporalZonedDateTime(r2)) {
     let t3;
-    return { quotient: t3, remainder: S2 } = divmod(S2, import_jsbi.default.BigInt(w2)), { days: import_jsbi.default.toNumber(t3), nanoseconds: S2, dayLengthNs: w2 };
+    return { quotient: t3, remainder: f2 } = divmod(f2, import_jsbi.default.BigInt(y2)), { days: import_jsbi.default.toNumber(t3), nanoseconds: f2, dayLengthNs: y2 };
   }
-  const g2 = GetSlot(o2, r), I2 = GetSlot(o2, T), D2 = import_jsbi.default.add(g2, S2), G2 = new f2(D2), v2 = GetSlot(o2, p), O2 = GetSlot(o2, u), C2 = BuiltinTimeZoneGetPlainDateTimeFor(v2, I2, O2), E2 = BuiltinTimeZoneGetPlainDateTimeFor(v2, G2, O2);
-  let { days: b2 } = DifferenceISODateTime(GetSlot(C2, n), GetSlot(C2, a), GetSlot(C2, i), GetSlot(C2, s), GetSlot(C2, l), GetSlot(C2, d), GetSlot(C2, m), GetSlot(C2, c), GetSlot(C2, h), GetSlot(E2, n), GetSlot(E2, a), GetSlot(E2, i), GetSlot(E2, s), GetSlot(E2, l), GetSlot(E2, d), GetSlot(E2, m), GetSlot(E2, c), GetSlot(E2, h), O2, "day", le(null)), M2 = AddZonedDateTime(I2, v2, O2, 0, 0, 0, b2, 0, 0, 0, 0, 0, 0);
-  if (1 === y2)
-    for (; b2 > 0 && import_jsbi.default.greaterThan(M2, D2); )
-      --b2, M2 = AddZonedDateTime(I2, v2, O2, 0, 0, 0, b2, 0, 0, 0, 0, 0, 0);
-  S2 = import_jsbi.default.subtract(D2, M2);
-  let R2 = false, Z2 = new f2(M2);
+  const I2 = GetSlot(r2, n), w2 = GetSlot(r2, S), D2 = import_jsbi.default.add(I2, f2), G2 = new o2(D2), v2 = GetSlot(r2, g), C2 = GetSlot(r2, p), O2 = GetPlainDateTimeFor(v2, w2, C2), b2 = GetPlainDateTimeFor(v2, G2, C2);
+  let { days: E2 } = DifferenceISODateTime(GetSlot(O2, i), GetSlot(O2, s), GetSlot(O2, l), GetSlot(O2, d), GetSlot(O2, m), GetSlot(O2, c), GetSlot(O2, h), GetSlot(O2, u), GetSlot(O2, T), GetSlot(b2, i), GetSlot(b2, s), GetSlot(b2, l), GetSlot(b2, d), GetSlot(b2, m), GetSlot(b2, c), GetSlot(b2, h), GetSlot(b2, u), GetSlot(b2, T), C2, "day", Te(null)), M2 = AddZonedDateTime(w2, v2, C2, 0, 0, 0, E2, 0, 0, 0, 0, 0, 0), R2 = import_jsbi.default.BigInt(E2);
+  if (1 === a2)
+    for (; import_jsbi.default.greaterThan(R2, Ie) && import_jsbi.default.greaterThan(M2, D2); )
+      R2 = import_jsbi.default.subtract(R2, Se), M2 = AddZonedDateTime(w2, v2, C2, 0, 0, 0, import_jsbi.default.toNumber(R2), 0, 0, 0, 0, 0, 0);
+  f2 = import_jsbi.default.subtract(D2, M2);
+  let F2 = false, Y2 = new o2(M2);
   do {
-    const t3 = AddZonedDateTime(Z2, v2, O2, 0, 0, 0, y2, 0, 0, 0, 0, 0, 0), o3 = GetSlot(Z2, r);
-    w2 = import_jsbi.default.toNumber(import_jsbi.default.subtract(t3, o3)), R2 = import_jsbi.default.greaterThan(import_jsbi.default.multiply(import_jsbi.default.subtract(S2, import_jsbi.default.BigInt(w2)), import_jsbi.default.BigInt(y2)), he), R2 && (S2 = import_jsbi.default.subtract(S2, import_jsbi.default.BigInt(w2)), Z2 = new f2(t3), b2 += y2);
-  } while (R2);
-  return { days: b2, nanoseconds: S2, dayLengthNs: K(w2) };
+    const t3 = AddZonedDateTime(Y2, v2, C2, 0, 0, 0, a2, 0, 0, 0, 0, 0, 0), r3 = GetSlot(Y2, n);
+    y2 = import_jsbi.default.toNumber(import_jsbi.default.subtract(t3, r3)), F2 = import_jsbi.default.greaterThanOrEqual(import_jsbi.default.multiply(import_jsbi.default.subtract(f2, import_jsbi.default.BigInt(y2)), import_jsbi.default.BigInt(a2)), Ie), F2 && (f2 = import_jsbi.default.subtract(f2, import_jsbi.default.BigInt(y2)), Y2 = new o2(t3), R2 = import_jsbi.default.add(R2, import_jsbi.default.BigInt(a2)));
+  } while (F2);
+  if (!isZero(R2) && signJSBI(R2) !== a2)
+    throw new RangeError("Time zone or calendar converted nanoseconds into a number of days with the opposite sign");
+  if (!isZero(f2) && signJSBI(f2) !== a2) {
+    if (isNegativeJSBI(f2) && 1 === a2)
+      throw new Error("assert not reached");
+    throw new RangeError("Time zone or calendar ended up with a remainder of nanoseconds with the opposite sign");
+  }
+  if (import_jsbi.default.greaterThanOrEqual(abs(f2), abs(import_jsbi.default.BigInt(y2))))
+    throw new Error("assert not reached");
+  return { days: import_jsbi.default.toNumber(R2), nanoseconds: f2, dayLengthNs: ae(y2) };
 }
-function BalanceDuration(t2, o2, n2, a2, i2, s2, l2, d2, m2) {
-  let c2, h2, f2, y2, S2, w2, g2 = t2;
+function BalanceDuration(e2, t2, r2, o2, n2, a2, i2, s2, l2) {
+  let d2 = BalancePossiblyInfiniteDuration(e2, t2, r2, o2, n2, a2, i2, s2, l2);
+  if ("positive overflow" === d2 || "negative overflow" === d2)
+    throw new RangeError("Duration out of range");
+  return d2;
+}
+function BalancePossiblyInfiniteDuration(t2, r2, o2, a2, i2, s2, l2, d2, m2) {
+  let c2, h2, u2, T2, f2, y2, I2 = t2;
   if (IsTemporalZonedDateTime(m2)) {
-    const t3 = AddZonedDateTime(GetSlot(m2, T), GetSlot(m2, p), GetSlot(m2, u), 0, 0, 0, g2, o2, n2, a2, i2, s2, l2), d3 = GetSlot(m2, r);
+    const t3 = AddZonedDateTime(GetSlot(m2, S), GetSlot(m2, g), GetSlot(m2, p), 0, 0, 0, I2, r2, o2, a2, i2, s2, l2), d3 = GetSlot(m2, n);
     c2 = import_jsbi.default.subtract(t3, d3);
   } else
-    c2 = TotalDurationNanoseconds(g2, o2, n2, a2, i2, s2, l2, 0);
-  "year" === d2 || "month" === d2 || "week" === d2 || "day" === d2 ? { days: g2, nanoseconds: c2 } = NanosecondsToDays(c2, m2) : g2 = 0;
-  const I2 = import_jsbi.default.lessThan(c2, he) ? -1 : 1;
-  switch (c2 = abs(c2), h2 = f2 = y2 = S2 = w2 = he, d2) {
+    c2 = TotalDurationNanoseconds(I2, r2, o2, a2, i2, s2, l2, 0);
+  "year" === d2 || "month" === d2 || "week" === d2 || "day" === d2 ? { days: I2, nanoseconds: c2 } = NanosecondsToDays(c2, m2) : I2 = 0;
+  const w2 = import_jsbi.default.lessThan(c2, Ie) ? -1 : 1;
+  switch (c2 = abs(c2), h2 = u2 = T2 = f2 = y2 = Ie, d2) {
     case "year":
     case "month":
     case "week":
     case "day":
     case "hour":
-      ({ quotient: h2, remainder: c2 } = divmod(c2, pe)), { quotient: f2, remainder: h2 } = divmod(h2, pe), { quotient: y2, remainder: f2 } = divmod(f2, pe), { quotient: S2, remainder: y2 } = divmod(y2, Te), { quotient: w2, remainder: S2 } = divmod(S2, Te);
+      ({ quotient: h2, remainder: c2 } = divmod(c2, De)), { quotient: u2, remainder: h2 } = divmod(h2, De), { quotient: T2, remainder: u2 } = divmod(u2, De), { quotient: f2, remainder: T2 } = divmod(T2, ge), { quotient: y2, remainder: f2 } = divmod(f2, ge);
       break;
     case "minute":
-      ({ quotient: h2, remainder: c2 } = divmod(c2, pe)), { quotient: f2, remainder: h2 } = divmod(h2, pe), { quotient: y2, remainder: f2 } = divmod(f2, pe), { quotient: S2, remainder: y2 } = divmod(y2, Te);
+      ({ quotient: h2, remainder: c2 } = divmod(c2, De)), { quotient: u2, remainder: h2 } = divmod(h2, De), { quotient: T2, remainder: u2 } = divmod(u2, De), { quotient: f2, remainder: T2 } = divmod(T2, ge);
       break;
     case "second":
-      ({ quotient: h2, remainder: c2 } = divmod(c2, pe)), { quotient: f2, remainder: h2 } = divmod(h2, pe), { quotient: y2, remainder: f2 } = divmod(f2, pe);
+      ({ quotient: h2, remainder: c2 } = divmod(c2, De)), { quotient: u2, remainder: h2 } = divmod(h2, De), { quotient: T2, remainder: u2 } = divmod(u2, De);
       break;
     case "millisecond":
-      ({ quotient: h2, remainder: c2 } = divmod(c2, pe)), { quotient: f2, remainder: h2 } = divmod(h2, pe);
+      ({ quotient: h2, remainder: c2 } = divmod(c2, De)), { quotient: u2, remainder: h2 } = divmod(h2, De);
       break;
     case "microsecond":
-      ({ quotient: h2, remainder: c2 } = divmod(c2, pe));
+      ({ quotient: h2, remainder: c2 } = divmod(c2, De));
       break;
     case "nanosecond":
       break;
     default:
       throw new Error("assert not reached");
   }
-  return { days: g2, hours: import_jsbi.default.toNumber(w2) * I2, minutes: import_jsbi.default.toNumber(S2) * I2, seconds: import_jsbi.default.toNumber(y2) * I2, milliseconds: import_jsbi.default.toNumber(f2) * I2, microseconds: import_jsbi.default.toNumber(h2) * I2, nanoseconds: import_jsbi.default.toNumber(c2) * I2 };
+  const D2 = import_jsbi.default.toNumber(y2) * w2, G2 = import_jsbi.default.toNumber(f2) * w2, v2 = import_jsbi.default.toNumber(T2) * w2, C2 = import_jsbi.default.toNumber(u2) * w2, O2 = import_jsbi.default.toNumber(h2) * w2, b2 = import_jsbi.default.toNumber(c2) * w2;
+  for (const e2 of [I2, D2, G2, v2, C2, O2, b2])
+    if (!me(e2))
+      return 1 === w2 ? "positive overflow" : "negative overflow";
+  return { days: I2, hours: D2, minutes: G2, seconds: v2, milliseconds: C2, microseconds: O2, nanoseconds: b2 };
 }
-function UnbalanceDurationRelative(e2, t2, r2, o2, n2, a2) {
-  let i2 = e2, s2 = t2, l2 = r2, d2 = o2;
-  const m2 = GetIntrinsic("%Temporal.Duration%"), c2 = DurationSign(i2, s2, l2, d2, 0, 0, 0, 0, 0, 0);
-  let h2, T2;
-  a2 && (T2 = ToTemporalDate(a2), h2 = GetSlot(T2, u));
-  const p2 = new m2(c2), f2 = new m2(0, c2), S2 = new m2(0, 0, c2);
-  switch (n2) {
+function UnbalanceDurationRelative(t2, r2, o2, n2, a2, i2) {
+  const s2 = GetIntrinsic("%Temporal.Duration%"), l2 = DurationSign(t2, r2, o2, n2, 0, 0, 0, 0, 0, 0);
+  if (0 === l2)
+    return { years: t2, months: r2, weeks: o2, days: n2 };
+  const d2 = import_jsbi.default.BigInt(l2);
+  let m2, c2, h2 = import_jsbi.default.BigInt(t2), u2 = import_jsbi.default.BigInt(r2), T2 = import_jsbi.default.BigInt(o2), f2 = import_jsbi.default.BigInt(n2);
+  i2 && (c2 = ToTemporalDate(i2), m2 = GetSlot(c2, p));
+  const y2 = new s2(l2), I2 = new s2(0, l2), S2 = new s2(0, 0, l2);
+  switch (a2) {
     case "year":
       break;
     case "month":
       {
-        if (!h2)
+        if (!m2)
           throw new RangeError("a starting point is required for months balancing");
-        const e3 = h2.dateAdd, t3 = h2.dateUntil;
-        let r3 = T2;
-        for (; K(i2) > 0; ) {
-          const o3 = CalendarDateAdd(h2, r3, p2, void 0, e3), n3 = le(null);
+        let t3, r3;
+        for ("string" != typeof m2 && (t3 = GetMethod(m2, "dateAdd"), r3 = GetMethod(m2, "dateUntil")); !isZero(h2); ) {
+          const o3 = CalendarDateAdd(m2, c2, y2, void 0, t3), n3 = Te(null);
           n3.largestUnit = "month";
-          const a3 = GetSlot(CalendarDateUntil(h2, r3, o3, n3, t3), y);
-          r3 = o3, s2 += a3, i2 -= c2;
+          const a3 = CalendarDateUntil(m2, c2, o3, n3, r3), i3 = import_jsbi.default.BigInt(GetSlot(a3, D));
+          c2 = o3, u2 = import_jsbi.default.add(u2, i3), h2 = import_jsbi.default.subtract(h2, d2);
         }
       }
       break;
-    case "week":
-      if (!h2)
+    case "week": {
+      if (!m2)
         throw new RangeError("a starting point is required for weeks balancing");
-      for (; K(i2) > 0; ) {
-        let e3;
-        ({ relativeTo: T2, days: e3 } = MoveRelativeDate(h2, T2, p2)), d2 += e3, i2 -= c2;
+      const t3 = "string" != typeof m2 ? GetMethod(m2, "dateAdd") : void 0;
+      for (; !isZero(h2); ) {
+        let r3;
+        ({ relativeTo: c2, days: r3 } = MoveRelativeDate(m2, c2, y2, t3)), f2 = import_jsbi.default.add(f2, import_jsbi.default.BigInt(r3)), h2 = import_jsbi.default.subtract(h2, d2);
       }
-      for (; K(s2) > 0; ) {
-        let e3;
-        ({ relativeTo: T2, days: e3 } = MoveRelativeDate(h2, T2, f2)), d2 += e3, s2 -= c2;
+      for (; !isZero(u2); ) {
+        let r3;
+        ({ relativeTo: c2, days: r3 } = MoveRelativeDate(m2, c2, I2, t3)), f2 = import_jsbi.default.add(f2, import_jsbi.default.BigInt(r3)), u2 = import_jsbi.default.subtract(u2, d2);
       }
       break;
-    default:
-      for (; K(i2) > 0; ) {
-        if (!h2)
-          throw new RangeError("a starting point is required for balancing calendar units");
-        let e3;
-        ({ relativeTo: T2, days: e3 } = MoveRelativeDate(h2, T2, p2)), d2 += e3, i2 -= c2;
+    }
+    default: {
+      if (isZero(h2) && isZero(u2) && isZero(T2))
+        break;
+      if (!m2)
+        throw new RangeError("a starting point is required for balancing calendar units");
+      const t3 = "string" != typeof m2 ? GetMethod(m2, "dateAdd") : void 0;
+      for (; !isZero(h2); ) {
+        let r3;
+        ({ relativeTo: c2, days: r3 } = MoveRelativeDate(m2, c2, y2, t3)), f2 = import_jsbi.default.add(f2, import_jsbi.default.BigInt(r3)), h2 = import_jsbi.default.subtract(h2, d2);
       }
-      for (; K(s2) > 0; ) {
-        if (!h2)
-          throw new RangeError("a starting point is required for balancing calendar units");
-        let e3;
-        ({ relativeTo: T2, days: e3 } = MoveRelativeDate(h2, T2, f2)), d2 += e3, s2 -= c2;
+      for (; !isZero(u2); ) {
+        let r3;
+        ({ relativeTo: c2, days: r3 } = MoveRelativeDate(m2, c2, I2, t3)), f2 = import_jsbi.default.add(f2, import_jsbi.default.BigInt(r3)), u2 = import_jsbi.default.subtract(u2, d2);
       }
-      for (; K(l2) > 0; ) {
-        if (!h2)
-          throw new RangeError("a starting point is required for balancing calendar units");
-        let e3;
-        ({ relativeTo: T2, days: e3 } = MoveRelativeDate(h2, T2, S2)), d2 += e3, l2 -= c2;
+      for (; !isZero(T2); ) {
+        let r3;
+        ({ relativeTo: c2, days: r3 } = MoveRelativeDate(m2, c2, S2, t3)), f2 = import_jsbi.default.add(f2, import_jsbi.default.BigInt(r3)), T2 = import_jsbi.default.subtract(T2, d2);
       }
+      break;
+    }
   }
-  return { years: i2, months: s2, weeks: l2, days: d2 };
+  return { years: import_jsbi.default.toNumber(h2), months: import_jsbi.default.toNumber(u2), weeks: import_jsbi.default.toNumber(T2), days: import_jsbi.default.toNumber(f2) };
 }
 function CalculateOffsetShift(e2, t2, r2, o2, n2) {
   if (IsTemporalZonedDateTime(e2)) {
-    const a2 = GetSlot(e2, T), i2 = GetSlot(e2, p), s2 = GetSlot(e2, u), l2 = GetOffsetNanosecondsFor(i2, a2), d2 = AddZonedDateTime(a2, i2, s2, t2, r2, o2, n2, 0, 0, 0, 0, 0, 0);
+    const a2 = GetSlot(e2, S), i2 = GetSlot(e2, g), s2 = GetSlot(e2, p), l2 = GetOffsetNanosecondsFor(i2, a2), d2 = AddZonedDateTime(a2, i2, s2, t2, r2, o2, n2, 0, 0, 0, 0, 0, 0);
     return GetOffsetNanosecondsFor(i2, new (GetIntrinsic("%Temporal.Instant%"))(d2)) - l2;
   }
   return 0;
 }
 function CreateNegatedTemporalDuration(e2) {
-  return new (GetIntrinsic("%Temporal.Duration%"))(-GetSlot(e2, f), -GetSlot(e2, y), -GetSlot(e2, S), -GetSlot(e2, w), -GetSlot(e2, g), -GetSlot(e2, I), -GetSlot(e2, D), -GetSlot(e2, G), -GetSlot(e2, v), -GetSlot(e2, O));
+  return new (GetIntrinsic("%Temporal.Duration%"))(-GetSlot(e2, w), -GetSlot(e2, D), -GetSlot(e2, G), -GetSlot(e2, v), -GetSlot(e2, C), -GetSlot(e2, O), -GetSlot(e2, b), -GetSlot(e2, E), -GetSlot(e2, M), -GetSlot(e2, R));
 }
 function ConstrainToRange(e2, t2, r2) {
-  return V(r2, X(t2, e2));
+  return oe(r2, ne(t2, e2));
 }
 function ConstrainISODate(e2, t2, r2) {
   const o2 = ConstrainToRange(t2, 1, 12);
@@ -2927,19 +3216,19 @@ function RejectDateTime(e2, t2, r2, o2, n2, a2, i2, s2, l2) {
   RejectISODate(e2, t2, r2), RejectTime(o2, n2, a2, i2, s2, l2);
 }
 function RejectDateTimeRange(e2, t2, r2, o2, n2, a2, i2, s2, l2) {
-  if (RejectToRange(e2, -271821, 275760), -271821 === e2 && null == GetEpochFromISOParts(e2, t2, r2 + 1, o2, n2, a2, i2, s2, l2 - 1) || 275760 === e2 && null == GetEpochFromISOParts(e2, t2, r2 - 1, o2, n2, a2, i2, s2, l2 + 1))
+  if (RejectToRange(e2, Fe, Ye), e2 === Fe && null == GetUTCEpochNanoseconds(e2, t2, r2 + 1, o2, n2, a2, i2, s2, l2 - 1) || e2 === Ye && null == GetUTCEpochNanoseconds(e2, t2, r2 - 1, o2, n2, a2, i2, s2, l2 + 1))
     throw new RangeError("DateTime outside of supported range");
 }
 function ValidateEpochNanoseconds(t2) {
-  if (import_jsbi.default.lessThan(t2, ge) || import_jsbi.default.greaterThan(t2, Ie))
+  if (import_jsbi.default.lessThan(t2, Me) || import_jsbi.default.greaterThan(t2, Re))
     throw new RangeError("Instant outside of supported range");
 }
 function RejectDuration(e2, t2, r2, o2, n2, a2, i2, s2, l2, d2) {
   const m2 = DurationSign(e2, t2, r2, o2, n2, a2, i2, s2, l2, d2);
   for (const c2 of [e2, t2, r2, o2, n2, a2, i2, s2, l2, d2]) {
-    if (!oe(c2))
+    if (!me(c2))
       throw new RangeError("infinite values not allowed as duration fields");
-    const e3 = ee(c2);
+    const e3 = se(c2);
     if (0 !== e3 && e3 !== m2)
       throw new RangeError("mixed-sign values not allowed as duration fields");
   }
@@ -2970,7 +3259,7 @@ function DifferenceISODate(e2, t2, r2, o2, n2, a2, i2) {
       for (let e3 = l2.year; e3 < s2.year; ++e3)
         m2 += LeapYear(e3) ? 366 : 365;
       let c2 = 0;
-      return "week" === i2 && (c2 = Q(m2 / 7), m2 %= 7), c2 *= d2, m2 *= d2, { years: 0, months: 0, weeks: c2, days: m2 };
+      return "week" === i2 && (c2 = ie(m2 / 7), m2 %= 7), c2 *= d2, m2 *= d2, { years: 0, months: 0, weeks: c2, days: m2 };
     }
     default:
       throw new Error("assert not reached");
@@ -2978,141 +3267,132 @@ function DifferenceISODate(e2, t2, r2, o2, n2, a2, i2) {
 }
 function DifferenceTime(e2, t2, r2, o2, n2, a2, i2, s2, l2, d2, m2, c2) {
   let h2 = i2 - e2, u2 = s2 - t2, T2 = l2 - r2, p2 = d2 - o2, f2 = m2 - n2, y2 = c2 - a2;
-  const S2 = DurationSign(0, 0, 0, 0, h2, u2, T2, p2, f2, y2);
-  h2 *= S2, u2 *= S2, T2 *= S2, p2 *= S2, f2 *= S2, y2 *= S2;
-  let w2 = 0;
-  if ({ deltaDays: w2, hour: h2, minute: u2, second: T2, millisecond: p2, microsecond: f2, nanosecond: y2 } = BalanceTime(h2, u2, T2, p2, f2, y2), 0 != w2)
+  const I2 = DurationSign(0, 0, 0, 0, h2, u2, T2, p2, f2, y2);
+  h2 *= I2, u2 *= I2, T2 *= I2, p2 *= I2, f2 *= I2, y2 *= I2;
+  let S2 = 0;
+  if ({ deltaDays: S2, hour: h2, minute: u2, second: T2, millisecond: p2, microsecond: f2, nanosecond: y2 } = BalanceTime(h2, u2, T2, p2, f2, y2), 0 != S2)
     throw new Error("assertion failure in DifferenceTime: _bt_.[[Days]] should be 0");
-  return h2 *= S2, u2 *= S2, T2 *= S2, p2 *= S2, f2 *= S2, y2 *= S2, { hours: h2, minutes: u2, seconds: T2, milliseconds: p2, microseconds: f2, nanoseconds: y2 };
+  return h2 *= I2, u2 *= I2, T2 *= I2, p2 *= I2, f2 *= I2, y2 *= I2, { hours: h2, minutes: u2, seconds: T2, milliseconds: p2, microseconds: f2, nanoseconds: y2 };
 }
-function DifferenceInstant(t2, r2, o2, n2, a2) {
-  const i2 = import_jsbi.default.subtract(r2, t2), s2 = import_jsbi.default.remainder(i2, import_jsbi.default.BigInt(864e11)), l2 = import_jsbi.default.subtract(i2, s2), d2 = RoundNumberToIncrement(s2, Ne[n2] * o2, a2), m2 = import_jsbi.default.add(l2, d2), c2 = import_jsbi.default.toNumber(import_jsbi.default.remainder(m2, pe)), h2 = import_jsbi.default.toNumber(import_jsbi.default.remainder(import_jsbi.default.divide(m2, pe), pe)), u2 = import_jsbi.default.toNumber(import_jsbi.default.remainder(import_jsbi.default.divide(m2, fe), pe));
-  return { seconds: import_jsbi.default.toNumber(import_jsbi.default.divide(m2, ye)), milliseconds: u2, microseconds: h2, nanoseconds: c2 };
+function DifferenceInstant(t2, r2, o2, n2, a2, i2) {
+  const s2 = import_jsbi.default.subtract(r2, t2);
+  let l2 = 0, d2 = 0, m2 = import_jsbi.default.toNumber(import_jsbi.default.remainder(s2, De)), c2 = import_jsbi.default.toNumber(import_jsbi.default.remainder(import_jsbi.default.divide(s2, De), De)), h2 = import_jsbi.default.toNumber(import_jsbi.default.remainder(import_jsbi.default.divide(s2, Ge), De)), u2 = import_jsbi.default.toNumber(import_jsbi.default.divide(s2, ve));
+  return { hours: l2, minutes: d2, seconds: u2, milliseconds: h2, microseconds: c2, nanoseconds: m2 } = RoundDuration(0, 0, 0, 0, 0, 0, u2, h2, c2, m2, o2, n2, i2), BalanceDuration(0, l2, d2, u2, h2, c2, m2, a2);
 }
-function DifferenceISODateTime(e2, t2, r2, o2, n2, a2, i2, s2, l2, d2, m2, c2, h2, u2, T2, p2, f2, y2, S2, w2, g2) {
-  let I2 = e2, D2 = t2, G2 = r2, { hours: v2, minutes: O2, seconds: C2, milliseconds: E2, microseconds: b2, nanoseconds: M2 } = DifferenceTime(o2, n2, a2, i2, s2, l2, h2, u2, T2, p2, f2, y2);
-  const R2 = DurationSign(0, 0, 0, 0, v2, O2, C2, E2, b2, M2);
-  CompareISODate(d2, m2, c2, I2, D2, G2) === -R2 && ({ year: I2, month: D2, day: G2 } = BalanceISODate(I2, D2, G2 - R2), { hours: v2, minutes: O2, seconds: C2, milliseconds: E2, microseconds: b2, nanoseconds: M2 } = BalanceDuration(-R2, v2, O2, C2, E2, b2, M2, w2));
-  const Z2 = CreateTemporalDate(I2, D2, G2, S2), P2 = CreateTemporalDate(d2, m2, c2, S2), F2 = MergeLargestUnitOption(g2, LargerOfTwoTemporalUnits("day", w2));
-  let { years: Y2, months: j2, weeks: $2, days: B2 } = CalendarDateUntil(S2, Z2, P2, F2);
-  return { days: B2, hours: v2, minutes: O2, seconds: C2, milliseconds: E2, microseconds: b2, nanoseconds: M2 } = BalanceDuration(B2, v2, O2, C2, E2, b2, M2, w2), { years: Y2, months: j2, weeks: $2, days: B2, hours: v2, minutes: O2, seconds: C2, milliseconds: E2, microseconds: b2, nanoseconds: M2 };
+function DifferenceISODateTime(e2, t2, r2, o2, n2, a2, i2, s2, l2, d2, m2, c2, h2, u2, T2, p2, f2, y2, I2, S2, g2) {
+  let w2 = e2, D2 = t2, G2 = r2, { hours: v2, minutes: C2, seconds: O2, milliseconds: b2, microseconds: E2, nanoseconds: M2 } = DifferenceTime(o2, n2, a2, i2, s2, l2, h2, u2, T2, p2, f2, y2);
+  const R2 = DurationSign(0, 0, 0, 0, v2, C2, O2, b2, E2, M2);
+  CompareISODate(d2, m2, c2, w2, D2, G2) === -R2 && ({ year: w2, month: D2, day: G2 } = BalanceISODate(w2, D2, G2 - R2), { hours: v2, minutes: C2, seconds: O2, milliseconds: b2, microseconds: E2, nanoseconds: M2 } = BalanceDuration(-R2, v2, C2, O2, b2, E2, M2, S2));
+  const F2 = CreateTemporalDate(w2, D2, G2, I2), Y2 = CreateTemporalDate(d2, m2, c2, I2), P2 = LargerOfTwoTemporalUnits("day", S2), Z2 = CopyOptions(g2);
+  Z2.largestUnit = P2;
+  let { years: B2, months: N2, weeks: j2, days: $2 } = CalendarDateUntil(I2, F2, Y2, Z2);
+  return { days: $2, hours: v2, minutes: C2, seconds: O2, milliseconds: b2, microseconds: E2, nanoseconds: M2 } = BalanceDuration($2, v2, C2, O2, b2, E2, M2, S2), { years: B2, months: N2, weeks: j2, days: $2, hours: v2, minutes: C2, seconds: O2, milliseconds: b2, microseconds: E2, nanoseconds: M2 };
 }
-function DifferenceZonedDateTime(t2, r2, o2, u2, T2, p2) {
+function DifferenceZonedDateTime(t2, r2, o2, n2, a2, p2) {
   const f2 = import_jsbi.default.subtract(r2, t2);
-  if (import_jsbi.default.equal(f2, he))
+  if (import_jsbi.default.equal(f2, Ie))
     return { years: 0, months: 0, weeks: 0, days: 0, hours: 0, minutes: 0, seconds: 0, milliseconds: 0, microseconds: 0, nanoseconds: 0 };
-  const y2 = GetIntrinsic("%Temporal.Instant%"), S2 = new y2(t2), w2 = new y2(r2), g2 = BuiltinTimeZoneGetPlainDateTimeFor(o2, S2, u2), I2 = BuiltinTimeZoneGetPlainDateTimeFor(o2, w2, u2);
-  let { years: D2, months: G2, weeks: v2, days: O2 } = DifferenceISODateTime(GetSlot(g2, n), GetSlot(g2, a), GetSlot(g2, i), GetSlot(g2, s), GetSlot(g2, l), GetSlot(g2, d), GetSlot(g2, m), GetSlot(g2, c), GetSlot(g2, h), GetSlot(I2, n), GetSlot(I2, a), GetSlot(I2, i), GetSlot(I2, s), GetSlot(I2, l), GetSlot(I2, d), GetSlot(I2, m), GetSlot(I2, c), GetSlot(I2, h), u2, T2, p2);
-  const C2 = AddZonedDateTime(S2, o2, u2, D2, G2, v2, 0, 0, 0, 0, 0, 0, 0);
-  let E2 = import_jsbi.default.subtract(r2, C2);
-  const b2 = CreateTemporalZonedDateTime(C2, o2, u2);
-  ({ nanoseconds: E2, days: O2 } = NanosecondsToDays(E2, b2));
-  const { hours: M2, minutes: R2, seconds: Z2, milliseconds: P2, microseconds: F2, nanoseconds: Y2 } = BalanceDuration(0, 0, 0, 0, 0, 0, import_jsbi.default.toNumber(E2), "hour");
-  return { years: D2, months: G2, weeks: v2, days: O2, hours: M2, minutes: R2, seconds: Z2, milliseconds: P2, microseconds: F2, nanoseconds: Y2 };
+  const y2 = GetIntrinsic("%Temporal.Instant%"), I2 = new y2(t2), S2 = new y2(r2), g2 = GetPlainDateTimeFor(o2, I2, n2), w2 = GetPlainDateTimeFor(o2, S2, n2);
+  let { years: D2, months: G2, weeks: v2, days: C2 } = DifferenceISODateTime(GetSlot(g2, i), GetSlot(g2, s), GetSlot(g2, l), GetSlot(g2, d), GetSlot(g2, m), GetSlot(g2, c), GetSlot(g2, h), GetSlot(g2, u), GetSlot(g2, T), GetSlot(w2, i), GetSlot(w2, s), GetSlot(w2, l), GetSlot(w2, d), GetSlot(w2, m), GetSlot(w2, c), GetSlot(w2, h), GetSlot(w2, u), GetSlot(w2, T), n2, a2, p2);
+  const O2 = AddZonedDateTime(I2, o2, n2, D2, G2, v2, 0, 0, 0, 0, 0, 0, 0);
+  let b2 = import_jsbi.default.subtract(r2, O2);
+  const E2 = CreateTemporalZonedDateTime(O2, o2, n2);
+  ({ nanoseconds: b2, days: C2 } = NanosecondsToDays(b2, E2));
+  const { hours: M2, minutes: R2, seconds: F2, milliseconds: Y2, microseconds: P2, nanoseconds: Z2 } = BalanceDuration(0, 0, 0, 0, 0, 0, import_jsbi.default.toNumber(b2), "hour");
+  return { years: D2, months: G2, weeks: v2, days: C2, hours: M2, minutes: R2, seconds: F2, milliseconds: Y2, microseconds: P2, nanoseconds: Z2 };
 }
-function DifferenceTemporalInstant(e2, t2, o2, n2) {
-  const a2 = ToTemporalInstant(o2);
-  let i2, s2;
-  [i2, s2] = "until" === e2 ? [t2, a2] : [a2, t2];
-  const l2 = GetOptionsObject(n2), d2 = GetTemporalUnit(l2, "smallestUnit", "time", "nanosecond"), m2 = LargerOfTwoTemporalUnits("second", d2);
-  let c2 = GetTemporalUnit(l2, "largestUnit", "time", "auto");
-  if ("auto" === c2 && (c2 = m2), LargerOfTwoTemporalUnits(c2, d2) !== c2)
-    throw new RangeError(`largestUnit ${c2} cannot be smaller than smallestUnit ${d2}`);
-  const h2 = ToTemporalRoundingMode(l2, "trunc"), u2 = ToTemporalRoundingIncrement(l2, { hour: 24, minute: 60, second: 60, millisecond: 1e3, microsecond: 1e3, nanosecond: 1e3 }[d2], false), T2 = GetSlot(i2, r), p2 = GetSlot(s2, r);
-  let f2, y2, { seconds: S2, milliseconds: w2, microseconds: g2, nanoseconds: I2 } = DifferenceInstant(T2, p2, u2, d2, h2);
-  ({ hours: f2, minutes: y2, seconds: S2, milliseconds: w2, microseconds: g2, nanoseconds: I2 } = BalanceDuration(0, 0, 0, S2, w2, g2, I2, c2));
-  return new (GetIntrinsic("%Temporal.Duration%"))(0, 0, 0, 0, f2, y2, S2, w2, g2, I2);
+function GetDifferenceSettings(e2, t2, r2, o2, n2, a2) {
+  const i2 = Ue.reduce((e3, t3) => {
+    const n3 = t3[0], a3 = t3[1], i3 = t3[2];
+    return "datetime" !== r2 && i3 !== r2 || o2.includes(a3) || e3.push(a3, n3), e3;
+  }, []);
+  let s2 = GetTemporalUnit(t2, "largestUnit", r2, "auto");
+  if (o2.includes(s2))
+    throw new RangeError(`largestUnit must be one of ${i2.join(", ")}, not ${s2}`);
+  const l2 = ToTemporalRoundingIncrement(t2);
+  let d2 = ToTemporalRoundingMode(t2, "trunc");
+  "since" === e2 && (d2 = function NegateTemporalRoundingMode(e3) {
+    switch (e3) {
+      case "ceil":
+        return "floor";
+      case "floor":
+        return "ceil";
+      case "halfCeil":
+        return "halfFloor";
+      case "halfFloor":
+        return "halfCeil";
+      default:
+        return e3;
+    }
+  }(d2));
+  const m2 = GetTemporalUnit(t2, "smallestUnit", r2, n2);
+  if (o2.includes(m2))
+    throw new RangeError(`smallestUnit must be one of ${i2.join(", ")}, not ${m2}`);
+  const c2 = LargerOfTwoTemporalUnits(a2, m2);
+  if ("auto" === s2 && (s2 = c2), LargerOfTwoTemporalUnits(s2, m2) !== s2)
+    throw new RangeError(`largestUnit ${s2} cannot be smaller than smallestUnit ${m2}`);
+  const h2 = { hour: 24, minute: 60, second: 60, millisecond: 1e3, microsecond: 1e3, nanosecond: 1e3 }[m2];
+  return void 0 !== h2 && ValidateTemporalRoundingIncrement(l2, h2, false), { largestUnit: s2, roundingIncrement: l2, roundingMode: d2, smallestUnit: m2 };
+}
+function DifferenceTemporalInstant(e2, t2, r2, o2) {
+  const a2 = "since" === e2 ? -1 : 1, i2 = ToTemporalInstant(r2), s2 = GetDifferenceSettings(e2, CopyOptions(o2), "time", [], "nanosecond", "second"), l2 = GetSlot(t2, n), d2 = GetSlot(i2, n);
+  let { hours: m2, minutes: c2, seconds: h2, milliseconds: u2, microseconds: T2, nanoseconds: p2 } = DifferenceInstant(l2, d2, s2.roundingIncrement, s2.smallestUnit, s2.largestUnit, s2.roundingMode);
+  return new (GetIntrinsic("%Temporal.Duration%"))(0, 0, 0, 0, a2 * m2, a2 * c2, a2 * h2, a2 * u2, a2 * T2, a2 * p2);
 }
 function DifferenceTemporalPlainDate(e2, t2, r2, o2) {
-  const n2 = "since" === e2 ? -1 : 1, a2 = ToTemporalDate(r2), i2 = GetSlot(t2, u), s2 = GetSlot(a2, u), l2 = ToString(i2), d2 = ToString(s2);
-  if (l2 !== d2)
-    throw new RangeError(`cannot compute difference between dates of ${l2} and ${d2} calendars`);
-  const m2 = GetOptionsObject(o2), c2 = GetTemporalUnit(m2, "smallestUnit", "date", "day"), h2 = LargerOfTwoTemporalUnits("day", c2);
-  let T2 = GetTemporalUnit(m2, "largestUnit", "date", "auto");
-  if ("auto" === T2 && (T2 = h2), LargerOfTwoTemporalUnits(T2, c2) !== T2)
-    throw new RangeError(`largestUnit ${T2} cannot be smaller than smallestUnit ${c2}`);
-  let p2 = ToTemporalRoundingMode(m2, "trunc");
-  "since" === e2 && (p2 = NegateTemporalRoundingMode(p2));
-  const f2 = ToTemporalRoundingIncrement(m2, void 0, false), y2 = MergeLargestUnitOption(m2, T2);
-  let { years: S2, months: w2, weeks: g2, days: I2 } = CalendarDateUntil(i2, t2, a2, y2);
-  "day" === c2 && 1 === f2 || ({ years: S2, months: w2, weeks: g2, days: I2 } = RoundDuration(S2, w2, g2, I2, 0, 0, 0, 0, 0, 0, f2, c2, p2, t2));
-  return new (GetIntrinsic("%Temporal.Duration%"))(n2 * S2, n2 * w2, n2 * g2, n2 * I2, 0, 0, 0, 0, 0, 0);
+  const n2 = "since" === e2 ? -1 : 1, a2 = ToTemporalDate(r2), i2 = GetSlot(t2, p);
+  ThrowIfCalendarsNotEqual(i2, GetSlot(a2, p), "compute difference between dates");
+  const s2 = CopyOptions(o2), l2 = GetDifferenceSettings(e2, s2, "date", [], "day", "day");
+  s2.largestUnit = l2.largestUnit;
+  let { years: d2, months: m2, weeks: c2, days: h2 } = CalendarDateUntil(i2, t2, a2, s2);
+  "day" === l2.smallestUnit && 1 === l2.roundingIncrement || ({ years: d2, months: m2, weeks: c2, days: h2 } = RoundDuration(d2, m2, c2, h2, 0, 0, 0, 0, 0, 0, l2.roundingIncrement, l2.smallestUnit, l2.roundingMode, t2));
+  return new (GetIntrinsic("%Temporal.Duration%"))(n2 * d2, n2 * m2, n2 * c2, n2 * h2, 0, 0, 0, 0, 0, 0);
 }
 function DifferenceTemporalPlainDateTime(e2, t2, r2, o2) {
-  const T2 = "since" === e2 ? -1 : 1, p2 = ToTemporalDateTime(r2), f2 = GetSlot(t2, u), y2 = GetSlot(p2, u), S2 = ToString(f2), w2 = ToString(y2);
-  if (S2 !== w2)
-    throw new RangeError(`cannot compute difference between dates of ${S2} and ${w2} calendars`);
-  const g2 = GetOptionsObject(o2), I2 = GetTemporalUnit(g2, "smallestUnit", "datetime", "nanosecond"), D2 = LargerOfTwoTemporalUnits("day", I2);
-  let G2 = GetTemporalUnit(g2, "largestUnit", "datetime", "auto");
-  if ("auto" === G2 && (G2 = D2), LargerOfTwoTemporalUnits(G2, I2) !== G2)
-    throw new RangeError(`largestUnit ${G2} cannot be smaller than smallestUnit ${I2}`);
-  let v2 = ToTemporalRoundingMode(g2, "trunc");
-  "since" === e2 && (v2 = NegateTemporalRoundingMode(v2));
-  const O2 = ToTemporalDateTimeRoundingIncrement(g2, I2);
-  let { years: C2, months: E2, weeks: b2, days: M2, hours: R2, minutes: Z2, seconds: P2, milliseconds: F2, microseconds: Y2, nanoseconds: j2 } = DifferenceISODateTime(GetSlot(t2, n), GetSlot(t2, a), GetSlot(t2, i), GetSlot(t2, s), GetSlot(t2, l), GetSlot(t2, d), GetSlot(t2, m), GetSlot(t2, c), GetSlot(t2, h), GetSlot(p2, n), GetSlot(p2, a), GetSlot(p2, i), GetSlot(p2, s), GetSlot(p2, l), GetSlot(p2, d), GetSlot(p2, m), GetSlot(p2, c), GetSlot(p2, h), f2, G2, g2);
-  const $2 = TemporalDateTimeToDate(t2);
-  ({ years: C2, months: E2, weeks: b2, days: M2, hours: R2, minutes: Z2, seconds: P2, milliseconds: F2, microseconds: Y2, nanoseconds: j2 } = RoundDuration(C2, E2, b2, M2, R2, Z2, P2, F2, Y2, j2, O2, I2, v2, $2)), { days: M2, hours: R2, minutes: Z2, seconds: P2, milliseconds: F2, microseconds: Y2, nanoseconds: j2 } = BalanceDuration(M2, R2, Z2, P2, F2, Y2, j2, G2);
-  return new (GetIntrinsic("%Temporal.Duration%"))(T2 * C2, T2 * E2, T2 * b2, T2 * M2, T2 * R2, T2 * Z2, T2 * P2, T2 * F2, T2 * Y2, T2 * j2);
+  const n2 = "since" === e2 ? -1 : 1, a2 = ToTemporalDateTime(r2), f2 = GetSlot(t2, p);
+  ThrowIfCalendarsNotEqual(f2, GetSlot(a2, p), "compute difference between dates");
+  const y2 = CopyOptions(o2), I2 = GetDifferenceSettings(e2, y2, "datetime", [], "nanosecond", "day");
+  let { years: S2, months: g2, weeks: w2, days: D2, hours: G2, minutes: v2, seconds: C2, milliseconds: O2, microseconds: b2, nanoseconds: E2 } = DifferenceISODateTime(GetSlot(t2, i), GetSlot(t2, s), GetSlot(t2, l), GetSlot(t2, d), GetSlot(t2, m), GetSlot(t2, c), GetSlot(t2, h), GetSlot(t2, u), GetSlot(t2, T), GetSlot(a2, i), GetSlot(a2, s), GetSlot(a2, l), GetSlot(a2, d), GetSlot(a2, m), GetSlot(a2, c), GetSlot(a2, h), GetSlot(a2, u), GetSlot(a2, T), f2, I2.largestUnit, y2);
+  const M2 = TemporalDateTimeToDate(t2);
+  ({ years: S2, months: g2, weeks: w2, days: D2, hours: G2, minutes: v2, seconds: C2, milliseconds: O2, microseconds: b2, nanoseconds: E2 } = RoundDuration(S2, g2, w2, D2, G2, v2, C2, O2, b2, E2, I2.roundingIncrement, I2.smallestUnit, I2.roundingMode, M2)), { days: D2, hours: G2, minutes: v2, seconds: C2, milliseconds: O2, microseconds: b2, nanoseconds: E2 } = BalanceDuration(D2, G2, v2, C2, O2, b2, E2, I2.largestUnit);
+  return new (GetIntrinsic("%Temporal.Duration%"))(n2 * S2, n2 * g2, n2 * w2, n2 * D2, n2 * G2, n2 * v2, n2 * C2, n2 * O2, n2 * b2, n2 * E2);
 }
 function DifferenceTemporalPlainTime(e2, t2, r2, o2) {
-  const n2 = "since" === e2 ? -1 : 1, a2 = ToTemporalTime(r2), i2 = GetOptionsObject(o2);
-  let u2 = GetTemporalUnit(i2, "largestUnit", "time", "auto");
-  "auto" === u2 && (u2 = "hour");
-  const T2 = GetTemporalUnit(i2, "smallestUnit", "time", "nanosecond");
-  if (LargerOfTwoTemporalUnits(u2, T2) !== u2)
-    throw new RangeError(`largestUnit ${u2} cannot be smaller than smallestUnit ${T2}`);
-  let p2 = ToTemporalRoundingMode(i2, "trunc");
-  "since" === e2 && (p2 = NegateTemporalRoundingMode(p2));
-  const f2 = ToTemporalRoundingIncrement(i2, { hour: 24, minute: 60, second: 60, millisecond: 1e3, microsecond: 1e3, nanosecond: 1e3 }[T2], false);
-  let { hours: y2, minutes: S2, seconds: w2, milliseconds: g2, microseconds: I2, nanoseconds: D2 } = DifferenceTime(GetSlot(t2, s), GetSlot(t2, l), GetSlot(t2, d), GetSlot(t2, m), GetSlot(t2, c), GetSlot(t2, h), GetSlot(a2, s), GetSlot(a2, l), GetSlot(a2, d), GetSlot(a2, m), GetSlot(a2, c), GetSlot(a2, h));
-  ({ hours: y2, minutes: S2, seconds: w2, milliseconds: g2, microseconds: I2, nanoseconds: D2 } = RoundDuration(0, 0, 0, 0, y2, S2, w2, g2, I2, D2, f2, T2, p2)), { hours: y2, minutes: S2, seconds: w2, milliseconds: g2, microseconds: I2, nanoseconds: D2 } = BalanceDuration(0, y2, S2, w2, g2, I2, D2, u2);
-  return new (GetIntrinsic("%Temporal.Duration%"))(0, 0, 0, 0, n2 * y2, n2 * S2, n2 * w2, n2 * g2, n2 * I2, n2 * D2);
+  const n2 = "since" === e2 ? -1 : 1, a2 = ToTemporalTime(r2), i2 = GetDifferenceSettings(e2, CopyOptions(o2), "time", [], "nanosecond", "hour");
+  let { hours: s2, minutes: l2, seconds: p2, milliseconds: f2, microseconds: y2, nanoseconds: I2 } = DifferenceTime(GetSlot(t2, d), GetSlot(t2, m), GetSlot(t2, c), GetSlot(t2, h), GetSlot(t2, u), GetSlot(t2, T), GetSlot(a2, d), GetSlot(a2, m), GetSlot(a2, c), GetSlot(a2, h), GetSlot(a2, u), GetSlot(a2, T));
+  ({ hours: s2, minutes: l2, seconds: p2, milliseconds: f2, microseconds: y2, nanoseconds: I2 } = RoundDuration(0, 0, 0, 0, s2, l2, p2, f2, y2, I2, i2.roundingIncrement, i2.smallestUnit, i2.roundingMode)), { hours: s2, minutes: l2, seconds: p2, milliseconds: f2, microseconds: y2, nanoseconds: I2 } = BalanceDuration(0, s2, l2, p2, f2, y2, I2, i2.largestUnit);
+  return new (GetIntrinsic("%Temporal.Duration%"))(0, 0, 0, 0, n2 * s2, n2 * l2, n2 * p2, n2 * f2, n2 * y2, n2 * I2);
 }
 function DifferenceTemporalPlainYearMonth(e2, t2, r2, o2) {
-  const n2 = "since" === e2 ? -1 : 1, a2 = ToTemporalYearMonth(r2), i2 = GetSlot(t2, u), s2 = GetSlot(a2, u), l2 = ToString(i2), d2 = ToString(s2);
-  if (l2 !== d2)
-    throw new RangeError(`cannot compute difference between months of ${l2} and ${d2} calendars`);
-  const m2 = GetOptionsObject(o2), c2 = Me.reduce((e3, [t3, r3, o3]) => ("date" === o3 && "week" !== r3 && "day" !== r3 && e3.push(r3, t3), e3), []), h2 = GetTemporalUnit(m2, "smallestUnit", "date", "month");
-  if ("week" === h2 || "day" === h2)
-    throw new RangeError(`smallestUnit must be one of ${c2.join(", ")}, not ${h2}`);
-  let T2 = GetTemporalUnit(m2, "largestUnit", "date", "auto");
-  if ("week" === T2 || "day" === T2)
-    throw new RangeError(`largestUnit must be one of ${c2.join(", ")}, not ${T2}`);
-  if ("auto" === T2 && (T2 = "year"), LargerOfTwoTemporalUnits(T2, h2) !== T2)
-    throw new RangeError(`largestUnit ${T2} cannot be smaller than smallestUnit ${h2}`);
-  let p2 = ToTemporalRoundingMode(m2, "trunc");
-  "since" === e2 && (p2 = NegateTemporalRoundingMode(p2));
-  const f2 = ToTemporalRoundingIncrement(m2, void 0, false), y2 = CalendarFields(i2, ["monthCode", "year"]), S2 = PrepareTemporalFields(a2, y2, []);
-  S2.day = 1;
-  const w2 = PrepareTemporalFields(t2, y2, []);
-  w2.day = 1;
-  const g2 = CalendarDateFromFields(i2, S2), I2 = CalendarDateFromFields(i2, w2), D2 = MergeLargestUnitOption(m2, T2);
-  let { years: G2, months: v2 } = CalendarDateUntil(i2, I2, g2, D2);
-  "month" === h2 && 1 === f2 || ({ years: G2, months: v2 } = RoundDuration(G2, v2, 0, 0, 0, 0, 0, 0, 0, 0, f2, h2, p2, I2));
-  return new (GetIntrinsic("%Temporal.Duration%"))(n2 * G2, n2 * v2, 0, 0, 0, 0, 0, 0, 0, 0);
+  const n2 = "since" === e2 ? -1 : 1, a2 = ToTemporalYearMonth(r2), i2 = GetSlot(t2, p);
+  ThrowIfCalendarsNotEqual(i2, GetSlot(a2, p), "compute difference between months");
+  const s2 = CopyOptions(o2), l2 = GetDifferenceSettings(e2, s2, "date", ["week", "day"], "month", "year");
+  s2.largestUnit = l2.largestUnit;
+  const d2 = CalendarFields(i2, ["monthCode", "year"]), m2 = PrepareTemporalFields(t2, d2, []);
+  m2.day = 1;
+  const c2 = CalendarDateFromFields(i2, m2), h2 = PrepareTemporalFields(a2, d2, []);
+  h2.day = 1;
+  const u2 = CalendarDateFromFields(i2, h2);
+  let { years: T2, months: f2 } = CalendarDateUntil(i2, c2, u2, s2);
+  "month" === l2.smallestUnit && 1 === l2.roundingIncrement || ({ years: T2, months: f2 } = RoundDuration(T2, f2, 0, 0, 0, 0, 0, 0, 0, 0, l2.roundingIncrement, l2.smallestUnit, l2.roundingMode, c2));
+  return new (GetIntrinsic("%Temporal.Duration%"))(n2 * T2, n2 * f2, 0, 0, 0, 0, 0, 0, 0, 0);
 }
-function DifferenceTemporalZonedDateTime(e2, t2, o2, n2) {
-  const a2 = "since" === e2 ? -1 : 1, i2 = ToTemporalZonedDateTime(o2), s2 = GetSlot(t2, u), l2 = GetSlot(i2, u), d2 = ToString(s2), m2 = ToString(l2);
-  if (d2 !== m2)
-    throw new RangeError(`cannot compute difference between dates of ${d2} and ${m2} calendars`);
-  const c2 = GetOptionsObject(n2), h2 = GetTemporalUnit(c2, "smallestUnit", "datetime", "nanosecond"), T2 = LargerOfTwoTemporalUnits("hour", h2);
-  let f2 = GetTemporalUnit(c2, "largestUnit", "datetime", "auto");
-  if ("auto" === f2 && (f2 = T2), LargerOfTwoTemporalUnits(f2, h2) !== f2)
-    throw new RangeError(`largestUnit ${f2} cannot be smaller than smallestUnit ${h2}`);
-  let y2 = ToTemporalRoundingMode(c2, "trunc");
-  "since" === e2 && (y2 = NegateTemporalRoundingMode(y2));
-  const S2 = ToTemporalDateTimeRoundingIncrement(c2, h2), w2 = GetSlot(t2, r), g2 = GetSlot(i2, r);
-  let I2, D2, G2, v2, O2, C2, E2, b2, M2, R2;
-  if ("year" !== f2 && "month" !== f2 && "week" !== f2 && "day" !== f2)
-    I2 = 0, D2 = 0, G2 = 0, v2 = 0, { seconds: E2, milliseconds: b2, microseconds: M2, nanoseconds: R2 } = DifferenceInstant(w2, g2, S2, h2, y2), { hours: O2, minutes: C2, seconds: E2, milliseconds: b2, microseconds: M2, nanoseconds: R2 } = BalanceDuration(0, 0, 0, E2, b2, M2, R2, f2);
+function DifferenceTemporalZonedDateTime(e2, t2, r2, o2) {
+  const a2 = "since" === e2 ? -1 : 1, i2 = ToTemporalZonedDateTime(r2), s2 = GetSlot(t2, p);
+  ThrowIfCalendarsNotEqual(s2, GetSlot(i2, p), "compute difference between dates");
+  const l2 = CopyOptions(o2), d2 = GetDifferenceSettings(e2, l2, "datetime", [], "nanosecond", "hour");
+  l2.largestUnit = d2.largestUnit;
+  const m2 = GetSlot(t2, n), c2 = GetSlot(i2, n);
+  let h2, u2, T2, f2, y2, I2, S2, w2, D2, G2;
+  if ("year" !== d2.largestUnit && "month" !== d2.largestUnit && "week" !== d2.largestUnit && "day" !== d2.largestUnit)
+    h2 = 0, u2 = 0, T2 = 0, f2 = 0, { hours: y2, minutes: I2, seconds: S2, milliseconds: w2, microseconds: D2, nanoseconds: G2 } = DifferenceInstant(m2, c2, d2.roundingIncrement, d2.smallestUnit, d2.largestUnit, d2.roundingMode);
   else {
-    const e3 = GetSlot(t2, p);
-    if (!TimeZoneEquals(e3, GetSlot(i2, p)))
+    const e3 = GetSlot(t2, g);
+    if (!TimeZoneEquals(e3, GetSlot(i2, g)))
       throw new RangeError("When calculating difference between time zones, largestUnit must be 'hours' or smaller because day lengths can vary between time zones due to DST or time zone offset changes.");
-    const r2 = MergeLargestUnitOption(c2, f2);
-    ({ years: I2, months: D2, weeks: G2, days: v2, hours: O2, minutes: C2, seconds: E2, milliseconds: b2, microseconds: M2, nanoseconds: R2 } = DifferenceZonedDateTime(w2, g2, e3, s2, f2, r2)), { years: I2, months: D2, weeks: G2, days: v2, hours: O2, minutes: C2, seconds: E2, milliseconds: b2, microseconds: M2, nanoseconds: R2 } = RoundDuration(I2, D2, G2, v2, O2, C2, E2, b2, M2, R2, S2, h2, y2, t2), { years: I2, months: D2, weeks: G2, days: v2, hours: O2, minutes: C2, seconds: E2, milliseconds: b2, microseconds: M2, nanoseconds: R2 } = AdjustRoundedDurationDays(I2, D2, G2, v2, O2, C2, E2, b2, M2, R2, S2, h2, y2, t2);
+    ({ years: h2, months: u2, weeks: T2, days: f2, hours: y2, minutes: I2, seconds: S2, milliseconds: w2, microseconds: D2, nanoseconds: G2 } = DifferenceZonedDateTime(m2, c2, e3, s2, d2.largestUnit, l2)), { years: h2, months: u2, weeks: T2, days: f2, hours: y2, minutes: I2, seconds: S2, milliseconds: w2, microseconds: D2, nanoseconds: G2 } = RoundDuration(h2, u2, T2, f2, y2, I2, S2, w2, D2, G2, d2.roundingIncrement, d2.smallestUnit, d2.roundingMode, t2), { years: h2, months: u2, weeks: T2, days: f2, hours: y2, minutes: I2, seconds: S2, milliseconds: w2, microseconds: D2, nanoseconds: G2 } = AdjustRoundedDurationDays(h2, u2, T2, f2, y2, I2, S2, w2, D2, G2, d2.roundingIncrement, d2.smallestUnit, d2.roundingMode, t2);
   }
-  return new (GetIntrinsic("%Temporal.Duration%"))(a2 * I2, a2 * D2, a2 * G2, a2 * v2, a2 * O2, a2 * C2, a2 * E2, a2 * b2, a2 * M2, a2 * R2);
+  return new (GetIntrinsic("%Temporal.Duration%"))(a2 * h2, a2 * u2, a2 * T2, a2 * f2, a2 * y2, a2 * I2, a2 * S2, a2 * w2, a2 * D2, a2 * G2);
 }
 function AddISODate(e2, t2, r2, o2, n2, a2, i2, s2) {
   let l2 = e2, d2 = t2, m2 = r2, c2 = a2, h2 = i2;
@@ -3121,94 +3401,100 @@ function AddISODate(e2, t2, r2, o2, n2, a2, i2, s2) {
 function AddTime(e2, t2, r2, o2, n2, a2, i2, s2, l2, d2, m2, c2) {
   let h2 = e2, u2 = t2, T2 = r2, p2 = o2, f2 = n2, y2 = a2;
   h2 += i2, u2 += s2, T2 += l2, p2 += d2, f2 += m2, y2 += c2;
-  let S2 = 0;
-  return { deltaDays: S2, hour: h2, minute: u2, second: T2, millisecond: p2, microsecond: f2, nanosecond: y2 } = BalanceTime(h2, u2, T2, p2, f2, y2), { deltaDays: S2, hour: h2, minute: u2, second: T2, millisecond: p2, microsecond: f2, nanosecond: y2 };
+  let I2 = 0;
+  return { deltaDays: I2, hour: h2, minute: u2, second: T2, millisecond: p2, microsecond: f2, nanosecond: y2 } = BalanceTime(h2, u2, T2, p2, f2, y2), { deltaDays: I2, hour: h2, minute: u2, second: T2, millisecond: p2, microsecond: f2, nanosecond: y2 };
 }
-function AddDuration(e2, t2, o2, n2, a2, i2, s2, l2, d2, m2, c2, h2, f2, y2, S2, w2, g2, I2, D2, G2, v2) {
-  const O2 = LargerOfTwoTemporalUnits(DefaultTemporalLargestUnit(e2, t2, o2, n2, a2, i2, s2, l2, d2, m2), DefaultTemporalLargestUnit(c2, h2, f2, y2, S2, w2, g2, I2, D2, G2));
-  let C2, E2, b2, M2, R2, Z2, P2, F2, Y2, j2;
-  if (v2)
-    if (IsTemporalDate(v2)) {
-      const r2 = GetIntrinsic("%Temporal.Duration%"), T2 = GetSlot(v2, u), p2 = new r2(e2, t2, o2, n2, 0, 0, 0, 0, 0, 0), $2 = new r2(c2, h2, f2, y2, 0, 0, 0, 0, 0, 0), B2 = T2.dateAdd, N2 = CalendarDateAdd(T2, v2, p2, void 0, B2), k2 = CalendarDateAdd(T2, N2, $2, void 0, B2), A2 = LargerOfTwoTemporalUnits("day", O2), U2 = le(null);
-      U2.largestUnit = A2, { years: C2, months: E2, weeks: b2, days: M2 } = CalendarDateUntil(T2, v2, k2, U2), { days: M2, hours: R2, minutes: Z2, seconds: P2, milliseconds: F2, microseconds: Y2, nanoseconds: j2 } = BalanceDuration(M2, a2 + S2, i2 + w2, s2 + g2, l2 + I2, d2 + D2, m2 + G2, O2);
+function AddDuration(t2, r2, o2, a2, i2, s2, l2, d2, m2, c2, h2, u2, T2, f2, y2, I2, w2, D2, G2, v2, C2) {
+  const O2 = LargerOfTwoTemporalUnits(DefaultTemporalLargestUnit(t2, r2, o2, a2, i2, s2, l2, d2, m2, c2), DefaultTemporalLargestUnit(h2, u2, T2, f2, y2, I2, w2, D2, G2, v2));
+  let b2, E2, M2, R2, F2, Y2, P2, Z2, B2, N2;
+  if (C2)
+    if (IsTemporalDate(C2)) {
+      const n2 = GetIntrinsic("%Temporal.Duration%"), S2 = GetSlot(C2, p), g2 = new n2(t2, r2, o2, a2, 0, 0, 0, 0, 0, 0), j2 = new n2(h2, u2, T2, f2, 0, 0, 0, 0, 0, 0), $2 = "string" != typeof S2 ? GetMethod(S2, "dateAdd") : void 0, k2 = CalendarDateAdd(S2, C2, g2, void 0, $2), U2 = CalendarDateAdd(S2, k2, j2, void 0, $2), A2 = LargerOfTwoTemporalUnits("day", O2), L2 = Te(null);
+      L2.largestUnit = A2, { years: b2, months: E2, weeks: M2, days: R2 } = CalendarDateUntil(S2, C2, U2, L2), { days: R2, hours: F2, minutes: Y2, seconds: P2, milliseconds: Z2, microseconds: B2, nanoseconds: N2 } = BalanceDuration(R2, import_jsbi.default.add(import_jsbi.default.BigInt(i2), import_jsbi.default.BigInt(y2)), import_jsbi.default.add(import_jsbi.default.BigInt(s2), import_jsbi.default.BigInt(I2)), import_jsbi.default.add(import_jsbi.default.BigInt(l2), import_jsbi.default.BigInt(w2)), import_jsbi.default.add(import_jsbi.default.BigInt(d2), import_jsbi.default.BigInt(D2)), import_jsbi.default.add(import_jsbi.default.BigInt(m2), import_jsbi.default.BigInt(G2)), import_jsbi.default.add(import_jsbi.default.BigInt(c2), import_jsbi.default.BigInt(v2)), O2);
     } else {
-      const $2 = GetIntrinsic("%Temporal.Instant%"), B2 = GetSlot(v2, p), N2 = GetSlot(v2, u), k2 = AddZonedDateTime(GetSlot(v2, T), B2, N2, e2, t2, o2, n2, a2, i2, s2, l2, d2, m2), A2 = AddZonedDateTime(new $2(k2), B2, N2, c2, h2, f2, y2, S2, w2, g2, I2, D2, G2);
-      "year" !== O2 && "month" !== O2 && "week" !== O2 && "day" !== O2 ? (C2 = 0, E2 = 0, b2 = 0, M2 = 0, { seconds: P2, milliseconds: F2, microseconds: Y2, nanoseconds: j2 } = DifferenceInstant(GetSlot(v2, r), A2, 1, "nanosecond", "halfExpand"), { hours: R2, minutes: Z2, seconds: P2, milliseconds: F2, microseconds: Y2, nanoseconds: j2 } = BalanceDuration(0, 0, 0, P2, F2, Y2, j2, O2)) : { years: C2, months: E2, weeks: b2, days: M2, hours: R2, minutes: Z2, seconds: P2, milliseconds: F2, microseconds: Y2, nanoseconds: j2 } = DifferenceZonedDateTime(GetSlot(v2, r), A2, B2, N2, O2, le(null));
+      const e2 = GetIntrinsic("%Temporal.Instant%"), j2 = GetSlot(C2, g), $2 = GetSlot(C2, p), k2 = AddZonedDateTime(GetSlot(C2, S), j2, $2, t2, r2, o2, a2, i2, s2, l2, d2, m2, c2), U2 = AddZonedDateTime(new e2(k2), j2, $2, h2, u2, T2, f2, y2, I2, w2, D2, G2, v2);
+      "year" !== O2 && "month" !== O2 && "week" !== O2 && "day" !== O2 ? (b2 = 0, E2 = 0, M2 = 0, R2 = 0, { hours: F2, minutes: Y2, seconds: P2, milliseconds: Z2, microseconds: B2, nanoseconds: N2 } = DifferenceInstant(GetSlot(C2, n), U2, 1, "nanosecond", O2, "halfExpand")) : { years: b2, months: E2, weeks: M2, days: R2, hours: F2, minutes: Y2, seconds: P2, milliseconds: Z2, microseconds: B2, nanoseconds: N2 } = DifferenceZonedDateTime(GetSlot(C2, n), U2, j2, $2, O2, Te(null));
     }
   else {
     if ("year" === O2 || "month" === O2 || "week" === O2)
       throw new RangeError("relativeTo is required for years, months, or weeks arithmetic");
-    C2 = E2 = b2 = 0, { days: M2, hours: R2, minutes: Z2, seconds: P2, milliseconds: F2, microseconds: Y2, nanoseconds: j2 } = BalanceDuration(n2 + y2, a2 + S2, i2 + w2, s2 + g2, l2 + I2, d2 + D2, m2 + G2, O2);
+    b2 = E2 = M2 = 0, { days: R2, hours: F2, minutes: Y2, seconds: P2, milliseconds: Z2, microseconds: B2, nanoseconds: N2 } = BalanceDuration(a2 + f2, import_jsbi.default.add(import_jsbi.default.BigInt(i2), import_jsbi.default.BigInt(y2)), import_jsbi.default.add(import_jsbi.default.BigInt(s2), import_jsbi.default.BigInt(I2)), import_jsbi.default.add(import_jsbi.default.BigInt(l2), import_jsbi.default.BigInt(w2)), import_jsbi.default.add(import_jsbi.default.BigInt(d2), import_jsbi.default.BigInt(D2)), import_jsbi.default.add(import_jsbi.default.BigInt(m2), import_jsbi.default.BigInt(G2)), import_jsbi.default.add(import_jsbi.default.BigInt(c2), import_jsbi.default.BigInt(v2)), O2);
   }
-  return RejectDuration(C2, E2, b2, M2, R2, Z2, P2, F2, Y2, j2), { years: C2, months: E2, weeks: b2, days: M2, hours: R2, minutes: Z2, seconds: P2, milliseconds: F2, microseconds: Y2, nanoseconds: j2 };
+  return RejectDuration(b2, E2, M2, R2, F2, Y2, P2, Z2, B2, N2), { years: b2, months: E2, weeks: M2, days: R2, hours: F2, minutes: Y2, seconds: P2, milliseconds: Z2, microseconds: B2, nanoseconds: N2 };
 }
 function AddInstant(t2, r2, o2, n2, a2, i2, s2) {
-  let l2 = he;
-  l2 = import_jsbi.default.add(l2, import_jsbi.default.BigInt(s2)), l2 = import_jsbi.default.add(l2, import_jsbi.default.multiply(import_jsbi.default.BigInt(i2), pe)), l2 = import_jsbi.default.add(l2, import_jsbi.default.multiply(import_jsbi.default.BigInt(a2), fe)), l2 = import_jsbi.default.add(l2, import_jsbi.default.multiply(import_jsbi.default.BigInt(n2), ye)), l2 = import_jsbi.default.add(l2, import_jsbi.default.multiply(import_jsbi.default.BigInt(o2), import_jsbi.default.BigInt(6e10))), l2 = import_jsbi.default.add(l2, import_jsbi.default.multiply(import_jsbi.default.BigInt(r2), import_jsbi.default.BigInt(36e11)));
+  let l2 = Ie;
+  l2 = import_jsbi.default.add(l2, import_jsbi.default.BigInt(s2)), l2 = import_jsbi.default.add(l2, import_jsbi.default.multiply(import_jsbi.default.BigInt(i2), De)), l2 = import_jsbi.default.add(l2, import_jsbi.default.multiply(import_jsbi.default.BigInt(a2), Ge)), l2 = import_jsbi.default.add(l2, import_jsbi.default.multiply(import_jsbi.default.BigInt(n2), ve)), l2 = import_jsbi.default.add(l2, import_jsbi.default.multiply(import_jsbi.default.BigInt(o2), import_jsbi.default.BigInt(6e10))), l2 = import_jsbi.default.add(l2, import_jsbi.default.multiply(import_jsbi.default.BigInt(r2), import_jsbi.default.BigInt(36e11)));
   const d2 = import_jsbi.default.add(t2, l2);
   return ValidateEpochNanoseconds(d2), d2;
 }
-function AddDateTime(e2, t2, r2, o2, s2, l2, d2, m2, c2, h2, u2, T2, p2, f2, y2, S2, w2, g2, I2, D2, G2) {
-  let v2 = f2, { deltaDays: O2, hour: C2, minute: E2, second: b2, millisecond: M2, microsecond: R2, nanosecond: Z2 } = AddTime(o2, s2, l2, d2, m2, c2, y2, S2, w2, g2, I2, D2);
-  v2 += O2;
-  const P2 = GetIntrinsic("%Temporal.Duration%"), F2 = CalendarDateAdd(h2, CreateTemporalDate(e2, t2, r2, h2), new P2(u2, T2, p2, v2, 0, 0, 0, 0, 0, 0), G2);
-  return { year: GetSlot(F2, n), month: GetSlot(F2, a), day: GetSlot(F2, i), hour: C2, minute: E2, second: b2, millisecond: M2, microsecond: R2, nanosecond: Z2 };
+function AddDateTime(e2, t2, r2, o2, n2, a2, d2, m2, c2, h2, u2, T2, p2, f2, y2, I2, S2, g2, w2, D2, G2) {
+  let v2 = f2, { deltaDays: C2, hour: O2, minute: b2, second: E2, millisecond: M2, microsecond: R2, nanosecond: F2 } = AddTime(o2, n2, a2, d2, m2, c2, y2, I2, S2, g2, w2, D2);
+  v2 += C2;
+  const Y2 = GetIntrinsic("%Temporal.Duration%"), P2 = CalendarDateAdd(h2, CreateTemporalDate(e2, t2, r2, h2), new Y2(u2, T2, p2, v2, 0, 0, 0, 0, 0, 0), G2);
+  return { year: GetSlot(P2, i), month: GetSlot(P2, s), day: GetSlot(P2, l), hour: O2, minute: b2, second: E2, millisecond: M2, microsecond: R2, nanosecond: F2 };
 }
-function AddZonedDateTime(e2, t2, o2, u2, T2, p2, f2, y2, S2, w2, g2, I2, D2, G2) {
+function AddZonedDateTime(e2, t2, r2, o2, a2, p2, f2, y2, I2, S2, g2, w2, D2, G2) {
   const v2 = GetIntrinsic("%Temporal.Duration%");
-  if (0 === DurationSign(u2, T2, p2, f2, 0, 0, 0, 0, 0, 0))
-    return AddInstant(GetSlot(e2, r), y2, S2, w2, g2, I2, D2);
-  const O2 = BuiltinTimeZoneGetPlainDateTimeFor(t2, e2, o2), C2 = CalendarDateAdd(o2, CreateTemporalDate(GetSlot(O2, n), GetSlot(O2, a), GetSlot(O2, i), o2), new v2(u2, T2, p2, f2, 0, 0, 0, 0, 0, 0), G2), E2 = CreateTemporalDateTime(GetSlot(C2, n), GetSlot(C2, a), GetSlot(C2, i), GetSlot(O2, s), GetSlot(O2, l), GetSlot(O2, d), GetSlot(O2, m), GetSlot(O2, c), GetSlot(O2, h), o2);
-  return AddInstant(GetSlot(BuiltinTimeZoneGetInstantFor(t2, E2, "compatible"), r), y2, S2, w2, g2, I2, D2);
+  if (0 === DurationSign(o2, a2, p2, f2, 0, 0, 0, 0, 0, 0))
+    return AddInstant(GetSlot(e2, n), y2, I2, S2, g2, w2, D2);
+  const C2 = GetPlainDateTimeFor(t2, e2, r2), O2 = CalendarDateAdd(r2, CreateTemporalDate(GetSlot(C2, i), GetSlot(C2, s), GetSlot(C2, l), r2), new v2(o2, a2, p2, f2, 0, 0, 0, 0, 0, 0), G2), b2 = CreateTemporalDateTime(GetSlot(O2, i), GetSlot(O2, s), GetSlot(O2, l), GetSlot(C2, d), GetSlot(C2, m), GetSlot(C2, c), GetSlot(C2, h), GetSlot(C2, u), GetSlot(C2, T), r2);
+  return AddInstant(GetSlot(GetInstantFor(t2, b2, "compatible"), n), y2, I2, S2, g2, w2, D2);
 }
 function AddDurationToOrSubtractDurationFromDuration(e2, t2, r2, o2) {
   const n2 = "subtract" === e2 ? -1 : 1;
   let { years: a2, months: i2, weeks: s2, days: l2, hours: d2, minutes: m2, seconds: c2, milliseconds: h2, microseconds: u2, nanoseconds: T2 } = ToTemporalDurationRecord(r2);
   const p2 = ToRelativeTemporalObject(GetOptionsObject(o2));
-  ({ years: a2, months: i2, weeks: s2, days: l2, hours: d2, minutes: m2, seconds: c2, milliseconds: h2, microseconds: u2, nanoseconds: T2 } = AddDuration(GetSlot(t2, f), GetSlot(t2, y), GetSlot(t2, S), GetSlot(t2, w), GetSlot(t2, g), GetSlot(t2, I), GetSlot(t2, D), GetSlot(t2, G), GetSlot(t2, v), GetSlot(t2, O), n2 * a2, n2 * i2, n2 * s2, n2 * l2, n2 * d2, n2 * m2, n2 * c2, n2 * h2, n2 * u2, n2 * T2, p2));
+  ({ years: a2, months: i2, weeks: s2, days: l2, hours: d2, minutes: m2, seconds: c2, milliseconds: h2, microseconds: u2, nanoseconds: T2 } = AddDuration(GetSlot(t2, w), GetSlot(t2, D), GetSlot(t2, G), GetSlot(t2, v), GetSlot(t2, C), GetSlot(t2, O), GetSlot(t2, b), GetSlot(t2, E), GetSlot(t2, M), GetSlot(t2, R), n2 * a2, n2 * i2, n2 * s2, n2 * l2, n2 * d2, n2 * m2, n2 * c2, n2 * h2, n2 * u2, n2 * T2, p2));
   return new (GetIntrinsic("%Temporal.Duration%"))(a2, i2, s2, l2, d2, m2, c2, h2, u2, T2);
 }
-function AddDurationToOrSubtractDurationFromInstant(e2, t2, o2) {
-  const n2 = "subtract" === e2 ? -1 : 1, { hours: a2, minutes: i2, seconds: s2, milliseconds: l2, microseconds: d2, nanoseconds: m2 } = function ToLimitedTemporalDuration(e3, t3) {
-    let r2 = ToTemporalDurationRecord(e3);
+function AddDurationToOrSubtractDurationFromInstant(e2, t2, r2) {
+  const o2 = "subtract" === e2 ? -1 : 1, { hours: a2, minutes: i2, seconds: s2, milliseconds: l2, microseconds: d2, nanoseconds: m2 } = function ToLimitedTemporalDuration(e3, t3) {
+    let r3 = ToTemporalDurationRecord(e3);
     for (const e4 of t3)
-      if (0 !== r2[e4])
+      if (0 !== r3[e4])
         throw new RangeError(`Duration field ${e4} not supported by Temporal.Instant. Try Temporal.ZonedDateTime instead.`);
-    return r2;
-  }(o2, ["years", "months", "weeks", "days"]), c2 = AddInstant(GetSlot(t2, r), n2 * a2, n2 * i2, n2 * s2, n2 * l2, n2 * d2, n2 * m2);
+    return r3;
+  }(r2, ["years", "months", "weeks", "days"]), c2 = AddInstant(GetSlot(t2, n), o2 * a2, o2 * i2, o2 * s2, o2 * l2, o2 * d2, o2 * m2);
   return new (GetIntrinsic("%Temporal.Instant%"))(c2);
 }
 function AddDurationToOrSubtractDurationFromPlainDateTime(e2, t2, r2, o2) {
-  const T2 = "subtract" === e2 ? -1 : 1, { years: p2, months: f2, weeks: y2, days: S2, hours: w2, minutes: g2, seconds: I2, milliseconds: D2, microseconds: G2, nanoseconds: v2 } = ToTemporalDurationRecord(r2), O2 = GetOptionsObject(o2), C2 = GetSlot(t2, u), { year: E2, month: b2, day: M2, hour: R2, minute: Z2, second: P2, millisecond: F2, microsecond: Y2, nanosecond: j2 } = AddDateTime(GetSlot(t2, n), GetSlot(t2, a), GetSlot(t2, i), GetSlot(t2, s), GetSlot(t2, l), GetSlot(t2, d), GetSlot(t2, m), GetSlot(t2, c), GetSlot(t2, h), C2, T2 * p2, T2 * f2, T2 * y2, T2 * S2, T2 * w2, T2 * g2, T2 * I2, T2 * D2, T2 * G2, T2 * v2, O2);
-  return CreateTemporalDateTime(E2, b2, M2, R2, Z2, P2, F2, Y2, j2, C2);
+  const n2 = "subtract" === e2 ? -1 : 1, { years: a2, months: f2, weeks: y2, days: I2, hours: S2, minutes: g2, seconds: w2, milliseconds: D2, microseconds: G2, nanoseconds: v2 } = ToTemporalDurationRecord(r2), C2 = GetOptionsObject(o2), O2 = GetSlot(t2, p), { year: b2, month: E2, day: M2, hour: R2, minute: F2, second: Y2, millisecond: P2, microsecond: Z2, nanosecond: B2 } = AddDateTime(GetSlot(t2, i), GetSlot(t2, s), GetSlot(t2, l), GetSlot(t2, d), GetSlot(t2, m), GetSlot(t2, c), GetSlot(t2, h), GetSlot(t2, u), GetSlot(t2, T), O2, n2 * a2, n2 * f2, n2 * y2, n2 * I2, n2 * S2, n2 * g2, n2 * w2, n2 * D2, n2 * G2, n2 * v2, C2);
+  return CreateTemporalDateTime(b2, E2, M2, R2, F2, Y2, P2, Z2, B2, O2);
 }
 function AddDurationToOrSubtractDurationFromPlainTime(e2, t2, r2) {
-  const o2 = "subtract" === e2 ? -1 : 1, { hours: n2, minutes: a2, seconds: i2, milliseconds: u2, microseconds: T2, nanoseconds: p2 } = ToTemporalDurationRecord(r2);
-  let { hour: f2, minute: y2, second: S2, millisecond: w2, microsecond: g2, nanosecond: I2 } = AddTime(GetSlot(t2, s), GetSlot(t2, l), GetSlot(t2, d), GetSlot(t2, m), GetSlot(t2, c), GetSlot(t2, h), o2 * n2, o2 * a2, o2 * i2, o2 * u2, o2 * T2, o2 * p2);
-  ({ hour: f2, minute: y2, second: S2, millisecond: w2, microsecond: g2, nanosecond: I2 } = RegulateTime(f2, y2, S2, w2, g2, I2, "reject"));
-  return new (GetIntrinsic("%Temporal.PlainTime%"))(f2, y2, S2, w2, g2, I2);
+  const o2 = "subtract" === e2 ? -1 : 1, { hours: n2, minutes: a2, seconds: i2, milliseconds: s2, microseconds: l2, nanoseconds: p2 } = ToTemporalDurationRecord(r2);
+  let { hour: f2, minute: y2, second: I2, millisecond: S2, microsecond: g2, nanosecond: w2 } = AddTime(GetSlot(t2, d), GetSlot(t2, m), GetSlot(t2, c), GetSlot(t2, h), GetSlot(t2, u), GetSlot(t2, T), o2 * n2, o2 * a2, o2 * i2, o2 * s2, o2 * l2, o2 * p2);
+  ({ hour: f2, minute: y2, second: I2, millisecond: S2, microsecond: g2, nanosecond: w2 } = RegulateTime(f2, y2, I2, S2, g2, w2, "reject"));
+  return new (GetIntrinsic("%Temporal.PlainTime%"))(f2, y2, I2, S2, g2, w2);
 }
 function AddDurationToOrSubtractDurationFromPlainYearMonth(e2, t2, r2, o2) {
   let n2 = ToTemporalDurationRecord(r2);
   "subtract" === e2 && (n2 = { years: -n2.years, months: -n2.months, weeks: -n2.weeks, days: -n2.days, hours: -n2.hours, minutes: -n2.minutes, seconds: -n2.seconds, milliseconds: -n2.milliseconds, microseconds: -n2.microseconds, nanoseconds: -n2.nanoseconds });
-  let { years: a2, months: i2, weeks: s2, days: l2, hours: d2, minutes: m2, seconds: c2, milliseconds: h2, microseconds: T2, nanoseconds: p2 } = n2;
-  ({ days: l2 } = BalanceDuration(l2, d2, m2, c2, h2, T2, p2, "day"));
-  const f2 = GetOptionsObject(o2), y2 = GetSlot(t2, u), S2 = CalendarFields(y2, ["monthCode", "year"]), w2 = PrepareTemporalFields(t2, S2, []), g2 = DurationSign(a2, i2, s2, l2, 0, 0, 0, 0, 0, 0);
-  w2.day = g2 < 0 ? ToPositiveInteger(CalendarDaysInMonth(y2, t2)) : 1;
-  const I2 = CalendarDateFromFields(y2, w2), D2 = new (GetIntrinsic("%Temporal.Duration%"))(a2, i2, s2, l2, 0, 0, 0, 0, 0, 0), G2 = se(le(null), f2);
-  return CalendarYearMonthFromFields(y2, PrepareTemporalFields(CalendarDateAdd(y2, I2, D2, f2), S2, []), G2);
+  let { years: a2, months: i2, weeks: s2, days: l2, hours: d2, minutes: m2, seconds: c2, milliseconds: h2, microseconds: u2, nanoseconds: T2 } = n2;
+  ({ days: l2 } = BalanceDuration(l2, d2, m2, c2, h2, u2, T2, "day"));
+  const f2 = GetOptionsObject(o2), y2 = GetSlot(t2, p), I2 = CalendarFields(y2, ["monthCode", "year"]), S2 = PrepareTemporalFields(t2, I2, []), g2 = Te(null);
+  CopyDataProperties(g2, S2, []), S2.day = 1;
+  let w2 = CalendarDateFromFields(y2, S2);
+  const D2 = DurationSign(a2, i2, s2, l2, 0, 0, 0, 0, 0, 0), G2 = GetMethod(y2, "dateAdd"), v2 = GetIntrinsic("%Temporal.Duration%");
+  if (D2 < 0) {
+    const e3 = CalendarDateAdd(y2, w2, new v2(0, 1, 0, 0, 0, 0, 0, 0, 0, 0), void 0, G2), t3 = CalendarDateAdd(y2, e3, new v2(0, 0, 0, -1, 0, 0, 0, 0, 0, 0), void 0, G2);
+    g2.day = CalendarDay(y2, t3), w2 = CalendarDateFromFields(y2, g2);
+  }
+  const C2 = new v2(a2, i2, s2, l2, 0, 0, 0, 0, 0, 0), O2 = CopyOptions(f2);
+  return CalendarYearMonthFromFields(y2, PrepareTemporalFields(CalendarDateAdd(y2, w2, C2, f2, G2), I2, []), O2);
 }
 function AddDurationToOrSubtractDurationFromZonedDateTime(e2, t2, r2, o2) {
-  const n2 = "subtract" === e2 ? -1 : 1, { years: a2, months: i2, weeks: s2, days: l2, hours: d2, minutes: m2, seconds: c2, milliseconds: h2, microseconds: f2, nanoseconds: y2 } = ToTemporalDurationRecord(r2), S2 = GetOptionsObject(o2), w2 = GetSlot(t2, p), g2 = GetSlot(t2, u);
-  return CreateTemporalZonedDateTime(AddZonedDateTime(GetSlot(t2, T), w2, g2, n2 * a2, n2 * i2, n2 * s2, n2 * l2, n2 * d2, n2 * m2, n2 * c2, n2 * h2, n2 * f2, n2 * y2, S2), w2, g2);
+  const n2 = "subtract" === e2 ? -1 : 1, { years: a2, months: i2, weeks: s2, days: l2, hours: d2, minutes: m2, seconds: c2, milliseconds: h2, microseconds: u2, nanoseconds: T2 } = ToTemporalDurationRecord(r2), f2 = GetOptionsObject(o2), y2 = GetSlot(t2, g), I2 = GetSlot(t2, p);
+  return CreateTemporalZonedDateTime(AddZonedDateTime(GetSlot(t2, S), y2, I2, n2 * a2, n2 * i2, n2 * s2, n2 * l2, n2 * d2, n2 * m2, n2 * c2, n2 * h2, n2 * u2, n2 * T2, f2), y2, I2);
 }
 function RoundNumberToIncrement(t2, r2, o2) {
-  if (1 === r2)
+  if (import_jsbi.default.equal(r2, Se))
     return t2;
-  let { quotient: n2, remainder: a2 } = divmod(t2, import_jsbi.default.BigInt(r2));
-  if (import_jsbi.default.equal(a2, he))
+  let { quotient: n2, remainder: a2 } = divmod(t2, r2);
+  if (import_jsbi.default.equal(a2, Ie))
     return t2;
-  const i2 = import_jsbi.default.lessThan(a2, he) ? -1 : 1;
+  const i2 = import_jsbi.default.lessThan(a2, Ie) ? -1 : 1, s2 = abs(import_jsbi.default.multiply(a2, import_jsbi.default.BigInt(2))), l2 = import_jsbi.default.equal(s2, r2), d2 = import_jsbi.default.greaterThan(s2, r2);
   switch (o2) {
     case "ceil":
       i2 > 0 && (n2 = import_jsbi.default.add(n2, import_jsbi.default.BigInt(i2)));
@@ -3216,41 +3502,55 @@ function RoundNumberToIncrement(t2, r2, o2) {
     case "floor":
       i2 < 0 && (n2 = import_jsbi.default.add(n2, import_jsbi.default.BigInt(i2)));
       break;
+    case "expand":
+      n2 = import_jsbi.default.add(n2, import_jsbi.default.BigInt(i2));
+      break;
     case "trunc":
       break;
+    case "halfCeil":
+      (d2 || l2 && i2 > 0) && (n2 = import_jsbi.default.add(n2, import_jsbi.default.BigInt(i2)));
+      break;
+    case "halfFloor":
+      (d2 || l2 && i2 < 0) && (n2 = import_jsbi.default.add(n2, import_jsbi.default.BigInt(i2)));
+      break;
     case "halfExpand":
-      import_jsbi.default.toNumber(abs(import_jsbi.default.multiply(a2, import_jsbi.default.BigInt(2)))) >= r2 && (n2 = import_jsbi.default.add(n2, import_jsbi.default.BigInt(i2)));
+      (d2 || l2) && (n2 = import_jsbi.default.add(n2, import_jsbi.default.BigInt(i2)));
+      break;
+    case "halfTrunc":
+      d2 && (n2 = import_jsbi.default.add(n2, import_jsbi.default.BigInt(i2)));
+      break;
+    case "halfEven":
+      (d2 || l2 && 1 === import_jsbi.default.toNumber(import_jsbi.default.remainder(abs(n2), import_jsbi.default.BigInt(2)))) && (n2 = import_jsbi.default.add(n2, import_jsbi.default.BigInt(i2)));
   }
-  return import_jsbi.default.multiply(n2, import_jsbi.default.BigInt(r2));
+  return import_jsbi.default.multiply(n2, r2);
 }
 function RoundInstant(t2, r2, o2, n2) {
-  let a2 = import_jsbi.default.remainder(t2, import_jsbi.default.BigInt(864e11));
-  import_jsbi.default.lessThan(a2, he) && (a2 = import_jsbi.default.add(a2, import_jsbi.default.BigInt(864e11)));
-  const i2 = import_jsbi.default.subtract(t2, a2), s2 = RoundNumberToIncrement(a2, Ne[o2] * r2, n2);
+  let { remainder: a2 } = NonNegativeBigIntDivmod(t2, Ee);
+  const i2 = import_jsbi.default.subtract(t2, a2), s2 = RoundNumberToIncrement(a2, import_jsbi.default.BigInt(_e[o2] * r2), n2);
   return import_jsbi.default.add(i2, s2);
 }
 function RoundISODateTime(e2, t2, r2, o2, n2, a2, i2, s2, l2, d2, m2, c2, h2 = 864e11) {
-  const { deltaDays: u2, hour: T2, minute: p2, second: f2, millisecond: y2, microsecond: S2, nanosecond: w2 } = RoundTime(o2, n2, a2, i2, s2, l2, d2, m2, c2, h2), { year: g2, month: I2, day: D2 } = BalanceISODate(e2, t2, r2 + u2);
-  return { year: g2, month: I2, day: D2, hour: T2, minute: p2, second: f2, millisecond: y2, microsecond: S2, nanosecond: w2 };
+  const { deltaDays: u2, hour: T2, minute: p2, second: f2, millisecond: y2, microsecond: I2, nanosecond: S2 } = RoundTime(o2, n2, a2, i2, s2, l2, d2, m2, c2, h2), { year: g2, month: w2, day: D2 } = BalanceISODate(e2, t2, r2 + u2);
+  return { year: g2, month: w2, day: D2, hour: T2, minute: p2, second: f2, millisecond: y2, microsecond: I2, nanosecond: S2 };
 }
 function RoundTime(t2, r2, o2, n2, a2, i2, s2, l2, d2, m2 = 864e11) {
-  let c2 = he;
+  let c2 = Ie;
   switch (l2) {
     case "day":
     case "hour":
       c2 = import_jsbi.default.BigInt(t2);
     case "minute":
-      c2 = import_jsbi.default.add(import_jsbi.default.multiply(c2, Te), import_jsbi.default.BigInt(r2));
+      c2 = import_jsbi.default.add(import_jsbi.default.multiply(c2, ge), import_jsbi.default.BigInt(r2));
     case "second":
-      c2 = import_jsbi.default.add(import_jsbi.default.multiply(c2, Te), import_jsbi.default.BigInt(o2));
+      c2 = import_jsbi.default.add(import_jsbi.default.multiply(c2, ge), import_jsbi.default.BigInt(o2));
     case "millisecond":
-      c2 = import_jsbi.default.add(import_jsbi.default.multiply(c2, pe), import_jsbi.default.BigInt(n2));
+      c2 = import_jsbi.default.add(import_jsbi.default.multiply(c2, De), import_jsbi.default.BigInt(n2));
     case "microsecond":
-      c2 = import_jsbi.default.add(import_jsbi.default.multiply(c2, pe), import_jsbi.default.BigInt(a2));
+      c2 = import_jsbi.default.add(import_jsbi.default.multiply(c2, De), import_jsbi.default.BigInt(a2));
     case "nanosecond":
-      c2 = import_jsbi.default.add(import_jsbi.default.multiply(c2, pe), import_jsbi.default.BigInt(i2));
+      c2 = import_jsbi.default.add(import_jsbi.default.multiply(c2, De), import_jsbi.default.BigInt(i2));
   }
-  const h2 = "day" === l2 ? m2 : Ne[l2], u2 = RoundNumberToIncrement(c2, h2 * s2, d2), T2 = import_jsbi.default.toNumber(import_jsbi.default.divide(u2, import_jsbi.default.BigInt(h2)));
+  const h2 = "day" === l2 ? m2 : _e[l2], u2 = RoundNumberToIncrement(c2, import_jsbi.default.BigInt(h2 * s2), d2), T2 = import_jsbi.default.toNumber(import_jsbi.default.divide(u2, import_jsbi.default.BigInt(h2)));
   switch (l2) {
     case "day":
       return { deltaDays: T2, hour: 0, minute: 0, second: 0, millisecond: 0, microsecond: 0, nanosecond: 0 };
@@ -3271,142 +3571,142 @@ function RoundTime(t2, r2, o2, n2, a2, i2, s2, l2, d2, m2 = 864e11) {
   }
 }
 function DaysUntil(e2, t2) {
-  return DifferenceISODate(GetSlot(e2, n), GetSlot(e2, a), GetSlot(e2, i), GetSlot(t2, n), GetSlot(t2, a), GetSlot(t2, i), "day").days;
+  return DifferenceISODate(GetSlot(e2, i), GetSlot(e2, s), GetSlot(e2, l), GetSlot(t2, i), GetSlot(t2, s), GetSlot(t2, l), "day").days;
 }
-function MoveRelativeDate(e2, t2, r2) {
-  const o2 = CalendarDateAdd(e2, t2, r2, void 0);
-  return { relativeTo: o2, days: DaysUntil(t2, o2) };
+function MoveRelativeDate(e2, t2, r2, o2) {
+  const n2 = CalendarDateAdd(e2, t2, r2, void 0, o2);
+  return { relativeTo: n2, days: DaysUntil(t2, n2) };
 }
 function MoveRelativeZonedDateTime(e2, t2, r2, o2, n2) {
-  const a2 = GetSlot(e2, p), i2 = GetSlot(e2, u);
-  return CreateTemporalZonedDateTime(AddZonedDateTime(GetSlot(e2, T), a2, i2, t2, r2, o2, n2, 0, 0, 0, 0, 0, 0), a2, i2);
+  const a2 = GetSlot(e2, g), i2 = GetSlot(e2, p);
+  return CreateTemporalZonedDateTime(AddZonedDateTime(GetSlot(e2, S), a2, i2, t2, r2, o2, n2, 0, 0, 0, 0, 0, 0), a2, i2);
 }
-function AdjustRoundedDurationDays(t2, r2, o2, n2, a2, i2, s2, l2, d2, m2, c2, h2, f2, y2) {
-  let S2 = t2, w2 = r2, g2 = o2, I2 = n2, D2 = a2, G2 = i2, v2 = s2, O2 = l2, C2 = d2, E2 = m2;
-  if (!IsTemporalZonedDateTime(y2) || "year" === h2 || "month" === h2 || "week" === h2 || "day" === h2 || "nanosecond" === h2 && 1 === c2)
-    return { years: S2, months: w2, weeks: g2, days: I2, hours: D2, minutes: G2, seconds: v2, milliseconds: O2, microseconds: C2, nanoseconds: E2 };
-  let b2 = TotalDurationNanoseconds(0, D2, G2, v2, O2, C2, E2, 0);
-  const M2 = ee(import_jsbi.default.toNumber(b2)), R2 = GetSlot(y2, p), Z2 = GetSlot(y2, u), P2 = AddZonedDateTime(GetSlot(y2, T), R2, Z2, S2, w2, g2, I2, 0, 0, 0, 0, 0, 0), F2 = AddZonedDateTime(new (GetIntrinsic("%Temporal.Instant%"))(P2), R2, Z2, 0, 0, 0, M2, 0, 0, 0, 0, 0, 0), Y2 = import_jsbi.default.subtract(F2, P2);
-  return import_jsbi.default.greaterThanOrEqual(import_jsbi.default.multiply(import_jsbi.default.subtract(b2, Y2), import_jsbi.default.BigInt(M2)), he) && ({ years: S2, months: w2, weeks: g2, days: I2 } = AddDuration(S2, w2, g2, I2, 0, 0, 0, 0, 0, 0, 0, 0, 0, M2, 0, 0, 0, 0, 0, 0, y2), b2 = RoundInstant(import_jsbi.default.subtract(b2, Y2), c2, h2, f2), { hours: D2, minutes: G2, seconds: v2, milliseconds: O2, microseconds: C2, nanoseconds: E2 } = BalanceDuration(0, 0, 0, 0, 0, 0, import_jsbi.default.toNumber(b2), "hour")), { years: S2, months: w2, weeks: g2, days: I2, hours: D2, minutes: G2, seconds: v2, milliseconds: O2, microseconds: C2, nanoseconds: E2 };
+function AdjustRoundedDurationDays(t2, r2, o2, n2, a2, i2, s2, l2, d2, m2, c2, h2, u2, T2) {
+  let f2 = t2, y2 = r2, I2 = o2, w2 = n2, D2 = a2, G2 = i2, v2 = s2, C2 = l2, O2 = d2, b2 = m2;
+  if (!IsTemporalZonedDateTime(T2) || "year" === h2 || "month" === h2 || "week" === h2 || "day" === h2 || "nanosecond" === h2 && 1 === c2)
+    return { years: f2, months: y2, weeks: I2, days: w2, hours: D2, minutes: G2, seconds: v2, milliseconds: C2, microseconds: O2, nanoseconds: b2 };
+  let E2 = TotalDurationNanoseconds(0, D2, G2, v2, C2, O2, b2, 0);
+  const M2 = se(import_jsbi.default.toNumber(E2)), R2 = GetSlot(T2, g), F2 = GetSlot(T2, p), Y2 = AddZonedDateTime(GetSlot(T2, S), R2, F2, f2, y2, I2, w2, 0, 0, 0, 0, 0, 0), P2 = AddZonedDateTime(new (GetIntrinsic("%Temporal.Instant%"))(Y2), R2, F2, 0, 0, 0, M2, 0, 0, 0, 0, 0, 0), Z2 = import_jsbi.default.subtract(P2, Y2);
+  return import_jsbi.default.greaterThanOrEqual(import_jsbi.default.multiply(import_jsbi.default.subtract(E2, Z2), import_jsbi.default.BigInt(M2)), Ie) && ({ years: f2, months: y2, weeks: I2, days: w2 } = AddDuration(f2, y2, I2, w2, 0, 0, 0, 0, 0, 0, 0, 0, 0, M2, 0, 0, 0, 0, 0, 0, T2), E2 = RoundInstant(import_jsbi.default.subtract(E2, Z2), c2, h2, u2), { hours: D2, minutes: G2, seconds: v2, milliseconds: C2, microseconds: O2, nanoseconds: b2 } = BalanceDuration(0, 0, 0, 0, 0, 0, import_jsbi.default.toNumber(E2), "hour")), { years: f2, months: y2, weeks: I2, days: w2, hours: D2, minutes: G2, seconds: v2, milliseconds: C2, microseconds: O2, nanoseconds: b2 };
 }
-function RoundDuration(t2, r2, o2, n2, a2, i2, s2, l2, d2, m2, c2, h2, T2, p2) {
-  let f2 = t2, y2 = r2, S2 = o2, w2 = n2, g2 = a2, I2 = i2, D2 = s2, G2 = l2, v2 = d2, O2 = import_jsbi.default.BigInt(m2);
-  const C2 = GetIntrinsic("%Temporal.Duration%");
-  let E2, b2, M2, R2, Z2 = p2;
-  if (Z2) {
-    if (IsTemporalZonedDateTime(Z2))
-      b2 = Z2, Z2 = ToTemporalDate(Z2);
-    else if (!IsTemporalDate(Z2))
+function RoundDuration(t2, r2, o2, n2, a2, i2, s2, l2, d2, m2, c2, h2, u2, T2) {
+  let f2 = t2, y2 = r2, I2 = o2, S2 = n2, g2 = a2, w2 = i2, D2 = s2, G2 = l2, v2 = d2, C2 = import_jsbi.default.BigInt(m2);
+  const O2 = GetIntrinsic("%Temporal.Duration%");
+  let b2, E2, M2, R2, F2 = T2;
+  if (F2) {
+    if (IsTemporalZonedDateTime(F2))
+      E2 = F2, F2 = ToTemporalDate(F2);
+    else if (!IsTemporalDate(F2))
       throw new TypeError("starting point must be PlainDate or ZonedDateTime");
-    E2 = GetSlot(Z2, u);
+    b2 = GetSlot(F2, p);
   }
   if ("year" === h2 || "month" === h2 || "week" === h2 || "day" === h2) {
     let t3, r3, o3;
-    O2 = TotalDurationNanoseconds(0, g2, I2, D2, G2, v2, m2, 0), b2 && (t3 = MoveRelativeZonedDateTime(b2, f2, y2, S2, w2)), { days: r3, nanoseconds: O2, dayLengthNs: o3 } = NanosecondsToDays(O2, t3), M2 = import_jsbi.default.BigInt(o3), w2 += r3, g2 = I2 = D2 = G2 = v2 = 0;
+    C2 = TotalDurationNanoseconds(0, g2, w2, D2, G2, v2, m2, 0), E2 && (t3 = MoveRelativeZonedDateTime(E2, f2, y2, I2, S2)), { days: r3, nanoseconds: C2, dayLengthNs: o3 } = NanosecondsToDays(C2, t3), M2 = import_jsbi.default.BigInt(o3), S2 += r3, g2 = w2 = D2 = G2 = v2 = 0;
   }
   switch (h2) {
     case "year": {
-      if (!E2)
+      if (!b2)
         throw new RangeError("A starting point is required for years rounding");
-      const t3 = new C2(f2), r3 = E2.dateAdd, o3 = CalendarDateAdd(E2, Z2, t3, void 0, r3), n3 = CalendarDateAdd(E2, Z2, new C2(f2, y2, S2), void 0, r3);
-      Z2 = o3, w2 += DaysUntil(o3, n3);
-      const a3 = CalendarDateAdd(E2, Z2, { days: w2 }, void 0, r3), i3 = le(null);
+      const t3 = new O2(f2), r3 = "string" != typeof b2 ? GetMethod(b2, "dateAdd") : void 0, o3 = CalendarDateAdd(b2, F2, t3, void 0, r3), n3 = CalendarDateAdd(b2, F2, new O2(f2, y2, I2), void 0, r3);
+      F2 = o3, S2 += DaysUntil(o3, n3);
+      const a3 = CalendarDateAdd(b2, F2, new O2(0, 0, 0, S2), void 0, r3), i3 = Te(null);
       i3.largestUnit = "year";
-      const s3 = CalendarDateUntil(E2, Z2, a3, i3).years;
+      const s3 = CalendarDateUntil(b2, F2, a3, i3).years;
       f2 += s3;
-      const l3 = Z2;
-      Z2 = CalendarDateAdd(E2, Z2, { years: s3 }, void 0, r3);
-      w2 -= DaysUntil(l3, Z2);
-      const d3 = new C2(w2 < 0 ? -1 : 1);
-      let { days: m3 } = MoveRelativeDate(E2, Z2, d3);
-      m3 = K(m3);
+      const l3 = F2;
+      F2 = CalendarDateAdd(b2, F2, new O2(s3), void 0, r3);
+      S2 -= DaysUntil(l3, F2);
+      const d3 = new O2(S2 < 0 ? -1 : 1);
+      let { days: m3 } = MoveRelativeDate(b2, F2, d3, r3);
+      m3 = ae(m3);
       const h3 = import_jsbi.default.multiply(import_jsbi.default.BigInt(m3), M2);
-      O2 = import_jsbi.default.add(import_jsbi.default.add(import_jsbi.default.multiply(h3, import_jsbi.default.BigInt(f2)), import_jsbi.default.multiply(import_jsbi.default.BigInt(w2), M2)), O2);
-      const u2 = RoundNumberToIncrement(O2, import_jsbi.default.toNumber(import_jsbi.default.multiply(h3, import_jsbi.default.BigInt(c2))), T2);
-      R2 = import_jsbi.default.toNumber(O2) / import_jsbi.default.toNumber(h3), f2 = import_jsbi.default.toNumber(import_jsbi.default.divide(u2, h3)), O2 = he, y2 = S2 = w2 = 0;
+      C2 = import_jsbi.default.add(import_jsbi.default.add(import_jsbi.default.multiply(h3, import_jsbi.default.BigInt(f2)), import_jsbi.default.multiply(import_jsbi.default.BigInt(S2), M2)), C2);
+      const T3 = RoundNumberToIncrement(C2, import_jsbi.default.multiply(h3, import_jsbi.default.BigInt(c2)), u2);
+      R2 = BigIntDivideToNumber(C2, h3), f2 = import_jsbi.default.toNumber(import_jsbi.default.divide(T3, h3)), C2 = Ie, y2 = I2 = S2 = 0;
       break;
     }
     case "month": {
-      if (!E2)
+      if (!b2)
         throw new RangeError("A starting point is required for months rounding");
-      const t3 = new C2(f2, y2), r3 = E2.dateAdd, o3 = CalendarDateAdd(E2, Z2, t3, void 0, r3), n3 = CalendarDateAdd(E2, Z2, new C2(f2, y2, S2), void 0, r3);
-      Z2 = o3, w2 += DaysUntil(o3, n3);
-      const a3 = ee(w2), i3 = new C2(0, w2 < 0 ? -1 : 1);
+      const t3 = new O2(f2, y2), r3 = "string" != typeof b2 ? GetMethod(b2, "dateAdd") : void 0, o3 = CalendarDateAdd(b2, F2, t3, void 0, r3), n3 = CalendarDateAdd(b2, F2, new O2(f2, y2, I2), void 0, r3);
+      F2 = o3, S2 += DaysUntil(o3, n3);
+      const a3 = se(S2), i3 = new O2(0, S2 < 0 ? -1 : 1);
       let s3;
-      for ({ relativeTo: Z2, days: s3 } = MoveRelativeDate(E2, Z2, i3); K(w2) >= K(s3); )
-        y2 += a3, w2 -= s3, { relativeTo: Z2, days: s3 } = MoveRelativeDate(E2, Z2, i3);
-      s3 = K(s3);
+      for ({ relativeTo: F2, days: s3 } = MoveRelativeDate(b2, F2, i3, r3); ae(S2) >= ae(s3); )
+        y2 += a3, S2 -= s3, { relativeTo: F2, days: s3 } = MoveRelativeDate(b2, F2, i3, r3);
+      s3 = ae(s3);
       const l3 = import_jsbi.default.multiply(import_jsbi.default.BigInt(s3), M2);
-      O2 = import_jsbi.default.add(import_jsbi.default.add(import_jsbi.default.multiply(l3, import_jsbi.default.BigInt(y2)), import_jsbi.default.multiply(import_jsbi.default.BigInt(w2), M2)), O2);
-      const d3 = RoundNumberToIncrement(O2, import_jsbi.default.toNumber(import_jsbi.default.multiply(l3, import_jsbi.default.BigInt(c2))), T2);
-      R2 = import_jsbi.default.toNumber(O2) / import_jsbi.default.toNumber(l3), y2 = import_jsbi.default.toNumber(import_jsbi.default.divide(d3, l3)), O2 = he, S2 = w2 = 0;
+      C2 = import_jsbi.default.add(import_jsbi.default.add(import_jsbi.default.multiply(l3, import_jsbi.default.BigInt(y2)), import_jsbi.default.multiply(import_jsbi.default.BigInt(S2), M2)), C2);
+      const d3 = RoundNumberToIncrement(C2, import_jsbi.default.multiply(l3, import_jsbi.default.BigInt(c2)), u2);
+      R2 = BigIntDivideToNumber(C2, l3), y2 = import_jsbi.default.toNumber(import_jsbi.default.divide(d3, l3)), C2 = Ie, I2 = S2 = 0;
       break;
     }
     case "week": {
-      if (!E2)
+      if (!b2)
         throw new RangeError("A starting point is required for weeks rounding");
-      const t3 = ee(w2), r3 = new C2(0, 0, w2 < 0 ? -1 : 1);
-      let o3;
-      for ({ relativeTo: Z2, days: o3 } = MoveRelativeDate(E2, Z2, r3); K(w2) >= K(o3); )
-        S2 += t3, w2 -= o3, { relativeTo: Z2, days: o3 } = MoveRelativeDate(E2, Z2, r3);
-      o3 = K(o3);
-      const n3 = import_jsbi.default.multiply(import_jsbi.default.BigInt(o3), M2);
-      O2 = import_jsbi.default.add(import_jsbi.default.add(import_jsbi.default.multiply(n3, import_jsbi.default.BigInt(S2)), import_jsbi.default.multiply(import_jsbi.default.BigInt(w2), M2)), O2);
-      const a3 = RoundNumberToIncrement(O2, import_jsbi.default.toNumber(import_jsbi.default.multiply(n3, import_jsbi.default.BigInt(c2))), T2);
-      R2 = import_jsbi.default.toNumber(O2) / import_jsbi.default.toNumber(n3), S2 = import_jsbi.default.toNumber(import_jsbi.default.divide(a3, n3)), O2 = he, w2 = 0;
+      const t3 = se(S2), r3 = new O2(0, 0, S2 < 0 ? -1 : 1), o3 = "string" != typeof b2 ? GetMethod(b2, "dateAdd") : void 0;
+      let n3;
+      for ({ relativeTo: F2, days: n3 } = MoveRelativeDate(b2, F2, r3, o3); ae(S2) >= ae(n3); )
+        I2 += t3, S2 -= n3, { relativeTo: F2, days: n3 } = MoveRelativeDate(b2, F2, r3, o3);
+      n3 = ae(n3);
+      const a3 = import_jsbi.default.multiply(import_jsbi.default.BigInt(n3), M2);
+      C2 = import_jsbi.default.add(import_jsbi.default.add(import_jsbi.default.multiply(a3, import_jsbi.default.BigInt(I2)), import_jsbi.default.multiply(import_jsbi.default.BigInt(S2), M2)), C2);
+      const i3 = RoundNumberToIncrement(C2, import_jsbi.default.multiply(a3, import_jsbi.default.BigInt(c2)), u2);
+      R2 = BigIntDivideToNumber(C2, a3), I2 = import_jsbi.default.toNumber(import_jsbi.default.divide(i3, a3)), C2 = Ie, S2 = 0;
       break;
     }
     case "day": {
       const t3 = M2;
-      O2 = import_jsbi.default.add(import_jsbi.default.multiply(t3, import_jsbi.default.BigInt(w2)), O2);
-      const r3 = RoundNumberToIncrement(O2, import_jsbi.default.toNumber(import_jsbi.default.multiply(t3, import_jsbi.default.BigInt(c2))), T2);
-      R2 = import_jsbi.default.toNumber(O2) / import_jsbi.default.toNumber(t3), w2 = import_jsbi.default.toNumber(import_jsbi.default.divide(r3, t3)), O2 = he;
+      C2 = import_jsbi.default.add(import_jsbi.default.multiply(t3, import_jsbi.default.BigInt(S2)), C2);
+      const r3 = RoundNumberToIncrement(C2, import_jsbi.default.multiply(t3, import_jsbi.default.BigInt(c2)), u2);
+      R2 = BigIntDivideToNumber(C2, t3), S2 = import_jsbi.default.toNumber(import_jsbi.default.divide(r3, t3)), C2 = Ie;
       break;
     }
     case "hour": {
       const t3 = 36e11;
       let r3 = import_jsbi.default.multiply(import_jsbi.default.BigInt(g2), import_jsbi.default.BigInt(36e11));
-      r3 = import_jsbi.default.add(r3, import_jsbi.default.multiply(import_jsbi.default.BigInt(I2), import_jsbi.default.BigInt(6e10))), r3 = import_jsbi.default.add(r3, import_jsbi.default.multiply(import_jsbi.default.BigInt(D2), ye)), r3 = import_jsbi.default.add(r3, import_jsbi.default.multiply(import_jsbi.default.BigInt(G2), fe)), r3 = import_jsbi.default.add(r3, import_jsbi.default.multiply(import_jsbi.default.BigInt(v2), pe)), r3 = import_jsbi.default.add(r3, O2), R2 = import_jsbi.default.toNumber(r3) / t3;
-      const o3 = RoundNumberToIncrement(r3, t3 * c2, T2);
-      g2 = import_jsbi.default.toNumber(import_jsbi.default.divide(o3, import_jsbi.default.BigInt(t3))), O2 = he, I2 = D2 = G2 = v2 = 0;
+      r3 = import_jsbi.default.add(r3, import_jsbi.default.multiply(import_jsbi.default.BigInt(w2), import_jsbi.default.BigInt(6e10))), r3 = import_jsbi.default.add(r3, import_jsbi.default.multiply(import_jsbi.default.BigInt(D2), ve)), r3 = import_jsbi.default.add(r3, import_jsbi.default.multiply(import_jsbi.default.BigInt(G2), Ge)), r3 = import_jsbi.default.add(r3, import_jsbi.default.multiply(import_jsbi.default.BigInt(v2), De)), r3 = import_jsbi.default.add(r3, C2), R2 = BigIntDivideToNumber(r3, import_jsbi.default.BigInt(t3));
+      const o3 = RoundNumberToIncrement(r3, import_jsbi.default.BigInt(t3 * c2), u2);
+      g2 = import_jsbi.default.toNumber(import_jsbi.default.divide(o3, import_jsbi.default.BigInt(t3))), C2 = Ie, w2 = D2 = G2 = v2 = 0;
       break;
     }
     case "minute": {
       const t3 = 6e10;
-      let r3 = import_jsbi.default.multiply(import_jsbi.default.BigInt(I2), import_jsbi.default.BigInt(6e10));
-      r3 = import_jsbi.default.add(r3, import_jsbi.default.multiply(import_jsbi.default.BigInt(D2), ye)), r3 = import_jsbi.default.add(r3, import_jsbi.default.multiply(import_jsbi.default.BigInt(G2), fe)), r3 = import_jsbi.default.add(r3, import_jsbi.default.multiply(import_jsbi.default.BigInt(v2), pe)), r3 = import_jsbi.default.add(r3, O2), R2 = import_jsbi.default.toNumber(r3) / t3;
-      const o3 = RoundNumberToIncrement(r3, t3 * c2, T2);
-      I2 = import_jsbi.default.toNumber(import_jsbi.default.divide(o3, import_jsbi.default.BigInt(t3))), O2 = he, D2 = G2 = v2 = 0;
+      let r3 = import_jsbi.default.multiply(import_jsbi.default.BigInt(w2), import_jsbi.default.BigInt(6e10));
+      r3 = import_jsbi.default.add(r3, import_jsbi.default.multiply(import_jsbi.default.BigInt(D2), ve)), r3 = import_jsbi.default.add(r3, import_jsbi.default.multiply(import_jsbi.default.BigInt(G2), Ge)), r3 = import_jsbi.default.add(r3, import_jsbi.default.multiply(import_jsbi.default.BigInt(v2), De)), r3 = import_jsbi.default.add(r3, C2), R2 = BigIntDivideToNumber(r3, import_jsbi.default.BigInt(t3));
+      const o3 = RoundNumberToIncrement(r3, import_jsbi.default.BigInt(t3 * c2), u2);
+      w2 = import_jsbi.default.toNumber(import_jsbi.default.divide(o3, import_jsbi.default.BigInt(t3))), C2 = Ie, D2 = G2 = v2 = 0;
       break;
     }
     case "second": {
       const t3 = 1e9;
-      let r3 = import_jsbi.default.multiply(import_jsbi.default.BigInt(D2), ye);
-      r3 = import_jsbi.default.add(r3, import_jsbi.default.multiply(import_jsbi.default.BigInt(G2), fe)), r3 = import_jsbi.default.add(r3, import_jsbi.default.multiply(import_jsbi.default.BigInt(v2), pe)), r3 = import_jsbi.default.add(r3, O2), R2 = import_jsbi.default.toNumber(r3) / t3;
-      const o3 = RoundNumberToIncrement(r3, t3 * c2, T2);
-      D2 = import_jsbi.default.toNumber(import_jsbi.default.divide(o3, import_jsbi.default.BigInt(t3))), O2 = he, G2 = v2 = 0;
+      let r3 = import_jsbi.default.multiply(import_jsbi.default.BigInt(D2), ve);
+      r3 = import_jsbi.default.add(r3, import_jsbi.default.multiply(import_jsbi.default.BigInt(G2), Ge)), r3 = import_jsbi.default.add(r3, import_jsbi.default.multiply(import_jsbi.default.BigInt(v2), De)), r3 = import_jsbi.default.add(r3, C2), R2 = BigIntDivideToNumber(r3, import_jsbi.default.BigInt(t3));
+      const o3 = RoundNumberToIncrement(r3, import_jsbi.default.BigInt(t3 * c2), u2);
+      D2 = import_jsbi.default.toNumber(import_jsbi.default.divide(o3, import_jsbi.default.BigInt(t3))), C2 = Ie, G2 = v2 = 0;
       break;
     }
     case "millisecond": {
       const t3 = 1e6;
-      let r3 = import_jsbi.default.multiply(import_jsbi.default.BigInt(G2), fe);
-      r3 = import_jsbi.default.add(r3, import_jsbi.default.multiply(import_jsbi.default.BigInt(v2), pe)), r3 = import_jsbi.default.add(r3, O2), R2 = import_jsbi.default.toNumber(r3) / t3;
-      const o3 = RoundNumberToIncrement(r3, t3 * c2, T2);
-      G2 = import_jsbi.default.toNumber(import_jsbi.default.divide(o3, import_jsbi.default.BigInt(t3))), O2 = he, v2 = 0;
+      let r3 = import_jsbi.default.multiply(import_jsbi.default.BigInt(G2), Ge);
+      r3 = import_jsbi.default.add(r3, import_jsbi.default.multiply(import_jsbi.default.BigInt(v2), De)), r3 = import_jsbi.default.add(r3, C2), R2 = BigIntDivideToNumber(r3, import_jsbi.default.BigInt(t3));
+      const o3 = RoundNumberToIncrement(r3, import_jsbi.default.BigInt(t3 * c2), u2);
+      G2 = import_jsbi.default.toNumber(import_jsbi.default.divide(o3, import_jsbi.default.BigInt(t3))), C2 = Ie, v2 = 0;
       break;
     }
     case "microsecond": {
       const t3 = 1e3;
-      let r3 = import_jsbi.default.multiply(import_jsbi.default.BigInt(v2), pe);
-      r3 = import_jsbi.default.add(r3, O2), R2 = import_jsbi.default.toNumber(r3) / t3;
-      const o3 = RoundNumberToIncrement(r3, t3 * c2, T2);
-      v2 = import_jsbi.default.toNumber(import_jsbi.default.divide(o3, import_jsbi.default.BigInt(t3))), O2 = he;
+      let r3 = import_jsbi.default.multiply(import_jsbi.default.BigInt(v2), De);
+      r3 = import_jsbi.default.add(r3, C2), R2 = BigIntDivideToNumber(r3, import_jsbi.default.BigInt(t3));
+      const o3 = RoundNumberToIncrement(r3, import_jsbi.default.BigInt(t3 * c2), u2);
+      v2 = import_jsbi.default.toNumber(import_jsbi.default.divide(o3, import_jsbi.default.BigInt(t3))), C2 = Ie;
       break;
     }
     case "nanosecond":
-      R2 = import_jsbi.default.toNumber(O2), O2 = RoundNumberToIncrement(O2, c2, T2);
+      R2 = import_jsbi.default.toNumber(C2), C2 = RoundNumberToIncrement(import_jsbi.default.BigInt(C2), import_jsbi.default.BigInt(c2), u2);
   }
-  return { years: f2, months: y2, weeks: S2, days: w2, hours: g2, minutes: I2, seconds: D2, milliseconds: G2, microseconds: v2, nanoseconds: import_jsbi.default.toNumber(O2), total: R2 };
+  return { years: f2, months: y2, weeks: I2, days: S2, hours: g2, minutes: w2, seconds: D2, milliseconds: G2, microseconds: v2, nanoseconds: import_jsbi.default.toNumber(C2), total: R2 };
 }
 function CompareISODate(e2, t2, r2, o2, n2, a2) {
   for (const [i2, s2] of [[e2, o2], [t2, n2], [r2, a2]])
@@ -3414,64 +3714,59 @@ function CompareISODate(e2, t2, r2, o2, n2, a2) {
       return ComparisonResult(i2 - s2);
   return 0;
 }
-function NonNegativeModulo(e2, t2) {
-  let r2 = e2 % t2;
-  return me(r2, -0) ? 0 : (r2 < 0 && (r2 += t2), r2);
+function NonNegativeBigIntDivmod(t2, r2) {
+  let { quotient: o2, remainder: n2 } = divmod(t2, r2);
+  return import_jsbi.default.lessThan(n2, Ie) && (o2 = import_jsbi.default.subtract(o2, Se), n2 = import_jsbi.default.add(n2, r2)), { quotient: o2, remainder: n2 };
+}
+function BigIntFloorDiv(t2, r2) {
+  const { quotient: o2, remainder: n2 } = divmod(t2, r2);
+  return isZero(n2) || !isNegativeJSBI(t2) == !isNegativeJSBI(r2) ? o2 : import_jsbi.default.subtract(o2, Se);
+}
+function BigIntDivideToNumber(t2, r2) {
+  const { quotient: o2, remainder: n2 } = divmod(t2, r2);
+  return import_jsbi.default.toNumber(o2) + import_jsbi.default.toNumber(n2) / import_jsbi.default.toNumber(r2);
 }
 function ToBigIntExternal(e2) {
   const t2 = ToBigInt(e2);
   return void 0 !== globalThis.BigInt ? globalThis.BigInt(t2.toString(10)) : t2;
 }
 function ToBigInt(t2) {
-  if (t2 instanceof import_jsbi.default)
-    return t2;
   let r2 = t2;
   if ("object" == typeof t2) {
     const e2 = t2[Symbol.toPrimitive];
-    e2 && "function" == typeof e2 && (r2 = ce(e2, t2, ["number"]));
+    e2 && "function" == typeof e2 && (r2 = fe(e2, t2, ["number"]));
   }
-  switch (typeof r2) {
-    case "undefined":
-    case "object":
-    case "number":
-    case "symbol":
-    default:
-      throw new TypeError(`cannot convert ${typeof t2} to bigint`);
-    case "string":
-      if (!r2.match(/^\s*(?:[+-]?\d+\s*)?$/))
-        throw new SyntaxError("invalid BigInt syntax");
-    case "bigint":
-      try {
-        return import_jsbi.default.BigInt(r2.toString());
-      } catch (e2) {
-        if (e2 instanceof Error && e2.message.startsWith("Invalid integer"))
-          throw new SyntaxError(e2.message);
-        throw e2;
-      }
-    case "boolean":
-      return r2 ? ue : he;
-  }
+  if ("number" == typeof r2)
+    throw new TypeError("cannot convert number to bigint");
+  return "bigint" == typeof r2 ? import_jsbi.default.BigInt(r2.toString(10)) : import_jsbi.default.BigInt(r2);
 }
-var $e = (() => {
+var Ve = (() => {
   let t2 = import_jsbi.default.BigInt(Date.now() % 1e6);
   return () => {
-    const r2 = import_jsbi.default.BigInt(Date.now()), o2 = import_jsbi.default.add(import_jsbi.default.multiply(r2, fe), t2);
-    return t2 = import_jsbi.default.remainder(r2, fe), import_jsbi.default.greaterThan(o2, Ie) ? Ie : import_jsbi.default.lessThan(o2, ge) ? ge : o2;
+    const r2 = import_jsbi.default.BigInt(Date.now()), o2 = import_jsbi.default.add(import_jsbi.default.multiply(r2, Ge), t2);
+    return t2 = import_jsbi.default.remainder(r2, Ge), import_jsbi.default.greaterThan(o2, Re) ? Re : import_jsbi.default.lessThan(o2, Me) ? Me : o2;
   };
 })();
+function DefaultTimeZone() {
+  return new re().resolvedOptions().timeZone;
+}
 function ComparisonResult(e2) {
   return e2 < 0 ? -1 : e2 > 0 ? 1 : e2;
 }
 function GetOptionsObject(e2) {
   if (void 0 === e2)
-    return le(null);
+    return Te(null);
   if (IsObject(e2) && null !== e2)
     return e2;
   throw new TypeError("Options parameter must be an object, not " + (null === e2 ? "null" : typeof e2));
 }
 function CreateOnePropObject(e2, t2) {
-  const r2 = le(null);
+  const r2 = Te(null);
   return r2[e2] = t2, r2;
+}
+function CopyOptions(e2) {
+  const t2 = Te(null);
+  return CopyDataProperties(t2, GetOptionsObject(e2), []), t2;
 }
 function GetOption(e2, t2, r2, o2) {
   let n2 = e2[t2];
@@ -3483,12 +3778,18 @@ function GetOption(e2, t2, r2, o2) {
   return o2;
 }
 function IsBuiltinCalendar(e2) {
-  return z.call(Ce, e2);
+  return je.includes(ASCIILowercase(e2));
 }
-var Be = new RegExp(`^${B.source}$`);
+function ASCIILowercase(e2) {
+  return e2.replace(/[A-Z]/g, (e3) => {
+    const t2 = e3.charCodeAt(0);
+    return String.fromCharCode(t2 + 32);
+  });
+}
+var ze = new RegExp(`^${W.source}$`);
 function bisect(t2, r2, o2, n2 = t2(r2), a2 = t2(o2)) {
   let i2 = import_jsbi.default.BigInt(r2), s2 = import_jsbi.default.BigInt(o2), l2 = n2, d2 = a2;
-  for (; import_jsbi.default.greaterThan(import_jsbi.default.subtract(s2, i2), ue); ) {
+  for (; import_jsbi.default.greaterThan(import_jsbi.default.subtract(s2, i2), Se); ) {
     const r3 = import_jsbi.default.divide(import_jsbi.default.add(i2, s2), import_jsbi.default.BigInt(2)), o3 = t2(r3);
     if (o3 === l2)
       i2 = r3, l2 = o3;
@@ -3500,127 +3801,105 @@ function bisect(t2, r2, o2, n2 = t2(r2), a2 = t2(o2)) {
   }
   return s2;
 }
-var Ne = { hour: 36e11, minute: 6e10, second: 1e9, millisecond: 1e6, microsecond: 1e3, nanosecond: 1 };
-var ke = Symbol("date");
-var Ae = Symbol("ym");
-var Ue = Symbol("md");
-var Le = Symbol("time");
-var xe = Symbol("datetime");
-var He = Symbol("zoneddatetime");
-var qe = Symbol("instant");
-var We = Symbol("original");
-var ze = Symbol("timezone");
-var _e = Symbol("timezone-id-given");
-var Je = Symbol("calendar-id");
-var Ve = Symbol("locale");
-var Xe = Symbol("options");
+var _e = { hour: 36e11, minute: 6e10, second: 1e9, millisecond: 1e6, microsecond: 1e3, nanosecond: 1 };
+var Je = Symbol("date");
+var Ke = Symbol("ym");
+var Xe = Symbol("md");
+var Qe = Symbol("time");
+var et = Symbol("datetime");
+var tt = Symbol("instant");
+var rt = Symbol("original");
+var ot = Symbol("timezone");
+var nt = Symbol("calendar-id");
+var at = Symbol("locale");
+var it = Symbol("options");
 var descriptor = (e2) => ({ value: e2, enumerable: true, writable: false, configurable: true });
-var Ke = globalThis.Intl.DateTimeFormat;
-var Qe = Object.assign;
-var et = Object.prototype.hasOwnProperty;
-var tt = Reflect.apply;
+var st = globalThis.Intl.DateTimeFormat;
+var lt = Object.assign;
+var dt = Object.prototype.hasOwnProperty;
+var mt = Reflect.apply;
 function getPropLazy(e2, t2) {
   let r2 = e2[t2];
-  return "function" == typeof r2 && (r2 = new Ke(e2[Ve], r2(e2[Xe])), e2[t2] = r2), r2;
-}
-function getResolvedTimeZoneLazy(e2) {
-  let t2 = e2[ze];
-  return "string" == typeof t2 && (t2 = ToTemporalTimeZone(t2), e2[ze] = t2), t2;
+  return "function" == typeof r2 && (r2 = new st(e2[at], r2(e2[it])), e2[t2] = r2), r2;
 }
 function DateTimeFormatImpl(e2, t2 = {}) {
   if (!(this instanceof DateTimeFormatImpl))
     return new DateTimeFormatImpl(e2, t2);
-  const r2 = void 0 !== t2, o2 = r2 ? Qe({}, t2) : {}, n2 = new Ke(e2, o2), a2 = n2.resolvedOptions();
+  const r2 = void 0 !== t2, o2 = r2 ? lt({}, t2) : {}, n2 = new st(e2, o2), a2 = n2.resolvedOptions();
   if (r2) {
-    const e3 = Qe({}, a2);
+    const e3 = lt({}, a2);
     for (const t3 in e3)
-      tt(et, o2, [t3]) || delete e3[t3];
-    this[Xe] = e3;
+      mt(dt, o2, [t3]) || delete e3[t3];
+    this[it] = e3;
   } else
-    this[Xe] = o2;
-  this[_e] = o2.timeZone ? o2.timeZone : null, this[Ve] = a2.locale, this[We] = n2, this[ze] = a2.timeZone, this[Je] = a2.calendar, this[ke] = dateAmend, this[Ae] = yearMonthAmend, this[Ue] = monthDayAmend, this[Le] = timeAmend, this[xe] = datetimeAmend, this[He] = zonedDateTimeAmend, this[qe] = instantAmend;
+    this[it] = o2;
+  this[at] = a2.locale, this[rt] = n2, this[ot] = a2.timeZone, this[nt] = a2.calendar, this[Je] = dateAmend, this[Ke] = yearMonthAmend, this[Xe] = monthDayAmend, this[Qe] = timeAmend, this[et] = datetimeAmend, this[tt] = instantAmend;
 }
 Object.defineProperty(DateTimeFormatImpl, "name", { writable: true, value: "DateTimeFormat" }), DateTimeFormatImpl.supportedLocalesOf = function(e2, t2) {
-  return Ke.supportedLocalesOf(e2, t2);
+  return st.supportedLocalesOf(e2, t2);
 };
-var rt = { resolvedOptions: descriptor(function resolvedOptions() {
-  return this[We].resolvedOptions();
+var ct = { resolvedOptions: descriptor(function resolvedOptions() {
+  return this[rt].resolvedOptions();
 }), format: descriptor(function format(e2, ...t2) {
-  let { instant: r2, formatter: o2, timeZone: n2 } = extractOverrides(e2, this);
+  let { instant: r2, formatter: o2 } = extractOverrides(e2, this);
   if (r2 && o2)
-    return o2 = adjustFormatterTimeZone(o2, n2), o2.format(r2.epochMilliseconds);
-  return this[We].format(e2, ...t2);
+    return o2.format(r2.epochMilliseconds);
+  return this[rt].format(e2, ...t2);
 }), formatRange: descriptor(function formatRange(e2, t2) {
   if (isTemporalObject(e2) || isTemporalObject(t2)) {
     if (!sameTemporalType(e2, t2))
       throw new TypeError("Intl.DateTimeFormat.formatRange accepts two values of the same type");
-    const { instant: r2, formatter: o2, timeZone: n2 } = extractOverrides(e2, this), { instant: a2, formatter: i2, timeZone: s2 } = extractOverrides(t2, this);
-    if (n2 && s2 && n2 !== s2)
-      throw new RangeError("cannot format range between different time zones");
-    if (r2 && a2 && o2 && i2 && o2 === i2) {
-      return adjustFormatterTimeZone(o2, n2).formatRange(r2.epochMilliseconds, a2.epochMilliseconds);
-    }
+    const { instant: r2, formatter: o2 } = extractOverrides(e2, this), { instant: n2, formatter: a2 } = extractOverrides(t2, this);
+    if (r2 && n2 && o2 && a2 && o2 === a2)
+      return o2.formatRange(r2.epochMilliseconds, n2.epochMilliseconds);
   }
-  return this[We].formatRange(e2, t2);
+  return this[rt].formatRange(e2, t2);
 }) };
-"formatToParts" in Ke.prototype && (rt.formatToParts = descriptor(function formatToParts(e2, ...t2) {
-  let { instant: r2, formatter: o2, timeZone: n2 } = extractOverrides(e2, this);
+"formatToParts" in st.prototype && (ct.formatToParts = descriptor(function formatToParts(e2, ...t2) {
+  let { instant: r2, formatter: o2 } = extractOverrides(e2, this);
   if (r2 && o2)
-    return o2 = adjustFormatterTimeZone(o2, n2), o2.formatToParts(r2.epochMilliseconds);
-  return this[We].formatToParts(e2, ...t2);
-})), "formatRangeToParts" in Ke.prototype && (rt.formatRangeToParts = descriptor(function formatRangeToParts(e2, t2) {
+    return o2.formatToParts(r2.epochMilliseconds);
+  return this[rt].formatToParts(e2, ...t2);
+})), "formatRangeToParts" in st.prototype && (ct.formatRangeToParts = descriptor(function formatRangeToParts(e2, t2) {
   if (isTemporalObject(e2) || isTemporalObject(t2)) {
     if (!sameTemporalType(e2, t2))
       throw new TypeError("Intl.DateTimeFormat.formatRangeToParts accepts two values of the same type");
-    const { instant: r2, formatter: o2, timeZone: n2 } = extractOverrides(e2, this), { instant: a2, formatter: i2, timeZone: s2 } = extractOverrides(t2, this);
-    if (n2 && s2 && n2 !== s2)
-      throw new RangeError("cannot format range between different time zones");
-    if (r2 && a2 && o2 && i2 && o2 === i2) {
-      return adjustFormatterTimeZone(o2, n2).formatRangeToParts(r2.epochMilliseconds, a2.epochMilliseconds);
-    }
+    const { instant: r2, formatter: o2 } = extractOverrides(e2, this), { instant: n2, formatter: a2 } = extractOverrides(t2, this);
+    if (r2 && n2 && o2 && a2 && o2 === a2)
+      return o2.formatRangeToParts(r2.epochMilliseconds, n2.epochMilliseconds);
   }
-  return this[We].formatRangeToParts(e2, t2);
-})), DateTimeFormatImpl.prototype = Object.create(Ke.prototype, rt), Object.defineProperty(DateTimeFormatImpl, "prototype", { writable: false, enumerable: false, configurable: false });
-var ot = DateTimeFormatImpl;
-function adjustFormatterTimeZone(e2, t2) {
-  if (!t2)
-    return e2;
-  const r2 = e2.resolvedOptions();
-  return r2.timeZone === t2 ? e2 : ((r2.dateStyle || r2.timeStyle) && (delete r2.weekday, delete r2.era, delete r2.year, delete r2.month, delete r2.day, delete r2.hour, delete r2.minute, delete r2.second, delete r2.timeZoneName, delete r2.hourCycle, delete r2.hour12, delete r2.dayPeriod), new Ke(r2.locale, { ...r2, timeZone: t2 }));
-}
+  return this[rt].formatRangeToParts(e2, t2);
+})), DateTimeFormatImpl.prototype = Object.create(st.prototype, ct), Object.defineProperty(DateTimeFormatImpl, "prototype", { writable: false, enumerable: false, configurable: false });
+var ht = DateTimeFormatImpl;
 function amend(e2 = {}, t2 = {}) {
-  const r2 = Qe({}, e2);
+  const r2 = lt({}, e2);
   for (const e3 of ["year", "month", "day", "hour", "minute", "second", "weekday", "dayPeriod", "timeZoneName", "dateStyle", "timeStyle"])
     r2[e3] = e3 in t2 ? t2[e3] : r2[e3], false !== r2[e3] && void 0 !== r2[e3] || delete r2[e3];
   return r2;
 }
 function timeAmend(e2) {
   let t2 = amend(e2, { year: false, month: false, day: false, weekday: false, timeZoneName: false, dateStyle: false });
-  return hasTimeOptions(t2) || (t2 = Qe({}, t2, { hour: "numeric", minute: "numeric", second: "numeric" })), t2;
+  return hasTimeOptions(t2) || (t2 = lt({}, t2, { hour: "numeric", minute: "numeric", second: "numeric" })), t2;
 }
 function yearMonthAmend(e2) {
   let t2 = amend(e2, { day: false, hour: false, minute: false, second: false, weekday: false, dayPeriod: false, timeZoneName: false, dateStyle: false, timeStyle: false });
-  return "year" in t2 || "month" in t2 || (t2 = Qe(t2, { year: "numeric", month: "numeric" })), t2;
+  return "year" in t2 || "month" in t2 || (t2 = lt(t2, { year: "numeric", month: "numeric" })), t2;
 }
 function monthDayAmend(e2) {
   let t2 = amend(e2, { year: false, hour: false, minute: false, second: false, weekday: false, dayPeriod: false, timeZoneName: false, dateStyle: false, timeStyle: false });
-  return "month" in t2 || "day" in t2 || (t2 = Qe({}, t2, { month: "numeric", day: "numeric" })), t2;
+  return "month" in t2 || "day" in t2 || (t2 = lt({}, t2, { month: "numeric", day: "numeric" })), t2;
 }
 function dateAmend(e2) {
   let t2 = amend(e2, { hour: false, minute: false, second: false, dayPeriod: false, timeZoneName: false, timeStyle: false });
-  return hasDateOptions(t2) || (t2 = Qe({}, t2, { year: "numeric", month: "numeric", day: "numeric" })), t2;
+  return hasDateOptions(t2) || (t2 = lt({}, t2, { year: "numeric", month: "numeric", day: "numeric" })), t2;
 }
 function datetimeAmend(e2) {
   let t2 = amend(e2, { timeZoneName: false });
-  return hasTimeOptions(t2) || hasDateOptions(t2) || (t2 = Qe({}, t2, { year: "numeric", month: "numeric", day: "numeric", hour: "numeric", minute: "numeric", second: "numeric" })), t2;
-}
-function zonedDateTimeAmend(e2) {
-  let t2 = e2;
-  return hasTimeOptions(t2) || hasDateOptions(t2) || (t2 = Qe({}, t2, { year: "numeric", month: "numeric", day: "numeric", hour: "numeric", minute: "numeric", second: "numeric" }), void 0 === t2.timeZoneName && (t2.timeZoneName = "short")), t2;
+  return hasTimeOptions(t2) || hasDateOptions(t2) || (t2 = lt({}, t2, { year: "numeric", month: "numeric", day: "numeric", hour: "numeric", minute: "numeric", second: "numeric" })), t2;
 }
 function instantAmend(e2) {
   let t2 = e2;
-  return hasTimeOptions(t2) || hasDateOptions(t2) || (t2 = Qe({}, t2, { year: "numeric", month: "numeric", day: "numeric", hour: "numeric", minute: "numeric", second: "numeric" })), t2;
+  return hasTimeOptions(t2) || hasDateOptions(t2) || (t2 = lt({}, t2, { year: "numeric", month: "numeric", day: "numeric", hour: "numeric", minute: "numeric", second: "numeric" })), t2;
 }
 function hasDateOptions(e2) {
   return "year" in e2 || "month" in e2 || "day" in e2 || "weekday" in e2 || "dateStyle" in e2;
@@ -3637,78 +3916,70 @@ function sameTemporalType(e2, t2) {
 function extractOverrides(e2, t2) {
   const r2 = GetIntrinsic("%Temporal.PlainDateTime%");
   if (IsTemporalTime(e2)) {
-    const o2 = new r2(1970, 1, 1, GetSlot(e2, s), GetSlot(e2, l), GetSlot(e2, d), GetSlot(e2, m), GetSlot(e2, c), GetSlot(e2, h), t2[Je]);
-    return { instant: BuiltinTimeZoneGetInstantFor(getResolvedTimeZoneLazy(t2), o2, "compatible"), formatter: getPropLazy(t2, Le) };
+    const o2 = new r2(1970, 1, 1, GetSlot(e2, d), GetSlot(e2, m), GetSlot(e2, c), GetSlot(e2, h), GetSlot(e2, u), GetSlot(e2, T), t2[nt]);
+    return { instant: GetInstantFor(t2[ot], o2, "compatible"), formatter: getPropLazy(t2, Qe) };
   }
   if (IsTemporalYearMonth(e2)) {
-    const o2 = GetSlot(e2, n), s2 = GetSlot(e2, a), l2 = GetSlot(e2, i), d2 = ToString(GetSlot(e2, u));
-    if (d2 !== t2[Je])
-      throw new RangeError(`cannot format PlainYearMonth with calendar ${d2} in locale with calendar ${t2[Je]}`);
-    const m2 = new r2(o2, s2, l2, 12, 0, 0, 0, 0, 0, d2);
-    return { instant: BuiltinTimeZoneGetInstantFor(getResolvedTimeZoneLazy(t2), m2, "compatible"), formatter: getPropLazy(t2, Ae) };
+    const o2 = GetSlot(e2, i), n2 = GetSlot(e2, s), a2 = GetSlot(e2, l), d2 = ToTemporalCalendarIdentifier(GetSlot(e2, p));
+    if (d2 !== t2[nt])
+      throw new RangeError(`cannot format PlainYearMonth with calendar ${d2} in locale with calendar ${t2[nt]}`);
+    const m2 = new r2(o2, n2, a2, 12, 0, 0, 0, 0, 0, d2);
+    return { instant: GetInstantFor(t2[ot], m2, "compatible"), formatter: getPropLazy(t2, Ke) };
   }
   if (IsTemporalMonthDay(e2)) {
-    const o2 = GetSlot(e2, n), s2 = GetSlot(e2, a), l2 = GetSlot(e2, i), d2 = ToString(GetSlot(e2, u));
-    if (d2 !== t2[Je])
-      throw new RangeError(`cannot format PlainMonthDay with calendar ${d2} in locale with calendar ${t2[Je]}`);
-    const m2 = new r2(o2, s2, l2, 12, 0, 0, 0, 0, 0, d2);
-    return { instant: BuiltinTimeZoneGetInstantFor(getResolvedTimeZoneLazy(t2), m2, "compatible"), formatter: getPropLazy(t2, Ue) };
+    const o2 = GetSlot(e2, i), n2 = GetSlot(e2, s), a2 = GetSlot(e2, l), d2 = ToTemporalCalendarIdentifier(GetSlot(e2, p));
+    if (d2 !== t2[nt])
+      throw new RangeError(`cannot format PlainMonthDay with calendar ${d2} in locale with calendar ${t2[nt]}`);
+    const m2 = new r2(o2, n2, a2, 12, 0, 0, 0, 0, 0, d2);
+    return { instant: GetInstantFor(t2[ot], m2, "compatible"), formatter: getPropLazy(t2, Xe) };
   }
   if (IsTemporalDate(e2)) {
-    const o2 = GetSlot(e2, n), s2 = GetSlot(e2, a), l2 = GetSlot(e2, i), d2 = ToString(GetSlot(e2, u));
-    if ("iso8601" !== d2 && d2 !== t2[Je])
-      throw new RangeError(`cannot format PlainDate with calendar ${d2} in locale with calendar ${t2[Je]}`);
-    const m2 = new r2(o2, s2, l2, 12, 0, 0, 0, 0, 0, t2[Je]);
-    return { instant: BuiltinTimeZoneGetInstantFor(getResolvedTimeZoneLazy(t2), m2, "compatible"), formatter: getPropLazy(t2, ke) };
+    const o2 = GetSlot(e2, i), n2 = GetSlot(e2, s), a2 = GetSlot(e2, l), d2 = ToTemporalCalendarIdentifier(GetSlot(e2, p));
+    if ("iso8601" !== d2 && d2 !== t2[nt])
+      throw new RangeError(`cannot format PlainDate with calendar ${d2} in locale with calendar ${t2[nt]}`);
+    const m2 = new r2(o2, n2, a2, 12, 0, 0, 0, 0, 0, t2[nt]);
+    return { instant: GetInstantFor(t2[ot], m2, "compatible"), formatter: getPropLazy(t2, Je) };
   }
   if (IsTemporalDateTime(e2)) {
-    const o2 = GetSlot(e2, n), T2 = GetSlot(e2, a), p2 = GetSlot(e2, i), f2 = GetSlot(e2, s), y2 = GetSlot(e2, l), S2 = GetSlot(e2, d), w2 = GetSlot(e2, m), g2 = GetSlot(e2, c), I2 = GetSlot(e2, h), D2 = ToString(GetSlot(e2, u));
-    if ("iso8601" !== D2 && D2 !== t2[Je])
-      throw new RangeError(`cannot format PlainDateTime with calendar ${D2} in locale with calendar ${t2[Je]}`);
+    const o2 = GetSlot(e2, i), n2 = GetSlot(e2, s), a2 = GetSlot(e2, l), f2 = GetSlot(e2, d), y2 = GetSlot(e2, m), I2 = GetSlot(e2, c), S2 = GetSlot(e2, h), g2 = GetSlot(e2, u), w2 = GetSlot(e2, T), D2 = ToTemporalCalendarIdentifier(GetSlot(e2, p));
+    if ("iso8601" !== D2 && D2 !== t2[nt])
+      throw new RangeError(`cannot format PlainDateTime with calendar ${D2} in locale with calendar ${t2[nt]}`);
     let G2 = e2;
-    return "iso8601" === D2 && (G2 = new r2(o2, T2, p2, f2, y2, S2, w2, g2, I2, t2[Je])), { instant: BuiltinTimeZoneGetInstantFor(getResolvedTimeZoneLazy(t2), G2, "compatible"), formatter: getPropLazy(t2, xe) };
+    return "iso8601" === D2 && (G2 = new r2(o2, n2, a2, f2, y2, I2, S2, g2, w2, t2[nt])), { instant: GetInstantFor(t2[ot], G2, "compatible"), formatter: getPropLazy(t2, et) };
   }
-  if (IsTemporalZonedDateTime(e2)) {
-    const r3 = ToString(GetSlot(e2, u));
-    if ("iso8601" !== r3 && r3 !== t2[Je])
-      throw new RangeError(`cannot format ZonedDateTime with calendar ${r3} in locale with calendar ${t2[Je]}`);
-    const o2 = ToString(GetSlot(e2, p));
-    if (t2[_e] && t2[_e] !== o2)
-      throw new RangeError(`timeZone option ${t2[_e]} doesn't match actual time zone ${o2}`);
-    return { instant: GetSlot(e2, T), formatter: getPropLazy(t2, He), timeZone: o2 };
-  }
-  return IsTemporalInstant(e2) ? { instant: e2, formatter: getPropLazy(t2, qe) } : {};
+  if (IsTemporalZonedDateTime(e2))
+    throw new TypeError("Temporal.ZonedDateTime not supported in DateTimeFormat methods. Use toLocaleString() instead.");
+  return IsTemporalInstant(e2) ? { instant: e2, formatter: getPropLazy(t2, tt) } : {};
 }
-var nt = Object.freeze({ __proto__: null, DateTimeFormat: ot });
+var ut = Object.freeze({ __proto__: null, DateTimeFormat: ht });
 var Instant = class {
   constructor(e2) {
     if (arguments.length < 1)
       throw new TypeError("missing argument: epochNanoseconds is required");
     const t2 = ToBigInt(e2);
-    ValidateEpochNanoseconds(t2), CreateSlots(this), SetSlot(this, r, t2);
+    ValidateEpochNanoseconds(t2), N(this), SetSlot(this, n, t2);
   }
   get epochSeconds() {
     if (!IsTemporalInstant(this))
       throw new TypeError("invalid receiver");
-    const t2 = GetSlot(this, r);
-    return import_jsbi.default.toNumber(import_jsbi.default.divide(t2, ye));
+    const t2 = GetSlot(this, n);
+    return import_jsbi.default.toNumber(BigIntFloorDiv(t2, ve));
   }
   get epochMilliseconds() {
     if (!IsTemporalInstant(this))
       throw new TypeError("invalid receiver");
-    const t2 = import_jsbi.default.BigInt(GetSlot(this, r));
-    return import_jsbi.default.toNumber(import_jsbi.default.divide(t2, fe));
+    const t2 = import_jsbi.default.BigInt(GetSlot(this, n));
+    return import_jsbi.default.toNumber(BigIntFloorDiv(t2, Ge));
   }
   get epochMicroseconds() {
     if (!IsTemporalInstant(this))
       throw new TypeError("invalid receiver");
-    const t2 = import_jsbi.default.BigInt(GetSlot(this, r));
-    return ToBigIntExternal(import_jsbi.default.divide(t2, pe));
+    return ToBigIntExternal(BigIntFloorDiv(import_jsbi.default.BigInt(GetSlot(this, n)), De));
   }
   get epochNanoseconds() {
     if (!IsTemporalInstant(this))
       throw new TypeError("invalid receiver");
-    return ToBigIntExternal(import_jsbi.default.BigInt(GetSlot(this, r)));
+    return ToBigIntExternal(import_jsbi.default.BigInt(GetSlot(this, n)));
   }
   add(e2) {
     if (!IsTemporalInstant(this))
@@ -3735,23 +4006,27 @@ var Instant = class {
       throw new TypeError("invalid receiver");
     if (void 0 === e2)
       throw new TypeError("options parameter is required");
-    const t2 = "string" == typeof e2 ? CreateOnePropObject("smallestUnit", e2) : GetOptionsObject(e2), o2 = GetTemporalUnit(t2, "smallestUnit", "time", je), n2 = ToTemporalRoundingMode(t2, "halfExpand"), a2 = ToTemporalRoundingIncrement(t2, { hour: 24, minute: 1440, second: 86400, millisecond: 864e5, microsecond: 864e8, nanosecond: 864e11 }[o2], true), i2 = RoundInstant(GetSlot(this, r), a2, o2, n2);
+    const t2 = "string" == typeof e2 ? CreateOnePropObject("smallestUnit", e2) : GetOptionsObject(e2), r2 = ToTemporalRoundingIncrement(t2), o2 = ToTemporalRoundingMode(t2, "halfExpand"), a2 = GetTemporalUnit(t2, "smallestUnit", "time", He);
+    ValidateTemporalRoundingIncrement(r2, { hour: 24, minute: 1440, second: 86400, millisecond: 864e5, microsecond: 864e8, nanosecond: 864e11 }[a2], true);
+    const i2 = RoundInstant(GetSlot(this, n), r2, a2, o2);
     return new Instant(i2);
   }
   equals(t2) {
     if (!IsTemporalInstant(this))
       throw new TypeError("invalid receiver");
-    const o2 = ToTemporalInstant(t2), n2 = GetSlot(this, r), a2 = GetSlot(o2, r);
-    return import_jsbi.default.equal(import_jsbi.default.BigInt(n2), import_jsbi.default.BigInt(a2));
+    const r2 = ToTemporalInstant(t2), o2 = GetSlot(this, n), a2 = GetSlot(r2, n);
+    return import_jsbi.default.equal(import_jsbi.default.BigInt(o2), import_jsbi.default.BigInt(a2));
   }
   toString(e2) {
     if (!IsTemporalInstant(this))
       throw new TypeError("invalid receiver");
-    const t2 = GetOptionsObject(e2);
-    let o2 = t2.timeZone;
-    void 0 !== o2 && (o2 = ToTemporalTimeZone(o2));
-    const { precision: n2, unit: a2, increment: i2 } = ToSecondsStringPrecision(t2), s2 = ToTemporalRoundingMode(t2, "trunc"), l2 = RoundInstant(GetSlot(this, r), i2, a2, s2);
-    return TemporalInstantToString(new Instant(l2), o2, n2);
+    const t2 = GetOptionsObject(e2), r2 = ToFractionalSecondDigits(t2), o2 = ToTemporalRoundingMode(t2, "trunc"), a2 = GetTemporalUnit(t2, "smallestUnit", "time", void 0);
+    if ("hour" === a2)
+      throw new RangeError('smallestUnit must be a time unit other than "hour"');
+    let i2 = t2.timeZone;
+    void 0 !== i2 && (i2 = ToTemporalTimeZoneSlotValue(i2));
+    const { precision: s2, unit: l2, increment: d2 } = ToSecondsStringPrecisionRecord(a2, r2), m2 = RoundInstant(GetSlot(this, n), d2, l2, o2);
+    return TemporalInstantToString(new Instant(m2), i2, s2);
   }
   toJSON() {
     if (!IsTemporalInstant(this))
@@ -3761,7 +4036,7 @@ var Instant = class {
   toLocaleString(e2, t2) {
     if (!IsTemporalInstant(this))
       throw new TypeError("invalid receiver");
-    return new ot(e2, t2).format(this);
+    return new ht(e2, t2).format(this);
   }
   valueOf() {
     throw new TypeError("use compare() or equals() to compare Temporal.Instant");
@@ -3774,33 +4049,28 @@ var Instant = class {
     const t2 = e2.calendar;
     if (void 0 === t2)
       throw new TypeError("missing calendar property in toZonedDateTime");
-    const o2 = ToTemporalCalendar(t2), n2 = e2.timeZone;
-    if (void 0 === n2)
+    const r2 = ToTemporalCalendarSlotValue(t2), o2 = e2.timeZone;
+    if (void 0 === o2)
       throw new TypeError("missing timeZone property in toZonedDateTime");
-    const a2 = ToTemporalTimeZone(n2);
-    return CreateTemporalZonedDateTime(GetSlot(this, r), a2, o2);
+    const a2 = ToTemporalTimeZoneSlotValue(o2);
+    return CreateTemporalZonedDateTime(GetSlot(this, n), a2, r2);
   }
   toZonedDateTimeISO(e2) {
-    let t2 = e2;
     if (!IsTemporalInstant(this))
       throw new TypeError("invalid receiver");
-    if (IsObject(t2)) {
-      const e3 = t2.timeZone;
-      void 0 !== e3 && (t2 = e3);
-    }
-    const o2 = ToTemporalTimeZone(t2), n2 = GetISO8601Calendar();
-    return CreateTemporalZonedDateTime(GetSlot(this, r), o2, n2);
+    const t2 = ToTemporalTimeZoneSlotValue(e2);
+    return CreateTemporalZonedDateTime(GetSlot(this, n), t2, "iso8601");
   }
   static fromEpochSeconds(t2) {
-    const r2 = ToNumber(t2), o2 = import_jsbi.default.multiply(import_jsbi.default.BigInt(r2), ye);
+    const r2 = ToNumber(t2), o2 = import_jsbi.default.multiply(import_jsbi.default.BigInt(r2), ve);
     return ValidateEpochNanoseconds(o2), new Instant(o2);
   }
   static fromEpochMilliseconds(t2) {
-    const r2 = ToNumber(t2), o2 = import_jsbi.default.multiply(import_jsbi.default.BigInt(r2), fe);
+    const r2 = ToNumber(t2), o2 = import_jsbi.default.multiply(import_jsbi.default.BigInt(r2), Ge);
     return ValidateEpochNanoseconds(o2), new Instant(o2);
   }
   static fromEpochMicroseconds(t2) {
-    const r2 = ToBigInt(t2), o2 = import_jsbi.default.multiply(r2, pe);
+    const r2 = ToBigInt(t2), o2 = import_jsbi.default.multiply(r2, De);
     return ValidateEpochNanoseconds(o2), new Instant(o2);
   }
   static fromEpochNanoseconds(e2) {
@@ -3808,23 +4078,27 @@ var Instant = class {
     return ValidateEpochNanoseconds(t2), new Instant(t2);
   }
   static from(e2) {
-    return IsTemporalInstant(e2) ? new Instant(GetSlot(e2, r)) : ToTemporalInstant(e2);
+    return IsTemporalInstant(e2) ? new Instant(GetSlot(e2, n)) : ToTemporalInstant(e2);
   }
-  static compare(t2, o2) {
-    const n2 = ToTemporalInstant(t2), a2 = ToTemporalInstant(o2), i2 = GetSlot(n2, r), s2 = GetSlot(a2, r);
+  static compare(t2, r2) {
+    const o2 = ToTemporalInstant(t2), a2 = ToTemporalInstant(r2), i2 = GetSlot(o2, n), s2 = GetSlot(a2, n);
     return import_jsbi.default.lessThan(i2, s2) ? -1 : import_jsbi.default.greaterThan(i2, s2) ? 1 : 0;
   }
 };
 MakeIntrinsicClass(Instant, "Temporal.Instant");
-var at = Array.prototype.includes;
-var it = Array.prototype.push;
-var st = globalThis.Intl.DateTimeFormat;
-var lt = Array.prototype.sort;
-var dt = Math.abs;
-var mt = Math.floor;
-var ct = Object.entries;
-var ht = Object.keys;
-var ut = {};
+var Tt = Array.prototype.includes;
+var pt = Array.prototype.push;
+var ft = globalThis.Intl.DateTimeFormat;
+var yt = Array.prototype.sort;
+var It = Math.abs;
+var St = Math.floor;
+var gt = Object.create;
+var wt = Object.entries;
+var Dt = Set;
+var Gt = Reflect.ownKeys;
+var vt = Set.prototype.add;
+var Ct = Set.prototype.values;
+var Ot = {};
 var Calendar = class {
   constructor(e2) {
     if (arguments.length < 1)
@@ -3832,36 +4106,36 @@ var Calendar = class {
     const t2 = ToString(e2);
     if (!IsBuiltinCalendar(t2))
       throw new RangeError(`invalid calendar identifier ${t2}`);
-    CreateSlots(this), SetSlot(this, C, t2);
+    N(this), SetSlot(this, F, ASCIILowercase(t2));
   }
   get id() {
     if (!IsTemporalCalendar(this))
       throw new TypeError("invalid receiver");
-    return ToString(this);
+    return GetSlot(this, F);
   }
   dateFromFields(e2, t2) {
     if (!IsTemporalCalendar(this))
       throw new TypeError("invalid receiver");
     if (!IsObject(e2))
       throw new TypeError("invalid fields");
-    const r2 = GetOptionsObject(t2);
-    return ut[GetSlot(this, C)].dateFromFields(e2, r2, this);
+    const r2 = GetOptionsObject(t2), o2 = GetSlot(this, F);
+    return Ot[o2].dateFromFields(e2, r2, o2);
   }
   yearMonthFromFields(e2, t2) {
     if (!IsTemporalCalendar(this))
       throw new TypeError("invalid receiver");
     if (!IsObject(e2))
       throw new TypeError("invalid fields");
-    const r2 = GetOptionsObject(t2);
-    return ut[GetSlot(this, C)].yearMonthFromFields(e2, r2, this);
+    const r2 = GetOptionsObject(t2), o2 = GetSlot(this, F);
+    return Ot[o2].yearMonthFromFields(e2, r2, o2);
   }
   monthDayFromFields(e2, t2) {
     if (!IsTemporalCalendar(this))
       throw new TypeError("invalid receiver");
     if (!IsObject(e2))
       throw new TypeError("invalid fields");
-    const r2 = GetOptionsObject(t2);
-    return ut[GetSlot(this, C)].monthDayFromFields(e2, r2, this);
+    const r2 = GetOptionsObject(t2), o2 = GetSlot(this, F);
+    return Ot[o2].monthDayFromFields(e2, r2, o2);
   }
   fields(e2) {
     if (!IsTemporalCalendar(this))
@@ -3872,20 +4146,29 @@ var Calendar = class {
         throw new TypeError("invalid fields");
       if (!r2.has(o2))
         throw new RangeError(`invalid field name ${o2}`);
-      r2.delete(o2), it.call(t2, o2);
+      r2.delete(o2), pt.call(t2, o2);
     }
-    return ut[GetSlot(this, C)].fields(t2);
+    return Ot[GetSlot(this, F)].fields(t2);
   }
   mergeFields(e2, t2) {
     if (!IsTemporalCalendar(this))
       throw new TypeError("invalid receiver");
-    return ut[GetSlot(this, C)].mergeFields(e2, t2);
+    const r2 = ToObject(e2), o2 = gt(null);
+    CopyDataProperties(o2, r2, [], [void 0]);
+    const n2 = ToObject(t2), a2 = gt(null);
+    CopyDataProperties(a2, n2, [], [void 0]);
+    const i2 = Gt(a2), s2 = Ot[GetSlot(this, F)].fieldKeysToIgnore(i2), l2 = gt(null), d2 = Gt(o2);
+    for (const e3 of d2) {
+      let t3;
+      t3 = Call(Tt, s2, [e3]) ? a2[e3] : o2[e3], void 0 !== t3 && (l2[e3] = t3);
+    }
+    return CopyDataProperties(l2, a2, []), l2;
   }
   dateAdd(e2, t2, r2) {
     if (!IsTemporalCalendar(this))
       throw new TypeError("invalid receiver");
-    const o2 = ToTemporalDate(e2), n2 = ToTemporalDuration(t2), a2 = ToTemporalOverflow(GetOptionsObject(r2)), { days: i2 } = BalanceDuration(GetSlot(n2, w), GetSlot(n2, g), GetSlot(n2, I), GetSlot(n2, D), GetSlot(n2, G), GetSlot(n2, v), GetSlot(n2, O), "day");
-    return ut[GetSlot(this, C)].dateAdd(o2, GetSlot(n2, f), GetSlot(n2, y), GetSlot(n2, S), i2, a2, this);
+    const o2 = ToTemporalDate(e2), n2 = ToTemporalDuration(t2), a2 = ToTemporalOverflow(GetOptionsObject(r2)), { days: i2 } = BalanceDuration(GetSlot(n2, v), GetSlot(n2, C), GetSlot(n2, O), GetSlot(n2, b), GetSlot(n2, E), GetSlot(n2, M), GetSlot(n2, R), "day"), s2 = GetSlot(this, F);
+    return Ot[s2].dateAdd(o2, GetSlot(n2, w), GetSlot(n2, D), GetSlot(n2, G), i2, a2, s2);
   }
   dateUntil(e2, t2, r2) {
     if (!IsTemporalCalendar(this))
@@ -3893,14 +4176,14 @@ var Calendar = class {
     const o2 = ToTemporalDate(e2), n2 = ToTemporalDate(t2);
     let a2 = GetTemporalUnit(GetOptionsObject(r2), "largestUnit", "date", "auto");
     "auto" === a2 && (a2 = "day");
-    const { years: i2, months: s2, weeks: l2, days: d2 } = ut[GetSlot(this, C)].dateUntil(o2, n2, a2);
+    const { years: i2, months: s2, weeks: l2, days: d2 } = Ot[GetSlot(this, F)].dateUntil(o2, n2, a2);
     return new (GetIntrinsic("%Temporal.Duration%"))(i2, s2, l2, d2, 0, 0, 0, 0, 0, 0);
   }
   year(e2) {
     let t2 = e2;
     if (!IsTemporalCalendar(this))
       throw new TypeError("invalid receiver");
-    return IsTemporalYearMonth(t2) || (t2 = ToTemporalDate(t2)), ut[GetSlot(this, C)].year(t2);
+    return IsTemporalYearMonth(t2) || (t2 = ToTemporalDate(t2)), Ot[GetSlot(this, F)].year(t2);
   }
   month(e2) {
     let t2 = e2;
@@ -3908,92 +4191,98 @@ var Calendar = class {
       throw new TypeError("invalid receiver");
     if (IsTemporalMonthDay(t2))
       throw new TypeError("use monthCode on PlainMonthDay instead");
-    return IsTemporalYearMonth(t2) || (t2 = ToTemporalDate(t2)), ut[GetSlot(this, C)].month(t2);
+    return IsTemporalYearMonth(t2) || (t2 = ToTemporalDate(t2)), Ot[GetSlot(this, F)].month(t2);
   }
   monthCode(e2) {
     let t2 = e2;
     if (!IsTemporalCalendar(this))
       throw new TypeError("invalid receiver");
-    return IsTemporalYearMonth(t2) || IsTemporalMonthDay(t2) || (t2 = ToTemporalDate(t2)), ut[GetSlot(this, C)].monthCode(t2);
+    return IsTemporalYearMonth(t2) || IsTemporalMonthDay(t2) || (t2 = ToTemporalDate(t2)), Ot[GetSlot(this, F)].monthCode(t2);
   }
   day(e2) {
     let t2 = e2;
     if (!IsTemporalCalendar(this))
       throw new TypeError("invalid receiver");
-    return IsTemporalMonthDay(t2) || (t2 = ToTemporalDate(t2)), ut[GetSlot(this, C)].day(t2);
+    return IsTemporalMonthDay(t2) || (t2 = ToTemporalDate(t2)), Ot[GetSlot(this, F)].day(t2);
   }
   era(e2) {
     let t2 = e2;
     if (!IsTemporalCalendar(this))
       throw new TypeError("invalid receiver");
-    return IsTemporalYearMonth(t2) || (t2 = ToTemporalDate(t2)), ut[GetSlot(this, C)].era(t2);
+    return IsTemporalYearMonth(t2) || (t2 = ToTemporalDate(t2)), Ot[GetSlot(this, F)].era(t2);
   }
   eraYear(e2) {
     let t2 = e2;
     if (!IsTemporalCalendar(this))
       throw new TypeError("invalid receiver");
-    return IsTemporalYearMonth(t2) || (t2 = ToTemporalDate(t2)), ut[GetSlot(this, C)].eraYear(t2);
+    return IsTemporalYearMonth(t2) || (t2 = ToTemporalDate(t2)), Ot[GetSlot(this, F)].eraYear(t2);
   }
   dayOfWeek(e2) {
     if (!IsTemporalCalendar(this))
       throw new TypeError("invalid receiver");
     const t2 = ToTemporalDate(e2);
-    return ut[GetSlot(this, C)].dayOfWeek(t2);
+    return Ot[GetSlot(this, F)].dayOfWeek(t2);
   }
   dayOfYear(e2) {
     if (!IsTemporalCalendar(this))
       throw new TypeError("invalid receiver");
     const t2 = ToTemporalDate(e2);
-    return ut[GetSlot(this, C)].dayOfYear(t2);
+    return Ot[GetSlot(this, F)].dayOfYear(t2);
   }
   weekOfYear(e2) {
     if (!IsTemporalCalendar(this))
       throw new TypeError("invalid receiver");
     const t2 = ToTemporalDate(e2);
-    return ut[GetSlot(this, C)].weekOfYear(t2);
+    return Ot[GetSlot(this, F)].weekOfYear(t2);
+  }
+  yearOfWeek(e2) {
+    if (!IsTemporalCalendar(this))
+      throw new TypeError("invalid receiver");
+    const t2 = ToTemporalDate(e2);
+    return Ot[GetSlot(this, F)].yearOfWeek(t2);
   }
   daysInWeek(e2) {
     if (!IsTemporalCalendar(this))
       throw new TypeError("invalid receiver");
     const t2 = ToTemporalDate(e2);
-    return ut[GetSlot(this, C)].daysInWeek(t2);
+    return Ot[GetSlot(this, F)].daysInWeek(t2);
   }
   daysInMonth(e2) {
     let t2 = e2;
     if (!IsTemporalCalendar(this))
       throw new TypeError("invalid receiver");
-    return IsTemporalYearMonth(t2) || (t2 = ToTemporalDate(t2)), ut[GetSlot(this, C)].daysInMonth(t2);
+    return IsTemporalYearMonth(t2) || (t2 = ToTemporalDate(t2)), Ot[GetSlot(this, F)].daysInMonth(t2);
   }
   daysInYear(e2) {
     let t2 = e2;
     if (!IsTemporalCalendar(this))
       throw new TypeError("invalid receiver");
-    return IsTemporalYearMonth(t2) || (t2 = ToTemporalDate(t2)), ut[GetSlot(this, C)].daysInYear(t2);
+    return IsTemporalYearMonth(t2) || (t2 = ToTemporalDate(t2)), Ot[GetSlot(this, F)].daysInYear(t2);
   }
   monthsInYear(e2) {
     let t2 = e2;
     if (!IsTemporalCalendar(this))
       throw new TypeError("invalid receiver");
-    return IsTemporalYearMonth(t2) || (t2 = ToTemporalDate(t2)), ut[GetSlot(this, C)].monthsInYear(t2);
+    return IsTemporalYearMonth(t2) || (t2 = ToTemporalDate(t2)), Ot[GetSlot(this, F)].monthsInYear(t2);
   }
   inLeapYear(e2) {
     let t2 = e2;
     if (!IsTemporalCalendar(this))
       throw new TypeError("invalid receiver");
-    return IsTemporalYearMonth(t2) || (t2 = ToTemporalDate(t2)), ut[GetSlot(this, C)].inLeapYear(t2);
+    return IsTemporalYearMonth(t2) || (t2 = ToTemporalDate(t2)), Ot[GetSlot(this, F)].inLeapYear(t2);
   }
   toString() {
     if (!IsTemporalCalendar(this))
       throw new TypeError("invalid receiver");
-    return GetSlot(this, C);
+    return GetSlot(this, F);
   }
   toJSON() {
     if (!IsTemporalCalendar(this))
       throw new TypeError("invalid receiver");
-    return ToString(this);
+    return GetSlot(this, F);
   }
   static from(e2) {
-    return ToTemporalCalendar(e2);
+    return ToTemporalCalendarObject(ToTemporalCalendarSlotValue(e2));
   }
 };
 function monthCodeNumberPart(e2) {
@@ -4024,17 +4313,17 @@ function resolveNonLunisolarMonth(e2, t2, r2 = 12) {
   }
   return { ...e2, month: o2, monthCode: n2 };
 }
-MakeIntrinsicClass(Calendar, "Temporal.Calendar"), DefineIntrinsic("Temporal.Calendar.from", Calendar.from), ut.iso8601 = { dateFromFields(e2, t2, r2) {
-  const o2 = ToTemporalOverflow(t2);
-  let n2 = PrepareTemporalFields(e2, ["day", "month", "monthCode", "year"], ["year", "day"]);
-  n2 = resolveNonLunisolarMonth(n2);
-  let { year: a2, month: i2, day: s2 } = n2;
-  return { year: a2, month: i2, day: s2 } = RegulateISODate(a2, i2, s2, o2), CreateTemporalDate(a2, i2, s2, r2);
+MakeIntrinsicClass(Calendar, "Temporal.Calendar"), DefineIntrinsic("Temporal.Calendar.from", Calendar.from), DefineIntrinsic("Temporal.Calendar.prototype.dateAdd", Calendar.prototype.dateAdd), DefineIntrinsic("Temporal.Calendar.prototype.dateFromFields", Calendar.prototype.dateFromFields), DefineIntrinsic("Temporal.Calendar.prototype.dateUntil", Calendar.prototype.dateUntil), DefineIntrinsic("Temporal.Calendar.prototype.day", Calendar.prototype.day), DefineIntrinsic("Temporal.Calendar.prototype.dayOfWeek", Calendar.prototype.dayOfWeek), DefineIntrinsic("Temporal.Calendar.prototype.dayOfYear", Calendar.prototype.dayOfYear), DefineIntrinsic("Temporal.Calendar.prototype.daysInMonth", Calendar.prototype.daysInMonth), DefineIntrinsic("Temporal.Calendar.prototype.daysInWeek", Calendar.prototype.daysInWeek), DefineIntrinsic("Temporal.Calendar.prototype.daysInYear", Calendar.prototype.daysInYear), DefineIntrinsic("Temporal.Calendar.prototype.era", Calendar.prototype.era), DefineIntrinsic("Temporal.Calendar.prototype.eraYear", Calendar.prototype.eraYear), DefineIntrinsic("Temporal.Calendar.prototype.fields", Calendar.prototype.fields), DefineIntrinsic("Temporal.Calendar.prototype.inLeapYear", Calendar.prototype.inLeapYear), DefineIntrinsic("Temporal.Calendar.prototype.mergeFields", Calendar.prototype.mergeFields), DefineIntrinsic("Temporal.Calendar.prototype.month", Calendar.prototype.month), DefineIntrinsic("Temporal.Calendar.prototype.monthCode", Calendar.prototype.monthCode), DefineIntrinsic("Temporal.Calendar.prototype.monthDayFromFields", Calendar.prototype.monthDayFromFields), DefineIntrinsic("Temporal.Calendar.prototype.monthsInYear", Calendar.prototype.monthsInYear), DefineIntrinsic("Temporal.Calendar.prototype.weekOfYear", Calendar.prototype.weekOfYear), DefineIntrinsic("Temporal.Calendar.prototype.year", Calendar.prototype.year), DefineIntrinsic("Temporal.Calendar.prototype.yearMonthFromFields", Calendar.prototype.yearMonthFromFields), DefineIntrinsic("Temporal.Calendar.prototype.yearOfWeek", Calendar.prototype.yearOfWeek), Ot.iso8601 = { dateFromFields(e2, t2, r2) {
+  let o2 = PrepareTemporalFields(e2, ["day", "month", "monthCode", "year"], ["year", "day"]);
+  const n2 = ToTemporalOverflow(t2);
+  o2 = resolveNonLunisolarMonth(o2);
+  let { year: a2, month: i2, day: s2 } = o2;
+  return { year: a2, month: i2, day: s2 } = RegulateISODate(a2, i2, s2, n2), CreateTemporalDate(a2, i2, s2, r2);
 }, yearMonthFromFields(e2, t2, r2) {
-  const o2 = ToTemporalOverflow(t2);
-  let n2 = PrepareTemporalFields(e2, ["month", "monthCode", "year"], ["year"]);
-  n2 = resolveNonLunisolarMonth(n2);
-  let { year: a2, month: i2 } = n2;
+  let o2 = PrepareTemporalFields(e2, ["month", "monthCode", "year"], ["year"]);
+  const n2 = ToTemporalOverflow(t2);
+  o2 = resolveNonLunisolarMonth(o2);
+  let { year: a2, month: i2 } = o2;
   return { year: a2, month: i2 } = function RegulateISOYearMonth(e3, t3, r3) {
     let o3 = e3, n3 = t3;
     switch (r3) {
@@ -4045,42 +4334,34 @@ MakeIntrinsicClass(Calendar, "Temporal.Calendar"), DefineIntrinsic("Temporal.Cal
         ({ year: o3, month: n3 } = ConstrainISODate(o3, n3));
     }
     return { year: o3, month: n3 };
-  }(a2, i2, o2), CreateTemporalYearMonth(a2, i2, r2, 1);
+  }(a2, i2, n2), CreateTemporalYearMonth(a2, i2, r2, 1);
 }, monthDayFromFields(e2, t2, r2) {
-  const o2 = ToTemporalOverflow(t2);
-  let n2 = PrepareTemporalFields(e2, ["day", "month", "monthCode", "year"], ["day"]);
-  if (void 0 !== n2.month && void 0 === n2.year && void 0 === n2.monthCode)
+  let o2 = PrepareTemporalFields(e2, ["day", "month", "monthCode", "year"], ["day"]);
+  const n2 = ToTemporalOverflow(t2);
+  if (void 0 !== o2.month && void 0 === o2.year && void 0 === o2.monthCode)
     throw new TypeError("either year or monthCode required with month");
-  const a2 = void 0 === n2.monthCode;
-  n2 = resolveNonLunisolarMonth(n2);
-  let { month: i2, day: s2, year: l2 } = n2;
-  return { month: i2, day: s2 } = RegulateISODate(a2 ? l2 : 1972, i2, s2, o2), CreateTemporalMonthDay(i2, s2, r2, 1972);
-}, fields: (e2) => e2, mergeFields(e2, t2) {
-  const r2 = {};
-  for (const t3 of ht(e2))
-    "month" !== t3 && "monthCode" !== t3 && (r2[t3] = e2[t3]);
-  const o2 = ht(t2);
-  for (const e3 of o2)
-    r2[e3] = t2[e3];
-  if (!at.call(o2, "month") && !at.call(o2, "monthCode")) {
-    const { month: t3, monthCode: o3 } = e2;
-    void 0 !== t3 && (r2.month = t3), void 0 !== o3 && (r2.monthCode = o3);
+  const a2 = void 0 === o2.monthCode;
+  o2 = resolveNonLunisolarMonth(o2);
+  let { month: i2, day: s2, year: l2 } = o2;
+  return { month: i2, day: s2 } = RegulateISODate(a2 ? l2 : 1972, i2, s2, n2), CreateTemporalMonthDay(i2, s2, r2, 1972);
+}, fields: (e2) => e2, fieldKeysToIgnore(e2) {
+  const t2 = new Dt();
+  for (let r2 = 0; r2 < e2.length; r2++) {
+    const o2 = e2[r2];
+    Call(vt, t2, [o2]), "month" === o2 ? Call(vt, t2, ["monthCode"]) : "monthCode" === o2 && Call(vt, t2, ["month"]);
   }
-  return r2;
-}, dateAdd(e2, t2, r2, o2, s2, l2, d2) {
-  let m2 = GetSlot(e2, n), c2 = GetSlot(e2, a), h2 = GetSlot(e2, i);
-  return { year: m2, month: c2, day: h2 } = AddISODate(m2, c2, h2, t2, r2, o2, s2, l2), CreateTemporalDate(m2, c2, h2, d2);
-}, dateUntil: (e2, t2, r2) => DifferenceISODate(GetSlot(e2, n), GetSlot(e2, a), GetSlot(e2, i), GetSlot(t2, n), GetSlot(t2, a), GetSlot(t2, i), r2), year: (e2) => GetSlot(e2, n), era() {
+  return [...Call(Ct, t2, [])];
+}, dateAdd(e2, t2, r2, o2, n2, a2, d2) {
+  let m2 = GetSlot(e2, i), c2 = GetSlot(e2, s), h2 = GetSlot(e2, l);
+  return { year: m2, month: c2, day: h2 } = AddISODate(m2, c2, h2, t2, r2, o2, n2, a2), CreateTemporalDate(m2, c2, h2, d2);
+}, dateUntil: (e2, t2, r2) => DifferenceISODate(GetSlot(e2, i), GetSlot(e2, s), GetSlot(e2, l), GetSlot(t2, i), GetSlot(t2, s), GetSlot(t2, l), r2), year: (e2) => GetSlot(e2, i), era() {
 }, eraYear() {
-}, month: (e2) => GetSlot(e2, a), monthCode: (e2) => buildMonthCode(GetSlot(e2, a)), day: (e2) => GetSlot(e2, i), dayOfWeek: (e2) => DayOfWeek(GetSlot(e2, n), GetSlot(e2, a), GetSlot(e2, i)), dayOfYear: (e2) => DayOfYear(GetSlot(e2, n), GetSlot(e2, a), GetSlot(e2, i)), weekOfYear: (e2) => function WeekOfYear(e3, t2, r2) {
-  const o2 = DayOfYear(e3, t2, r2), n2 = DayOfWeek(e3, t2, r2) || 7, a2 = DayOfWeek(e3, 1, 1), i2 = Q((o2 - n2 + 10) / 7);
-  return i2 < 1 ? 5 === a2 || 6 === a2 && LeapYear(e3 - 1) ? 53 : 52 : 53 === i2 && (LeapYear(e3) ? 366 : 365) - o2 < 4 - n2 ? 1 : i2;
-}(GetSlot(e2, n), GetSlot(e2, a), GetSlot(e2, i)), daysInWeek: () => 7, daysInMonth: (e2) => ISODaysInMonth(GetSlot(e2, n), GetSlot(e2, a)), daysInYear(e2) {
+}, month: (e2) => GetSlot(e2, s), monthCode: (e2) => buildMonthCode(GetSlot(e2, s)), day: (e2) => GetSlot(e2, l), dayOfWeek: (e2) => DayOfWeek(GetSlot(e2, i), GetSlot(e2, s), GetSlot(e2, l)), dayOfYear: (e2) => DayOfYear(GetSlot(e2, i), GetSlot(e2, s), GetSlot(e2, l)), weekOfYear: (e2) => WeekOfYear(GetSlot(e2, i), GetSlot(e2, s), GetSlot(e2, l)).week, yearOfWeek: (e2) => WeekOfYear(GetSlot(e2, i), GetSlot(e2, s), GetSlot(e2, l)).year, daysInWeek: () => 7, daysInMonth: (e2) => ISODaysInMonth(GetSlot(e2, i), GetSlot(e2, s)), daysInYear(e2) {
   let t2 = e2;
-  return HasSlot(t2, n) || (t2 = ToTemporalDate(t2)), LeapYear(GetSlot(t2, n)) ? 366 : 365;
+  return HasSlot(t2, i) || (t2 = ToTemporalDate(t2)), LeapYear(GetSlot(t2, i)) ? 366 : 365;
 }, monthsInYear: () => 12, inLeapYear(e2) {
   let t2 = e2;
-  return HasSlot(t2, n) || (t2 = ToTemporalDate(t2)), LeapYear(GetSlot(t2, n));
+  return HasSlot(t2, i) || (t2 = ToTemporalDate(t2)), LeapYear(GetSlot(t2, i));
 } };
 var OneObjectCache = class {
   constructor(e2) {
@@ -4121,10 +4402,10 @@ function simpleDateDiff(e2, t2) {
 OneObjectCache.objectMap = /* @__PURE__ */ new WeakMap(), OneObjectCache.MAX_CACHE_ENTRIES = 1e3;
 var HelperBase = class {
   constructor() {
-    this.eraLength = "short", this.hasEra = true;
+    this.eraLength = "short", this.hasEra = true, this.erasBeginMidYear = false;
   }
   getFormatter() {
-    return void 0 === this.formatter && (this.formatter = new st(`en-US-u-ca-${this.id}`, { day: "numeric", month: "numeric", year: "numeric", era: this.eraLength, timeZone: "UTC" })), this.formatter;
+    return void 0 === this.formatter && (this.formatter = new ft(`en-US-u-ca-${this.id}`, { day: "numeric", month: "numeric", year: "numeric", era: this.eraLength, timeZone: "UTC" })), this.formatter;
   }
   isoToCalendarDate(e2, t2) {
     const { year: r2, month: o2, day: n2 } = e2, a2 = JSON.stringify({ func: "isoToCalendarDate", isoYear: r2, isoMonth: o2, isoDay: n2, id: this.id }), i2 = t2.get(a2);
@@ -4192,6 +4473,8 @@ var HelperBase = class {
       if (void 0 !== a2 && void 0 !== o2 && a2 !== o2)
         throw new RangeError(`eraYear ${a2} does not match year ${o2}`);
     }
+    if (this.hasEra && void 0 === e2.era != (void 0 === e2.eraYear))
+      throw new RangeError("properties 'era' and 'eraYear' must be provided together");
   }
   adjustCalendarDate(e2, t2, r2 = "constrain", o2 = false) {
     if ("lunisolar" === this.calendarType)
@@ -4238,7 +4521,7 @@ var HelperBase = class {
       const e3 = 365 * T2.years + 30 * T2.months + T2.days;
       c2 = this.addDaysIso(c2, e3), u2 = this.isoToCalendarDate(c2, r2), T2 = simpleDateDiff(n2, u2), 0 === T2.years && 0 === T2.months ? c2 = calculateSameMonthResult(T2.days) : h2 = this.compareCalendarDates(n2, u2);
     }
-    let p2 = 8, f2 = false;
+    let p2 = 8;
     for (; h2; ) {
       c2 = this.addDaysIso(c2, h2 * p2);
       const e3 = u2;
@@ -4246,27 +4529,23 @@ var HelperBase = class {
       const a3 = h2;
       if (h2 = this.compareCalendarDates(n2, u2), h2) {
         if (T2 = simpleDateDiff(n2, u2), 0 === T2.years && 0 === T2.months)
-          c2 = calculateSameMonthResult(T2.days), h2 = 0, f2 = n2.day > this.minimumMonthLength(n2);
+          c2 = calculateSameMonthResult(T2.days), h2 = 0;
         else if (a3 && h2 !== a3)
           if (p2 > 1)
             p2 /= 2;
           else {
             if ("reject" === t2)
               throw new RangeError(`Can't find ISO date from calendar date: ${JSON.stringify({ ...o2 })}`);
-            this.compareCalendarDates(u2, e3) > 0 && (c2 = this.addDaysIso(c2, -1)), f2 = true, h2 = 0;
+            this.compareCalendarDates(u2, e3) > 0 && (c2 = this.addDaysIso(c2, -1)), h2 = 0;
           }
       }
     }
     if (r2.set(l2, c2), d2 && r2.set(d2, c2), void 0 === n2.year || void 0 === n2.month || void 0 === n2.day || void 0 === n2.monthCode || this.hasEra && (void 0 === n2.era || void 0 === n2.eraYear))
       throw new RangeError("Unexpected missing property");
-    if (!f2) {
-      const e3 = JSON.stringify({ func: "isoToCalendarDate", isoYear: c2.year, isoMonth: c2.month, isoDay: c2.day, id: this.id });
-      r2.set(e3, n2);
-    }
     return c2;
   }
   temporalToCalendarDate(e2, t2) {
-    const r2 = { year: GetSlot(e2, n), month: GetSlot(e2, a), day: GetSlot(e2, i) };
+    const r2 = { year: GetSlot(e2, i), month: GetSlot(e2, s), day: GetSlot(e2, l) };
     return this.isoToCalendarDate(r2, t2);
   }
   compareCalendarDates(e2, t2) {
@@ -4287,7 +4566,7 @@ var HelperBase = class {
   addMonthsCalendar(e2, t2, r2, o2) {
     let n2 = e2;
     const { day: a2 } = n2;
-    for (let e3 = 0, r3 = dt(t2); e3 < r3; e3++) {
+    for (let e3 = 0, r3 = It(t2); e3 < r3; e3++) {
       const { month: e4 } = n2, r4 = n2, i2 = t2 < 0 ? -Math.max(a2, this.daysInPreviousMonth(n2, o2)) : this.daysInMonth(n2, o2), s2 = this.calendarToIsoDate(n2, "constrain", o2);
       let l2 = this.addDaysIso(s2, i2);
       if (n2 = this.isoToCalendarDate(l2, o2), t2 > 0) {
@@ -4318,18 +4597,21 @@ var HelperBase = class {
       }
       case "month":
       case "year": {
-        const a3 = t2.year - e2.year, l2 = t2.month - e2.month, d2 = t2.day - e2.day, m2 = this.compareCalendarDates(t2, e2);
-        if (!m2)
+        const a3 = this.compareCalendarDates(t2, e2);
+        if (!a3)
           return { years: 0, months: 0, weeks: 0, days: 0 };
-        if ("year" === r2 && a3) {
-          s2 = l2 * m2 < 0 || 0 === l2 && d2 * m2 < 0 ? a3 - m2 : a3;
+        const l2 = t2.year - e2.year, d2 = t2.day - e2.day;
+        if ("year" === r2 && l2) {
+          let r3 = 0;
+          t2.monthCode > e2.monthCode && (r3 = 1), t2.monthCode < e2.monthCode && (r3 = -1), r3 || (r3 = Math.sign(d2));
+          s2 = r3 * a3 < 0 ? l2 - a3 : l2;
         }
-        let c2, h2 = s2 ? this.addCalendar(e2, { years: s2 }, "constrain", o2) : e2;
+        let m2, c2 = s2 ? this.addCalendar(e2, { years: s2 }, "constrain", o2) : e2;
         do {
-          i2 += m2, c2 = h2, h2 = this.addMonthsCalendar(c2, m2, "constrain", o2), h2.day !== e2.day && (h2 = this.regulateDate({ ...h2, day: e2.day }, "constrain", o2));
-        } while (this.compareCalendarDates(t2, h2) * m2 >= 0);
-        i2 -= m2;
-        n2 = this.calendarDaysUntil(c2, t2, o2);
+          i2 += a3, m2 = c2, c2 = this.addMonthsCalendar(m2, a3, "constrain", o2), c2.day !== e2.day && (c2 = this.regulateDate({ ...c2, day: e2.day }, "constrain", o2));
+        } while (this.compareCalendarDates(t2, c2) * a3 >= 0);
+        i2 -= a3;
+        n2 = this.calendarDaysUntil(m2, t2, o2);
         break;
       }
     }
@@ -4367,22 +4649,23 @@ var HelperBase = class {
     return DifferenceISODate(e2.year, e2.month, e2.day, t2.year, t2.month, t2.day, "day").days;
   }
   monthDayFromFields(e2, t2, r2) {
-    let o2, n2, a2, i2, s2, { year: l2, month: d2, monthCode: m2, day: c2, era: h2, eraYear: u2 } = e2;
-    if (void 0 === m2) {
-      if (void 0 === l2 && (void 0 === h2 || void 0 === u2))
-        throw new TypeError("`monthCode`, `year`, or `era` and `eraYear` is required");
-      ({ monthCode: m2, year: l2 } = this.adjustCalendarDate({ year: l2, month: d2, monthCode: m2, day: c2, era: h2, eraYear: u2 }, r2, t2));
+    let o2, n2, a2, i2, s2, { monthCode: l2, day: d2 } = e2;
+    if (void 0 === l2) {
+      let { year: o3, era: n3, eraYear: a3 } = e2;
+      if (void 0 === o3 && (void 0 === n3 || void 0 === a3))
+        throw new TypeError("when `monthCode` is omitted, `year` (or `era` and `eraYear`) and `month` are required");
+      ({ monthCode: l2, day: d2 } = this.isoToCalendarDate(this.calendarToIsoDate(e2, t2, r2), r2));
     }
-    const { year: T2 } = this.isoToCalendarDate({ year: 1972, month: 1, day: 1 }, r2);
+    const m2 = this.isoToCalendarDate({ year: 1972, month: 12, day: 31 }, r2), c2 = m2.monthCode > l2 || m2.monthCode === l2 && m2.day >= d2 ? m2.year : m2.year - 1;
     for (let e3 = 0; e3 < 100; e3++) {
-      const l3 = this.adjustCalendarDate({ day: c2, monthCode: m2, year: T2 - e3 }, r2), d3 = this.calendarToIsoDate(l3, "constrain", r2), h3 = this.isoToCalendarDate(d3, r2);
-      if ({ year: o2, month: n2, day: a2 } = d3, h3.monthCode === m2 && h3.day === c2)
+      const m3 = this.adjustCalendarDate({ day: d2, monthCode: l2, year: c2 - e3 }, r2), h2 = this.calendarToIsoDate(m3, "constrain", r2), u2 = this.isoToCalendarDate(h2, r2);
+      if ({ year: o2, month: n2, day: a2 } = h2, u2.monthCode === l2 && u2.day === d2)
         return { month: n2, day: a2, year: o2 };
-      "constrain" === t2 && (void 0 === i2 || h3.monthCode === i2.monthCode && h3.day > i2.day) && (i2 = h3, s2 = d3);
+      "constrain" === t2 && (void 0 === i2 || u2.monthCode === i2.monthCode && u2.day > i2.day) && (i2 = u2, s2 = h2);
     }
     if ("constrain" === t2 && void 0 !== s2)
       return s2;
-    throw new RangeError(`No recent ${this.id} year with monthCode ${m2} and day ${c2}`);
+    throw new RangeError(`No recent ${this.id} year with monthCode ${l2} and day ${d2}`);
   }
 };
 var HebrewHelper = class extends HelperBase {
@@ -4403,7 +4686,7 @@ var HebrewHelper = class extends HelperBase {
     return this.minMaxMonthLength(e2, "max");
   }
   minMaxMonthLength(e2, t2) {
-    const { month: r2, year: o2 } = e2, n2 = this.getMonthCode(o2, r2), a2 = ct(this.months).find((e3) => e3[1].monthCode === n2);
+    const { month: r2, year: o2 } = e2, n2 = this.getMonthCode(o2, r2), a2 = wt(this.months).find((e3) => e3[1].monthCode === n2);
     if (void 0 === a2)
       throw new RangeError(`unmatched Hebrew month: ${r2}`);
     const i2 = a2[1].days;
@@ -4435,7 +4718,7 @@ var HebrewHelper = class extends HelperBase {
         if (i2 = 6, !this.inLeapYear({ year: n2 })) {
           if ("reject" === r2)
             throw new RangeError(`Hebrew monthCode M05L is invalid in year ${n2} which is not a leap year`);
-          i2 = 5, l2 = 30, s2 = "M05";
+          i2 = 6, s2 = "M06";
         }
       } else {
         i2 = monthCodeNumberPart(s2), this.inLeapYear({ year: n2 }) && i2 >= 6 && i2++;
@@ -4470,7 +4753,7 @@ var IslamicBaseHelper = class extends HelperBase {
   }
   estimateIsoDate(e2) {
     const { year: t2 } = this.adjustCalendarDate(e2);
-    return { year: mt(t2 * this.DAYS_PER_ISLAMIC_YEAR / this.DAYS_PER_ISO_YEAR) + 622, month: 1, day: 1 };
+    return { year: St(t2 * this.DAYS_PER_ISLAMIC_YEAR / this.DAYS_PER_ISO_YEAR) + 622, month: 1, day: 1 };
   }
 };
 var IslamicHelper = class extends IslamicBaseHelper {
@@ -4590,7 +4873,7 @@ var GregorianBaseHelper = class extends HelperBase {
           e4.reverseOf = o4, e4.anchorEpoch = o4.anchorEpoch, e4.isoEpoch = o4.isoEpoch;
         }
         void 0 === e4.anchorEpoch.month && (e4.anchorEpoch.month = 1), void 0 === e4.anchorEpoch.day && (e4.anchorEpoch.day = 1);
-      }), lt.call(r3, (e4, t4) => {
+      }), yt.call(r3, (e4, t4) => {
         if (e4.reverseOf)
           return 1;
         if (t4.reverseOf)
@@ -4732,7 +5015,7 @@ var GregoryHelper = class extends GregorianBaseHelper {
 };
 var JapaneseHelper = class extends GregorianBaseHelper {
   constructor() {
-    super("japanese", [{ name: "reiwa", isoEpoch: { year: 2019, month: 5, day: 1 }, anchorEpoch: { year: 2019, month: 5, day: 1 } }, { name: "heisei", isoEpoch: { year: 1989, month: 1, day: 8 }, anchorEpoch: { year: 1989, month: 1, day: 8 } }, { name: "showa", isoEpoch: { year: 1926, month: 12, day: 25 }, anchorEpoch: { year: 1926, month: 12, day: 25 } }, { name: "taisho", isoEpoch: { year: 1912, month: 7, day: 30 }, anchorEpoch: { year: 1912, month: 7, day: 30 } }, { name: "meiji", isoEpoch: { year: 1868, month: 9, day: 8 }, anchorEpoch: { year: 1868, month: 9, day: 8 } }, { name: "ce", isoEpoch: { year: 1, month: 1, day: 1 } }, { name: "bce", reverseOf: "ce" }]), this.calendarIsVulnerableToJulianBug = true, this.eraLength = "long";
+    super("japanese", [{ name: "reiwa", isoEpoch: { year: 2019, month: 5, day: 1 }, anchorEpoch: { year: 2019, month: 5, day: 1 } }, { name: "heisei", isoEpoch: { year: 1989, month: 1, day: 8 }, anchorEpoch: { year: 1989, month: 1, day: 8 } }, { name: "showa", isoEpoch: { year: 1926, month: 12, day: 25 }, anchorEpoch: { year: 1926, month: 12, day: 25 } }, { name: "taisho", isoEpoch: { year: 1912, month: 7, day: 30 }, anchorEpoch: { year: 1912, month: 7, day: 30 } }, { name: "meiji", isoEpoch: { year: 1868, month: 9, day: 8 }, anchorEpoch: { year: 1868, month: 9, day: 8 } }, { name: "ce", isoEpoch: { year: 1, month: 1, day: 1 } }, { name: "bce", reverseOf: "ce" }]), this.calendarIsVulnerableToJulianBug = true, this.eraLength = "long", this.erasBeginMidYear = true;
   }
   reviseIntlEra(e2, t2) {
     const { era: r2, eraYear: o2 } = e2, { year: n2 } = t2;
@@ -4745,7 +5028,7 @@ var ChineseBaseHelper = class extends HelperBase {
   }
   inLeapYear(e2, t2) {
     const r2 = this.getMonthList(e2.year, t2);
-    return 13 === ct(r2).length;
+    return 13 === wt(r2).length;
   }
   monthsInYear(e2, t2) {
     return this.inLeapYear(e2, t2) ? 13 : 12;
@@ -4799,14 +5082,14 @@ var ChineseBaseHelper = class extends HelperBase {
       let o3 = l2.replace("L", "bis").slice(1);
       "0" === o3[0] && (o3 = o3.slice(1));
       let i3 = e3[o3];
-      if (a2 = i3 && i3.monthIndex, void 0 === a2 && l2.endsWith("L") && !at.call(["M01L", "M12L", "M13L"], l2) && "constrain" === r2) {
+      if (a2 = i3 && i3.monthIndex, void 0 === a2 && l2.endsWith("L") && "M13L" != l2 && "constrain" === r2) {
         let t3 = l2.slice(1, -1);
-        "0" === t3[0] && (t3 = t3.slice(1)), i3 = e3[t3], i3 && ({ daysInMonth: s2, monthIndex: a2 } = i3, l2 = buildMonthCode(t3));
+        "0" === t3[0] && (t3 = t3.slice(1)), i3 = e3[t3], i3 && (a2 = i3.monthIndex, l2 = buildMonthCode(t3));
       }
       if (void 0 === a2)
         throw new RangeError(`Unmatched month ${l2} in Chinese year ${n2}`);
     } else if (void 0 === l2) {
-      const e3 = this.getMonthList(n2, t2), o3 = ct(e3), i3 = o3.length;
+      const e3 = this.getMonthList(n2, t2), o3 = wt(e3), i3 = o3.length;
       "reject" === r2 ? (RejectToRange(a2, 1, i3), RejectToRange(s2, 1, this.maximumMonthLength())) : (a2 = ConstrainToRange(a2, 1, i3), s2 = ConstrainToRange(s2, 1, this.maximumMonthLength()));
       const d3 = o3.find(([, e4]) => e4.monthIndex === a2);
       if (void 0 === d3)
@@ -4835,188 +5118,243 @@ var DangiHelper = class extends ChineseBaseHelper {
     super(...arguments), this.id = "dangi";
   }
 };
-var Tt = { helper: void 0, dateFromFields(e2, t2, r2) {
-  const o2 = ToTemporalOverflow(t2), n2 = new OneObjectCache(), a2 = PrepareTemporalFields(e2, ["day", "era", "eraYear", "month", "monthCode", "year"], ["day"]), { year: i2, month: s2, day: l2 } = this.helper.calendarToIsoDate(a2, o2, n2), d2 = CreateTemporalDate(i2, s2, l2, r2);
-  return n2.setObject(d2), d2;
-}, yearMonthFromFields(e2, t2, r2) {
-  const o2 = ToTemporalOverflow(t2), n2 = new OneObjectCache(), a2 = PrepareTemporalFields(e2, ["era", "eraYear", "month", "monthCode", "year"], []), { year: i2, month: s2, day: l2 } = this.helper.calendarToIsoDate({ ...a2, day: 1 }, o2, n2), d2 = CreateTemporalYearMonth(i2, s2, r2, l2);
-  return n2.setObject(d2), d2;
-}, monthDayFromFields(e2, t2, r2) {
-  const o2 = ToTemporalOverflow(t2), n2 = new OneObjectCache(), a2 = PrepareTemporalFields(e2, ["day", "era", "eraYear", "month", "monthCode", "year"], ["day"]), { year: i2, month: s2, day: l2 } = this.helper.monthDayFromFields(a2, o2, n2), d2 = CreateTemporalMonthDay(s2, l2, r2, i2);
-  return n2.setObject(d2), d2;
-}, fields(e2) {
-  let t2 = e2;
-  return at.call(t2, "year") && (t2 = [...t2, "era", "eraYear"]), t2;
-}, mergeFields(e2, t2) {
-  const r2 = { ...e2 }, o2 = { ...t2 }, { month: n2, monthCode: a2, year: i2, era: s2, eraYear: l2, ...d2 } = r2, { month: m2, monthCode: c2, year: h2, era: u2, eraYear: T2 } = o2;
-  return void 0 === m2 && void 0 === c2 && (d2.month = n2, d2.monthCode = a2), void 0 === h2 && void 0 === u2 && void 0 === T2 && (d2.year = i2), { ...d2, ...o2 };
-}, dateAdd(e2, t2, r2, o2, n2, a2, i2) {
-  const s2 = OneObjectCache.getCacheForObject(e2), l2 = this.helper.temporalToCalendarDate(e2, s2), d2 = this.helper.addCalendar(l2, { years: t2, months: r2, weeks: o2, days: n2 }, a2, s2), m2 = this.helper.calendarToIsoDate(d2, "constrain", s2), { year: c2, month: h2, day: u2 } = m2, T2 = CreateTemporalDate(c2, h2, u2, i2);
-  return new OneObjectCache(s2).setObject(T2), T2;
-}, dateUntil(e2, t2, r2) {
-  const o2 = OneObjectCache.getCacheForObject(e2), n2 = OneObjectCache.getCacheForObject(t2), a2 = this.helper.temporalToCalendarDate(e2, o2), i2 = this.helper.temporalToCalendarDate(t2, n2);
-  return this.helper.untilCalendar(a2, i2, r2, o2);
-}, year(e2) {
-  const t2 = OneObjectCache.getCacheForObject(e2);
-  return this.helper.temporalToCalendarDate(e2, t2).year;
-}, month(e2) {
-  const t2 = OneObjectCache.getCacheForObject(e2);
-  return this.helper.temporalToCalendarDate(e2, t2).month;
-}, day(e2) {
-  const t2 = OneObjectCache.getCacheForObject(e2);
-  return this.helper.temporalToCalendarDate(e2, t2).day;
-}, era(e2) {
-  if (!this.helper.hasEra)
-    return;
-  const t2 = OneObjectCache.getCacheForObject(e2);
-  return this.helper.temporalToCalendarDate(e2, t2).era;
-}, eraYear(e2) {
-  if (!this.helper.hasEra)
-    return;
-  const t2 = OneObjectCache.getCacheForObject(e2);
-  return this.helper.temporalToCalendarDate(e2, t2).eraYear;
-}, monthCode(e2) {
-  const t2 = OneObjectCache.getCacheForObject(e2);
-  return this.helper.temporalToCalendarDate(e2, t2).monthCode;
-}, dayOfWeek: (e2) => ut.iso8601.dayOfWeek(e2), dayOfYear(e2) {
-  const t2 = OneObjectCache.getCacheForObject(e2), r2 = this.helper.isoToCalendarDate(e2, t2), o2 = this.helper.startOfCalendarYear(r2);
-  return this.helper.calendarDaysUntil(o2, r2, t2) + 1;
-}, weekOfYear: (e2) => ut.iso8601.weekOfYear(e2), daysInWeek: (e2) => ut.iso8601.daysInWeek(e2), daysInMonth(e2) {
-  const t2 = OneObjectCache.getCacheForObject(e2), r2 = this.helper.temporalToCalendarDate(e2, t2), o2 = this.helper.maximumMonthLength(r2);
-  if (o2 === this.helper.minimumMonthLength(r2))
-    return o2;
-  const n2 = this.helper.startOfCalendarMonth(r2), a2 = this.helper.addMonthsCalendar(n2, 1, "constrain", t2);
-  return this.helper.calendarDaysUntil(n2, a2, t2);
-}, daysInYear(e2) {
-  let t2 = e2;
-  HasSlot(t2, n) || (t2 = ToTemporalDate(t2));
-  const r2 = OneObjectCache.getCacheForObject(t2), o2 = this.helper.temporalToCalendarDate(t2, r2), a2 = this.helper.startOfCalendarYear(o2), i2 = this.helper.addCalendar(a2, { years: 1 }, "constrain", r2);
-  return this.helper.calendarDaysUntil(a2, i2, r2);
-}, monthsInYear(e2) {
-  const t2 = OneObjectCache.getCacheForObject(e2), r2 = this.helper.temporalToCalendarDate(e2, t2);
-  return this.helper.monthsInYear(r2, t2);
-}, inLeapYear(e2) {
-  let t2 = e2;
-  HasSlot(t2, n) || (t2 = ToTemporalDate(t2));
-  const r2 = OneObjectCache.getCacheForObject(t2), o2 = this.helper.temporalToCalendarDate(t2, r2);
-  return this.helper.inLeapYear(o2, r2);
-} };
+var NonIsoCalendar = class {
+  constructor(e2) {
+    this.helper = e2;
+  }
+  dateFromFields(e2, t2, r2) {
+    const o2 = new OneObjectCache(), n2 = PrepareTemporalFields(e2, this.fields(["day", "month", "monthCode", "year"]), []), a2 = ToTemporalOverflow(t2), { year: i2, month: s2, day: l2 } = this.helper.calendarToIsoDate(n2, a2, o2), d2 = CreateTemporalDate(i2, s2, l2, r2);
+    return o2.setObject(d2), d2;
+  }
+  yearMonthFromFields(e2, t2, r2) {
+    const o2 = new OneObjectCache(), n2 = PrepareTemporalFields(e2, this.fields(["month", "monthCode", "year"]), []), a2 = ToTemporalOverflow(t2), { year: i2, month: s2, day: l2 } = this.helper.calendarToIsoDate({ ...n2, day: 1 }, a2, o2), d2 = CreateTemporalYearMonth(i2, s2, r2, l2);
+    return o2.setObject(d2), d2;
+  }
+  monthDayFromFields(e2, t2, r2) {
+    const o2 = new OneObjectCache(), n2 = PrepareTemporalFields(e2, this.fields(["day", "month", "monthCode", "year"]), []), a2 = ToTemporalOverflow(t2), { year: i2, month: s2, day: l2 } = this.helper.monthDayFromFields(n2, a2, o2), d2 = CreateTemporalMonthDay(s2, l2, r2, i2);
+    return o2.setObject(d2), d2;
+  }
+  fields(e2) {
+    let t2 = e2;
+    return Tt.call(t2, "year") && (t2 = [...t2, "era", "eraYear"]), t2;
+  }
+  fieldKeysToIgnore(e2) {
+    const t2 = new Dt();
+    for (let r2 = 0; r2 < e2.length; r2++) {
+      const o2 = e2[r2];
+      switch (Call(vt, t2, [o2]), o2) {
+        case "era":
+          Call(vt, t2, ["eraYear"]), Call(vt, t2, ["year"]);
+          break;
+        case "eraYear":
+          Call(vt, t2, ["era"]), Call(vt, t2, ["year"]);
+          break;
+        case "year":
+          Call(vt, t2, ["era"]), Call(vt, t2, ["eraYear"]);
+          break;
+        case "month":
+          Call(vt, t2, ["monthCode"]), this.helper.erasBeginMidYear && (Call(vt, t2, ["era"]), Call(vt, t2, ["eraYear"]));
+          break;
+        case "monthCode":
+          Call(vt, t2, ["month"]), this.helper.erasBeginMidYear && (Call(vt, t2, ["era"]), Call(vt, t2, ["eraYear"]));
+          break;
+        case "day":
+          this.helper.erasBeginMidYear && (Call(vt, t2, ["era"]), Call(vt, t2, ["eraYear"]));
+      }
+    }
+    return [...Call(Ct, t2, [])];
+  }
+  dateAdd(e2, t2, r2, o2, n2, a2, i2) {
+    const s2 = OneObjectCache.getCacheForObject(e2), l2 = this.helper.temporalToCalendarDate(e2, s2), d2 = this.helper.addCalendar(l2, { years: t2, months: r2, weeks: o2, days: n2 }, a2, s2), m2 = this.helper.calendarToIsoDate(d2, "constrain", s2), { year: c2, month: h2, day: u2 } = m2, T2 = CreateTemporalDate(c2, h2, u2, i2);
+    return new OneObjectCache(s2).setObject(T2), T2;
+  }
+  dateUntil(e2, t2, r2) {
+    const o2 = OneObjectCache.getCacheForObject(e2), n2 = OneObjectCache.getCacheForObject(t2), a2 = this.helper.temporalToCalendarDate(e2, o2), i2 = this.helper.temporalToCalendarDate(t2, n2);
+    return this.helper.untilCalendar(a2, i2, r2, o2);
+  }
+  year(e2) {
+    const t2 = OneObjectCache.getCacheForObject(e2);
+    return this.helper.temporalToCalendarDate(e2, t2).year;
+  }
+  month(e2) {
+    const t2 = OneObjectCache.getCacheForObject(e2);
+    return this.helper.temporalToCalendarDate(e2, t2).month;
+  }
+  day(e2) {
+    const t2 = OneObjectCache.getCacheForObject(e2);
+    return this.helper.temporalToCalendarDate(e2, t2).day;
+  }
+  era(e2) {
+    if (!this.helper.hasEra)
+      return;
+    const t2 = OneObjectCache.getCacheForObject(e2);
+    return this.helper.temporalToCalendarDate(e2, t2).era;
+  }
+  eraYear(e2) {
+    if (!this.helper.hasEra)
+      return;
+    const t2 = OneObjectCache.getCacheForObject(e2);
+    return this.helper.temporalToCalendarDate(e2, t2).eraYear;
+  }
+  monthCode(e2) {
+    const t2 = OneObjectCache.getCacheForObject(e2);
+    return this.helper.temporalToCalendarDate(e2, t2).monthCode;
+  }
+  dayOfWeek(e2) {
+    return Ot.iso8601.dayOfWeek(e2);
+  }
+  dayOfYear(e2) {
+    const t2 = OneObjectCache.getCacheForObject(e2), r2 = this.helper.isoToCalendarDate(e2, t2), o2 = this.helper.startOfCalendarYear(r2);
+    return this.helper.calendarDaysUntil(o2, r2, t2) + 1;
+  }
+  weekOfYear(e2) {
+    return Ot.iso8601.weekOfYear(e2);
+  }
+  yearOfWeek(e2) {
+    return Ot.iso8601.yearOfWeek(e2);
+  }
+  daysInWeek(e2) {
+    return Ot.iso8601.daysInWeek(e2);
+  }
+  daysInMonth(e2) {
+    const t2 = OneObjectCache.getCacheForObject(e2), r2 = this.helper.temporalToCalendarDate(e2, t2), o2 = this.helper.maximumMonthLength(r2);
+    if (o2 === this.helper.minimumMonthLength(r2))
+      return o2;
+    const n2 = this.helper.startOfCalendarMonth(r2), a2 = this.helper.addMonthsCalendar(n2, 1, "constrain", t2);
+    return this.helper.calendarDaysUntil(n2, a2, t2);
+  }
+  daysInYear(e2) {
+    let t2 = e2;
+    HasSlot(t2, i) || (t2 = ToTemporalDate(t2));
+    const r2 = OneObjectCache.getCacheForObject(t2), o2 = this.helper.temporalToCalendarDate(t2, r2), n2 = this.helper.startOfCalendarYear(o2), a2 = this.helper.addCalendar(n2, { years: 1 }, "constrain", r2);
+    return this.helper.calendarDaysUntil(n2, a2, r2);
+  }
+  monthsInYear(e2) {
+    const t2 = OneObjectCache.getCacheForObject(e2), r2 = this.helper.temporalToCalendarDate(e2, t2);
+    return this.helper.monthsInYear(r2, t2);
+  }
+  inLeapYear(e2) {
+    let t2 = e2;
+    HasSlot(t2, i) || (t2 = ToTemporalDate(t2));
+    const r2 = OneObjectCache.getCacheForObject(t2), o2 = this.helper.temporalToCalendarDate(t2, r2);
+    return this.helper.inLeapYear(o2, r2);
+  }
+};
 for (const e2 of [HebrewHelper, PersianHelper, EthiopicHelper, EthioaaHelper, CopticHelper, ChineseHelper, DangiHelper, RocHelper, IndianHelper, BuddhistHelper, GregoryHelper, JapaneseHelper, IslamicHelper, IslamicUmalquraHelper, IslamicTblaHelper, IslamicCivilHelper, IslamicRgsaHelper, IslamicCcHelper]) {
   const t2 = new e2();
-  ut[t2.id] = { ...Tt, helper: t2 };
+  Ot[t2.id] = new NonIsoCalendar(t2);
 }
 var PlainDate = class {
-  constructor(e2, t2, r2, o2 = GetISO8601Calendar()) {
-    const n2 = ToIntegerThrowOnInfinity(e2), a2 = ToIntegerThrowOnInfinity(t2), i2 = ToIntegerThrowOnInfinity(r2), s2 = ToTemporalCalendar(o2);
-    if (arguments.length < 3)
-      throw new RangeError("missing argument: isoYear, isoMonth and isoDay are required");
-    CreateTemporalDateSlots(this, n2, a2, i2, s2);
+  constructor(e2, t2, r2, o2 = "iso8601") {
+    CreateTemporalDateSlots(this, ToIntegerWithTruncation(e2), ToIntegerWithTruncation(t2), ToIntegerWithTruncation(r2), ToTemporalCalendarSlotValue(o2));
   }
-  get calendar() {
+  get calendarId() {
     if (!IsTemporalDate(this))
       throw new TypeError("invalid receiver");
-    return GetSlot(this, u);
+    return ToTemporalCalendarIdentifier(GetSlot(this, p));
   }
   get era() {
     if (!IsTemporalDate(this))
       throw new TypeError("invalid receiver");
-    return CalendarEra(GetSlot(this, u), this);
+    return CalendarEra(GetSlot(this, p), this);
   }
   get eraYear() {
     if (!IsTemporalDate(this))
       throw new TypeError("invalid receiver");
-    return CalendarEraYear(GetSlot(this, u), this);
+    return CalendarEraYear(GetSlot(this, p), this);
   }
   get year() {
     if (!IsTemporalDate(this))
       throw new TypeError("invalid receiver");
-    return CalendarYear(GetSlot(this, u), this);
+    return CalendarYear(GetSlot(this, p), this);
   }
   get month() {
     if (!IsTemporalDate(this))
       throw new TypeError("invalid receiver");
-    return CalendarMonth(GetSlot(this, u), this);
+    return CalendarMonth(GetSlot(this, p), this);
   }
   get monthCode() {
     if (!IsTemporalDate(this))
       throw new TypeError("invalid receiver");
-    return CalendarMonthCode(GetSlot(this, u), this);
+    return CalendarMonthCode(GetSlot(this, p), this);
   }
   get day() {
     if (!IsTemporalDate(this))
       throw new TypeError("invalid receiver");
-    return CalendarDay(GetSlot(this, u), this);
+    return CalendarDay(GetSlot(this, p), this);
   }
   get dayOfWeek() {
     if (!IsTemporalDate(this))
       throw new TypeError("invalid receiver");
-    return CalendarDayOfWeek(GetSlot(this, u), this);
+    return CalendarDayOfWeek(GetSlot(this, p), this);
   }
   get dayOfYear() {
     if (!IsTemporalDate(this))
       throw new TypeError("invalid receiver");
-    return CalendarDayOfYear(GetSlot(this, u), this);
+    return CalendarDayOfYear(GetSlot(this, p), this);
   }
   get weekOfYear() {
     if (!IsTemporalDate(this))
       throw new TypeError("invalid receiver");
-    return CalendarWeekOfYear(GetSlot(this, u), this);
+    return CalendarWeekOfYear(GetSlot(this, p), this);
+  }
+  get yearOfWeek() {
+    if (!IsTemporalDate(this))
+      throw new TypeError("invalid receiver");
+    return CalendarYearOfWeek(GetSlot(this, p), this);
   }
   get daysInWeek() {
     if (!IsTemporalDate(this))
       throw new TypeError("invalid receiver");
-    return CalendarDaysInWeek(GetSlot(this, u), this);
+    return CalendarDaysInWeek(GetSlot(this, p), this);
   }
   get daysInMonth() {
     if (!IsTemporalDate(this))
       throw new TypeError("invalid receiver");
-    return CalendarDaysInMonth(GetSlot(this, u), this);
+    return CalendarDaysInMonth(GetSlot(this, p), this);
   }
   get daysInYear() {
     if (!IsTemporalDate(this))
       throw new TypeError("invalid receiver");
-    return CalendarDaysInYear(GetSlot(this, u), this);
+    return CalendarDaysInYear(GetSlot(this, p), this);
   }
   get monthsInYear() {
     if (!IsTemporalDate(this))
       throw new TypeError("invalid receiver");
-    return CalendarMonthsInYear(GetSlot(this, u), this);
+    return CalendarMonthsInYear(GetSlot(this, p), this);
   }
   get inLeapYear() {
     if (!IsTemporalDate(this))
       throw new TypeError("invalid receiver");
-    return CalendarInLeapYear(GetSlot(this, u), this);
+    return CalendarInLeapYear(GetSlot(this, p), this);
   }
   with(e2, t2) {
     if (!IsTemporalDate(this))
       throw new TypeError("invalid receiver");
     if (!IsObject(e2))
       throw new TypeError("invalid argument");
-    RejectObjectWithCalendarOrTimeZone(e2);
-    const r2 = GetSlot(this, u), o2 = CalendarFields(r2, ["day", "month", "monthCode", "year"]), n2 = PrepareTemporalFields(e2, o2, "partial");
-    if (!n2)
-      throw new TypeError("invalid date-like");
-    let a2 = PrepareTemporalFields(this, o2, []);
-    a2 = CalendarMergeFields(r2, a2, n2), a2 = PrepareTemporalFields(a2, o2, []);
-    return CalendarDateFromFields(r2, a2, GetOptionsObject(t2));
+    RejectTemporalLikeObject(e2);
+    const r2 = GetOptionsObject(t2), o2 = GetSlot(this, p), n2 = CalendarFields(o2, ["day", "month", "monthCode", "year"]);
+    let a2 = PrepareTemporalFields(this, n2, []);
+    return a2 = CalendarMergeFields(o2, a2, PrepareTemporalFields(e2, n2, "partial")), a2 = PrepareTemporalFields(a2, n2, []), CalendarDateFromFields(o2, a2, r2);
   }
   withCalendar(e2) {
     if (!IsTemporalDate(this))
       throw new TypeError("invalid receiver");
-    const t2 = ToTemporalCalendar(e2);
-    return new PlainDate(GetSlot(this, n), GetSlot(this, a), GetSlot(this, i), t2);
+    const t2 = ToTemporalCalendarSlotValue(e2);
+    return new PlainDate(GetSlot(this, i), GetSlot(this, s), GetSlot(this, l), t2);
   }
   add(e2, t2) {
     if (!IsTemporalDate(this))
       throw new TypeError("invalid receiver");
     const r2 = ToTemporalDuration(e2), o2 = GetOptionsObject(t2);
-    return CalendarDateAdd(GetSlot(this, u), this, r2, o2);
+    return CalendarDateAdd(GetSlot(this, p), this, r2, o2);
   }
   subtract(e2, t2) {
     if (!IsTemporalDate(this))
       throw new TypeError("invalid receiver");
     const r2 = CreateNegatedTemporalDuration(ToTemporalDuration(e2)), o2 = GetOptionsObject(t2);
-    return CalendarDateAdd(GetSlot(this, u), this, r2, o2);
+    return CalendarDateAdd(GetSlot(this, p), this, r2, o2);
   }
   until(e2, t2) {
     if (!IsTemporalDate(this))
@@ -5032,16 +5370,16 @@ var PlainDate = class {
     if (!IsTemporalDate(this))
       throw new TypeError("invalid receiver");
     const t2 = ToTemporalDate(e2);
-    for (const e3 of [n, a, i]) {
+    for (const e3 of [i, s, l]) {
       if (GetSlot(this, e3) !== GetSlot(t2, e3))
         return false;
     }
-    return CalendarEquals(GetSlot(this, u), GetSlot(t2, u));
+    return CalendarEquals(GetSlot(this, p), GetSlot(t2, p));
   }
   toString(e2) {
     if (!IsTemporalDate(this))
       throw new TypeError("invalid receiver");
-    return TemporalDateToString(this, ToShowCalendarOption(GetOptionsObject(e2)));
+    return TemporalDateToString(this, ToCalendarNameOption(GetOptionsObject(e2)));
   }
   toJSON() {
     if (!IsTemporalDate(this))
@@ -5051,7 +5389,7 @@ var PlainDate = class {
   toLocaleString(e2, t2) {
     if (!IsTemporalDate(this))
       throw new TypeError("invalid receiver");
-    return new ot(e2, t2).format(this);
+    return new ht(e2, t2).format(this);
   }
   valueOf() {
     throw new TypeError("use compare() or equals() to compare Temporal.PlainDate");
@@ -5059,201 +5397,210 @@ var PlainDate = class {
   toPlainDateTime(e2) {
     if (!IsTemporalDate(this))
       throw new TypeError("invalid receiver");
-    const t2 = GetSlot(this, n), r2 = GetSlot(this, a), o2 = GetSlot(this, i), T2 = GetSlot(this, u);
+    const t2 = GetSlot(this, i), r2 = GetSlot(this, s), o2 = GetSlot(this, l), n2 = GetSlot(this, p);
     if (void 0 === e2)
-      return CreateTemporalDateTime(t2, r2, o2, 0, 0, 0, 0, 0, 0, T2);
-    const p2 = ToTemporalTime(e2);
-    return CreateTemporalDateTime(t2, r2, o2, GetSlot(p2, s), GetSlot(p2, l), GetSlot(p2, d), GetSlot(p2, m), GetSlot(p2, c), GetSlot(p2, h), T2);
+      return CreateTemporalDateTime(t2, r2, o2, 0, 0, 0, 0, 0, 0, n2);
+    const a2 = ToTemporalTime(e2);
+    return CreateTemporalDateTime(t2, r2, o2, GetSlot(a2, d), GetSlot(a2, m), GetSlot(a2, c), GetSlot(a2, h), GetSlot(a2, u), GetSlot(a2, T), n2);
   }
   toZonedDateTime(e2) {
     if (!IsTemporalDate(this))
       throw new TypeError("invalid receiver");
-    let t2, o2;
-    if (IsObject(e2)) {
-      const r2 = e2.timeZone;
-      void 0 === r2 ? t2 = ToTemporalTimeZone(e2) : (t2 = ToTemporalTimeZone(r2), o2 = e2.plainTime);
-    } else
-      t2 = ToTemporalTimeZone(e2);
-    const T2 = GetSlot(this, n), p2 = GetSlot(this, a), f2 = GetSlot(this, i), y2 = GetSlot(this, u);
-    let S2 = 0, w2 = 0, g2 = 0, I2 = 0, D2 = 0, G2 = 0;
-    void 0 !== o2 && (o2 = ToTemporalTime(o2), S2 = GetSlot(o2, s), w2 = GetSlot(o2, l), g2 = GetSlot(o2, d), I2 = GetSlot(o2, m), D2 = GetSlot(o2, c), G2 = GetSlot(o2, h));
-    return CreateTemporalZonedDateTime(GetSlot(BuiltinTimeZoneGetInstantFor(t2, CreateTemporalDateTime(T2, p2, f2, S2, w2, g2, I2, D2, G2, y2), "compatible"), r), t2, y2);
+    let t2, r2;
+    if (IsObject(e2))
+      if (IsTemporalTimeZone(e2))
+        t2 = e2;
+      else {
+        const o3 = e2.timeZone;
+        void 0 === o3 ? t2 = ToTemporalTimeZoneSlotValue(e2) : (t2 = ToTemporalTimeZoneSlotValue(o3), r2 = e2.plainTime);
+      }
+    else
+      t2 = ToTemporalTimeZoneSlotValue(e2);
+    const o2 = GetSlot(this, i), a2 = GetSlot(this, s), f2 = GetSlot(this, l), y2 = GetSlot(this, p);
+    let I2 = 0, S2 = 0, g2 = 0, w2 = 0, D2 = 0, G2 = 0;
+    void 0 !== r2 && (r2 = ToTemporalTime(r2), I2 = GetSlot(r2, d), S2 = GetSlot(r2, m), g2 = GetSlot(r2, c), w2 = GetSlot(r2, h), D2 = GetSlot(r2, u), G2 = GetSlot(r2, T));
+    return CreateTemporalZonedDateTime(GetSlot(GetInstantFor(t2, CreateTemporalDateTime(o2, a2, f2, I2, S2, g2, w2, D2, G2, y2), "compatible"), n), t2, y2);
   }
   toPlainYearMonth() {
     if (!IsTemporalDate(this))
       throw new TypeError("invalid receiver");
-    const e2 = GetSlot(this, u);
+    const e2 = GetSlot(this, p);
     return CalendarYearMonthFromFields(e2, PrepareTemporalFields(this, CalendarFields(e2, ["monthCode", "year"]), []));
   }
   toPlainMonthDay() {
     if (!IsTemporalDate(this))
       throw new TypeError("invalid receiver");
-    const e2 = GetSlot(this, u);
+    const e2 = GetSlot(this, p);
     return CalendarMonthDayFromFields(e2, PrepareTemporalFields(this, CalendarFields(e2, ["day", "monthCode"]), []));
   }
   getISOFields() {
     if (!IsTemporalDate(this))
       throw new TypeError("invalid receiver");
-    return { calendar: GetSlot(this, u), isoDay: GetSlot(this, i), isoMonth: GetSlot(this, a), isoYear: GetSlot(this, n) };
+    return { calendar: GetSlot(this, p), isoDay: GetSlot(this, l), isoMonth: GetSlot(this, s), isoYear: GetSlot(this, i) };
+  }
+  getCalendar() {
+    if (!IsTemporalDate(this))
+      throw new TypeError("invalid receiver");
+    return ToTemporalCalendarObject(GetSlot(this, p));
   }
   static from(e2, t2) {
     const r2 = GetOptionsObject(t2);
-    return IsTemporalDate(e2) ? (ToTemporalOverflow(r2), CreateTemporalDate(GetSlot(e2, n), GetSlot(e2, a), GetSlot(e2, i), GetSlot(e2, u))) : ToTemporalDate(e2, r2);
+    return IsTemporalDate(e2) ? (ToTemporalOverflow(r2), CreateTemporalDate(GetSlot(e2, i), GetSlot(e2, s), GetSlot(e2, l), GetSlot(e2, p))) : ToTemporalDate(e2, r2);
   }
   static compare(e2, t2) {
     const r2 = ToTemporalDate(e2), o2 = ToTemporalDate(t2);
-    return CompareISODate(GetSlot(r2, n), GetSlot(r2, a), GetSlot(r2, i), GetSlot(o2, n), GetSlot(o2, a), GetSlot(o2, i));
+    return CompareISODate(GetSlot(r2, i), GetSlot(r2, s), GetSlot(r2, l), GetSlot(o2, i), GetSlot(o2, s), GetSlot(o2, l));
   }
 };
 MakeIntrinsicClass(PlainDate, "Temporal.PlainDate");
 var PlainDateTime = class {
-  constructor(e2, t2, r2, o2 = 0, n2 = 0, a2 = 0, i2 = 0, s2 = 0, l2 = 0, d2 = GetISO8601Calendar()) {
-    const m2 = ToIntegerThrowOnInfinity(e2), c2 = ToIntegerThrowOnInfinity(t2), h2 = ToIntegerThrowOnInfinity(r2), u2 = ToIntegerThrowOnInfinity(o2), T2 = ToIntegerThrowOnInfinity(n2), p2 = ToIntegerThrowOnInfinity(a2), f2 = ToIntegerThrowOnInfinity(i2), y2 = ToIntegerThrowOnInfinity(s2), S2 = ToIntegerThrowOnInfinity(l2), w2 = ToTemporalCalendar(d2);
-    if (arguments.length < 3)
-      throw new RangeError("missing argument: isoYear, isoMonth and isoDay are required");
-    CreateTemporalDateTimeSlots(this, m2, c2, h2, u2, T2, p2, f2, y2, S2, w2);
+  constructor(e2, t2, r2, o2 = 0, n2 = 0, a2 = 0, i2 = 0, s2 = 0, l2 = 0, d2 = "iso8601") {
+    CreateTemporalDateTimeSlots(this, ToIntegerWithTruncation(e2), ToIntegerWithTruncation(t2), ToIntegerWithTruncation(r2), void 0 === o2 ? 0 : ToIntegerWithTruncation(o2), void 0 === n2 ? 0 : ToIntegerWithTruncation(n2), void 0 === a2 ? 0 : ToIntegerWithTruncation(a2), void 0 === i2 ? 0 : ToIntegerWithTruncation(i2), void 0 === s2 ? 0 : ToIntegerWithTruncation(s2), void 0 === l2 ? 0 : ToIntegerWithTruncation(l2), ToTemporalCalendarSlotValue(d2));
   }
-  get calendar() {
+  get calendarId() {
     if (!IsTemporalDateTime(this))
       throw new TypeError("invalid receiver");
-    return GetSlot(this, u);
+    return ToTemporalCalendarIdentifier(GetSlot(this, p));
   }
   get year() {
     if (!IsTemporalDateTime(this))
       throw new TypeError("invalid receiver");
-    return CalendarYear(GetSlot(this, u), this);
+    return CalendarYear(GetSlot(this, p), this);
   }
   get month() {
     if (!IsTemporalDateTime(this))
       throw new TypeError("invalid receiver");
-    return CalendarMonth(GetSlot(this, u), this);
+    return CalendarMonth(GetSlot(this, p), this);
   }
   get monthCode() {
     if (!IsTemporalDateTime(this))
       throw new TypeError("invalid receiver");
-    return CalendarMonthCode(GetSlot(this, u), this);
+    return CalendarMonthCode(GetSlot(this, p), this);
   }
   get day() {
     if (!IsTemporalDateTime(this))
       throw new TypeError("invalid receiver");
-    return CalendarDay(GetSlot(this, u), this);
+    return CalendarDay(GetSlot(this, p), this);
   }
   get hour() {
     if (!IsTemporalDateTime(this))
       throw new TypeError("invalid receiver");
-    return GetSlot(this, s);
+    return GetSlot(this, d);
   }
   get minute() {
     if (!IsTemporalDateTime(this))
       throw new TypeError("invalid receiver");
-    return GetSlot(this, l);
+    return GetSlot(this, m);
   }
   get second() {
     if (!IsTemporalDateTime(this))
       throw new TypeError("invalid receiver");
-    return GetSlot(this, d);
+    return GetSlot(this, c);
   }
   get millisecond() {
     if (!IsTemporalDateTime(this))
       throw new TypeError("invalid receiver");
-    return GetSlot(this, m);
+    return GetSlot(this, h);
   }
   get microsecond() {
     if (!IsTemporalDateTime(this))
       throw new TypeError("invalid receiver");
-    return GetSlot(this, c);
+    return GetSlot(this, u);
   }
   get nanosecond() {
     if (!IsTemporalDateTime(this))
       throw new TypeError("invalid receiver");
-    return GetSlot(this, h);
+    return GetSlot(this, T);
   }
   get era() {
     if (!IsTemporalDateTime(this))
       throw new TypeError("invalid receiver");
-    return CalendarEra(GetSlot(this, u), this);
+    return CalendarEra(GetSlot(this, p), this);
   }
   get eraYear() {
     if (!IsTemporalDateTime(this))
       throw new TypeError("invalid receiver");
-    return CalendarEraYear(GetSlot(this, u), this);
+    return CalendarEraYear(GetSlot(this, p), this);
   }
   get dayOfWeek() {
     if (!IsTemporalDateTime(this))
       throw new TypeError("invalid receiver");
-    return CalendarDayOfWeek(GetSlot(this, u), this);
+    return CalendarDayOfWeek(GetSlot(this, p), this);
   }
   get dayOfYear() {
     if (!IsTemporalDateTime(this))
       throw new TypeError("invalid receiver");
-    return CalendarDayOfYear(GetSlot(this, u), this);
+    return CalendarDayOfYear(GetSlot(this, p), this);
   }
   get weekOfYear() {
     if (!IsTemporalDateTime(this))
       throw new TypeError("invalid receiver");
-    return CalendarWeekOfYear(GetSlot(this, u), this);
+    return CalendarWeekOfYear(GetSlot(this, p), this);
+  }
+  get yearOfWeek() {
+    if (!IsTemporalDateTime(this))
+      throw new TypeError("invalid receiver");
+    return CalendarYearOfWeek(GetSlot(this, p), this);
   }
   get daysInWeek() {
     if (!IsTemporalDateTime(this))
       throw new TypeError("invalid receiver");
-    return CalendarDaysInWeek(GetSlot(this, u), this);
+    return CalendarDaysInWeek(GetSlot(this, p), this);
   }
   get daysInYear() {
     if (!IsTemporalDateTime(this))
       throw new TypeError("invalid receiver");
-    return CalendarDaysInYear(GetSlot(this, u), this);
+    return CalendarDaysInYear(GetSlot(this, p), this);
   }
   get daysInMonth() {
     if (!IsTemporalDateTime(this))
       throw new TypeError("invalid receiver");
-    return CalendarDaysInMonth(GetSlot(this, u), this);
+    return CalendarDaysInMonth(GetSlot(this, p), this);
   }
   get monthsInYear() {
     if (!IsTemporalDateTime(this))
       throw new TypeError("invalid receiver");
-    return CalendarMonthsInYear(GetSlot(this, u), this);
+    return CalendarMonthsInYear(GetSlot(this, p), this);
   }
   get inLeapYear() {
     if (!IsTemporalDateTime(this))
       throw new TypeError("invalid receiver");
-    return CalendarInLeapYear(GetSlot(this, u), this);
+    return CalendarInLeapYear(GetSlot(this, p), this);
   }
   with(e2, t2) {
     if (!IsTemporalDateTime(this))
       throw new TypeError("invalid receiver");
     if (!IsObject(e2))
       throw new TypeError("invalid argument");
-    RejectObjectWithCalendarOrTimeZone(e2);
-    const r2 = GetOptionsObject(t2), o2 = GetSlot(this, u), n2 = CalendarFields(o2, ["day", "hour", "microsecond", "millisecond", "minute", "month", "monthCode", "nanosecond", "second", "year"]), a2 = PrepareTemporalFields(e2, n2, "partial");
-    if (!a2)
-      throw new TypeError("invalid date-time-like");
-    let i2 = PrepareTemporalFields(this, n2, []);
-    i2 = CalendarMergeFields(o2, i2, a2), i2 = PrepareTemporalFields(i2, n2, []);
-    const { year: s2, month: l2, day: d2, hour: m2, minute: c2, second: h2, millisecond: T2, microsecond: p2, nanosecond: f2 } = InterpretTemporalDateTimeFields(o2, i2, r2);
-    return CreateTemporalDateTime(s2, l2, d2, m2, c2, h2, T2, p2, f2, o2);
+    RejectTemporalLikeObject(e2);
+    const r2 = GetOptionsObject(t2), o2 = GetSlot(this, p), n2 = CalendarFields(o2, ["day", "hour", "microsecond", "millisecond", "minute", "month", "monthCode", "nanosecond", "second", "year"]);
+    let a2 = PrepareTemporalFields(this, n2, []);
+    a2 = CalendarMergeFields(o2, a2, PrepareTemporalFields(e2, n2, "partial")), a2 = PrepareTemporalFields(a2, n2, []);
+    const { year: i2, month: s2, day: l2, hour: d2, minute: m2, second: c2, millisecond: h2, microsecond: u2, nanosecond: T2 } = InterpretTemporalDateTimeFields(o2, a2, r2);
+    return CreateTemporalDateTime(i2, s2, l2, d2, m2, c2, h2, u2, T2, o2);
   }
   withPlainTime(e2) {
     if (!IsTemporalDateTime(this))
       throw new TypeError("invalid receiver");
-    const t2 = GetSlot(this, n), r2 = GetSlot(this, a), o2 = GetSlot(this, i), T2 = GetSlot(this, u);
+    const t2 = GetSlot(this, i), r2 = GetSlot(this, s), o2 = GetSlot(this, l), n2 = GetSlot(this, p);
     if (void 0 === e2)
-      return CreateTemporalDateTime(t2, r2, o2, 0, 0, 0, 0, 0, 0, T2);
-    const p2 = ToTemporalTime(e2);
-    return CreateTemporalDateTime(t2, r2, o2, GetSlot(p2, s), GetSlot(p2, l), GetSlot(p2, d), GetSlot(p2, m), GetSlot(p2, c), GetSlot(p2, h), T2);
+      return CreateTemporalDateTime(t2, r2, o2, 0, 0, 0, 0, 0, 0, n2);
+    const a2 = ToTemporalTime(e2);
+    return CreateTemporalDateTime(t2, r2, o2, GetSlot(a2, d), GetSlot(a2, m), GetSlot(a2, c), GetSlot(a2, h), GetSlot(a2, u), GetSlot(a2, T), n2);
   }
   withPlainDate(e2) {
     if (!IsTemporalDateTime(this))
       throw new TypeError("invalid receiver");
-    const t2 = ToTemporalDate(e2), r2 = GetSlot(t2, n), o2 = GetSlot(t2, a), T2 = GetSlot(t2, i);
-    let p2 = GetSlot(t2, u);
-    const f2 = GetSlot(this, s), y2 = GetSlot(this, l), S2 = GetSlot(this, d), w2 = GetSlot(this, m), g2 = GetSlot(this, c), I2 = GetSlot(this, h);
-    return p2 = ConsolidateCalendars(GetSlot(this, u), p2), CreateTemporalDateTime(r2, o2, T2, f2, y2, S2, w2, g2, I2, p2);
+    const t2 = ToTemporalDate(e2), r2 = GetSlot(t2, i), o2 = GetSlot(t2, s), n2 = GetSlot(t2, l);
+    let a2 = GetSlot(t2, p);
+    const f2 = GetSlot(this, d), y2 = GetSlot(this, m), I2 = GetSlot(this, c), S2 = GetSlot(this, h), g2 = GetSlot(this, u), w2 = GetSlot(this, T);
+    return a2 = ConsolidateCalendars(GetSlot(this, p), a2), CreateTemporalDateTime(r2, o2, n2, f2, y2, I2, S2, g2, w2, a2);
   }
   withCalendar(e2) {
     if (!IsTemporalDateTime(this))
       throw new TypeError("invalid receiver");
-    const t2 = ToTemporalCalendar(e2);
-    return new PlainDateTime(GetSlot(this, n), GetSlot(this, a), GetSlot(this, i), GetSlot(this, s), GetSlot(this, l), GetSlot(this, d), GetSlot(this, m), GetSlot(this, c), GetSlot(this, h), t2);
+    const t2 = ToTemporalCalendarSlotValue(e2);
+    return new PlainDateTime(GetSlot(this, i), GetSlot(this, s), GetSlot(this, l), GetSlot(this, d), GetSlot(this, m), GetSlot(this, c), GetSlot(this, h), GetSlot(this, u), GetSlot(this, T), t2);
   }
   add(e2, t2) {
     if (!IsTemporalDateTime(this))
@@ -5280,25 +5627,29 @@ var PlainDateTime = class {
       throw new TypeError("invalid receiver");
     if (void 0 === e2)
       throw new TypeError("options parameter is required");
-    const t2 = "string" == typeof e2 ? CreateOnePropObject("smallestUnit", e2) : GetOptionsObject(e2), r2 = GetTemporalUnit(t2, "smallestUnit", "time", je, ["day"]), o2 = ToTemporalRoundingMode(t2, "halfExpand"), T2 = ToTemporalRoundingIncrement(t2, { day: 1, hour: 24, minute: 60, second: 60, millisecond: 1e3, microsecond: 1e3, nanosecond: 1e3 }[r2], false);
-    let p2 = GetSlot(this, n), f2 = GetSlot(this, a), y2 = GetSlot(this, i), S2 = GetSlot(this, s), w2 = GetSlot(this, l), g2 = GetSlot(this, d), I2 = GetSlot(this, m), D2 = GetSlot(this, c), G2 = GetSlot(this, h);
-    return { year: p2, month: f2, day: y2, hour: S2, minute: w2, second: g2, millisecond: I2, microsecond: D2, nanosecond: G2 } = RoundISODateTime(p2, f2, y2, S2, w2, g2, I2, D2, G2, T2, r2, o2), CreateTemporalDateTime(p2, f2, y2, S2, w2, g2, I2, D2, G2, GetSlot(this, u));
+    const t2 = "string" == typeof e2 ? CreateOnePropObject("smallestUnit", e2) : GetOptionsObject(e2), r2 = ToTemporalRoundingIncrement(t2), o2 = ToTemporalRoundingMode(t2, "halfExpand"), n2 = GetTemporalUnit(t2, "smallestUnit", "time", He, ["day"]), a2 = { day: 1, hour: 24, minute: 60, second: 60, millisecond: 1e3, microsecond: 1e3, nanosecond: 1e3 }[n2];
+    ValidateTemporalRoundingIncrement(r2, a2, 1 === a2);
+    let f2 = GetSlot(this, i), y2 = GetSlot(this, s), I2 = GetSlot(this, l), S2 = GetSlot(this, d), g2 = GetSlot(this, m), w2 = GetSlot(this, c), D2 = GetSlot(this, h), G2 = GetSlot(this, u), v2 = GetSlot(this, T);
+    return { year: f2, month: y2, day: I2, hour: S2, minute: g2, second: w2, millisecond: D2, microsecond: G2, nanosecond: v2 } = RoundISODateTime(f2, y2, I2, S2, g2, w2, D2, G2, v2, r2, n2, o2), CreateTemporalDateTime(f2, y2, I2, S2, g2, w2, D2, G2, v2, GetSlot(this, p));
   }
   equals(e2) {
     if (!IsTemporalDateTime(this))
       throw new TypeError("invalid receiver");
     const t2 = ToTemporalDateTime(e2);
-    for (const e3 of [n, a, i, s, l, d, m, c, h]) {
+    for (const e3 of [i, s, l, d, m, c, h, u, T]) {
       if (GetSlot(this, e3) !== GetSlot(t2, e3))
         return false;
     }
-    return CalendarEquals(GetSlot(this, u), GetSlot(t2, u));
+    return CalendarEquals(GetSlot(this, p), GetSlot(t2, p));
   }
   toString(e2) {
     if (!IsTemporalDateTime(this))
       throw new TypeError("invalid receiver");
-    const t2 = GetOptionsObject(e2), { precision: r2, unit: o2, increment: n2 } = ToSecondsStringPrecision(t2);
-    return TemporalDateTimeToString(this, r2, ToShowCalendarOption(t2), { unit: o2, increment: n2, roundingMode: ToTemporalRoundingMode(t2, "trunc") });
+    const t2 = GetOptionsObject(e2), r2 = ToCalendarNameOption(t2), o2 = ToFractionalSecondDigits(t2), n2 = ToTemporalRoundingMode(t2, "trunc"), a2 = GetTemporalUnit(t2, "smallestUnit", "time", void 0);
+    if ("hour" === a2)
+      throw new RangeError('smallestUnit must be a time unit other than "hour"');
+    const { precision: i2, unit: s2, increment: l2 } = ToSecondsStringPrecisionRecord(a2, o2);
+    return TemporalDateTimeToString(this, i2, r2, { unit: s2, increment: l2, roundingMode: n2 });
   }
   toJSON() {
     if (!IsTemporalDateTime(this))
@@ -5308,7 +5659,7 @@ var PlainDateTime = class {
   toLocaleString(e2, t2) {
     if (!IsTemporalDateTime(this))
       throw new TypeError("invalid receiver");
-    return new ot(e2, t2).format(this);
+    return new ht(e2, t2).format(this);
   }
   valueOf() {
     throw new TypeError("use compare() or equals() to compare Temporal.PlainDateTime");
@@ -5316,8 +5667,8 @@ var PlainDateTime = class {
   toZonedDateTime(e2, t2) {
     if (!IsTemporalDateTime(this))
       throw new TypeError("invalid receiver");
-    const o2 = ToTemporalTimeZone(e2);
-    return CreateTemporalZonedDateTime(GetSlot(BuiltinTimeZoneGetInstantFor(o2, this, ToTemporalDisambiguation(GetOptionsObject(t2))), r), o2, GetSlot(this, u));
+    const r2 = ToTemporalTimeZoneSlotValue(e2);
+    return CreateTemporalZonedDateTime(GetSlot(GetInstantFor(r2, this, ToTemporalDisambiguation(GetOptionsObject(t2))), n), r2, GetSlot(this, p));
   }
   toPlainDate() {
     if (!IsTemporalDateTime(this))
@@ -5327,13 +5678,13 @@ var PlainDateTime = class {
   toPlainYearMonth() {
     if (!IsTemporalDateTime(this))
       throw new TypeError("invalid receiver");
-    const e2 = GetSlot(this, u);
+    const e2 = GetSlot(this, p);
     return CalendarYearMonthFromFields(e2, PrepareTemporalFields(this, CalendarFields(e2, ["monthCode", "year"]), []));
   }
   toPlainMonthDay() {
     if (!IsTemporalDateTime(this))
       throw new TypeError("invalid receiver");
-    const e2 = GetSlot(this, u);
+    const e2 = GetSlot(this, p);
     return CalendarMonthDayFromFields(e2, PrepareTemporalFields(this, CalendarFields(e2, ["day", "monthCode"]), []));
   }
   toPlainTime() {
@@ -5344,15 +5695,20 @@ var PlainDateTime = class {
   getISOFields() {
     if (!IsTemporalDateTime(this))
       throw new TypeError("invalid receiver");
-    return { calendar: GetSlot(this, u), isoDay: GetSlot(this, i), isoHour: GetSlot(this, s), isoMicrosecond: GetSlot(this, c), isoMillisecond: GetSlot(this, m), isoMinute: GetSlot(this, l), isoMonth: GetSlot(this, a), isoNanosecond: GetSlot(this, h), isoSecond: GetSlot(this, d), isoYear: GetSlot(this, n) };
+    return { calendar: GetSlot(this, p), isoDay: GetSlot(this, l), isoHour: GetSlot(this, d), isoMicrosecond: GetSlot(this, u), isoMillisecond: GetSlot(this, h), isoMinute: GetSlot(this, m), isoMonth: GetSlot(this, s), isoNanosecond: GetSlot(this, T), isoSecond: GetSlot(this, c), isoYear: GetSlot(this, i) };
+  }
+  getCalendar() {
+    if (!IsTemporalDateTime(this))
+      throw new TypeError("invalid receiver");
+    return ToTemporalCalendarObject(GetSlot(this, p));
   }
   static from(e2, t2) {
     const r2 = GetOptionsObject(t2);
-    return IsTemporalDateTime(e2) ? (ToTemporalOverflow(r2), CreateTemporalDateTime(GetSlot(e2, n), GetSlot(e2, a), GetSlot(e2, i), GetSlot(e2, s), GetSlot(e2, l), GetSlot(e2, d), GetSlot(e2, m), GetSlot(e2, c), GetSlot(e2, h), GetSlot(e2, u))) : ToTemporalDateTime(e2, r2);
+    return IsTemporalDateTime(e2) ? (ToTemporalOverflow(r2), CreateTemporalDateTime(GetSlot(e2, i), GetSlot(e2, s), GetSlot(e2, l), GetSlot(e2, d), GetSlot(e2, m), GetSlot(e2, c), GetSlot(e2, h), GetSlot(e2, u), GetSlot(e2, T), GetSlot(e2, p))) : ToTemporalDateTime(e2, r2);
   }
   static compare(e2, t2) {
     const r2 = ToTemporalDateTime(e2), o2 = ToTemporalDateTime(t2);
-    for (const e3 of [n, a, i, s, l, d, m, c, h]) {
+    for (const e3 of [i, s, l, d, m, c, h, u, T]) {
       const t3 = GetSlot(r2, e3), n2 = GetSlot(o2, e3);
       if (t3 !== n2)
         return ComparisonResult(t3 - n2);
@@ -5363,76 +5719,73 @@ var PlainDateTime = class {
 MakeIntrinsicClass(PlainDateTime, "Temporal.PlainDateTime");
 var Duration = class {
   constructor(e2 = 0, t2 = 0, r2 = 0, o2 = 0, n2 = 0, a2 = 0, i2 = 0, s2 = 0, l2 = 0, d2 = 0) {
-    const m2 = ToIntegerWithoutRounding(e2), c2 = ToIntegerWithoutRounding(t2), h2 = ToIntegerWithoutRounding(r2), u2 = ToIntegerWithoutRounding(o2), T2 = ToIntegerWithoutRounding(n2), p2 = ToIntegerWithoutRounding(a2), C2 = ToIntegerWithoutRounding(i2), E2 = ToIntegerWithoutRounding(s2), b2 = ToIntegerWithoutRounding(l2), M2 = ToIntegerWithoutRounding(d2);
-    RejectDuration(m2, c2, h2, u2, T2, p2, C2, E2, b2, M2), CreateSlots(this), SetSlot(this, f, m2), SetSlot(this, y, c2), SetSlot(this, S, h2), SetSlot(this, w, u2), SetSlot(this, g, T2), SetSlot(this, I, p2), SetSlot(this, D, C2), SetSlot(this, G, E2), SetSlot(this, v, b2), SetSlot(this, O, M2);
+    const m2 = void 0 === e2 ? 0 : ToIntegerIfIntegral(e2), c2 = void 0 === t2 ? 0 : ToIntegerIfIntegral(t2), h2 = void 0 === r2 ? 0 : ToIntegerIfIntegral(r2), u2 = void 0 === o2 ? 0 : ToIntegerIfIntegral(o2), T2 = void 0 === n2 ? 0 : ToIntegerIfIntegral(n2), p2 = void 0 === a2 ? 0 : ToIntegerIfIntegral(a2), f2 = void 0 === i2 ? 0 : ToIntegerIfIntegral(i2), y2 = void 0 === s2 ? 0 : ToIntegerIfIntegral(s2), I2 = void 0 === l2 ? 0 : ToIntegerIfIntegral(l2), S2 = void 0 === d2 ? 0 : ToIntegerIfIntegral(d2);
+    RejectDuration(m2, c2, h2, u2, T2, p2, f2, y2, I2, S2), N(this), SetSlot(this, w, m2), SetSlot(this, D, c2), SetSlot(this, G, h2), SetSlot(this, v, u2), SetSlot(this, C, T2), SetSlot(this, O, p2), SetSlot(this, b, f2), SetSlot(this, E, y2), SetSlot(this, M, I2), SetSlot(this, R, S2);
   }
   get years() {
     if (!IsTemporalDuration(this))
       throw new TypeError("invalid receiver");
-    return GetSlot(this, f);
+    return GetSlot(this, w);
   }
   get months() {
     if (!IsTemporalDuration(this))
       throw new TypeError("invalid receiver");
-    return GetSlot(this, y);
+    return GetSlot(this, D);
   }
   get weeks() {
     if (!IsTemporalDuration(this))
       throw new TypeError("invalid receiver");
-    return GetSlot(this, S);
+    return GetSlot(this, G);
   }
   get days() {
     if (!IsTemporalDuration(this))
       throw new TypeError("invalid receiver");
-    return GetSlot(this, w);
+    return GetSlot(this, v);
   }
   get hours() {
     if (!IsTemporalDuration(this))
       throw new TypeError("invalid receiver");
-    return GetSlot(this, g);
+    return GetSlot(this, C);
   }
   get minutes() {
     if (!IsTemporalDuration(this))
       throw new TypeError("invalid receiver");
-    return GetSlot(this, I);
+    return GetSlot(this, O);
   }
   get seconds() {
     if (!IsTemporalDuration(this))
       throw new TypeError("invalid receiver");
-    return GetSlot(this, D);
+    return GetSlot(this, b);
   }
   get milliseconds() {
     if (!IsTemporalDuration(this))
       throw new TypeError("invalid receiver");
-    return GetSlot(this, G);
+    return GetSlot(this, E);
   }
   get microseconds() {
     if (!IsTemporalDuration(this))
       throw new TypeError("invalid receiver");
-    return GetSlot(this, v);
+    return GetSlot(this, M);
   }
   get nanoseconds() {
     if (!IsTemporalDuration(this))
       throw new TypeError("invalid receiver");
-    return GetSlot(this, O);
+    return GetSlot(this, R);
   }
   get sign() {
     if (!IsTemporalDuration(this))
       throw new TypeError("invalid receiver");
-    return DurationSign(GetSlot(this, f), GetSlot(this, y), GetSlot(this, S), GetSlot(this, w), GetSlot(this, g), GetSlot(this, I), GetSlot(this, D), GetSlot(this, G), GetSlot(this, v), GetSlot(this, O));
+    return DurationSign(GetSlot(this, w), GetSlot(this, D), GetSlot(this, G), GetSlot(this, v), GetSlot(this, C), GetSlot(this, O), GetSlot(this, b), GetSlot(this, E), GetSlot(this, M), GetSlot(this, R));
   }
   get blank() {
     if (!IsTemporalDuration(this))
       throw new TypeError("invalid receiver");
-    return 0 === DurationSign(GetSlot(this, f), GetSlot(this, y), GetSlot(this, S), GetSlot(this, w), GetSlot(this, g), GetSlot(this, I), GetSlot(this, D), GetSlot(this, G), GetSlot(this, v), GetSlot(this, O));
+    return 0 === DurationSign(GetSlot(this, w), GetSlot(this, D), GetSlot(this, G), GetSlot(this, v), GetSlot(this, C), GetSlot(this, O), GetSlot(this, b), GetSlot(this, E), GetSlot(this, M), GetSlot(this, R));
   }
   with(e2) {
     if (!IsTemporalDuration(this))
       throw new TypeError("invalid receiver");
-    const t2 = PrepareTemporalFields(e2, ["days", "hours", "microseconds", "milliseconds", "minutes", "months", "nanoseconds", "seconds", "weeks", "years"], "partial");
-    if (!t2)
-      throw new TypeError("invalid duration-like");
-    const { years: r2 = GetSlot(this, f), months: o2 = GetSlot(this, y), weeks: n2 = GetSlot(this, S), days: a2 = GetSlot(this, w), hours: i2 = GetSlot(this, g), minutes: s2 = GetSlot(this, I), seconds: l2 = GetSlot(this, D), milliseconds: d2 = GetSlot(this, G), microseconds: m2 = GetSlot(this, v), nanoseconds: c2 = GetSlot(this, O) } = t2;
+    const t2 = PrepareTemporalFields(e2, ["days", "hours", "microseconds", "milliseconds", "minutes", "months", "nanoseconds", "seconds", "weeks", "years"], "partial"), { years: r2 = GetSlot(this, w), months: o2 = GetSlot(this, D), weeks: n2 = GetSlot(this, G), days: a2 = GetSlot(this, v), hours: i2 = GetSlot(this, C), minutes: s2 = GetSlot(this, O), seconds: l2 = GetSlot(this, b), milliseconds: d2 = GetSlot(this, E), microseconds: m2 = GetSlot(this, M), nanoseconds: c2 = GetSlot(this, R) } = t2;
     return new Duration(r2, o2, n2, a2, i2, s2, l2, d2, m2, c2);
   }
   negated() {
@@ -5443,7 +5796,7 @@ var Duration = class {
   abs() {
     if (!IsTemporalDuration(this))
       throw new TypeError("invalid receiver");
-    return new Duration(Math.abs(GetSlot(this, f)), Math.abs(GetSlot(this, y)), Math.abs(GetSlot(this, S)), Math.abs(GetSlot(this, w)), Math.abs(GetSlot(this, g)), Math.abs(GetSlot(this, I)), Math.abs(GetSlot(this, D)), Math.abs(GetSlot(this, G)), Math.abs(GetSlot(this, v)), Math.abs(GetSlot(this, O)));
+    return new Duration(Math.abs(GetSlot(this, w)), Math.abs(GetSlot(this, D)), Math.abs(GetSlot(this, G)), Math.abs(GetSlot(this, v)), Math.abs(GetSlot(this, C)), Math.abs(GetSlot(this, O)), Math.abs(GetSlot(this, b)), Math.abs(GetSlot(this, E)), Math.abs(GetSlot(this, M)), Math.abs(GetSlot(this, R)));
   }
   add(e2, t2) {
     if (!IsTemporalDuration(this))
@@ -5455,90 +5808,100 @@ var Duration = class {
       throw new TypeError("invalid receiver");
     return AddDurationToOrSubtractDurationFromDuration("subtract", this, e2, t2);
   }
-  round(e2) {
+  round(t2) {
     if (!IsTemporalDuration(this))
       throw new TypeError("invalid receiver");
-    if (void 0 === e2)
+    if (void 0 === t2)
       throw new TypeError("options parameter is required");
-    let t2 = GetSlot(this, f), r2 = GetSlot(this, y), o2 = GetSlot(this, S), n2 = GetSlot(this, w), a2 = GetSlot(this, g), i2 = GetSlot(this, I), s2 = GetSlot(this, D), l2 = GetSlot(this, G), d2 = GetSlot(this, v), m2 = GetSlot(this, O), c2 = DefaultTemporalLargestUnit(t2, r2, o2, n2, a2, i2, s2, l2, d2, m2);
-    const h2 = "string" == typeof e2 ? CreateOnePropObject("smallestUnit", e2) : GetOptionsObject(e2);
-    let T2 = GetTemporalUnit(h2, "smallestUnit", "datetime", void 0), p2 = true;
-    T2 || (p2 = false, T2 = "nanosecond"), c2 = LargerOfTwoTemporalUnits(c2, T2);
-    let C2 = GetTemporalUnit(h2, "largestUnit", "datetime", void 0, ["auto"]), E2 = true;
-    if (C2 || (E2 = false, C2 = c2), "auto" === C2 && (C2 = c2), !p2 && !E2)
+    let r2 = GetSlot(this, w), o2 = GetSlot(this, D), n2 = GetSlot(this, G), a2 = GetSlot(this, v), i2 = GetSlot(this, C), s2 = GetSlot(this, O), l2 = GetSlot(this, b), d2 = GetSlot(this, E), m2 = GetSlot(this, M), c2 = GetSlot(this, R), h2 = DefaultTemporalLargestUnit(r2, o2, n2, a2, i2, s2, l2, d2, m2, c2);
+    const u2 = "string" == typeof t2 ? CreateOnePropObject("smallestUnit", t2) : GetOptionsObject(t2);
+    let T2 = GetTemporalUnit(u2, "largestUnit", "datetime", void 0, ["auto"]), f2 = ToRelativeTemporalObject(u2);
+    const y2 = ToTemporalRoundingIncrement(u2), I2 = ToTemporalRoundingMode(u2, "halfExpand");
+    let S2 = GetTemporalUnit(u2, "smallestUnit", "datetime", void 0), g2 = true;
+    S2 || (g2 = false, S2 = "nanosecond"), h2 = LargerOfTwoTemporalUnits(h2, S2);
+    let F2 = true;
+    if (T2 || (F2 = false, T2 = h2), "auto" === T2 && (T2 = h2), !g2 && !F2)
       throw new RangeError("at least one of smallestUnit or largestUnit is required");
-    if (LargerOfTwoTemporalUnits(C2, T2) !== C2)
-      throw new RangeError(`largestUnit ${C2} cannot be smaller than smallestUnit ${T2}`);
-    const b2 = ToTemporalRoundingMode(h2, "halfExpand"), M2 = ToTemporalDateTimeRoundingIncrement(h2, T2);
-    let R2 = ToRelativeTemporalObject(h2);
-    return { years: t2, months: r2, weeks: o2, days: n2 } = UnbalanceDurationRelative(t2, r2, o2, n2, C2, R2), { years: t2, months: r2, weeks: o2, days: n2, hours: a2, minutes: i2, seconds: s2, milliseconds: l2, microseconds: d2, nanoseconds: m2 } = RoundDuration(t2, r2, o2, n2, a2, i2, s2, l2, d2, m2, M2, T2, b2, R2), { years: t2, months: r2, weeks: o2, days: n2, hours: a2, minutes: i2, seconds: s2, milliseconds: l2, microseconds: d2, nanoseconds: m2 } = AdjustRoundedDurationDays(t2, r2, o2, n2, a2, i2, s2, l2, d2, m2, M2, T2, b2, R2), { years: t2, months: r2, weeks: o2, days: n2 } = function BalanceDurationRelative(e3, t3, r3, o3, n3, a3) {
-      let i3 = e3, s3 = t3, l3 = r3, d3 = o3;
-      const m3 = GetIntrinsic("%Temporal.Duration%"), c3 = DurationSign(i3, s3, l3, d3, 0, 0, 0, 0, 0, 0);
-      if (0 === c3)
-        return { years: i3, months: s3, weeks: l3, days: d3 };
-      let h3, T3;
-      a3 && (T3 = ToTemporalDate(a3), h3 = GetSlot(T3, u));
-      const p3 = new m3(c3), f2 = new m3(0, c3), S2 = new m3(0, 0, c3);
-      switch (n3) {
+    if (LargerOfTwoTemporalUnits(T2, S2) !== T2)
+      throw new RangeError(`largestUnit ${T2} cannot be smaller than smallestUnit ${S2}`);
+    const Y2 = { hour: 24, minute: 60, second: 60, millisecond: 1e3, microsecond: 1e3, nanosecond: 1e3 }[S2];
+    return void 0 !== Y2 && ValidateTemporalRoundingIncrement(y2, Y2, false), { years: r2, months: o2, weeks: n2, days: a2 } = UnbalanceDurationRelative(r2, o2, n2, a2, T2, f2), { years: r2, months: o2, weeks: n2, days: a2, hours: i2, minutes: s2, seconds: l2, milliseconds: d2, microseconds: m2, nanoseconds: c2 } = RoundDuration(r2, o2, n2, a2, i2, s2, l2, d2, m2, c2, y2, S2, I2, f2), { years: r2, months: o2, weeks: n2, days: a2, hours: i2, minutes: s2, seconds: l2, milliseconds: d2, microseconds: m2, nanoseconds: c2 } = AdjustRoundedDurationDays(r2, o2, n2, a2, i2, s2, l2, d2, m2, c2, y2, S2, I2, f2), { days: a2, hours: i2, minutes: s2, seconds: l2, milliseconds: d2, microseconds: m2, nanoseconds: c2 } = BalanceDuration(a2, i2, s2, l2, d2, m2, c2, T2, f2), { years: r2, months: o2, weeks: n2, days: a2 } = function BalanceDurationRelative(t3, r3, o3, n3, a3, i3) {
+      const s3 = GetIntrinsic("%Temporal.Duration%"), l3 = DurationSign(t3, r3, o3, n3, 0, 0, 0, 0, 0, 0);
+      if (0 === l3)
+        return { years: t3, months: r3, weeks: o3, days: n3 };
+      const d3 = import_jsbi.default.BigInt(l3);
+      let m3, c3, h3 = import_jsbi.default.BigInt(t3), u3 = import_jsbi.default.BigInt(r3), T3 = import_jsbi.default.BigInt(o3), f3 = import_jsbi.default.BigInt(n3);
+      i3 && (c3 = ToTemporalDate(i3), m3 = GetSlot(c3, p));
+      const y3 = new s3(l3), I3 = new s3(0, l3), S3 = new s3(0, 0, l3);
+      switch (a3) {
         case "year": {
-          if (!h3)
+          if (!m3)
             throw new RangeError("a starting point is required for years balancing");
-          let e4, t4, r4;
-          for ({ relativeTo: e4, days: t4 } = MoveRelativeDate(h3, T3, p3); K(d3) >= K(t4); )
-            d3 -= t4, i3 += c3, T3 = e4, { relativeTo: e4, days: t4 } = MoveRelativeDate(h3, T3, p3);
-          for ({ relativeTo: e4, days: r4 } = MoveRelativeDate(h3, T3, f2); K(d3) >= K(r4); )
-            d3 -= r4, s3 += c3, T3 = e4, { relativeTo: e4, days: r4 } = MoveRelativeDate(h3, T3, f2);
-          const o4 = h3.dateAdd;
-          e4 = CalendarDateAdd(h3, T3, p3, void 0, o4);
-          const n4 = h3.dateUntil, a4 = le(null);
-          a4.largestUnit = "month";
-          let l4 = CalendarDateUntil(h3, T3, e4, a4, n4), m4 = GetSlot(l4, y);
-          for (; K(s3) >= K(m4); ) {
-            s3 -= m4, i3 += c3, T3 = e4, e4 = CalendarDateAdd(h3, T3, p3, void 0, o4);
-            const t5 = le(null);
-            t5.largestUnit = "month", l4 = CalendarDateUntil(h3, T3, e4, t5, n4), m4 = GetSlot(l4, y);
+          const t4 = "string" != typeof m3 ? GetMethod(m3, "dateAdd") : void 0;
+          let r4, o4, n4;
+          for ({ relativeTo: r4, days: o4 } = MoveRelativeDate(m3, c3, y3, t4); import_jsbi.default.greaterThanOrEqual(abs(f3), import_jsbi.default.BigInt(ae(o4))); )
+            f3 = import_jsbi.default.subtract(f3, import_jsbi.default.BigInt(o4)), h3 = import_jsbi.default.add(h3, d3), c3 = r4, { relativeTo: r4, days: o4 } = MoveRelativeDate(m3, c3, y3, t4);
+          for ({ relativeTo: r4, days: n4 } = MoveRelativeDate(m3, c3, I3, t4); import_jsbi.default.greaterThanOrEqual(abs(f3), import_jsbi.default.BigInt(ae(n4))); )
+            f3 = import_jsbi.default.subtract(f3, import_jsbi.default.BigInt(n4)), u3 = import_jsbi.default.add(u3, d3), c3 = r4, { relativeTo: r4, days: n4 } = MoveRelativeDate(m3, c3, I3, t4);
+          r4 = CalendarDateAdd(m3, c3, y3, void 0, t4);
+          const a4 = "string" != typeof m3 ? GetMethod(m3, "dateUntil") : void 0, i4 = Te(null);
+          i4.largestUnit = "month";
+          let s4 = CalendarDateUntil(m3, c3, r4, i4, a4), l4 = GetSlot(s4, D);
+          for (; import_jsbi.default.greaterThanOrEqual(abs(u3), import_jsbi.default.BigInt(ae(l4))); ) {
+            u3 = import_jsbi.default.subtract(u3, import_jsbi.default.BigInt(l4)), h3 = import_jsbi.default.add(h3, d3), c3 = r4, r4 = CalendarDateAdd(m3, c3, y3, void 0, t4);
+            const o5 = Te(null);
+            o5.largestUnit = "month", s4 = CalendarDateUntil(m3, c3, r4, o5, a4), l4 = GetSlot(s4, D);
           }
           break;
         }
         case "month": {
-          if (!h3)
+          if (!m3)
             throw new RangeError("a starting point is required for months balancing");
-          let e4, t4;
-          for ({ relativeTo: e4, days: t4 } = MoveRelativeDate(h3, T3, f2); K(d3) >= K(t4); )
-            d3 -= t4, s3 += c3, T3 = e4, { relativeTo: e4, days: t4 } = MoveRelativeDate(h3, T3, f2);
+          const t4 = "string" != typeof m3 ? GetMethod(m3, "dateAdd") : void 0;
+          let r4, o4;
+          for ({ relativeTo: r4, days: o4 } = MoveRelativeDate(m3, c3, I3, t4); import_jsbi.default.greaterThanOrEqual(abs(f3), import_jsbi.default.BigInt(ae(o4))); )
+            f3 = import_jsbi.default.subtract(f3, import_jsbi.default.BigInt(o4)), u3 = import_jsbi.default.add(u3, d3), c3 = r4, { relativeTo: r4, days: o4 } = MoveRelativeDate(m3, c3, I3, t4);
           break;
         }
         case "week": {
-          if (!h3)
+          if (!m3)
             throw new RangeError("a starting point is required for weeks balancing");
-          let e4, t4;
-          for ({ relativeTo: e4, days: t4 } = MoveRelativeDate(h3, T3, S2); K(d3) >= K(t4); )
-            d3 -= t4, l3 += c3, T3 = e4, { relativeTo: e4, days: t4 } = MoveRelativeDate(h3, T3, S2);
+          const t4 = "string" != typeof m3 ? GetMethod(m3, "dateAdd") : void 0;
+          let r4, o4;
+          for ({ relativeTo: r4, days: o4 } = MoveRelativeDate(m3, c3, S3, t4); import_jsbi.default.greaterThanOrEqual(abs(f3), import_jsbi.default.BigInt(ae(o4))); )
+            f3 = import_jsbi.default.subtract(f3, import_jsbi.default.BigInt(o4)), T3 = import_jsbi.default.add(T3, d3), c3 = r4, { relativeTo: r4, days: o4 } = MoveRelativeDate(m3, c3, S3, t4);
           break;
         }
       }
-      return { years: i3, months: s3, weeks: l3, days: d3 };
-    }(t2, r2, o2, n2, C2, R2), IsTemporalZonedDateTime(R2) && (R2 = MoveRelativeZonedDateTime(R2, t2, r2, o2, 0)), { days: n2, hours: a2, minutes: i2, seconds: s2, milliseconds: l2, microseconds: d2, nanoseconds: m2 } = BalanceDuration(n2, a2, i2, s2, l2, d2, m2, C2, R2), new Duration(t2, r2, o2, n2, a2, i2, s2, l2, d2, m2);
+      return { years: import_jsbi.default.toNumber(h3), months: import_jsbi.default.toNumber(u3), weeks: import_jsbi.default.toNumber(T3), days: import_jsbi.default.toNumber(f3) };
+    }(r2, o2, n2, a2, T2, f2), new Duration(r2, o2, n2, a2, i2, s2, l2, d2, m2, c2);
   }
   total(e2) {
     if (!IsTemporalDuration(this))
       throw new TypeError("invalid receiver");
-    let t2 = GetSlot(this, f), r2 = GetSlot(this, y), o2 = GetSlot(this, S), n2 = GetSlot(this, w), a2 = GetSlot(this, g), i2 = GetSlot(this, I), s2 = GetSlot(this, D), l2 = GetSlot(this, G), d2 = GetSlot(this, v), m2 = GetSlot(this, O);
+    let t2 = GetSlot(this, w), r2 = GetSlot(this, D), o2 = GetSlot(this, G), n2 = GetSlot(this, v), a2 = GetSlot(this, C), i2 = GetSlot(this, O), s2 = GetSlot(this, b), l2 = GetSlot(this, E), d2 = GetSlot(this, M), m2 = GetSlot(this, R);
     if (void 0 === e2)
       throw new TypeError("options argument is required");
-    const c2 = "string" == typeof e2 ? CreateOnePropObject("unit", e2) : GetOptionsObject(e2), h2 = GetTemporalUnit(c2, "unit", "datetime", je), u2 = ToRelativeTemporalObject(c2);
+    const c2 = "string" == typeof e2 ? CreateOnePropObject("unit", e2) : GetOptionsObject(e2), h2 = ToRelativeTemporalObject(c2), u2 = GetTemporalUnit(c2, "unit", "datetime", He);
     let T2;
-    ({ years: t2, months: r2, weeks: o2, days: n2 } = UnbalanceDurationRelative(t2, r2, o2, n2, h2, u2)), IsTemporalZonedDateTime(u2) && (T2 = MoveRelativeZonedDateTime(u2, t2, r2, o2, 0)), { days: n2, hours: a2, minutes: i2, seconds: s2, milliseconds: l2, microseconds: d2, nanoseconds: m2 } = BalanceDuration(n2, a2, i2, s2, l2, d2, m2, h2, T2);
-    const { total: p2 } = RoundDuration(t2, r2, o2, n2, a2, i2, s2, l2, d2, m2, 1, h2, "trunc", u2);
-    return p2;
+    ({ years: t2, months: r2, weeks: o2, days: n2 } = UnbalanceDurationRelative(t2, r2, o2, n2, u2, h2)), IsTemporalZonedDateTime(h2) && (T2 = MoveRelativeZonedDateTime(h2, t2, r2, o2, 0));
+    let p2 = BalancePossiblyInfiniteDuration(n2, a2, i2, s2, l2, d2, m2, u2, T2);
+    if ("positive overflow" === p2)
+      return 1 / 0;
+    if ("negative overflow" === p2)
+      return -1 / 0;
+    ({ days: n2, hours: a2, minutes: i2, seconds: s2, milliseconds: l2, microseconds: d2, nanoseconds: m2 } = p2);
+    const { total: f2 } = RoundDuration(t2, r2, o2, n2, a2, i2, s2, l2, d2, m2, 1, u2, "trunc", h2);
+    return f2;
   }
   toString(e2) {
     if (!IsTemporalDuration(this))
       throw new TypeError("invalid receiver");
-    const t2 = GetOptionsObject(e2), { precision: r2, unit: o2, increment: n2 } = ToSecondsStringPrecision(t2);
-    if ("minute" === r2)
-      throw new RangeError('smallestUnit must not be "minute"');
-    return TemporalDurationToString(this, r2, { unit: o2, increment: n2, roundingMode: ToTemporalRoundingMode(t2, "trunc") });
+    const t2 = GetOptionsObject(e2), r2 = ToFractionalSecondDigits(t2), o2 = ToTemporalRoundingMode(t2, "trunc"), n2 = GetTemporalUnit(t2, "smallestUnit", "time", void 0);
+    if ("hour" === n2 || "minute" === n2)
+      throw new RangeError('smallestUnit must be a time unit other than "hours" or "minutes"');
+    const { precision: a2, unit: i2, increment: s2 } = ToSecondsStringPrecisionRecord(n2, r2);
+    return TemporalDurationToString(this, a2, { unit: i2, increment: s2, roundingMode: o2 });
   }
   toJSON() {
     if (!IsTemporalDuration(this))
@@ -5554,74 +5917,68 @@ var Duration = class {
     throw new TypeError("use compare() to compare Temporal.Duration");
   }
   static from(e2) {
-    return IsTemporalDuration(e2) ? new Duration(GetSlot(e2, f), GetSlot(e2, y), GetSlot(e2, S), GetSlot(e2, w), GetSlot(e2, g), GetSlot(e2, I), GetSlot(e2, D), GetSlot(e2, G), GetSlot(e2, v), GetSlot(e2, O)) : ToTemporalDuration(e2);
+    return IsTemporalDuration(e2) ? new Duration(GetSlot(e2, w), GetSlot(e2, D), GetSlot(e2, G), GetSlot(e2, v), GetSlot(e2, C), GetSlot(e2, O), GetSlot(e2, b), GetSlot(e2, E), GetSlot(e2, M), GetSlot(e2, R)) : ToTemporalDuration(e2);
   }
   static compare(t2, r2, o2) {
-    const n2 = ToTemporalDuration(t2), a2 = ToTemporalDuration(r2), i2 = ToRelativeTemporalObject(GetOptionsObject(o2)), s2 = GetSlot(n2, f), l2 = GetSlot(n2, y), d2 = GetSlot(n2, S);
-    let m2 = GetSlot(n2, w);
-    const c2 = GetSlot(n2, g), h2 = GetSlot(n2, I), u2 = GetSlot(n2, D), T2 = GetSlot(n2, G), p2 = GetSlot(n2, v);
-    let C2 = GetSlot(n2, O);
-    const E2 = GetSlot(a2, f), b2 = GetSlot(a2, y), M2 = GetSlot(a2, S);
-    let R2 = GetSlot(a2, w);
-    const Z2 = GetSlot(a2, g), P2 = GetSlot(a2, I), F2 = GetSlot(a2, D), Y2 = GetSlot(a2, G), j2 = GetSlot(a2, v);
-    let $2 = GetSlot(a2, O);
-    const B2 = CalculateOffsetShift(i2, s2, l2, d2, m2), N2 = CalculateOffsetShift(i2, E2, b2, M2, R2);
-    0 === s2 && 0 === E2 && 0 === l2 && 0 === b2 && 0 === d2 && 0 === M2 || ({ days: m2 } = UnbalanceDurationRelative(s2, l2, d2, m2, "day", i2), { days: R2 } = UnbalanceDurationRelative(E2, b2, M2, R2, "day", i2));
-    const k2 = TotalDurationNanoseconds(m2, c2, h2, u2, T2, p2, C2, B2), A2 = TotalDurationNanoseconds(R2, Z2, P2, F2, Y2, j2, $2, N2);
-    return ComparisonResult(import_jsbi.default.toNumber(import_jsbi.default.subtract(k2, A2)));
+    const n2 = ToTemporalDuration(t2), a2 = ToTemporalDuration(r2), i2 = ToRelativeTemporalObject(GetOptionsObject(o2)), s2 = GetSlot(n2, w), l2 = GetSlot(n2, D), d2 = GetSlot(n2, G);
+    let m2 = GetSlot(n2, v);
+    const c2 = GetSlot(n2, C), h2 = GetSlot(n2, O), u2 = GetSlot(n2, b), T2 = GetSlot(n2, E), p2 = GetSlot(n2, M);
+    let f2 = GetSlot(n2, R);
+    const y2 = GetSlot(a2, w), I2 = GetSlot(a2, D), S2 = GetSlot(a2, G);
+    let g2 = GetSlot(a2, v);
+    const F2 = GetSlot(a2, C), Y2 = GetSlot(a2, O), P2 = GetSlot(a2, b), Z2 = GetSlot(a2, E), B2 = GetSlot(a2, M);
+    let N2 = GetSlot(a2, R);
+    const j2 = CalculateOffsetShift(i2, s2, l2, d2, m2), $2 = CalculateOffsetShift(i2, y2, I2, S2, g2);
+    0 === s2 && 0 === y2 && 0 === l2 && 0 === I2 && 0 === d2 && 0 === S2 || ({ days: m2 } = UnbalanceDurationRelative(s2, l2, d2, m2, "day", i2), { days: g2 } = UnbalanceDurationRelative(y2, I2, S2, g2, "day", i2));
+    const k2 = TotalDurationNanoseconds(m2, c2, h2, u2, T2, p2, f2, j2), U2 = TotalDurationNanoseconds(g2, F2, Y2, P2, Z2, B2, N2, $2);
+    return ComparisonResult(import_jsbi.default.toNumber(import_jsbi.default.subtract(k2, U2)));
   }
 };
 MakeIntrinsicClass(Duration, "Temporal.Duration");
-var pt = Object.create;
+var bt = Object.create;
 var PlainMonthDay = class {
-  constructor(e2, t2, r2 = GetISO8601Calendar(), o2 = 1972) {
-    const n2 = ToIntegerThrowOnInfinity(e2), a2 = ToIntegerThrowOnInfinity(t2), i2 = ToTemporalCalendar(r2), s2 = ToIntegerThrowOnInfinity(o2);
-    if (arguments.length < 2)
-      throw new RangeError("missing argument: isoMonth and isoDay are required");
-    CreateTemporalMonthDaySlots(this, n2, a2, i2, s2);
+  constructor(e2, t2, r2 = "iso8601", o2 = 1972) {
+    CreateTemporalMonthDaySlots(this, ToIntegerWithTruncation(e2), ToIntegerWithTruncation(t2), ToTemporalCalendarSlotValue(r2), ToIntegerWithTruncation(o2));
   }
   get monthCode() {
     if (!IsTemporalMonthDay(this))
       throw new TypeError("invalid receiver");
-    return CalendarMonthCode(GetSlot(this, u), this);
+    return CalendarMonthCode(GetSlot(this, p), this);
   }
   get day() {
     if (!IsTemporalMonthDay(this))
       throw new TypeError("invalid receiver");
-    return CalendarDay(GetSlot(this, u), this);
+    return CalendarDay(GetSlot(this, p), this);
   }
-  get calendar() {
+  get calendarId() {
     if (!IsTemporalMonthDay(this))
       throw new TypeError("invalid receiver");
-    return GetSlot(this, u);
+    return ToTemporalCalendarIdentifier(GetSlot(this, p));
   }
   with(e2, t2) {
     if (!IsTemporalMonthDay(this))
       throw new TypeError("invalid receiver");
     if (!IsObject(e2))
       throw new TypeError("invalid argument");
-    RejectObjectWithCalendarOrTimeZone(e2);
-    const r2 = GetSlot(this, u), o2 = CalendarFields(r2, ["day", "month", "monthCode", "year"]), n2 = PrepareTemporalFields(e2, o2, "partial");
-    if (!n2)
-      throw new TypeError("invalid month-day-like");
-    let a2 = PrepareTemporalFields(this, o2, []);
-    a2 = CalendarMergeFields(r2, a2, n2), a2 = PrepareTemporalFields(a2, o2, []);
-    return CalendarMonthDayFromFields(r2, a2, GetOptionsObject(t2));
+    RejectTemporalLikeObject(e2);
+    const r2 = GetOptionsObject(t2), o2 = GetSlot(this, p), n2 = CalendarFields(o2, ["day", "month", "monthCode", "year"]);
+    let a2 = PrepareTemporalFields(this, n2, []);
+    return a2 = CalendarMergeFields(o2, a2, PrepareTemporalFields(e2, n2, "partial")), a2 = PrepareTemporalFields(a2, n2, []), CalendarMonthDayFromFields(o2, a2, r2);
   }
   equals(e2) {
     if (!IsTemporalMonthDay(this))
       throw new TypeError("invalid receiver");
     const t2 = ToTemporalMonthDay(e2);
-    for (const e3 of [a, i, n]) {
+    for (const e3 of [s, l, i]) {
       if (GetSlot(this, e3) !== GetSlot(t2, e3))
         return false;
     }
-    return CalendarEquals(GetSlot(this, u), GetSlot(t2, u));
+    return CalendarEquals(GetSlot(this, p), GetSlot(t2, p));
   }
   toString(e2) {
     if (!IsTemporalMonthDay(this))
       throw new TypeError("invalid receiver");
-    return TemporalMonthDayToString(this, ToShowCalendarOption(GetOptionsObject(e2)));
+    return TemporalMonthDayToString(this, ToCalendarNameOption(GetOptionsObject(e2)));
   }
   toJSON() {
     if (!IsTemporalMonthDay(this))
@@ -5631,7 +5988,7 @@ var PlainMonthDay = class {
   toLocaleString(e2, t2) {
     if (!IsTemporalMonthDay(this))
       throw new TypeError("invalid receiver");
-    return new ot(e2, t2).format(this);
+    return new ht(e2, t2).format(this);
   }
   valueOf() {
     throw new TypeError("use equals() to compare Temporal.PlainMonthDay");
@@ -5641,100 +5998,93 @@ var PlainMonthDay = class {
       throw new TypeError("invalid receiver");
     if (!IsObject(e2))
       throw new TypeError("argument should be an object");
-    const t2 = GetSlot(this, u), r2 = CalendarFields(t2, ["day", "monthCode"]), o2 = PrepareTemporalFields(this, r2, []), n2 = CalendarFields(t2, ["year"]);
+    const t2 = GetSlot(this, p), r2 = CalendarFields(t2, ["day", "monthCode"]), o2 = PrepareTemporalFields(this, r2, []), n2 = CalendarFields(t2, ["year"]);
     let a2 = CalendarMergeFields(t2, o2, PrepareTemporalFields(e2, n2, []));
     a2 = PrepareTemporalFields(a2, [.../* @__PURE__ */ new Set([...r2, ...n2])], []);
-    const i2 = pt(null);
+    const i2 = bt(null);
     return i2.overflow = "reject", CalendarDateFromFields(t2, a2, i2);
   }
   getISOFields() {
     if (!IsTemporalMonthDay(this))
       throw new TypeError("invalid receiver");
-    return { calendar: GetSlot(this, u), isoDay: GetSlot(this, i), isoMonth: GetSlot(this, a), isoYear: GetSlot(this, n) };
+    return { calendar: GetSlot(this, p), isoDay: GetSlot(this, l), isoMonth: GetSlot(this, s), isoYear: GetSlot(this, i) };
+  }
+  getCalendar() {
+    if (!IsTemporalMonthDay(this))
+      throw new TypeError("invalid receiver");
+    return ToTemporalCalendarObject(GetSlot(this, p));
   }
   static from(e2, t2) {
     const r2 = GetOptionsObject(t2);
-    return IsTemporalMonthDay(e2) ? (ToTemporalOverflow(r2), CreateTemporalMonthDay(GetSlot(e2, a), GetSlot(e2, i), GetSlot(e2, u), GetSlot(e2, n))) : ToTemporalMonthDay(e2, r2);
+    return IsTemporalMonthDay(e2) ? (ToTemporalOverflow(r2), CreateTemporalMonthDay(GetSlot(e2, s), GetSlot(e2, l), GetSlot(e2, p), GetSlot(e2, i))) : ToTemporalMonthDay(e2, r2);
   }
 };
 MakeIntrinsicClass(PlainMonthDay, "Temporal.PlainMonthDay");
-var instant = () => new (GetIntrinsic("%Temporal.Instant%"))($e());
-var plainDateTime = (e2, t2 = timeZone()) => {
-  const r2 = ToTemporalTimeZone(t2), o2 = ToTemporalCalendar(e2);
-  return BuiltinTimeZoneGetPlainDateTimeFor(r2, instant(), o2);
+var instant = () => new (GetIntrinsic("%Temporal.Instant%"))(Ve());
+var plainDateTime = (e2, t2 = DefaultTimeZone()) => {
+  const r2 = ToTemporalTimeZoneSlotValue(t2), o2 = ToTemporalCalendarSlotValue(e2);
+  return GetPlainDateTimeFor(r2, instant(), o2);
 };
-var plainDateTimeISO = (e2 = timeZone()) => {
-  const t2 = ToTemporalTimeZone(e2), r2 = GetISO8601Calendar();
-  return BuiltinTimeZoneGetPlainDateTimeFor(t2, instant(), r2);
+var plainDateTimeISO = (e2 = DefaultTimeZone()) => GetPlainDateTimeFor(ToTemporalTimeZoneSlotValue(e2), instant(), "iso8601");
+var zonedDateTime = (e2, t2 = DefaultTimeZone()) => {
+  const r2 = ToTemporalTimeZoneSlotValue(t2), o2 = ToTemporalCalendarSlotValue(e2);
+  return CreateTemporalZonedDateTime(Ve(), r2, o2);
 };
-var zonedDateTime = (e2, t2 = timeZone()) => {
-  const r2 = ToTemporalTimeZone(t2), o2 = ToTemporalCalendar(e2);
-  return CreateTemporalZonedDateTime($e(), r2, o2);
-};
-var timeZone = () => function SystemTimeZone() {
-  const e2 = new J("en-us");
-  return new (GetIntrinsic("%Temporal.TimeZone%"))(ParseTemporalTimeZone(e2.resolvedOptions().timeZone));
-}();
-var ft = { instant, plainDateTime, plainDateTimeISO, plainDate: (e2, t2 = timeZone()) => TemporalDateTimeToDate(plainDateTime(e2, t2)), plainDateISO: (e2 = timeZone()) => TemporalDateTimeToDate(plainDateTimeISO(e2)), plainTimeISO: (e2 = timeZone()) => TemporalDateTimeToTime(plainDateTimeISO(e2)), timeZone, zonedDateTime, zonedDateTimeISO: (e2 = timeZone()) => zonedDateTime(GetISO8601Calendar(), e2), [Symbol.toStringTag]: "Temporal.Now" };
-Object.defineProperty(ft, Symbol.toStringTag, { value: "Temporal.Now", writable: false, enumerable: false, configurable: true });
-var yt = Object.assign;
+var Et = { instant, plainDateTime, plainDateTimeISO, plainDate: (e2, t2 = DefaultTimeZone()) => TemporalDateTimeToDate(plainDateTime(e2, t2)), plainDateISO: (e2 = DefaultTimeZone()) => TemporalDateTimeToDate(plainDateTimeISO(e2)), plainTimeISO: (e2 = DefaultTimeZone()) => TemporalDateTimeToTime(plainDateTimeISO(e2)), timeZoneId: () => DefaultTimeZone(), zonedDateTime, zonedDateTimeISO: (e2 = DefaultTimeZone()) => zonedDateTime("iso8601", e2), [Symbol.toStringTag]: "Temporal.Now" };
+Object.defineProperty(Et, Symbol.toStringTag, { value: "Temporal.Now", writable: false, enumerable: false, configurable: true });
+var Mt = Object.assign;
 function TemporalTimeToString(e2, t2, r2) {
-  let o2 = GetSlot(e2, s), n2 = GetSlot(e2, l), a2 = GetSlot(e2, d), i2 = GetSlot(e2, m), u2 = GetSlot(e2, c), T2 = GetSlot(e2, h);
+  let o2 = GetSlot(e2, d), n2 = GetSlot(e2, m), a2 = GetSlot(e2, c), i2 = GetSlot(e2, h), s2 = GetSlot(e2, u), l2 = GetSlot(e2, T);
   if (r2) {
-    const { unit: e3, increment: t3, roundingMode: s2 } = r2;
-    ({ hour: o2, minute: n2, second: a2, millisecond: i2, microsecond: u2, nanosecond: T2 } = RoundTime(o2, n2, a2, i2, u2, T2, t3, e3, s2));
+    const { unit: e3, increment: t3, roundingMode: d2 } = r2;
+    ({ hour: o2, minute: n2, second: a2, millisecond: i2, microsecond: s2, nanosecond: l2 } = RoundTime(o2, n2, a2, i2, s2, l2, t3, e3, d2));
   }
-  return `${ISODateTimePartString(o2)}:${ISODateTimePartString(n2)}${FormatSecondsStringPart(a2, i2, u2, T2, t2)}`;
+  return `${ISODateTimePartString(o2)}:${ISODateTimePartString(n2)}${FormatSecondsStringPart(a2, i2, s2, l2, t2)}`;
 }
 var PlainTime = class {
   constructor(e2 = 0, t2 = 0, r2 = 0, o2 = 0, n2 = 0, a2 = 0) {
-    const i2 = ToIntegerThrowOnInfinity(e2), T2 = ToIntegerThrowOnInfinity(t2), p2 = ToIntegerThrowOnInfinity(r2), f2 = ToIntegerThrowOnInfinity(o2), y2 = ToIntegerThrowOnInfinity(n2), S2 = ToIntegerThrowOnInfinity(a2);
-    RejectTime(i2, T2, p2, f2, y2, S2), CreateSlots(this), SetSlot(this, s, i2), SetSlot(this, l, T2), SetSlot(this, d, p2), SetSlot(this, m, f2), SetSlot(this, c, y2), SetSlot(this, h, S2), SetSlot(this, u, GetISO8601Calendar());
-  }
-  get calendar() {
-    if (!IsTemporalTime(this))
-      throw new TypeError("invalid receiver");
-    return GetSlot(this, u);
+    const i2 = void 0 === e2 ? 0 : ToIntegerWithTruncation(e2), s2 = void 0 === t2 ? 0 : ToIntegerWithTruncation(t2), l2 = void 0 === r2 ? 0 : ToIntegerWithTruncation(r2), p2 = void 0 === o2 ? 0 : ToIntegerWithTruncation(o2), f2 = void 0 === n2 ? 0 : ToIntegerWithTruncation(n2), y2 = void 0 === a2 ? 0 : ToIntegerWithTruncation(a2);
+    RejectTime(i2, s2, l2, p2, f2, y2), N(this), SetSlot(this, d, i2), SetSlot(this, m, s2), SetSlot(this, c, l2), SetSlot(this, h, p2), SetSlot(this, u, f2), SetSlot(this, T, y2);
   }
   get hour() {
     if (!IsTemporalTime(this))
       throw new TypeError("invalid receiver");
-    return GetSlot(this, s);
+    return GetSlot(this, d);
   }
   get minute() {
     if (!IsTemporalTime(this))
       throw new TypeError("invalid receiver");
-    return GetSlot(this, l);
+    return GetSlot(this, m);
   }
   get second() {
     if (!IsTemporalTime(this))
       throw new TypeError("invalid receiver");
-    return GetSlot(this, d);
+    return GetSlot(this, c);
   }
   get millisecond() {
     if (!IsTemporalTime(this))
       throw new TypeError("invalid receiver");
-    return GetSlot(this, m);
+    return GetSlot(this, h);
   }
   get microsecond() {
     if (!IsTemporalTime(this))
       throw new TypeError("invalid receiver");
-    return GetSlot(this, c);
+    return GetSlot(this, u);
   }
   get nanosecond() {
     if (!IsTemporalTime(this))
       throw new TypeError("invalid receiver");
-    return GetSlot(this, h);
+    return GetSlot(this, T);
   }
   with(e2, t2) {
     if (!IsTemporalTime(this))
       throw new TypeError("invalid receiver");
     if (!IsObject(e2))
       throw new TypeError("invalid argument");
-    RejectObjectWithCalendarOrTimeZone(e2);
-    const r2 = ToTemporalTimeRecord(e2, "partial"), o2 = ToTemporalOverflow(GetOptionsObject(t2)), n2 = ToTemporalTimeRecord(this);
-    let { hour: a2, minute: i2, second: s2, millisecond: l2, microsecond: d2, nanosecond: m2 } = yt(n2, r2);
-    return { hour: a2, minute: i2, second: s2, millisecond: l2, microsecond: d2, nanosecond: m2 } = RegulateTime(a2, i2, s2, l2, d2, m2, o2), new PlainTime(a2, i2, s2, l2, d2, m2);
+    RejectTemporalLikeObject(e2);
+    const r2 = ToTemporalOverflow(GetOptionsObject(t2)), o2 = ToTemporalTimeRecord(e2, "partial"), n2 = ToTemporalTimeRecord(this);
+    let { hour: a2, minute: i2, second: s2, millisecond: l2, microsecond: d2, nanosecond: m2 } = Mt(n2, o2);
+    return { hour: a2, minute: i2, second: s2, millisecond: l2, microsecond: d2, nanosecond: m2 } = RegulateTime(a2, i2, s2, l2, d2, m2, r2), new PlainTime(a2, i2, s2, l2, d2, m2);
   }
   add(e2) {
     if (!IsTemporalTime(this))
@@ -5761,15 +6111,16 @@ var PlainTime = class {
       throw new TypeError("invalid receiver");
     if (void 0 === e2)
       throw new TypeError("options parameter is required");
-    const t2 = "string" == typeof e2 ? CreateOnePropObject("smallestUnit", e2) : GetOptionsObject(e2), r2 = GetTemporalUnit(t2, "smallestUnit", "time", je), o2 = ToTemporalRoundingMode(t2, "halfExpand"), n2 = ToTemporalRoundingIncrement(t2, { hour: 24, minute: 60, second: 60, millisecond: 1e3, microsecond: 1e3, nanosecond: 1e3 }[r2], false);
-    let a2 = GetSlot(this, s), i2 = GetSlot(this, l), u2 = GetSlot(this, d), T2 = GetSlot(this, m), p2 = GetSlot(this, c), f2 = GetSlot(this, h);
-    return { hour: a2, minute: i2, second: u2, millisecond: T2, microsecond: p2, nanosecond: f2 } = RoundTime(a2, i2, u2, T2, p2, f2, n2, r2, o2), new PlainTime(a2, i2, u2, T2, p2, f2);
+    const t2 = "string" == typeof e2 ? CreateOnePropObject("smallestUnit", e2) : GetOptionsObject(e2), r2 = ToTemporalRoundingIncrement(t2), o2 = ToTemporalRoundingMode(t2, "halfExpand"), n2 = GetTemporalUnit(t2, "smallestUnit", "time", He);
+    ValidateTemporalRoundingIncrement(r2, { hour: 24, minute: 60, second: 60, millisecond: 1e3, microsecond: 1e3, nanosecond: 1e3 }[n2], false);
+    let a2 = GetSlot(this, d), i2 = GetSlot(this, m), s2 = GetSlot(this, c), l2 = GetSlot(this, h), p2 = GetSlot(this, u), f2 = GetSlot(this, T);
+    return { hour: a2, minute: i2, second: s2, millisecond: l2, microsecond: p2, nanosecond: f2 } = RoundTime(a2, i2, s2, l2, p2, f2, r2, n2, o2), new PlainTime(a2, i2, s2, l2, p2, f2);
   }
   equals(e2) {
     if (!IsTemporalTime(this))
       throw new TypeError("invalid receiver");
     const t2 = ToTemporalTime(e2);
-    for (const e3 of [s, l, d, m, c, h]) {
+    for (const e3 of [d, m, c, h, u, T]) {
       if (GetSlot(this, e3) !== GetSlot(t2, e3))
         return false;
     }
@@ -5778,8 +6129,11 @@ var PlainTime = class {
   toString(e2) {
     if (!IsTemporalTime(this))
       throw new TypeError("invalid receiver");
-    const t2 = GetOptionsObject(e2), { precision: r2, unit: o2, increment: n2 } = ToSecondsStringPrecision(t2);
-    return TemporalTimeToString(this, r2, { unit: o2, increment: n2, roundingMode: ToTemporalRoundingMode(t2, "trunc") });
+    const t2 = GetOptionsObject(e2), r2 = ToFractionalSecondDigits(t2), o2 = ToTemporalRoundingMode(t2, "trunc"), n2 = GetTemporalUnit(t2, "smallestUnit", "time", void 0);
+    if ("hour" === n2)
+      throw new RangeError('smallestUnit must be a time unit other than "hour"');
+    const { precision: a2, unit: i2, increment: s2 } = ToSecondsStringPrecisionRecord(n2, r2);
+    return TemporalTimeToString(this, a2, { unit: i2, increment: s2, roundingMode: o2 });
   }
   toJSON() {
     if (!IsTemporalTime(this))
@@ -5789,7 +6143,7 @@ var PlainTime = class {
   toLocaleString(e2, t2) {
     if (!IsTemporalTime(this))
       throw new TypeError("invalid receiver");
-    return new ot(e2, t2).format(this);
+    return new ht(e2, t2).format(this);
   }
   valueOf() {
     throw new TypeError("use compare() or equals() to compare Temporal.PlainTime");
@@ -5797,8 +6151,8 @@ var PlainTime = class {
   toPlainDateTime(e2) {
     if (!IsTemporalTime(this))
       throw new TypeError("invalid receiver");
-    const t2 = ToTemporalDate(e2), r2 = GetSlot(t2, n), o2 = GetSlot(t2, a), T2 = GetSlot(t2, i), p2 = GetSlot(t2, u);
-    return CreateTemporalDateTime(r2, o2, T2, GetSlot(this, s), GetSlot(this, l), GetSlot(this, d), GetSlot(this, m), GetSlot(this, c), GetSlot(this, h), p2);
+    const t2 = ToTemporalDate(e2), r2 = GetSlot(t2, i), o2 = GetSlot(t2, s), n2 = GetSlot(t2, l), a2 = GetSlot(t2, p);
+    return CreateTemporalDateTime(r2, o2, n2, GetSlot(this, d), GetSlot(this, m), GetSlot(this, c), GetSlot(this, h), GetSlot(this, u), GetSlot(this, T), a2);
   }
   toZonedDateTime(e2) {
     if (!IsTemporalTime(this))
@@ -5808,24 +6162,24 @@ var PlainTime = class {
     const t2 = e2.plainDate;
     if (void 0 === t2)
       throw new TypeError("missing date property");
-    const o2 = ToTemporalDate(t2), T2 = e2.timeZone;
-    if (void 0 === T2)
+    const r2 = ToTemporalDate(t2), o2 = e2.timeZone;
+    if (void 0 === o2)
       throw new TypeError("missing timeZone property");
-    const p2 = ToTemporalTimeZone(T2), f2 = GetSlot(o2, n), y2 = GetSlot(o2, a), S2 = GetSlot(o2, i), w2 = GetSlot(o2, u), g2 = GetSlot(this, s), I2 = GetSlot(this, l), D2 = GetSlot(this, d), G2 = GetSlot(this, m), v2 = GetSlot(this, c), O2 = GetSlot(this, h);
-    return CreateTemporalZonedDateTime(GetSlot(BuiltinTimeZoneGetInstantFor(p2, new (GetIntrinsic("%Temporal.PlainDateTime%"))(f2, y2, S2, g2, I2, D2, G2, v2, O2, w2), "compatible"), r), p2, w2);
+    const a2 = ToTemporalTimeZoneSlotValue(o2), f2 = GetSlot(r2, i), y2 = GetSlot(r2, s), I2 = GetSlot(r2, l), S2 = GetSlot(r2, p), g2 = GetSlot(this, d), w2 = GetSlot(this, m), D2 = GetSlot(this, c), G2 = GetSlot(this, h), v2 = GetSlot(this, u), C2 = GetSlot(this, T);
+    return CreateTemporalZonedDateTime(GetSlot(GetInstantFor(a2, new (GetIntrinsic("%Temporal.PlainDateTime%"))(f2, y2, I2, g2, w2, D2, G2, v2, C2, S2), "compatible"), n), a2, S2);
   }
   getISOFields() {
     if (!IsTemporalTime(this))
       throw new TypeError("invalid receiver");
-    return { calendar: GetSlot(this, u), isoHour: GetSlot(this, s), isoMicrosecond: GetSlot(this, c), isoMillisecond: GetSlot(this, m), isoMinute: GetSlot(this, l), isoNanosecond: GetSlot(this, h), isoSecond: GetSlot(this, d) };
+    return { isoHour: GetSlot(this, d), isoMicrosecond: GetSlot(this, u), isoMillisecond: GetSlot(this, h), isoMinute: GetSlot(this, m), isoNanosecond: GetSlot(this, T), isoSecond: GetSlot(this, c) };
   }
   static from(e2, t2) {
     const r2 = ToTemporalOverflow(GetOptionsObject(t2));
-    return IsTemporalTime(e2) ? new PlainTime(GetSlot(e2, s), GetSlot(e2, l), GetSlot(e2, d), GetSlot(e2, m), GetSlot(e2, c), GetSlot(e2, h)) : ToTemporalTime(e2, r2);
+    return IsTemporalTime(e2) ? new PlainTime(GetSlot(e2, d), GetSlot(e2, m), GetSlot(e2, c), GetSlot(e2, h), GetSlot(e2, u), GetSlot(e2, T)) : ToTemporalTime(e2, r2);
   }
   static compare(e2, t2) {
     const r2 = ToTemporalTime(e2), o2 = ToTemporalTime(t2);
-    for (const e3 of [s, l, d, m, c, h]) {
+    for (const e3 of [d, m, c, h, u, T]) {
       const t3 = GetSlot(r2, e3), n2 = GetSlot(o2, e3);
       if (t3 !== n2)
         return ComparisonResult(t3 - n2);
@@ -5839,172 +6193,161 @@ var TimeZone = class {
     if (arguments.length < 1)
       throw new RangeError("missing argument: identifier is required");
     const t2 = GetCanonicalTimeZoneIdentifier(e2);
-    CreateSlots(this), SetSlot(this, o, t2);
+    N(this), SetSlot(this, a, t2);
   }
   get id() {
     if (!IsTemporalTimeZone(this))
       throw new TypeError("invalid receiver");
-    return ToString(this);
+    return GetSlot(this, a);
   }
   getOffsetNanosecondsFor(e2) {
     if (!IsTemporalTimeZone(this))
       throw new TypeError("invalid receiver");
-    const t2 = ToTemporalInstant(e2), n2 = GetSlot(this, o);
-    return TestTimeZoneOffsetString(n2) ? ParseTimeZoneOffsetString(n2) : GetIANATimeZoneOffsetNanoseconds(GetSlot(t2, r), n2);
+    const t2 = ToTemporalInstant(e2), r2 = GetSlot(this, a);
+    return IsTimeZoneOffsetString(r2) ? ParseTimeZoneOffsetString(r2) : GetNamedTimeZoneOffsetNanoseconds(r2, GetSlot(t2, n));
   }
   getOffsetStringFor(e2) {
     if (!IsTemporalTimeZone(this))
       throw new TypeError("invalid receiver");
-    return BuiltinTimeZoneGetOffsetStringFor(this, ToTemporalInstant(e2));
+    return GetOffsetStringFor(this, ToTemporalInstant(e2));
   }
-  getPlainDateTimeFor(e2, t2 = GetISO8601Calendar()) {
-    return BuiltinTimeZoneGetPlainDateTimeFor(this, ToTemporalInstant(e2), ToTemporalCalendar(t2));
+  getPlainDateTimeFor(e2, t2 = "iso8601") {
+    if (!IsTemporalTimeZone(this))
+      throw new TypeError("invalid receiver");
+    return GetPlainDateTimeFor(this, ToTemporalInstant(e2), ToTemporalCalendarSlotValue(t2));
   }
   getInstantFor(e2, t2) {
     if (!IsTemporalTimeZone(this))
       throw new TypeError("invalid receiver");
-    return BuiltinTimeZoneGetInstantFor(this, ToTemporalDateTime(e2), ToTemporalDisambiguation(GetOptionsObject(t2)));
+    return GetInstantFor(this, ToTemporalDateTime(e2), ToTemporalDisambiguation(GetOptionsObject(t2)));
   }
   getPossibleInstantsFor(t2) {
     if (!IsTemporalTimeZone(this))
       throw new TypeError("invalid receiver");
-    const r2 = ToTemporalDateTime(t2), u2 = GetIntrinsic("%Temporal.Instant%"), T2 = GetSlot(this, o);
-    if (TestTimeZoneOffsetString(T2)) {
-      const t3 = GetEpochFromISOParts(GetSlot(r2, n), GetSlot(r2, a), GetSlot(r2, i), GetSlot(r2, s), GetSlot(r2, l), GetSlot(r2, d), GetSlot(r2, m), GetSlot(r2, c), GetSlot(r2, h));
+    const r2 = ToTemporalDateTime(t2), o2 = GetIntrinsic("%Temporal.Instant%"), n2 = GetSlot(this, a);
+    if (IsTimeZoneOffsetString(n2)) {
+      const t3 = GetUTCEpochNanoseconds(GetSlot(r2, i), GetSlot(r2, s), GetSlot(r2, l), GetSlot(r2, d), GetSlot(r2, m), GetSlot(r2, c), GetSlot(r2, h), GetSlot(r2, u), GetSlot(r2, T));
       if (null === t3)
         throw new RangeError("DateTime outside of supported range");
-      const o2 = ParseTimeZoneOffsetString(T2);
-      return [new u2(import_jsbi.default.subtract(t3, import_jsbi.default.BigInt(o2)))];
+      const a2 = ParseTimeZoneOffsetString(n2);
+      return [new o2(import_jsbi.default.subtract(t3, import_jsbi.default.BigInt(a2)))];
     }
-    return function GetIANATimeZoneEpochValue(t3, r3, o2, n2, a2, i2, s2, l2, d2, m2) {
-      const c2 = GetEpochFromISOParts(r3, o2, n2, a2, i2, s2, l2, d2, m2);
+    const p2 = function GetNamedTimeZoneEpochNanoseconds(t3, r3, o3, n3, a2, i2, s2, l2, d2, m2) {
+      const c2 = GetUTCEpochNanoseconds(r3, o3, n3, a2, i2, s2, l2, d2, m2);
       if (null === c2)
         throw new RangeError("DateTime outside of supported range");
-      let h2 = import_jsbi.default.subtract(c2, we);
-      import_jsbi.default.lessThan(h2, ge) && (h2 = c2);
-      let u3 = import_jsbi.default.add(c2, we);
-      import_jsbi.default.greaterThan(u3, Ie) && (u3 = c2);
-      const T3 = GetIANATimeZoneOffsetNanoseconds(h2, t3), p2 = GetIANATimeZoneOffsetNanoseconds(u3, t3);
-      return (T3 === p2 ? [T3] : [T3, p2]).map((h3) => {
-        const u4 = import_jsbi.default.subtract(c2, import_jsbi.default.BigInt(h3)), T4 = GetIANATimeZoneDateTimeParts(u4, t3);
-        if (r3 === T4.year && o2 === T4.month && n2 === T4.day && a2 === T4.hour && i2 === T4.minute && s2 === T4.second && l2 === T4.millisecond && d2 === T4.microsecond && m2 === T4.nanosecond)
-          return u4;
+      let h2 = import_jsbi.default.subtract(c2, Ee);
+      import_jsbi.default.lessThan(h2, Me) && (h2 = c2);
+      let u2 = import_jsbi.default.add(c2, Ee);
+      import_jsbi.default.greaterThan(u2, Re) && (u2 = c2);
+      const T2 = GetNamedTimeZoneOffsetNanoseconds(t3, h2), p3 = GetNamedTimeZoneOffsetNanoseconds(t3, u2);
+      return (T2 === p3 ? [T2] : [T2, p3]).map((h3) => {
+        const u3 = import_jsbi.default.subtract(c2, import_jsbi.default.BigInt(h3)), T3 = GetNamedTimeZoneDateTimeParts(t3, u3);
+        if (r3 === T3.year && o3 === T3.month && n3 === T3.day && a2 === T3.hour && i2 === T3.minute && s2 === T3.second && l2 === T3.millisecond && d2 === T3.microsecond && m2 === T3.nanosecond)
+          return u3;
       }).filter((e2) => void 0 !== e2);
-    }(T2, GetSlot(r2, n), GetSlot(r2, a), GetSlot(r2, i), GetSlot(r2, s), GetSlot(r2, l), GetSlot(r2, d), GetSlot(r2, m), GetSlot(r2, c), GetSlot(r2, h)).map((e2) => new u2(e2));
+    }(n2, GetSlot(r2, i), GetSlot(r2, s), GetSlot(r2, l), GetSlot(r2, d), GetSlot(r2, m), GetSlot(r2, c), GetSlot(r2, h), GetSlot(r2, u), GetSlot(r2, T));
+    return p2.map((e2) => new o2(e2));
   }
-  getNextTransition(t2) {
+  getNextTransition(e2) {
     if (!IsTemporalTimeZone(this))
       throw new TypeError("invalid receiver");
-    const n2 = ToTemporalInstant(t2), a2 = GetSlot(this, o);
-    if (TestTimeZoneOffsetString(a2) || "UTC" === a2)
+    const t2 = ToTemporalInstant(e2), r2 = GetSlot(this, a);
+    if (IsTimeZoneOffsetString(r2) || "UTC" === r2)
       return null;
-    let i2 = GetSlot(n2, r);
-    const s2 = GetIntrinsic("%Temporal.Instant%");
-    return i2 = function GetIANATimeZoneNextTransition(t3, r2) {
-      const o2 = import_jsbi.default.add(t3, ve), n3 = maxJSBI(afterLatestPossibleTzdbRuleChange(), o2);
-      let a3 = maxJSBI(De, t3);
-      const i3 = GetIANATimeZoneOffsetNanoseconds(a3, r2);
-      let s3 = a3, l2 = i3;
-      for (; i3 === l2 && import_jsbi.default.lessThan(import_jsbi.default.BigInt(a3), n3); )
-        s3 = import_jsbi.default.add(a3, Oe), l2 = GetIANATimeZoneOffsetNanoseconds(s3, r2), i3 === l2 && (a3 = s3);
-      return i3 === l2 ? null : bisect((e2) => GetIANATimeZoneOffsetNanoseconds(e2, r2), a3, s3, i3, l2);
-    }(i2, a2), null === i2 ? null : new s2(i2);
+    let o2 = GetSlot(t2, n);
+    const i2 = GetIntrinsic("%Temporal.Instant%");
+    return o2 = GetNamedTimeZoneNextTransition(r2, o2), null === o2 ? null : new i2(o2);
   }
   getPreviousTransition(e2) {
     if (!IsTemporalTimeZone(this))
       throw new TypeError("invalid receiver");
-    const t2 = ToTemporalInstant(e2), n2 = GetSlot(this, o);
-    if (TestTimeZoneOffsetString(n2) || "UTC" === n2)
+    const t2 = ToTemporalInstant(e2), r2 = GetSlot(this, a);
+    if (IsTimeZoneOffsetString(r2) || "UTC" === r2)
       return null;
-    let a2 = GetSlot(t2, r);
+    let o2 = GetSlot(t2, n);
     const i2 = GetIntrinsic("%Temporal.Instant%");
-    return a2 = GetIANATimeZonePreviousTransition(a2, n2), null === a2 ? null : new i2(a2);
+    return o2 = GetNamedTimeZonePreviousTransition(r2, o2), null === o2 ? null : new i2(o2);
   }
   toString() {
     if (!IsTemporalTimeZone(this))
       throw new TypeError("invalid receiver");
-    return ToString(GetSlot(this, o));
+    return GetSlot(this, a);
   }
   toJSON() {
     if (!IsTemporalTimeZone(this))
       throw new TypeError("invalid receiver");
-    return ToString(this);
+    return GetSlot(this, a);
   }
   static from(e2) {
-    return ToTemporalTimeZone(e2);
+    return ToTemporalTimeZoneObject(ToTemporalTimeZoneSlotValue(e2));
   }
 };
-MakeIntrinsicClass(TimeZone, "Temporal.TimeZone");
-var St = Object.create;
+MakeIntrinsicClass(TimeZone, "Temporal.TimeZone"), DefineIntrinsic("Temporal.TimeZone.prototype.getOffsetNanosecondsFor", TimeZone.prototype.getOffsetNanosecondsFor), DefineIntrinsic("Temporal.TimeZone.prototype.getPossibleInstantsFor", TimeZone.prototype.getPossibleInstantsFor);
+var Rt = Object.create;
 var PlainYearMonth = class {
-  constructor(e2, t2, r2 = GetISO8601Calendar(), o2 = 1) {
-    const n2 = ToIntegerThrowOnInfinity(e2), a2 = ToIntegerThrowOnInfinity(t2), i2 = ToTemporalCalendar(r2), s2 = ToIntegerThrowOnInfinity(o2);
-    if (arguments.length < 2)
-      throw new RangeError("missing argument: isoYear and isoMonth are required");
-    CreateTemporalYearMonthSlots(this, n2, a2, i2, s2);
+  constructor(e2, t2, r2 = "iso8601", o2 = 1) {
+    CreateTemporalYearMonthSlots(this, ToIntegerWithTruncation(e2), ToIntegerWithTruncation(t2), ToTemporalCalendarSlotValue(r2), ToIntegerWithTruncation(o2));
   }
   get year() {
     if (!IsTemporalYearMonth(this))
       throw new TypeError("invalid receiver");
-    return CalendarYear(GetSlot(this, u), this);
+    return CalendarYear(GetSlot(this, p), this);
   }
   get month() {
     if (!IsTemporalYearMonth(this))
       throw new TypeError("invalid receiver");
-    return CalendarMonth(GetSlot(this, u), this);
+    return CalendarMonth(GetSlot(this, p), this);
   }
   get monthCode() {
     if (!IsTemporalYearMonth(this))
       throw new TypeError("invalid receiver");
-    return CalendarMonthCode(GetSlot(this, u), this);
+    return CalendarMonthCode(GetSlot(this, p), this);
   }
-  get calendar() {
+  get calendarId() {
     if (!IsTemporalYearMonth(this))
       throw new TypeError("invalid receiver");
-    return GetSlot(this, u);
+    return ToTemporalCalendarIdentifier(GetSlot(this, p));
   }
   get era() {
     if (!IsTemporalYearMonth(this))
       throw new TypeError("invalid receiver");
-    return CalendarEra(GetSlot(this, u), this);
+    return CalendarEra(GetSlot(this, p), this);
   }
   get eraYear() {
     if (!IsTemporalYearMonth(this))
       throw new TypeError("invalid receiver");
-    return CalendarEraYear(GetSlot(this, u), this);
+    return CalendarEraYear(GetSlot(this, p), this);
   }
   get daysInMonth() {
     if (!IsTemporalYearMonth(this))
       throw new TypeError("invalid receiver");
-    return CalendarDaysInMonth(GetSlot(this, u), this);
+    return CalendarDaysInMonth(GetSlot(this, p), this);
   }
   get daysInYear() {
     if (!IsTemporalYearMonth(this))
       throw new TypeError("invalid receiver");
-    return CalendarDaysInYear(GetSlot(this, u), this);
+    return CalendarDaysInYear(GetSlot(this, p), this);
   }
   get monthsInYear() {
     if (!IsTemporalYearMonth(this))
       throw new TypeError("invalid receiver");
-    return CalendarMonthsInYear(GetSlot(this, u), this);
+    return CalendarMonthsInYear(GetSlot(this, p), this);
   }
   get inLeapYear() {
     if (!IsTemporalYearMonth(this))
       throw new TypeError("invalid receiver");
-    return CalendarInLeapYear(GetSlot(this, u), this);
+    return CalendarInLeapYear(GetSlot(this, p), this);
   }
   with(e2, t2) {
     if (!IsTemporalYearMonth(this))
       throw new TypeError("invalid receiver");
     if (!IsObject(e2))
       throw new TypeError("invalid argument");
-    RejectObjectWithCalendarOrTimeZone(e2);
-    const r2 = GetSlot(this, u), o2 = CalendarFields(r2, ["month", "monthCode", "year"]), n2 = PrepareTemporalFields(e2, o2, "partial");
-    if (!n2)
-      throw new TypeError("invalid year-month-like");
-    let a2 = PrepareTemporalFields(this, o2, []);
-    a2 = CalendarMergeFields(r2, a2, n2), a2 = PrepareTemporalFields(a2, o2, []);
-    return CalendarYearMonthFromFields(r2, a2, GetOptionsObject(t2));
+    RejectTemporalLikeObject(e2);
+    const r2 = GetOptionsObject(t2), o2 = GetSlot(this, p), n2 = CalendarFields(o2, ["month", "monthCode", "year"]);
+    let a2 = PrepareTemporalFields(this, n2, []);
+    return a2 = CalendarMergeFields(o2, a2, PrepareTemporalFields(e2, n2, "partial")), a2 = PrepareTemporalFields(a2, n2, []), CalendarYearMonthFromFields(o2, a2, r2);
   }
   add(e2, t2) {
     if (!IsTemporalYearMonth(this))
@@ -6030,16 +6373,16 @@ var PlainYearMonth = class {
     if (!IsTemporalYearMonth(this))
       throw new TypeError("invalid receiver");
     const t2 = ToTemporalYearMonth(e2);
-    for (const e3 of [n, a, i]) {
+    for (const e3 of [i, s, l]) {
       if (GetSlot(this, e3) !== GetSlot(t2, e3))
         return false;
     }
-    return CalendarEquals(GetSlot(this, u), GetSlot(t2, u));
+    return CalendarEquals(GetSlot(this, p), GetSlot(t2, p));
   }
   toString(e2) {
     if (!IsTemporalYearMonth(this))
       throw new TypeError("invalid receiver");
-    return TemporalYearMonthToString(this, ToShowCalendarOption(GetOptionsObject(e2)));
+    return TemporalYearMonthToString(this, ToCalendarNameOption(GetOptionsObject(e2)));
   }
   toJSON() {
     if (!IsTemporalYearMonth(this))
@@ -6049,7 +6392,7 @@ var PlainYearMonth = class {
   toLocaleString(e2, t2) {
     if (!IsTemporalYearMonth(this))
       throw new TypeError("invalid receiver");
-    return new ot(e2, t2).format(this);
+    return new ht(e2, t2).format(this);
   }
   valueOf() {
     throw new TypeError("use compare() or equals() to compare Temporal.PlainYearMonth");
@@ -6059,221 +6402,236 @@ var PlainYearMonth = class {
       throw new TypeError("invalid receiver");
     if (!IsObject(e2))
       throw new TypeError("argument should be an object");
-    const t2 = GetSlot(this, u), r2 = CalendarFields(t2, ["monthCode", "year"]), o2 = PrepareTemporalFields(this, r2, []), n2 = CalendarFields(t2, ["day"]);
+    const t2 = GetSlot(this, p), r2 = CalendarFields(t2, ["monthCode", "year"]), o2 = PrepareTemporalFields(this, r2, []), n2 = CalendarFields(t2, ["day"]);
     let a2 = CalendarMergeFields(t2, o2, PrepareTemporalFields(e2, n2, []));
     a2 = PrepareTemporalFields(a2, [.../* @__PURE__ */ new Set([...r2, ...n2])], []);
-    const i2 = St(null);
+    const i2 = Rt(null);
     return i2.overflow = "reject", CalendarDateFromFields(t2, a2, i2);
   }
   getISOFields() {
     if (!IsTemporalYearMonth(this))
       throw new TypeError("invalid receiver");
-    return { calendar: GetSlot(this, u), isoDay: GetSlot(this, i), isoMonth: GetSlot(this, a), isoYear: GetSlot(this, n) };
+    return { calendar: GetSlot(this, p), isoDay: GetSlot(this, l), isoMonth: GetSlot(this, s), isoYear: GetSlot(this, i) };
+  }
+  getCalendar() {
+    if (!IsTemporalYearMonth(this))
+      throw new TypeError("invalid receiver");
+    return ToTemporalCalendarObject(GetSlot(this, p));
   }
   static from(e2, t2) {
     const r2 = GetOptionsObject(t2);
-    return IsTemporalYearMonth(e2) ? (ToTemporalOverflow(r2), CreateTemporalYearMonth(GetSlot(e2, n), GetSlot(e2, a), GetSlot(e2, u), GetSlot(e2, i))) : ToTemporalYearMonth(e2, r2);
+    return IsTemporalYearMonth(e2) ? (ToTemporalOverflow(r2), CreateTemporalYearMonth(GetSlot(e2, i), GetSlot(e2, s), GetSlot(e2, p), GetSlot(e2, l))) : ToTemporalYearMonth(e2, r2);
   }
   static compare(e2, t2) {
     const r2 = ToTemporalYearMonth(e2), o2 = ToTemporalYearMonth(t2);
-    return CompareISODate(GetSlot(r2, n), GetSlot(r2, a), GetSlot(r2, i), GetSlot(o2, n), GetSlot(o2, a), GetSlot(o2, i));
+    return CompareISODate(GetSlot(r2, i), GetSlot(r2, s), GetSlot(r2, l), GetSlot(o2, i), GetSlot(o2, s), GetSlot(o2, l));
   }
 };
 MakeIntrinsicClass(PlainYearMonth, "Temporal.PlainYearMonth");
+var Ft = ht.prototype.resolvedOptions;
+var Yt = Object.create;
 var ZonedDateTime = class {
-  constructor(e2, t2, r2 = GetISO8601Calendar()) {
+  constructor(e2, t2, r2 = "iso8601") {
     if (arguments.length < 1)
       throw new TypeError("missing argument: epochNanoseconds is required");
-    CreateTemporalZonedDateTimeSlots(this, ToBigInt(e2), ToTemporalTimeZone(t2), ToTemporalCalendar(r2));
+    CreateTemporalZonedDateTimeSlots(this, ToBigInt(e2), ToTemporalTimeZoneSlotValue(t2), ToTemporalCalendarSlotValue(r2));
   }
-  get calendar() {
+  get calendarId() {
     if (!IsTemporalZonedDateTime(this))
       throw new TypeError("invalid receiver");
-    return GetSlot(this, u);
+    return ToTemporalCalendarIdentifier(GetSlot(this, p));
   }
-  get timeZone() {
+  get timeZoneId() {
     if (!IsTemporalZonedDateTime(this))
       throw new TypeError("invalid receiver");
-    return GetSlot(this, p);
+    return ToTemporalTimeZoneIdentifier(GetSlot(this, g));
   }
   get year() {
     if (!IsTemporalZonedDateTime(this))
       throw new TypeError("invalid receiver");
-    return CalendarYear(GetSlot(this, u), dateTime(this));
+    return CalendarYear(GetSlot(this, p), dateTime(this));
   }
   get month() {
     if (!IsTemporalZonedDateTime(this))
       throw new TypeError("invalid receiver");
-    return CalendarMonth(GetSlot(this, u), dateTime(this));
+    return CalendarMonth(GetSlot(this, p), dateTime(this));
   }
   get monthCode() {
     if (!IsTemporalZonedDateTime(this))
       throw new TypeError("invalid receiver");
-    return CalendarMonthCode(GetSlot(this, u), dateTime(this));
+    return CalendarMonthCode(GetSlot(this, p), dateTime(this));
   }
   get day() {
     if (!IsTemporalZonedDateTime(this))
       throw new TypeError("invalid receiver");
-    return CalendarDay(GetSlot(this, u), dateTime(this));
+    return CalendarDay(GetSlot(this, p), dateTime(this));
   }
   get hour() {
     if (!IsTemporalZonedDateTime(this))
       throw new TypeError("invalid receiver");
-    return GetSlot(dateTime(this), s);
+    return GetSlot(dateTime(this), d);
   }
   get minute() {
     if (!IsTemporalZonedDateTime(this))
       throw new TypeError("invalid receiver");
-    return GetSlot(dateTime(this), l);
+    return GetSlot(dateTime(this), m);
   }
   get second() {
     if (!IsTemporalZonedDateTime(this))
       throw new TypeError("invalid receiver");
-    return GetSlot(dateTime(this), d);
+    return GetSlot(dateTime(this), c);
   }
   get millisecond() {
     if (!IsTemporalZonedDateTime(this))
       throw new TypeError("invalid receiver");
-    return GetSlot(dateTime(this), m);
+    return GetSlot(dateTime(this), h);
   }
   get microsecond() {
     if (!IsTemporalZonedDateTime(this))
       throw new TypeError("invalid receiver");
-    return GetSlot(dateTime(this), c);
+    return GetSlot(dateTime(this), u);
   }
   get nanosecond() {
     if (!IsTemporalZonedDateTime(this))
       throw new TypeError("invalid receiver");
-    return GetSlot(dateTime(this), h);
+    return GetSlot(dateTime(this), T);
   }
   get era() {
     if (!IsTemporalZonedDateTime(this))
       throw new TypeError("invalid receiver");
-    return CalendarEra(GetSlot(this, u), dateTime(this));
+    return CalendarEra(GetSlot(this, p), dateTime(this));
   }
   get eraYear() {
     if (!IsTemporalZonedDateTime(this))
       throw new TypeError("invalid receiver");
-    return CalendarEraYear(GetSlot(this, u), dateTime(this));
+    return CalendarEraYear(GetSlot(this, p), dateTime(this));
   }
   get epochSeconds() {
     if (!IsTemporalZonedDateTime(this))
       throw new TypeError("invalid receiver");
-    const t2 = GetSlot(this, r);
-    return import_jsbi.default.toNumber(import_jsbi.default.divide(t2, ye));
+    const t2 = GetSlot(this, n);
+    return import_jsbi.default.toNumber(BigIntFloorDiv(t2, ve));
   }
   get epochMilliseconds() {
     if (!IsTemporalZonedDateTime(this))
       throw new TypeError("invalid receiver");
-    const t2 = GetSlot(this, r);
-    return import_jsbi.default.toNumber(import_jsbi.default.divide(t2, fe));
+    const t2 = GetSlot(this, n);
+    return import_jsbi.default.toNumber(BigIntFloorDiv(t2, Ge));
   }
   get epochMicroseconds() {
     if (!IsTemporalZonedDateTime(this))
       throw new TypeError("invalid receiver");
-    const t2 = GetSlot(this, r);
-    return ToBigIntExternal(import_jsbi.default.divide(t2, pe));
+    return ToBigIntExternal(BigIntFloorDiv(GetSlot(this, n), De));
   }
   get epochNanoseconds() {
     if (!IsTemporalZonedDateTime(this))
       throw new TypeError("invalid receiver");
-    return ToBigIntExternal(GetSlot(this, r));
+    return ToBigIntExternal(GetSlot(this, n));
   }
   get dayOfWeek() {
     if (!IsTemporalZonedDateTime(this))
       throw new TypeError("invalid receiver");
-    return CalendarDayOfWeek(GetSlot(this, u), dateTime(this));
+    return CalendarDayOfWeek(GetSlot(this, p), dateTime(this));
   }
   get dayOfYear() {
     if (!IsTemporalZonedDateTime(this))
       throw new TypeError("invalid receiver");
-    return CalendarDayOfYear(GetSlot(this, u), dateTime(this));
+    return CalendarDayOfYear(GetSlot(this, p), dateTime(this));
   }
   get weekOfYear() {
     if (!IsTemporalZonedDateTime(this))
       throw new TypeError("invalid receiver");
-    return CalendarWeekOfYear(GetSlot(this, u), dateTime(this));
+    return CalendarWeekOfYear(GetSlot(this, p), dateTime(this));
+  }
+  get yearOfWeek() {
+    if (!IsTemporalZonedDateTime(this))
+      throw new TypeError("invalid receiver");
+    return CalendarYearOfWeek(GetSlot(this, p), dateTime(this));
   }
   get hoursInDay() {
     if (!IsTemporalZonedDateTime(this))
       throw new TypeError("invalid receiver");
-    const t2 = dateTime(this), o2 = GetIntrinsic("%Temporal.PlainDateTime%"), s2 = GetSlot(t2, n), l2 = GetSlot(t2, a), d2 = GetSlot(t2, i), m2 = new o2(s2, l2, d2, 0, 0, 0, 0, 0, 0), c2 = AddISODate(s2, l2, d2, 0, 0, 0, 1, "reject"), h2 = new o2(c2.year, c2.month, c2.day, 0, 0, 0, 0, 0, 0), u2 = GetSlot(this, p), T2 = GetSlot(BuiltinTimeZoneGetInstantFor(u2, m2, "compatible"), r), f2 = GetSlot(BuiltinTimeZoneGetInstantFor(u2, h2, "compatible"), r);
-    return import_jsbi.default.toNumber(import_jsbi.default.subtract(f2, T2)) / 36e11;
+    const t2 = dateTime(this), r2 = GetIntrinsic("%Temporal.PlainDateTime%"), o2 = GetSlot(t2, i), a2 = GetSlot(t2, s), d2 = GetSlot(t2, l), m2 = new r2(o2, a2, d2, 0, 0, 0, 0, 0, 0), c2 = AddISODate(o2, a2, d2, 0, 0, 0, 1, "reject"), h2 = new r2(c2.year, c2.month, c2.day, 0, 0, 0, 0, 0, 0), u2 = GetSlot(this, g), T2 = GetSlot(GetInstantFor(u2, m2, "compatible"), n), p2 = GetSlot(GetInstantFor(u2, h2, "compatible"), n);
+    return BigIntDivideToNumber(import_jsbi.default.subtract(p2, T2), Oe);
   }
   get daysInWeek() {
     if (!IsTemporalZonedDateTime(this))
       throw new TypeError("invalid receiver");
-    return CalendarDaysInWeek(GetSlot(this, u), dateTime(this));
+    return CalendarDaysInWeek(GetSlot(this, p), dateTime(this));
   }
   get daysInMonth() {
     if (!IsTemporalZonedDateTime(this))
       throw new TypeError("invalid receiver");
-    return CalendarDaysInMonth(GetSlot(this, u), dateTime(this));
+    return CalendarDaysInMonth(GetSlot(this, p), dateTime(this));
   }
   get daysInYear() {
     if (!IsTemporalZonedDateTime(this))
       throw new TypeError("invalid receiver");
-    return CalendarDaysInYear(GetSlot(this, u), dateTime(this));
+    return CalendarDaysInYear(GetSlot(this, p), dateTime(this));
   }
   get monthsInYear() {
     if (!IsTemporalZonedDateTime(this))
       throw new TypeError("invalid receiver");
-    return CalendarMonthsInYear(GetSlot(this, u), dateTime(this));
+    return CalendarMonthsInYear(GetSlot(this, p), dateTime(this));
   }
   get inLeapYear() {
     if (!IsTemporalZonedDateTime(this))
       throw new TypeError("invalid receiver");
-    return CalendarInLeapYear(GetSlot(this, u), dateTime(this));
+    return CalendarInLeapYear(GetSlot(this, p), dateTime(this));
   }
   get offset() {
     if (!IsTemporalZonedDateTime(this))
       throw new TypeError("invalid receiver");
-    return BuiltinTimeZoneGetOffsetStringFor(GetSlot(this, p), GetSlot(this, T));
+    return GetOffsetStringFor(GetSlot(this, g), GetSlot(this, S));
   }
   get offsetNanoseconds() {
     if (!IsTemporalZonedDateTime(this))
       throw new TypeError("invalid receiver");
-    return GetOffsetNanosecondsFor(GetSlot(this, p), GetSlot(this, T));
+    return GetOffsetNanosecondsFor(GetSlot(this, g), GetSlot(this, S));
   }
   with(e2, t2) {
     if (!IsTemporalZonedDateTime(this))
       throw new TypeError("invalid receiver");
     if (!IsObject(e2))
       throw new TypeError("invalid zoned-date-time-like");
-    RejectObjectWithCalendarOrTimeZone(e2);
-    const r2 = GetOptionsObject(t2), o2 = ToTemporalDisambiguation(r2), n2 = ToTemporalOffset(r2, "prefer"), a2 = GetSlot(this, p), i2 = GetSlot(this, u), s2 = ArrayPush(CalendarFields(i2, ["day", "hour", "microsecond", "millisecond", "minute", "month", "monthCode", "nanosecond", "second", "year"]), "offset"), l2 = PrepareTemporalFields(e2, s2, "partial"), d2 = ArrayPush(s2, "timeZone");
-    let m2 = PrepareTemporalFields(this, d2, ["timeZone", "offset"]);
-    m2 = CalendarMergeFields(i2, m2, l2), m2 = PrepareTemporalFields(m2, d2, ["timeZone", "offset"]);
-    let { year: c2, month: h2, day: T2, hour: f2, minute: y2, second: S2, millisecond: w2, microsecond: g2, nanosecond: I2 } = InterpretTemporalDateTimeFields(i2, m2, r2);
-    return CreateTemporalZonedDateTime(InterpretISODateTimeOffset(c2, h2, T2, f2, y2, S2, w2, g2, I2, "option", ParseTimeZoneOffsetString(m2.offset), a2, o2, n2, false), GetSlot(this, p), i2);
+    RejectTemporalLikeObject(e2);
+    const r2 = GetOptionsObject(t2), o2 = GetSlot(this, p);
+    let n2 = CalendarFields(o2, ["day", "hour", "microsecond", "millisecond", "minute", "month", "monthCode", "nanosecond", "second", "year"]);
+    n2.push("offset");
+    let a2 = PrepareTemporalFields(this, n2, ["offset"]);
+    a2 = CalendarMergeFields(o2, a2, PrepareTemporalFields(e2, n2, "partial")), a2 = PrepareTemporalFields(a2, n2, ["offset"]);
+    const i2 = ToTemporalDisambiguation(r2), s2 = ToTemporalOffset(r2, "prefer");
+    let { year: l2, month: d2, day: m2, hour: c2, minute: h2, second: u2, millisecond: T2, microsecond: f2, nanosecond: y2 } = InterpretTemporalDateTimeFields(o2, a2, r2);
+    const I2 = ParseTimeZoneOffsetString(a2.offset), S2 = GetSlot(this, g);
+    return CreateTemporalZonedDateTime(InterpretISODateTimeOffset(l2, d2, m2, c2, h2, u2, T2, f2, y2, "option", I2, S2, i2, s2, false), S2, o2);
   }
   withPlainDate(e2) {
     if (!IsTemporalZonedDateTime(this))
       throw new TypeError("invalid receiver");
-    const t2 = ToTemporalDate(e2), o2 = GetSlot(t2, n), T2 = GetSlot(t2, a), f2 = GetSlot(t2, i);
-    let y2 = GetSlot(t2, u);
-    const S2 = dateTime(this), w2 = GetSlot(S2, s), g2 = GetSlot(S2, l), I2 = GetSlot(S2, d), D2 = GetSlot(S2, m), G2 = GetSlot(S2, c), v2 = GetSlot(S2, h);
-    y2 = ConsolidateCalendars(GetSlot(this, u), y2);
-    const O2 = GetSlot(this, p);
-    return CreateTemporalZonedDateTime(GetSlot(BuiltinTimeZoneGetInstantFor(O2, new (GetIntrinsic("%Temporal.PlainDateTime%"))(o2, T2, f2, w2, g2, I2, D2, G2, v2, y2), "compatible"), r), O2, y2);
+    const t2 = ToTemporalDate(e2), r2 = GetSlot(t2, i), o2 = GetSlot(t2, s), a2 = GetSlot(t2, l);
+    let f2 = GetSlot(t2, p);
+    const y2 = dateTime(this), I2 = GetSlot(y2, d), S2 = GetSlot(y2, m), w2 = GetSlot(y2, c), D2 = GetSlot(y2, h), G2 = GetSlot(y2, u), v2 = GetSlot(y2, T);
+    f2 = ConsolidateCalendars(GetSlot(this, p), f2);
+    const C2 = GetSlot(this, g);
+    return CreateTemporalZonedDateTime(GetSlot(GetInstantFor(C2, new (GetIntrinsic("%Temporal.PlainDateTime%"))(r2, o2, a2, I2, S2, w2, D2, G2, v2, f2), "compatible"), n), C2, f2);
   }
   withPlainTime(e2) {
     if (!IsTemporalZonedDateTime(this))
       throw new TypeError("invalid receiver");
-    const t2 = GetIntrinsic("%Temporal.PlainTime%"), o2 = void 0 === e2 ? new t2() : ToTemporalTime(e2), T2 = dateTime(this), f2 = GetSlot(T2, n), y2 = GetSlot(T2, a), S2 = GetSlot(T2, i), w2 = GetSlot(this, u), g2 = GetSlot(o2, s), I2 = GetSlot(o2, l), D2 = GetSlot(o2, d), G2 = GetSlot(o2, m), v2 = GetSlot(o2, c), O2 = GetSlot(o2, h), C2 = GetSlot(this, p);
-    return CreateTemporalZonedDateTime(GetSlot(BuiltinTimeZoneGetInstantFor(C2, new (GetIntrinsic("%Temporal.PlainDateTime%"))(f2, y2, S2, g2, I2, D2, G2, v2, O2, w2), "compatible"), r), C2, w2);
+    const t2 = GetIntrinsic("%Temporal.PlainTime%"), r2 = void 0 === e2 ? new t2() : ToTemporalTime(e2), o2 = dateTime(this), a2 = GetSlot(o2, i), f2 = GetSlot(o2, s), y2 = GetSlot(o2, l), I2 = GetSlot(this, p), S2 = GetSlot(r2, d), w2 = GetSlot(r2, m), D2 = GetSlot(r2, c), G2 = GetSlot(r2, h), v2 = GetSlot(r2, u), C2 = GetSlot(r2, T), O2 = GetSlot(this, g);
+    return CreateTemporalZonedDateTime(GetSlot(GetInstantFor(O2, new (GetIntrinsic("%Temporal.PlainDateTime%"))(a2, f2, y2, S2, w2, D2, G2, v2, C2, I2), "compatible"), n), O2, I2);
   }
   withTimeZone(e2) {
     if (!IsTemporalZonedDateTime(this))
       throw new TypeError("invalid receiver");
-    const t2 = ToTemporalTimeZone(e2);
-    return CreateTemporalZonedDateTime(GetSlot(this, r), t2, GetSlot(this, u));
+    const t2 = ToTemporalTimeZoneSlotValue(e2);
+    return CreateTemporalZonedDateTime(GetSlot(this, n), t2, GetSlot(this, p));
   }
   withCalendar(e2) {
     if (!IsTemporalZonedDateTime(this))
       throw new TypeError("invalid receiver");
-    const t2 = ToTemporalCalendar(e2);
-    return CreateTemporalZonedDateTime(GetSlot(this, r), GetSlot(this, p), t2);
+    const t2 = ToTemporalCalendarSlotValue(e2);
+    return CreateTemporalZonedDateTime(GetSlot(this, n), GetSlot(this, g), t2);
   }
   add(e2, t2) {
     if (!IsTemporalZonedDateTime(this))
@@ -6300,34 +6658,50 @@ var ZonedDateTime = class {
       throw new TypeError("invalid receiver");
     if (void 0 === t2)
       throw new TypeError("options parameter is required");
-    const o2 = "string" == typeof t2 ? CreateOnePropObject("smallestUnit", t2) : GetOptionsObject(t2), f2 = GetTemporalUnit(o2, "smallestUnit", "time", je, ["day"]), y2 = ToTemporalRoundingMode(o2, "halfExpand"), S2 = ToTemporalRoundingIncrement(o2, { day: 1, hour: 24, minute: 60, second: 60, millisecond: 1e3, microsecond: 1e3, nanosecond: 1e3 }[f2], false), w2 = dateTime(this);
-    let g2 = GetSlot(w2, n), I2 = GetSlot(w2, a), D2 = GetSlot(w2, i), G2 = GetSlot(w2, s), v2 = GetSlot(w2, l), O2 = GetSlot(w2, d), C2 = GetSlot(w2, m), E2 = GetSlot(w2, c), b2 = GetSlot(w2, h);
-    const M2 = GetIntrinsic("%Temporal.PlainDateTime%"), R2 = GetSlot(this, p), Z2 = GetSlot(this, u), P2 = BuiltinTimeZoneGetInstantFor(R2, new M2(GetSlot(w2, n), GetSlot(w2, a), GetSlot(w2, i), 0, 0, 0, 0, 0, 0), "compatible"), F2 = AddZonedDateTime(P2, R2, Z2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0), Y2 = import_jsbi.default.subtract(F2, import_jsbi.default.BigInt(GetSlot(P2, r)));
-    if (import_jsbi.default.equal(Y2, he))
-      throw new RangeError("cannot round a ZonedDateTime in a calendar with zero-length days");
-    ({ year: g2, month: I2, day: D2, hour: G2, minute: v2, second: O2, millisecond: C2, microsecond: E2, nanosecond: b2 } = RoundISODateTime(g2, I2, D2, G2, v2, O2, C2, E2, b2, S2, f2, y2, import_jsbi.default.toNumber(Y2)));
-    return CreateTemporalZonedDateTime(InterpretISODateTimeOffset(g2, I2, D2, G2, v2, O2, C2, E2, b2, "option", GetOffsetNanosecondsFor(R2, GetSlot(this, T)), R2, "compatible", "prefer", false), R2, GetSlot(this, u));
+    const r2 = "string" == typeof t2 ? CreateOnePropObject("smallestUnit", t2) : GetOptionsObject(t2), o2 = ToTemporalRoundingIncrement(r2), a2 = ToTemporalRoundingMode(r2, "halfExpand"), f2 = GetTemporalUnit(r2, "smallestUnit", "time", He, ["day"]), y2 = { day: 1, hour: 24, minute: 60, second: 60, millisecond: 1e3, microsecond: 1e3, nanosecond: 1e3 }[f2];
+    ValidateTemporalRoundingIncrement(o2, y2, 1 === y2);
+    const I2 = dateTime(this);
+    let w2 = GetSlot(I2, i), D2 = GetSlot(I2, s), G2 = GetSlot(I2, l), v2 = GetSlot(I2, d), C2 = GetSlot(I2, m), O2 = GetSlot(I2, c), b2 = GetSlot(I2, h), E2 = GetSlot(I2, u), M2 = GetSlot(I2, T);
+    const R2 = GetIntrinsic("%Temporal.PlainDateTime%"), F2 = GetSlot(this, g), Y2 = GetSlot(this, p), P2 = GetInstantFor(F2, new R2(GetSlot(I2, i), GetSlot(I2, s), GetSlot(I2, l), 0, 0, 0, 0, 0, 0), "compatible"), Z2 = AddZonedDateTime(P2, F2, Y2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0), B2 = import_jsbi.default.subtract(Z2, import_jsbi.default.BigInt(GetSlot(P2, n)));
+    if (import_jsbi.default.lessThanOrEqual(B2, Ie))
+      throw new RangeError("cannot round a ZonedDateTime in a calendar with zero or negative length days");
+    ({ year: w2, month: D2, day: G2, hour: v2, minute: C2, second: O2, millisecond: b2, microsecond: E2, nanosecond: M2 } = RoundISODateTime(w2, D2, G2, v2, C2, O2, b2, E2, M2, o2, f2, a2, import_jsbi.default.toNumber(B2)));
+    return CreateTemporalZonedDateTime(InterpretISODateTimeOffset(w2, D2, G2, v2, C2, O2, b2, E2, M2, "option", GetOffsetNanosecondsFor(F2, GetSlot(this, S)), F2, "compatible", "prefer", false), F2, GetSlot(this, p));
   }
   equals(t2) {
     if (!IsTemporalZonedDateTime(this))
       throw new TypeError("invalid receiver");
-    const o2 = ToTemporalZonedDateTime(t2), n2 = GetSlot(this, r), a2 = GetSlot(o2, r);
-    return !!import_jsbi.default.equal(import_jsbi.default.BigInt(n2), import_jsbi.default.BigInt(a2)) && (!!TimeZoneEquals(GetSlot(this, p), GetSlot(o2, p)) && CalendarEquals(GetSlot(this, u), GetSlot(o2, u)));
+    const r2 = ToTemporalZonedDateTime(t2), o2 = GetSlot(this, n), a2 = GetSlot(r2, n);
+    return !!import_jsbi.default.equal(import_jsbi.default.BigInt(o2), import_jsbi.default.BigInt(a2)) && (!!TimeZoneEquals(GetSlot(this, g), GetSlot(r2, g)) && CalendarEquals(GetSlot(this, p), GetSlot(r2, p)));
   }
   toString(e2) {
     if (!IsTemporalZonedDateTime(this))
       throw new TypeError("invalid receiver");
-    const t2 = GetOptionsObject(e2), { precision: r2, unit: o2, increment: n2 } = ToSecondsStringPrecision(t2), a2 = ToTemporalRoundingMode(t2, "trunc");
-    return TemporalZonedDateTimeToString(this, r2, ToShowCalendarOption(t2), function ToShowTimeZoneNameOption(e3) {
-      return GetOption(e3, "timeZoneName", ["auto", "never"], "auto");
-    }(t2), function ToShowOffsetOption(e3) {
+    const t2 = GetOptionsObject(e2), r2 = ToCalendarNameOption(t2), o2 = ToFractionalSecondDigits(t2), n2 = function ToShowOffsetOption(e3) {
       return GetOption(e3, "offset", ["auto", "never"], "auto");
-    }(t2), { unit: o2, increment: n2, roundingMode: a2 });
+    }(t2), a2 = ToTemporalRoundingMode(t2, "trunc"), i2 = GetTemporalUnit(t2, "smallestUnit", "time", void 0);
+    if ("hour" === i2)
+      throw new RangeError('smallestUnit must be a time unit other than "hour"');
+    const s2 = function ToTimeZoneNameOption(e3) {
+      return GetOption(e3, "timeZoneName", ["auto", "never", "critical"], "auto");
+    }(t2), { precision: l2, unit: d2, increment: m2 } = ToSecondsStringPrecisionRecord(i2, o2);
+    return TemporalZonedDateTimeToString(this, l2, r2, s2, n2, { unit: d2, increment: m2, roundingMode: a2 });
   }
   toLocaleString(e2, t2) {
     if (!IsTemporalZonedDateTime(this))
       throw new TypeError("invalid receiver");
-    return new ot(e2, t2).format(this);
+    const r2 = GetOptionsObject(t2), o2 = Yt(null);
+    if (CopyDataProperties(o2, r2, ["timeZone"]), void 0 !== r2.timeZone)
+      throw new TypeError("ZonedDateTime toLocaleString does not accept a timeZone option");
+    void 0 === o2.year && void 0 === o2.month && void 0 === o2.day && void 0 === o2.weekday && void 0 === o2.dateStyle && void 0 === o2.hour && void 0 === o2.minute && void 0 === o2.second && void 0 === o2.timeStyle && void 0 === o2.dayPeriod && void 0 === o2.timeZoneName && (o2.timeZoneName = "short");
+    let n2 = ToTemporalTimeZoneIdentifier(GetSlot(this, g));
+    if (IsTimeZoneOffsetString(n2))
+      throw new RangeError("toLocaleString does not support offset string time zones");
+    n2 = GetCanonicalTimeZoneIdentifier(n2), o2.timeZone = n2;
+    const a2 = new ht(e2, o2), i2 = Call(Ft, a2, []).calendar, s2 = ToTemporalCalendarIdentifier(GetSlot(this, p));
+    if ("iso8601" !== s2 && "iso8601" !== i2 && i2 !== s2)
+      throw new RangeError(`cannot format ZonedDateTime with calendar ${s2} in locale with calendar ${i2}`);
+    return a2.format(GetSlot(this, S));
   }
   toJSON() {
     if (!IsTemporalZonedDateTime(this))
@@ -6340,13 +6714,13 @@ var ZonedDateTime = class {
   startOfDay() {
     if (!IsTemporalZonedDateTime(this))
       throw new TypeError("invalid receiver");
-    const e2 = dateTime(this), t2 = GetIntrinsic("%Temporal.PlainDateTime%"), o2 = GetSlot(this, u), s2 = new t2(GetSlot(e2, n), GetSlot(e2, a), GetSlot(e2, i), 0, 0, 0, 0, 0, 0, o2), l2 = GetSlot(this, p);
-    return CreateTemporalZonedDateTime(GetSlot(BuiltinTimeZoneGetInstantFor(l2, s2, "compatible"), r), l2, o2);
+    const e2 = dateTime(this), t2 = GetIntrinsic("%Temporal.PlainDateTime%"), r2 = GetSlot(this, p), o2 = new t2(GetSlot(e2, i), GetSlot(e2, s), GetSlot(e2, l), 0, 0, 0, 0, 0, 0, r2), a2 = GetSlot(this, g);
+    return CreateTemporalZonedDateTime(GetSlot(GetInstantFor(a2, o2, "compatible"), n), a2, r2);
   }
   toInstant() {
     if (!IsTemporalZonedDateTime(this))
       throw new TypeError("invalid receiver");
-    return new (GetIntrinsic("%Temporal.Instant%"))(GetSlot(this, r));
+    return new (GetIntrinsic("%Temporal.Instant%"))(GetSlot(this, n));
   }
   toPlainDate() {
     if (!IsTemporalZonedDateTime(this))
@@ -6366,37 +6740,47 @@ var ZonedDateTime = class {
   toPlainYearMonth() {
     if (!IsTemporalZonedDateTime(this))
       throw new TypeError("invalid receiver");
-    const e2 = GetSlot(this, u);
+    const e2 = GetSlot(this, p);
     return CalendarYearMonthFromFields(e2, PrepareTemporalFields(this, CalendarFields(e2, ["monthCode", "year"]), []));
   }
   toPlainMonthDay() {
     if (!IsTemporalZonedDateTime(this))
       throw new TypeError("invalid receiver");
-    const e2 = GetSlot(this, u);
+    const e2 = GetSlot(this, p);
     return CalendarMonthDayFromFields(e2, PrepareTemporalFields(this, CalendarFields(e2, ["day", "monthCode"]), []));
   }
   getISOFields() {
     if (!IsTemporalZonedDateTime(this))
       throw new TypeError("invalid receiver");
-    const e2 = dateTime(this), t2 = GetSlot(this, p);
-    return { calendar: GetSlot(this, u), isoDay: GetSlot(e2, i), isoHour: GetSlot(e2, s), isoMicrosecond: GetSlot(e2, c), isoMillisecond: GetSlot(e2, m), isoMinute: GetSlot(e2, l), isoMonth: GetSlot(e2, a), isoNanosecond: GetSlot(e2, h), isoSecond: GetSlot(e2, d), isoYear: GetSlot(e2, n), offset: BuiltinTimeZoneGetOffsetStringFor(t2, GetSlot(this, T)), timeZone: t2 };
+    const e2 = dateTime(this), t2 = GetSlot(this, g);
+    return { calendar: GetSlot(this, p), isoDay: GetSlot(e2, l), isoHour: GetSlot(e2, d), isoMicrosecond: GetSlot(e2, u), isoMillisecond: GetSlot(e2, h), isoMinute: GetSlot(e2, m), isoMonth: GetSlot(e2, s), isoNanosecond: GetSlot(e2, T), isoSecond: GetSlot(e2, c), isoYear: GetSlot(e2, i), offset: GetOffsetStringFor(t2, GetSlot(this, S)), timeZone: t2 };
+  }
+  getCalendar() {
+    if (!IsTemporalZonedDateTime(this))
+      throw new TypeError("invalid receiver");
+    return ToTemporalCalendarObject(GetSlot(this, p));
+  }
+  getTimeZone() {
+    if (!IsTemporalZonedDateTime(this))
+      throw new TypeError("invalid receiver");
+    return ToTemporalTimeZoneObject(GetSlot(this, g));
   }
   static from(e2, t2) {
-    const o2 = GetOptionsObject(t2);
-    return IsTemporalZonedDateTime(e2) ? (ToTemporalOverflow(o2), ToTemporalDisambiguation(o2), ToTemporalOffset(o2, "reject"), CreateTemporalZonedDateTime(GetSlot(e2, r), GetSlot(e2, p), GetSlot(e2, u))) : ToTemporalZonedDateTime(e2, o2);
+    const r2 = GetOptionsObject(t2);
+    return IsTemporalZonedDateTime(e2) ? (ToTemporalDisambiguation(r2), ToTemporalOffset(r2, "reject"), ToTemporalOverflow(r2), CreateTemporalZonedDateTime(GetSlot(e2, n), GetSlot(e2, g), GetSlot(e2, p))) : ToTemporalZonedDateTime(e2, r2);
   }
-  static compare(t2, o2) {
-    const n2 = ToTemporalZonedDateTime(t2), a2 = ToTemporalZonedDateTime(o2), i2 = GetSlot(n2, r), s2 = GetSlot(a2, r);
+  static compare(t2, r2) {
+    const o2 = ToTemporalZonedDateTime(t2), a2 = ToTemporalZonedDateTime(r2), i2 = GetSlot(o2, n), s2 = GetSlot(a2, n);
     return import_jsbi.default.lessThan(import_jsbi.default.BigInt(i2), import_jsbi.default.BigInt(s2)) ? -1 : import_jsbi.default.greaterThan(import_jsbi.default.BigInt(i2), import_jsbi.default.BigInt(s2)) ? 1 : 0;
   }
 };
 function dateTime(e2) {
-  return BuiltinTimeZoneGetPlainDateTimeFor(GetSlot(e2, p), GetSlot(e2, T), GetSlot(e2, u));
+  return GetPlainDateTimeFor(GetSlot(e2, g), GetSlot(e2, S), GetSlot(e2, p));
 }
 MakeIntrinsicClass(ZonedDateTime, "Temporal.ZonedDateTime");
-var wt = Object.freeze({ __proto__: null, Instant, Calendar, PlainDate, PlainDateTime, Duration, PlainMonthDay, Now: ft, PlainTime, TimeZone, PlainYearMonth, ZonedDateTime });
-var gt = [Instant, Calendar, PlainDate, PlainDateTime, Duration, PlainMonthDay, PlainTime, TimeZone, PlainYearMonth, ZonedDateTime];
-for (const e2 of gt) {
+var Pt = Object.freeze({ __proto__: null, Calendar, Duration, Instant, Now: Et, PlainDate, PlainDateTime, PlainMonthDay, PlainTime, PlainYearMonth, TimeZone, ZonedDateTime });
+var Zt = [Instant, Calendar, PlainDate, PlainDateTime, Duration, PlainMonthDay, PlainTime, TimeZone, PlainYearMonth, ZonedDateTime];
+for (const e2 of Zt) {
   const t2 = Object.getOwnPropertyDescriptor(e2, "prototype");
   (t2.configurable || t2.enumerable || t2.writable) && (t2.configurable = false, t2.enumerable = false, t2.writable = false, Object.defineProperty(e2, "prototype", t2));
 }
@@ -6591,7 +6975,7 @@ function convertImagePath(postTitle, imagePath, resourcePath) {
   return `/${resourcePath}/${postTitle}/${imagePath}`;
 }
 function replaceDateFrontMatter(frontMatter, isEnable) {
-  if (!isEnable) {
+  if (!isEnable || frontMatter.updated === void 0) {
     return frontMatter;
   }
   if (frontMatter.updated.length > 0) {
@@ -6738,7 +7122,7 @@ async function backupOriginalNotes(plugin) {
   });
 }
 async function renameMarkdownFile(plugin) {
-  const dateString = wt.Now.plainDateISO().toString();
+  const dateString = Pt.Now.plainDateISO().toString();
   const markdownFiles = getFilesInReady.call(this, plugin);
   for (const file of markdownFiles) {
     const newFileName = dateString + "-" + file.name;
