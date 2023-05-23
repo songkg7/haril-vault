@@ -804,7 +804,7 @@ function joinNumberWithSymbol(tokens) {
 function pickTokens(content, trimPattern) {
   return content.split(trimPattern).filter((x) => x !== "");
 }
-var TRIM_CHAR_PATTERN = /[\n\t\[\]$/:?!=()<>"',|;*~ `]/g;
+var TRIM_CHAR_PATTERN = /[\n\t\[\]$/:?!=()<>"',|;*~ `_]/g;
 var DefaultTokenizer = class {
   tokenize(content, raw) {
     const tokens = raw ? Array.from(splitRaw(content, this.getTrimPattern())).filter(
@@ -4857,7 +4857,7 @@ var VariousComplementsSettingTab = class extends import_obsidian4.PluginSettingT
       });
     });
     new import_obsidian4.Setting(containerEl).setName("Min fuzzy match score").setDesc(
-      "Only show suggestions those score is more than the specific score"
+      "It only shows suggestions whose fuzzy matched score is more than the specific value."
     ).addSlider(
       (sc) => sc.setLimits(0, 5, 0.1).setValue(this.plugin.settings.minFuzzyMatchScore).setDynamicTooltip().onChange(async (value) => {
         this.plugin.settings.minFuzzyMatchScore = value;

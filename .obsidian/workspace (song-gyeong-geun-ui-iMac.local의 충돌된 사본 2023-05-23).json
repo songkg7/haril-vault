@@ -1,0 +1,282 @@
+{
+  "main": {
+    "id": "8d4b6916fffaa653",
+    "type": "split",
+    "children": [
+      {
+        "id": "ff96a6b2ef58e533",
+        "type": "tabs",
+        "dimension": 78.77571500250879,
+        "children": [
+          {
+            "id": "e770f35cb51fee18",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "backlog/Consistent Hashing.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "35f515efaef80fd8",
+        "type": "tabs",
+        "dimension": 21.224284997491218,
+        "children": [
+          {
+            "id": "4583b9c090ea0525",
+            "type": "leaf",
+            "state": {
+              "type": "localgraph",
+              "state": {
+                "file": "backlog/Consistent Hashing.md",
+                "options": {
+                  "collapse-filter": true,
+                  "search": "",
+                  "localJumps": 1,
+                  "localBacklinks": true,
+                  "localForelinks": true,
+                  "localInterlinks": false,
+                  "showTags": false,
+                  "showAttachments": false,
+                  "hideUnresolved": false,
+                  "collapse-color-groups": true,
+                  "colorGroups": [],
+                  "collapse-display": true,
+                  "showArrow": false,
+                  "textFadeMultiplier": 0,
+                  "nodeSizeMultiplier": 1,
+                  "lineSizeMultiplier": 1,
+                  "collapse-forces": true,
+                  "centerStrength": 0.518713248970312,
+                  "repelStrength": 10,
+                  "linkStrength": 1,
+                  "linkDistance": 250,
+                  "scale": 1.2164962519824585,
+                  "close": true
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "e7d1d1784716454d",
+    "type": "split",
+    "children": [
+      {
+        "id": "c283706535d19599",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ca4acbf2ba8f847f",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "61f04dc4a00fe3d9",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "e8b2089f67047214",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          },
+          {
+            "id": "0da33f9fd5625e06",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 297.5,
+    "collapsed": true
+  },
+  "right": {
+    "id": "41a576e0627fcea3",
+    "type": "split",
+    "children": [
+      {
+        "id": "4705ab928852dd21",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "95595987c6ea6d11",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "backlog/Consistent Hashing.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": false
+              }
+            }
+          },
+          {
+            "id": "ffbf13c224129e81",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "backlog/Consistent Hashing.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "4ca6df124620813a",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "2567fb8b28f58d58",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "backlog/Consistent Hashing.md"
+              }
+            }
+          },
+          {
+            "id": "696aa0455f6cdde9",
+            "type": "leaf",
+            "state": {
+              "type": "advanced-tables-toolbar",
+              "state": {}
+            }
+          },
+          {
+            "id": "c8049abf0fed9e22",
+            "type": "leaf",
+            "state": {
+              "type": "side-panel-control-view",
+              "state": {}
+            }
+          },
+          {
+            "id": "8b9c2576b03e94b9",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {}
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "terminal:Open terminal": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
+      "templater-obsidian:Templater": false,
+      "obsidian-markdown-formatting-assistant-plugin:Open Markdown Formatting Assistant": false,
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": true,
+      "command-palette:Open command palette": true,
+      "markdown-importer:Open format converter": false,
+      "workspaces:Manage workspace layouts": false,
+      "obsidian-textgenerator-plugin:Generate Text!": false,
+      "obsidian-textgenerator-plugin:Text Generator: Templates Packages Manager": false
+    }
+  },
+  "active": "e770f35cb51fee18",
+  "lastOpenFiles": [
+    "backlog/Consistent Hashing (song-gyeong-geun-ui-MacBookPro.local의 충돌된 사본 2023-05-23).md",
+    "resources/Pasted image 20230523204810.png",
+    "resources/consistent hash.png",
+    "backlog/Consistent Hashing.md",
+    "resources/Pasted image 20230523204258.png",
+    "resources/Pasted image 20230523204228.png",
+    "resources/Pasted image 20230523204018.png",
+    "resources/Pasted image 20230523204056.png",
+    "resources/Pasted image 20230523203910.png",
+    "private/Datadog question list.md",
+    "inbox/Log Monitoring 을 해야하는 이유.md",
+    "inbox/How to logging.md",
+    "inbox/logback 과 logstash 로 json format logging 하기.md",
+    "published/Garbage Collection.md",
+    "ready/2023-05-20-Garbage-Collection.md",
+    "backlog/Jenkins 로 EC2 비용 절약하기.md",
+    "backlog/Jenkins 로 EC2 비용 절약하기 1.md",
+    "backlog/Consideration of the appropriate type with the ID of Entity.md",
+    "inbox/백엔드 빌리지 반상회 후기.md",
+    "published/Docker.md",
+    "inbox/Dev QnA.md",
+    "inbox/Jenkins 에 node 추가하기.md",
+    "inbox/Datadog.md",
+    "inbox/Vim 유용한 단축키.md",
+    "inbox/IntelliJ vim actions.md",
+    "backlog/Spring Batch 5.0 changes.md",
+    "inbox/테스트 구성 파일 관리.md",
+    "inbox/Jenkins.md",
+    "inbox/Memory repository.md",
+    "inbox/News Feed System Architecture.md",
+    "inbox/Notification System Architecture.md",
+    "inbox/Consistent Hash Router.md",
+    "private/개발서버 컨테이너 환경 개선.md",
+    "textgenerator/prompts/dalle-2",
+    "textgenerator/prompts/huggingface",
+    "textgenerator/prompts/default",
+    "textgenerator/prompts",
+    "textgenerator",
+    "resources/Pasted image 20230426164025.png",
+    "resources/banner-1.png",
+    "resources/스크린샷 2023-04-18 오후 10.43.14.png",
+    "ready",
+    "ready",
+    "Untitled.canvas"
+  ]
+}
