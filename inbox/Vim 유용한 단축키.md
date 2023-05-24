@@ -4,6 +4,7 @@ date: 2023-01-19 19:42:00 +0900
 aliases: 
 tags: [vim, ideavim]
 categories: 
+updated: 2023-05-24 20:10:09 +0900
 ---
 
 ```
@@ -19,3 +20,7 @@ categories:
 ## Reference
 
 - https://blankspace-dev.tistory.com/373
+
+## Links
+
+- [[Vim|Vim]]
