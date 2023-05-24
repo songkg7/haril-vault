@@ -209,6 +209,9 @@
       },
       "left-ribbon": {
         "hiddenItems": {
+          "terminal:Open terminal": false,
+          "obsidian-textgenerator-plugin:Generate Text!": false,
+          "obsidian-textgenerator-plugin:Text Generator: Templates Packages Manager": false,
           "table-editor-obsidian:Advanced Tables Toolbar": false,
           "templater-obsidian:Templater": false,
           "obsidian-markdown-formatting-assistant-plugin:Open Markdown Formatting Assistant": false,
@@ -223,6 +226,244 @@
         }
       },
       "active": "6340caae6851861e"
+    },
+    "career": {
+      "main": {
+        "id": "8d4b6916fffaa653",
+        "type": "split",
+        "children": [
+          {
+            "id": "35f515efaef80fd8",
+            "type": "tabs",
+            "dimension": 73.3704292527822,
+            "children": [
+              {
+                "id": "03d89bcbb26736b7",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "inbox/Question list.md",
+                    "mode": "source",
+                    "backlinks": true,
+                    "source": false
+                  }
+                },
+                "group": "88f6dd45d8d81cb5"
+              }
+            ]
+          },
+          {
+            "id": "7286d66bedfb726b",
+            "type": "tabs",
+            "dimension": 26.629570747217805,
+            "children": [
+              {
+                "id": "fd24bca076b7608e",
+                "type": "leaf",
+                "state": {
+                  "type": "localgraph",
+                  "state": {
+                    "file": "inbox/Question list.md",
+                    "options": {
+                      "collapse-filter": true,
+                      "search": "",
+                      "localJumps": 1,
+                      "localBacklinks": true,
+                      "localForelinks": true,
+                      "localInterlinks": false,
+                      "showTags": false,
+                      "showAttachments": false,
+                      "hideUnresolved": false,
+                      "collapse-color-groups": true,
+                      "colorGroups": [],
+                      "collapse-display": true,
+                      "showArrow": false,
+                      "textFadeMultiplier": 0,
+                      "nodeSizeMultiplier": 1,
+                      "lineSizeMultiplier": 1,
+                      "collapse-forces": true,
+                      "centerStrength": 0.518713248970312,
+                      "repelStrength": 10,
+                      "linkStrength": 1,
+                      "linkDistance": 250,
+                      "scale": 1,
+                      "close": true
+                    }
+                  }
+                },
+                "group": "88f6dd45d8d81cb5"
+              }
+            ]
+          }
+        ],
+        "direction": "vertical"
+      },
+      "left": {
+        "id": "e7d1d1784716454d",
+        "type": "split",
+        "children": [
+          {
+            "id": "c283706535d19599",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "ca4acbf2ba8f847f",
+                "type": "leaf",
+                "state": {
+                  "type": "file-explorer",
+                  "state": {
+                    "sortOrder": "alphabetical"
+                  }
+                }
+              },
+              {
+                "id": "61f04dc4a00fe3d9",
+                "type": "leaf",
+                "state": {
+                  "type": "search",
+                  "state": {
+                    "query": "",
+                    "matchingCase": false,
+                    "explainSearch": false,
+                    "collapseAll": false,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical"
+                  }
+                }
+              },
+              {
+                "id": "e8b2089f67047214",
+                "type": "leaf",
+                "state": {
+                  "type": "starred",
+                  "state": {}
+                }
+              },
+              {
+                "id": "0da33f9fd5625e06",
+                "type": "leaf",
+                "state": {
+                  "type": "bookmarks",
+                  "state": {}
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "horizontal",
+        "width": 297.5,
+        "collapsed": true
+      },
+      "right": {
+        "id": "41a576e0627fcea3",
+        "type": "split",
+        "children": [
+          {
+            "id": "4705ab928852dd21",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "95595987c6ea6d11",
+                "type": "leaf",
+                "state": {
+                  "type": "backlink",
+                  "state": {
+                    "file": "inbox/Question list.md",
+                    "collapseAll": false,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical",
+                    "showSearch": false,
+                    "searchQuery": "",
+                    "backlinkCollapsed": false,
+                    "unlinkedCollapsed": false
+                  }
+                }
+              },
+              {
+                "id": "ffbf13c224129e81",
+                "type": "leaf",
+                "state": {
+                  "type": "outgoing-link",
+                  "state": {
+                    "file": "inbox/Question list.md",
+                    "linksCollapsed": false,
+                    "unlinkedCollapsed": true
+                  }
+                }
+              },
+              {
+                "id": "4ca6df124620813a",
+                "type": "leaf",
+                "state": {
+                  "type": "tag",
+                  "state": {
+                    "sortOrder": "frequency",
+                    "useHierarchy": true
+                  }
+                }
+              },
+              {
+                "id": "2567fb8b28f58d58",
+                "type": "leaf",
+                "state": {
+                  "type": "outline",
+                  "state": {
+                    "file": "inbox/Question list.md"
+                  }
+                }
+              },
+              {
+                "id": "696aa0455f6cdde9",
+                "type": "leaf",
+                "state": {
+                  "type": "advanced-tables-toolbar",
+                  "state": {}
+                }
+              },
+              {
+                "id": "c8049abf0fed9e22",
+                "type": "leaf",
+                "state": {
+                  "type": "side-panel-control-view",
+                  "state": {}
+                }
+              },
+              {
+                "id": "8b9c2576b03e94b9",
+                "type": "leaf",
+                "state": {
+                  "type": "calendar",
+                  "state": {}
+                }
+              }
+            ],
+            "currentTab": 3
+          }
+        ],
+        "direction": "horizontal",
+        "width": 300,
+        "collapsed": true
+      },
+      "left-ribbon": {
+        "hiddenItems": {
+          "terminal:Open terminal": false,
+          "table-editor-obsidian:Advanced Tables Toolbar": false,
+          "templater-obsidian:Templater": false,
+          "obsidian-markdown-formatting-assistant-plugin:Open Markdown Formatting Assistant": false,
+          "switcher:Open quick switcher": false,
+          "graph:Open graph view": false,
+          "canvas:Create new canvas": false,
+          "daily-notes:Open today's daily note": false,
+          "templates:Insert template": true,
+          "command-palette:Open command palette": true,
+          "markdown-importer:Open format converter": false,
+          "workspaces:Manage workspace layouts": false,
+          "obsidian-textgenerator-plugin:Generate Text!": false,
+          "obsidian-textgenerator-plugin:Text Generator: Templates Packages Manager": false
+        }
+      },
+      "active": "03d89bcbb26736b7"
     }
   },
   "active": "company dell"
