@@ -4,7 +4,7 @@ date: 2023-01-19 19:42:00 +0900
 aliases: 
 tags: [vim, ideavim]
 categories: 
-updated: 2023-05-24 20:10:09 +0900
+updated: 2023-05-24 20:26:21 +0900
 ---
 
 ```
