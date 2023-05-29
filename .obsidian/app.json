@@ -7,7 +7,8 @@
     "templates/",
     "README",
     "private/",
-    "textgenerator/"
+    "textgenerator/",
+    "resources/"
   ],
   "promptDelete": false,
   "newFileLocation": "folder",
