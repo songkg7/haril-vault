@@ -4,7 +4,7 @@ date: 2023-05-29 09:37:00 +0900
 aliases: 
 tags: [ssh, debug]
 categories: 
-updated: 2023-05-29 09:38:36 +0900
+updated: 2023-05-29 09:56:07 +0900
 ---
 
 [[Jenkins|Jenkins]] 를 사용하다가 [[GitLab|GitLab]]에 ssh 로 연결하는 과정에서 간헐적으로 128 에러가 관찰되었다.
