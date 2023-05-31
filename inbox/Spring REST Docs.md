@@ -2,8 +2,9 @@
 title: "Spring REST Docs"
 date: 2022-11-04 18:59:00 +0900
 aliases: 
-tags: [spring-rest-docs, java, documentation]
+tags: [java, documentation, docs]
 categories: Spring
+updated: 2023-05-31 16:24:29 +0900
 ---
 
 ## Overview
@@ -74,4 +75,56 @@ asciidoctor {
     configurations 'asciidoctorExt'
     dependsOn test
 } 
+```
+
+### Snippet 작성시 주의점
+
+`org/springframework/restdocs/templates/` 아래에서 snippet 파일을 찾는다. 패키지를 생성할 때 `org.springframework.restdocs.templates` 처럼 `.` 을 사용해서 패키지를 생성하면 snippet 의 위치를 정상적으로 찾지 못하는 문제가 있었다.
+
+```java
+public class StandardTemplateResourceResolver implements TemplateResourceResolver {
+
+	private final TemplateFormat templateFormat;
+
+	/**
+	 * Creates a new {@code StandardTemplateResourceResolver} that will produce default
+	 * template resources formatted with the given {@code templateFormat}.
+	 * @param templateFormat the format for the default snippet templates
+	 */
+	public StandardTemplateResourceResolver(TemplateFormat templateFormat) {
+		this.templateFormat = templateFormat;
+	}
+
+	@Override
+	public Resource resolveTemplateResource(String name) {
+		Resource formatSpecificCustomTemplate = getFormatSpecificCustomTemplate(name);
+		if (formatSpecificCustomTemplate.exists()) {
+			return formatSpecificCustomTemplate;
+		}
+		Resource customTemplate = getCustomTemplate(name);
+		if (customTemplate.exists()) {
+			return customTemplate;
+		}
+		Resource defaultTemplate = getDefaultTemplate(name);
+		if (defaultTemplate.exists()) {
+			return defaultTemplate;
+		}
+		throw new IllegalStateException("Template named '" + name + "' could not be resolved");
+	}
+
+	private Resource getFormatSpecificCustomTemplate(String name) {
+		return new ClassPathResource(String.format("org/springframework/restdocs/templates/%s/%s.snippet",
+				this.templateFormat.getId(), name));
+	}
+
+	private Resource getCustomTemplate(String name) {
+		return new ClassPathResource(String.format("org/springframework/restdocs/templates/%s.snippet", name));
+	}
+
+	private Resource getDefaultTemplate(String name) {
+		return new ClassPathResource(String.format("org/springframework/restdocs/templates/%s/default-%s.snippet",
+				this.templateFormat.getId(), name));
+	}
+
+}
 ```
