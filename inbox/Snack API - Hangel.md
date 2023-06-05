@@ -4,7 +4,7 @@ date: 2023-05-30 15:45:00 +0900
 aliases: 
 tags: [discord, api]
 categories: 
-updated: 2023-05-30 20:22:19 +0900
+updated: 2023-06-06 00:47:55 +0900
 ---
 
 # 헨젤 봇
@@ -40,3 +40,8 @@ sequenceDiagram
     AWS Lambda->>Google SpreadSheet: 입력
     AWS Lambda-->>-Discord: Great!
 ```
+
+## 구현할 내용
+
+- `/announce` 명령을 사용하여 멤버들에게 정해진 템플릿을 공지
+    - 관리자 권한이 있는 멤버만 `/announce` 호출 가능
