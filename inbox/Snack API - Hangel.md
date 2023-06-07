@@ -4,7 +4,7 @@ date: 2023-05-30 15:45:00 +0900
 aliases: 
 tags: [discord, api]
 categories: 
-updated: 2023-06-06 00:47:55 +0900
+updated: 2023-06-07 11:35:11 +0900
 ---
 
 # 헨젤 봇
@@ -45,3 +45,10 @@ sequenceDiagram
 
 - `/announce` 명령을 사용하여 멤버들에게 정해진 템플릿을 공지
     - 관리자 권한이 있는 멤버만 `/announce` 호출 가능
+
+- google SpreadSheet 에 접근하려면 GCP 프로젝트가 필요하고 API 사용 활성화 및 서비스 계정을 생성해줘야 한다.
+- 
+
+## Reference
+
+- [Interact with Google Sheets from Java](https://www.baeldung.com/google-sheets-java-client)
