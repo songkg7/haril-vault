@@ -4,6 +4,7 @@ date: 2023-06-14 10:09:00 +0900
 aliases: 
 tags: [cache]
 categories: 
+updated: 2023-06-14 14:38:40 +0900
 ---
 
 ## Introduction to Spring Boot Local Cache
