@@ -30,3 +30,7 @@ Spring Boot Local Cache works by creating an in-memory cache that stores frequen
 ## Conclusion
 
 In conclusion, Spring Boot Local Cache is a powerful caching mechanism that can significantly improve application performance by reducing database queries and optimizing resource usage. It is easy to integrate into your existing codebase and can help you build more reliable and scalable applications.
+
+## Links
+
+- [[Cache memory|Cache]]
