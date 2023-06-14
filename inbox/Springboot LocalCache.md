@@ -2,7 +2,7 @@
 title: "Springboot LocalCache"
 date: 2023-06-14 10:09:00 +0900
 aliases: 
-tags: [cache]
+tags: [cache, spring]
 categories: 
 updated: 2023-06-14 14:38:40 +0900
 ---
