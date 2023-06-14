@@ -4,7 +4,7 @@ date: 2023-05-30 15:45:00 +0900
 aliases: 
 tags: [discord, api]
 categories: 
-updated: 2023-06-10 09:15:44 +0900
+updated: 2023-06-13 15:18:36 +0900
 ---
 
 # 헨젤 봇
@@ -33,7 +33,7 @@ discord 명령어 `/신청` 을 통해 간식 링크 및 description 을 구글 
 
 [[AWS Lambda]] 를 사용하면 별도의 서버 없이도 간식 API 를 제공 가능
 
-자주 실행될 API 가 아니기 때문에 서버를 24시간 유지할 필요가 없으므로, Lambda 를 통해 간략하게 구성하면 비용 없이 API 를 호출할 수 있다.
+자주 실행될 API 가 아니기 때문에 서버를 24시간 유지할 필요가 없다. 또한 예상되는 API call 수는 Lambda 의 무료 범위를 한참 밑도므로 비용 없이 API 를 호출할 수 있다.
 
 ```mermaid
 sequenceDiagram
