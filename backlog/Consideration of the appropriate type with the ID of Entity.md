@@ -4,7 +4,7 @@ date: 2022-10-24 17:08:00 +0900
 aliases: 
 tags: [entity, id, ulid, uuid, long]
 categories: 
-updated: 2023-05-16 10:54:35 +0900
+updated: 2023-06-17 19:41:16 +0900
 ---
 
 ## Overview
@@ -36,8 +36,14 @@ Long 타입 아이디 생성을 위해서는 DB sequence 가 많이 이용된다
 
 `UUID` 는 `Universal Unique Id` 인만큼 전 우주에서 유일한 값이라는 걸 보장한다. 그런만큼 ID 로 사용하기에는 최적처럼 보인다.
 
+하지만 `UUID` 는 ID 가 언제 생성되었는지에 대한 정보를 담지 않기 때문에 ID 로 정렬해도 시간순 정렬되지 않는다. PK 는 정렬된 상태로 인덱스가 생성되는 것을 감안해볼 때 아쉬운 점이다.
+
 ### ULID
 
 `ULID` 는 `UUID` 의 단점을 극복하기 위해 등장했다.
+
+### Snowflake
+
+
 
 ## Conclusion
