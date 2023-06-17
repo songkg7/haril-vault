@@ -35,9 +35,9 @@ JobParameters jobParameters = jobLauncherTestUtils.getUniqueJobParametersBuilder
 
 ![[fixedConversionService.png]]
 
-해당 issue 가 해결된 모습
+_해당 issue 가 해결된 모습_
 
-2023-02-23 에 릴리즈되며 해결됨
+이 issue 는 2023-02-23 에 릴리즈되며 해결되었습니다.
 
 ## initializeSchema
 
@@ -57,7 +57,7 @@ spring:
       mode: always
 ```
 
-currentSchema 옵션을 지정해줘야 정확하게 동작한다.
+currentSchema 옵션을 지정해줘야 정확하게 동작합니다.
 
 ## Reference
 
