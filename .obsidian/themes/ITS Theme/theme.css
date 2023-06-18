@@ -328,6 +328,7 @@ settings:
         default: 'its'
     -
         title: Vault Title
+        description: Desktop only
         id: ITS-Vault-Title
         type: heading
         level: 2
@@ -528,16 +529,16 @@ settings:
         type: heading
         level: 2
         collapsed: true
-    -
-        title: Note Text Size
-        description: Adjust size for text in notes.
-        id: font-text-size
-        type: variable-number-slider
-        default: 16
-        format: px
-        min: 10
-        max: 20
-        step: 1
+#   -
+#        title: Note Text Size
+#        description: Adjust size for text in notes.
+#        id: font-text-size
+#        type: variable-number-slider
+#        default: 16
+#        format: px
+#        min: 10
+#        max: 20
+#        step: 1
     -
         title: Justify Text
         description: Justify preview and editor text
@@ -2595,8 +2596,8 @@ body,
   --drag-ghost-background: var(--dark-accent);
   --drag-ghost-text-color: var(--text-dl);
   --tooltip-color: var(--text-dl);
-  --italic-color: var(--text);
-  --bold-color: var(--text);
+  --italic-color: inherit;
+  --bold-color: inherit;
   --text-dl: #e5ebee;
   --accent-text: #dcddde;
   --list-color-1: var(--rainbow-1);
@@ -4161,6 +4162,19 @@ body:not(.table-unwrap) .cm-s-obsidian .HyperMD-table-row.HyperMD-table-row {
   padding: var(--table-cell-padding-y) var(--table-cell-padding-x);
 }
 
+.markdown-rendered table thead tr > th:first-child {
+  border-top-left-radius: var(--radius-s);
+}
+.markdown-rendered table thead tr > th:last-child {
+  border-top-right-radius: var(--radius-s);
+}
+.markdown-rendered table tbody tr:last-child > td:last-child {
+  border-bottom-right-radius: var(--radius-s);
+}
+.markdown-rendered table tbody tr:last-child > td:first-child {
+  border-bottom-left-radius: var(--radius-s);
+}
+
 .theme-dark,
 .theme-light {
   --tag-color: var(--text-dl);
@@ -4244,6 +4258,13 @@ body {
 .markdown-embed-link {
   top: 8px;
   right: var(--scrollbar-width);
+}
+
+.markdown-embed .markdown-rendered ol:has(li:nth-child(10)) {
+  --list-indent: 30px;
+}
+.markdown-embed .markdown-rendered ol:has(li:nth-child(100)) {
+  --list-indent: 40px;
 }
 
 .file-embed {
@@ -4369,6 +4390,11 @@ body {
 .cm-blockquote-border.cm-transparent::before {
   --blockquote-border-thickness: 2px;
   --blockquote-border-color: var(--accent);
+}
+
+.markdown-rendered blockquote {
+  border-top-right-radius: var(--radius-s);
+  border-bottom-right-radius: var(--radius-s);
 }
 
 body {
@@ -7943,6 +7969,7 @@ body:not(.check-color, .check-text) ul > li.task-list-item[data-task][data-task=
   width: auto;
   max-width: 300px;
   float: right;
+  border-radius: var(--radius-s);
 }
 .callout.callout[data-callout~=infobox] > .callout-title {
   justify-content: center;
@@ -7960,9 +7987,13 @@ body:not(.check-color, .check-text) ul > li.task-list-item[data-task][data-task=
 }
 .callout.callout[data-callout~=infobox].is-collapsed .callout-fold {
   border: 1px solid var(--hr, var(--background-modifier-border));
+  border-radius: var(--radius-m);
 }
 .callout.callout[data-callout~=infobox] > .callout-title .callout-title-inner {
   display: none;
+}
+.callout.callout[data-callout~=infobox] > .callout-title .callout-icon {
+  height: 0;
 }
 .callout.callout[data-callout~=infobox]:not([data-callout-metadata~=show-title],
 [data-callout-metadata~=s-t],
@@ -8919,7 +8950,6 @@ body:not(.check-color, .check-text) ul > li.task-list-item[data-task][data-task=
   --font-smallest: .70em;
   --font-smaller: .88em;
   --font-small: .95em;
-  --font-text-size: 14px;
   --icon-xs: 12px;
   --icon-s: 13px;
   --icon-m: 14px;
@@ -8941,10 +8971,9 @@ body:not(.check-color, .check-text) ul > li.task-list-item[data-task][data-task=
   --font-smallest: 1em;
   --font-smaller: 1.2em;
   --font-small: 1.5em;
-  --font-text-size: 18px;
-  --font-size: var(--font-smallest);
-  --table-row-edit-font-size: 18px;
+  --table-row-edit-font-size: var(--font-text-size);
   --font-frontmatter: var(--font-text-size);
+  --code-size: var(--font-text-size);
   --icon-xs: 16px;
   --icon-s: 18px;
   --icon-m: 20px;
@@ -9331,32 +9360,40 @@ iframe {
   background-color: var(--link-background-hover);
 }
 
-.writing-document:not(.is-mobile) {
+.writing-document:not(.is-mobile),
+.writing-document.is-tablet.is-tablet {
   /* Fix embeds */
   /* Embed */
   /* .markdown-preview-section { min-height: 100% !important; } */
 }
-.writing-document:not(.is-mobile) .markdown-source-view.mod-cm6 .cm-scroller {
+.writing-document:not(.is-mobile) .markdown-source-view.mod-cm6 .cm-scroller,
+.writing-document.is-tablet.is-tablet .markdown-source-view.mod-cm6 .cm-scroller {
   padding: 0;
 }
-.writing-document:not(.is-mobile) .is-live-preview .HyperMD-header::before {
+.writing-document:not(.is-mobile) .is-live-preview .HyperMD-header::before,
+.writing-document.is-tablet.is-tablet .is-live-preview .HyperMD-header::before {
   margin-left: -10px;
   margin-right: 15px;
 }
-.writing-document:not(.is-mobile) div:not(.workspace-tabs):not(.markdown-embed-content) > :is(.markdown-preview-view, .cm-editor):not(.kanban-plugin__markdown-preview-view):not(.BC-Matrix):not(.community-plugin-readme) {
+.writing-document:not(.is-mobile) div:not(.workspace-tabs):not(.markdown-embed-content) > :is(.markdown-preview-view, .cm-editor):not(.kanban-plugin__markdown-preview-view):not(.BC-Matrix):not(.community-plugin-readme),
+.writing-document.is-tablet.is-tablet div:not(.workspace-tabs):not(.markdown-embed-content) > :is(.markdown-preview-view, .cm-editor):not(.kanban-plugin__markdown-preview-view):not(.BC-Matrix):not(.community-plugin-readme) {
   background: var(--td);
   padding: 0;
 }
 .writing-document:not(.is-mobile) :not(.markdown-embed-content) .markdown-preview-section:not(.kanban-plugin__markdown-preview-view),
-.writing-document:not(.is-mobile) .view-content .cm-s-obsidian > .cm-editor .cm-contentContainer {
+.writing-document:not(.is-mobile) .view-content .cm-s-obsidian > .cm-editor .cm-contentContainer,
+.writing-document.is-tablet.is-tablet :not(.markdown-embed-content) .markdown-preview-section:not(.kanban-plugin__markdown-preview-view),
+.writing-document.is-tablet.is-tablet .view-content .cm-s-obsidian > .cm-editor .cm-contentContainer {
   --padding: 10px;
   background: var(--note, var(--background-primary));
   box-shadow: 0 0 20px var(--outline, var(--background-box-shadow));
-  max-width: calc(var(--note-width) + var(--padding));
+  max-width: calc(var(--file-line-width) + var(--padding));
   height: auto;
   padding: 0 var(--padding);
+  border-radius: var(--radius-l);
 }
-.writing-document:not(.is-mobile) .markdown-embed.markdown-embed.markdown-embed .markdown-preview-section {
+.writing-document:not(.is-mobile) .markdown-embed.markdown-embed.markdown-embed .markdown-preview-section,
+.writing-document.is-tablet.is-tablet .markdown-embed.markdown-embed.markdown-embed .markdown-preview-section {
   padding: unset;
   box-shadow: unset;
 }
@@ -9441,6 +9478,7 @@ iframe {
   --tab-text-padding-inner: 1px 3px;
   --tab-gap: 0 10px;
   --tab-text-color-focused-active-current: var(--text);
+  --tab-curve: 0;
 }
 .titlebar-bubbles :is(.mod-left-split, .mod-right-split, .mod-root) .workspace-tab-header-container-inner, .titlebar-bubbles :is(.mod-left-split, .mod-right-split, .mod-root) .workspace-tab-header-container {
   align-items: center;
@@ -10084,7 +10122,7 @@ h6):after {
   margin-left: 0.3em;
 }
 
-.illusion.illusion {
+.illusion.illusion :is(.markdown-preview-view, .is-live-preview) :is(h1, h2, h3, h4, h5, h6)[data-heading], .illusion.illusion :is(.markdown-preview-view, .is-live-preview) :is(.is-live-preview .HyperMD-header), .illusion.illusion:is(.markdown-preview-view, .is-live-preview) :is(h1, h2, h3, h4, h5, h6)[data-heading], .illusion.illusion:is(.markdown-preview-view, .is-live-preview) :is(.is-live-preview .HyperMD-header) {
   --h1-background: var(--theme-rainbow-1);
   --h2-background: var(--theme-rainbow-2);
   --h3-background: var(--theme-rainbow-3);
@@ -10098,8 +10136,6 @@ h6):after {
   --h4-border-line-height: var(--header-border-line-height);
   --h5-border-line-height: var(--header-border-line-height);
   --h6-border-line-height: var(--header-border-line-height);
-}
-.illusion.illusion :is(.markdown-preview-view, .is-live-preview), .illusion.illusion:is(.markdown-preview-view, .is-live-preview) {
   --headers: var(--text-dl);
   --h1-color: var(--headers);
   --h2-color: var(--headers);
@@ -10115,16 +10151,17 @@ h6):after {
   --h4-padding: var(--header-padding);
   --h5-padding: var(--header-padding);
   --h6-padding: var(--header-padding);
-}
-.illusion.illusion :is(.markdown-preview-view, .is-live-preview) :is(h1, h2, h3, h4, h5, h6, .is-live-preview .HyperMD-header), .illusion.illusion:is(.markdown-preview-view, .is-live-preview) :is(h1, h2, h3, h4, h5, h6, .is-live-preview .HyperMD-header) {
   --collapse-icon-color: var(--headers);
   --collapse-icon-color-collapsed: var(--accent-text);
   box-shadow: var(--shadow-l);
 }
-.illusion.illusion :is(.markdown-preview-view, .is-live-preview) :is(h1, h2, h3, h4, h5, h6, .is-live-preview .HyperMD-header) .collapse-indicator, .illusion.illusion:is(.markdown-preview-view, .is-live-preview) :is(h1, h2, h3, h4, h5, h6, .is-live-preview .HyperMD-header) .collapse-indicator {
+.illusion.illusion :is(.markdown-preview-view, .is-live-preview) :is(h1, h2, h3, h4, h5, h6)[data-heading] [class*=cm-formatting], .illusion.illusion :is(.markdown-preview-view, .is-live-preview) :is(h1, h2, h3, h4, h5, h6)[data-heading] .cm-foldPlaceholder, .illusion.illusion :is(.markdown-preview-view, .is-live-preview) :is(.is-live-preview .HyperMD-header) [class*=cm-formatting], .illusion.illusion :is(.markdown-preview-view, .is-live-preview) :is(.is-live-preview .HyperMD-header) .cm-foldPlaceholder, .illusion.illusion:is(.markdown-preview-view, .is-live-preview) :is(h1, h2, h3, h4, h5, h6)[data-heading] [class*=cm-formatting], .illusion.illusion:is(.markdown-preview-view, .is-live-preview) :is(h1, h2, h3, h4, h5, h6)[data-heading] .cm-foldPlaceholder, .illusion.illusion:is(.markdown-preview-view, .is-live-preview) :is(.is-live-preview .HyperMD-header) [class*=cm-formatting], .illusion.illusion:is(.markdown-preview-view, .is-live-preview) :is(.is-live-preview .HyperMD-header) .cm-foldPlaceholder {
+  color: var(--headers);
+}
+.illusion.illusion :is(.markdown-preview-view, .is-live-preview) :is(h1, h2, h3, h4, h5, h6)[data-heading] .collapse-indicator, .illusion.illusion :is(.markdown-preview-view, .is-live-preview) :is(.is-live-preview .HyperMD-header) .collapse-indicator, .illusion.illusion:is(.markdown-preview-view, .is-live-preview) :is(h1, h2, h3, h4, h5, h6)[data-heading] .collapse-indicator, .illusion.illusion:is(.markdown-preview-view, .is-live-preview) :is(.is-live-preview .HyperMD-header) .collapse-indicator {
   width: 18px;
 }
-.illusion.illusion :is(.markdown-preview-view, .is-live-preview) :is(h1, h2, h3, h4, h5, h6, .is-live-preview .HyperMD-header) .collapse-indicator svg, .illusion.illusion:is(.markdown-preview-view, .is-live-preview) :is(h1, h2, h3, h4, h5, h6, .is-live-preview .HyperMD-header) .collapse-indicator svg {
+.illusion.illusion :is(.markdown-preview-view, .is-live-preview) :is(h1, h2, h3, h4, h5, h6)[data-heading] .collapse-indicator svg, .illusion.illusion :is(.markdown-preview-view, .is-live-preview) :is(.is-live-preview .HyperMD-header) .collapse-indicator svg, .illusion.illusion:is(.markdown-preview-view, .is-live-preview) :is(h1, h2, h3, h4, h5, h6)[data-heading] .collapse-indicator svg, .illusion.illusion:is(.markdown-preview-view, .is-live-preview) :is(.is-live-preview .HyperMD-header) .collapse-indicator svg {
   width: 12px;
   height: 12px;
 }
