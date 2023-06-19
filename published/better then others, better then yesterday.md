@@ -4,7 +4,7 @@ date: 2023-06-02 09:31:00 +0900
 aliases: 
 tags: [essay]
 categories: 
-updated: 2023-06-19 21:42:36 +0900
+updated: 2023-06-19 21:49:01 +0900
 ---
 
 ![[globe-3441673_1280.jpg]]
