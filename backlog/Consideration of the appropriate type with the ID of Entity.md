@@ -4,7 +4,7 @@ date: 2022-10-24 17:08:00 +0900
 aliases: 
 tags: [entity, id, ulid, uuid, long]
 categories: 
-updated: 2023-06-17 19:41:16 +0900
+updated: 2023-06-23 14:20:53 +0900
 ---
 
 ## Overview
@@ -30,20 +30,40 @@ updated: 2023-06-17 19:41:16 +0900
 
 아직도 `Long` 타입에 최대 개수 걱정이 필요하다고 느껴지는가?
 
+Long 타입이 어려워지는건 분산된 환경에서의 아이디 생성 전략이 필요해질 경우이다.
+
 ### UUID
 
-Long 타입 아이디 생성을 위해서는 DB sequence 가 많이 이용된다. 이 방법은 아이디 생성 전 DB 를 먼저 조회하여 생성될 아이디를 결정하는 방식이라 트래픽이 늘어난다면 DB 에 부담이 되게 된다. 따라서 DB 조회가 필요없는 ID 생성 전략이 필요해졌고 그 해결 방법으로 UUID 를 고려해볼 수 있다.
+Long 타입 아이디 생성을 위해서는 DB sequence 가 많이 이용된다. 이 방법은 아이디 생성 전 DB 를 먼저 조회하여 생성될 아이디를 결정하는 방식이라 트래픽이 늘어난다면 DB 에 부담이 되게 된다. 따라서 DB 조회가 필요없는 ID 생성 전략이 필요해졌고 그 해결 방법으로 UUID 가 종종 고려되곤 한다.
+
+UUID 는 각 서버별로 직접 생성할 수 있어서 확장성이 매우 뛰어나다.
 
 `UUID` 는 `Universal Unique Id` 인만큼 전 우주에서 유일한 값이라는 걸 보장한다. 그런만큼 ID 로 사용하기에는 최적처럼 보인다.
 
 하지만 `UUID` 는 ID 가 언제 생성되었는지에 대한 정보를 담지 않기 때문에 ID 로 정렬해도 시간순 정렬되지 않는다. PK 는 정렬된 상태로 인덱스가 생성되는 것을 감안해볼 때 아쉬운 점이다.
 
+아이디에 의미를 부여하지 못하는 것도 아쉬움 중 하나이다.
+
+128비트로 비교적 길다. (long = 64 bit, int = 32bit)
+
 ### ULID
 
-`ULID` 는 `UUID` 의 단점을 극복하기 위해 등장했다.
+ULID(Universally Unique Lexicographically Sortable Identifier)는 대소문자를 구별하지 않는 시간을 나타내는 26자 글자와 16글자의 임의의 값으로 구성되어 있다.
+
+앞부분이 Timestamp 를 나타내므로 정렬이 가능하다.
+
+ULID 는 UUID 의 단점을 극복하기 위해 등장했다.
 
 ### Snowflake
+
+트위터에서 제안한 분산 아이디 생성 전략이다. 64bit 로 이루어져 있고 각 구간이 다른 의미를 지닌다.
 
 
 
 ## Conclusion
+
+## Reference
+
+- [ULID](https://github.com/ulid/spec)
+- [UUID vs ULID](https://velog.io/@injoon2019/UUID-vs-ULID)
+- [Discord Documentation](https://discord.com/developers/docs/reference#snowflakes)
