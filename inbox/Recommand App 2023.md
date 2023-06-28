@@ -4,7 +4,7 @@ date: 2023-06-28 10:42:00 +0900
 aliases: 
 tags: 
 categories: 
-updated: 2023-06-28 10:53:17 +0900
+updated: 2023-06-28 11:09:03 +0900
 ---
 
 ## 2023 상반기 추천 앱 Top 3 for MacOS
