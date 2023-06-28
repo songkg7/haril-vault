@@ -4,7 +4,7 @@ date: 2023-05-07 14:13:00 +0900
 aliases: 
 tags: [url, system-architecture]
 categories: 
-updated: 2023-06-25 16:46:23 +0900
+updated: 2023-06-28 18:11:01 +0900
 ---
 
 > [!INFO]
@@ -16,11 +16,171 @@ url 을 줄이는 것은 이메일 또는 SMS 전송에서 URL 이 단편화되�
 
 ## URL 단축기?
 
+바로 결과물부터 보겠습니다.
+
+다음 명령을 통해서 이번 글에서 사용하는 url 단축기를 바로 실행시킬 수 있습니다.
+
+```bash
+docker run -d -p 8080:8080 --name tinyurl songkg7/url-shortener
+```
+
 ## 대략적인 설계
+
+### URL 단축하기
+
+```mermaid
+sequenceDiagram
+    User->>Server: Long URL
+    Server->>DB: Query
+    DB->>Server: Short URL
+    Server->>User: Redirect to Short URL
+```
+
+Long URL 을 전달받으면 서버에서 DB 에 해당 URL 이 이미 존재하고 있는지를 질의합니다. 존재한다면 짝을 이루고 있는 Short URL 을 반환하고, 존재하지 않는다면 새로운 Short URL 을 생성하여 DB 에 함께 저장한 뒤 Short URL 을 반환합니다.
+
+엔티티는 하나면 충분합니다.
+
+```mermaid
+erDiagram
+    UrlPair {
+        Long id PK
+        String shortUrl
+        String longUrl "unique"
+    }
+```
+
+### 단축된 URL 로 접근
 
 ## 구현
 
 지난 번 [[Consistent Hashing|안정 해시]]에서 그랬듯이 직접 구현해볼게요. 다행인 점은 URL 단축 구현은 그렇게 어렵지 않다는 것입니다.
+
+### Model
+
+먼저 유저에게 요청을 받기 위해 모델을 구현합니다. 구조를 최대한 단순화시켜서 단축시킬 URL 만 받았습니다.
+
+```kotlin
+data class ShortenRequest(
+    val longUrl: String
+) {
+    private constructor() : this("")
+}
+```
+
+`POST` 요청을 통해 처리할 수 있도록 Controller 를 구현해줍니다.
+
+```kotlin
+@PostMapping("/api/v1/shorten")
+fun shorten(@RequestBody request: ShortenRequest): ResponseEntity<ShortenResponse> {
+    val url = urlShortenService.shorten(request.longUrl)
+    return ResponseEntity.ok(ShortenResponse(url))
+}
+```
+
+### Base62 Conversion
+
+```kotlin
+private const val BASE62 = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+class Base62Conversion : Conversion {
+    override fun encode(input: Long): String {
+        val sb = StringBuilder()
+        var num = BigInteger.valueOf(input)
+        while (num > BigInteger.ZERO) {
+            val remainder = num % BigInteger.valueOf(62)
+            sb.append(BASE62[remainder.toInt()])
+            num /= BigInteger.valueOf(62)
+        }
+        return sb.reverse().toString()
+    }
+
+    override fun decode(input: String): Long {
+        var num = BigInteger.ZERO
+        for (c in input) {
+            num *= BigInteger.valueOf(62)
+            num += BigInteger.valueOf(BASE62.indexOf(c).toLong())
+        }
+        return num.toLong()
+
+    }
+}
+```
+
+### JIB
+
+```kotlin
+plugins {
+    //...
+	id("com.google.cloud.tools.jib") version "3.3.2"
+}
+
+jib {
+	to {
+		image = "songkg7/url-shortener:latest"
+	}
+	container {
+		jvmFlags = listOf("-Xms512m", "-Xmx512m", "-Dspring.profiles.active=docker")
+	}
+}
+```
+
+```bash
+./gradlew jib
+```
+
+JIB 를 사용하여 간단하게 Image 를 빌드해줍니다. JIB 는 굉장히 편리하게 이미지를 빌드할 수 있도록 도와줍니다. 자세한 내용은 다른 글에서 다뤄보도록 할게요.
+
+### docker-compose.yml
+
+```yaml
+services:
+  mysql:
+    image: mysql:latest
+    container_name: mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: test
+      MYSQL_USER: test
+      MYSQL_PASSWORD: test
+    networks:
+      - url-shortener
+  tinyurl:
+    image: songkg7/url-shortener
+    container_name: tinyurl
+    depends_on:
+      mysql:
+        condition: service_healthy
+    ports:
+      - 8080:8080
+    networks:
+      - url-shortener
+
+networks:
+  url-shortener:
+    driver: bridge
+```
+
+```bash
+docker compose up -d
+```
+
+이제 모든 환경이 갖춰졌습니다.
+
+### Test
+
+```bash
+curl -X POST --location "http://localhost:8080/api/v1/shorten" \
+    -H "Content-Type: application/json" \
+    -d "{
+            \"longUrl\": \"https://www.google.com/search?q=url+shortener&sourceid=chrome&ie=UTF-8\"
+        }"
+```
+
+http://localhost:8080/{shortUrl} 로 접근해보면 정상적으로 리다이렉트 되는 것을 확인할 수 있습니다.
 
 ## Conclusion
 
