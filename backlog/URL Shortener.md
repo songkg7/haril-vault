@@ -4,7 +4,7 @@ date: 2023-05-07 14:13:00 +0900
 aliases: 
 tags: [url, system-architecture]
 categories: 
-updated: 2023-06-28 18:11:01 +0900
+updated: 2023-06-30 14:34:02 +0900
 ---
 
 > [!INFO]
@@ -38,7 +38,7 @@ sequenceDiagram
 
 Long URL 을 전달받으면 서버에서 DB 에 해당 URL 이 이미 존재하고 있는지를 질의합니다. 존재한다면 짝을 이루고 있는 Short URL 을 반환하고, 존재하지 않는다면 새로운 Short URL 을 생성하여 DB 에 함께 저장한 뒤 Short URL 을 반환합니다.
 
-엔티티는 하나면 충분합니다.
+URL 정보를 관리하기 위해 `UrlPair` 라는 엔티티를 만들어줍니다.
 
 ```mermaid
 erDiagram
@@ -79,6 +79,8 @@ fun shorten(@RequestBody request: ShortenRequest): ResponseEntity<ShortenRespons
 
 ### Base62 Conversion
 
+드디어 가장 핵심적인 부분이네요. URL 을 단축하기 위해 Base62 인코딩을 해줘야 합니다. 인코딩된 URL 이 뭔지 알아야 하므로 디코딩도 구현해줬습니다.
+
 ```kotlin
 private const val BASE62 = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
@@ -105,70 +107,6 @@ class Base62Conversion : Conversion {
     }
 }
 ```
-
-### JIB
-
-```kotlin
-plugins {
-    //...
-	id("com.google.cloud.tools.jib") version "3.3.2"
-}
-
-jib {
-	to {
-		image = "songkg7/url-shortener:latest"
-	}
-	container {
-		jvmFlags = listOf("-Xms512m", "-Xmx512m", "-Dspring.profiles.active=docker")
-	}
-}
-```
-
-```bash
-./gradlew jib
-```
-
-JIB 를 사용하여 간단하게 Image 를 빌드해줍니다. JIB 는 굉장히 편리하게 이미지를 빌드할 수 있도록 도와줍니다. 자세한 내용은 다른 글에서 다뤄보도록 할게요.
-
-### docker-compose.yml
-
-```yaml
-services:
-  mysql:
-    image: mysql:latest
-    container_name: mysql
-    healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
-    ports:
-      - 3306:3306
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: test
-      MYSQL_USER: test
-      MYSQL_PASSWORD: test
-    networks:
-      - url-shortener
-  tinyurl:
-    image: songkg7/url-shortener
-    container_name: tinyurl
-    depends_on:
-      mysql:
-        condition: service_healthy
-    ports:
-      - 8080:8080
-    networks:
-      - url-shortener
-
-networks:
-  url-shortener:
-    driver: bridge
-```
-
-```bash
-docker compose up -d
-```
-
-이제 모든 환경이 갖춰졌습니다.
 
 ### Test
 
