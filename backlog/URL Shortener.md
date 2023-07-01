@@ -4,7 +4,7 @@ date: 2023-05-07 14:13:00 +0900
 aliases: 
 tags: [url, system-architecture]
 categories: 
-updated: 2023-07-01 19:31:33 +0900
+updated: 2023-07-01 20:09:52 +0900
 ---
 
 > [!INFO]
@@ -16,7 +16,7 @@ url 을 줄이는 것은 이메일 또는 SMS 전송에서 URL 이 단편화되�
 
 ## URL 단축기?
 
-바로 결과물부터 보겠습니다.
+바로 결과부터 보겠습니다.
 
 다음 명령을 통해서 이번 글에서 사용하는 url 단축기를 바로 실행시킬 수 있습니다.
 
@@ -24,12 +24,37 @@ url 을 줄이는 것은 이메일 또는 SMS 전송에서 URL 이 단편화되�
 docker run -d -p 8080:8080 --name tinyurl songkg7/url-shortener
 ```
 
+```bash
+curl -X POST --location "http://localhost:8080/api/v1/shorten" \
+    -H "Content-Type: application/json" \
+    -d "{
+            \"longUrl\": \"https://www.google.com/search?q=url+shortener&sourceid=chrome&ie=UTF-8\"
+        }"
+# 8aIYwrnU8g
+```
+
+이제 웹페이지에서 `http://localhost:8080/8aIYwrnU8g` 로 접근해보면,
+
+![[Pasted image 20230701200237.png]]
+
+기존 url 로 잘 접근하는 것을 볼 수 있습니다.
+
+**단축 전**
+
+- https://www.google.com/search?q=url+shortener&sourceid=chrome&ie=UTF-8
+
+**단축 후**
+
+- http://localhost:8080/8aIYwrnU8g
+
+그러면 이제 어떻게 URL 을 단축시킬 수 있는지 알아봅시다.
+
 ## 대략적인 설계
 
 ### URL 단축하기
 
 1. longUrl 을 저장하기 전에 id 를 채번
-2. id 를 encode 하여 shortUrl 을 생성
+2. id 를 base62 encode 하여 shortUrl 을 생성
 3. DB 에 id, shortUrl, longUrl 을 저장
 
 ### 단축 URL 로 접근
@@ -108,7 +133,13 @@ class Base62Conversion : Conversion {
 }
 ```
 
+단축된 URL 의 길이는 아이디의 숫자 크기에 반비례합니다. 생성된 ID 의 숫자가 작을수록 URL 도 짧게 만들 수 있습니다.
+
+단축 URL 의 길이가 8자리를 넘지 않게 하고 싶다면, ID 의 크기가 62^8 을 넘지 않도록 생성하면 됩니다. 따라서 ID 를 어떤 방식으로 채번하느냐도 굉장히 중요한 부분입니다. 이번에는 내용을 단순화시키기 위해서 해당 부분을 시간값으로 처리했습니다.
+
 ### Test
+
+`curl` 로 POST 요청을 보내서 임의의 URL 을 단축시켜 보겠습니다.
 
 ```bash
 curl -X POST --location "http://localhost:8080/api/v1/shorten" \
