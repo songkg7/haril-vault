@@ -4,7 +4,7 @@ date: 2023-05-07 14:13:00 +0900
 aliases: 
 tags: [url, system-architecture]
 categories: 
-updated: 2023-06-30 14:34:02 +0900
+updated: 2023-07-01 19:31:33 +0900
 ---
 
 > [!INFO]
@@ -79,7 +79,7 @@ fun shorten(@RequestBody request: ShortenRequest): ResponseEntity<ShortenRespons
 
 ### Base62 Conversion
 
-드디어 가장 핵심적인 부분이네요. URL 을 단축하기 위해 Base62 인코딩을 해줘야 합니다. 인코딩된 URL 이 뭔지 알아야 하므로 디코딩도 구현해줬습니다.
+드디어 가장 핵심적인 부분이네요. id 를 생성하면 해당 아이디를 base62 인코딩하여 단축합니다. 이렇게 단축된 문자열이 shortUrl 이 됩니다. 반대의 경우는 shortUrl 을 디코딩하여 id 를 알아내고 이 id 로 DB 에 질의하여 longUrl 을 알아내는데 사용합니다.
 
 ```kotlin
 private const val BASE62 = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
