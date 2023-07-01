@@ -28,15 +28,15 @@ docker run -d -p 8080:8080 --name tinyurl songkg7/url-shortener
 
 ### URL 단축하기
 
-```mermaid
-sequenceDiagram
-    User->>Server: Long URL
-    Server->>DB: Query
-    DB->>Server: Short URL
-    Server->>User: Redirect to Short URL
-```
+1. longUrl 을 저장하기 전에 id 를 채번
+2. id 를 encode 하여 shortUrl 을 생성
+3. DB 에 id, shortUrl, longUrl 을 저장
 
-Long URL 을 전달받으면 서버에서 DB 에 해당 URL 이 이미 존재하고 있는지를 질의합니다. 존재한다면 짝을 이루고 있는 Short URL 을 반환하고, 존재하지 않는다면 새로운 Short URL 을 생성하여 DB 에 함께 저장한 뒤 Short URL 을 반환합니다.
+### 단축 URL 로 접근
+
+1. shortUrl 을 decode 하여 id 로 변환
+2. id 를 DB 에 질의
+3. 반환받은 longUrl 로 리다이렉트
 
 URL 정보를 관리하기 위해 `UrlPair` 라는 엔티티를 만들어줍니다.
 
