@@ -4,7 +4,7 @@ date: 2023-05-07 14:13:00 +0900
 aliases: 
 tags: [url, system-architecture]
 categories: 
-updated: 2023-07-01 20:09:52 +0900
+updated: 2023-07-02 17:19:19 +0900
 ---
 
 > [!INFO]
@@ -57,6 +57,8 @@ curl -X POST --location "http://localhost:8080/api/v1/shorten" \
 2. id 를 base62 encode 하여 shortUrl 을 생성
 3. DB 에 id, shortUrl, longUrl 을 저장
 
+RDB 를 사용하는 이유
+
 ### 단축 URL 로 접근
 
 1. shortUrl 을 decode 하여 id 로 변환
@@ -106,6 +108,24 @@ fun shorten(@RequestBody request: ShortenRequest): ResponseEntity<ShortenRespons
 
 드디어 가장 핵심적인 부분이네요. id 를 생성하면 해당 아이디를 base62 인코딩하여 단축합니다. 이렇게 단축된 문자열이 shortUrl 이 됩니다. 반대의 경우는 shortUrl 을 디코딩하여 id 를 알아내고 이 id 로 DB 에 질의하여 longUrl 을 알아내는데 사용합니다.
 
+```mermaid
+flowchart LR
+    id --base62 encoding--> surl[short url]
+    surl --> db[(Database)]
+```
+
+```mermaid
+flowchart LR
+    surl[short url] --base62 decoding--> id
+    id --find--> db[(Database)]
+```
+
+```mermaid
+sequenceDiagram
+    Client->>Server: /shortUrl
+    Server->>Database: hello
+```
+
 ```kotlin
 private const val BASE62 = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
@@ -152,5 +172,11 @@ curl -X POST --location "http://localhost:8080/api/v1/shorten" \
 http://localhost:8080/{shortUrl} 로 접근해보면 정상적으로 리다이렉트 되는 것을 확인할 수 있습니다.
 
 ## Conclusion
+
+몇가지 개선해볼 수 있는 사항들 입니다.
+
+- ID 생성 전략을 더 정밀하게 제어하면 shortUrl 을 더 단축시킬 수 있습니다.
+- host 부분도 DNS 를 사용하면 더 단축시킬 수 있습니다.
+- Persistence Layer 에 Cache 를 적용하면 더 빠른 응답을 구현할 수 있습니다.
 
 ## Reference
