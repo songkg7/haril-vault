@@ -4,7 +4,7 @@ date: 2023-05-07 14:13:00 +0900
 aliases: 
 tags: [url, system-architecture]
 categories: 
-updated: 2023-07-02 17:19:19 +0900
+updated: 2023-07-03 14:35:45 +0900
 ---
 
 > [!INFO]
@@ -12,7 +12,7 @@ updated: 2023-07-02 17:19:19 +0900
 
 ## Overview
 
-url 을 줄이는 것은 이메일 또는 SMS 전송에서 URL 이 단편화되는 것을 방지하기 위해 시작되었습니다. 하지만 요즘에는 트위터나 인스타그램 등 SNS 에서 특정 링크 공유를 위해서 더 활발하게 사용되고 있습니다. 장황하게 보이지 않기 때문에 가독성이 개선되고 URL 로 이동하기 전에 사용자 통계 등 유용한 정보를 수집하는 부가적인 기능을 제공할 수도 있습니다.
+URL 길이를 줄이는 것은 이메일 또는 SMS 전송에서 URL 이 단편화되는 것을 방지하기 위해 시작되었습니다. 하지만 요즘에는 트위터나 인스타그램 등 SNS 에서 특정 링크 공유를 위해서 더 활발하게 사용되고 있습니다. 장황하게 보이지 않기 때문에 가독성이 개선되고 URL 로 이동하기 전에 사용자 통계 등 유용한 정보를 수집하는 부가적인 기능을 제공할 수도 있습니다.
 
 ## URL 단축기?
 
@@ -47,14 +47,14 @@ curl -X POST --location "http://localhost:8080/api/v1/shorten" \
 
 - http://localhost:8080/8aIYwrnU8g
 
-그러면 이제 어떻게 URL 을 단축시킬 수 있는지 알아봅시다.
+그러면 이제 어떻게 URL 을 단축시킬 수 있는지 알아볼게요.
 
 ## 대략적인 설계
 
 ### URL 단축하기
 
 1. longUrl 을 저장하기 전에 id 를 채번
-2. id 를 base62 encode 하여 shortUrl 을 생성
+2. ID 를 base62 encode 하여 shortUrl 을 생성
 3. DB 에 id, shortUrl, longUrl 을 저장
 
 RDB 를 사용하는 이유
@@ -62,7 +62,7 @@ RDB 를 사용하는 이유
 ### 단축 URL 로 접근
 
 1. shortUrl 을 decode 하여 id 로 변환
-2. id 를 DB 에 질의
+2. ID 를 DB 에 질의
 3. 반환받은 longUrl 로 리다이렉트
 
 URL 정보를 관리하기 위해 `UrlPair` 라는 엔티티를 만들어줍니다.
@@ -106,24 +106,26 @@ fun shorten(@RequestBody request: ShortenRequest): ResponseEntity<ShortenRespons
 
 ### Base62 Conversion
 
-드디어 가장 핵심적인 부분이네요. id 를 생성하면 해당 아이디를 base62 인코딩하여 단축합니다. 이렇게 단축된 문자열이 shortUrl 이 됩니다. 반대의 경우는 shortUrl 을 디코딩하여 id 를 알아내고 이 id 로 DB 에 질의하여 longUrl 을 알아내는데 사용합니다.
+드디어 가장 핵심적인 부분이네요. ID 를 생성하면 해당 아이디를 base62 인코딩하여 단축합니다. 이렇게 단축된 문자열이 shortUrl 이 됩니다. 반대의 경우는 shortUrl 을 디코딩하여 ID 를 알아내고 이 ID 로 DB 에 질의하여 longUrl 을 알아내는데 사용합니다.
 
 ```mermaid
 flowchart LR
-    id --base62 encoding--> surl[short url]
+    ID --base62 encoding--> surl[short url]
     surl --> db[(Database)]
 ```
 
 ```mermaid
 flowchart LR
-    surl[short url] --base62 decoding--> id
-    id --find--> db[(Database)]
+    surl[short url] --base62 decoding--> ID
+    ID --find--> db[(Database)]
 ```
 
 ```mermaid
 sequenceDiagram
     Client->>Server: /shortUrl
-    Server->>Database: hello
+    Server->>Database: 192831(ID)
+    Database->>Server: longUrl
+    Server->>Client: Redirect /longUrl
 ```
 
 ```kotlin
@@ -155,7 +157,7 @@ class Base62Conversion : Conversion {
 
 단축된 URL 의 길이는 아이디의 숫자 크기에 반비례합니다. 생성된 ID 의 숫자가 작을수록 URL 도 짧게 만들 수 있습니다.
 
-단축 URL 의 길이가 8자리를 넘지 않게 하고 싶다면, ID 의 크기가 62^8 을 넘지 않도록 생성하면 됩니다. 따라서 ID 를 어떤 방식으로 채번하느냐도 굉장히 중요한 부분입니다. 이번에는 내용을 단순화시키기 위해서 해당 부분을 시간값으로 처리했습니다.
+단축 URL 의 길이가 8자리를 넘지 않게 하고 싶다면, ID 의 크기가 62^8 을 넘지 않도록 생성하면 됩니다. 따라서 ID 를 어떤 방식으로 생성하느냐도 굉장히 중요합니다. 이번에는 내용을 단순화시키기 위해서 해당 부분을 시간값으로 처리했습니다.
 
 ### Test
 
@@ -177,6 +179,6 @@ http://localhost:8080/{shortUrl} 로 접근해보면 정상적으로 리다이�
 
 - ID 생성 전략을 더 정밀하게 제어하면 shortUrl 을 더 단축시킬 수 있습니다.
 - host 부분도 DNS 를 사용하면 더 단축시킬 수 있습니다.
-- Persistence Layer 에 Cache 를 적용하면 더 빠른 응답을 구현할 수 있습니다.
+- 요청이 많을 경우, Persistence Layer 에 Cache 를 적용하면 더 빠른 응답을 구현할 수 있습니다.
 
 ## Reference
