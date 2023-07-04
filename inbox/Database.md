@@ -1,9 +1,10 @@
 ---
 title: "Database"
 date: 2023-02-09 16:35:00 +0900
-aliases: 
+aliases: DB
 tags: [database]
 categories: 
+updated: 2023-07-04 16:53:27 +0900
 ---
 
 ## 데이터베이스 관리 시스템
