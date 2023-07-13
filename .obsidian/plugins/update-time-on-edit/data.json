@@ -5,7 +5,7 @@
   "enableCreateTime": false,
   "headerUpdated": "updated",
   "headerCreated": "created",
-  "minMinutesBetweenSaves": 5,
+  "minMinutesBetweenSaves": 10,
   "ignoreGlobalFolder": [],
   "ignoreCreatedFolder": []
 }
