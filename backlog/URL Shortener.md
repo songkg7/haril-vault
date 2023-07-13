@@ -89,9 +89,7 @@ erDiagram
 ```kotlin
 data class ShortenRequest(
     val longUrl: String
-) {
-    private constructor() : this("")
-}
+)
 ```
 
 `POST` 요청을 통해 처리할 수 있도록 Controller 를 구현해줍니다.
