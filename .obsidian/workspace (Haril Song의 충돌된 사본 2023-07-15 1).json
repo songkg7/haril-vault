@@ -1,0 +1,360 @@
+{
+  "main": {
+    "id": "8d4b6916fffaa653",
+    "type": "split",
+    "children": [
+      {
+        "id": "ff96a6b2ef58e533",
+        "type": "tabs",
+        "dimension": 77.88808664259928,
+        "children": [
+          {
+            "id": "61f84ca3ff9db6df",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "backlog/Consideration of the appropriate type with the ID of Entity.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "6909b8c316781e3a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "backlog/귀여움은 정말로 세상을 구할 수 있을까?.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "4743457ad2e817ed",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "backlog/URL Shortener.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "a25c99b3d6ee3a95",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "private/Personal Branding.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "c94687fab65b7c50",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "backlog/나무위키에 기여하기.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "40aa53997d857947",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "inbox/Question list.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "8fe8301da38e5b63",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "inbox/Understanding How Transaction Isolation Levels Works.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          }
+        ],
+        "currentTab": 5
+      },
+      {
+        "id": "d792050ed150f283",
+        "type": "tabs",
+        "dimension": 22.111913357400724,
+        "children": [
+          {
+            "id": "8ab8e79eb9229aa9",
+            "type": "leaf",
+            "state": {
+              "type": "localgraph",
+              "state": {
+                "file": "inbox/Question list.md",
+                "options": {
+                  "collapse-filter": true,
+                  "search": "",
+                  "localJumps": 1,
+                  "localBacklinks": true,
+                  "localForelinks": true,
+                  "localInterlinks": false,
+                  "showTags": false,
+                  "showAttachments": false,
+                  "hideUnresolved": false,
+                  "collapse-color-groups": true,
+                  "colorGroups": [],
+                  "collapse-display": true,
+                  "showArrow": false,
+                  "textFadeMultiplier": 0,
+                  "nodeSizeMultiplier": 1,
+                  "lineSizeMultiplier": 1,
+                  "collapse-forces": true,
+                  "centerStrength": 0.518713248970312,
+                  "repelStrength": 10,
+                  "linkStrength": 1,
+                  "linkDistance": 250,
+                  "scale": 0.9637045640272228,
+                  "close": true
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "e7d1d1784716454d",
+    "type": "split",
+    "children": [
+      {
+        "id": "c283706535d19599",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ca4acbf2ba8f847f",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "61f04dc4a00fe3d9",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "e8b2089f67047214",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          },
+          {
+            "id": "0da33f9fd5625e06",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 297.5
+  },
+  "right": {
+    "id": "41a576e0627fcea3",
+    "type": "split",
+    "children": [
+      {
+        "id": "4705ab928852dd21",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "95595987c6ea6d11",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "inbox/Question list.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": false
+              }
+            }
+          },
+          {
+            "id": "ffbf13c224129e81",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "inbox/Question list.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "4ca6df124620813a",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "2567fb8b28f58d58",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "inbox/Question list.md"
+              }
+            }
+          },
+          {
+            "id": "696aa0455f6cdde9",
+            "type": "leaf",
+            "state": {
+              "type": "advanced-tables-toolbar",
+              "state": {}
+            }
+          },
+          {
+            "id": "c8049abf0fed9e22",
+            "type": "leaf",
+            "state": {
+              "type": "side-panel-control-view",
+              "state": {}
+            }
+          },
+          {
+            "id": "8b9c2576b03e94b9",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {}
+            }
+          }
+        ],
+        "currentTab": 4
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
+      "templater-obsidian:Templater": false,
+      "obsidian-markdown-formatting-assistant-plugin:Open Markdown Formatting Assistant": false,
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": true,
+      "command-palette:Open command palette": true,
+      "markdown-importer:Open format converter": false,
+      "workspaces:Manage workspace layouts": false,
+      "terminal:Open terminal": false,
+      "obsidian-textgenerator-plugin:Generate Text!": false,
+      "obsidian-textgenerator-plugin:Text Generator: Templates Packages Manager": false
+    }
+  },
+  "active": "40aa53997d857947",
+  "lastOpenFiles": [
+    "inbox/Question list (song-gyeong-geun-ui-iMac.local의 충돌된 사본 2023-07-15).md",
+    "inbox/Bean Scope.md",
+    "inbox/Spring Bean Lifecycle.md",
+    "inbox/Understanding How Transaction Isolation Levels Works.md",
+    "inbox/Question list.md",
+    "backlog/나무위키에 기여하기.md",
+    "backlog/Consideration of the appropriate type with the ID of Entity.md",
+    "backlog/귀여움은 정말로 세상을 구할 수 있을까?.md",
+    "ready/2023-07-14-Journey-with Devlog 2022-2023.md",
+    "published/Journey with Devlog 2022-2023.md",
+    "resources/Pasted image 20230714192108.png",
+    "resources/Pasted image 20230714184733.png",
+    "resources/Pasted image 20230714183142.png",
+    "resources/Pasted image 20230714182237.png",
+    "backlog/URL Shortener.md",
+    "private/Personal Branding.md",
+    "inbox/Decision to break up with commit per day.md",
+    "inbox/How to create a Reactive DB Connection?.md",
+    "inbox/Pessimistic Lock.md",
+    "inbox/Optimistic Lock.md",
+    "inbox/Transactional Outbox Pattern.md",
+    "published/Consistent Hashing.md",
+    "inbox/Hash.md",
+    "backlog/Decision to break up with commit per day.md",
+    "inbox/TCP 와 UDP 비교.md",
+    "inbox/TCP.md",
+    "inbox/How Discord stores Trillions of Messages.md",
+    "inbox/Access Control List.md",
+    "inbox/R2DBC.md",
+    "inbox/Database.md",
+    "resources/Pasted image 20230701200237.png",
+    "resources/Pasted image 20230701193759.png",
+    "resources/Pasted image 20230630141426.png",
+    "resources/Pasted image 20230623112820.png",
+    "resources/Pasted image 20230623111947.png",
+    "resources/Pasted image 20230621132127.png",
+    "textgenerator/prompts/dalle-2",
+    "textgenerator/prompts/huggingface",
+    "textgenerator/prompts/default",
+    "textgenerator/prompts",
+    "textgenerator",
+    "ready",
+    "ready",
+    "Untitled.canvas"
+  ]
+}
