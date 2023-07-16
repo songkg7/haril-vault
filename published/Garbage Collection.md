@@ -4,12 +4,12 @@ date: 2022-12-21 10:12:00 +0900
 aliases: GC
 tags: [gc, jvm, garbage-collection]
 categories: 
-updated: 2023-05-20 17:45:21 +0900
+updated: 2023-07-16 14:20:19 +0900
 ---
 
 ## Overview
 
-[[JVM]] 의 Garbage collection(이하 GC) 에 대해서 정리해봅니다.
+[[Java Virtual Machine]] 의 Garbage collection(이하 GC) 에 대해서 정리해봅니다.
 
 ## What is GC?
 
