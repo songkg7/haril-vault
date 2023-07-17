@@ -4,7 +4,7 @@ date: 2023-07-16 13:54:00 +0900
 aliases: JVM
 tags: [jvm, java]
 categories: Java
-updated: 2023-07-16 17:35:51 +0900
+updated: 2023-07-16 17:55:22 +0900
 ---
 
 ## JVM 이란 무엇인가?
