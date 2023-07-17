@@ -4,7 +4,7 @@ date: 2023-01-22 21:09:00 +0900
 aliases: 
 tags: [java, interface, architecture, oop]
 categories: 
-updated: 2023-07-16 14:20:19 +0900
+updated: 2023-07-16 23:44:52 +0900
 ---
 
 ## Overview

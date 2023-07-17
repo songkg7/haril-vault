@@ -4,7 +4,7 @@ date: 2022-12-21 10:12:00 +0900
 aliases: GC
 tags: [gc, jvm, garbage-collection]
 categories: 
-updated: 2023-07-16 14:20:19 +0900
+updated: 2023-07-16 23:44:52 +0900
 ---
 
 ## Overview
