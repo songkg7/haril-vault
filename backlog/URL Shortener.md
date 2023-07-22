@@ -4,7 +4,7 @@ date: 2023-05-07 14:13:00 +0900
 aliases: 
 tags: [url, system-architecture]
 categories: 
-updated: 2023-07-14 11:05:52 +0900
+updated: 2023-07-20 13:23:49 +0900
 ---
 
 > [!INFO]
@@ -80,7 +80,7 @@ erDiagram
 
 ## 구현
 
-지난 번 [[Consistent Hashing|안정 해시]]에서 그랬듯이 직접 구현해볼게요. 다행인 점은 URL 단축 구현은 그렇게 어렵지 않다는 것입니다.
+지난 번 [[Consistent Hashing|안정 해시]] 처럼 직접 구현해볼게요. 다행인 점은 URL 단축 구현은 그렇게 어렵지 않다는 것입니다.
 
 ### Model
 
@@ -176,7 +176,6 @@ http://localhost:8080/{shortUrl} 로 접근해보면 정상적으로 리다이�
 몇가지 개선해볼 수 있는 사항들 입니다.
 
 - ID 생성 전략을 더 정밀하게 제어하면 shortUrl 을 더 단축시킬 수 있습니다.
+    - [[Snowflake]]
 - host 부분도 DNS 를 사용하면 더 단축시킬 수 있습니다.
 - 요청이 많을 경우, Persistence Layer 에 Cache 를 적용하면 더 빠른 응답을 구현할 수 있습니다.
-
-## Reference
