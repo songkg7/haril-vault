@@ -1,8 +1,8 @@
 ---
-title: "Obserber pattern"
+title: "Observer pattern"
 date: 2022-12-12 12:27:00 +0900
 aliases: 
-tags: [design-pattern, obserber, java, kotlin]
+tags: [design-pattern, observer, java, kotlin]
 categories: 
 ---
 

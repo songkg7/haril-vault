@@ -4,7 +4,7 @@ date: 2023-05-24 20:20:00 +0900
 aliases: 
 tags: [question]
 categories: 
-updated: 2023-07-16 23:44:52 +0900
+updated: 2023-07-24 14:18:02 +0900
 ---
 
 ![[Dev QnA|개발 질문 모음]]
@@ -23,6 +23,10 @@ updated: 2023-07-16 23:44:52 +0900
 
 spin lock
 
+---
+
+## 경험 강조하기
+
 https://brownbears.tistory.com/45
 
 1. 내가 엔지니어로서 해보고 싶은 전체적인 경험
@@ -31,6 +35,14 @@ https://brownbears.tistory.com/45
 4. 그 회사에서 해보고 싶은 경험
 
 5줄정도 쓰면 돌려먹기
+
+내가 궁극적으로 하고 싶은 것들은 ~~~이런거야. 그러 기 위해선 xX, yy, 2z 경험이 필요한 것 같아.
+
+이를 위해서 나는 과거에 xX, yy 경험을 해봤고, 이걸 바탕으로 너네 회사에 ~~~이렇게 기여할 수 있을 것 같아. 내가 평소에 관심 가지고 있는 프로젝트에 기여 할 수 있다는 부분이 너무 기대 되고,
+
+아직 못해본 zZ를 너네 회사에서 해볼 수 있을 것 같 다는 기대가 있어. 그래서 너무 함께 하고 싶어.
+
+---
 
 [https://careerly.co.kr/comments/83898?utm_campaign=user-share](https://careerly.co.kr/comments/83898?utm_campaign=user-share)
 
