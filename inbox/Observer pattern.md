@@ -4,6 +4,7 @@ date: 2022-12-12 12:27:00 +0900
 aliases: 
 tags: [design-pattern, observer, java, kotlin]
 categories: 
+updated: 2023-07-24 16:38:14 +0900
 ---
 
 ## Overview
