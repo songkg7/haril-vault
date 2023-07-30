@@ -4,7 +4,7 @@ date: 2023-05-07 14:13:00 +0900
 aliases: 
 tags: [url, system-architecture]
 categories: 
-updated: 2023-07-27 16:14:13 +0900
+updated: 2023-07-30 17:03:50 +0900
 ---
 
 > [!INFO]
@@ -57,7 +57,23 @@ curl -X POST --location "http://localhost:8080/api/v1/shorten" \
 2. ID 를 base62 encode 하여 shortUrl 을 생성
 3. DB 에 id, shortUrl, longUrl 을 저장
 
-RDB 를 사용하는 이유
+메모리는 유한하며 비용이 상대적으로 비싼 편입니다. RDB 는 인덱스를 통해 빠르게 조회 가능하며 메모리에 비해 상대적으로 저렴하므로 RDB 를 사용하여 URL 을 관리하도록 하겠습니다.
+
+URL 을 관리하기 위해 ID 생성 전략을 먼저 확보해야 합니다. ID 생성에는 다양한 방법이 있는데 여기서 다루기에는 내용이 다소 길어질 수 있어서 생략하겠습니다. 저는 간단하게 현재 시간에 대한 타임스탬프를 사용할 것 입니다.
+
+- [[Snowflake|Snowflake]]
+
+#### 해시 후 충돌해소 접근법
+
+#### Base62 변환
+
+[[ULID]] 를 사용하면 시간이 포함된 유일한 ID 를 생성할 수 있습니다.
+
+%%생성된 ID 첨부%%
+
+이 숫자를 62진법으로 변환하면 다음과 같은 문자열을 얻을 수 있습니다.
+
+이 문자열을 shortUrl 로써 DB 에 저장합니다.
 
 ### 단축 URL 로 접근
 
