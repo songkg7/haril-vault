@@ -835,10 +835,10 @@ var Reflect2;
 })(Reflect2 || (Reflect2 = {}));
 
 // main.ts
-var import_obsidian15 = require("obsidian");
+var import_obsidian17 = require("obsidian");
 
 // src/Settings/SettingsTab.ts
-var import_obsidian = require("obsidian");
+var import_obsidian2 = require("obsidian");
 
 // src/Components/EventDispatcher/Event.ts
 var Event = class {
@@ -1451,8 +1451,8 @@ function getBaseClassDependencyCount(metadataReader, func) {
   if (baseConstructor !== Object) {
     var baseConstructorName = getFunctionName(baseConstructor);
     var targets = getTargets(metadataReader, baseConstructorName, baseConstructor, true);
-    var metadata = targets.map(function(t) {
-      return t.metadata.filter(function(m) {
+    var metadata = targets.map(function(t3) {
+      return t3.metadata.filter(function(m) {
         return m.key === UNMANAGED_TAG;
       });
     });
@@ -1670,10 +1670,10 @@ var __awaiter = function(thisArg, _arguments, P, generator) {
 };
 var __generator = function(thisArg, body) {
   var _ = { label: 0, sent: function() {
-    if (t[0] & 1)
-      throw t[1];
-    return t[1];
-  }, trys: [], ops: [] }, f, y, t, g;
+    if (t3[0] & 1)
+      throw t3[1];
+    return t3[1];
+  }, trys: [], ops: [] }, f, y, t3, g;
   return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() {
     return this;
   }), g;
@@ -1687,14 +1687,14 @@ var __generator = function(thisArg, body) {
       throw new TypeError("Generator is already executing.");
     while (_)
       try {
-        if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done)
-          return t;
-        if (y = 0, t)
-          op = [op[0] & 2, t.value];
+        if (f = 1, y && (t3 = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t3 = y["return"]) && t3.call(y), 0) : y.next) && !(t3 = t3.call(y, op[1])).done)
+          return t3;
+        if (y = 0, t3)
+          op = [op[0] & 2, t3.value];
         switch (op[0]) {
           case 0:
           case 1:
-            t = op;
+            t3 = op;
             break;
           case 4:
             _.label++;
@@ -1709,25 +1709,25 @@ var __generator = function(thisArg, body) {
             _.trys.pop();
             continue;
           default:
-            if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) {
+            if (!(t3 = _.trys, t3 = t3.length > 0 && t3[t3.length - 1]) && (op[0] === 6 || op[0] === 2)) {
               _ = 0;
               continue;
             }
-            if (op[0] === 3 && (!t || op[1] > t[0] && op[1] < t[3])) {
+            if (op[0] === 3 && (!t3 || op[1] > t3[0] && op[1] < t3[3])) {
               _.label = op[1];
               break;
             }
-            if (op[0] === 6 && _.label < t[1]) {
-              _.label = t[1];
-              t = op;
+            if (op[0] === 6 && _.label < t3[1]) {
+              _.label = t3[1];
+              t3 = op;
               break;
             }
-            if (t && _.label < t[2]) {
-              _.label = t[2];
+            if (t3 && _.label < t3[2]) {
+              _.label = t3[2];
               _.ops.push(op);
               break;
             }
-            if (t[2])
+            if (t3[2])
               _.ops.pop();
             _.trys.pop();
             continue;
@@ -1737,7 +1737,7 @@ var __generator = function(thisArg, body) {
         op = [6, e];
         y = 0;
       } finally {
-        f = t = 0;
+        f = t3 = 0;
       }
     if (op[0] & 5)
       throw op[1];
@@ -1847,14 +1847,14 @@ var getFactoryDetails = function(binding) {
 
 // node_modules/inversify/es/resolution/instantiation.js
 var __assign = function() {
-  __assign = Object.assign || function(t) {
+  __assign = Object.assign || function(t3) {
     for (var s, i = 1, n = arguments.length; i < n; i++) {
       s = arguments[i];
       for (var p in s)
         if (Object.prototype.hasOwnProperty.call(s, p))
-          t[p] = s[p];
+          t3[p] = s[p];
     }
-    return t;
+    return t3;
   };
   return __assign.apply(this, arguments);
 };
@@ -1887,10 +1887,10 @@ var __awaiter2 = function(thisArg, _arguments, P, generator) {
 };
 var __generator2 = function(thisArg, body) {
   var _ = { label: 0, sent: function() {
-    if (t[0] & 1)
-      throw t[1];
-    return t[1];
-  }, trys: [], ops: [] }, f, y, t, g;
+    if (t3[0] & 1)
+      throw t3[1];
+    return t3[1];
+  }, trys: [], ops: [] }, f, y, t3, g;
   return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() {
     return this;
   }), g;
@@ -1904,14 +1904,14 @@ var __generator2 = function(thisArg, body) {
       throw new TypeError("Generator is already executing.");
     while (_)
       try {
-        if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done)
-          return t;
-        if (y = 0, t)
-          op = [op[0] & 2, t.value];
+        if (f = 1, y && (t3 = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t3 = y["return"]) && t3.call(y), 0) : y.next) && !(t3 = t3.call(y, op[1])).done)
+          return t3;
+        if (y = 0, t3)
+          op = [op[0] & 2, t3.value];
         switch (op[0]) {
           case 0:
           case 1:
-            t = op;
+            t3 = op;
             break;
           case 4:
             _.label++;
@@ -1926,25 +1926,25 @@ var __generator2 = function(thisArg, body) {
             _.trys.pop();
             continue;
           default:
-            if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) {
+            if (!(t3 = _.trys, t3 = t3.length > 0 && t3[t3.length - 1]) && (op[0] === 6 || op[0] === 2)) {
               _ = 0;
               continue;
             }
-            if (op[0] === 3 && (!t || op[1] > t[0] && op[1] < t[3])) {
+            if (op[0] === 3 && (!t3 || op[1] > t3[0] && op[1] < t3[3])) {
               _.label = op[1];
               break;
             }
-            if (op[0] === 6 && _.label < t[1]) {
-              _.label = t[1];
-              t = op;
+            if (op[0] === 6 && _.label < t3[1]) {
+              _.label = t3[1];
+              t3 = op;
               break;
             }
-            if (t && _.label < t[2]) {
-              _.label = t[2];
+            if (t3 && _.label < t3[2]) {
+              _.label = t3[2];
               _.ops.push(op);
               break;
             }
-            if (t[2])
+            if (t3[2])
               _.ops.pop();
             _.trys.pop();
             continue;
@@ -1954,7 +1954,7 @@ var __generator2 = function(thisArg, body) {
         op = [6, e];
         y = 0;
       } finally {
-        f = t = 0;
+        f = t3 = 0;
       }
     if (op[0] & 5)
       throw op[1];
@@ -1991,9 +1991,9 @@ function _resolveRequests(childRequests, resolveRequest) {
 function _createInstance(constr, childRequests, resolveRequest) {
   var result;
   if (childRequests.length > 0) {
-    var resolved = _resolveRequests(childRequests, resolveRequest);
-    var createInstanceWithInjectionsArg = __assign(__assign({}, resolved), { constr });
-    if (resolved.isAsync) {
+    var resolved2 = _resolveRequests(childRequests, resolveRequest);
+    var createInstanceWithInjectionsArg = __assign(__assign({}, resolved2), { constr });
+    if (resolved2.isAsync) {
       result = createInstanceWithInjectionsAsync(createInstanceWithInjectionsArg);
     } else {
       result = createInstanceWithInjections(createInstanceWithInjectionsArg);
@@ -2005,13 +2005,13 @@ function _createInstance(constr, childRequests, resolveRequest) {
 }
 function createInstanceWithInjections(args) {
   var _a;
-  var instance = new ((_a = args.constr).bind.apply(_a, __spreadArray2([void 0], args.constructorInjections, false)))();
+  var instance2 = new ((_a = args.constr).bind.apply(_a, __spreadArray2([void 0], args.constructorInjections, false)))();
   args.propertyRequests.forEach(function(r, index) {
     var property = r.target.identifier;
     var injection = args.propertyInjections[index];
-    instance[property] = injection;
+    instance2[property] = injection;
   });
-  return instance;
+  return instance2;
 }
 function createInstanceWithInjectionsAsync(args) {
   return __awaiter2(this, void 0, void 0, function() {
@@ -2057,12 +2057,12 @@ function _getInstanceAfterPostConstruct(constr, result) {
     return result;
   }
 }
-function _postConstruct(constr, instance) {
+function _postConstruct(constr, instance2) {
   var _a, _b;
   if (Reflect.hasMetadata(POST_CONSTRUCT, constr)) {
     var data = Reflect.getMetadata(POST_CONSTRUCT, constr);
     try {
-      return (_b = (_a = instance)[data.value]) === null || _b === void 0 ? void 0 : _b.call(_a);
+      return (_b = (_a = instance2)[data.value]) === null || _b === void 0 ? void 0 : _b.call(_a);
     } catch (e) {
       throw new Error(POST_CONSTRUCT_ERROR(constr.name, e.message));
     }
@@ -2124,10 +2124,10 @@ var __awaiter3 = function(thisArg, _arguments, P, generator) {
 };
 var __generator3 = function(thisArg, body) {
   var _ = { label: 0, sent: function() {
-    if (t[0] & 1)
-      throw t[1];
-    return t[1];
-  }, trys: [], ops: [] }, f, y, t, g;
+    if (t3[0] & 1)
+      throw t3[1];
+    return t3[1];
+  }, trys: [], ops: [] }, f, y, t3, g;
   return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() {
     return this;
   }), g;
@@ -2141,14 +2141,14 @@ var __generator3 = function(thisArg, body) {
       throw new TypeError("Generator is already executing.");
     while (_)
       try {
-        if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done)
-          return t;
-        if (y = 0, t)
-          op = [op[0] & 2, t.value];
+        if (f = 1, y && (t3 = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t3 = y["return"]) && t3.call(y), 0) : y.next) && !(t3 = t3.call(y, op[1])).done)
+          return t3;
+        if (y = 0, t3)
+          op = [op[0] & 2, t3.value];
         switch (op[0]) {
           case 0:
           case 1:
-            t = op;
+            t3 = op;
             break;
           case 4:
             _.label++;
@@ -2163,25 +2163,25 @@ var __generator3 = function(thisArg, body) {
             _.trys.pop();
             continue;
           default:
-            if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) {
+            if (!(t3 = _.trys, t3 = t3.length > 0 && t3[t3.length - 1]) && (op[0] === 6 || op[0] === 2)) {
               _ = 0;
               continue;
             }
-            if (op[0] === 3 && (!t || op[1] > t[0] && op[1] < t[3])) {
+            if (op[0] === 3 && (!t3 || op[1] > t3[0] && op[1] < t3[3])) {
               _.label = op[1];
               break;
             }
-            if (op[0] === 6 && _.label < t[1]) {
-              _.label = t[1];
-              t = op;
+            if (op[0] === 6 && _.label < t3[1]) {
+              _.label = t3[1];
+              t3 = op;
               break;
             }
-            if (t && _.label < t[2]) {
-              _.label = t[2];
+            if (t3 && _.label < t3[2]) {
+              _.label = t3[2];
               _.ops.push(op);
               break;
             }
-            if (t[2])
+            if (t3[2])
               _.ops.pop();
             _.trys.pop();
             continue;
@@ -2191,7 +2191,7 @@ var __generator3 = function(thisArg, body) {
         op = [6, e];
         y = 0;
       } finally {
-        f = t = 0;
+        f = t3 = 0;
       }
     if (op[0] & 5)
       throw op[1];
@@ -2260,8 +2260,8 @@ var _resolveBinding = function(requestScope, request, binding) {
   return _resolveInScope(requestScope, binding, function() {
     var result = _getResolvedFromBinding(requestScope, request, binding);
     if (isPromise(result)) {
-      result = result.then(function(resolved) {
-        return _onActivation(request, binding, resolved);
+      result = result.then(function(resolved2) {
+        return _onActivation(request, binding, resolved2);
       });
     } else {
       result = _onActivation(request, binding, result);
@@ -2269,8 +2269,8 @@ var _resolveBinding = function(requestScope, request, binding) {
     return result;
   });
 };
-function _onActivation(request, binding, resolved) {
-  var result = _bindingActivation(request.parentContext, binding, resolved);
+function _onActivation(request, binding, resolved2) {
+  var result = _bindingActivation(request.parentContext, binding, resolved2);
   var containersIterator = _getContainersIterator(request.parentContext.container);
   var container;
   var containersIteratorResult = containersIterator.next();
@@ -2850,13 +2850,13 @@ var Lookup = function() {
     return this._map.has(serviceIdentifier);
   };
   Lookup2.prototype.clone = function() {
-    var copy = new Lookup2();
+    var copy2 = new Lookup2();
     this._map.forEach(function(value, key) {
       value.forEach(function(b) {
-        return copy.add(key, isClonable(b) ? b.clone() : b);
+        return copy2.add(key, isClonable(b) ? b.clone() : b);
       });
     });
-    return copy;
+    return copy2;
   };
   Lookup2.prototype.traverse = function(func) {
     this._map.forEach(function(value, key) {
@@ -2922,14 +2922,14 @@ var ModuleActivationStore = function() {
 
 // node_modules/inversify/es/container/container.js
 var __assign2 = function() {
-  __assign2 = Object.assign || function(t) {
+  __assign2 = Object.assign || function(t3) {
     for (var s, i = 1, n = arguments.length; i < n; i++) {
       s = arguments[i];
       for (var p in s)
         if (Object.prototype.hasOwnProperty.call(s, p))
-          t[p] = s[p];
+          t3[p] = s[p];
     }
-    return t;
+    return t3;
   };
   return __assign2.apply(this, arguments);
 };
@@ -2962,10 +2962,10 @@ var __awaiter4 = function(thisArg, _arguments, P, generator) {
 };
 var __generator4 = function(thisArg, body) {
   var _ = { label: 0, sent: function() {
-    if (t[0] & 1)
-      throw t[1];
-    return t[1];
-  }, trys: [], ops: [] }, f, y, t, g;
+    if (t3[0] & 1)
+      throw t3[1];
+    return t3[1];
+  }, trys: [], ops: [] }, f, y, t3, g;
   return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() {
     return this;
   }), g;
@@ -2979,14 +2979,14 @@ var __generator4 = function(thisArg, body) {
       throw new TypeError("Generator is already executing.");
     while (_)
       try {
-        if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done)
-          return t;
-        if (y = 0, t)
-          op = [op[0] & 2, t.value];
+        if (f = 1, y && (t3 = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t3 = y["return"]) && t3.call(y), 0) : y.next) && !(t3 = t3.call(y, op[1])).done)
+          return t3;
+        if (y = 0, t3)
+          op = [op[0] & 2, t3.value];
         switch (op[0]) {
           case 0:
           case 1:
-            t = op;
+            t3 = op;
             break;
           case 4:
             _.label++;
@@ -3001,25 +3001,25 @@ var __generator4 = function(thisArg, body) {
             _.trys.pop();
             continue;
           default:
-            if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) {
+            if (!(t3 = _.trys, t3 = t3.length > 0 && t3[t3.length - 1]) && (op[0] === 6 || op[0] === 2)) {
               _ = 0;
               continue;
             }
-            if (op[0] === 3 && (!t || op[1] > t[0] && op[1] < t[3])) {
+            if (op[0] === 3 && (!t3 || op[1] > t3[0] && op[1] < t3[3])) {
               _.label = op[1];
               break;
             }
-            if (op[0] === 6 && _.label < t[1]) {
-              _.label = t[1];
-              t = op;
+            if (op[0] === 6 && _.label < t3[1]) {
+              _.label = t3[1];
+              t3 = op;
               break;
             }
-            if (t && _.label < t[2]) {
-              _.label = t[2];
+            if (t3 && _.label < t3[2]) {
+              _.label = t3[2];
               _.ops.push(op);
               break;
             }
-            if (t[2])
+            if (t3[2])
               _.ops.pop();
             _.trys.pop();
             continue;
@@ -3029,7 +3029,7 @@ var __generator4 = function(thisArg, body) {
         op = [6, e];
         y = 0;
       } finally {
-        f = t = 0;
+        f = t3 = 0;
       }
     if (op[0] & 5)
       throw op[1];
@@ -3392,16 +3392,16 @@ var Container = function() {
     if (!isBound) {
       this.bind(constructorFunction).toSelf();
     }
-    var resolved = this.get(constructorFunction);
+    var resolved2 = this.get(constructorFunction);
     if (!isBound) {
       this.unbind(constructorFunction);
     }
-    return resolved;
+    return resolved2;
   };
-  Container3.prototype._preDestroy = function(constructor, instance) {
+  Container3.prototype._preDestroy = function(constructor, instance2) {
     if (Reflect.hasMetadata(PRE_DESTROY, constructor)) {
       var data = Reflect.getMetadata(PRE_DESTROY, constructor);
-      return instance[data.value]();
+      return instance2[data.value]();
     }
   };
   Container3.prototype._removeModuleHandlers = function(moduleId) {
@@ -3414,19 +3414,19 @@ var Container = function() {
       return binding.moduleId === moduleId;
     });
   };
-  Container3.prototype._deactivate = function(binding, instance) {
+  Container3.prototype._deactivate = function(binding, instance2) {
     var _this = this;
-    var constructor = Object.getPrototypeOf(instance).constructor;
+    var constructor = Object.getPrototypeOf(instance2).constructor;
     try {
       if (this._deactivations.hasKey(binding.serviceIdentifier)) {
-        var result = this._deactivateContainer(instance, this._deactivations.get(binding.serviceIdentifier).values());
+        var result = this._deactivateContainer(instance2, this._deactivations.get(binding.serviceIdentifier).values());
         if (isPromise(result)) {
           return this._handleDeactivationError(result.then(function() {
-            return _this._propagateContainerDeactivationThenBindingAndPreDestroyAsync(binding, instance, constructor);
+            return _this._propagateContainerDeactivationThenBindingAndPreDestroyAsync(binding, instance2, constructor);
           }), constructor);
         }
       }
-      var propagateDeactivationResult = this._propagateContainerDeactivationThenBindingAndPreDestroy(binding, instance, constructor);
+      var propagateDeactivationResult = this._propagateContainerDeactivationThenBindingAndPreDestroy(binding, instance2, constructor);
       if (isPromise(propagateDeactivationResult)) {
         return this._handleDeactivationError(propagateDeactivationResult, constructor);
       }
@@ -3454,20 +3454,20 @@ var Container = function() {
       });
     });
   };
-  Container3.prototype._deactivateContainer = function(instance, deactivationsIterator) {
+  Container3.prototype._deactivateContainer = function(instance2, deactivationsIterator) {
     var _this = this;
     var deactivation = deactivationsIterator.next();
     while (deactivation.value) {
-      var result = deactivation.value(instance);
+      var result = deactivation.value(instance2);
       if (isPromise(result)) {
         return result.then(function() {
-          return _this._deactivateContainerAsync(instance, deactivationsIterator);
+          return _this._deactivateContainerAsync(instance2, deactivationsIterator);
         });
       }
       deactivation = deactivationsIterator.next();
     }
   };
-  Container3.prototype._deactivateContainerAsync = function(instance, deactivationsIterator) {
+  Container3.prototype._deactivateContainerAsync = function(instance2, deactivationsIterator) {
     return __awaiter4(this, void 0, void 0, function() {
       var deactivation;
       return __generator4(this, function(_a) {
@@ -3478,7 +3478,7 @@ var Container = function() {
           case 1:
             if (!deactivation.value)
               return [3, 3];
-            return [4, deactivation.value(instance)];
+            return [4, deactivation.value(instance2)];
           case 2:
             _a.sent();
             deactivation = deactivationsIterator.next();
@@ -3603,8 +3603,8 @@ var Container = function() {
       return;
     }
     if (isPromise(binding.cache)) {
-      return binding.cache.then(function(resolved) {
-        return _this._deactivate(binding, resolved);
+      return binding.cache.then(function(resolved2) {
+        return _this._deactivate(binding, resolved2);
       });
     }
     return this._deactivate(binding, binding.cache);
@@ -3634,26 +3634,26 @@ var Container = function() {
       });
     });
   };
-  Container3.prototype._propagateContainerDeactivationThenBindingAndPreDestroy = function(binding, instance, constructor) {
+  Container3.prototype._propagateContainerDeactivationThenBindingAndPreDestroy = function(binding, instance2, constructor) {
     if (this.parent) {
-      return this._deactivate.bind(this.parent)(binding, instance);
+      return this._deactivate.bind(this.parent)(binding, instance2);
     } else {
-      return this._bindingDeactivationAndPreDestroy(binding, instance, constructor);
+      return this._bindingDeactivationAndPreDestroy(binding, instance2, constructor);
     }
   };
-  Container3.prototype._propagateContainerDeactivationThenBindingAndPreDestroyAsync = function(binding, instance, constructor) {
+  Container3.prototype._propagateContainerDeactivationThenBindingAndPreDestroyAsync = function(binding, instance2, constructor) {
     return __awaiter4(this, void 0, void 0, function() {
       return __generator4(this, function(_a) {
         switch (_a.label) {
           case 0:
             if (!this.parent)
               return [3, 2];
-            return [4, this._deactivate.bind(this.parent)(binding, instance)];
+            return [4, this._deactivate.bind(this.parent)(binding, instance2)];
           case 1:
             _a.sent();
             return [3, 4];
           case 2:
-            return [4, this._bindingDeactivationAndPreDestroyAsync(binding, instance, constructor)];
+            return [4, this._bindingDeactivationAndPreDestroyAsync(binding, instance2, constructor)];
           case 3:
             _a.sent();
             _a.label = 4;
@@ -3670,31 +3670,31 @@ var Container = function() {
       throw new Error(CANNOT_UNBIND + " " + getServiceIdentifierAsString(serviceIdentifier));
     }
   };
-  Container3.prototype._bindingDeactivationAndPreDestroy = function(binding, instance, constructor) {
+  Container3.prototype._bindingDeactivationAndPreDestroy = function(binding, instance2, constructor) {
     var _this = this;
     if (typeof binding.onDeactivation === "function") {
-      var result = binding.onDeactivation(instance);
+      var result = binding.onDeactivation(instance2);
       if (isPromise(result)) {
         return result.then(function() {
-          return _this._preDestroy(constructor, instance);
+          return _this._preDestroy(constructor, instance2);
         });
       }
     }
-    return this._preDestroy(constructor, instance);
+    return this._preDestroy(constructor, instance2);
   };
-  Container3.prototype._bindingDeactivationAndPreDestroyAsync = function(binding, instance, constructor) {
+  Container3.prototype._bindingDeactivationAndPreDestroyAsync = function(binding, instance2, constructor) {
     return __awaiter4(this, void 0, void 0, function() {
       return __generator4(this, function(_a) {
         switch (_a.label) {
           case 0:
             if (!(typeof binding.onDeactivation === "function"))
               return [3, 2];
-            return [4, binding.onDeactivation(instance)];
+            return [4, binding.onDeactivation(instance2)];
           case 1:
             _a.sent();
             _a.label = 2;
           case 2:
-            return [4, this._preDestroy(constructor, instance)];
+            return [4, this._preDestroy(constructor, instance2)];
           case 3:
             _a.sent();
             return [2];
@@ -3895,6 +3895,7 @@ var SI = {
   "factory:resolver:resolver": "",
   "service:note:link": "",
   "service:fake_title_element": "",
+  "service:search:dom:wrapper": "",
   "settings:feature:builder": "",
   "settings:builder": "",
   "factory:settings:feature:builder": "",
@@ -3913,6 +3914,3172 @@ for (const key of Object.keys(SI)) {
 }
 var inversify_types_default = SI;
 
+// src/i18n/Locale.ts
+var import_obsidian = require("obsidian");
+
+// src/Enum.ts
+var Feature = /* @__PURE__ */ ((Feature4) => {
+  Feature4["Explorer"] = "explorer";
+  Feature4["ExplorerSort"] = "explorer:sort";
+  Feature4["Graph"] = "graph";
+  Feature4["Header"] = "header";
+  Feature4["Starred"] = "starred";
+  Feature4["Search"] = "search" /* S */;
+  Feature4["Tab"] = "tab";
+  Feature4["Alias"] = "alias";
+  Feature4["Suggest"] = "suggest";
+  Feature4["InlineTitle"] = "inlineTitle";
+  Feature4["Canvas"] = "canvas";
+  Feature4["Backlink"] = "backlink" /* BL */;
+  Feature4["NoteLink"] = "noteLink";
+  return Feature4;
+})(Feature || {});
+var Managers = [
+  "explorer" /* Explorer */,
+  "graph" /* Graph */,
+  "header" /* Header */,
+  "starred" /* Starred */,
+  "tab" /* Tab */,
+  "inlineTitle" /* InlineTitle */,
+  "canvas" /* Canvas */
+];
+var GITHUB_DOCS = "https://github.com/snezhig/obsidian-front-matter-title/blob/master/docs/";
+
+// src/i18n/en/index.ts
+var en = {
+  validator: "Validator",
+  strategy: "Strategy",
+  cancel: "Cancel",
+  apply: "Apply",
+  feature: {
+    ["alias" /* Alias */]: {
+      name: "Alias",
+      desc: "Modify alias in metadata cache. The real alias will not be affected",
+      validator: {
+        auto: {
+          name: "Frontmatter Auto",
+          desc: "If frontmatter does not exist, it will be created in cache. Side-effects may occur."
+        },
+        required: {
+          name: "Frontmatter Required",
+          desc: "Only files with frontmatter will be processed."
+        }
+      },
+      strategy: {
+        ensure: {
+          name: "Ensure",
+          desc: "Set title as an alias only if the one does not exist"
+        },
+        adjust: {
+          name: "Adjust",
+          desc: "Add title to alias and without affect on existing alias"
+        },
+        replace: {
+          name: "Replace",
+          desc: "Replace current alias with title"
+        }
+      }
+    },
+    ["explorer" /* Explorer */]: {
+      name: "Explorer",
+      desc: "Replace shown titles in the file explorer"
+    },
+    ["explorer:sort" /* ExplorerSort */]: {
+      name: "Explorer sort",
+      desc: "Sort files in explorer by titles from Explorer feature"
+    },
+    ["graph" /* Graph */]: {
+      name: "Graph",
+      desc: "Replace shown titles in the graph/local-graph"
+    },
+    ["header" /* Header */]: {
+      name: "Header",
+      desc: "Replace titles in header of leaves and update them"
+    },
+    ["starred" /* Starred */]: {
+      name: "Starred",
+      desc: "Replace shown titles in built-in starred plugin"
+    },
+    ["search" /* Search */]: {
+      name: "Search",
+      desc: "Replace shown titles in search leaf"
+    },
+    ["suggest" /* Suggest */]: {
+      name: "Suggest",
+      desc: "Replace shown titles in suggest modals"
+    },
+    ["tab" /* Tab */]: {
+      name: "Tabs",
+      desc: "Replace shown titles in tabs"
+    },
+    ["inlineTitle" /* InlineTitle */]: {
+      name: "Inline",
+      desc: "Replace shown titles in Inline Title"
+    },
+    ["canvas" /* Canvas */]: {
+      name: "Canvas",
+      desc: "Replace shown titles in Canvas"
+    },
+    ["backlink" /* Backlink */]: {
+      name: "Backlink",
+      desc: "Replace shown titles in Backlink(Linked mentions)"
+    },
+    ["noteLink" /* NoteLink */]: {
+      name: "Note Link",
+      desc: "Replace internal links in files",
+      strategy: {
+        all: "Repalce all links",
+        onlyEmpty: "Replace only links without alias"
+      },
+      approval: {
+        showModal: "Show approve modal",
+        auto: "Use auto approve"
+      }
+    }
+  },
+  manage: "Manage",
+  template: {
+    features: {
+      name: "Features' templates",
+      desc: "Manage templates for each feature individually"
+    },
+    main: "Main",
+    fallback: "Fallback",
+    placeholder: "Type a template",
+    commmon: {
+      main: {
+        name: "Common main template",
+        desc: `Set a yaml path, which value will be used as a file title. Value must be string or numeric. Also you can use template-like path using "{{ }}".
+				Also you can use #heading to use first Heading from a file or _basename and another reserved words. 
+				See Readme to find out more`
+      },
+      fallback: {
+        name: "Common fallback template",
+        desc: "This template will be used as a fallback option if the main template is not resolved"
+      }
+    },
+    used: "Common template will be used. It's value is {{value}}",
+    specific: "Current template will be used for this feature"
+  },
+  settings: "Settings for plugin",
+  rule: {
+    name: "Rules",
+    path: {
+      name: "File path rule",
+      black: {
+        name: "Black list mode",
+        desc: "Files that are located by paths will be ignored by plugin. Each path must be written with new line."
+      },
+      white: {
+        name: "White list mode",
+        desc: "Files that are located by paths will be processed by plugin. Each path must be written with new line."
+      }
+    },
+    delimiter: {
+      name: "List values",
+      desc: "Set the rule about how to process list values",
+      first: "Use first value",
+      join: "Join all by delimiter",
+      placeholder: {
+        first: "First value will be used",
+        join: "Type a delimiter"
+      }
+    }
+  },
+  features: "Features",
+  util: "Util",
+  coffee: "If you like this plugin and you would like to help support continued development, you can use the buttons below:",
+  debug_info: {
+    title: "Debug info",
+    desc: "Show debug info and caught errors in console"
+  },
+  boot_delay: {
+    title: "Boot delay",
+    desc: "Plugin will be loaded with specified delay in ms"
+  },
+  disabled: "Disabled",
+  processor: {
+    name: "Processor",
+    desc: "Modifies resolved title",
+    replace: {
+      name: "Replace",
+      desc: "What will be executed",
+      pattern: {
+        name: "Pattern",
+        desc: "Will be used as a first argument of RegExp first, and then as a first argument of replace()"
+      },
+      flags: {
+        name: "Flags",
+        desc: "Will be used as a second argument of new RegExp"
+      },
+      replacement: {
+        name: "Replacement",
+        desc: "Will be used as a second argument of replace()"
+      }
+    },
+    function: {
+      name: "Function",
+      desc: "How it will work:",
+      valueDesc: "Your value of text area"
+    }
+  },
+  command: {
+    features: {
+      reload: "Reload features",
+      disable: "Disable features"
+    }
+  }
+};
+var en_default = en;
+
+// src/i18n/ru/index.ts
+var ru = {};
+var ru_default = ru;
+
+// node_modules/i18next/dist/esm/i18next.js
+var consoleLogger = {
+  type: "logger",
+  log(args) {
+    this.output("log", args);
+  },
+  warn(args) {
+    this.output("warn", args);
+  },
+  error(args) {
+    this.output("error", args);
+  },
+  output(type, args) {
+    if (console && console[type])
+      console[type].apply(console, args);
+  }
+};
+var Logger = class _Logger {
+  constructor(concreteLogger) {
+    let options = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
+    this.init(concreteLogger, options);
+  }
+  init(concreteLogger) {
+    let options = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
+    this.prefix = options.prefix || "i18next:";
+    this.logger = concreteLogger || consoleLogger;
+    this.options = options;
+    this.debug = options.debug;
+  }
+  log() {
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+    return this.forward(args, "log", "", true);
+  }
+  warn() {
+    for (var _len2 = arguments.length, args = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+      args[_key2] = arguments[_key2];
+    }
+    return this.forward(args, "warn", "", true);
+  }
+  error() {
+    for (var _len3 = arguments.length, args = new Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
+      args[_key3] = arguments[_key3];
+    }
+    return this.forward(args, "error", "");
+  }
+  deprecate() {
+    for (var _len4 = arguments.length, args = new Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
+      args[_key4] = arguments[_key4];
+    }
+    return this.forward(args, "warn", "WARNING DEPRECATED: ", true);
+  }
+  forward(args, lvl, prefix, debugOnly) {
+    if (debugOnly && !this.debug)
+      return null;
+    if (typeof args[0] === "string")
+      args[0] = `${prefix}${this.prefix} ${args[0]}`;
+    return this.logger[lvl](args);
+  }
+  create(moduleName) {
+    return new _Logger(this.logger, {
+      ...{
+        prefix: `${this.prefix}:${moduleName}:`
+      },
+      ...this.options
+    });
+  }
+  clone(options) {
+    options = options || this.options;
+    options.prefix = options.prefix || this.prefix;
+    return new _Logger(this.logger, options);
+  }
+};
+var baseLogger = new Logger();
+var EventEmitter = class {
+  constructor() {
+    this.observers = {};
+  }
+  on(events, listener) {
+    events.split(" ").forEach((event) => {
+      this.observers[event] = this.observers[event] || [];
+      this.observers[event].push(listener);
+    });
+    return this;
+  }
+  off(event, listener) {
+    if (!this.observers[event])
+      return;
+    if (!listener) {
+      delete this.observers[event];
+      return;
+    }
+    this.observers[event] = this.observers[event].filter((l) => l !== listener);
+  }
+  emit(event) {
+    for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+      args[_key - 1] = arguments[_key];
+    }
+    if (this.observers[event]) {
+      const cloned = [].concat(this.observers[event]);
+      cloned.forEach((observer) => {
+        observer(...args);
+      });
+    }
+    if (this.observers["*"]) {
+      const cloned = [].concat(this.observers["*"]);
+      cloned.forEach((observer) => {
+        observer.apply(observer, [event, ...args]);
+      });
+    }
+  }
+};
+function defer() {
+  let res;
+  let rej;
+  const promise = new Promise((resolve2, reject) => {
+    res = resolve2;
+    rej = reject;
+  });
+  promise.resolve = res;
+  promise.reject = rej;
+  return promise;
+}
+function makeString(object) {
+  if (object == null)
+    return "";
+  return "" + object;
+}
+function copy(a, s, t3) {
+  a.forEach((m) => {
+    if (s[m])
+      t3[m] = s[m];
+  });
+}
+function getLastOfPath(object, path, Empty) {
+  function cleanKey(key) {
+    return key && key.indexOf("###") > -1 ? key.replace(/###/g, ".") : key;
+  }
+  function canNotTraverseDeeper() {
+    return !object || typeof object === "string";
+  }
+  const stack = typeof path !== "string" ? [].concat(path) : path.split(".");
+  while (stack.length > 1) {
+    if (canNotTraverseDeeper())
+      return {};
+    const key = cleanKey(stack.shift());
+    if (!object[key] && Empty)
+      object[key] = new Empty();
+    if (Object.prototype.hasOwnProperty.call(object, key)) {
+      object = object[key];
+    } else {
+      object = {};
+    }
+  }
+  if (canNotTraverseDeeper())
+    return {};
+  return {
+    obj: object,
+    k: cleanKey(stack.shift())
+  };
+}
+function setPath(object, path, newValue) {
+  const {
+    obj,
+    k
+  } = getLastOfPath(object, path, Object);
+  obj[k] = newValue;
+}
+function pushPath(object, path, newValue, concat) {
+  const {
+    obj,
+    k
+  } = getLastOfPath(object, path, Object);
+  obj[k] = obj[k] || [];
+  if (concat)
+    obj[k] = obj[k].concat(newValue);
+  if (!concat)
+    obj[k].push(newValue);
+}
+function getPath(object, path) {
+  const {
+    obj,
+    k
+  } = getLastOfPath(object, path);
+  if (!obj)
+    return void 0;
+  return obj[k];
+}
+function getPathWithDefaults(data, defaultData, key) {
+  const value = getPath(data, key);
+  if (value !== void 0) {
+    return value;
+  }
+  return getPath(defaultData, key);
+}
+function deepExtend(target, source, overwrite) {
+  for (const prop in source) {
+    if (prop !== "__proto__" && prop !== "constructor") {
+      if (prop in target) {
+        if (typeof target[prop] === "string" || target[prop] instanceof String || typeof source[prop] === "string" || source[prop] instanceof String) {
+          if (overwrite)
+            target[prop] = source[prop];
+        } else {
+          deepExtend(target[prop], source[prop], overwrite);
+        }
+      } else {
+        target[prop] = source[prop];
+      }
+    }
+  }
+  return target;
+}
+function regexEscape(str) {
+  return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+}
+var _entityMap = {
+  "&": "&amp;",
+  "<": "&lt;",
+  ">": "&gt;",
+  '"': "&quot;",
+  "'": "&#39;",
+  "/": "&#x2F;"
+};
+function escape(data) {
+  if (typeof data === "string") {
+    return data.replace(/[&<>"'\/]/g, (s) => _entityMap[s]);
+  }
+  return data;
+}
+var chars = [" ", ",", "?", "!", ";"];
+function looksLikeObjectPath(key, nsSeparator, keySeparator) {
+  nsSeparator = nsSeparator || "";
+  keySeparator = keySeparator || "";
+  const possibleChars = chars.filter((c) => nsSeparator.indexOf(c) < 0 && keySeparator.indexOf(c) < 0);
+  if (possibleChars.length === 0)
+    return true;
+  const r = new RegExp(`(${possibleChars.map((c) => c === "?" ? "\\?" : c).join("|")})`);
+  let matched = !r.test(key);
+  if (!matched) {
+    const ki = key.indexOf(keySeparator);
+    if (ki > 0 && !r.test(key.substring(0, ki))) {
+      matched = true;
+    }
+  }
+  return matched;
+}
+function deepFind(obj, path) {
+  let keySeparator = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : ".";
+  if (!obj)
+    return void 0;
+  if (obj[path])
+    return obj[path];
+  const paths = path.split(keySeparator);
+  let current = obj;
+  for (let i = 0; i < paths.length; ++i) {
+    if (!current)
+      return void 0;
+    if (typeof current[paths[i]] === "string" && i + 1 < paths.length) {
+      return void 0;
+    }
+    if (current[paths[i]] === void 0) {
+      let j = 2;
+      let p = paths.slice(i, i + j).join(keySeparator);
+      let mix = current[p];
+      while (mix === void 0 && paths.length > i + j) {
+        j++;
+        p = paths.slice(i, i + j).join(keySeparator);
+        mix = current[p];
+      }
+      if (mix === void 0)
+        return void 0;
+      if (mix === null)
+        return null;
+      if (path.endsWith(p)) {
+        if (typeof mix === "string")
+          return mix;
+        if (p && typeof mix[p] === "string")
+          return mix[p];
+      }
+      const joinedPath = paths.slice(i + j).join(keySeparator);
+      if (joinedPath)
+        return deepFind(mix, joinedPath, keySeparator);
+      return void 0;
+    }
+    current = current[paths[i]];
+  }
+  return current;
+}
+function getCleanedCode(code) {
+  if (code && code.indexOf("_") > 0)
+    return code.replace("_", "-");
+  return code;
+}
+var ResourceStore = class extends EventEmitter {
+  constructor(data) {
+    let options = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {
+      ns: ["translation"],
+      defaultNS: "translation"
+    };
+    super();
+    this.data = data || {};
+    this.options = options;
+    if (this.options.keySeparator === void 0) {
+      this.options.keySeparator = ".";
+    }
+    if (this.options.ignoreJSONStructure === void 0) {
+      this.options.ignoreJSONStructure = true;
+    }
+  }
+  addNamespaces(ns) {
+    if (this.options.ns.indexOf(ns) < 0) {
+      this.options.ns.push(ns);
+    }
+  }
+  removeNamespaces(ns) {
+    const index = this.options.ns.indexOf(ns);
+    if (index > -1) {
+      this.options.ns.splice(index, 1);
+    }
+  }
+  getResource(lng, ns, key) {
+    let options = arguments.length > 3 && arguments[3] !== void 0 ? arguments[3] : {};
+    const keySeparator = options.keySeparator !== void 0 ? options.keySeparator : this.options.keySeparator;
+    const ignoreJSONStructure = options.ignoreJSONStructure !== void 0 ? options.ignoreJSONStructure : this.options.ignoreJSONStructure;
+    let path = [lng, ns];
+    if (key && typeof key !== "string")
+      path = path.concat(key);
+    if (key && typeof key === "string")
+      path = path.concat(keySeparator ? key.split(keySeparator) : key);
+    if (lng.indexOf(".") > -1) {
+      path = lng.split(".");
+    }
+    const result = getPath(this.data, path);
+    if (result || !ignoreJSONStructure || typeof key !== "string")
+      return result;
+    return deepFind(this.data && this.data[lng] && this.data[lng][ns], key, keySeparator);
+  }
+  addResource(lng, ns, key, value) {
+    let options = arguments.length > 4 && arguments[4] !== void 0 ? arguments[4] : {
+      silent: false
+    };
+    const keySeparator = options.keySeparator !== void 0 ? options.keySeparator : this.options.keySeparator;
+    let path = [lng, ns];
+    if (key)
+      path = path.concat(keySeparator ? key.split(keySeparator) : key);
+    if (lng.indexOf(".") > -1) {
+      path = lng.split(".");
+      value = ns;
+      ns = path[1];
+    }
+    this.addNamespaces(ns);
+    setPath(this.data, path, value);
+    if (!options.silent)
+      this.emit("added", lng, ns, key, value);
+  }
+  addResources(lng, ns, resources) {
+    let options = arguments.length > 3 && arguments[3] !== void 0 ? arguments[3] : {
+      silent: false
+    };
+    for (const m in resources) {
+      if (typeof resources[m] === "string" || Object.prototype.toString.apply(resources[m]) === "[object Array]")
+        this.addResource(lng, ns, m, resources[m], {
+          silent: true
+        });
+    }
+    if (!options.silent)
+      this.emit("added", lng, ns, resources);
+  }
+  addResourceBundle(lng, ns, resources, deep, overwrite) {
+    let options = arguments.length > 5 && arguments[5] !== void 0 ? arguments[5] : {
+      silent: false
+    };
+    let path = [lng, ns];
+    if (lng.indexOf(".") > -1) {
+      path = lng.split(".");
+      deep = resources;
+      resources = ns;
+      ns = path[1];
+    }
+    this.addNamespaces(ns);
+    let pack = getPath(this.data, path) || {};
+    if (deep) {
+      deepExtend(pack, resources, overwrite);
+    } else {
+      pack = {
+        ...pack,
+        ...resources
+      };
+    }
+    setPath(this.data, path, pack);
+    if (!options.silent)
+      this.emit("added", lng, ns, resources);
+  }
+  removeResourceBundle(lng, ns) {
+    if (this.hasResourceBundle(lng, ns)) {
+      delete this.data[lng][ns];
+    }
+    this.removeNamespaces(ns);
+    this.emit("removed", lng, ns);
+  }
+  hasResourceBundle(lng, ns) {
+    return this.getResource(lng, ns) !== void 0;
+  }
+  getResourceBundle(lng, ns) {
+    if (!ns)
+      ns = this.options.defaultNS;
+    if (this.options.compatibilityAPI === "v1")
+      return {
+        ...{},
+        ...this.getResource(lng, ns)
+      };
+    return this.getResource(lng, ns);
+  }
+  getDataByLanguage(lng) {
+    return this.data[lng];
+  }
+  hasLanguageSomeTranslations(lng) {
+    const data = this.getDataByLanguage(lng);
+    const n = data && Object.keys(data) || [];
+    return !!n.find((v) => data[v] && Object.keys(data[v]).length > 0);
+  }
+  toJSON() {
+    return this.data;
+  }
+};
+var postProcessor = {
+  processors: {},
+  addPostProcessor(module2) {
+    this.processors[module2.name] = module2;
+  },
+  handle(processors, value, key, options, translator) {
+    processors.forEach((processor) => {
+      if (this.processors[processor])
+        value = this.processors[processor].process(value, key, options, translator);
+    });
+    return value;
+  }
+};
+var checkedLoadedFor = {};
+var Translator = class _Translator extends EventEmitter {
+  constructor(services) {
+    let options = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
+    super();
+    copy(["resourceStore", "languageUtils", "pluralResolver", "interpolator", "backendConnector", "i18nFormat", "utils"], services, this);
+    this.options = options;
+    if (this.options.keySeparator === void 0) {
+      this.options.keySeparator = ".";
+    }
+    this.logger = baseLogger.create("translator");
+  }
+  changeLanguage(lng) {
+    if (lng)
+      this.language = lng;
+  }
+  exists(key) {
+    let options = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {
+      interpolation: {}
+    };
+    if (key === void 0 || key === null) {
+      return false;
+    }
+    const resolved2 = this.resolve(key, options);
+    return resolved2 && resolved2.res !== void 0;
+  }
+  extractFromKey(key, options) {
+    let nsSeparator = options.nsSeparator !== void 0 ? options.nsSeparator : this.options.nsSeparator;
+    if (nsSeparator === void 0)
+      nsSeparator = ":";
+    const keySeparator = options.keySeparator !== void 0 ? options.keySeparator : this.options.keySeparator;
+    let namespaces = options.ns || this.options.defaultNS || [];
+    const wouldCheckForNsInKey = nsSeparator && key.indexOf(nsSeparator) > -1;
+    const seemsNaturalLanguage = !this.options.userDefinedKeySeparator && !options.keySeparator && !this.options.userDefinedNsSeparator && !options.nsSeparator && !looksLikeObjectPath(key, nsSeparator, keySeparator);
+    if (wouldCheckForNsInKey && !seemsNaturalLanguage) {
+      const m = key.match(this.interpolator.nestingRegexp);
+      if (m && m.length > 0) {
+        return {
+          key,
+          namespaces
+        };
+      }
+      const parts = key.split(nsSeparator);
+      if (nsSeparator !== keySeparator || nsSeparator === keySeparator && this.options.ns.indexOf(parts[0]) > -1)
+        namespaces = parts.shift();
+      key = parts.join(keySeparator);
+    }
+    if (typeof namespaces === "string")
+      namespaces = [namespaces];
+    return {
+      key,
+      namespaces
+    };
+  }
+  translate(keys, options, lastKey) {
+    if (typeof options !== "object" && this.options.overloadTranslationOptionHandler) {
+      options = this.options.overloadTranslationOptionHandler(arguments);
+    }
+    if (typeof options === "object")
+      options = {
+        ...options
+      };
+    if (!options)
+      options = {};
+    if (keys === void 0 || keys === null)
+      return "";
+    if (!Array.isArray(keys))
+      keys = [String(keys)];
+    const returnDetails = options.returnDetails !== void 0 ? options.returnDetails : this.options.returnDetails;
+    const keySeparator = options.keySeparator !== void 0 ? options.keySeparator : this.options.keySeparator;
+    const {
+      key,
+      namespaces
+    } = this.extractFromKey(keys[keys.length - 1], options);
+    const namespace = namespaces[namespaces.length - 1];
+    const lng = options.lng || this.language;
+    const appendNamespaceToCIMode = options.appendNamespaceToCIMode || this.options.appendNamespaceToCIMode;
+    if (lng && lng.toLowerCase() === "cimode") {
+      if (appendNamespaceToCIMode) {
+        const nsSeparator = options.nsSeparator || this.options.nsSeparator;
+        if (returnDetails) {
+          return {
+            res: `${namespace}${nsSeparator}${key}`,
+            usedKey: key,
+            exactUsedKey: key,
+            usedLng: lng,
+            usedNS: namespace
+          };
+        }
+        return `${namespace}${nsSeparator}${key}`;
+      }
+      if (returnDetails) {
+        return {
+          res: key,
+          usedKey: key,
+          exactUsedKey: key,
+          usedLng: lng,
+          usedNS: namespace
+        };
+      }
+      return key;
+    }
+    const resolved2 = this.resolve(keys, options);
+    let res = resolved2 && resolved2.res;
+    const resUsedKey = resolved2 && resolved2.usedKey || key;
+    const resExactUsedKey = resolved2 && resolved2.exactUsedKey || key;
+    const resType = Object.prototype.toString.apply(res);
+    const noObject = ["[object Number]", "[object Function]", "[object RegExp]"];
+    const joinArrays = options.joinArrays !== void 0 ? options.joinArrays : this.options.joinArrays;
+    const handleAsObjectInI18nFormat = !this.i18nFormat || this.i18nFormat.handleAsObject;
+    const handleAsObject = typeof res !== "string" && typeof res !== "boolean" && typeof res !== "number";
+    if (handleAsObjectInI18nFormat && res && handleAsObject && noObject.indexOf(resType) < 0 && !(typeof joinArrays === "string" && resType === "[object Array]")) {
+      if (!options.returnObjects && !this.options.returnObjects) {
+        if (!this.options.returnedObjectHandler) {
+          this.logger.warn("accessing an object - but returnObjects options is not enabled!");
+        }
+        const r = this.options.returnedObjectHandler ? this.options.returnedObjectHandler(resUsedKey, res, {
+          ...options,
+          ns: namespaces
+        }) : `key '${key} (${this.language})' returned an object instead of string.`;
+        if (returnDetails) {
+          resolved2.res = r;
+          return resolved2;
+        }
+        return r;
+      }
+      if (keySeparator) {
+        const resTypeIsArray = resType === "[object Array]";
+        const copy2 = resTypeIsArray ? [] : {};
+        const newKeyToUse = resTypeIsArray ? resExactUsedKey : resUsedKey;
+        for (const m in res) {
+          if (Object.prototype.hasOwnProperty.call(res, m)) {
+            const deepKey = `${newKeyToUse}${keySeparator}${m}`;
+            copy2[m] = this.translate(deepKey, {
+              ...options,
+              ...{
+                joinArrays: false,
+                ns: namespaces
+              }
+            });
+            if (copy2[m] === deepKey)
+              copy2[m] = res[m];
+          }
+        }
+        res = copy2;
+      }
+    } else if (handleAsObjectInI18nFormat && typeof joinArrays === "string" && resType === "[object Array]") {
+      res = res.join(joinArrays);
+      if (res)
+        res = this.extendTranslation(res, keys, options, lastKey);
+    } else {
+      let usedDefault = false;
+      let usedKey = false;
+      const needsPluralHandling = options.count !== void 0 && typeof options.count !== "string";
+      const hasDefaultValue = _Translator.hasDefaultValue(options);
+      const defaultValueSuffix = needsPluralHandling ? this.pluralResolver.getSuffix(lng, options.count, options) : "";
+      const defaultValueSuffixOrdinalFallback = options.ordinal && needsPluralHandling ? this.pluralResolver.getSuffix(lng, options.count, {
+        ordinal: false
+      }) : "";
+      const defaultValue = options[`defaultValue${defaultValueSuffix}`] || options[`defaultValue${defaultValueSuffixOrdinalFallback}`] || options.defaultValue;
+      if (!this.isValidLookup(res) && hasDefaultValue) {
+        usedDefault = true;
+        res = defaultValue;
+      }
+      if (!this.isValidLookup(res)) {
+        usedKey = true;
+        res = key;
+      }
+      const missingKeyNoValueFallbackToKey = options.missingKeyNoValueFallbackToKey || this.options.missingKeyNoValueFallbackToKey;
+      const resForMissing = missingKeyNoValueFallbackToKey && usedKey ? void 0 : res;
+      const updateMissing = hasDefaultValue && defaultValue !== res && this.options.updateMissing;
+      if (usedKey || usedDefault || updateMissing) {
+        this.logger.log(updateMissing ? "updateKey" : "missingKey", lng, namespace, key, updateMissing ? defaultValue : res);
+        if (keySeparator) {
+          const fk = this.resolve(key, {
+            ...options,
+            keySeparator: false
+          });
+          if (fk && fk.res)
+            this.logger.warn("Seems the loaded translations were in flat JSON format instead of nested. Either set keySeparator: false on init or make sure your translations are published in nested format.");
+        }
+        let lngs = [];
+        const fallbackLngs = this.languageUtils.getFallbackCodes(this.options.fallbackLng, options.lng || this.language);
+        if (this.options.saveMissingTo === "fallback" && fallbackLngs && fallbackLngs[0]) {
+          for (let i = 0; i < fallbackLngs.length; i++) {
+            lngs.push(fallbackLngs[i]);
+          }
+        } else if (this.options.saveMissingTo === "all") {
+          lngs = this.languageUtils.toResolveHierarchy(options.lng || this.language);
+        } else {
+          lngs.push(options.lng || this.language);
+        }
+        const send = (l, k, specificDefaultValue) => {
+          const defaultForMissing = hasDefaultValue && specificDefaultValue !== res ? specificDefaultValue : resForMissing;
+          if (this.options.missingKeyHandler) {
+            this.options.missingKeyHandler(l, namespace, k, defaultForMissing, updateMissing, options);
+          } else if (this.backendConnector && this.backendConnector.saveMissing) {
+            this.backendConnector.saveMissing(l, namespace, k, defaultForMissing, updateMissing, options);
+          }
+          this.emit("missingKey", l, namespace, k, res);
+        };
+        if (this.options.saveMissing) {
+          if (this.options.saveMissingPlurals && needsPluralHandling) {
+            lngs.forEach((language) => {
+              this.pluralResolver.getSuffixes(language, options).forEach((suffix) => {
+                send([language], key + suffix, options[`defaultValue${suffix}`] || defaultValue);
+              });
+            });
+          } else {
+            send(lngs, key, defaultValue);
+          }
+        }
+      }
+      res = this.extendTranslation(res, keys, options, resolved2, lastKey);
+      if (usedKey && res === key && this.options.appendNamespaceToMissingKey)
+        res = `${namespace}:${key}`;
+      if ((usedKey || usedDefault) && this.options.parseMissingKeyHandler) {
+        if (this.options.compatibilityAPI !== "v1") {
+          res = this.options.parseMissingKeyHandler(this.options.appendNamespaceToMissingKey ? `${namespace}:${key}` : key, usedDefault ? res : void 0);
+        } else {
+          res = this.options.parseMissingKeyHandler(res);
+        }
+      }
+    }
+    if (returnDetails) {
+      resolved2.res = res;
+      return resolved2;
+    }
+    return res;
+  }
+  extendTranslation(res, key, options, resolved2, lastKey) {
+    var _this = this;
+    if (this.i18nFormat && this.i18nFormat.parse) {
+      res = this.i18nFormat.parse(res, {
+        ...this.options.interpolation.defaultVariables,
+        ...options
+      }, resolved2.usedLng, resolved2.usedNS, resolved2.usedKey, {
+        resolved: resolved2
+      });
+    } else if (!options.skipInterpolation) {
+      if (options.interpolation)
+        this.interpolator.init({
+          ...options,
+          ...{
+            interpolation: {
+              ...this.options.interpolation,
+              ...options.interpolation
+            }
+          }
+        });
+      const skipOnVariables = typeof res === "string" && (options && options.interpolation && options.interpolation.skipOnVariables !== void 0 ? options.interpolation.skipOnVariables : this.options.interpolation.skipOnVariables);
+      let nestBef;
+      if (skipOnVariables) {
+        const nb = res.match(this.interpolator.nestingRegexp);
+        nestBef = nb && nb.length;
+      }
+      let data = options.replace && typeof options.replace !== "string" ? options.replace : options;
+      if (this.options.interpolation.defaultVariables)
+        data = {
+          ...this.options.interpolation.defaultVariables,
+          ...data
+        };
+      res = this.interpolator.interpolate(res, data, options.lng || this.language, options);
+      if (skipOnVariables) {
+        const na = res.match(this.interpolator.nestingRegexp);
+        const nestAft = na && na.length;
+        if (nestBef < nestAft)
+          options.nest = false;
+      }
+      if (!options.lng && this.options.compatibilityAPI !== "v1" && resolved2 && resolved2.res)
+        options.lng = resolved2.usedLng;
+      if (options.nest !== false)
+        res = this.interpolator.nest(res, function() {
+          for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+          }
+          if (lastKey && lastKey[0] === args[0] && !options.context) {
+            _this.logger.warn(`It seems you are nesting recursively key: ${args[0]} in key: ${key[0]}`);
+            return null;
+          }
+          return _this.translate(...args, key);
+        }, options);
+      if (options.interpolation)
+        this.interpolator.reset();
+    }
+    const postProcess = options.postProcess || this.options.postProcess;
+    const postProcessorNames = typeof postProcess === "string" ? [postProcess] : postProcess;
+    if (res !== void 0 && res !== null && postProcessorNames && postProcessorNames.length && options.applyPostProcessor !== false) {
+      res = postProcessor.handle(postProcessorNames, res, key, this.options && this.options.postProcessPassResolved ? {
+        i18nResolved: resolved2,
+        ...options
+      } : options, this);
+    }
+    return res;
+  }
+  resolve(keys) {
+    let options = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
+    let found;
+    let usedKey;
+    let exactUsedKey;
+    let usedLng;
+    let usedNS;
+    if (typeof keys === "string")
+      keys = [keys];
+    keys.forEach((k) => {
+      if (this.isValidLookup(found))
+        return;
+      const extracted = this.extractFromKey(k, options);
+      const key = extracted.key;
+      usedKey = key;
+      let namespaces = extracted.namespaces;
+      if (this.options.fallbackNS)
+        namespaces = namespaces.concat(this.options.fallbackNS);
+      const needsPluralHandling = options.count !== void 0 && typeof options.count !== "string";
+      const needsZeroSuffixLookup = needsPluralHandling && !options.ordinal && options.count === 0 && this.pluralResolver.shouldUseIntlApi();
+      const needsContextHandling = options.context !== void 0 && (typeof options.context === "string" || typeof options.context === "number") && options.context !== "";
+      const codes = options.lngs ? options.lngs : this.languageUtils.toResolveHierarchy(options.lng || this.language, options.fallbackLng);
+      namespaces.forEach((ns) => {
+        if (this.isValidLookup(found))
+          return;
+        usedNS = ns;
+        if (!checkedLoadedFor[`${codes[0]}-${ns}`] && this.utils && this.utils.hasLoadedNamespace && !this.utils.hasLoadedNamespace(usedNS)) {
+          checkedLoadedFor[`${codes[0]}-${ns}`] = true;
+          this.logger.warn(`key "${usedKey}" for languages "${codes.join(", ")}" won't get resolved as namespace "${usedNS}" was not yet loaded`, "This means something IS WRONG in your setup. You access the t function before i18next.init / i18next.loadNamespace / i18next.changeLanguage was done. Wait for the callback or Promise to resolve before accessing it!!!");
+        }
+        codes.forEach((code) => {
+          if (this.isValidLookup(found))
+            return;
+          usedLng = code;
+          const finalKeys = [key];
+          if (this.i18nFormat && this.i18nFormat.addLookupKeys) {
+            this.i18nFormat.addLookupKeys(finalKeys, key, code, ns, options);
+          } else {
+            let pluralSuffix;
+            if (needsPluralHandling)
+              pluralSuffix = this.pluralResolver.getSuffix(code, options.count, options);
+            const zeroSuffix = `${this.options.pluralSeparator}zero`;
+            const ordinalPrefix = `${this.options.pluralSeparator}ordinal${this.options.pluralSeparator}`;
+            if (needsPluralHandling) {
+              finalKeys.push(key + pluralSuffix);
+              if (options.ordinal && pluralSuffix.indexOf(ordinalPrefix) === 0) {
+                finalKeys.push(key + pluralSuffix.replace(ordinalPrefix, this.options.pluralSeparator));
+              }
+              if (needsZeroSuffixLookup) {
+                finalKeys.push(key + zeroSuffix);
+              }
+            }
+            if (needsContextHandling) {
+              const contextKey = `${key}${this.options.contextSeparator}${options.context}`;
+              finalKeys.push(contextKey);
+              if (needsPluralHandling) {
+                finalKeys.push(contextKey + pluralSuffix);
+                if (options.ordinal && pluralSuffix.indexOf(ordinalPrefix) === 0) {
+                  finalKeys.push(contextKey + pluralSuffix.replace(ordinalPrefix, this.options.pluralSeparator));
+                }
+                if (needsZeroSuffixLookup) {
+                  finalKeys.push(contextKey + zeroSuffix);
+                }
+              }
+            }
+          }
+          let possibleKey;
+          while (possibleKey = finalKeys.pop()) {
+            if (!this.isValidLookup(found)) {
+              exactUsedKey = possibleKey;
+              found = this.getResource(code, ns, possibleKey, options);
+            }
+          }
+        });
+      });
+    });
+    return {
+      res: found,
+      usedKey,
+      exactUsedKey,
+      usedLng,
+      usedNS
+    };
+  }
+  isValidLookup(res) {
+    return res !== void 0 && !(!this.options.returnNull && res === null) && !(!this.options.returnEmptyString && res === "");
+  }
+  getResource(code, ns, key) {
+    let options = arguments.length > 3 && arguments[3] !== void 0 ? arguments[3] : {};
+    if (this.i18nFormat && this.i18nFormat.getResource)
+      return this.i18nFormat.getResource(code, ns, key, options);
+    return this.resourceStore.getResource(code, ns, key, options);
+  }
+  static hasDefaultValue(options) {
+    const prefix = "defaultValue";
+    for (const option in options) {
+      if (Object.prototype.hasOwnProperty.call(options, option) && prefix === option.substring(0, prefix.length) && void 0 !== options[option]) {
+        return true;
+      }
+    }
+    return false;
+  }
+};
+function capitalize(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+var LanguageUtil = class {
+  constructor(options) {
+    this.options = options;
+    this.supportedLngs = this.options.supportedLngs || false;
+    this.logger = baseLogger.create("languageUtils");
+  }
+  getScriptPartFromCode(code) {
+    code = getCleanedCode(code);
+    if (!code || code.indexOf("-") < 0)
+      return null;
+    const p = code.split("-");
+    if (p.length === 2)
+      return null;
+    p.pop();
+    if (p[p.length - 1].toLowerCase() === "x")
+      return null;
+    return this.formatLanguageCode(p.join("-"));
+  }
+  getLanguagePartFromCode(code) {
+    code = getCleanedCode(code);
+    if (!code || code.indexOf("-") < 0)
+      return code;
+    const p = code.split("-");
+    return this.formatLanguageCode(p[0]);
+  }
+  formatLanguageCode(code) {
+    if (typeof code === "string" && code.indexOf("-") > -1) {
+      const specialCases = ["hans", "hant", "latn", "cyrl", "cans", "mong", "arab"];
+      let p = code.split("-");
+      if (this.options.lowerCaseLng) {
+        p = p.map((part) => part.toLowerCase());
+      } else if (p.length === 2) {
+        p[0] = p[0].toLowerCase();
+        p[1] = p[1].toUpperCase();
+        if (specialCases.indexOf(p[1].toLowerCase()) > -1)
+          p[1] = capitalize(p[1].toLowerCase());
+      } else if (p.length === 3) {
+        p[0] = p[0].toLowerCase();
+        if (p[1].length === 2)
+          p[1] = p[1].toUpperCase();
+        if (p[0] !== "sgn" && p[2].length === 2)
+          p[2] = p[2].toUpperCase();
+        if (specialCases.indexOf(p[1].toLowerCase()) > -1)
+          p[1] = capitalize(p[1].toLowerCase());
+        if (specialCases.indexOf(p[2].toLowerCase()) > -1)
+          p[2] = capitalize(p[2].toLowerCase());
+      }
+      return p.join("-");
+    }
+    return this.options.cleanCode || this.options.lowerCaseLng ? code.toLowerCase() : code;
+  }
+  isSupportedCode(code) {
+    if (this.options.load === "languageOnly" || this.options.nonExplicitSupportedLngs) {
+      code = this.getLanguagePartFromCode(code);
+    }
+    return !this.supportedLngs || !this.supportedLngs.length || this.supportedLngs.indexOf(code) > -1;
+  }
+  getBestMatchFromCodes(codes) {
+    if (!codes)
+      return null;
+    let found;
+    codes.forEach((code) => {
+      if (found)
+        return;
+      const cleanedLng = this.formatLanguageCode(code);
+      if (!this.options.supportedLngs || this.isSupportedCode(cleanedLng))
+        found = cleanedLng;
+    });
+    if (!found && this.options.supportedLngs) {
+      codes.forEach((code) => {
+        if (found)
+          return;
+        const lngOnly = this.getLanguagePartFromCode(code);
+        if (this.isSupportedCode(lngOnly))
+          return found = lngOnly;
+        found = this.options.supportedLngs.find((supportedLng) => {
+          if (supportedLng === lngOnly)
+            return supportedLng;
+          if (supportedLng.indexOf("-") < 0 && lngOnly.indexOf("-") < 0)
+            return;
+          if (supportedLng.indexOf(lngOnly) === 0)
+            return supportedLng;
+        });
+      });
+    }
+    if (!found)
+      found = this.getFallbackCodes(this.options.fallbackLng)[0];
+    return found;
+  }
+  getFallbackCodes(fallbacks, code) {
+    if (!fallbacks)
+      return [];
+    if (typeof fallbacks === "function")
+      fallbacks = fallbacks(code);
+    if (typeof fallbacks === "string")
+      fallbacks = [fallbacks];
+    if (Object.prototype.toString.apply(fallbacks) === "[object Array]")
+      return fallbacks;
+    if (!code)
+      return fallbacks.default || [];
+    let found = fallbacks[code];
+    if (!found)
+      found = fallbacks[this.getScriptPartFromCode(code)];
+    if (!found)
+      found = fallbacks[this.formatLanguageCode(code)];
+    if (!found)
+      found = fallbacks[this.getLanguagePartFromCode(code)];
+    if (!found)
+      found = fallbacks.default;
+    return found || [];
+  }
+  toResolveHierarchy(code, fallbackCode) {
+    const fallbackCodes = this.getFallbackCodes(fallbackCode || this.options.fallbackLng || [], code);
+    const codes = [];
+    const addCode = (c) => {
+      if (!c)
+        return;
+      if (this.isSupportedCode(c)) {
+        codes.push(c);
+      } else {
+        this.logger.warn(`rejecting language code not found in supportedLngs: ${c}`);
+      }
+    };
+    if (typeof code === "string" && (code.indexOf("-") > -1 || code.indexOf("_") > -1)) {
+      if (this.options.load !== "languageOnly")
+        addCode(this.formatLanguageCode(code));
+      if (this.options.load !== "languageOnly" && this.options.load !== "currentOnly")
+        addCode(this.getScriptPartFromCode(code));
+      if (this.options.load !== "currentOnly")
+        addCode(this.getLanguagePartFromCode(code));
+    } else if (typeof code === "string") {
+      addCode(this.formatLanguageCode(code));
+    }
+    fallbackCodes.forEach((fc) => {
+      if (codes.indexOf(fc) < 0)
+        addCode(this.formatLanguageCode(fc));
+    });
+    return codes;
+  }
+};
+var sets = [{
+  lngs: ["ach", "ak", "am", "arn", "br", "fil", "gun", "ln", "mfe", "mg", "mi", "oc", "pt", "pt-BR", "tg", "tl", "ti", "tr", "uz", "wa"],
+  nr: [1, 2],
+  fc: 1
+}, {
+  lngs: ["af", "an", "ast", "az", "bg", "bn", "ca", "da", "de", "dev", "el", "en", "eo", "es", "et", "eu", "fi", "fo", "fur", "fy", "gl", "gu", "ha", "hi", "hu", "hy", "ia", "it", "kk", "kn", "ku", "lb", "mai", "ml", "mn", "mr", "nah", "nap", "nb", "ne", "nl", "nn", "no", "nso", "pa", "pap", "pms", "ps", "pt-PT", "rm", "sco", "se", "si", "so", "son", "sq", "sv", "sw", "ta", "te", "tk", "ur", "yo"],
+  nr: [1, 2],
+  fc: 2
+}, {
+  lngs: ["ay", "bo", "cgg", "fa", "ht", "id", "ja", "jbo", "ka", "km", "ko", "ky", "lo", "ms", "sah", "su", "th", "tt", "ug", "vi", "wo", "zh"],
+  nr: [1],
+  fc: 3
+}, {
+  lngs: ["be", "bs", "cnr", "dz", "hr", "ru", "sr", "uk"],
+  nr: [1, 2, 5],
+  fc: 4
+}, {
+  lngs: ["ar"],
+  nr: [0, 1, 2, 3, 11, 100],
+  fc: 5
+}, {
+  lngs: ["cs", "sk"],
+  nr: [1, 2, 5],
+  fc: 6
+}, {
+  lngs: ["csb", "pl"],
+  nr: [1, 2, 5],
+  fc: 7
+}, {
+  lngs: ["cy"],
+  nr: [1, 2, 3, 8],
+  fc: 8
+}, {
+  lngs: ["fr"],
+  nr: [1, 2],
+  fc: 9
+}, {
+  lngs: ["ga"],
+  nr: [1, 2, 3, 7, 11],
+  fc: 10
+}, {
+  lngs: ["gd"],
+  nr: [1, 2, 3, 20],
+  fc: 11
+}, {
+  lngs: ["is"],
+  nr: [1, 2],
+  fc: 12
+}, {
+  lngs: ["jv"],
+  nr: [0, 1],
+  fc: 13
+}, {
+  lngs: ["kw"],
+  nr: [1, 2, 3, 4],
+  fc: 14
+}, {
+  lngs: ["lt"],
+  nr: [1, 2, 10],
+  fc: 15
+}, {
+  lngs: ["lv"],
+  nr: [1, 2, 0],
+  fc: 16
+}, {
+  lngs: ["mk"],
+  nr: [1, 2],
+  fc: 17
+}, {
+  lngs: ["mnk"],
+  nr: [0, 1, 2],
+  fc: 18
+}, {
+  lngs: ["mt"],
+  nr: [1, 2, 11, 20],
+  fc: 19
+}, {
+  lngs: ["or"],
+  nr: [2, 1],
+  fc: 2
+}, {
+  lngs: ["ro"],
+  nr: [1, 2, 20],
+  fc: 20
+}, {
+  lngs: ["sl"],
+  nr: [5, 1, 2, 3],
+  fc: 21
+}, {
+  lngs: ["he", "iw"],
+  nr: [1, 2, 20, 21],
+  fc: 22
+}];
+var _rulesPluralsTypes = {
+  1: function(n) {
+    return Number(n > 1);
+  },
+  2: function(n) {
+    return Number(n != 1);
+  },
+  3: function(n) {
+    return 0;
+  },
+  4: function(n) {
+    return Number(n % 10 == 1 && n % 100 != 11 ? 0 : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20) ? 1 : 2);
+  },
+  5: function(n) {
+    return Number(n == 0 ? 0 : n == 1 ? 1 : n == 2 ? 2 : n % 100 >= 3 && n % 100 <= 10 ? 3 : n % 100 >= 11 ? 4 : 5);
+  },
+  6: function(n) {
+    return Number(n == 1 ? 0 : n >= 2 && n <= 4 ? 1 : 2);
+  },
+  7: function(n) {
+    return Number(n == 1 ? 0 : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20) ? 1 : 2);
+  },
+  8: function(n) {
+    return Number(n == 1 ? 0 : n == 2 ? 1 : n != 8 && n != 11 ? 2 : 3);
+  },
+  9: function(n) {
+    return Number(n >= 2);
+  },
+  10: function(n) {
+    return Number(n == 1 ? 0 : n == 2 ? 1 : n < 7 ? 2 : n < 11 ? 3 : 4);
+  },
+  11: function(n) {
+    return Number(n == 1 || n == 11 ? 0 : n == 2 || n == 12 ? 1 : n > 2 && n < 20 ? 2 : 3);
+  },
+  12: function(n) {
+    return Number(n % 10 != 1 || n % 100 == 11);
+  },
+  13: function(n) {
+    return Number(n !== 0);
+  },
+  14: function(n) {
+    return Number(n == 1 ? 0 : n == 2 ? 1 : n == 3 ? 2 : 3);
+  },
+  15: function(n) {
+    return Number(n % 10 == 1 && n % 100 != 11 ? 0 : n % 10 >= 2 && (n % 100 < 10 || n % 100 >= 20) ? 1 : 2);
+  },
+  16: function(n) {
+    return Number(n % 10 == 1 && n % 100 != 11 ? 0 : n !== 0 ? 1 : 2);
+  },
+  17: function(n) {
+    return Number(n == 1 || n % 10 == 1 && n % 100 != 11 ? 0 : 1);
+  },
+  18: function(n) {
+    return Number(n == 0 ? 0 : n == 1 ? 1 : 2);
+  },
+  19: function(n) {
+    return Number(n == 1 ? 0 : n == 0 || n % 100 > 1 && n % 100 < 11 ? 1 : n % 100 > 10 && n % 100 < 20 ? 2 : 3);
+  },
+  20: function(n) {
+    return Number(n == 1 ? 0 : n == 0 || n % 100 > 0 && n % 100 < 20 ? 1 : 2);
+  },
+  21: function(n) {
+    return Number(n % 100 == 1 ? 1 : n % 100 == 2 ? 2 : n % 100 == 3 || n % 100 == 4 ? 3 : 0);
+  },
+  22: function(n) {
+    return Number(n == 1 ? 0 : n == 2 ? 1 : (n < 0 || n > 10) && n % 10 == 0 ? 2 : 3);
+  }
+};
+var nonIntlVersions = ["v1", "v2", "v3"];
+var intlVersions = ["v4"];
+var suffixesOrder = {
+  zero: 0,
+  one: 1,
+  two: 2,
+  few: 3,
+  many: 4,
+  other: 5
+};
+function createRules() {
+  const rules = {};
+  sets.forEach((set) => {
+    set.lngs.forEach((l) => {
+      rules[l] = {
+        numbers: set.nr,
+        plurals: _rulesPluralsTypes[set.fc]
+      };
+    });
+  });
+  return rules;
+}
+var PluralResolver = class {
+  constructor(languageUtils) {
+    let options = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
+    this.languageUtils = languageUtils;
+    this.options = options;
+    this.logger = baseLogger.create("pluralResolver");
+    if ((!this.options.compatibilityJSON || intlVersions.includes(this.options.compatibilityJSON)) && (typeof Intl === "undefined" || !Intl.PluralRules)) {
+      this.options.compatibilityJSON = "v3";
+      this.logger.error("Your environment seems not to be Intl API compatible, use an Intl.PluralRules polyfill. Will fallback to the compatibilityJSON v3 format handling.");
+    }
+    this.rules = createRules();
+  }
+  addRule(lng, obj) {
+    this.rules[lng] = obj;
+  }
+  getRule(code) {
+    let options = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
+    if (this.shouldUseIntlApi()) {
+      try {
+        return new Intl.PluralRules(getCleanedCode(code), {
+          type: options.ordinal ? "ordinal" : "cardinal"
+        });
+      } catch (e) {
+        return;
+      }
+    }
+    return this.rules[code] || this.rules[this.languageUtils.getLanguagePartFromCode(code)];
+  }
+  needsPlural(code) {
+    let options = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
+    const rule = this.getRule(code, options);
+    if (this.shouldUseIntlApi()) {
+      return rule && rule.resolvedOptions().pluralCategories.length > 1;
+    }
+    return rule && rule.numbers.length > 1;
+  }
+  getPluralFormsOfKey(code, key) {
+    let options = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : {};
+    return this.getSuffixes(code, options).map((suffix) => `${key}${suffix}`);
+  }
+  getSuffixes(code) {
+    let options = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
+    const rule = this.getRule(code, options);
+    if (!rule) {
+      return [];
+    }
+    if (this.shouldUseIntlApi()) {
+      return rule.resolvedOptions().pluralCategories.sort((pluralCategory1, pluralCategory2) => suffixesOrder[pluralCategory1] - suffixesOrder[pluralCategory2]).map((pluralCategory) => `${this.options.prepend}${options.ordinal ? `ordinal${this.options.prepend}` : ""}${pluralCategory}`);
+    }
+    return rule.numbers.map((number) => this.getSuffix(code, number, options));
+  }
+  getSuffix(code, count) {
+    let options = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : {};
+    const rule = this.getRule(code, options);
+    if (rule) {
+      if (this.shouldUseIntlApi()) {
+        return `${this.options.prepend}${options.ordinal ? `ordinal${this.options.prepend}` : ""}${rule.select(count)}`;
+      }
+      return this.getSuffixRetroCompatible(rule, count);
+    }
+    this.logger.warn(`no plural rule found for: ${code}`);
+    return "";
+  }
+  getSuffixRetroCompatible(rule, count) {
+    const idx = rule.noAbs ? rule.plurals(count) : rule.plurals(Math.abs(count));
+    let suffix = rule.numbers[idx];
+    if (this.options.simplifyPluralSuffix && rule.numbers.length === 2 && rule.numbers[0] === 1) {
+      if (suffix === 2) {
+        suffix = "plural";
+      } else if (suffix === 1) {
+        suffix = "";
+      }
+    }
+    const returnSuffix = () => this.options.prepend && suffix.toString() ? this.options.prepend + suffix.toString() : suffix.toString();
+    if (this.options.compatibilityJSON === "v1") {
+      if (suffix === 1)
+        return "";
+      if (typeof suffix === "number")
+        return `_plural_${suffix.toString()}`;
+      return returnSuffix();
+    } else if (this.options.compatibilityJSON === "v2") {
+      return returnSuffix();
+    } else if (this.options.simplifyPluralSuffix && rule.numbers.length === 2 && rule.numbers[0] === 1) {
+      return returnSuffix();
+    }
+    return this.options.prepend && idx.toString() ? this.options.prepend + idx.toString() : idx.toString();
+  }
+  shouldUseIntlApi() {
+    return !nonIntlVersions.includes(this.options.compatibilityJSON);
+  }
+};
+function deepFindWithDefaults(data, defaultData, key) {
+  let keySeparator = arguments.length > 3 && arguments[3] !== void 0 ? arguments[3] : ".";
+  let ignoreJSONStructure = arguments.length > 4 && arguments[4] !== void 0 ? arguments[4] : true;
+  let path = getPathWithDefaults(data, defaultData, key);
+  if (!path && ignoreJSONStructure && typeof key === "string") {
+    path = deepFind(data, key, keySeparator);
+    if (path === void 0)
+      path = deepFind(defaultData, key, keySeparator);
+  }
+  return path;
+}
+var Interpolator = class {
+  constructor() {
+    let options = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {};
+    this.logger = baseLogger.create("interpolator");
+    this.options = options;
+    this.format = options.interpolation && options.interpolation.format || ((value) => value);
+    this.init(options);
+  }
+  init() {
+    let options = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {};
+    if (!options.interpolation)
+      options.interpolation = {
+        escapeValue: true
+      };
+    const iOpts = options.interpolation;
+    this.escape = iOpts.escape !== void 0 ? iOpts.escape : escape;
+    this.escapeValue = iOpts.escapeValue !== void 0 ? iOpts.escapeValue : true;
+    this.useRawValueToEscape = iOpts.useRawValueToEscape !== void 0 ? iOpts.useRawValueToEscape : false;
+    this.prefix = iOpts.prefix ? regexEscape(iOpts.prefix) : iOpts.prefixEscaped || "{{";
+    this.suffix = iOpts.suffix ? regexEscape(iOpts.suffix) : iOpts.suffixEscaped || "}}";
+    this.formatSeparator = iOpts.formatSeparator ? iOpts.formatSeparator : iOpts.formatSeparator || ",";
+    this.unescapePrefix = iOpts.unescapeSuffix ? "" : iOpts.unescapePrefix || "-";
+    this.unescapeSuffix = this.unescapePrefix ? "" : iOpts.unescapeSuffix || "";
+    this.nestingPrefix = iOpts.nestingPrefix ? regexEscape(iOpts.nestingPrefix) : iOpts.nestingPrefixEscaped || regexEscape("$t(");
+    this.nestingSuffix = iOpts.nestingSuffix ? regexEscape(iOpts.nestingSuffix) : iOpts.nestingSuffixEscaped || regexEscape(")");
+    this.nestingOptionsSeparator = iOpts.nestingOptionsSeparator ? iOpts.nestingOptionsSeparator : iOpts.nestingOptionsSeparator || ",";
+    this.maxReplaces = iOpts.maxReplaces ? iOpts.maxReplaces : 1e3;
+    this.alwaysFormat = iOpts.alwaysFormat !== void 0 ? iOpts.alwaysFormat : false;
+    this.resetRegExp();
+  }
+  reset() {
+    if (this.options)
+      this.init(this.options);
+  }
+  resetRegExp() {
+    const regexpStr = `${this.prefix}(.+?)${this.suffix}`;
+    this.regexp = new RegExp(regexpStr, "g");
+    const regexpUnescapeStr = `${this.prefix}${this.unescapePrefix}(.+?)${this.unescapeSuffix}${this.suffix}`;
+    this.regexpUnescape = new RegExp(regexpUnescapeStr, "g");
+    const nestingRegexpStr = `${this.nestingPrefix}(.+?)${this.nestingSuffix}`;
+    this.nestingRegexp = new RegExp(nestingRegexpStr, "g");
+  }
+  interpolate(str, data, lng, options) {
+    let match;
+    let value;
+    let replaces;
+    const defaultData = this.options && this.options.interpolation && this.options.interpolation.defaultVariables || {};
+    function regexSafe(val) {
+      return val.replace(/\$/g, "$$$$");
+    }
+    const handleFormat = (key) => {
+      if (key.indexOf(this.formatSeparator) < 0) {
+        const path = deepFindWithDefaults(data, defaultData, key, this.options.keySeparator, this.options.ignoreJSONStructure);
+        return this.alwaysFormat ? this.format(path, void 0, lng, {
+          ...options,
+          ...data,
+          interpolationkey: key
+        }) : path;
+      }
+      const p = key.split(this.formatSeparator);
+      const k = p.shift().trim();
+      const f = p.join(this.formatSeparator).trim();
+      return this.format(deepFindWithDefaults(data, defaultData, k, this.options.keySeparator, this.options.ignoreJSONStructure), f, lng, {
+        ...options,
+        ...data,
+        interpolationkey: k
+      });
+    };
+    this.resetRegExp();
+    const missingInterpolationHandler = options && options.missingInterpolationHandler || this.options.missingInterpolationHandler;
+    const skipOnVariables = options && options.interpolation && options.interpolation.skipOnVariables !== void 0 ? options.interpolation.skipOnVariables : this.options.interpolation.skipOnVariables;
+    const todos = [{
+      regex: this.regexpUnescape,
+      safeValue: (val) => regexSafe(val)
+    }, {
+      regex: this.regexp,
+      safeValue: (val) => this.escapeValue ? regexSafe(this.escape(val)) : regexSafe(val)
+    }];
+    todos.forEach((todo) => {
+      replaces = 0;
+      while (match = todo.regex.exec(str)) {
+        const matchedVar = match[1].trim();
+        value = handleFormat(matchedVar);
+        if (value === void 0) {
+          if (typeof missingInterpolationHandler === "function") {
+            const temp = missingInterpolationHandler(str, match, options);
+            value = typeof temp === "string" ? temp : "";
+          } else if (options && Object.prototype.hasOwnProperty.call(options, matchedVar)) {
+            value = "";
+          } else if (skipOnVariables) {
+            value = match[0];
+            continue;
+          } else {
+            this.logger.warn(`missed to pass in variable ${matchedVar} for interpolating ${str}`);
+            value = "";
+          }
+        } else if (typeof value !== "string" && !this.useRawValueToEscape) {
+          value = makeString(value);
+        }
+        const safeValue = todo.safeValue(value);
+        str = str.replace(match[0], safeValue);
+        if (skipOnVariables) {
+          todo.regex.lastIndex += value.length;
+          todo.regex.lastIndex -= match[0].length;
+        } else {
+          todo.regex.lastIndex = 0;
+        }
+        replaces++;
+        if (replaces >= this.maxReplaces) {
+          break;
+        }
+      }
+    });
+    return str;
+  }
+  nest(str, fc) {
+    let options = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : {};
+    let match;
+    let value;
+    let clonedOptions;
+    function handleHasOptions(key, inheritedOptions) {
+      const sep = this.nestingOptionsSeparator;
+      if (key.indexOf(sep) < 0)
+        return key;
+      const c = key.split(new RegExp(`${sep}[ ]*{`));
+      let optionsString = `{${c[1]}`;
+      key = c[0];
+      optionsString = this.interpolate(optionsString, clonedOptions);
+      const matchedSingleQuotes = optionsString.match(/'/g);
+      const matchedDoubleQuotes = optionsString.match(/"/g);
+      if (matchedSingleQuotes && matchedSingleQuotes.length % 2 === 0 && !matchedDoubleQuotes || matchedDoubleQuotes.length % 2 !== 0) {
+        optionsString = optionsString.replace(/'/g, '"');
+      }
+      try {
+        clonedOptions = JSON.parse(optionsString);
+        if (inheritedOptions)
+          clonedOptions = {
+            ...inheritedOptions,
+            ...clonedOptions
+          };
+      } catch (e) {
+        this.logger.warn(`failed parsing options string in nesting for key ${key}`, e);
+        return `${key}${sep}${optionsString}`;
+      }
+      delete clonedOptions.defaultValue;
+      return key;
+    }
+    while (match = this.nestingRegexp.exec(str)) {
+      let formatters = [];
+      clonedOptions = {
+        ...options
+      };
+      clonedOptions = clonedOptions.replace && typeof clonedOptions.replace !== "string" ? clonedOptions.replace : clonedOptions;
+      clonedOptions.applyPostProcessor = false;
+      delete clonedOptions.defaultValue;
+      let doReduce = false;
+      if (match[0].indexOf(this.formatSeparator) !== -1 && !/{.*}/.test(match[1])) {
+        const r = match[1].split(this.formatSeparator).map((elem) => elem.trim());
+        match[1] = r.shift();
+        formatters = r;
+        doReduce = true;
+      }
+      value = fc(handleHasOptions.call(this, match[1].trim(), clonedOptions), clonedOptions);
+      if (value && match[0] === str && typeof value !== "string")
+        return value;
+      if (typeof value !== "string")
+        value = makeString(value);
+      if (!value) {
+        this.logger.warn(`missed to resolve ${match[1]} for nesting ${str}`);
+        value = "";
+      }
+      if (doReduce) {
+        value = formatters.reduce((v, f) => this.format(v, f, options.lng, {
+          ...options,
+          interpolationkey: match[1].trim()
+        }), value.trim());
+      }
+      str = str.replace(match[0], value);
+      this.regexp.lastIndex = 0;
+    }
+    return str;
+  }
+};
+function parseFormatStr(formatStr) {
+  let formatName = formatStr.toLowerCase().trim();
+  const formatOptions = {};
+  if (formatStr.indexOf("(") > -1) {
+    const p = formatStr.split("(");
+    formatName = p[0].toLowerCase().trim();
+    const optStr = p[1].substring(0, p[1].length - 1);
+    if (formatName === "currency" && optStr.indexOf(":") < 0) {
+      if (!formatOptions.currency)
+        formatOptions.currency = optStr.trim();
+    } else if (formatName === "relativetime" && optStr.indexOf(":") < 0) {
+      if (!formatOptions.range)
+        formatOptions.range = optStr.trim();
+    } else {
+      const opts = optStr.split(";");
+      opts.forEach((opt) => {
+        if (!opt)
+          return;
+        const [key, ...rest] = opt.split(":");
+        const val = rest.join(":").trim().replace(/^'+|'+$/g, "");
+        if (!formatOptions[key.trim()])
+          formatOptions[key.trim()] = val;
+        if (val === "false")
+          formatOptions[key.trim()] = false;
+        if (val === "true")
+          formatOptions[key.trim()] = true;
+        if (!isNaN(val))
+          formatOptions[key.trim()] = parseInt(val, 10);
+      });
+    }
+  }
+  return {
+    formatName,
+    formatOptions
+  };
+}
+function createCachedFormatter(fn) {
+  const cache = {};
+  return function invokeFormatter(val, lng, options) {
+    const key = lng + JSON.stringify(options);
+    let formatter = cache[key];
+    if (!formatter) {
+      formatter = fn(getCleanedCode(lng), options);
+      cache[key] = formatter;
+    }
+    return formatter(val);
+  };
+}
+var Formatter = class {
+  constructor() {
+    let options = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {};
+    this.logger = baseLogger.create("formatter");
+    this.options = options;
+    this.formats = {
+      number: createCachedFormatter((lng, opt) => {
+        const formatter = new Intl.NumberFormat(lng, {
+          ...opt
+        });
+        return (val) => formatter.format(val);
+      }),
+      currency: createCachedFormatter((lng, opt) => {
+        const formatter = new Intl.NumberFormat(lng, {
+          ...opt,
+          style: "currency"
+        });
+        return (val) => formatter.format(val);
+      }),
+      datetime: createCachedFormatter((lng, opt) => {
+        const formatter = new Intl.DateTimeFormat(lng, {
+          ...opt
+        });
+        return (val) => formatter.format(val);
+      }),
+      relativetime: createCachedFormatter((lng, opt) => {
+        const formatter = new Intl.RelativeTimeFormat(lng, {
+          ...opt
+        });
+        return (val) => formatter.format(val, opt.range || "day");
+      }),
+      list: createCachedFormatter((lng, opt) => {
+        const formatter = new Intl.ListFormat(lng, {
+          ...opt
+        });
+        return (val) => formatter.format(val);
+      })
+    };
+    this.init(options);
+  }
+  init(services) {
+    let options = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {
+      interpolation: {}
+    };
+    const iOpts = options.interpolation;
+    this.formatSeparator = iOpts.formatSeparator ? iOpts.formatSeparator : iOpts.formatSeparator || ",";
+  }
+  add(name, fc) {
+    this.formats[name.toLowerCase().trim()] = fc;
+  }
+  addCached(name, fc) {
+    this.formats[name.toLowerCase().trim()] = createCachedFormatter(fc);
+  }
+  format(value, format, lng) {
+    let options = arguments.length > 3 && arguments[3] !== void 0 ? arguments[3] : {};
+    const formats = format.split(this.formatSeparator);
+    const result = formats.reduce((mem, f) => {
+      const {
+        formatName,
+        formatOptions
+      } = parseFormatStr(f);
+      if (this.formats[formatName]) {
+        let formatted = mem;
+        try {
+          const valOptions = options && options.formatParams && options.formatParams[options.interpolationkey] || {};
+          const l = valOptions.locale || valOptions.lng || options.locale || options.lng || lng;
+          formatted = this.formats[formatName](mem, l, {
+            ...formatOptions,
+            ...options,
+            ...valOptions
+          });
+        } catch (error) {
+          this.logger.warn(error);
+        }
+        return formatted;
+      } else {
+        this.logger.warn(`there was no format function for ${formatName}`);
+      }
+      return mem;
+    }, value);
+    return result;
+  }
+};
+function removePending(q, name) {
+  if (q.pending[name] !== void 0) {
+    delete q.pending[name];
+    q.pendingCount--;
+  }
+}
+var Connector = class extends EventEmitter {
+  constructor(backend, store, services) {
+    let options = arguments.length > 3 && arguments[3] !== void 0 ? arguments[3] : {};
+    super();
+    this.backend = backend;
+    this.store = store;
+    this.services = services;
+    this.languageUtils = services.languageUtils;
+    this.options = options;
+    this.logger = baseLogger.create("backendConnector");
+    this.waitingReads = [];
+    this.maxParallelReads = options.maxParallelReads || 10;
+    this.readingCalls = 0;
+    this.maxRetries = options.maxRetries >= 0 ? options.maxRetries : 5;
+    this.retryTimeout = options.retryTimeout >= 1 ? options.retryTimeout : 350;
+    this.state = {};
+    this.queue = [];
+    if (this.backend && this.backend.init) {
+      this.backend.init(services, options.backend, options);
+    }
+  }
+  queueLoad(languages, namespaces, options, callback) {
+    const toLoad = {};
+    const pending = {};
+    const toLoadLanguages = {};
+    const toLoadNamespaces = {};
+    languages.forEach((lng) => {
+      let hasAllNamespaces = true;
+      namespaces.forEach((ns) => {
+        const name = `${lng}|${ns}`;
+        if (!options.reload && this.store.hasResourceBundle(lng, ns)) {
+          this.state[name] = 2;
+        } else if (this.state[name] < 0)
+          ;
+        else if (this.state[name] === 1) {
+          if (pending[name] === void 0)
+            pending[name] = true;
+        } else {
+          this.state[name] = 1;
+          hasAllNamespaces = false;
+          if (pending[name] === void 0)
+            pending[name] = true;
+          if (toLoad[name] === void 0)
+            toLoad[name] = true;
+          if (toLoadNamespaces[ns] === void 0)
+            toLoadNamespaces[ns] = true;
+        }
+      });
+      if (!hasAllNamespaces)
+        toLoadLanguages[lng] = true;
+    });
+    if (Object.keys(toLoad).length || Object.keys(pending).length) {
+      this.queue.push({
+        pending,
+        pendingCount: Object.keys(pending).length,
+        loaded: {},
+        errors: [],
+        callback
+      });
+    }
+    return {
+      toLoad: Object.keys(toLoad),
+      pending: Object.keys(pending),
+      toLoadLanguages: Object.keys(toLoadLanguages),
+      toLoadNamespaces: Object.keys(toLoadNamespaces)
+    };
+  }
+  loaded(name, err, data) {
+    const s = name.split("|");
+    const lng = s[0];
+    const ns = s[1];
+    if (err)
+      this.emit("failedLoading", lng, ns, err);
+    if (data) {
+      this.store.addResourceBundle(lng, ns, data);
+    }
+    this.state[name] = err ? -1 : 2;
+    const loaded = {};
+    this.queue.forEach((q) => {
+      pushPath(q.loaded, [lng], ns);
+      removePending(q, name);
+      if (err)
+        q.errors.push(err);
+      if (q.pendingCount === 0 && !q.done) {
+        Object.keys(q.loaded).forEach((l) => {
+          if (!loaded[l])
+            loaded[l] = {};
+          const loadedKeys = q.loaded[l];
+          if (loadedKeys.length) {
+            loadedKeys.forEach((n) => {
+              if (loaded[l][n] === void 0)
+                loaded[l][n] = true;
+            });
+          }
+        });
+        q.done = true;
+        if (q.errors.length) {
+          q.callback(q.errors);
+        } else {
+          q.callback();
+        }
+      }
+    });
+    this.emit("loaded", loaded);
+    this.queue = this.queue.filter((q) => !q.done);
+  }
+  read(lng, ns, fcName) {
+    let tried = arguments.length > 3 && arguments[3] !== void 0 ? arguments[3] : 0;
+    let wait = arguments.length > 4 && arguments[4] !== void 0 ? arguments[4] : this.retryTimeout;
+    let callback = arguments.length > 5 ? arguments[5] : void 0;
+    if (!lng.length)
+      return callback(null, {});
+    if (this.readingCalls >= this.maxParallelReads) {
+      this.waitingReads.push({
+        lng,
+        ns,
+        fcName,
+        tried,
+        wait,
+        callback
+      });
+      return;
+    }
+    this.readingCalls++;
+    const resolver = (err, data) => {
+      this.readingCalls--;
+      if (this.waitingReads.length > 0) {
+        const next = this.waitingReads.shift();
+        this.read(next.lng, next.ns, next.fcName, next.tried, next.wait, next.callback);
+      }
+      if (err && data && tried < this.maxRetries) {
+        setTimeout(() => {
+          this.read.call(this, lng, ns, fcName, tried + 1, wait * 2, callback);
+        }, wait);
+        return;
+      }
+      callback(err, data);
+    };
+    const fc = this.backend[fcName].bind(this.backend);
+    if (fc.length === 2) {
+      try {
+        const r = fc(lng, ns);
+        if (r && typeof r.then === "function") {
+          r.then((data) => resolver(null, data)).catch(resolver);
+        } else {
+          resolver(null, r);
+        }
+      } catch (err) {
+        resolver(err);
+      }
+      return;
+    }
+    return fc(lng, ns, resolver);
+  }
+  prepareLoading(languages, namespaces) {
+    let options = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : {};
+    let callback = arguments.length > 3 ? arguments[3] : void 0;
+    if (!this.backend) {
+      this.logger.warn("No backend was added via i18next.use. Will not load resources.");
+      return callback && callback();
+    }
+    if (typeof languages === "string")
+      languages = this.languageUtils.toResolveHierarchy(languages);
+    if (typeof namespaces === "string")
+      namespaces = [namespaces];
+    const toLoad = this.queueLoad(languages, namespaces, options, callback);
+    if (!toLoad.toLoad.length) {
+      if (!toLoad.pending.length)
+        callback();
+      return null;
+    }
+    toLoad.toLoad.forEach((name) => {
+      this.loadOne(name);
+    });
+  }
+  load(languages, namespaces, callback) {
+    this.prepareLoading(languages, namespaces, {}, callback);
+  }
+  reload(languages, namespaces, callback) {
+    this.prepareLoading(languages, namespaces, {
+      reload: true
+    }, callback);
+  }
+  loadOne(name) {
+    let prefix = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : "";
+    const s = name.split("|");
+    const lng = s[0];
+    const ns = s[1];
+    this.read(lng, ns, "read", void 0, void 0, (err, data) => {
+      if (err)
+        this.logger.warn(`${prefix}loading namespace ${ns} for language ${lng} failed`, err);
+      if (!err && data)
+        this.logger.log(`${prefix}loaded namespace ${ns} for language ${lng}`, data);
+      this.loaded(name, err, data);
+    });
+  }
+  saveMissing(languages, namespace, key, fallbackValue, isUpdate) {
+    let options = arguments.length > 5 && arguments[5] !== void 0 ? arguments[5] : {};
+    let clb = arguments.length > 6 && arguments[6] !== void 0 ? arguments[6] : () => {
+    };
+    if (this.services.utils && this.services.utils.hasLoadedNamespace && !this.services.utils.hasLoadedNamespace(namespace)) {
+      this.logger.warn(`did not save key "${key}" as the namespace "${namespace}" was not yet loaded`, "This means something IS WRONG in your setup. You access the t function before i18next.init / i18next.loadNamespace / i18next.changeLanguage was done. Wait for the callback or Promise to resolve before accessing it!!!");
+      return;
+    }
+    if (key === void 0 || key === null || key === "")
+      return;
+    if (this.backend && this.backend.create) {
+      const opts = {
+        ...options,
+        isUpdate
+      };
+      const fc = this.backend.create.bind(this.backend);
+      if (fc.length < 6) {
+        try {
+          let r;
+          if (fc.length === 5) {
+            r = fc(languages, namespace, key, fallbackValue, opts);
+          } else {
+            r = fc(languages, namespace, key, fallbackValue);
+          }
+          if (r && typeof r.then === "function") {
+            r.then((data) => clb(null, data)).catch(clb);
+          } else {
+            clb(null, r);
+          }
+        } catch (err) {
+          clb(err);
+        }
+      } else {
+        fc(languages, namespace, key, fallbackValue, clb, opts);
+      }
+    }
+    if (!languages || !languages[0])
+      return;
+    this.store.addResource(languages[0], namespace, key, fallbackValue);
+  }
+};
+function get() {
+  return {
+    debug: false,
+    initImmediate: true,
+    ns: ["translation"],
+    defaultNS: ["translation"],
+    fallbackLng: ["dev"],
+    fallbackNS: false,
+    supportedLngs: false,
+    nonExplicitSupportedLngs: false,
+    load: "all",
+    preload: false,
+    simplifyPluralSuffix: true,
+    keySeparator: ".",
+    nsSeparator: ":",
+    pluralSeparator: "_",
+    contextSeparator: "_",
+    partialBundledLanguages: false,
+    saveMissing: false,
+    updateMissing: false,
+    saveMissingTo: "fallback",
+    saveMissingPlurals: true,
+    missingKeyHandler: false,
+    missingInterpolationHandler: false,
+    postProcess: false,
+    postProcessPassResolved: false,
+    returnNull: false,
+    returnEmptyString: true,
+    returnObjects: false,
+    joinArrays: false,
+    returnedObjectHandler: false,
+    parseMissingKeyHandler: false,
+    appendNamespaceToMissingKey: false,
+    appendNamespaceToCIMode: false,
+    overloadTranslationOptionHandler: function handle(args) {
+      let ret = {};
+      if (typeof args[1] === "object")
+        ret = args[1];
+      if (typeof args[1] === "string")
+        ret.defaultValue = args[1];
+      if (typeof args[2] === "string")
+        ret.tDescription = args[2];
+      if (typeof args[2] === "object" || typeof args[3] === "object") {
+        const options = args[3] || args[2];
+        Object.keys(options).forEach((key) => {
+          ret[key] = options[key];
+        });
+      }
+      return ret;
+    },
+    interpolation: {
+      escapeValue: true,
+      format: (value, format, lng, options) => value,
+      prefix: "{{",
+      suffix: "}}",
+      formatSeparator: ",",
+      unescapePrefix: "-",
+      nestingPrefix: "$t(",
+      nestingSuffix: ")",
+      nestingOptionsSeparator: ",",
+      maxReplaces: 1e3,
+      skipOnVariables: true
+    }
+  };
+}
+function transformOptions(options) {
+  if (typeof options.ns === "string")
+    options.ns = [options.ns];
+  if (typeof options.fallbackLng === "string")
+    options.fallbackLng = [options.fallbackLng];
+  if (typeof options.fallbackNS === "string")
+    options.fallbackNS = [options.fallbackNS];
+  if (options.supportedLngs && options.supportedLngs.indexOf("cimode") < 0) {
+    options.supportedLngs = options.supportedLngs.concat(["cimode"]);
+  }
+  return options;
+}
+function noop() {
+}
+function bindMemberFunctions(inst) {
+  const mems = Object.getOwnPropertyNames(Object.getPrototypeOf(inst));
+  mems.forEach((mem) => {
+    if (typeof inst[mem] === "function") {
+      inst[mem] = inst[mem].bind(inst);
+    }
+  });
+}
+var I18n = class _I18n extends EventEmitter {
+  constructor() {
+    let options = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {};
+    let callback = arguments.length > 1 ? arguments[1] : void 0;
+    super();
+    this.options = transformOptions(options);
+    this.services = {};
+    this.logger = baseLogger;
+    this.modules = {
+      external: []
+    };
+    bindMemberFunctions(this);
+    if (callback && !this.isInitialized && !options.isClone) {
+      if (!this.options.initImmediate) {
+        this.init(options, callback);
+        return this;
+      }
+      setTimeout(() => {
+        this.init(options, callback);
+      }, 0);
+    }
+  }
+  init() {
+    var _this = this;
+    let options = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {};
+    let callback = arguments.length > 1 ? arguments[1] : void 0;
+    if (typeof options === "function") {
+      callback = options;
+      options = {};
+    }
+    if (!options.defaultNS && options.defaultNS !== false && options.ns) {
+      if (typeof options.ns === "string") {
+        options.defaultNS = options.ns;
+      } else if (options.ns.indexOf("translation") < 0) {
+        options.defaultNS = options.ns[0];
+      }
+    }
+    const defOpts = get();
+    this.options = {
+      ...defOpts,
+      ...this.options,
+      ...transformOptions(options)
+    };
+    if (this.options.compatibilityAPI !== "v1") {
+      this.options.interpolation = {
+        ...defOpts.interpolation,
+        ...this.options.interpolation
+      };
+    }
+    if (options.keySeparator !== void 0) {
+      this.options.userDefinedKeySeparator = options.keySeparator;
+    }
+    if (options.nsSeparator !== void 0) {
+      this.options.userDefinedNsSeparator = options.nsSeparator;
+    }
+    function createClassOnDemand(ClassOrObject) {
+      if (!ClassOrObject)
+        return null;
+      if (typeof ClassOrObject === "function")
+        return new ClassOrObject();
+      return ClassOrObject;
+    }
+    if (!this.options.isClone) {
+      if (this.modules.logger) {
+        baseLogger.init(createClassOnDemand(this.modules.logger), this.options);
+      } else {
+        baseLogger.init(null, this.options);
+      }
+      let formatter;
+      if (this.modules.formatter) {
+        formatter = this.modules.formatter;
+      } else if (typeof Intl !== "undefined") {
+        formatter = Formatter;
+      }
+      const lu = new LanguageUtil(this.options);
+      this.store = new ResourceStore(this.options.resources, this.options);
+      const s = this.services;
+      s.logger = baseLogger;
+      s.resourceStore = this.store;
+      s.languageUtils = lu;
+      s.pluralResolver = new PluralResolver(lu, {
+        prepend: this.options.pluralSeparator,
+        compatibilityJSON: this.options.compatibilityJSON,
+        simplifyPluralSuffix: this.options.simplifyPluralSuffix
+      });
+      if (formatter && (!this.options.interpolation.format || this.options.interpolation.format === defOpts.interpolation.format)) {
+        s.formatter = createClassOnDemand(formatter);
+        s.formatter.init(s, this.options);
+        this.options.interpolation.format = s.formatter.format.bind(s.formatter);
+      }
+      s.interpolator = new Interpolator(this.options);
+      s.utils = {
+        hasLoadedNamespace: this.hasLoadedNamespace.bind(this)
+      };
+      s.backendConnector = new Connector(createClassOnDemand(this.modules.backend), s.resourceStore, s, this.options);
+      s.backendConnector.on("*", function(event) {
+        for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+          args[_key - 1] = arguments[_key];
+        }
+        _this.emit(event, ...args);
+      });
+      if (this.modules.languageDetector) {
+        s.languageDetector = createClassOnDemand(this.modules.languageDetector);
+        if (s.languageDetector.init)
+          s.languageDetector.init(s, this.options.detection, this.options);
+      }
+      if (this.modules.i18nFormat) {
+        s.i18nFormat = createClassOnDemand(this.modules.i18nFormat);
+        if (s.i18nFormat.init)
+          s.i18nFormat.init(this);
+      }
+      this.translator = new Translator(this.services, this.options);
+      this.translator.on("*", function(event) {
+        for (var _len2 = arguments.length, args = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
+          args[_key2 - 1] = arguments[_key2];
+        }
+        _this.emit(event, ...args);
+      });
+      this.modules.external.forEach((m) => {
+        if (m.init)
+          m.init(this);
+      });
+    }
+    this.format = this.options.interpolation.format;
+    if (!callback)
+      callback = noop;
+    if (this.options.fallbackLng && !this.services.languageDetector && !this.options.lng) {
+      const codes = this.services.languageUtils.getFallbackCodes(this.options.fallbackLng);
+      if (codes.length > 0 && codes[0] !== "dev")
+        this.options.lng = codes[0];
+    }
+    if (!this.services.languageDetector && !this.options.lng) {
+      this.logger.warn("init: no languageDetector is used and no lng is defined");
+    }
+    const storeApi = ["getResource", "hasResourceBundle", "getResourceBundle", "getDataByLanguage"];
+    storeApi.forEach((fcName) => {
+      this[fcName] = function() {
+        return _this.store[fcName](...arguments);
+      };
+    });
+    const storeApiChained = ["addResource", "addResources", "addResourceBundle", "removeResourceBundle"];
+    storeApiChained.forEach((fcName) => {
+      this[fcName] = function() {
+        _this.store[fcName](...arguments);
+        return _this;
+      };
+    });
+    const deferred = defer();
+    const load = () => {
+      const finish = (err, t3) => {
+        if (this.isInitialized && !this.initializedStoreOnce)
+          this.logger.warn("init: i18next is already initialized. You should call init just once!");
+        this.isInitialized = true;
+        if (!this.options.isClone)
+          this.logger.log("initialized", this.options);
+        this.emit("initialized", this.options);
+        deferred.resolve(t3);
+        callback(err, t3);
+      };
+      if (this.languages && this.options.compatibilityAPI !== "v1" && !this.isInitialized)
+        return finish(null, this.t.bind(this));
+      this.changeLanguage(this.options.lng, finish);
+    };
+    if (this.options.resources || !this.options.initImmediate) {
+      load();
+    } else {
+      setTimeout(load, 0);
+    }
+    return deferred;
+  }
+  loadResources(language) {
+    let callback = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : noop;
+    let usedCallback = callback;
+    const usedLng = typeof language === "string" ? language : this.language;
+    if (typeof language === "function")
+      usedCallback = language;
+    if (!this.options.resources || this.options.partialBundledLanguages) {
+      if (usedLng && usedLng.toLowerCase() === "cimode")
+        return usedCallback();
+      const toLoad = [];
+      const append = (lng) => {
+        if (!lng)
+          return;
+        const lngs = this.services.languageUtils.toResolveHierarchy(lng);
+        lngs.forEach((l) => {
+          if (toLoad.indexOf(l) < 0)
+            toLoad.push(l);
+        });
+      };
+      if (!usedLng) {
+        const fallbacks = this.services.languageUtils.getFallbackCodes(this.options.fallbackLng);
+        fallbacks.forEach((l) => append(l));
+      } else {
+        append(usedLng);
+      }
+      if (this.options.preload) {
+        this.options.preload.forEach((l) => append(l));
+      }
+      this.services.backendConnector.load(toLoad, this.options.ns, (e) => {
+        if (!e && !this.resolvedLanguage && this.language)
+          this.setResolvedLanguage(this.language);
+        usedCallback(e);
+      });
+    } else {
+      usedCallback(null);
+    }
+  }
+  reloadResources(lngs, ns, callback) {
+    const deferred = defer();
+    if (!lngs)
+      lngs = this.languages;
+    if (!ns)
+      ns = this.options.ns;
+    if (!callback)
+      callback = noop;
+    this.services.backendConnector.reload(lngs, ns, (err) => {
+      deferred.resolve();
+      callback(err);
+    });
+    return deferred;
+  }
+  use(module2) {
+    if (!module2)
+      throw new Error("You are passing an undefined module! Please check the object you are passing to i18next.use()");
+    if (!module2.type)
+      throw new Error("You are passing a wrong module! Please check the object you are passing to i18next.use()");
+    if (module2.type === "backend") {
+      this.modules.backend = module2;
+    }
+    if (module2.type === "logger" || module2.log && module2.warn && module2.error) {
+      this.modules.logger = module2;
+    }
+    if (module2.type === "languageDetector") {
+      this.modules.languageDetector = module2;
+    }
+    if (module2.type === "i18nFormat") {
+      this.modules.i18nFormat = module2;
+    }
+    if (module2.type === "postProcessor") {
+      postProcessor.addPostProcessor(module2);
+    }
+    if (module2.type === "formatter") {
+      this.modules.formatter = module2;
+    }
+    if (module2.type === "3rdParty") {
+      this.modules.external.push(module2);
+    }
+    return this;
+  }
+  setResolvedLanguage(l) {
+    if (!l || !this.languages)
+      return;
+    if (["cimode", "dev"].indexOf(l) > -1)
+      return;
+    for (let li = 0; li < this.languages.length; li++) {
+      const lngInLngs = this.languages[li];
+      if (["cimode", "dev"].indexOf(lngInLngs) > -1)
+        continue;
+      if (this.store.hasLanguageSomeTranslations(lngInLngs)) {
+        this.resolvedLanguage = lngInLngs;
+        break;
+      }
+    }
+  }
+  changeLanguage(lng, callback) {
+    var _this2 = this;
+    this.isLanguageChangingTo = lng;
+    const deferred = defer();
+    this.emit("languageChanging", lng);
+    const setLngProps = (l) => {
+      this.language = l;
+      this.languages = this.services.languageUtils.toResolveHierarchy(l);
+      this.resolvedLanguage = void 0;
+      this.setResolvedLanguage(l);
+    };
+    const done = (err, l) => {
+      if (l) {
+        setLngProps(l);
+        this.translator.changeLanguage(l);
+        this.isLanguageChangingTo = void 0;
+        this.emit("languageChanged", l);
+        this.logger.log("languageChanged", l);
+      } else {
+        this.isLanguageChangingTo = void 0;
+      }
+      deferred.resolve(function() {
+        return _this2.t(...arguments);
+      });
+      if (callback)
+        callback(err, function() {
+          return _this2.t(...arguments);
+        });
+    };
+    const setLng = (lngs) => {
+      if (!lng && !lngs && this.services.languageDetector)
+        lngs = [];
+      const l = typeof lngs === "string" ? lngs : this.services.languageUtils.getBestMatchFromCodes(lngs);
+      if (l) {
+        if (!this.language) {
+          setLngProps(l);
+        }
+        if (!this.translator.language)
+          this.translator.changeLanguage(l);
+        if (this.services.languageDetector && this.services.languageDetector.cacheUserLanguage)
+          this.services.languageDetector.cacheUserLanguage(l);
+      }
+      this.loadResources(l, (err) => {
+        done(err, l);
+      });
+    };
+    if (!lng && this.services.languageDetector && !this.services.languageDetector.async) {
+      setLng(this.services.languageDetector.detect());
+    } else if (!lng && this.services.languageDetector && this.services.languageDetector.async) {
+      if (this.services.languageDetector.detect.length === 0) {
+        this.services.languageDetector.detect().then(setLng);
+      } else {
+        this.services.languageDetector.detect(setLng);
+      }
+    } else {
+      setLng(lng);
+    }
+    return deferred;
+  }
+  getFixedT(lng, ns, keyPrefix) {
+    var _this3 = this;
+    const fixedT = function(key, opts) {
+      let options;
+      if (typeof opts !== "object") {
+        for (var _len3 = arguments.length, rest = new Array(_len3 > 2 ? _len3 - 2 : 0), _key3 = 2; _key3 < _len3; _key3++) {
+          rest[_key3 - 2] = arguments[_key3];
+        }
+        options = _this3.options.overloadTranslationOptionHandler([key, opts].concat(rest));
+      } else {
+        options = {
+          ...opts
+        };
+      }
+      options.lng = options.lng || fixedT.lng;
+      options.lngs = options.lngs || fixedT.lngs;
+      options.ns = options.ns || fixedT.ns;
+      options.keyPrefix = options.keyPrefix || keyPrefix || fixedT.keyPrefix;
+      const keySeparator = _this3.options.keySeparator || ".";
+      let resultKey;
+      if (options.keyPrefix && Array.isArray(key)) {
+        resultKey = key.map((k) => `${options.keyPrefix}${keySeparator}${k}`);
+      } else {
+        resultKey = options.keyPrefix ? `${options.keyPrefix}${keySeparator}${key}` : key;
+      }
+      return _this3.t(resultKey, options);
+    };
+    if (typeof lng === "string") {
+      fixedT.lng = lng;
+    } else {
+      fixedT.lngs = lng;
+    }
+    fixedT.ns = ns;
+    fixedT.keyPrefix = keyPrefix;
+    return fixedT;
+  }
+  t() {
+    return this.translator && this.translator.translate(...arguments);
+  }
+  exists() {
+    return this.translator && this.translator.exists(...arguments);
+  }
+  setDefaultNamespace(ns) {
+    this.options.defaultNS = ns;
+  }
+  hasLoadedNamespace(ns) {
+    let options = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
+    if (!this.isInitialized) {
+      this.logger.warn("hasLoadedNamespace: i18next was not initialized", this.languages);
+      return false;
+    }
+    if (!this.languages || !this.languages.length) {
+      this.logger.warn("hasLoadedNamespace: i18n.languages were undefined or empty", this.languages);
+      return false;
+    }
+    const lng = options.lng || this.resolvedLanguage || this.languages[0];
+    const fallbackLng = this.options ? this.options.fallbackLng : false;
+    const lastLng = this.languages[this.languages.length - 1];
+    if (lng.toLowerCase() === "cimode")
+      return true;
+    const loadNotPending = (l, n) => {
+      const loadState = this.services.backendConnector.state[`${l}|${n}`];
+      return loadState === -1 || loadState === 2;
+    };
+    if (options.precheck) {
+      const preResult = options.precheck(this, loadNotPending);
+      if (preResult !== void 0)
+        return preResult;
+    }
+    if (this.hasResourceBundle(lng, ns))
+      return true;
+    if (!this.services.backendConnector.backend || this.options.resources && !this.options.partialBundledLanguages)
+      return true;
+    if (loadNotPending(lng, ns) && (!fallbackLng || loadNotPending(lastLng, ns)))
+      return true;
+    return false;
+  }
+  loadNamespaces(ns, callback) {
+    const deferred = defer();
+    if (!this.options.ns) {
+      if (callback)
+        callback();
+      return Promise.resolve();
+    }
+    if (typeof ns === "string")
+      ns = [ns];
+    ns.forEach((n) => {
+      if (this.options.ns.indexOf(n) < 0)
+        this.options.ns.push(n);
+    });
+    this.loadResources((err) => {
+      deferred.resolve();
+      if (callback)
+        callback(err);
+    });
+    return deferred;
+  }
+  loadLanguages(lngs, callback) {
+    const deferred = defer();
+    if (typeof lngs === "string")
+      lngs = [lngs];
+    const preloaded = this.options.preload || [];
+    const newLngs = lngs.filter((lng) => preloaded.indexOf(lng) < 0);
+    if (!newLngs.length) {
+      if (callback)
+        callback();
+      return Promise.resolve();
+    }
+    this.options.preload = preloaded.concat(newLngs);
+    this.loadResources((err) => {
+      deferred.resolve();
+      if (callback)
+        callback(err);
+    });
+    return deferred;
+  }
+  dir(lng) {
+    if (!lng)
+      lng = this.resolvedLanguage || (this.languages && this.languages.length > 0 ? this.languages[0] : this.language);
+    if (!lng)
+      return "rtl";
+    const rtlLngs = ["ar", "shu", "sqr", "ssh", "xaa", "yhd", "yud", "aao", "abh", "abv", "acm", "acq", "acw", "acx", "acy", "adf", "ads", "aeb", "aec", "afb", "ajp", "apc", "apd", "arb", "arq", "ars", "ary", "arz", "auz", "avl", "ayh", "ayl", "ayn", "ayp", "bbz", "pga", "he", "iw", "ps", "pbt", "pbu", "pst", "prp", "prd", "ug", "ur", "ydd", "yds", "yih", "ji", "yi", "hbo", "men", "xmn", "fa", "jpr", "peo", "pes", "prs", "dv", "sam", "ckb"];
+    const languageUtils = this.services && this.services.languageUtils || new LanguageUtil(get());
+    return rtlLngs.indexOf(languageUtils.getLanguagePartFromCode(lng)) > -1 || lng.toLowerCase().indexOf("-arab") > 1 ? "rtl" : "ltr";
+  }
+  static createInstance() {
+    let options = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {};
+    let callback = arguments.length > 1 ? arguments[1] : void 0;
+    return new _I18n(options, callback);
+  }
+  cloneInstance() {
+    let options = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {};
+    let callback = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : noop;
+    const forkResourceStore = options.forkResourceStore;
+    if (forkResourceStore)
+      delete options.forkResourceStore;
+    const mergedOptions = {
+      ...this.options,
+      ...options,
+      ...{
+        isClone: true
+      }
+    };
+    const clone = new _I18n(mergedOptions);
+    if (options.debug !== void 0 || options.prefix !== void 0) {
+      clone.logger = clone.logger.clone(options);
+    }
+    const membersToCopy = ["store", "services", "language"];
+    membersToCopy.forEach((m) => {
+      clone[m] = this[m];
+    });
+    clone.services = {
+      ...this.services
+    };
+    clone.services.utils = {
+      hasLoadedNamespace: clone.hasLoadedNamespace.bind(clone)
+    };
+    if (forkResourceStore) {
+      clone.store = new ResourceStore(this.store.data, mergedOptions);
+      clone.services.resourceStore = clone.store;
+    }
+    clone.translator = new Translator(clone.services, mergedOptions);
+    clone.translator.on("*", function(event) {
+      for (var _len4 = arguments.length, args = new Array(_len4 > 1 ? _len4 - 1 : 0), _key4 = 1; _key4 < _len4; _key4++) {
+        args[_key4 - 1] = arguments[_key4];
+      }
+      clone.emit(event, ...args);
+    });
+    clone.init(mergedOptions, callback);
+    clone.translator.options = mergedOptions;
+    clone.translator.backendConnector.services.utils = {
+      hasLoadedNamespace: clone.hasLoadedNamespace.bind(clone)
+    };
+    return clone;
+  }
+  toJSON() {
+    return {
+      options: this.options,
+      store: this.store,
+      language: this.language,
+      languages: this.languages,
+      resolvedLanguage: this.resolvedLanguage
+    };
+  }
+};
+var instance = I18n.createInstance();
+instance.createInstance = I18n.createInstance;
+var createInstance = instance.createInstance;
+var dir = instance.dir;
+var init = instance.init;
+var loadResources = instance.loadResources;
+var reloadResources = instance.reloadResources;
+var use = instance.use;
+var changeLanguage = instance.changeLanguage;
+var getFixedT = instance.getFixedT;
+var t = instance.t;
+var exists = instance.exists;
+var setDefaultNamespace = instance.setDefaultNamespace;
+var hasLoadedNamespace = instance.hasLoadedNamespace;
+var loadNamespaces = instance.loadNamespaces;
+var loadLanguages = instance.loadLanguages;
+
+// src/i18n/zh/index.ts
+var zh = {
+  validator: "\u9A8C\u8BC1\u65B9\u5F0F",
+  strategy: "\u7B56\u7565",
+  cancel: "\u53D6\u6D88",
+  apply: "\u5E94\u7528",
+  feature: {
+    ["alias" /* Alias */]: {
+      name: "\u522B\u540DAlias",
+      desc: "\u4FEE\u6539\u5143\u6570\u636E\uFF08frontmatter\uFF09\u7F13\u5B58\u4E2D\u7684\u522B\u540D\uFF0C\u4E0D\u5F71\u54CD\u5B9E\u9645\u522B\u540D",
+      validator: {
+        auto: {
+          name: "\u81EA\u52A8Frontmatter",
+          desc: "\u5982\u679C frontmatter \u4E0D\u5B58\u5728\uFF0C\u5219\u4F1A\u5728\u7F13\u5B58\u4E2D\u521B\u5EFA\u3002\u53EF\u80FD\u4F1A\u53D1\u751F\u526F\u4F5C\u7528\u3002"
+        },
+        required: {
+          name: "\u6709Frontmatter\u624D\u751F\u6548",
+          desc: "\u53EA\u5904\u7406\u6709 frontmatter \u7684\u6587\u4EF6\u3002"
+        }
+      },
+      strategy: {
+        ensure: {
+          name: "\u589E\u5F3A",
+          desc: "\u4EC5\u5F53\u6807\u9898\u4E0D\u5728\u522B\u540D\u4E2D\u65F6\uFF0C\u624D\u5C06\u6807\u9898\u8BBE\u7F6E\u4E3A\u522B\u540D"
+        },
+        adjust: {
+          name: "\u8C03\u6574",
+          desc: "\u5C06\u6807\u9898\u6DFB\u52A0\u5230\u522B\u540D\u4E2D\uFF0C\u4F46\u4E0D\u5F71\u54CD\u73B0\u6709\u522B\u540D"
+        },
+        replace: {
+          name: "\u66FF\u6362",
+          desc: "\u7528\u6807\u9898\u66FF\u6362\u5F53\u524D\u522B\u540D"
+        }
+      }
+    },
+    ["explorer" /* Explorer */]: {
+      name: "\u6587\u4EF6\u8D44\u6E90\u7BA1\u7406\u5668",
+      desc: "\u66FF\u6362\u6587\u4EF6\u8D44\u6E90\u7BA1\u7406\u5668\u4E2D\u663E\u793A\u7684\u6807\u9898"
+    },
+    ["explorer:sort" /* ExplorerSort */]: {
+      name: "\u6807\u9898\u6392\u5E8F",
+      desc: "\u901A\u8FC7\u8D44\u6E90\u7BA1\u7406\u5668\u529F\u80FD\uFF0C\u6309\u6807\u9898\u5BF9\u8D44\u6E90\u7BA1\u7406\u5668\u4E2D\u7684\u6587\u4EF6\u8FDB\u884C\u6392\u5E8F"
+    },
+    ["graph" /* Graph */]: {
+      name: "\u56FE\u8C31",
+      desc: "\u66FF\u6362\u56FE\u8C31/\u672C\u5730\u56FE\u8C31\u4E2D\u663E\u793A\u7684\u6807\u9898"
+    },
+    ["header" /* Header */]: {
+      name: "\u9875\u9876\u6807\u9898",
+      desc: "\u66FF\u6362Tab\u6807\u7B7E\u9875\u9876\u90E8\u7684\u6807\u9898\u5E76\u66F4\u65B0\u5B83\u4EEC"
+    },
+    ["starred" /* Starred */]: {
+      name: "\u4E66\u7B7E",
+      desc: "\u66FF\u6362\u5185\u7F6E\u4E66\u7B7E\u63D2\u4EF6\u4E2D\u663E\u793A\u7684\u6807\u9898"
+    },
+    ["search" /* Search */]: {
+      name: "\u641C\u7D22",
+      desc: "\u66FF\u6362\u641C\u7D22\u9875\u9762\u4E2D\u663E\u793A\u7684\u6807\u9898"
+    },
+    ["suggest" /* Suggest */]: {
+      name: "\u5EFA\u8BAE",
+      desc: "\u66FF\u6362\u5EFA\u8BAE\u7A97\u53E3\u4E2D\u663E\u793A\u7684\u6807\u9898"
+    },
+    ["tab" /* Tab */]: {
+      name: "\u6807\u7B7E\u9875",
+      desc: "\u66FF\u6362Tab\u6807\u7B7E\u9875\u4E2D\u663E\u793A\u7684\u6807\u9898"
+    },
+    ["inlineTitle" /* InlineTitle */]: {
+      name: "\u9875\u5185\u6807\u9898",
+      desc: "\u66FF\u6362\u9875\u9762\u5185\u663E\u793A\u7684\u6807\u9898"
+    },
+    ["canvas" /* Canvas */]: {
+      name: "\u767D\u677F",
+      desc: "\u66FF\u6362\u767D\u677F\u4E2D\u663E\u793A\u7684\u6807\u9898"
+    },
+    ["backlink" /* Backlink */]: {
+      name: "\u53CD\u5411\u94FE\u63A5",
+      desc: "\u66FF\u6362\u53CD\u5411\u94FE\u63A5(\u94FE\u63A5\u63D0\u53CA)\u4E2D\u663E\u793A\u7684\u6807\u9898"
+    },
+    ["noteLink" /* NoteLink */]: {
+      name: "\u7B14\u8BB0\u94FE\u63A5",
+      desc: "\u66FF\u6362\u7B14\u8BB0\u4E2D\u7684\u5185\u90E8\u94FE\u63A5",
+      strategy: {
+        all: "\u66FF\u6362\u5168\u90E8\u94FE\u63A5",
+        onlyEmpty: "\u53EA\u66FF\u6362\u6CA1\u6709\u522B\u540D\u7684\u94FE\u63A5"
+      },
+      approval: {
+        showModal: "\u663E\u793A\u786E\u8BA4\u7A97\u53E3",
+        auto: "\u4F7F\u7528\u81EA\u52A8\u786E\u8BA4"
+      }
+    }
+  },
+  manage: "\u7BA1\u7406",
+  template: {
+    features: {
+      name: "\u7279\u6027\u6A21\u677F",
+      desc: "\u6839\u636E\u5404\u7279\u6027\u529F\u80FD\u72EC\u7ACB\u7BA1\u7406\u6A21\u677F"
+    },
+    main: "\u4E3B\u6A21\u677F",
+    fallback: "\u5907\u7528",
+    placeholder: "\u8F93\u5165\u6A21\u677F",
+    commmon: {
+      main: {
+        name: "\u901A\u7528\u4E3B\u6A21\u677F",
+        desc: `\u8BBE\u7F6E yaml \u8DEF\u5F84\uFF0C\u8BE5\u503C\u5C06\u7528\u4E8E\u6587\u4EF6\u6807\u9898\u3002\u503C\u5FC5\u987B\u662F\u5B57\u7B26\u4E32\u6216\u6570\u503C\u3002\u8FD8\u53EF\u4EE5\u4F7F\u7528\u7C7B\u4F3C\u6A21\u677F\u8DEF\u5F84 "{{ }}"\u3002
+                \u8FD8\u53EF\u4EE5\u4F7F\u7528 #\u6807\u9898 \u6765\u4F7F\u7528\u4E00\u7EA7\u6807\u9898\uFF0C\u6216 _ basename \u548C\u5176\u4ED6\u4FDD\u7559\u5B57\u3002
+                \u67E5\u9605 Readme \u4E86\u89E3\u66F4\u591A`
+      },
+      fallback: {
+        name: "\u901A\u7528\u5907\u7528\u6A21\u677F",
+        desc: "\u4F5C\u4E3A\u5907\u7528\u9009\u9879\u7684\u6A21\u677F\uFF0C\u5F53\u901A\u7528\u4E3B\u6A21\u677F\u65E0\u6CD5\u89E3\u6790\u51FA\u6765\u65F6\u4F7F\u7528"
+      }
+    },
+    used: "\u901A\u7528\u6A21\u677F\u5C06\u4F1A\u4F7F\u7528. \u503C\u4E3A {{value}}",
+    specific: "\u8FD9\u4E2A\u7279\u6027\u529F\u80FD\u5C06\u4F7F\u7528\u5F53\u524D\u6A21\u677F"
+  },
+  settings: "\u63D2\u4EF6\u8BBE\u7F6E",
+  rule: {
+    name: "\u89C4\u5219",
+    path: {
+      name: "\u6587\u4EF6\u8DEF\u5F84\u89C4\u5219",
+      black: {
+        name: "\u9ED1\u540D\u5355\u6A21\u5F0F",
+        desc: "\u63D2\u4EF6\u5C06\u5FFD\u7565\u8DEF\u5F84\u4E2D\u7684\u6587\u4EF6\uFF0C\u6BCF\u4E2A\u8DEF\u5F84\u5FC5\u987B\u4F7F\u7528\u5728\u65B0\u884C\u4E2D\u5199\u5165."
+      },
+      white: {
+        name: "\u767D\u540D\u5355\u6A21\u5F0F",
+        desc: "\u63D2\u4EF6\u5C06\u5904\u7406\u8DEF\u5F84\u4E2D\u7684\u6587\u4EF6\uFF0C\u6BCF\u4E2A\u8DEF\u5F84\u5FC5\u987B\u4F7F\u7528\u5728\u65B0\u884C\u4E2D\u5199\u5165."
+      }
+    },
+    delimiter: {
+      name: "\u5217\u8868\u503C",
+      desc: "\u8BBE\u7F6E\u5904\u7406\u5217\u8868\u503C\u7684\u89C4\u5219",
+      first: "\u4F7F\u7528\u7B2C\u4E00\u4E2A\u503C",
+      join: "\u7528\u5206\u9694\u7B26\u62FC\u63A5\u5168\u90E8",
+      placeholder: {
+        first: "\u4F1A\u91C7\u7528\u7B2C\u4E00\u4E2A\u503C",
+        join: "\u8F93\u5165\u5206\u9694\u7B26"
+      }
+    }
+  },
+  features: "\u7279\u6027\u529F\u80FD",
+  util: "\u5DE5\u5177",
+  coffee: "\u5982\u679C\u60A8\u559C\u6B22\u6B64\u63D2\u4EF6\u5E76\u5E0C\u671B\u5E2E\u52A9/\u652F\u6301\u4F5C\u8005\u6301\u7EED\u5F00\u53D1\uFF0C\u8BF7\u70B9\u51FB\u4EE5\u4E0B\u6309\u94AE:",
+  debug_info: {
+    title: "\u8C03\u8BD5\u4FE1\u606F",
+    desc: "\u5728\u7EC8\u7AEF\u4E2D\u663E\u793A\u8C03\u8BD5\u4FE1\u606F\u548C\u6355\u6349\u5230\u7684\u9519\u8BEF\u4FE1\u606F"
+  },
+  boot_delay: {
+    title: "\u5EF6\u8FDF\u542F\u52A8\u52A0\u8F7D",
+    desc: "\u63D2\u4EF6\u5C06\u5728\u6307\u5B9A\u65F6\u95F4\uFF08\u6BEB\u79D2\uFF09\u540E\u52A0\u8F7D"
+  },
+  disabled: "\u7981\u7528",
+  processor: {
+    name: "\u5904\u7406\u5668",
+    desc: "\u4FEE\u6539\u89E3\u6790\u7684\u6807\u9898",
+    replace: {
+      name: "\u66FF\u6362",
+      desc: "\u5C06\u6267\u884C",
+      pattern: {
+        name: "\u6B63\u5219Pattern",
+        desc: "\u5C06\u9996\u5148\u7528\u4F5C RegExp \u7684\u7B2C\u4E00\u4E2A\u53C2\u6570\uFF0C\u7136\u540E\u7528\u4F5C replace()\u7684\u7B2C\u4E00\u4E2A\u53C2\u6570"
+      },
+      flags: {
+        name: "\u4FEE\u9970\u7B26Flags",
+        desc: "\u5C06\u7528\u4F5C\u65B0RegExp \u7684\u7B2C\u4E8C\u4E2A\u53C2\u6570"
+      },
+      replacement: {
+        name: "\u66FF\u6362\u503CReplacement",
+        desc: "\u5C06\u7528\u4F5C replace() \u7684\u7B2C\u4E8C\u4E2A\u53C2\u6570"
+      }
+    },
+    function: {
+      name: "\u51FD\u6570",
+      desc: "\u5C06\u600E\u6837\u8D77\u4F5C\u7528:",
+      valueDesc: "\u4F60\u5728\u6587\u672C\u533A\u8F93\u5165\u7684\u503C"
+    }
+  },
+  command: {
+    features: {
+      reload: "\u91CD\u65B0\u52A0\u8F7D\u7279\u6027\u529F\u80FD",
+      disable: "\u7981\u7528\u7279\u6027\u529F\u80FD"
+    }
+  }
+};
+var zh_default = zh;
+
+// src/i18n/zh-tw/index.ts
+var zh_tw = {
+  validator: "\u9A57\u8B49\u65B9\u5F0F",
+  strategy: "\u7B56\u7565",
+  cancel: "\u53D6\u6D88",
+  apply: "\u61C9\u7528",
+  feature: {
+    ["alias" /* Alias */]: {
+      name: "\u5225\u540DAlias",
+      desc: "\u4FEE\u6539\u5143\u6578\u64DA\uFF08frontmatter\uFF09\u7DE9\u5B58\u4E2D\u7684\u5225\u540D\uFF0C\u4E0D\u5F71\u97FF\u5BE6\u969B\u5225\u540D",
+      validator: {
+        auto: {
+          name: "\u81EA\u52D5Frontmatter",
+          desc: "\u5982\u679C frontmatter \u4E0D\u5B58\u5728\uFF0C\u5247\u6703\u5728\u7DE9\u5B58\u4E2D\u5275\u5EFA\u3002\u53EF\u80FD\u6703\u767C\u751F\u526F\u4F5C\u7528\u3002"
+        },
+        required: {
+          name: "\u6709Frontmatter\u624D\u751F\u6548",
+          desc: "\u53EA\u8655\u7406\u6709 frontmatter \u7684\u6A94\u3002"
+        }
+      },
+      strategy: {
+        ensure: {
+          name: "\u589E\u5F37",
+          desc: "\u50C5\u7576\u6A19\u984C\u4E0D\u5728\u5225\u540D\u4E2D\u6642\uFF0C\u624D\u5C07\u6A19\u984C\u8A2D\u7F6E\u70BA\u5225\u540D"
+        },
+        adjust: {
+          name: "\u8ABF\u6574",
+          desc: "\u5C07\u6A19\u984C\u6DFB\u52A0\u5230\u5225\u540D\u4E2D\uFF0C\u4F46\u4E0D\u5F71\u97FF\u73FE\u6709\u5225\u540D"
+        },
+        replace: {
+          name: "\u66FF\u63DB",
+          desc: "\u7528\u6A19\u984C\u66FF\u63DB\u7576\u524D\u5225\u540D"
+        }
+      }
+    },
+    ["explorer" /* Explorer */]: {
+      name: "\u6A94\u8CC7\u6E90\u7BA1\u7406\u5668",
+      desc: "\u66FF\u63DB\u6A94\u8CC7\u6E90\u7BA1\u7406\u5668\u4E2D\u986F\u793A\u7684\u6A19\u984C"
+    },
+    ["explorer:sort" /* ExplorerSort */]: {
+      name: "\u6A19\u984C\u6392\u5E8F",
+      desc: "\u901A\u904E\u8CC7\u6E90\u7BA1\u7406\u5668\u529F\u80FD\uFF0C\u6309\u6A19\u984C\u5C0D\u8CC7\u6E90\u7BA1\u7406\u5668\u4E2D\u7684\u6A94\u9032\u884C\u6392\u5E8F"
+    },
+    ["graph" /* Graph */]: {
+      name: "\u5716\u8B5C",
+      desc: "\u66FF\u63DB\u5716\u8B5C/\u672C\u5730\u5716\u8B5C\u4E2D\u986F\u793A\u7684\u6A19\u984C"
+    },
+    ["header" /* Header */]: {
+      name: "\u9801\u9802\u6A19\u984C",
+      desc: "\u66FF\u63DBTab\u6A19\u7C64\u9801\u9802\u90E8\u7684\u6A19\u984C\u4E26\u66F4\u65B0\u5B83\u5011"
+    },
+    ["starred" /* Starred */]: {
+      name: "\u66F8\u7C3D",
+      desc: "\u66FF\u63DB\u5167\u7F6E\u66F8\u7C3D\u63D2\u4EF6\u4E2D\u986F\u793A\u7684\u6A19\u984C"
+    },
+    ["search" /* Search */]: {
+      name: "\u641C\u7D22",
+      desc: "\u66FF\u63DB\u641C\u7D22\u9801\u9762\u4E2D\u986F\u793A\u7684\u6A19\u984C"
+    },
+    ["suggest" /* Suggest */]: {
+      name: "\u5EFA\u8B70",
+      desc: "\u66FF\u63DB\u5EFA\u8B70\u7A97\u53E3\u4E2D\u986F\u793A\u7684\u6A19\u984C"
+    },
+    ["tab" /* Tab */]: {
+      name: "\u6A19\u7C64\u9801",
+      desc: "\u66FF\u63DBTab\u6A19\u7C64\u9801\u4E2D\u986F\u793A\u7684\u6A19\u984C"
+    },
+    ["inlineTitle" /* InlineTitle */]: {
+      name: "\u9801\u5167\u6A19\u984C",
+      desc: "\u66FF\u63DB\u9801\u9762\u5167\u986F\u793A\u7684\u6A19\u984C"
+    },
+    ["canvas" /* Canvas */]: {
+      name: "\u767D\u677F",
+      desc: "\u66FF\u63DB\u767D\u677F\u4E2D\u986F\u793A\u7684\u6A19\u984C"
+    },
+    ["backlink" /* Backlink */]: {
+      name: "\u53CD\u5411\u93C8\u63A5",
+      desc: "\u66FF\u63DB\u53CD\u5411\u93C8\u63A5(\u93C8\u63A5\u63D0\u53CA)\u4E2D\u986F\u793A\u7684\u6A19\u984C"
+    },
+    ["noteLink" /* NoteLink */]: {
+      name: "\u7B46\u8A18\u93C8\u63A5",
+      desc: "\u66FF\u63DB\u7B46\u8A18\u4E2D\u7684\u5167\u90E8\u93C8\u63A5",
+      strategy: {
+        all: "\u66FF\u63DB\u5168\u90E8\u93C8\u63A5",
+        onlyEmpty: "\u53EA\u66FF\u63DB\u6C92\u6709\u5225\u540D\u7684\u93C8\u63A5"
+      },
+      approval: {
+        showModal: "\u986F\u793A\u78BA\u8A8D\u7A97\u53E3",
+        auto: "\u4F7F\u7528\u81EA\u52D5\u78BA\u8A8D"
+      }
+    }
+  },
+  manage: "\u7BA1\u7406",
+  template: {
+    features: {
+      name: "\u7279\u6027\u7BC4\u672C",
+      desc: "\u6839\u64DA\u5404\u7279\u6027\u529F\u80FD\u7368\u7ACB\u7BA1\u7406\u7BC4\u672C"
+    },
+    main: "\u4E3B\u7BC4\u672C",
+    fallback: "\u5099\u7528",
+    placeholder: "\u8F38\u5165\u7BC4\u672C",
+    commmon: {
+      main: {
+        name: "\u901A\u7528\u4E3B\u7BC4\u672C",
+        desc: `\u8A2D\u7F6E yaml \u8DEF\u5F91\uFF0C\u8A72\u503C\u5C07\u7528\u65BC\u6A94\u6A19\u984C\u3002\u503C\u5FC5\u9808\u662F\u5B57\u4E32\u6216\u6578\u503C\u3002\u9084\u53EF\u4EE5\u4F7F\u7528\u985E\u4F3C\u7BC4\u672C\u8DEF\u5F91 "{{ }}"\u3002
+                \u9084\u53EF\u4EE5\u4F7F\u7528 #\u6A19\u984C \u4F86\u4F7F\u7528\u4E00\u7D1A\u6A19\u984C\uFF0C\u6216 _ basename \u548C\u5176\u4ED6\u4FDD\u7559\u5B57\u3002
+                \u67E5\u95B1 Readme \u77AD\u89E3\u66F4\u591A`
+      },
+      fallback: {
+        name: "\u901A\u7528\u5099\u7528\u7BC4\u672C",
+        desc: "\u4F5C\u70BA\u5099\u7528\u9078\u9805\u7684\u7BC4\u672C\uFF0C\u7576\u901A\u7528\u4E3B\u7BC4\u672C\u7121\u6CD5\u89E3\u6790\u51FA\u4F86\u6642\u4F7F\u7528"
+      }
+    },
+    used: "\u901A\u7528\u7BC4\u672C\u5C07\u6703\u4F7F\u7528. \u503C\u70BA {{value}}",
+    specific: "\u9019\u500B\u7279\u6027\u529F\u80FD\u5C07\u4F7F\u7528\u7576\u524D\u7BC4\u672C"
+  },
+  settings: "\u63D2\u4EF6\u8A2D\u7F6E",
+  rule: {
+    name: "\u898F\u5247",
+    path: {
+      name: "\u6A94\u8DEF\u5F91\u898F\u5247",
+      black: {
+        name: "\u9ED1\u540D\u55AE\u6A21\u5F0F",
+        desc: "\u63D2\u4EF6\u5C07\u5FFD\u7565\u8DEF\u5F91\u4E2D\u7684\u6A94\uFF0C\u6BCF\u500B\u8DEF\u5F91\u5FC5\u9808\u4F7F\u7528\u5728\u65B0\u884C\u4E2D\u5BEB\u5165."
+      },
+      white: {
+        name: "\u767D\u540D\u55AE\u6A21\u5F0F",
+        desc: "\u63D2\u4EF6\u5C07\u8655\u7406\u8DEF\u5F91\u4E2D\u7684\u6A94\uFF0C\u6BCF\u500B\u8DEF\u5F91\u5FC5\u9808\u4F7F\u7528\u5728\u65B0\u884C\u4E2D\u5BEB\u5165."
+      }
+    },
+    delimiter: {
+      name: "\u5217\u8868\u503C",
+      desc: "\u8A2D\u7F6E\u8655\u7406\u5217\u8868\u503C\u7684\u898F\u5247",
+      first: "\u4F7F\u7528\u7B2C\u4E00\u500B\u503C",
+      join: "\u7528\u5206\u9694\u7B26\u865F\u62FC\u63A5\u5168\u90E8",
+      placeholder: {
+        first: "\u6703\u63A1\u7528\u7B2C\u4E00\u500B\u503C",
+        join: "\u8F38\u5165\u5206\u9694\u7B26\u865F"
+      }
+    }
+  },
+  features: "\u7279\u6027\u529F\u80FD",
+  util: "\u5DE5\u5177",
+  coffee: "\u5982\u679C\u60A8\u559C\u6B61\u6B64\u63D2\u4EF6\u4E26\u5E0C\u671B\u5E6B\u52A9/\u652F\u6301\u4F5C\u8005\u6301\u7E8C\u958B\u767C\uFF0C\u8ACB\u9EDE\u64CA\u4EE5\u4E0B\u6309\u9215:",
+  debug_info: {
+    title: "\u8ABF\u8A66\u8CC7\u8A0A",
+    desc: "\u5728\u7D42\u7AEF\u4E2D\u986F\u793A\u8ABF\u8A66\u8CC7\u8A0A\u548C\u6355\u6349\u5230\u7684\u932F\u8AA4\u8CC7\u8A0A"
+  },
+  boot_delay: {
+    title: "\u5EF6\u9072\u555F\u52D5\u52A0\u8F09",
+    desc: "\u63D2\u4EF6\u5C07\u5728\u6307\u5B9A\u6642\u9593\uFF08\u6BEB\u79D2\uFF09\u5F8C\u52A0\u8F09"
+  },
+  disabled: "\u7981\u7528",
+  processor: {
+    name: "\u8655\u7406\u5668",
+    desc: "\u4FEE\u6539\u89E3\u6790\u7684\u6A19\u984C",
+    replace: {
+      name: "\u66FF\u63DB",
+      desc: "\u5C07\u57F7\u884C",
+      pattern: {
+        name: "\u6B63\u5247Pattern",
+        desc: "\u5C07\u9996\u5148\u7528\u4F5C RegExp \u7684\u7B2C\u4E00\u500B\u53C3\u6578\uFF0C\u7136\u5F8C\u7528\u4F5C replace()\u7684\u7B2C\u4E00\u500B\u53C3\u6578"
+      },
+      flags: {
+        name: "\u4FEE\u98FE\u7B26Flags",
+        desc: "\u5C07\u7528\u4F5C\u65B0RegExp \u7684\u7B2C\u4E8C\u500B\u53C3\u6578"
+      },
+      replacement: {
+        name: "\u66FF\u63DB\u503CReplacement",
+        desc: "\u5C07\u7528\u4F5C replace() \u7684\u7B2C\u4E8C\u500B\u53C3\u6578"
+      }
+    },
+    function: {
+      name: "\u51FD\u6578",
+      desc: "\u5C07\u600E\u6A23\u8D77\u4F5C\u7528:",
+      valueDesc: "\u4F60\u5728\u6587\u672C\u5340\u8F38\u5165\u7684\u503C"
+    }
+  },
+  command: {
+    features: {
+      reload: "\u91CD\u65B0\u52A0\u8F09\u7279\u6027\u529F\u80FD",
+      disable: "\u7981\u7528\u7279\u6027\u529F\u80FD"
+    }
+  }
+};
+var zh_tw_default = zh_tw;
+
+// src/i18n/ko/index.ts
+var ko = {};
+var ko_default = ko;
+
+// src/i18n/it/index.ts
+var it = {};
+var it_default = it;
+
+// src/i18n/id/index.ts
+var id2 = {};
+var id_default = id2;
+
+// src/i18n/ro/index.ts
+var ro = {};
+var ro_default = ro;
+
+// src/i18n/pl/index.ts
+var pl = {};
+var pl_default = pl;
+
+// src/i18n/cs/index.ts
+var cs = {};
+var cs_default = cs;
+
+// src/i18n/de/index.ts
+var de = {};
+var de_default = de;
+
+// src/i18n/es/index.ts
+var es = {};
+var es_default = es;
+
+// src/i18n/fr/index.ts
+var fr = {};
+var fr_default = fr;
+
+// src/i18n/no/index.ts
+var no = {};
+var no_default = no;
+
+// src/i18n/pr-br/index.ts
+var pr_br = {};
+var pr_br_default = pr_br;
+
+// src/i18n/pt/index.ts
+var pt = {};
+var pt_default = pt;
+
+// src/i18n/ja/index.ts
+var ja = {};
+var ja_default = ja;
+
+// src/i18n/da/index.ts
+var da = {};
+var da_default = da;
+
+// src/i18n/uk/index.ts
+var uk = {};
+var uk_default = uk;
+
+// src/i18n/sq/index.ts
+var sq = {};
+var sq_default = sq;
+
+// src/i18n/th/index.ts
+var th = {};
+var th_default = th;
+
+// src/i18n/fa/index.ts
+var fa = {};
+var fa_default = fa;
+
+// src/i18n/tr/index.ts
+var tr = {};
+var tr_default = tr;
+
+// src/i18n/nl/index.ts
+var nl = {};
+var nl_default = nl;
+
+// src/i18n/am/index.ts
+var am = {};
+var am_default = am;
+
+// src/i18n/ms/index.ts
+var ms = {};
+var ms_default = ms;
+
+// src/i18n/Locale.ts
+var defaultLocale = "en";
+var locale = import_obsidian.moment.locale();
+instance.init({
+  lng: locale,
+  fallbackLng: defaultLocale,
+  resources: {
+    en: { translation: en_default },
+    ru: { translation: ru_default },
+    zh: { translation: zh_default },
+    "zh-TW": { translation: zh_tw_default },
+    ko: { translation: ko_default },
+    it: { translation: it_default },
+    id: { translation: id_default },
+    ro: { translation: ro_default },
+    "pt-BR": { translation: pr_br_default },
+    cs: { translation: cs_default },
+    de: { translation: de_default },
+    es: { translation: es_default },
+    fr: { translation: fr_default },
+    no: { translation: no_default },
+    pl: { translation: pl_default },
+    pt: { translation: pt_default },
+    ja: { translation: ja_default },
+    da: { translation: da_default },
+    uk: { translation: uk_default },
+    sq: { translation: sq_default },
+    th: { translation: th_default },
+    fa: { translation: fa_default },
+    tr: { translation: tr_default },
+    nl: { translation: nl_default },
+    am: { translation: am_default },
+    ms: { translation: ms_default }
+  },
+  nsSeparator: "|"
+});
+var resolved = instance.resolvedLanguage;
+if (resolved !== locale) {
+  if (instance.languages.includes(locale)) {
+    console.warn(`Locale ${locale} empty. Resolved ${resolved}`);
+  } else {
+    console.warn(`Locale ${locale} does not exist. Resolved ${resolved}`);
+  }
+}
+var t2 = (path, params) => {
+  return instance.t(path, params);
+};
+
 // src/Settings/SettingsTab.ts
 var SettingsTab = class {
   constructor(app, plugin, storage, dispatcher, factory) {
@@ -3920,7 +7087,7 @@ var SettingsTab = class {
     this.dispatcher = dispatcher;
     this.factory = factory;
     const self2 = this;
-    this.tab = new class extends import_obsidian.PluginSettingTab {
+    this.tab = new class extends import_obsidian2.PluginSettingTab {
       constructor() {
         super(...arguments);
         this.display = () => self2.display();
@@ -3939,7 +7106,7 @@ var SettingsTab = class {
   display() {
     const { containerEl } = this;
     containerEl.empty();
-    containerEl.createEl("h2", { text: "Settings for plugin." });
+    containerEl.createEl("h2", { text: t2("settings") });
     const builders = this.factory("main");
     for (const k of this.orderedKeys) {
       for (const builder of builders) {
@@ -3963,7 +7130,7 @@ var SettingsTab = class {
     div.style.textAlign = "center";
     div.style.margin = "0 auto";
     const text = document.createElement("p");
-    text.textContent = "If you like this plugin and you would like to help support continued development, you can use the buttons below:";
+    text.textContent = t2("coffee");
     div.appendChild(text);
     const anchor = document.createElement("a");
     anchor.setAttribute("href", "https://www.buymeacoffee.com/snezhig");
@@ -4167,7 +7334,7 @@ var Creator = class {
         value = (_a = placeholder.makeValue(path)) != null ? _a : "";
       } catch (e) {
         if (e instanceof PathNotFoundException || e instanceof TypeNotSupportedException) {
-          this.logger.log(`Error by path: ${path}`);
+          this.logger.log(`Error by path: ${path}. ${e.message}`);
         } else {
           throw e;
         }
@@ -4175,7 +7342,7 @@ var Creator = class {
       template = template.replace(placeholder.getPlaceholder(), value);
     }
     if ((_b = template == null ? void 0 : template.trim()) == null ? void 0 : _b.length) {
-      return template;
+      return template.trim();
     }
     return null;
   }
@@ -4328,35 +7495,6 @@ var creator_config_default = new ContainerModule((bind) => {
   bind(inversify_types_default["factory:placeholder"]).to(Factory2).inSingletonScope();
 });
 
-// src/Enum.ts
-var Feature = /* @__PURE__ */ ((Feature4) => {
-  Feature4["Explorer"] = "explorer";
-  Feature4["ExplorerSort"] = "explorer:sort";
-  Feature4["Graph"] = "graph";
-  Feature4["Header"] = "header";
-  Feature4["Starred"] = "starred";
-  Feature4["Search"] = "search";
-  Feature4["Tab"] = "tab";
-  Feature4["Alias"] = "alias";
-  Feature4["Suggest"] = "suggest";
-  Feature4["InlineTitle"] = "inlineTitle";
-  Feature4["Canvas"] = "canvas";
-  Feature4["Backlink"] = "backlink";
-  Feature4["NoteLink"] = "noteLink";
-  return Feature4;
-})(Feature || {});
-var Managers = [
-  "explorer" /* Explorer */,
-  "graph" /* Graph */,
-  "header" /* Header */,
-  "starred" /* Starred */,
-  "search" /* Search */,
-  "tab" /* Tab */,
-  "inlineTitle" /* InlineTitle */,
-  "canvas" /* Canvas */
-];
-var GITHUB_DOCS = "https://github.com/snezhig/obsidian-front-matter-title/blob/master/docs/";
-
 // src/Feature/AbstractFeature.ts
 var AbstractFeature = class {
   static getId() {
@@ -4502,26 +7640,26 @@ var FeatureComposer = class {
     this.logger = logger;
     this.features = {};
   }
-  get(id2) {
+  get(id3) {
     var _a;
-    return (_a = this.features[id2]) != null ? _a : null;
+    return (_a = this.features[id3]) != null ? _a : null;
   }
   getIds() {
     return Object.keys(this.features);
   }
-  toggle(id2, state) {
-    const feature = this.features[id2];
+  toggle(id3, state) {
+    const feature = this.features[id3];
     if (!state && !feature || state && (feature == null ? void 0 : feature.isEnabled())) {
       return;
     }
     if (!feature) {
-      this.features[id2] = this.factory(id2);
-      return this.toggle(id2, state);
+      this.features[id3] = this.factory(id3);
+      return this.toggle(id3, state);
     }
     feature[state ? "enable" : "disable"]();
     this.logger.log(`Feature - ${feature.getId()}. State: ${state}`);
     if (!state) {
-      delete this.features[id2];
+      delete this.features[id3];
     } else {
       this.dispatcher.dispatch("feature:enable", new Event({ feature }));
     }
@@ -4551,6 +7689,9 @@ var FunctionReplacer = class _FunctionReplacer {
     this.implementation = implementation;
     this.vanilla = null;
     this.valid();
+  }
+  getTarget() {
+    return this.target;
   }
   valid() {
     if (typeof this.target[this.method] !== "function") {
@@ -4583,7 +7724,7 @@ var FunctionReplacer = class _FunctionReplacer {
 };
 
 // src/Feature/Explorer/ExplorerSort.ts
-var import_obsidian2 = require("obsidian");
+var import_obsidian3 = require("obsidian");
 var ExplorerSort = class extends AbstractFeature {
   constructor(logger, facade, dispatcher, service) {
     super();
@@ -4593,7 +7734,7 @@ var ExplorerSort = class extends AbstractFeature {
     this.enabled = false;
     this.refs = [];
     this.resolver = service.createResolver("explorer" /* Explorer */);
-    const trigger = (0, import_obsidian2.debounce)(this.onManagerUpdate.bind(this), 1e3);
+    const trigger = (0, import_obsidian3.debounce)(this.onManagerUpdate.bind(this), 1e3);
     this.cb = (e) => {
       if (e.id === "explorer" /* Explorer */ && (e.result === true || e.result === void 0)) {
         trigger();
@@ -4658,7 +7799,7 @@ var ExplorerSort = class extends AbstractFeature {
       vanilla.call(item);
       return;
     }
-    if (!(item.file instanceof import_obsidian2.TFolder)) {
+    if (!(item.file instanceof import_obsidian3.TFolder)) {
       this.logger.log("File is not TFolder. Why? Skipped.");
       vanilla.call(item);
       return;
@@ -4668,8 +7809,8 @@ var ExplorerSort = class extends AbstractFeature {
     const result = [];
     children.sort((a, b) => {
       var _a, _b;
-      const i = a instanceof import_obsidian2.TFolder;
-      const r = b instanceof import_obsidian2.TFolder;
+      const i = a instanceof import_obsidian3.TFolder;
+      const r = b instanceof import_obsidian3.TFolder;
       let k;
       if (i && !r) {
         k = -1;
@@ -4691,7 +7832,7 @@ var ExplorerSort = class extends AbstractFeature {
   }
   getFolderItem() {
     for (const item of Object.values(this.view.fileItems)) {
-      if (item.file instanceof import_obsidian2.TFolder) {
+      if (item.file instanceof import_obsidian3.TFolder) {
         return item;
       }
     }
@@ -4747,8 +7888,8 @@ var ManagerComposer = class {
     this.dispatcher = dispatcher;
     this.ids = Managers;
   }
-  async update(path, id2 = null) {
-    const ids = id2 ? [id2] : this.ids;
+  async update(path, id3 = null) {
+    const ids = id3 ? [id3] : this.ids;
     const result = {};
     const promises = [];
     for (const i of ids) {
@@ -4766,24 +7907,19 @@ var ManagerComposer = class {
     await Promise.all(promises);
     return result;
   }
-  async refresh(id2 = null) {
+  async refresh(id3 = null) {
     this.logger.log("refresh");
-    const ids = id2 ? [id2] : this.ids;
-    const result = {};
+    const ids = id3 ? [id3] : this.ids;
     const promises = [];
     for (const i of ids) {
       const manager = this.features.get(i);
       if (manager) {
         promises.push(
-          manager.refresh().then((r) => {
-            result[i] = r;
-            this.dispatcher.dispatch("manager:refresh", new Event({ id: i }));
-          })
+          manager.refresh().then(() => this.dispatcher.dispatch("manager:refresh", new Event({ id: i })))
         );
       }
     }
     await Promise.all(promises);
-    return result;
   }
 };
 ManagerComposer = __decorateClass([
@@ -4794,19 +7930,20 @@ ManagerComposer = __decorateClass([
   __decorateParam(2, inject(inversify_types_default["event:dispatcher"]))
 ], ManagerComposer);
 
-// src/Feature/Search/SearchManager.ts
-var SearchManager = class extends AbstractManager {
-  constructor(facade, logger) {
+// src/Feature/Search/SearchFeature.ts
+var SearchManager = class extends AbstractFeature {
+  constructor(facade, logger, service, featureService) {
     super();
     this.facade = facade;
     this.logger = logger;
+    this.service = service;
     this.enabled = false;
-    this.replacer = null;
     this.dom = null;
+    this.resolver = featureService.createResolver(this.getId());
   }
   getView() {
     var _a, _b;
-    return (_b = (_a = this.facade.getViewsOfType("search")) == null ? void 0 : _a[0]) != null ? _b : null;
+    return (_b = (_a = this.facade.getViewsOfType("search" /* S */)) == null ? void 0 : _a[0]) != null ? _b : null;
   }
   getSearchDom() {
     var _a, _b;
@@ -4815,40 +7952,18 @@ var SearchManager = class extends AbstractManager {
     }
     return this.dom;
   }
-  initReplacer() {
-    if (!this.replacer && this.getSearchDom()) {
-      this.replacer = FunctionReplacer.create(
-        this.getSearchDom(),
-        "addResult",
-        this,
-        function(self2, defaultArgs, vanilla) {
-          const c = vanilla.call(this, ...defaultArgs);
-          const file = defaultArgs[0];
-          if ((file == null ? void 0 : file.extension) === "md") {
-            const title = self2.resolver.resolve(file.path);
-            if (title) {
-              c.containerEl.find(".tree-item-inner").setText(title);
-            }
-          }
-          return c;
-        }
-      );
-    }
-    return this.replacer;
-  }
-  async doDisable() {
-    var _a;
-    this.initReplacer().disable();
+  disable() {
+    this.dom = null;
+    this.service.destroyByTag(this.getId());
     this.enabled = false;
-    (_a = this.getView()) == null ? void 0 : _a.startSearch();
   }
-  async doEnable() {
-    var _a;
-    (_a = this.initReplacer()) == null ? void 0 : _a.enable();
-    this.enabled = !!this.replacer;
-    if (this.enabled) {
-      this.getView().startSearch();
+  enable() {
+    const dom = this.getSearchDom();
+    if (!dom) {
+      throw new Error(`View of ${"search" /* S */} not found`);
     }
+    this.service.wrapDom(dom, this.resolver, this.getId());
+    this.enabled = true;
   }
   static getId() {
     return "search" /* Search */;
@@ -4859,33 +7974,13 @@ var SearchManager = class extends AbstractManager {
   isEnabled() {
     return this.enabled;
   }
-  async updateInternal(path = null) {
-    let run = !(path != null ? path : false);
-    if (path) {
-      for (const file of this.getSearchDom().resultDomLookup.keys()) {
-        if (file.path === path) {
-          run = true;
-          break;
-        }
-      }
-    }
-    if (run) {
-      this.getView().startSearch();
-    }
-    return run;
-  }
-  async doUpdate(path) {
-    return await this.updateInternal(path);
-  }
-  async doRefresh() {
-    await this.updateInternal();
-    return {};
-  }
 };
 SearchManager = __decorateClass([
   __decorateParam(0, inject(inversify_types_default["facade:obsidian"])),
   __decorateParam(1, inject(inversify_types_default.logger)),
-  __decorateParam(1, named("manager:starred"))
+  __decorateParam(1, named("manager:starred")),
+  __decorateParam(2, inject(inversify_types_default["service:search:dom:wrapper"])),
+  __decorateParam(3, inject(inversify_types_default["feature:service"]))
 ], SearchManager);
 
 // src/Feature/Tab/TabManager.ts
@@ -4896,21 +7991,42 @@ var TabManager = class extends AbstractManager {
     this.dispatcher = dispatcher;
     this.enabled = false;
     this.callback = null;
+    this.replacer = null;
     this.callback = () => {
       const file = factory();
       file && this.update(file.path);
     };
   }
   async doDisable() {
+    var _a;
     this.dispatcher.removeListener(this.ref);
+    (_a = this.replacer) == null ? void 0 : _a.disable();
     this.ref = null;
     this.reset();
     this.enabled = false;
   }
   async doEnable() {
     this.enabled = true;
+    this.initReplacer();
     this.ref = this.dispatcher.addListener({ name: "layout:change", cb: this.callback });
     return;
+  }
+  initReplacer() {
+    const leaf = this.facade.getActiveLeaf();
+    this.replacer = FunctionReplacer.create(
+      Object.getPrototypeOf(leaf),
+      "setPinned",
+      this,
+      function(self2, [pinned], vanilla) {
+        var _a;
+        const result = vanilla.call(this, pinned);
+        if (((_a = this == null ? void 0 : this.view) == null ? void 0 : _a.getViewType()) === "markdown" /* MD */) {
+          self2.innerUpdate(this.view.file.path);
+        }
+        return result;
+      }
+    );
+    this.replacer.enable();
   }
   reset() {
     var _a;
@@ -5230,7 +8346,7 @@ var StarredManager = class extends AbstractManager {
   }
   initView() {
     var _a, _b;
-    const view = (_b = (_a = this.facade.getViewsOfType("starred")) == null ? void 0 : _a[0]) != null ? _b : null;
+    const view = (_b = (_a = this.facade.getViewsOfType("starred" /* ST */)) == null ? void 0 : _a[0]) != null ? _b : null;
     if (view === null) {
       this.logger.log("Could not find a view of starred type");
       return false;
@@ -5375,7 +8491,7 @@ var GraphManager = class extends AbstractManager {
     return null;
   }
   getViews() {
-    return [...this.facade.getViewsOfType("graph"), ...this.facade.getViewsOfType("localgraph")];
+    return [...this.facade.getViewsOfType("graph" /* G */), ...this.facade.getViewsOfType("localgraph" /* LG */)];
   }
   doDisable() {
     var _a;
@@ -5394,7 +8510,7 @@ var GraphManager = class extends AbstractManager {
     for (const view of this.getViews()) {
       (_a = view.renderer) == null ? void 0 : _a.onIframeLoad();
     }
-    return Promise.resolve({});
+    return Promise.resolve();
   }
   async doUpdate(path) {
     var _a, _b;
@@ -5441,7 +8557,7 @@ var MarkdownHeaderManager = class extends AbstractManager {
   }
   doDisable() {
     this.dispatcher.removeListener(this.ref);
-    this.facade.getViewsOfType("markdown").forEach(this.revert.bind(this));
+    this.facade.getViewsOfType("markdown" /* MD */).forEach(this.revert.bind(this));
     this.enabled = false;
   }
   doEnable() {
@@ -5459,7 +8575,7 @@ var MarkdownHeaderManager = class extends AbstractManager {
     return this.innerUpdate(path);
   }
   async innerUpdate(path = null) {
-    const views = this.facade.getViewsOfType("markdown");
+    const views = this.facade.getViewsOfType("markdown" /* MD */);
     let updated = false;
     for (const view of views) {
       if (!path || view.file.path === path) {
@@ -5606,7 +8722,7 @@ var InlineTitleManager = class extends AbstractManager {
     return this.resolver.resolve(path);
   }
   async innerUpdate(path = null) {
-    const views = this.facade.getViewsOfType("markdown");
+    const views = this.facade.getViewsOfType("markdown" /* MD */);
     const promises = [];
     const ids = [];
     for (const view of views) {
@@ -5622,21 +8738,21 @@ var InlineTitleManager = class extends AbstractManager {
     this.fakeTitleElementService.removeExcept(ids);
     return promises.length > 0;
   }
-  resetTitle(id2) {
-    this.fakeTitleElementService.remove(id2);
+  resetTitle(id3) {
+    this.fakeTitleElementService.remove(id3);
   }
   setTitle(view, title) {
     this.logger.log(`Set inline title "${title != null ? title : " "}" for ${view.file.path}`);
-    const id2 = this.getTitleElId(view);
+    const id3 = this.getTitleElId(view);
     const original = view.inlineTitleEl;
-    const { created } = this.fakeTitleElementService.getOrCreate({ original, title, id: id2, events: ["click"] });
+    const { created } = this.fakeTitleElementService.getOrCreate({ original, title, id: id3, events: ["click"] });
     if (created) {
-      this.fakeTitleElementService.setVisible(id2, true);
+      this.fakeTitleElementService.setVisible(id3, true);
     }
-    return id2;
+    return id3;
   }
   getTitleElId(view) {
-    return `${this.getId()}-${view.leaf.id}`;
+    return `${view.getState().mode}-${this.getId()}-${view.leaf.id}`;
   }
   getId() {
     return InlineTitleManager.getId();
@@ -5655,7 +8771,7 @@ InlineTitleManager = __decorateClass([
 ], InlineTitleManager);
 
 // src/Feature/Canvas/CanvasManager.ts
-var import_obsidian3 = require("obsidian");
+var import_obsidian4 = require("obsidian");
 var CanvasManager = class extends AbstractManager {
   constructor(dispatcher, facade, logger, fakeTitleElementService) {
     super();
@@ -5666,7 +8782,7 @@ var CanvasManager = class extends AbstractManager {
     this.ref = null;
     this.enabled = false;
     this.queue = /* @__PURE__ */ new Set();
-    this.updateByRequestFrame = (0, import_obsidian3.debounce)(
+    this.updateByRequestFrame = (0, import_obsidian4.debounce)(
       () => {
         this.logger.log(`updateByRequestFrame`, this.queue);
         Array.from(this.queue.values()).forEach((e) => this.innerUpdate(e) && this.queue.delete(e));
@@ -5703,7 +8819,7 @@ var CanvasManager = class extends AbstractManager {
   async innerUpdate(path = null) {
     const promises = [];
     this.logger.log(`inner update "${path}"`);
-    const canvasViews = this.facade.getViewsOfType("canvas");
+    const canvasViews = this.facade.getViewsOfType("canvas" /* CV */);
     for (const view of canvasViews) {
       if (!view.file) {
         continue;
@@ -5774,6 +8890,9 @@ var CanvasManager = class extends AbstractManager {
     if (inline == null ? void 0 : inline.created) {
       this.fakeTitleElementService.setVisible(ids.inline, true);
     }
+    if (node.placeholderEl.getText() !== title) {
+      node.placeholderEl.setText(title);
+    }
   }
   makeFakeElementIds(canvasPath, nodePath) {
     const prefix = `${canvasPath}-${nodePath}`;
@@ -5820,61 +8939,61 @@ var FeatureHelper = class {
   getName(feature) {
     switch (feature) {
       case "alias" /* Alias */:
-        return "Alias";
+        return t2("feature.alias.name");
       case "explorer" /* Explorer */:
-        return "Explorer";
+        return t2("feature.explorer.name");
       case "explorer:sort" /* ExplorerSort */:
-        return "Explorer Sort";
+        return t2("feature.explorer:sort.name");
       case "graph" /* Graph */:
-        return "Graph";
+        return t2("feature.graph.name");
       case "header" /* Header */:
-        return "Header";
+        return t2("feature.header.name");
       case "starred" /* Starred */:
-        return "Starred";
+        return t2("feature.starred.name");
       case "search" /* Search */:
-        return "Search";
+        return t2("feature.search.name");
       case "suggest" /* Suggest */:
-        return "Suggest";
+        return t2("feature.suggest.name");
       case "tab" /* Tab */:
-        return "Tabs";
+        return t2("feature.tab.name");
       case "inlineTitle" /* InlineTitle */:
-        return "Inline";
+        return t2("feature.inlineTitle.name");
       case "canvas" /* Canvas */:
-        return "Canvas";
+        return t2("feature.canvas.name");
       case "backlink" /* Backlink */:
-        return "Backlink";
+        return t2("feature.backlink.name");
       case "noteLink" /* NoteLink */:
-        return "Note Link";
+        return t2("feature.noteLink.name");
     }
   }
   getDescription(feature) {
     switch (feature) {
       case "alias" /* Alias */:
-        return "Modify alias in metadata cache. The real alias will not be affected";
+        return t2("feature.alias.desc");
       case "explorer" /* Explorer */:
-        return "Replace shown titles in the file explorer";
+        return t2("feature.explorer.desc");
       case "explorer:sort" /* ExplorerSort */:
-        return "Sort files in explorer by titles from Explorer feature";
+        return t2("feature.explorer:sort.desc");
       case "graph" /* Graph */:
-        return "Replace shown titles in the graph/local-graph";
+        return t2("feature.graph.desc");
       case "header" /* Header */:
-        return "Replace titles in header of leaves and update them";
+        return t2("feature.header.desc");
       case "starred" /* Starred */:
-        return "Replace shown titles in built-in starred plugin";
+        return t2("feature.starred.desc");
       case "search" /* Search */:
-        return "Replace shown titles in search leaf";
+        return t2("feature.search.desc");
       case "suggest" /* Suggest */:
-        return "Replace shown titles in suggest modals";
+        return t2("feature.suggest.desc");
       case "tab" /* Tab */:
-        return "Replace shown titles in tabs";
+        return t2("feature.tab.desc");
       case "inlineTitle" /* InlineTitle */:
-        return "Replace shown titles in Inline Title";
+        return t2("feature.inlineTitle.desc");
       case "canvas" /* Canvas */:
-        return "Replace shown titles in Canvas";
+        return t2("feature.canvas.desc");
       case "backlink" /* Backlink */:
-        return "Replace shown titles in Backlink(Linked mentions)";
+        return t2("feature.backlink.desc");
       case "noteLink" /* NoteLink */:
-        return "Replace internal links in files";
+        return t2("feature.noteLink.desc");
     }
   }
   getDocSection(feature) {
@@ -5912,15 +9031,25 @@ FeatureService = __decorateClass([
 ], FeatureService);
 
 // src/Feature/Backlink/BacklinkFeature.ts
-var BacklinkManager = class extends AbstractFeature {
-  constructor(facade, logger, dispatcher, service) {
+var BacklinkFeature = class extends AbstractFeature {
+  constructor(facade, logger, dispatcher, service, mutateService) {
     super();
     this.facade = facade;
     this.logger = logger;
     this.dispatcher = dispatcher;
+    this.mutateService = mutateService;
     this.enabled = false;
-    this.ref = null;
+    this.refs = [];
+    this.dProcess = null;
+    this.timer = null;
+    this.isBacklinkWrapped = false;
     this.resolver = service.createResolver(this.getId());
+    this.dProcess = () => {
+      if (this.timer) {
+        clearTimeout(this.timer);
+      }
+      this.timer = setTimeout(this.process.bind(this), 50);
+    };
   }
   isEnabled() {
     return this.enabled;
@@ -5931,53 +9060,67 @@ var BacklinkManager = class extends AbstractFeature {
     if (!this.enabled) {
       return;
     }
-    this.ref = this.dispatcher.addListener({
-      name: "file:open",
-      cb: () => setTimeout(() => this.process(), 20)
-    });
+    this.refs = [
+      this.dispatcher.addListener({
+        name: "metadata:cache:changed",
+        cb: this.dProcess.bind(this)
+      }),
+      this.dispatcher.addListener({
+        name: "layout:change",
+        cb: this.dProcess.bind(this)
+      })
+    ];
     this.process();
   }
   disable() {
     this.enabled = false;
-    if (this.ref) {
-      this.dispatcher.removeListener(this.ref);
-      this.ref = null;
-      this.process(null, true);
+    if (this.refs.length) {
+      this.refs.forEach((e) => this.dispatcher.removeListener(e));
+      this.refs = [];
+      this.mutateService.destroyByTag(this.getId());
     }
   }
-  process(path = null, restore = false) {
-    var _a, _b, _c, _d, _e;
-    const view = (_a = this.facade.getViewsOfType(this.getId())[0]) != null ? _a : null;
-    const lookup = (_d = (_c = (_b = view == null ? void 0 : view.backlink) == null ? void 0 : _b.backlinkDom) == null ? void 0 : _c.resultDomLookup) != null ? _d : /* @__PURE__ */ new Map();
-    for (const [file, item] of lookup.entries()) {
-      if (path && file.path !== path) {
-        continue;
-      }
-      const node = item.containerEl.firstElementChild;
-      const text = (_e = restore ? null : this.resolver.resolve(file.path)) != null ? _e : file.basename;
-      if (node.getText() !== text) {
-        item.containerEl.firstElementChild.setText(text);
+  process() {
+    var _a;
+    this.logger.log("process");
+    this.processBacklinkLayout();
+    for (const view of this.facade.getViewsOfType("markdown" /* MD */)) {
+      const dom = (_a = view == null ? void 0 : view.backlinks) == null ? void 0 : _a.backlinkDom;
+      if (dom) {
+        this.mutateService.wrapDom(dom, this.resolver, this.getId());
       }
     }
+  }
+  processBacklinkLayout() {
+    var _a, _b;
+    if (this.isBacklinkWrapped) {
+      return;
+    }
+    const view = (_a = this.facade.getViewsOfType("backlink" /* BL */)[0]) != null ? _a : null;
+    if ((_b = view == null ? void 0 : view.backlink) == null ? void 0 : _b.backlinkDom) {
+      this.mutateService.wrapDom(view.backlink.backlinkDom, this.resolver, this.getId());
+    }
+    this.isBacklinkWrapped = true;
   }
   getId() {
-    return BacklinkManager.getId();
+    return BacklinkFeature.getId();
   }
   static getId() {
     return "backlink" /* Backlink */;
   }
 };
-BacklinkManager = __decorateClass([
+BacklinkFeature = __decorateClass([
   injectable(),
   __decorateParam(0, inject(inversify_types_default["facade:obsidian"])),
   __decorateParam(1, inject(inversify_types_default.logger)),
   __decorateParam(1, named("backlink")),
   __decorateParam(2, inject(inversify_types_default["event:dispatcher"])),
-  __decorateParam(3, inject(inversify_types_default["feature:service"]))
-], BacklinkManager);
+  __decorateParam(3, inject(inversify_types_default["feature:service"])),
+  __decorateParam(4, inject(inversify_types_default["service:search:dom:wrapper"]))
+], BacklinkFeature);
 
 // src/Feature/NoteLink/NoteLinkFeature.ts
-var import_obsidian4 = require("obsidian");
+var import_obsidian5 = require("obsidian");
 var NoteLinkFeature = class extends AbstractFeature {
   constructor(featureService, service, dispatcher, approve, facade, config) {
     super();
@@ -6033,7 +9176,7 @@ var NoteLinkFeature = class extends AbstractFeature {
   }
   async executeChanges(path, changes) {
     const file = this.facade.getTFile(path);
-    let content = file instanceof import_obsidian4.TFile ? await this.facade.getFileContent(file) : null;
+    let content = file instanceof import_obsidian5.TFile ? await this.facade.getFileContent(file) : null;
     if (!content) {
       return;
     }
@@ -6080,11 +9223,11 @@ var NoteLinkApprove = class {
         (ul) => changes.forEach((e) => ul.createEl("li", { text: `${e.original} => ${e.replace}` }))
       );
       const btnContainer = contentEl.createDiv("modal-button-container");
-      btnContainer.createEl("button", { cls: "mod-cta", text: "Apply" }).addEventListener("click", () => {
+      btnContainer.createEl("button", { cls: "mod-cta", text: t2("apply") }).addEventListener("click", () => {
         approved = true;
         modal.close();
       });
-      btnContainer.createEl("button", { text: "Cancel" }).addEventListener("click", () => modal.close());
+      btnContainer.createEl("button", { text: t2("cancel") }).addEventListener("click", () => modal.close());
       modal.open();
     });
   }
@@ -6137,7 +9280,7 @@ var feature_config_default = (container) => {
   container.bind(inversify_types_default.feature).to(SuggestFeature).whenTargetNamed(SuggestFeature.getId());
   container.bind(inversify_types_default.feature).to(GraphManager).whenTargetNamed(GraphManager.getId());
   container.bind(inversify_types_default.feature).to(MarkdownHeaderManager).whenTargetNamed(MarkdownHeaderManager.getId());
-  container.bind(inversify_types_default.feature).to(BacklinkManager).whenTargetNamed(BacklinkManager.getId());
+  container.bind(inversify_types_default.feature).to(BacklinkFeature).whenTargetNamed(BacklinkFeature.getId());
   container.bind(inversify_types_default.feature).to(NoteLinkFeature).whenTargetNamed(NoteLinkFeature.getId());
   container.bind(inversify_types_default.feature).to(InlineTitleManager).whenTargetNamed(InlineTitleManager.getId());
   container.bind(inversify_types_default.feature).to(CanvasManager).whenTargetNamed(CanvasManager.getId());
@@ -6157,7 +9300,7 @@ var feature_config_default = (container) => {
 };
 
 // src/Settings/FeatureBuilder/DefaultBuilder.ts
-var import_obsidian5 = require("obsidian");
+var import_obsidian6 = require("obsidian");
 
 // src/Settings/FeatureBuilder/AbstractBuilder.ts
 var AbstractBuilder = class {
@@ -6168,38 +9311,38 @@ var AbstractBuilder = class {
 
 // src/Settings/FeatureBuilder/DefaultBuilder.ts
 var DefaultBuilder = class extends AbstractBuilder {
-  build({ id: id2, name, desc, settings }) {
-    new import_obsidian5.Setting(this.context.getContainer()).setName(name).setDesc(desc).addToggle(
+  build({ id: id3, name, desc, settings }) {
+    new import_obsidian6.Setting(this.context.getContainer()).setName(name).setDesc(desc).addToggle(
       (e) => e.setValue(settings.enabled).onChange((v) => {
-        this.context.getDispatcher().dispatch("settings:tab:feature:changed", new Event({ id: id2, value: { enabled: v } }));
+        this.context.getDispatcher().dispatch("settings:tab:feature:changed", new Event({ id: id3, value: { enabled: v } }));
       })
     );
   }
 };
 
 // src/Settings/FeatureBuilder/AliasBuilder.ts
-var import_obsidian6 = require("obsidian");
+var import_obsidian7 = require("obsidian");
 var AliasBuilder = class extends AbstractBuilder {
-  build({ id: id2, name, desc, settings }) {
-    this.id = id2;
+  build({ id: id3, name, desc, settings }) {
+    this.id = id3;
     this.desc = desc;
-    this.setting = new import_obsidian6.Setting(this.context.getContainer()).setName(name).setDesc(desc);
+    this.setting = new import_obsidian7.Setting(this.context.getContainer()).setName(name).setDesc(desc);
     this.buildValidatorDropdown(settings.validator);
     this.buildStrategyDropdown(settings.strategy);
     this.buildToggle(settings.enabled);
     this.actualizeDesc();
   }
   buildValidatorDropdown(value) {
-    this.validatorDropdown = new import_obsidian6.DropdownComponent(this.setting.controlEl).addOptions({
-      ["fa" /* FrontmatterAuto */]: "Frontmatter Auto",
-      ["fr" /* FrontmatterRequired */]: "Frontmatter Required"
+    this.validatorDropdown = new import_obsidian7.DropdownComponent(this.setting.controlEl).addOptions({
+      ["fa" /* FrontmatterAuto */]: t2("feature.alias.validator.auto.name"),
+      ["fr" /* FrontmatterRequired */]: t2("feature.alias.validator.required.name")
     }).setValue(value ? value : "fr" /* FrontmatterRequired */).onChange(this.onChange.bind(this));
   }
   buildStrategyDropdown(value) {
-    this.strategyDropdown = new import_obsidian6.DropdownComponent(this.setting.controlEl).addOptions({
-      ["ensure" /* Ensure */]: "Ensure",
-      ["adjust" /* Adjust */]: "Adjust",
-      ["replace" /* Replace */]: "Replace"
+    this.strategyDropdown = new import_obsidian7.DropdownComponent(this.setting.controlEl).addOptions({
+      ["ensure" /* Ensure */]: t2("feature.alias.strategy.ensure.name"),
+      ["adjust" /* Adjust */]: t2("feature.alias.strategy.adjust.name"),
+      ["replace" /* Replace */]: t2("feature.alias.strategy.replace.name")
     }).setValue(value ? value : "ensure" /* Ensure */).onChange(this.onChange.bind(this));
   }
   buildToggle(value) {
@@ -6223,17 +9366,17 @@ var AliasBuilder = class extends AbstractBuilder {
     let text = "";
     switch (this.strategyDropdown.getValue()) {
       case "ensure" /* Ensure */:
-        text = "Set title as an alias only if the one does not exist";
+        text = t2("feature.alias.strategy.ensure.desc");
         break;
       case "replace" /* Replace */:
-        text = "Replace current alias with title";
+        text = t2("feature.alias.strategy.replace.desc");
         break;
       case "adjust" /* Adjust */:
-        text = "Add title to alias and without affect on existing alias";
+        text = t2("feature.alias.strategy.adjust.desc");
         break;
     }
     const fragment = createFragment();
-    fragment.createEl("b", "", (e) => e.setText("Strategy: "));
+    fragment.createEl("b", "", (e) => e.setText(`${t2("strategy")}: `));
     fragment.appendText(text);
     return fragment;
   }
@@ -6241,16 +9384,16 @@ var AliasBuilder = class extends AbstractBuilder {
     let text = "";
     switch (this.validatorDropdown.getValue()) {
       case "fa" /* FrontmatterAuto */: {
-        text = "If frontmatter does not exist, it will be created in cache. Side-effects may occur.";
+        text = t2("feature.alias.validator.auto.desc");
         break;
       }
       case "fr" /* FrontmatterRequired */: {
-        text = "Only files with frontmatter will be processed.";
+        text = t2("feature.alias.validator.required.desc");
         break;
       }
     }
     const fragment = createFragment();
-    fragment.createEl("b", "", (e) => e.setText("Validator: "));
+    fragment.createEl("b", "", (e) => e.setText(`${t2("validator")}: `));
     fragment.appendText(text);
     return fragment;
   }
@@ -6266,7 +9409,7 @@ var AliasBuilder = class extends AbstractBuilder {
 };
 
 // src/Settings/FeatureBuilder/ExplorerSortBuilder.ts
-var import_obsidian7 = require("obsidian");
+var import_obsidian8 = require("obsidian");
 var ExplorerSortBuilder = class extends AbstractBuilder {
   constructor() {
     super();
@@ -6276,7 +9419,7 @@ var ExplorerSortBuilder = class extends AbstractBuilder {
   }
   build(options) {
     this.bind();
-    this.setting = new import_obsidian7.Setting(this.context.getContainer()).setName(options.name).setDesc(options.desc);
+    this.setting = new import_obsidian8.Setting(this.context.getContainer()).setName(options.name).setDesc(options.desc);
     this.setting.addToggle((c) => this.toggle = c);
     this.toggle.setValue(options.settings.enabled).onChange(
       (v) => this.context.getDispatcher().dispatch(
@@ -6335,7 +9478,7 @@ AbstractBuilder2 = __decorateClass([
 ], AbstractBuilder2);
 
 // src/Settings/SettingBuilders/Templates/TemplatesBuilder.ts
-var import_obsidian8 = require("obsidian");
+var import_obsidian9 = require("obsidian");
 var TemplatesBuilder = class extends AbstractBuilder2 {
   constructor(factory, helper) {
     super();
@@ -6359,32 +9502,28 @@ var TemplatesBuilder = class extends AbstractBuilder2 {
     );
   }
   buildTemplate() {
-    new import_obsidian8.Setting(this.container).setName(this.createDocFragment("Common main template")).setDesc(
-      `Set a yaml path, which value will be used as a file title. Value must be string or numeric. Also you can use template-like path using "{{ }}".
-    Also you can use #heading to use first Heading from a file or _basename and another reserved words. 
-    See Readme to find out more`
-    ).addText(
+    new import_obsidian9.Setting(this.container).setName(this.createDocFragment(t2("template.commmon.main.name"))).setDesc(t2("template.commmon.main.desc")).addText(
       (text) => {
         var _a;
-        return text.setPlaceholder("Type a template").setValue((_a = this.item.get("common").get("main").value()) != null ? _a : "").onChange(async (value) => this.item.get("common").get("main").set(value));
+        return text.setPlaceholder(t2("template.placeholder")).setValue((_a = this.item.get("common").get("main").value()) != null ? _a : "").onChange(async (value) => this.item.get("common").get("main").set(value));
       }
     );
   }
   buildFallbackTemplate() {
-    new import_obsidian8.Setting(this.container).setName(this.createDocFragment("Common fallback template")).setDesc("This template will be used as a fallback option if the main template is not resolved").addText(
+    new import_obsidian9.Setting(this.container).setName(this.createDocFragment(t2("template.commmon.fallback.name"))).setDesc(t2("template.commmon.fallback.desc")).addText(
       (text) => {
         var _a;
-        return text.setPlaceholder("Type a template").setValue((_a = this.item.get("common").get("fallback").value()) != null ? _a : "").onChange(async (value) => this.item.get("common").get("fallback").set(value));
+        return text.setPlaceholder(t2("template.placeholder")).setValue((_a = this.item.get("common").get("fallback").value()) != null ? _a : "").onChange(async (value) => this.item.get("common").get("fallback").set(value));
       }
     );
   }
   buildConfigButton() {
-    const getDesc = (type, value) => value ? `Current template will be used as ${type} for this feature` : `Common ${type} will be used. Its value is "${this.item.get("common").get(type).value()}"`;
-    new import_obsidian8.Setting(this.container).setName(this.createDocFragment("Features' templates", "features-templates")).setDesc("Manage templates for each feature individually").addButton(
-      (cb) => cb.setButtonText("Manage").onClick(() => {
+    const getDesc = (type, value) => value ? t2("template.specific") : t2("template.used", { value: this.item.get("common").get(type).value() });
+    new import_obsidian9.Setting(this.container).setName(this.createDocFragment(t2("template.features.name"), "features-templates")).setDesc(t2("template.features.desc")).addButton(
+      (cb) => cb.setButtonText(t2("manage")).onClick(() => {
         const modal = this.factory();
         const { contentEl } = modal;
-        contentEl.setText("Features' templates");
+        contentEl.setText(t2("template.features.name"));
         for (const feature of Object.values(Feature)) {
           if (feature === "explorer:sort" /* ExplorerSort */) {
             continue;
@@ -6395,8 +9534,8 @@ var TemplatesBuilder = class extends AbstractBuilder2 {
           const templates = this.item.get(feature);
           contentEl.createEl("h4", null, (e) => e.setText(this.helper.getName(feature)));
           for (const type of Object.keys(templates.value())) {
-            const s = new import_obsidian8.Setting(contentEl).setName(type[0].toUpperCase() + type.substring(1)).setDesc(getDesc(type, templates.get(type).value())).addText(
-              (text) => text.setPlaceholder(`Common ${type} is used`).setValue(templates.get(type).value()).onChange((value) => {
+            const s = new import_obsidian9.Setting(contentEl).setName(t2(`template.${type}`)).setDesc(getDesc(type, templates.get(type).value())).addText(
+              (text) => text.setPlaceholder(this.item.get("common").get(type).value()).setValue(templates.get(type).value()).onChange((value) => {
                 templates.get(type).set(value ? value : null);
                 s.setDesc(getDesc(type, value));
               })
@@ -6421,7 +9560,7 @@ var RulesBuiler = class extends AbstractBuilder2 {
     this.factory = factory;
   }
   doBuild() {
-    this.container.createEl("h4", { text: "Rules" });
+    this.container.createEl("h4", { text: t2("rule.name") });
     const builders = this.factory("rules");
     for (const key of this.orderedKeys) {
       for (const builder of builders) {
@@ -6471,7 +9610,7 @@ var FeaturesBuilder = class extends AbstractBuilder2 {
   doBuild() {
     var _a;
     this.bind();
-    this.container.createEl("h4", { text: "Features" });
+    this.container.createEl("h4", { text: t2("features") });
     const data = this.helper.getOrderedFeatures().map((feature) => ({
       desc: this.helper.getDescription(feature),
       feature,
@@ -6500,7 +9639,7 @@ FeaturesBuilder = __decorateClass([
 ], FeaturesBuilder);
 
 // src/Settings/SettingBuilders/Util/UtilBuilder.ts
-var import_obsidian9 = require("obsidian");
+var import_obsidian10 = require("obsidian");
 var UtilBuilder = class {
   constructor() {
     this.isTitleBuild = false;
@@ -6520,15 +9659,15 @@ var UtilBuilder = class {
   }
   buildTitle(container) {
     if (!this.isTitleBuild) {
-      container.createEl("h4", { text: "Util" });
+      container.createEl("h4", { text: t2("util") });
       this.isTitleBuild = true;
     }
   }
   buildDebug(item, container) {
-    new import_obsidian9.Setting(container).setName("Debug info").setDesc("Show debug info and caught errors in console").addToggle((e) => e.setValue(item.value()).onChange((e2) => item.set(e2)));
+    new import_obsidian10.Setting(container).setName(t2("debug_info.title")).setDesc(t2("debug_info.desc")).addToggle((e) => e.setValue(item.value()).onChange((e2) => item.set(e2)));
   }
   buildBoot(item, container) {
-    new import_obsidian9.Setting(container).setName("Boot delay").setDesc("Plugin will be loaded with specified delay in ms").addText(
+    new import_obsidian10.Setting(container).setName(t2("boot_delay.title")).setDesc(t2("boot_delay.desc")).addText(
       (e) => e.setValue(item.get("delay").value().toString()).onChange((s) => {
         const v = !isNaN(parseInt(s)) ? parseInt(s) : 0;
         e.setValue(v.toString());
@@ -6545,7 +9684,7 @@ UtilBuilder = __decorateClass([
 ], UtilBuilder);
 
 // src/Settings/SettingBuilders/Rules/RulesDelimiterBuilder.ts
-var import_obsidian10 = require("obsidian");
+var import_obsidian11 = require("obsidian");
 var RulesDelimiterBuilder = class extends AbstractBuilder2 {
   constructor() {
     super(...arguments);
@@ -6556,23 +9695,23 @@ var RulesDelimiterBuilder = class extends AbstractBuilder2 {
     return k === "delimiter";
   }
   doBuild() {
-    this.setting = new import_obsidian10.Setting(this.container).setName("List values").setDesc("Set the rule about how to process list values");
+    this.setting = new import_obsidian11.Setting(this.container).setName(t2("rule.delimiter.name")).setDesc(t2("rule.delimiter.desc"));
     this.buildDropdown();
     this.buildText();
   }
   buildDropdown() {
     const enabled = this.item.get("enabled");
-    new import_obsidian10.DropdownComponent(this.setting.controlEl).addOptions({ N: "Use first value", Y: "Join all by delimiter" }).setValue(enabled.value() ? "Y" : "N").onChange((e) => {
+    new import_obsidian11.DropdownComponent(this.setting.controlEl).addOptions({ N: t2("rule.delimiter.first"), Y: t2("rule.delimiter.join") }).setValue(enabled.value() ? "Y" : "N").onChange((e) => {
       enabled.set(e === "Y");
       this.text.setValue("").setPlaceholder(this.getPlaceholder()).setDisabled(e === "N").onChanged();
     });
   }
   buildText() {
     const v = this.item.get("value");
-    this.text = new import_obsidian10.TextComponent(this.setting.controlEl).setValue(v.value()).setDisabled(!this.isEnabled()).setPlaceholder(this.getPlaceholder()).onChange((e) => v.set(e));
+    this.text = new import_obsidian11.TextComponent(this.setting.controlEl).setValue(v.value()).setDisabled(!this.isEnabled()).setPlaceholder(this.getPlaceholder()).onChange((e) => v.set(e));
   }
   getPlaceholder() {
-    return this.isEnabled() ? "Type a delimiter" : "First value will be used";
+    return this.isEnabled() ? t2("rule.delimiter.placeholder.join") : t2("rule.delimiter.placeholder.first");
   }
   isEnabled() {
     return this.item.get("enabled").value();
@@ -6583,15 +9722,15 @@ RulesDelimiterBuilder = __decorateClass([
 ], RulesDelimiterBuilder);
 
 // src/Settings/SettingBuilders/Rules/RulesPathsBuilder.ts
-var import_obsidian11 = require("obsidian");
+var import_obsidian12 = require("obsidian");
 var RulesPathsBuilder = class extends AbstractBuilder2 {
   constructor() {
     super(...arguments);
     this.settings = null;
   }
   doBuild() {
-    this.settings = new import_obsidian11.Setting(this.container).setName("File path rule").addDropdown(
-      (e) => e.addOptions({ white: "White list mode", black: "Black list mode" }).setValue(this.item.get("mode").value()).onChange((e2) => {
+    this.settings = new import_obsidian12.Setting(this.container).setName(t2("rule.path.name")).addDropdown(
+      (e) => e.addOptions({ white: t2("rule.path.white.name"), black: t2("rule.path.black.name") }).setValue(this.item.get("mode").value()).onChange((e2) => {
         this.item.get("mode").set(e2);
         this.updateDesc();
       })
@@ -6605,8 +9744,8 @@ var RulesPathsBuilder = class extends AbstractBuilder2 {
   }
   updateDesc() {
     const descriptions = {
-      white: "Files that are located by paths will be processed by plugin. Each path must be written with new line.",
-      black: "Files that are located by paths will be ignored by plugin. Each path must be written with new line."
+      white: t2("rule.path.white.desc"),
+      black: t2("rule.path.black.desc")
     };
     this.settings.setDesc(descriptions[this.item.get("mode").value()]);
   }
@@ -6616,7 +9755,7 @@ RulesPathsBuilder = __decorateClass([
 ], RulesPathsBuilder);
 
 // src/Settings/SettingBuilders/Processor/ProcessorBuilder.ts
-var import_obsidian12 = require("obsidian");
+var import_obsidian13 = require("obsidian");
 
 // src/Components/Processor/ProcessorUtils.ts
 var ProcessorTypes = /* @__PURE__ */ ((ProcessorTypes2) => {
@@ -6637,22 +9776,22 @@ var ProcessorBuilder = class extends AbstractBuilder2 {
   doBuild() {
     const fragment = createFragment(
       (e) => e.createEl("a", {
-        text: "Processor",
+        text: t2("processor.name"),
         href: GITHUB_DOCS + "Processor.md"
       })
     );
-    this.setting = new import_obsidian12.Setting(this.container).setName(fragment);
+    this.setting = new import_obsidian13.Setting(this.container).setName(fragment);
     this.buildDynamic();
   }
   updateDesc() {
     const fragment = createFragment();
-    fragment.appendText("Modifies resolved title.");
+    fragment.appendText(t2("processor.desc"));
     let additional = [];
     switch (this.item.get("type").value()) {
       case "replace" /* Replace */:
         additional = [
           "",
-          "What will be executed:",
+          t2("processor.replace.desc"),
           "title.replace(",
           createSpan(
             "",
@@ -6665,8 +9804,8 @@ var ProcessorBuilder = class extends AbstractBuilder2 {
       case "function" /* Function */:
         additional = [
           "",
-          "How it will work:",
-          "const value = new Function('title', #Your value of text area#)"
+          t2("processor.function.desc"),
+          `const value = new Function('title', #${t2("processor.function.valueDesc")}#)`
         ];
         break;
     }
@@ -6682,9 +9821,9 @@ var ProcessorBuilder = class extends AbstractBuilder2 {
       (c) => {
         var _a;
         return c.addOptions({
-          "": "Disabled",
-          ["replace" /* Replace */]: "Replace",
-          ["function" /* Function */]: "Function"
+          "": t2("disabled"),
+          ["replace" /* Replace */]: t2("processor.replace.name"),
+          ["function" /* Function */]: t2("processor.function.name")
         }).setValue((_a = this.item.get("type").value()) != null ? _a : "").onChange((v) => {
           var _a2, _b;
           const value = v === "" ? null : v;
@@ -6714,11 +9853,11 @@ var ProcessorBuilder = class extends AbstractBuilder2 {
   buildReplace() {
     const items = [
       {
-        name: "Pattern",
-        desc: "Will be used as a first argument of RegExp first, and then as a first argument of replace()"
+        name: t2("processor.replace.pattern.name"),
+        desc: t2("processor.replace.pattern.desc")
       },
-      { name: "Flags", desc: "Will be used as a second argument of new RegExp" },
-      { name: "Replacement", desc: "Will be used as a second argument of replace()" }
+      { name: t2("processor.replace.flags.name"), desc: t2("processor.replace.flags.desc") },
+      { name: t2("processor.replace.replacement.name"), desc: t2("processor.replace.replacement.desc") }
     ];
     const container = createDiv({ attr: { style: "margin-left: 20px" } });
     let margin = "10px";
@@ -6738,7 +9877,7 @@ var ProcessorBuilder = class extends AbstractBuilder2 {
             e.appendChild(
               createDiv({ attr: { style: "margin-right: 10px" } }, (e2) => e2.appendText(`${item.name}:`))
             );
-            new import_obsidian12.TextComponent(e).setValue((_a = value == null ? void 0 : value[i]) != null ? _a : "").onChange((e2) => value.splice(i, 1, e2)).onChanged();
+            new import_obsidian13.TextComponent(e).setValue((_a = value == null ? void 0 : value[i]) != null ? _a : "").onChange((e2) => value.splice(i, 1, e2)).onChanged();
           }
         )
       );
@@ -6760,20 +9899,20 @@ var ProcessorBuilder = class extends AbstractBuilder2 {
 };
 
 // src/Settings/FeatureBuilder/NoteLinkBuilder.ts
-var import_obsidian13 = require("obsidian");
+var import_obsidian14 = require("obsidian");
 var NoteLinkBuilder = class extends AbstractBuilder {
-  build({ id: id2, name, desc, settings, doc }) {
+  build({ id: id3, name, desc, settings, doc }) {
     var _a;
-    this.id = id2;
+    this.id = id3;
     const fragment = createFragment((e) => e.createEl("a", { text: name, href: doc.link }));
-    this.setting = new import_obsidian13.Setting(this.context.getContainer()).setName(fragment).setDesc(desc);
+    this.setting = new import_obsidian14.Setting(this.context.getContainer()).setName(fragment).setDesc(desc);
     this.setting.addDropdown((e) => this.strategy = e);
     this.strategy.addOptions({
-      ["all" /* All */]: "Replace all links",
-      ["onlyEmpty" /* OnlyEmpty */]: "Replace only links without alias"
+      ["all" /* All */]: t2("feature.noteLink.strategy.all"),
+      ["onlyEmpty" /* OnlyEmpty */]: t2("feature.noteLink.strategy.onlyEmpty")
     }).setValue((_a = settings.strategy) != null ? _a : "onlyEmpty" /* OnlyEmpty */).onChange(this.onChange.bind(this));
     this.setting.addDropdown((e) => this.approval = e);
-    this.approval.addOptions({ Y: "Show approve modal", N: "Use auto approve" }).setValue(settings.approval ? "Y" : "N").onChange(this.onChange.bind(this));
+    this.approval.addOptions({ Y: t2("feature.noteLink.approval.showModal"), N: t2("feature.noteLink.approval.auto") }).setValue(settings.approval ? "Y" : "N").onChange(this.onChange.bind(this));
     this.setting.addToggle((e) => this.toggle = e);
     this.toggle.setValue(settings.enabled).onChange(this.onChange.bind(this));
   }
@@ -6934,7 +10073,6 @@ var ResolverCachedProxy = class {
     return (_a = item.get()) != null ? _a : null;
   }
   setTemplate(template) {
-    this.template = template;
     this.resolver.setTemplate(template);
   }
 };
@@ -7266,7 +10404,7 @@ var Extractor = class {
    */
   extractInternal(key, obj) {
     if (obj === void 0 || (obj == null ? void 0 : obj[key]) === void 0) {
-      throw new PathNotFoundException(`Key ${key} not found in ${JSON.stringify(obj)}`);
+      throw new PathNotFoundException(`Key ${key} not found`);
     }
     return obj[key];
   }
@@ -7367,27 +10505,30 @@ LoggerComposer = __decorateClass([
 ], LoggerComposer);
 
 // src/Utils/FileNoteLinkService.ts
+var import_obsidian15 = require("obsidian");
 var FileNoteLinkService = class {
   constructor(facade) {
     this.facade = facade;
+    this.REGEXP = /^\[\[.+\]\]$/;
   }
   getNoteLinks(path) {
     var _a;
     const links = this.facade.getFileLinksCache(path);
     const result = [];
     for (const link of links) {
-      if (!/^\[\[[\w\s]+(\|*[\w\s]+)*]]$/.test(link.original)) {
+      if (!this.REGEXP.test(link.original)) {
         continue;
       }
-      const f = this.facade.getFirstLinkpathDest(link.link);
-      if (f) {
-        result.push({
-          dest: f.path,
-          link: link.link,
-          original: link.original,
-          alias: (_a = link == null ? void 0 : link.displayText) != null ? _a : null
-        });
+      const file = this.facade.getFirstLinkpathDest(link.link, path);
+      if (file instanceof import_obsidian15.TFile === false) {
+        continue;
       }
+      result.push({
+        dest: file.path,
+        link: link.link,
+        original: link.original,
+        alias: (_a = link == null ? void 0 : link.displayText) != null ? _a : null
+      });
     }
     return result;
   }
@@ -7551,8 +10692,8 @@ var FakeTitleElementService = class {
     //TODO: add logs for events
     this.events = {
       click: (e) => {
-        const id2 = this.extractId(e.target);
-        this.setVisible(id2, false).getOriginal(id2).focus();
+        const id3 = this.extractId(e.target);
+        this.setVisible(id3, false).getOriginal(id3).focus();
       },
       blur: (e) => this.setVisible(this.extractId(e.target), true),
       hover: (e) => this.setVisible(this.extractId(e.target), false),
@@ -7566,27 +10707,28 @@ var FakeTitleElementService = class {
     }
     return null;
   }
-  getOriginal(id2) {
+  getOriginal(id3) {
     var _a, _b;
-    return (_b = (_a = this.elements.get(id2)) == null ? void 0 : _a.original) != null ? _b : null;
+    return (_b = (_a = this.elements.get(id3)) == null ? void 0 : _a.original) != null ? _b : null;
   }
-  has(id2) {
-    return this.elements.has(id2);
+  has(id3) {
+    return this.elements.has(id3);
   }
-  removeExcept(id2) {
-    const ids = Array.isArray(id2) ? id2 : [id2];
-    for (const key of this.elements.keys()) {
+  removeExcept(id3) {
+    const ids = Array.isArray(id3) ? id3 : [id3];
+    for (const [key, { fake }] of this.elements.entries()) {
       if (!ids.includes(key)) {
+        fake.remove();
         this.elements.delete(key);
       }
     }
   }
-  remove(id2) {
-    if (!this.has(id2)) {
+  remove(id3) {
+    if (!this.has(id3)) {
       return;
     }
-    this.setVisible(id2, false);
-    const { fake, events = [], original } = this.elements.get(id2);
+    this.setVisible(id3, false);
+    const { fake, events = [], original } = this.elements.get(id3);
     events.forEach((e) => {
       if (e === "click") {
         original.removeEventListener("click", this.events.blur);
@@ -7597,7 +10739,7 @@ var FakeTitleElementService = class {
     });
     original.removeAttribute(this.attr.original);
     fake.remove();
-    this.elements.delete(id2);
+    this.elements.delete(id3);
   }
   removeAll() {
     Array.from(this.elements.keys()).forEach((e) => this.remove(e));
@@ -7605,14 +10747,14 @@ var FakeTitleElementService = class {
   getOrCreate({
     original,
     title,
-    id: id2,
+    id: id3,
     events = []
   }) {
     const container = original == null ? void 0 : original.parentElement;
     if (!container) {
       return;
     }
-    let element = this.find(container, id2);
+    let element = this.find(container, id3);
     if (element) {
       element.setText(title);
       return { created: false, element };
@@ -7620,44 +10762,44 @@ var FakeTitleElementService = class {
     element = document.createElement(original.tagName);
     element.className = original.className;
     element.setText(title);
-    element.setAttribute(this.attr.fake, id2);
-    original.setAttribute(this.attr.original, id2);
-    this.elements.set(id2, { original, fake: element, events: [...events] });
+    element.setAttribute(this.attr.fake, id3);
+    original.setAttribute(this.attr.original, id3);
+    this.elements.set(id3, { original, fake: element, events: [...events] });
     if (events.contains("click")) {
-      this.bindClick(id2);
+      this.bindClick(id3);
     }
     if (events.contains("hover")) {
-      this.bindHover(id2);
+      this.bindHover(id3);
     }
     container.insertBefore(element, original);
     return { created: true, element };
   }
-  setVisible(id2, visible) {
-    if (this.elements.has(id2)) {
-      const { fake, original } = this.elements.get(id2);
+  setVisible(id3, visible) {
+    if (this.elements.has(id3)) {
+      const { fake, original } = this.elements.get(id3);
       original.hidden = visible;
       fake.hidden = !visible;
     }
     return this;
   }
-  bindClick(id2) {
-    if (this.has(id2)) {
-      const { fake, original } = this.elements.get(id2);
+  bindClick(id3) {
+    if (this.has(id3)) {
+      const { fake, original } = this.elements.get(id3);
       fake.addEventListener("click", this.events.click);
       original.addEventListener("blur", this.events.blur);
     }
   }
-  bindHover(id2) {
-    if (this.has(id2)) {
-      const { fake, original } = this.elements.get(id2);
+  bindHover(id3) {
+    if (this.has(id3)) {
+      const { fake, original } = this.elements.get(id3);
       fake.addEventListener("mouseover", this.events.hover);
       original.addEventListener("mouseout", this.events.out);
     }
   }
-  find(container, id2) {
+  find(container, id3) {
     for (const node of Array.from(container.children)) {
       const cId = node.getAttribute(this.attr.fake);
-      if (id2 === cId && node instanceof HTMLElement) {
+      if (id3 === cId && node instanceof HTMLElement) {
         return node;
       }
     }
@@ -7680,6 +10822,100 @@ var BooleanStrategy = class {
 BooleanStrategy = __decorateClass([
   injectable()
 ], BooleanStrategy);
+
+// src/Utils/ResultDomWrapper.ts
+var ResultDomWrapper = class {
+  constructor(resolver = null, dom) {
+    this.resolver = resolver;
+    this.replacer = null;
+    this.replacer = FunctionReplacer.create(dom, "addResult", this, (self2, defaultArgs, vanilla) => {
+      const c = vanilla.call(dom, ...defaultArgs);
+      const file = defaultArgs[0];
+      self2.processLookupItem(file, c);
+      return c;
+    });
+    this.replacer.enable();
+    this.process();
+  }
+  disable() {
+    this.replacer.disable();
+    this.replacer = null;
+  }
+  process() {
+    var _a, _b, _c;
+    const lookup = (_c = (_b = (_a = this.replacer) == null ? void 0 : _a.getTarget()) == null ? void 0 : _b.resultDomLookup) != null ? _c : /* @__PURE__ */ new Map();
+    for (const [file, item] of lookup) {
+      this.processLookupItem(file, item);
+    }
+  }
+  processLookupItem(file, item) {
+    var _a, _b;
+    const restore = !((_a = this == null ? void 0 : this.replacer) == null ? void 0 : _a.isEnabled());
+    if (file.extension !== "md") {
+      return;
+    }
+    const node = item.containerEl.firstElementChild.find(".tree-item-inner");
+    const text = (_b = restore ? null : this.resolver.resolve(file.path)) != null ? _b : file.basename;
+    if (node.getText() !== text) {
+      node.setText(text);
+    }
+  }
+};
+
+// src/Utils/SearchDomWrapperService.ts
+var SearchDomWrapperService = class {
+  constructor(logger) {
+    this.logger = logger;
+    this.entities = /* @__PURE__ */ new Map();
+    this.timer = null;
+  }
+  wrapDom(dom, resolver, tag) {
+    if (!this.entities.has(tag)) {
+      this.entities.set(tag, /* @__PURE__ */ new Map());
+    }
+    const tagged = this.entities.get(tag);
+    if (!tagged.has(dom)) {
+      const wrapper = new ResultDomWrapper(resolver, dom);
+      tagged.set(dom, wrapper);
+      this.logger.log(`Entity created`);
+      this.runTimer();
+    }
+  }
+  destroyByTag(tag) {
+    if (!this.entities.has(tag)) {
+      return;
+    }
+    for (const [dom, wrapper] of this.entities.get(tag)) {
+      wrapper.disable();
+      this.entities.get(tag).delete(dom);
+    }
+  }
+  runTimer() {
+    if (this.timer) {
+      clearTimeout(this.timer);
+    }
+    this.timer = setTimeout(this.selfClean.bind(this), 1e4);
+  }
+  selfClean() {
+    this.timer = null;
+    for (const [tag, entities] of this.entities) {
+      this.logger.log(`Tag ${tag} has ${entities.size} entities before self-clean`);
+      for (const [dom, wrapper] of entities) {
+        if (!document.body.contains(dom.el)) {
+          wrapper.disable();
+          this.logger.log(`Dom from ${tag} tag has been removed`);
+          this.entities.get(tag).delete(dom);
+        }
+      }
+      this.logger.log(`Tag ${tag} has ${entities.size} entities after self-clean`);
+    }
+  }
+};
+SearchDomWrapperService = __decorateClass([
+  injectable(),
+  __decorateParam(0, inject(inversify_types_default.logger)),
+  __decorateParam(0, named(SearchDomWrapperService.name))
+], SearchDomWrapperService);
 
 // config/inversify.config.ts
 var Container2 = new Container();
@@ -7709,8 +10945,9 @@ Container2.load(processors_config_default);
 Container2.load(resolver_config_default);
 Container2.load(api_adapter_config_default);
 Container2.bind(inversify_types_default["factory:replacer"]).toFunction(
-  (t, m, a, i) => FunctionReplacer.create(t, m, a, i)
+  (t3, m, a, i) => FunctionReplacer.create(t3, m, a, i)
 );
+Container2.bind(inversify_types_default["service:search:dom:wrapper"]).to(SearchDomWrapperService).inSingletonScope();
 var inversify_config_default = Container2;
 
 // src/App.ts
@@ -7801,17 +11038,17 @@ var PluginHelper = class {
 };
 
 // src/Obsidian/ObsidianFacade.ts
-var import_obsidian14 = require("obsidian");
+var import_obsidian16 = require("obsidian");
 var ObsidianFacade = class {
   constructor(app) {
     this.app = app;
   }
-  isInternalPluginEnabled(id2) {
-    return this.app.internalPlugins.getEnabledPluginById(id2) !== null;
+  isInternalPluginEnabled(id3) {
+    return this.app.internalPlugins.getEnabledPluginById(id3) !== null;
   }
   getTFile(path) {
     const file = this.app.vault.getAbstractFileByPath(path);
-    return file instanceof import_obsidian14.TFile ? file : null;
+    return file instanceof import_obsidian16.TFile ? file : null;
   }
   getFileContent(file) {
     return this.app.vault.cachedRead(file);
@@ -7832,13 +11069,17 @@ var ObsidianFacade = class {
   getViewsOfType(type) {
     return this.getLeavesOfType(type).map((e) => e.view);
   }
-  getFirstLinkpathDest(linkpath) {
-    return this.app.metadataCache.getFirstLinkpathDest(linkpath, "");
+  getFirstLinkpathDest(linkpath, from) {
+    return this.app.metadataCache.getFirstLinkpathDest(linkpath, from);
+  }
+  getActiveLeaf() {
+    var _a, _b;
+    return (_b = (_a = this.app.workspace) == null ? void 0 : _a.activeLeaf) != null ? _b : null;
   }
 };
 
 // main.ts
-var MetaTitlePlugin = class extends import_obsidian15.Plugin {
+var MetaTitlePlugin = class extends import_obsidian17.Plugin {
   constructor() {
     super(...arguments);
     this.container = inversify_config_default;
@@ -7906,7 +11147,7 @@ var MetaTitlePlugin = class extends import_obsidian15.Plugin {
       Object.getPrototypeOf(this.app.workspace.editorSuggest.suggests[0].suggestions).constructor
     );
     inversify_config_default.bind(inversify_types_default["factory:obsidian:active:file"]).toFunction(() => this.app.workspace.getActiveFile());
-    inversify_config_default.bind(inversify_types_default["factory:obsidian:modal"]).toFunction(() => new import_obsidian15.Modal(this.app));
+    inversify_config_default.bind(inversify_types_default["factory:obsidian:modal"]).toFunction(() => new import_obsidian17.Modal(this.app));
   }
   onunload() {
     this.fc.disableAll();
@@ -7942,19 +11183,19 @@ var MetaTitlePlugin = class extends import_obsidian15.Plugin {
     for (const feature of Object.values(Feature)) {
       states.push([feature, f.get(feature).get("enabled").value()]);
     }
-    for (const [id2, state] of states) {
-      this.fc.toggle(id2, state);
+    for (const [id3, state] of states) {
+      this.fc.toggle(id3, state);
     }
   }
   registerCommands() {
     this.addCommand({
       id: "ofmt-features-disable",
-      name: "Disable features",
+      name: t2("command.features.disable"),
       callback: () => this.fc.disableAll()
     });
     this.addCommand({
       id: "ofmt-features-reload",
-      name: "Reload features",
+      name: t2("command.features.reload"),
       callback: () => {
         this.reloadFeatures();
         this.mc.refresh().catch(console.error);
