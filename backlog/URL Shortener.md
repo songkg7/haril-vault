@@ -1,10 +1,12 @@
 ---
-title: "URL 단축기? 직접 구현하자"
+title: URL 단축기? 직접 구현하자
 date: 2023-05-07 14:13:00 +0900
-aliases: 
-tags: [url, system-architecture]
-categories: 
-updated: 2023-07-30 17:03:50 +0900
+aliases: null
+tags:
+  - url
+  - system-architecture
+categories: null
+updated: 2023-08-01 18:17:54 +0900
 ---
 
 > [!INFO]
@@ -92,8 +94,6 @@ erDiagram
     }
 ```
 
-### 단축된 URL 로 접근
-
 ## 구현
 
 지난 번 [[Consistent Hashing|안정 해시]] 처럼 직접 구현해볼게요. 다행인 점은 URL 단축 구현은 그렇게 어렵지 않다는 것입니다.
@@ -118,7 +118,7 @@ fun shorten(@RequestBody request: ShortenRequest): ResponseEntity<ShortenRespons
 }
 ```
 
-### Base62 Conversion
+### Base62 변환
 
 드디어 가장 핵심적인 부분이네요. ID 를 생성하면 해당 아이디를 base62 인코딩하여 단축합니다. 이렇게 단축된 문자열이 shortUrl 이 됩니다. 반대의 경우는 shortUrl 을 디코딩하여 ID 를 알아내고 이 ID 로 DB 에 질의하여 longUrl 을 알아내는데 사용합니다.
 

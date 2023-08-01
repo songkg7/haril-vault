@@ -1,10 +1,15 @@
 ---
-title: "Entity 의 ID 로 적절한 타입은 무엇일까?"
+title: Entity 의 ID 로 적절한 타입은 무엇일까?
 date: 2022-10-24 17:08:00 +0900
-aliases: 
-tags: [entity, id, ulid, uuid, long]
-categories: 
-updated: 2023-07-23 17:39:44 +0900
+aliases: null
+tags:
+  - entity
+  - id
+  - ulid
+  - uuid
+  - long
+categories: null
+updated: 2023-08-01 18:21:16 +0900
 ---
 
 ## Overview
@@ -57,8 +62,6 @@ ULID 는 UUID 의 단점을 극복하기 위해 등장했다.
 ### Snowflake
 
 트위터에서 제안한 분산 아이디 생성 전략이다. 64bit 로 이루어져 있고 각 구간이 다른 의미를 지닌다.
-
-
 
 ## Conclusion
 
