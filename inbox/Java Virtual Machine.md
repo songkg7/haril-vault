@@ -1,10 +1,12 @@
 ---
-title: "JVM"
+title: JVM
 date: 2023-07-16 13:54:00 +0900
 aliases: JVM
-tags: [jvm, java]
+tags:
+  - jvm
+  - java
 categories: Java
-updated: 2023-07-16 17:35:51 +0900
+updated: 2023-08-02 21:02:13 +0900
 ---
 
 ## JVM 이란 무엇인가?

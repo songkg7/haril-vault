@@ -219,11 +219,29 @@
     },
     "remove-multiple-blank-lines-on-paste": {
       "enabled": false
+    },
+    "blockquote-style": {
+      "enabled": false,
+      "style": "space"
+    },
+    "quote-style": {
+      "enabled": false,
+      "single-quote-enabled": true,
+      "single-quote-style": "''",
+      "double-quote-enabled": true,
+      "double-quote-style": "\"\""
+    },
+    "remove-space-before-or-after-characters": {
+      "enabled": false,
+      "characters-to-remove-space-before": ",!?;:).’”]",
+      "characters-to-remove-space-after": "¿¡‘“(["
     }
   },
   "lintOnSave": true,
   "recordLintOnSaveLogs": false,
   "displayChanged": true,
+  "lintOnFileChange": false,
+  "displayLintOnFileChangeNotice": false,
   "settingsConvertedToConfigKeyValues": true,
   "foldersToIgnore": [],
   "linterLocale": "system-default",
