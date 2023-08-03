@@ -1,16 +1,33 @@
 ---
-title: "Question list"
+title: Question list
 date: 2023-05-24 20:20:00 +0900
-aliases: 
-tags: [question]
-categories: 
-updated: 2023-07-24 14:18:02 +0900
+aliases: null
+tags:
+  - question
+categories: null
+updated: 2023-08-02 22:46:17 +0900
 ---
 
 ![[Dev QnA|개발 질문 모음]]
 
 1. 동시성 이슈가 발생할 수 있는 부분을 염두에 둔 구현
 : DBMS 레벨 lock, 애플리케이션 레벨 lock
+
+- 공유 락(Shared Lock): 읽기에서 발생하는 db lock 읽기간에는 영향을 주지 않는다. 외래 키에 의해서 발생하는 락이기도 하다
+- 베타 락(Exclusive Lock): 데이터에 변경을 가하는 쓰기 명령들에 대해 주어지는 락으로 Write Lock 으로도 불리며, X 로 표기합니다. 베타 락은 이름처럼 다른 세션이 해당 자원에 접근하는 것을 막는다. 베타락은 트랜잭션동안 유지된다.
+- 업데이트 락(Update Lock): 업데이트 락은 데이터를 수정하기 위해 베타 락을 걸기 전, 데드 락을 방지하기 위해 사용되는 락
+- 내재 락(Intent Lock): 내재 락은 사용자가 요청한 범위에 대한 락을 걸 수 있는지 여부를 빠르게 파악하기 위해 사용되는 락
+
+- 낙관적 락: 일반적으로 락이 발생하지 않을 것이라고 접근하는 방식. 데이터를 읽는 시점에 Lock 을 걸지 않고 수정을 하려고 할 때 데이터가 변경되었는지 확인하고 변경을 시도한다.
+
+https://hudi.blog/jpa-concurrency-control-optimistic-lock-and-pessimistic-lock/
+https://techblog.woowahan.com/9478/
+
+@Version 을 통해 최초 커밋만 인정하기 전략을 JPA 레벨에서 구현할 수 있다. @Version 으로 추가한 버전 관리 필드는 JPA 가 직접 관리하므로 수정해서는 안된다. 그런데 벌크 연산의 경우는 버전을 무시하므로, 벌크 연산을 수행할 때에는 버전 필드를 강제로 증가시켜야 한다.
+
+낙관적 비관적락은 관심사가 엔티티에 대한 동시 접근에 대한 처리
+
+트랜잭션 격리레벨은 일관된 읽기를 구현하기 위한 전략, 하지만 실제로는 대부분의 DB 에서 락 대신 MVCC 가 사용되긴 한다.
 
 2. SPOF, 외부 의존성 최소화
 : 레플리케이션, 클러스터링, 써킷브레이커
