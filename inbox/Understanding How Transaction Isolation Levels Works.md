@@ -1,13 +1,44 @@
 ---
-title: "트랜잭션 격리 레벨의 동작 원리"
+title: 트랜잭션 격리 레벨의 동작 원리
 date: 2023-07-14 23:29:00 +0900
-aliases: 
-tags: 
-categories: 
-updated: 2023-07-15 01:29:23 +0900
+aliases: null
+tags:
+  - transaction
+  - database
+  - jdbc
+categories: null
+updated: 2023-08-04 18:10:09 +0900
 ---
 
 ## `@Transational` 로 설정하는 격리레벨은 실제로 어떻게 동작할까
+
+### SQL
+
+먼저 SQL 문을 살펴보자. DB 레벨에서 직접 트랜잭션을 컨트롤하고 싶다면 아래처럼 할 수 있다.
+
+```sql
+BEGIN; -- or START TRANSACTION;
+
+-- 이 안에서 일어난 변경 사항은 트랜잭션으로 취급된다.
+
+COMMIT;
+```
+
+그렇다면 격리레벨은?
+
+```sql
+BEGIN ISOLATION LEVEL REPEATABLE READ;
+
+--
+
+COMMIT;
+```
+
+이제 감이 좀 왔을까? 스프링에서 해주는 것은 `@Transactional` 로 감싸진 로직의 앞 뒤로 `BEGIN ~` 과 `COMMIT` 혹은 `ROLLBACK` 을 실행해주는 것이다.
+
+`@Transactional` 의 isolation 옵션은 생성되는 트랜잭션에서의 isolation level 을 정해준다.
+
+### In Spring
 
 [[Spring framework]] 의 트랜잭션 격리 레벨은 총 5가지가 있다.
 
