@@ -5,7 +5,7 @@ aliases: null
 tags:
   - question
 categories: null
-updated: 2023-08-02 22:46:17 +0900
+updated: 2023-08-04 14:11:34 +0900
 ---
 
 ![[Dev QnA|개발 질문 모음]]
@@ -194,3 +194,9 @@ https://brownbears.tistory.com/45
     2. 그런데, 읽기에 트랜잭션을 걸 필요가 있나요? @Transactional을 안 붙이면 되는거 아닐까요?
 15. Tomcat이 정확히 어떤 역할을 하는 도구인가요?
     1. 혹시 Netty에 대해 들어보셨나요? 왜 이런 것을 사용할까요?
+
+## Reference
+
+![[Pasted image 20230804141117.png]]
+
+- https://www.aha-contents.com/362
