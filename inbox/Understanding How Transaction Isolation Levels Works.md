@@ -7,7 +7,7 @@ tags:
   - database
   - jdbc
 categories: null
-updated: 2023-08-04 18:10:09 +0900
+updated: 2023-08-05 01:57:26 +0900
 ---
 
 ## `@Transational` 로 설정하는 격리레벨은 실제로 어떻게 동작할까
@@ -34,7 +34,7 @@ BEGIN ISOLATION LEVEL REPEATABLE READ;
 COMMIT;
 ```
 
-이제 감이 좀 왔을까? 스프링에서 해주는 것은 `@Transactional` 로 감싸진 로직의 앞 뒤로 `BEGIN ~` 과 `COMMIT` 혹은 `ROLLBACK` 을 실행해주는 것이다.
+스프링에서 해주는 것은 `@Transactional` 로 감싸진 로직의 앞 뒤로 `BEGIN ~` 과 `COMMIT` 혹은 `ROLLBACK` 을 실행해주는 것이다.
 
 `@Transactional` 의 isolation 옵션은 생성되는 트랜잭션에서의 isolation level 을 정해준다.
 
