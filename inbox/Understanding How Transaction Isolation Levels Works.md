@@ -7,7 +7,7 @@ tags:
   - database
   - jdbc
 categories: null
-updated: 2023-08-05 01:57:26 +0900
+updated: 2023-08-06 13:54:11 +0900
 ---
 
 ## `@Transational` 로 설정하는 격리레벨은 실제로 어떻게 동작할까
@@ -120,3 +120,7 @@ public synchronized void setTransactionIsolation(
 int 값인 level 에 따라서 격리레벨이 sessionProxy 라는 객체에 설정되는 것을 볼 수 있다.
 
 DB 에 따라 지원되지 않는 격리레벨이 있으므로, 격리레벨을 설정하고나면 DB 변경 요구사항이 발생할 경우 주의해야 한다.
+
+## Reference
+
+- https://www.postgresql.kr/blog/pg_phantom_read.html
