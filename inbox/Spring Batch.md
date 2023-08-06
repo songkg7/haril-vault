@@ -1,12 +1,13 @@
 ---
-title: "Spring Batch"
+title: Spring Batch
 date: 2022-08-17 08:53:00 +0900
 publish: false
-fc-calendar: Gregorian Calendar
-fc-date: 2022-08-17
-aliases: 
-tags: [spring, batch]
+aliases: null
+tags:
+  - spring
+  - batch
 categories: Spring
+updated: 2023-08-06 16:18:13 +0900
 ---
 
 [[Spring framework|Spring]]
@@ -27,7 +28,7 @@ categories: Spring
 
 아래 그림은 배치 처리와 관련된 객체들의 관계입니다.
 
-![[batch instance.png]]
+![[Pasted image 20230806161744.png]]
 
 - [[Job]]
 - [[Step]]
@@ -38,3 +39,7 @@ categories: Spring
 `Job` 과 `Step` 은 1:M, `Step` 과 `ItemReader`, `ItemProcessor`, `ItemWriter` 는 1:1 의 관계를 가집니다.
 
 즉, `Job` 이라는 하나의 큰 일감(Job)에 여러 단계(Step)을 두고, 각 단계를 배치의 기본 흐름대로 구현합니다.
+
+## Reference
+
+- https://deeplify.dev/back-end/spring/batch-architecture-and-components
