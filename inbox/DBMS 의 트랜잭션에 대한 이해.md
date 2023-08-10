@@ -1,10 +1,14 @@
 ---
-title: "DBMS 의 트랜잭션에 대한 이해"
+title: DBMS 의 트랜잭션에 대한 이해
 date: 2022-10-26 10:12:00 +0900
-aliases: 
-tags: [database]
-categories: 
+aliases: null
+tags:
+  - database
+categories: null
+updated: 2023-08-08 21:39:35 +0900
 ---
+
+[[Database|DB]]
 
 ## Reference
 

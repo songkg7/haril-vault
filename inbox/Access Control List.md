@@ -1,10 +1,10 @@
 ---
-title: "Access Control List"
+title: Access Control List
 date: 2023-07-05 14:44:00 +0900
 aliases: ACL
-tags: 
-categories: 
-updated: 2023-07-05 14:45:51 +0900
+tags: null
+categories: null
+updated: 2023-08-08 21:46:27 +0900
 ---
 
 Access Control List (ACL) is a security mechanism that defines and enforces the permissions and access rights for users or groups of users to access resources or perform specific actions within a computer system or network. ACLs are commonly used in operating systems, computer networks, and databases to control access to files, directories, network devices, and other resources.
@@ -24,3 +24,5 @@ Implementing ACLs helps organizations enforce the principle of least privilege b
 However, it's important to regularly review and update ACLs to ensure they remain accurate and reflect changes in user roles or organizational requirements. Failure to do so may lead to over-privileged accounts or unintended access rights for certain individuals.
 
 Overall, Access Control Lists play a crucial role in securing computer systems and networks by controlling who can access resources and what actions they can perform, thereby enhancing the overall security posture of an organization.
+
+[[Network|Network]]

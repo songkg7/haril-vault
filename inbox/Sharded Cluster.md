@@ -1,9 +1,11 @@
 ---
-title: "Sharded Cluster"
+title: Sharded Cluster
 date: 2022-12-16 21:49:00 +0900
-aliases: 
-tags: [mongodb]
+aliases: null
+tags:
+  - mongodb
 categories: MongoDB
+updated: 2023-08-08 21:41:25 +0900
 ---
 
 ## Concept
@@ -55,3 +57,8 @@ categories: MongoDB
 - Sharding 은 Shard Key 를 선정해야하고 해당 필드에는 Index 가 만들어져 있어야 한다.
 - 꼭 Router 를 통해 접근한다.
 - 가능하면 Hashed Sharding 을 통해 분산한다.
+
+## Link
+
+- [[Database|DB]]
+- [[MongoDB|MongoDB]]
