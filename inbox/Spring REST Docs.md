@@ -1,10 +1,14 @@
 ---
-title: "Spring REST Docs"
+title: Spring REST Docs
 date: 2022-11-04 18:59:00 +0900
-aliases: 
-tags: [java, documentation, docs]
+aliases: null
+tags:
+  - java
+  - documentation
+  - docs
+  - test
 categories: Spring
-updated: 2023-05-31 16:24:29 +0900
+updated: 2023-08-08 21:47:00 +0900
 ---
 
 ## Overview
@@ -128,3 +132,5 @@ public class StandardTemplateResourceResolver implements TemplateResourceResolve
 
 }
 ```
+
+[[Spring framework|Spring]]

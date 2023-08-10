@@ -1,10 +1,12 @@
 ---
-title: "Pinpoint"
+title: Pinpoint
 date: 2023-04-30 05:07:00 +0900
-aliases: 
-tags: [tracing, apm]
-categories: 
-updated: 2023-04-30 05:08:49 +0900
+aliases: null
+tags:
+  - tracing
+  - apm
+categories: null
+updated: 2023-08-08 21:42:30 +0900
 ---
 
 ## What is Pinpoint
@@ -26,3 +28,7 @@ Pinpoint can be used by developers and businesses to monitor and optimize their 
 5. Integration with AWS services: Pinpoint integrates with other AWS services like Lambda, SNS, and SES for easy scalability of the applications.
 
 Overall, Pinpoint helps developers and businesses to identify issues in their applications quickly and optimize them for better performance and user engagement.
+
+## Links
+
+- [[Application Performance Monitoring]]

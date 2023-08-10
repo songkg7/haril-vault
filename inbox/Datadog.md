@@ -1,10 +1,13 @@
 ---
-title: "DataDog"
+title: DataDog
 date: 2023-05-08 13:14:00 +0900
-aliases: 
-tags: [datadog, apm, monitoring]
-categories: 
-updated: 2023-05-08 13:15:24 +0900
+aliases: null
+tags:
+  - datadog
+  - apm
+  - monitoring
+categories: null
+updated: 2023-08-08 21:45:17 +0900
 ---
 
 ```
@@ -23,3 +26,7 @@ updated: 2023-05-08 13:15:24 +0900
 -XX:FlightRecorderOptions=stackdepth=256
 -jar .../your-service.jar
 ```
+
+## Links
+
+- [[Application Performance Monitoring|APM]]

@@ -1,10 +1,10 @@
 ---
-title: "TCP 와 UDP 비교"
+title: TCP 와 UDP 비교
 date: 2023-07-07 15:56:00 +0900
-aliases: 
-tags: 
-categories: 
-updated: 2023-07-07 15:57:36 +0900
+aliases: null
+tags: null
+categories: null
+updated: 2023-08-08 21:46:15 +0900
 ---
 
 TCP와 UDP는 모두 인터넷 프로토콜 스위트의 일부로 네트워크 통신을 위해 사용되는 프로토콜입니다. 그러나 두 프로토콜은 목적과 동작 방식에서 차이가 있습니다. 이제 TCP와 UDP를 다음과 같은 측면에서 비교해 보겠습니다.
@@ -34,3 +34,7 @@ TCP와 UDP는 각각의 장단점과 사용 사례에 따라 선택되어야 합
 ## Reference
 
 - https://mangkyu.tistory.com/15
+
+## Links
+
+- [[Network|Network]]
