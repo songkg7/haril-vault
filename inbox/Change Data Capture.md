@@ -4,7 +4,7 @@ date: 2023-08-11 10:14:00 +0900
 aliases: CDC
 tags: cdc, event, distribute
 categories: null
-updated: 2023-08-11 17:16:02 +0900
+updated: 2023-08-11 17:16:24 +0900
 ---
 
 ## CDC 의 개념과 동작 방식
@@ -63,5 +63,3 @@ class CdcEventListener(
     }
 }
 ```
-
-## 마무리
