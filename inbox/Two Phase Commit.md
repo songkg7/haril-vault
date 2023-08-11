@@ -1,10 +1,10 @@
 ---
 title: Two Phase Commit
 date: 2023-08-10 20:41:00 +0900
-aliases: null
+aliases: 2PC
 tags: msa, atomic, distribution
 categories: null
-updated: 2023-08-11 17:30:35 +0900
+updated: 2023-08-11 17:41:30 +0900
 ---
 
 ## What is Two Phase Commit?
