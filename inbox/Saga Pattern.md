@@ -4,7 +4,7 @@ date: 2023-08-11 17:38:00 +0900
 aliases: null
 tags: msa, distribute, transaction
 categories: null
-updated: 2023-08-11 18:00:50 +0900
+updated: 2023-08-12 15:43:16 +0900
 ---
 
 ## 분산 트랜잭션 처리 패턴
@@ -72,6 +72,25 @@ Step 2 같은 경우는 가능한 이벤트가 두 가지 있다고 생각하면
 3. `CustomerService` 는 이 이벤트를 수신하고 나서 `Credit Reserve` 를 시도한다.
 4. 그 후 `CustomerService` 는 이 결과에 대해 이벤트를 만든다.
 5. `OrderService` 는 이 이벤트를 받고나서 `Order` 를 Approve 할지 reject 할 지 결정한다.
+
+### Orchestration-Based Pattern
+
+Orchestration-Based Pattern 에서는 Saga 의 participant 들에게 뭘 해야 하는지 알려주는 orchestrator 가 있다.
+
+Saga Orchestrator 는 참가자들과 비동기 통신을 통해서 상호작용을 한다. 각각의 스텝에서 Saga Orchestrator 는 participant 에게 어떤 행동을 해야 하는지 알려준다. 그 후 participant 는 적절한 행동 후에 orchestrator 에게 응답을 보낸다. orchestrator 는 이 메시지를 읽고 다음 participant 에게 보낼 메시지를 만든다.
+
+다이어그램은 다음과 같다.
+
+![[Pasted image 20230812154531.png]]
+
+순서를 살펴보자면
+
+1. `OrderService` 는 `POST /orders` 요청을 `Order Saga Orchestrator` 를 만들어서 처리한다.
+2. `Saga Orchestrator` 는 `Order` 를 `Pending` 상태로 만든다.
+3. 그 후 `Saga Orchestrator` 는 `Reserve Credit` 명령을 `CustomerService` 에게 보낸다.
+4. `CustomerService` 는 명령대로 행동한다.
+5. 그 후 `CustomerService` 는 결과에 따른 응답 메시지를 보낸다.
+6. `Saga Orchestrator` 는 이 결과를 보고 `Order` 를 approve 할지 reject 할지 결정한다.
 
 ## Reference
 
