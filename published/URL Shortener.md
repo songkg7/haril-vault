@@ -1,12 +1,13 @@
 ---
-title: URL 단축기? 직접 구현하자
+title: 직접 구현해보는 URL 단축기
 date: 2023-05-07 14:13:00 +0900
 aliases: null
 tags:
   - url
   - system-architecture
+  - kotlin
 categories: null
-updated: 2023-08-01 18:17:54 +0900
+updated: 2023-08-16 13:35:25 +0900
 ---
 
 > [!INFO]
@@ -32,10 +33,10 @@ curl -X POST --location "http://localhost:8080/api/v1/shorten" \
     -d "{
             \"longUrl\": \"https://www.google.com/search?q=url+shortener&sourceid=chrome&ie=UTF-8\"
         }"
-# 8aIYwrnU8g
+# tN47tML
 ```
 
-이제 웹페이지에서 `http://localhost:8080/8aIYwrnU8g` 로 접근해보면,
+이제 웹페이지에서 `http://localhost:8080/tN47tML` 로 접근해보면,
 
 ![[Pasted image 20230701200237.png]]
 
@@ -47,7 +48,7 @@ curl -X POST --location "http://localhost:8080/api/v1/shorten" \
 
 **단축 후**
 
-- http://localhost:8080/8aIYwrnU8g
+- http://localhost:8080/tN47tML
 
 그러면 이제 어떻게 URL 을 단축시킬 수 있는지 알아볼게요.
 
@@ -63,36 +64,32 @@ curl -X POST --location "http://localhost:8080/api/v1/shorten" \
 
 URL 을 관리하기 위해 ID 생성 전략을 먼저 확보해야 합니다. ID 생성에는 다양한 방법이 있는데 여기서 다루기에는 내용이 다소 길어질 수 있어서 생략하겠습니다. 저는 간단하게 현재 시간에 대한 타임스탬프를 사용할 것 입니다.
 
-- [[Snowflake|Snowflake]]
-
-#### 해시 후 충돌해소 접근법
-
 #### Base62 변환
 
 [[ULID]] 를 사용하면 시간이 포함된 유일한 ID 를 생성할 수 있습니다.
 
-%%생성된 ID 첨부%%
+```kotlin
+val id: Long = Ulid.fast().time // ex) 3145144998701, pk 로 사용
+```
 
 이 숫자를 62진법으로 변환하면 다음과 같은 문자열을 얻을 수 있습니다.
 
+```
+tN47tML
+```
+
 이 문자열을 shortUrl 로써 DB 에 저장합니다.
 
-### 단축 URL 로 접근
+| id   | short   | long                                                                   |
+| ---- | ------- | ---------------------------------------------------------------------- |
+| 3145144998701 | tN47tML | https://www.google.com/search?q=url+shortener&sourceid=chrome&ie=UTF-8 |
 
-1. shortUrl 을 decode 하여 id 로 변환
-2. ID 를 DB 에 질의
-3. 반환받은 longUrl 로 리다이렉트
+조회는 아래 순서로 이루어지게 됩니다.
 
-URL 정보를 관리하기 위해 `UrlPair` 라는 엔티티를 만들어줍니다.
-
-```mermaid
-erDiagram
-    UrlPair {
-        Long id PK
-        String shortUrl
-        String longUrl "unique"
-    }
-```
+1. `localhost:8080/tN47tML` 로 get 요청이 발생
+2. `tN47tML` 을 base62 decoding
+3. 3145144998701 이라는 pk 를 얻어낸 후 DB 에 조회
+4. longUrl 로 요청을 Redirect
 
 ## 구현
 
@@ -171,7 +168,7 @@ class Base62Conversion : Conversion {
 
 단축된 URL 의 길이는 아이디의 숫자 크기에 반비례합니다. 생성된 ID 의 숫자가 작을수록 URL 도 짧게 만들 수 있습니다.
 
-단축 URL 의 길이가 8자리를 넘지 않게 하고 싶다면, ID 의 크기가 62^8 을 넘지 않도록 생성하면 됩니다. 따라서 ID 를 어떤 방식으로 생성하느냐도 굉장히 중요합니다. 이번에는 내용을 단순화시키기 위해서 해당 부분을 시간값으로 처리했습니다.
+단축 URL 의 길이가 8자리를 넘지 않게 하고 싶다면, ID 의 크기가 62^8 을 넘지 않도록 생성하면 됩니다. 따라서 ID 를 어떤 방식으로 생성하느냐도 굉장히 중요합니다. 앞서 설명했듯 이번 글에서는 내용을 단순화시키기 위해서 해당 부분을 시간값으로 처리했습니다.
 
 ### Test
 

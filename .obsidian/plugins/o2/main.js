@@ -1306,6 +1306,7 @@ var JekyllSetting = class {
     this.backupFolder = "backup";
     this._jekyllPath = "";
     this._jekyllRelativeResourcePath = "assets/img";
+    this._isAutoCreateFolder = false;
   }
   get jekyllPath() {
     return this._jekyllPath;
@@ -1336,6 +1337,12 @@ var JekyllSetting = class {
   }
   set isEnableUpdateFrontmatterTimeOnEdit(value) {
     this._isEnableUpdateFrontmatterTimeOnEdit = value;
+  }
+  get isAutoCreateFolder() {
+    return this._isAutoCreateFolder;
+  }
+  set isAutoCreateFolder(value) {
+    this._isAutoCreateFolder = value;
   }
   targetPath() {
     return `${this._jekyllPath}/_posts`;
@@ -1378,15 +1385,19 @@ var O2SettingTab = class extends import_obsidian.PluginSettingTab {
     });
     this.enableCurlyBraceSetting();
     this.enableUpdateFrontmatterTimeOnEditSetting();
-    this.containerEl.createEl("h2", {
-      text: "Experimental features"
-    });
-    this.enableBannerSetting();
+    this.enableAutoCreateFolderSetting();
   }
   enableUpdateFrontmatterTimeOnEditSetting() {
     const jekyllSetting = this.plugin.settings.jekyllSetting();
     new import_obsidian.Setting(this.containerEl).setName("Replace date frontmatter to updated time").setDesc("If 'updated' frontmatter exists, replace the value of 'date' frontmatter with the value of 'updated' frontmatter.").addToggle((toggle) => toggle.setValue(jekyllSetting.isEnableUpdateFrontmatterTimeOnEdit).onChange(async (value) => {
       jekyllSetting.isEnableUpdateFrontmatterTimeOnEdit = value;
+      await this.plugin.saveSettings();
+    }));
+  }
+  enableAutoCreateFolderSetting() {
+    const jekyllSetting = this.plugin.settings.jekyllSetting();
+    new import_obsidian.Setting(this.containerEl).setName("Auto create folders").setDesc("Automatically create necessary folders if they do not exist.").addToggle((toggle) => toggle.setValue(jekyllSetting.isAutoCreateFolder).onChange(async (value) => {
+      jekyllSetting.isAutoCreateFolder = value;
       await this.plugin.saveSettings();
     }));
   }
@@ -9797,16 +9808,31 @@ async function convertToChirpy(plugin) {
 async function validateSettings(plugin) {
   const adapter = plugin.app.vault.adapter;
   if (!await adapter.exists(plugin.settings.attachmentsFolder)) {
-    new import_obsidian4.Notice(`Attachments folder ${plugin.settings.attachmentsFolder} does not exist.`, 5e3);
-    throw new Error(`Attachments folder ${plugin.settings.attachmentsFolder} does not exist.`);
+    if (plugin.settings.jekyllSetting().isAutoCreateFolder) {
+      new import_obsidian4.Notice(`Auto create attachments folder: ${plugin.settings.attachmentsFolder}.`, 5e3);
+      await adapter.mkdir(plugin.settings.attachmentsFolder);
+    } else {
+      new import_obsidian4.Notice(`Attachments folder ${plugin.settings.attachmentsFolder} does not exist.`, 5e3);
+      throw new Error(`Attachments folder ${plugin.settings.attachmentsFolder} does not exist.`);
+    }
   }
   if (!await adapter.exists(plugin.settings.readyFolder)) {
-    new import_obsidian4.Notice(`Ready folder ${plugin.settings.readyFolder} does not exist.`, 5e3);
-    throw new Error(`Ready folder ${plugin.settings.readyFolder} does not exist.`);
+    if (plugin.settings.jekyllSetting().isAutoCreateFolder) {
+      new import_obsidian4.Notice(`Auto create ready folder: ${plugin.settings.readyFolder}.`, 5e3);
+      await adapter.mkdir(plugin.settings.readyFolder);
+    } else {
+      new import_obsidian4.Notice(`Ready folder ${plugin.settings.readyFolder} does not exist.`, 5e3);
+      throw new Error(`Ready folder ${plugin.settings.readyFolder} does not exist.`);
+    }
   }
   if (!await adapter.exists(plugin.settings.backupFolder)) {
-    new import_obsidian4.Notice(`Backup folder ${plugin.settings.backupFolder} does not exist.`, 5e3);
-    throw new Error(`Backup folder ${plugin.settings.backupFolder} does not exist.`);
+    if (plugin.settings.jekyllSetting().isAutoCreateFolder) {
+      new import_obsidian4.Notice(`Auto create backup folder: ${plugin.settings.backupFolder}.`, 5e3);
+      await adapter.mkdir(plugin.settings.backupFolder);
+    } else {
+      new import_obsidian4.Notice(`Backup folder ${plugin.settings.backupFolder} does not exist.`, 5e3);
+      throw new Error(`Backup folder ${plugin.settings.backupFolder} does not exist.`);
+    }
   }
 }
 function getFilesInReady(plugin) {

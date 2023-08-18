@@ -4,7 +4,7 @@ date: 2023-08-08 21:48:00 +0900
 aliases: null
 tags: database
 categories: null
-updated: 2023-08-08 21:49:21 +0900
+updated: 2023-08-17 11:17:43 +0900
 ---
 
 ## What is Transaction?
@@ -26,3 +26,7 @@ Transactions are typically characterized by certain key attributes:
 4. Durability: Once a transaction is committed and completed successfully, its changes should be permanent and survive any subsequent failures or system crashes.
 
 Transactions play a crucial role in various industries and sectors by facilitating secure and reliable exchanges of goods, services, information, and funds. They provide accountability and transparency while ensuring that parties involved can trust the outcome of their interactions.
+
+## Reference
+
+- https://m-falcon.tistory.com/527

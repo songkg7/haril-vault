@@ -1,10 +1,12 @@
 ---
-title: "Transactional Outbox Pattern"
+title: Transactional Outbox Pattern
 date: 2023-07-10 11:15:00 +0900
-aliases: 
-tags: [distribute, transaction]
-categories: 
-updated: 2023-07-10 12:37:17 +0900
+aliases: null
+tags:
+  - distribute
+  - transaction
+categories: null
+updated: 2023-08-17 11:21:50 +0900
 ---
 
 The Transactional Outbox Pattern is a design pattern used in distributed systems to ensure reliable message delivery. It is often used in systems where multiple services need to be notified of changes or events.
@@ -28,3 +30,4 @@ Overall, the Transactional Outbox Pattern is a powerful tool for designing distr
 ## Reference
 
 - [강남언니 공식 기술블로그](https://blog.gangnamunni.com/post/transactional-outbox)
+- [동인님 블로그](https://velog.io/@eastperson/Transaction-Outbox-Pattern-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0)
