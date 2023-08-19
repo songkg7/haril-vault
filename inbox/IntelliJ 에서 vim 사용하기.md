@@ -1,11 +1,15 @@
 ---
-title: "IntelliJ 에서 vim 사용하기"
+title: IntelliJ 에서 vim 사용하기
 date: 2022-08-23 22:00:00 +0900
 fc-calendar: Gregorian Calendar
 fc-date: 2022-08-23
 aliases: IdeaVim
-tags: [vim, ideavim, intellij]
+tags:
+  - vim
+  - ideavim
+  - intellij
 categories: Vim
+updated: 2023-08-19 12:38:02 +0900
 ---
 
 intelliJ 에서는 [[Vim]] 을 위해 `ideaVim` 이라는 플러그인을 제공한다.

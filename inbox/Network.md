@@ -1,12 +1,14 @@
 ---
-title: "Network"
+title: Network
 date: 2022-08-16 13:43:00 +0900
 publish: false
 fc-calendar: Gregorian Calendar
 fc-date: 2022-08-16
-aliases: 
-tags: [network]
+aliases: null
+tags:
+  - network
 categories: Network
+updated: 2023-08-19 12:38:12 +0900
 ---
 
 # 네트워크란 무엇인가?

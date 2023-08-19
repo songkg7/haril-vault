@@ -1,10 +1,12 @@
 ---
-title: "Vim 유용한 단축키"
+title: Vim 유용한 단축키
 date: 2023-01-19 19:42:00 +0900
-aliases: 
-tags: [vim, ideavim]
-categories: 
-updated: 2023-05-24 20:26:21 +0900
+aliases: null
+tags:
+  - vim
+  - ideavim
+categories: null
+updated: 2023-08-19 12:37:48 +0900
 ---
 
 ```

@@ -1,11 +1,15 @@
 ---
-title: "Docker"
+title: Docker
 date: 2022-08-13 22:52:00 +0900
-tags: [docker, devops, container]
-categories: [DevOps]
+tags:
+  - docker
+  - devops
+  - container
+categories:
+  - DevOps
 fc-calendar: Gregorian Calendar
 fc-date: 2022-08-13
-updated: 2023-05-18 23:35:32 +0900
+updated: 2023-08-19 12:38:16 +0900
 ---
 
 - [[Docker volume]]

@@ -1,12 +1,17 @@
 ---
-title: "Strategy pattern"
+title: Strategy pattern
 date: 2022-08-18 11:11:00 +0900
 publish: false
 fc-calendar: Gregorian Calendar
 fc-date: 2022-08-18
-aliases: 
-tags: [design-pattern, kotlin, kotest]
-categories: [Design pattern]
+aliases: null
+tags:
+  - design-pattern
+  - kotlin
+  - kotest
+categories:
+  - Design pattern
+updated: 2023-08-19 12:37:58 +0900
 ---
 
 # Strategy pattern

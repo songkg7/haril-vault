@@ -1,12 +1,19 @@
 ---
-title: "Spring WebFlux"
+title: Spring WebFlux
 date: 2022-08-21 11:52:00 +0900
 fc-calendar: Gregorian Calendar
 fc-date: 2022-08-21
 aliases: WebFlux
-tags: [spring, mvc, non-blocking, async, java, kotlin, reactive]
+tags:
+  - spring
+  - mvc
+  - non-blocking
+  - async
+  - java
+  - kotlin
+  - reactive
 categories: Spring
-updated: 2023-07-18 15:17:57 +0900
+updated: 2023-08-19 12:38:08 +0900
 ---
 
 ## Overview

@@ -1,11 +1,14 @@
 ---
-title: "Reactive API"
+title: Reactive API
 date: 2022-08-21 12:51:00 +0900
 fc-calendar: Gregorian Calendar
 fc-date: 2022-08-21
-aliases: 
-tags: [reactive, library]
-categories: 
+aliases: null
+tags:
+  - reactive
+  - library
+categories: null
+updated: 2023-08-19 12:38:02 +0900
 ---
 
 Reactive streams 은 컴포넌트 상호 작용에서 중요한 역할은 한다. 하지만 이건 라이브러리와 기반 구조에 사용되는 컴포넌트엔 유용해도, 애플리케이션 API 에서 다루기엔 너무 저수준이다. 애플리케이션은 비동기 로직을 만들기 위한 풍부한 고수준 함수형 API 가 필요하다(Java 8 Stream API 와 비슷하지만 컬렉션만을 위한게 아니다). 이게 바로 Reactive library 가 하는 일이다.

@@ -1,10 +1,13 @@
 ---
-title: "Spring batch 5.0 changes"
+title: Spring batch 5.0 changes
 date: 2023-02-24 13:38:00 +0900
-aliases: 
-tags: [spring, batch, changes]
+aliases: null
+tags:
+  - spring
+  - batch
+  - changes
 categories: Spring
-updated: 2023-05-16 10:16:19 +0900
+updated: 2023-08-19 12:38:10 +0900
 ---
 
 [[Spring Batch]] 5.0 이 되면서 변경된 사항들을 정리합니다.

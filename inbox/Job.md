@@ -1,12 +1,15 @@
 ---
-title: "Job"
+title: Job
 date: 2022-08-17 09:36:00 +0900
 publish: false
 fc-calendar: Gregorian Calendar
 fc-date: 2022-08-17
-aliases: 
-tags: [batch, job]
+aliases: null
+tags:
+  - batch
+  - job
 categories: Spring
+updated: 2023-08-19 12:38:07 +0900
 ---
 
 # Job

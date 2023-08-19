@@ -1,12 +1,16 @@
 ---
-title: "ItemReader"
+title: ItemReader
 date: 2022-08-17 17:01:00 +0900
 publish: false
 fc-calendar: Gregorian Calendar
 fc-date: 2022-08-17
-aliases: 
-tags: [batch, chunk, step]
+aliases: null
+tags:
+  - batch
+  - chunk
+  - step
 categories: Spring
+updated: 2023-08-19 12:37:47 +0900
 ---
 
 `ItemReader` 는 [[Step]] 의 대상이 되는 배치 데이터를 읽어오는 인터페이스입니다. `file`, `xml`, `DB`, 등 여러 타입의 데이터를 읽어올 수 있습니다.

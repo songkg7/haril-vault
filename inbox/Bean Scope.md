@@ -1,10 +1,15 @@
 ---
-title: "Bean Scope"
+title: Bean Scope
 date: 2023-07-15 14:24:00 +0900
-aliases: 
-tags: [spring, bean, scope, singleton, prototype]
+aliases: null
+tags:
+  - spring
+  - bean
+  - scope
+  - singleton
+  - prototype
 categories: Spring
-updated: 2023-07-15 15:22:25 +0900
+updated: 2023-08-19 12:38:08 +0900
 ---
 
 ## Bean Scope(빈 스코프)

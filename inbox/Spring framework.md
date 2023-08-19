@@ -1,12 +1,18 @@
 ---
-title: "Spring framework"
+title: Spring framework
 date: 2021-04-15 23:31:00 +0900
-tags: [java, framework, backend, spring]
+tags:
+  - java
+  - framework
+  - backend
+  - spring
 categories: Spring
 publish: false
-aliases: [Spring]
+aliases:
+  - Spring
 fc-calendar: Gregorian Calendar
 fc-date: 2022-08-14
+updated: 2023-08-19 12:36:02 +0900
 ---
 
 # Overview

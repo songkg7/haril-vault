@@ -1,11 +1,16 @@
 ---
-title: "MySQL"
+title: MySQL
 date: 2022-10-14 20:50:00 +0900
 fc-calendar: Gregorian Calendar
 fc-date: 2022-10-14
-aliases: 
-tags: [sql, database, opensource, rdb]
+aliases: null
+tags:
+  - sql
+  - database
+  - opensource
+  - rdb
 categories: Database
+updated: 2023-08-19 12:37:51 +0900
 ---
 
 ## Overview

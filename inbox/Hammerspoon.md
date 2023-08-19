@@ -1,9 +1,15 @@
 ---
-title: "Hammerspoon"
+title: Hammerspoon
 date: 2023-02-02 09:37:00 +0900
-aliases: 
-tags: [hammerspoon, tool, keymap, lua, vim]
-categories: 
+aliases: null
+tags:
+  - hammerspoon
+  - tool
+  - keymap
+  - lua
+  - vim
+categories: null
+updated: 2023-08-19 12:38:00 +0900
 ---
 
 ```bash

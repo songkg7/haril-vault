@@ -1,11 +1,16 @@
 ---
-title: "TeamCity"
+title: TeamCity
 date: 2022-08-20 13:26:00 +0900
 fc-calendar: Gregorian Calendar
 fc-date: 2022-08-20
-aliases: 
-tags: [CI, CD, teamcity, jetbrains]
+aliases: null
+tags:
+  - CI
+  - CD
+  - teamcity
+  - jetbrains
 categories: DevOps
+updated: 2023-08-19 12:38:06 +0900
 ---
 
 ## Overview

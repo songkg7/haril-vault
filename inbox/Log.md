@@ -1,10 +1,12 @@
 ---
-title: "Docker Log"
+title: Docker Log
 date: 2023-06-13 12:02:00 +0900
-aliases: 
-tags: [log, docker]
-categories: 
-updated: 2023-06-13 13:38:43 +0900
+aliases: null
+tags:
+  - log
+  - docker
+categories: null
+updated: 2023-08-19 12:37:53 +0900
 ---
 
 ### Log 관리

@@ -1,9 +1,11 @@
 ---
-title: "DBA"
+title: DBA
 date: 2022-10-30 17:49:00 +0900
 aliases: DBA
-tags: [database]
-categories: 
+tags:
+  - database
+categories: null
+updated: 2023-08-19 12:36:06 +0900
 ---
 
 ## DBA

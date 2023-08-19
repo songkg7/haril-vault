@@ -1,10 +1,11 @@
 ---
-title: "Random Interview Depence"
+title: Random Interview Depence
 date: 2023-07-21 10:12:00 +0900
-aliases: 
-tags: [side-project]
-categories: 
-updated: 2023-07-21 10:14:12 +0900
+aliases: null
+tags:
+  - side-project
+categories: null
+updated: 2023-08-19 12:37:54 +0900
 ---
 
 ## 해결하고자 하는 문제

@@ -1,11 +1,14 @@
 ---
-title: "WebClient timeout 과 connection pool 전략"
+title: WebClient timeout 과 connection pool 전략
 date: 2022-08-29 10:43:00 +0900
 fc-calendar: Gregorian Calendar
 fc-date: 2022-08-29
-aliases: 
-tags: [webclient, http]
-categories: 
+aliases: null
+tags:
+  - webclient
+  - http
+categories: null
+updated: 2023-08-19 12:37:52 +0900
 ---
 
 ## WebClient timeout

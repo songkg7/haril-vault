@@ -1,11 +1,18 @@
 ---
-title: "SynchronizeItemReader"
+title: SynchronizeItemReader
 date: 2022-08-24 20:19:00 +0900
 fc-calendar: Gregorian Calendar
 fc-date: 2022-08-24
-aliases: 
-tags: [spring, batch, reader, synchronize, thread-safe, java]
+aliases: null
+tags:
+  - spring
+  - batch
+  - reader
+  - synchronize
+  - thread-safe
+  - java
 categories: Spring
+updated: 2023-08-19 12:38:10 +0900
 ---
 
 ## Overview

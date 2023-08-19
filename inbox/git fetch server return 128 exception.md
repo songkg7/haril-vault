@@ -1,9 +1,13 @@
 ---
-title: "git fetch server return 128 exception"
+title: git fetch server return 128 exception
 date: 2022-11-30 11:08:00 +0900
-aliases: 
-tags: [error, git, jenkins]
-categories: 
+aliases: null
+tags:
+  - error
+  - git
+  - jenkins
+categories: null
+updated: 2023-08-19 12:37:41 +0900
 ---
 
 [[Jenkins]] 에서 간헐적으로 gitlab 과의 연결과정에서 128 응답이 올 때가 있다. 해당 문제 해결 과정을 정리해둔다.

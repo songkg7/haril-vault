@@ -1,12 +1,16 @@
 ---
-title: "ItemWriter"
+title: ItemWriter
 date: 2022-08-17 17:10:00 +0900
 publish: false
 fc-calendar: Gregorian Calendar
 fc-date: 2022-08-17
-aliases: 
-tags: [batch, step, chunk]
+aliases: null
+tags:
+  - batch
+  - step
+  - chunk
 categories: Spring
+updated: 2023-08-19 12:37:53 +0900
 ---
 
 `ItemWriter` 는 배치 데이터를 저장합니다. 일반적으로는 DB 에 저장하지만, 거의 대부분의 포맷을 지원하므로 상황에 따라 선택하면 됩니다.

@@ -1,10 +1,11 @@
 ---
-title: "델타 동기화"
+title: 델타 동기화
 date: 2023-05-29 19:48:00 +0900
-aliases: 
-tags: [sync]
-categories: 
-updated: 2023-05-29 19:49:52 +0900
+aliases: null
+tags:
+  - sync
+categories: null
+updated: 2023-08-19 12:37:58 +0900
 ---
 
 ## 델타 동기화란?

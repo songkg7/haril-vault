@@ -1,9 +1,12 @@
 ---
-title: "Index"
+title: Index
 date: 2022-10-26 09:53:00 +0900
-aliases: 
-tags: [index, database]
-categories: 
+aliases: null
+tags:
+  - index
+  - database
+categories: null
+updated: 2023-08-19 12:37:50 +0900
 ---
 
 인덱스는 정렬된 테이블이다. 정렬되어 있기 때문에 빠른 조회를 보장한다. 하지만 인덱스는 테이블인만큼 추가 공간을 차지하게 된다. 또한 인덱스를 설정하게 되면 데이터를 쓰거나 삭제할 때 인덱스가 계속 변화하기 때문에 필연적으로 데이터 수정 성능을 낮추게 된다.

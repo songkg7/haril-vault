@@ -1,11 +1,13 @@
 ---
-title: "블로그 글쓰기 파이프라인"
+title: 블로그 글쓰기 파이프라인
 date: 2023-04-16 22:35:00 +0900
-aliases: 
-tags: [blog, posting]
-categories: 
+aliases: null
+tags:
+  - blog
+  - posting
+categories: null
 banner: "![[banner-1.png]]"
-updated: 2023-04-23 17:32:01 +0900
+updated: 2023-08-19 12:38:15 +0900
 banner_y: 0.06296
 ---
 

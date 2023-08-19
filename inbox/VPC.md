@@ -1,10 +1,12 @@
 ---
-title: "VPC"
+title: VPC
 date: 2023-06-15 15:42:00 +0900
-aliases: 
-tags: [vpc, cloud]
-categories: 
-updated: 2023-06-15 15:45:23 +0900
+aliases: null
+tags:
+  - vpc
+  - cloud
+categories: null
+updated: 2023-08-19 12:37:55 +0900
 ---
 
 ## What is a VPC?

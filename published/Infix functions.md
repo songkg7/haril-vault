@@ -1,12 +1,16 @@
 ---
 title: "[Kotlin] Infix functions"
-categories: [Kotlin]
-tags: [kotlin, infix]
+categories:
+  - Kotlin
+tags:
+  - kotlin
+  - infix
 date: 2022-08-16 21:15:00 +0900
 publish: true
 fc-calendar: Gregorian Calendar
 fc-date: 2022-08-16
-aliases: 
+aliases: null
+updated: 2023-08-19 12:38:02 +0900
 ---
 
 [[Kotlin]] 에는 Infix function 이라는 메서드 정의 방법이 있는데요,  Java 를 주언어로 쓰는동안엔 상상도 못했던 문법이라 처음 Kotlin 을 시작하시는 분들을 위해 소개합니다.

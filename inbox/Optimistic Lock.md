@@ -1,10 +1,12 @@
 ---
-title: "Optimistic Lock"
+title: Optimistic Lock
 date: 2023-07-10 12:37:00 +0900
-aliases: 
-tags: [database, transaction]
-categories: 
-updated: 2023-07-10 12:38:09 +0900
+aliases: null
+tags:
+  - database
+  - transaction
+categories: null
+updated: 2023-08-19 12:38:12 +0900
 ---
 
 ## What is Optimistic Lock?

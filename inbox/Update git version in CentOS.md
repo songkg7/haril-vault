@@ -1,11 +1,15 @@
 ---
-title: "Update git version in CentOS"
+title: Update git version in CentOS
 date: 2022-09-11 13:07:00 +0900
 fc-calendar: Gregorian Calendar
 fc-date: 2022-09-11
-aliases: 
-tags: [centos, git, yum]
+aliases: null
+tags:
+  - centos
+  - git
+  - yum
 categories: CentOS
+updated: 2023-08-19 12:37:47 +0900
 ---
 
 git 최신 버전이 등록되어 있는 저장소 등록

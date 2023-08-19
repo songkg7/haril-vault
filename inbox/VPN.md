@@ -1,10 +1,12 @@
 ---
-title: "VPN"
+title: VPN
 date: 2023-06-15 15:41:00 +0900
-aliases: 
-tags: [vpn, network]
-categories: 
-updated: 2023-06-15 15:43:01 +0900
+aliases: null
+tags:
+  - vpn
+  - network
+categories: null
+updated: 2023-08-19 12:37:58 +0900
 ---
 
 ## What is a VPN?

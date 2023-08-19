@@ -1,12 +1,16 @@
 ---
-title: "Dispatcher Servlet"
+title: Dispatcher Servlet
 date: 2022-08-14 00:11:00 +0900
-tags: [network, http, spring]
+tags:
+  - network
+  - http
+  - spring
 categories: Spring
 publish: false
-aliases: 
+aliases: null
 fc-calendar: Gregorian Calendar
 fc-date: 2022-08-14
+updated: 2023-08-19 12:38:06 +0900
 ---
 
 ## Dispatcher Servlet?

@@ -1,11 +1,12 @@
 ---
-title: "mac 키보드 반복 활성화"
+title: mac 키보드 반복 활성화
 date: 2022-08-25 22:38:00 +0900
 fc-calendar: Gregorian Calendar
 fc-date: 2022-08-25
-aliases: 
-tags: 
-categories: 
+aliases: null
+tags: null
+categories: null
+updated: 2023-08-19 12:37:44 +0900
 ---
 
 [[Vim]] 을 사용할 때 키를 꾹 누르고 있으면 반복입력되는 것을 원할 것이다. 하지만 맥에서는 반복입력 대신 특수문자가 뜨는 키들이 있는데, 이럴 때는 터미널에 다음 명령을 실행시켜보자.
