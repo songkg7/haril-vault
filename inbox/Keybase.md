@@ -1,11 +1,14 @@
 ---
-title: "Keybase"
+title: Keybase
 date: 2022-09-11 12:21:00 +0900
 fc-calendar: Gregorian Calendar
 fc-date: 2022-09-11
-aliases: 
-tags: [gpg, security]
-categories: 
+aliases: null
+tags:
+  - gpg
+  - security
+categories: null
+updated: 2023-08-19 12:37:54 +0900
 ---
 
 > openGPG program

@@ -1,9 +1,13 @@
 ---
-title: "key generation error"
+title: key generation error
 date: 2022-09-11 11:36:00 +0900
-aliases: 
-tags: [gpg, keybase, security]
-categories: 
+aliases: null
+tags:
+  - gpg
+  - keybase
+  - security
+categories: null
+updated: 2023-08-19 12:38:00 +0900
 ---
 
 ```console

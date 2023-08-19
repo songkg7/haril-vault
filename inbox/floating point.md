@@ -1,12 +1,16 @@
 ---
-title: "floating point"
+title: floating point
 date: 2022-08-14 02:54:00 +0900
 publish: false
 fc-calendar: Gregorian Calendar
 fc-date: 2022-08-14
-aliases: [부동소수점]
-tags: [floating-point, float]
+aliases:
+  - 부동소수점
+tags:
+  - floating-point
+  - float
 categories: Computer science
+updated: 2023-08-19 12:38:01 +0900
 ---
 
 ## 부동소수?

@@ -1,11 +1,14 @@
 ---
-title: "중복되는 설정들을 Annotation 으로 간단하게 관리하기"
+title: 중복되는 설정들을 Annotation 으로 간단하게 관리하기
 date: 2022-10-10 13:56:00 +0900
 fc-calendar: Gregorian Calendar
 fc-date: 2022-10-10
-aliases: 
-tags: [spring, annotation]
-categories: 
+aliases: null
+tags:
+  - spring
+  - annotation
+categories: null
+updated: 2023-08-19 12:37:55 +0900
 ---
  > [!NOTE] Example code
 > 모든 예제 코드는 [GitHub](https://github.com/songkg7/java-practice)에서 보실 수 있습니다. 

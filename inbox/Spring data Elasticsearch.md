@@ -1,11 +1,16 @@
 ---
-title: "Elasticsearch"
+title: Elasticsearch
 date: 2022-09-20 17:36:00 +0900
 fc-calendar: Gregorian Calendar
 fc-date: 2022-09-20
-aliases: 
-tags: [spring, elasticsearch, elk, kotlin]
-categories:
+aliases: null
+tags:
+  - spring
+  - elasticsearch
+  - elk
+  - kotlin
+categories: null
+updated: 2023-08-19 12:38:12 +0900
 ---
 
 > [!INFO] 이 아티클의 메인 언어는 Kotlin 입니다.

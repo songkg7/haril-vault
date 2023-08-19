@@ -1,9 +1,12 @@
 ---
-title: "MongoDB"
+title: MongoDB
 date: 2022-09-13 11:45:00 +0900
-aliases: 
-tags: [mongodb, nosql]
+aliases: null
+tags:
+  - mongodb
+  - nosql
 categories: MongoDB
+updated: 2023-08-19 12:38:12 +0900
 ---
 
 ## Overview

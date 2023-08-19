@@ -1,9 +1,13 @@
 ---
-title: "Fixture monkey"
+title: Fixture monkey
 date: 2022-09-19 18:34:00 +0900
-aliases: 
-tags: [test, naver, open-source]
-categories:
+aliases: null
+tags:
+  - test
+  - naver
+  - open-source
+categories: null
+updated: 2023-08-19 12:38:16 +0900
 ---
 
 > [!NOTE] Example code

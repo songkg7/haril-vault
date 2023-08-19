@@ -1,10 +1,12 @@
 ---
-title: "How Slack sends milions of messages"
+title: How Slack sends milions of messages
 date: 2023-04-30 13:58:00 +0900
-aliases: 
-tags: [slack, messaging]
-categories: 
-updated: 2023-04-30 14:08:28 +0900
+aliases: null
+tags:
+  - slack
+  - messaging
+categories: null
+updated: 2023-08-19 12:38:06 +0900
 ---
 
 ## Architecture

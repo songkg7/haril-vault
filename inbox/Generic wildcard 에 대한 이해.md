@@ -1,9 +1,13 @@
 ---
-title: "Generic wildcard 에 대한 이해"
+title: Generic wildcard 에 대한 이해
 date: 2022-10-29 23:59:00 +0900
-aliases: 
-tags: [java, generic, wildcard]
+aliases: null
+tags:
+  - java
+  - generic
+  - wildcard
 categories: Java
+updated: 2023-08-19 12:37:58 +0900
 ---
 
 ## Question

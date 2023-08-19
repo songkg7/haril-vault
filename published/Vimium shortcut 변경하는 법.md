@@ -1,11 +1,15 @@
 ---
-title: "Vimium shortcut 변경"
+title: Vimium shortcut 변경
 date: 2022-09-02 14:52:00 +0900
 fc-calendar: Gregorian Calendar
 fc-date: 2022-09-02
-aliases: 
-tags: [vim, chrome, vimium]
-categories: 
+aliases: null
+tags:
+  - vim
+  - chrome
+  - vimium
+categories: null
+updated: 2023-08-19 12:38:01 +0900
 ---
 
 ## Overview

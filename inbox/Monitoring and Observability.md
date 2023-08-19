@@ -1,10 +1,12 @@
 ---
-title: "Monitoring and Observility"
+title: Monitoring and Observility
 date: 2023-07-24 14:35:00 +0900
-aliases: 
-tags: [monitoring, observability]
-categories: 
-updated: 2023-07-24 16:36:27 +0900
+aliases: null
+tags:
+  - monitoring
+  - observability
+categories: null
+updated: 2023-08-19 12:35:55 +0900
 ---
 
 

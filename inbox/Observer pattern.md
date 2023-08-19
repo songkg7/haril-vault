@@ -1,10 +1,14 @@
 ---
-title: "Observer pattern"
+title: Observer pattern
 date: 2022-12-12 12:27:00 +0900
-aliases: 
-tags: [design-pattern, observer, java, kotlin]
-categories: 
-updated: 2023-07-24 16:38:14 +0900
+aliases: null
+tags:
+  - design-pattern
+  - observer
+  - java
+  - kotlin
+categories: null
+updated: 2023-08-19 12:38:13 +0900
 ---
 
 ## Overview

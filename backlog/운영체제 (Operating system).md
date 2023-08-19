@@ -1,10 +1,12 @@
 ---
-title: "운영체제 (Operating system)"
+title: 운영체제 (Operating system)
 date: 2022-08-16 10:36:00 +0900
 publish: false
 aliases: OS
-tags: [os]
+tags:
+  - os
 categories: Computer science
+updated: 2023-08-19 12:38:08 +0900
 ---
 
 # 운영체제란?

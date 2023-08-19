@@ -1,10 +1,12 @@
 ---
-title: "Docker compose"
+title: Docker compose
 date: 2023-02-11 23:59:00 +0900
-aliases: 
-tags: [docker, devops]
+aliases: null
+tags:
+  - docker
+  - devops
 categories: DevOps
-updated: 2023-05-15 09:57:09 +0900
+updated: 2023-08-19 12:38:08 +0900
 ---
 
 ## Overview

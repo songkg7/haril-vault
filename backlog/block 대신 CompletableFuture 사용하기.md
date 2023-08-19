@@ -1,9 +1,13 @@
 ---
-title: "block 대신 CompletableFuture 사용하기"
+title: block 대신 CompletableFuture 사용하기
 date: 2022-12-06 10:10:00 +0900
-aliases: 
-tags: [webflux, block, asnyc]
-categories: 
+aliases: null
+tags:
+  - webflux
+  - block
+  - asnyc
+categories: null
+updated: 2023-08-19 12:38:04 +0900
 ---
 
 ## Overview

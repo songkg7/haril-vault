@@ -1,9 +1,13 @@
 ---
-title: "이미 push 된 파일을 ignore 처리하는 법"
+title: 이미 push 된 파일을 ignore 처리하는 법
 date: 2023-01-19 12:24:00 +0900
-aliases: 
-tags: [git, rm, gitignore]
-categories: 
+aliases: null
+tags:
+  - git
+  - rm
+  - gitignore
+categories: null
+updated: 2023-08-19 12:37:36 +0900
 ---
 
 [[Git]]

@@ -1,9 +1,14 @@
 ---
-title: "Fixture monkey 0.4.x"
+title: Fixture monkey 0.4.x
 date: 2022-11-11 14:25:00 +0900
-aliases: 
-tags: [fixture, test, naver, open-source]
-categories: 
+aliases: null
+tags:
+  - fixture
+  - test
+  - naver
+  - open-source
+categories: null
+updated: 2023-08-19 12:38:06 +0900
 ---
 
 ## Overview

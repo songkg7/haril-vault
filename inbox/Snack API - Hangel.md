@@ -1,10 +1,12 @@
 ---
-title: "간식 요청 API 만들기"
+title: 간식 요청 API 만들기
 date: 2023-05-30 15:45:00 +0900
-aliases: 
-tags: [discord, api]
-categories: 
-updated: 2023-06-13 15:18:36 +0900
+aliases: null
+tags:
+  - discord
+  - api
+categories: null
+updated: 2023-08-19 12:38:06 +0900
 ---
 
 # 헨젤 봇

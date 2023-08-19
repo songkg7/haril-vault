@@ -1,10 +1,12 @@
 ---
-title: "user data 요청이 발생하는 이유와 해결"
+title: user data 요청이 발생하는 이유와 해결
 date: 2023-05-04 15:50:00 +0900
-aliases: 
-tags: [aws, linux]
-categories: 
-updated: 2023-05-08 16:43:08 +0900
+aliases: null
+tags:
+  - aws
+  - linux
+categories: null
+updated: 2023-08-19 12:37:49 +0900
 ---
 
 [[Datadog]] 에서 APM 중인 노드에서 지속적으로 http 404 error 가 발생하는 것을 확인하고 해당 url 을 살펴본 결과, `/latest/user-data/` 라는 리소스를 `http://169.254.169.254` 에 요청하고 있는 것을 확인할 수 있었다.

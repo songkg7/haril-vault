@@ -1,12 +1,16 @@
 ---
-title: "REST API"
+title: REST API
 date: 2022-08-19 17:46:00 +0900
 publish: false
 fc-calendar: Gregorian Calendar
 fc-date: 2022-08-19
-aliases: 
-tags: [http, api, restful]
-categories: 
+aliases: null
+tags:
+  - http
+  - api
+  - restful
+categories: null
+updated: 2023-08-19 12:38:07 +0900
 ---
 
 ## REST 란?

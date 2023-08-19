@@ -1,12 +1,16 @@
 ---
-title: "HashMap"
+title: HashMap
 date: 2022-08-18 15:38:00 +0900
 publish: false
 fc-calendar: Gregorian Calendar
 fc-date: 2022-08-18
-aliases: 
-tags: [hash, map]
-categories: [Data structure]
+aliases: null
+tags:
+  - hash
+  - map
+categories:
+  - Data structure
+updated: 2023-08-19 12:37:53 +0900
 ---
 
 ## Overview

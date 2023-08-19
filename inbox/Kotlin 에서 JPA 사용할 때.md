@@ -1,11 +1,14 @@
 ---
-title: "Kotlin 에서 JPA 사용할 때"
+title: Kotlin 에서 JPA 사용할 때
 date: 2022-10-16 07:24:00 +0900
 fc-calendar: Gregorian Calendar
 fc-date: 2022-10-16
-aliases: 
-tags: [kotlin, jpa]
+aliases: null
+tags:
+  - kotlin
+  - jpa
 categories: Kotlin
+updated: 2023-08-19 12:36:41 +0900
 ---
 
 ## Overview

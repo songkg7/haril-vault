@@ -1,12 +1,19 @@
 ---
-title: "Kotlin"
+title: Kotlin
 date: 2022-08-18 13:17:00 +0900
 publish: false
 fc-calendar: Gregorian Calendar
 fc-date: 2022-08-18
-aliases: 
-tags: [kotlin, backend, programming-language, superset, java, jvm]
+aliases: null
+tags:
+  - kotlin
+  - backend
+  - programming-language
+  - superset
+  - java
+  - jvm
 categories: Kotlin
+updated: 2023-08-19 12:37:53 +0900
 ---
 
 ## Overview

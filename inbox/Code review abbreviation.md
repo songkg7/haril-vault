@@ -1,12 +1,18 @@
 ---
-title: "Abbreviation"
+title: Abbreviation
 date: 2022-08-19 16:27:00 +0900
 publish: false
 fc-calendar: Gregorian Calendar
 fc-date: 2022-08-19
-aliases: 
-tags: [git, convention, code-review, github, gitlab]
-categories: 
+aliases: null
+tags:
+  - git
+  - convention
+  - code-review
+  - github
+  - gitlab
+categories: null
+updated: 2023-08-19 12:38:04 +0900
 ---
 
 ### NIT

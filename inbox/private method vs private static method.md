@@ -1,9 +1,12 @@
 ---
-title: "private method vs private static method"
+title: private method vs private static method
 date: 2023-03-03 17:30:00 +0900
-aliases: 
-tags: [java, private]
-categories: 
+aliases: null
+tags:
+  - java
+  - private
+categories: null
+updated: 2023-08-19 12:37:53 +0900
 ---
 
 [[Java]] 에서 `private` 접근제어자를 쓸 때 static 의 유무가 어떤 차이가 있는지 이야기합니다.

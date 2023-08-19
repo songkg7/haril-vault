@@ -1,10 +1,13 @@
 ---
-title: "bloom filter"
+title: bloom filter
 date: 2023-05-01 12:41:00 +0900
-aliases: 
-tags: [bloom-filter, hash, array]
-categories: 
-updated: 2023-05-01 12:43:42 +0900
+aliases: null
+tags:
+  - bloom-filter
+  - hash
+  - array
+categories: null
+updated: 2023-08-19 12:38:06 +0900
 ---
 
 ## 블룸 필터에 대해서

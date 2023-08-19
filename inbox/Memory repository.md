@@ -1,9 +1,13 @@
 ---
-title: "Memory repository"
+title: Memory repository
 date: 2022-09-08 09:49:00 +0900
-aliases: 
-tags: [java, library, memory]
-categories: 
+aliases: null
+tags:
+  - java
+  - library
+  - memory
+categories: null
+updated: 2023-08-19 12:38:12 +0900
 ---
 
 ## Motivation

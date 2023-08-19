@@ -1,9 +1,12 @@
 ---
-title: "LazyGit key binding"
+title: LazyGit key binding
 date: 2023-04-09 23:19:00 +0900
-aliases: 
-tags: [git, lazygit]
-categories: 
+aliases: null
+tags:
+  - git
+  - lazygit
+categories: null
+updated: 2023-08-19 12:38:16 +0900
 ---
 
 _This file is auto-generated. To update, make the changes in the pkg/i18n directory and then run `go run scripts/cheatsheet/main.go generate` from the project root._

@@ -1,12 +1,16 @@
 ---
-title: "HTTP & HTTPS"
+title: HTTP & HTTPS
 date: 2022-08-16 13:23:00 +0900
 publish: false
 fc-calendar: Gregorian Calendar
 fc-date: 2022-08-16
-aliases: 
-tags: [http, https, network]
+aliases: null
+tags:
+  - http
+  - https
+  - network
 categories: Network
+updated: 2023-08-19 12:38:06 +0900
 ---
 
 # HTTP (HyperText Transfer Protocol)

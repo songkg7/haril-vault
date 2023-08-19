@@ -1,9 +1,15 @@
 ---
-title: "Spring Data JPA"
+title: Spring Data JPA
 date: 2023-04-09 17:50:00 +0900
-aliases: 
-tags: [spring, jpa, orm, hibernate]
-categories: [Spring]
+aliases: null
+tags:
+  - spring
+  - jpa
+  - orm
+  - hibernate
+categories:
+  - Spring
+updated: 2023-08-19 12:37:45 +0900
 ---
 
 ## Overview

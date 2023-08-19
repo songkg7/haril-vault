@@ -1,12 +1,15 @@
 ---
-title: "Step"
+title: Step
 date: 2022-08-17 09:59:00 +0900
 publish: false
 fc-calendar: Gregorian Calendar
 fc-date: 2022-08-17
-aliases: 
-tags: [step, batch]
+aliases: null
+tags:
+  - step
+  - batch
 categories: Spring
+updated: 2023-08-19 12:36:28 +0900
 ---
 
 # Step

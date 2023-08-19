@@ -1,10 +1,10 @@
 ---
-title: "Recommand App 2023"
+title: Recommand App 2023
 date: 2023-06-28 10:42:00 +0900
-aliases: 
-tags: 
-categories: 
-updated: 2023-06-28 11:09:03 +0900
+aliases: null
+tags: null
+categories: null
+updated: 2023-08-19 12:37:58 +0900
 ---
 
 ## 2023 상반기 추천 앱 Top 3 for MacOS

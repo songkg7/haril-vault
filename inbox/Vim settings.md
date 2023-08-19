@@ -1,9 +1,11 @@
 ---
-title: "Vim settings"
+title: Vim settings
 date: 2022-08-26 10:11:00 +0900
-aliases: 
-tags: [vim]
-categories: 
+aliases: null
+tags:
+  - vim
+categories: null
+updated: 2023-08-19 12:38:07 +0900
 ---
 
 ## Overview

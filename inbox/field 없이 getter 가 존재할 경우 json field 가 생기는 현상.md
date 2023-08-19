@@ -1,9 +1,13 @@
 ---
-title: "field 없이 getter 가 존재할 경우 json field 가 생기는 현상"
+title: field 없이 getter 가 존재할 경우 json field 가 생기는 현상
 date: 2022-11-14 16:28:00 +0900
-aliases: 
-tags: [error, json, getter]
-categories: 
+aliases: null
+tags:
+  - error
+  - json
+  - getter
+categories: null
+updated: 2023-08-19 12:37:31 +0900
 ---
 
 ## Overview

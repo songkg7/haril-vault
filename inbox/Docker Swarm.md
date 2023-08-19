@@ -1,10 +1,12 @@
 ---
-title: "Docker Swarm"
+title: Docker Swarm
 date: 2023-05-13 18:26:00 +0900
-aliases: 
-tags: [docker, swarm]
-categories: 
-updated: 2023-05-13 18:56:09 +0900
+aliases: null
+tags:
+  - docker
+  - swarm
+categories: null
+updated: 2023-08-19 12:38:04 +0900
 ---
 
 [[Docker|Docker]]

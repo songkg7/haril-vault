@@ -1,9 +1,13 @@
 ---
-title: "JVM Warm up"
+title: JVM Warm up
 date: 2023-01-12 15:17:00 +0900
-aliases: 
-tags: [jvm, java, cache]
-categories: 
+aliases: null
+tags:
+  - jvm
+  - java
+  - cache
+categories: null
+updated: 2023-08-19 12:37:51 +0900
 ---
 
 [[Java]]
