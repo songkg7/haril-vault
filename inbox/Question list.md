@@ -5,7 +5,7 @@ aliases: null
 tags:
   - question
 categories: null
-updated: 2023-08-04 14:11:34 +0900
+updated: 2023-08-22 14:45:45 +0900
 ---
 
 ![[Dev QnA|개발 질문 모음]]
@@ -13,7 +13,7 @@ updated: 2023-08-04 14:11:34 +0900
 1. 동시성 이슈가 발생할 수 있는 부분을 염두에 둔 구현
 : DBMS 레벨 lock, 애플리케이션 레벨 lock
 
-- 공유 락(Shared Lock): 읽기에서 발생하는 db lock 읽기간에는 영향을 주지 않는다. 외래 키에 의해서 발생하는 락이기도 하다
+- 공유 락(Shared Lock): 읽기에서 발생하는 db lock 읽기간에는 영향을 주지 않는다. 외래 키에 의해서 생발하는 락이기도 하다
 - 베타 락(Exclusive Lock): 데이터에 변경을 가하는 쓰기 명령들에 대해 주어지는 락으로 Write Lock 으로도 불리며, X 로 표기합니다. 베타 락은 이름처럼 다른 세션이 해당 자원에 접근하는 것을 막는다. 베타락은 트랜잭션동안 유지된다.
 - 업데이트 락(Update Lock): 업데이트 락은 데이터를 수정하기 위해 베타 락을 걸기 전, 데드 락을 방지하기 위해 사용되는 락
 - 내재 락(Intent Lock): 내재 락은 사용자가 요청한 범위에 대한 락을 걸 수 있는지 여부를 빠르게 파악하기 위해 사용되는 락
@@ -89,77 +89,78 @@ https://brownbears.tistory.com/45
 8. 컴파일 과정을 말해보라
 9. interface와 abstract class차이
     1. 왜 클래스는 단일 상속만 가능한데, 인터페이스는 2개 이상 구현이 가능할까요?
-10. 캡슐화와 은닉화? 차이는 무엇인가?
-11. **String, StringBuilder, StringBuffer의 차이는**
-12. JAVA의 Garbage Collector는 어떻게 동작하는지.
+        - 어차피 인터페이스는 중간 구현체가 없기 때문에, 최종 구현체에서는 시그니처가 어느 부모로부터 유래한건지 알필요가 없기 때문
+1. 캡슐화와 은닉화? 차이는 무엇인가?
+2. **String, StringBuilder, StringBuffer의 차이는**
+3. JAVA의 Garbage Collector는 어떻게 동작하는지.
     1. finalize() 를 수동으로 호출하는 것은 왜 문제가 될 수 있을까요?
     2. 어떤 변수의 값이 null이 되었다면, 이 값은 GC가 될 가능성이 있을까요?
-13. GC 옵션
-14. **자바 다이나믹 프록시 → 스프링 AOP랑 같이 물어보는 경향**
-15. enum 이란
-16. 자바에서 == 와 Equals() 메서드의 차이는
-17. java의 접근 제어자의 종류와 특징
-18. Java SE와 Java EE 애플리케이션 차이
-19. java의 final 키워드 (final/finally/finalize)
-20. 리플렉션이란?
+4. GC 옵션
+5. **자바 다이나믹 프록시 → 스프링 AOP랑 같이 물어보는 경향**
+6. enum 이란
+7. 자바에서 == 와 Equals() 메서드의 차이는
+8. java의 접근 제어자의 종류와 특징
+9. Java SE와 Java EE 애플리케이션 차이
+10. java의 final 키워드 (final/finally/finalize)
+11. 리플렉션이란?
     1. 의미만 들어보면 리플렉션은 보안적인 문제가 있을 가능성이 있어보이는데, 실제로 그렇게 생각하시나요? 만약 그렇다면, 어떻게 방지할 수 있을까요?
     2. 리플렉션을 언제 활용할 수 있을까요?
-21. Wrapper class
-22. OOP의 4가지 특징
+12. Wrapper class
+13. OOP의 4가지 특징
     1. 추상화(Abstraction)
     2. 캡슐화(Encapsulation)
     3. 상속(Inheritance)
     4. 다형성(Polymorphism)
-23. **OOP의 5대 원칙(이중에 니 생각에 뭐가 제일 중요하냐?)**
+14. **OOP의 5대 원칙(이중에 니 생각에 뭐가 제일 중요하냐?)**
     1. **S**
     2. **O**
     3. **L**
     4. **I**
     5. **D**
-24. java의 non-static 멤버와 static 멤버의 차이
-25. static class와 static method를 비교해 주세요.
+15. java의 non-static 멤버와 static 멤버의 차이
+16. static class와 static method를 비교해 주세요.
     1. static 을 사용하면 어떤 이점을 얻을 수 있나요? 어떤 제약이 걸릴까요?
     2. 컴파일 과정에서 static 이 어떻게 처리되는지 설명해 주세요.
-26. java의 main 메서드가 static인 이유
-27. Java 에서 Annotation 은 어떤 기능을 하나요?
+17. java의 main 메서드가 static인 이유
+18. Java 에서 Annotation 은 어떤 기능을 하나요?
     1. 별 기능이 없는 것 같은데, 어떻게 Spring 에서는 Annotation 이 그렇게 많은 기능을 하는 걸까요?
     2. Lomok의 @Data를 잘 사용하지 않는 이유는 무엇일까요?
-28. java 직렬화(Serialization)와 역직렬화(Deserialization)란 무엇인가?
-29. 제네릭이란, 왜 쓰는지 어디에 써 봤는지 알려주세요
-30. 클래스, 객체, 인스턴스의 차이
-31. 객체(Object)란 무엇인가?
-32. Call by Reference와 Call by Value의 차이
-33. 제네릭에 대해 설명해주시고, 왜 쓰는지 어디세 써 봤는지 알려주세요.
-34. Java의 Exception에 대해 설명해 주세요.
+19. java 직렬화(Serialization)와 역직렬화(Deserialization)란 무엇인가?
+20. 제네릭이란, 왜 쓰는지 어디에 써 봤는지 알려주세요
+21. 클래스, 객체, 인스턴스의 차이
+22. 객체(Object)란 무엇인가?
+23. Call by Reference와 Call by Value의 차이
+24. 제네릭에 대해 설명해주시고, 왜 쓰는지 어디세 써 봤는지 알려주세요.
+25. Java의 Exception에 대해 설명해 주세요.
     1. 예외 처리를 하는 세 방법에 대해 설명해 주세요.
     2. CheckedException, UncheckedException 의 차이에 대해 설명해 주세요.
     3. 예외 처리가 성능에 큰 영향을 미치나요? 만약 그렇다면, 어떻게 하면 부하를 줄일 수 있을까요?
-35. **Java Collections Framework**
+26. **Java Collections Framework**
     1. **java Map 인터페이스 구현체의 종류 → 이거 당골**
         1. **HashMap vs HashTable vs ConcurrentHashMap vs TreeMap vs LinkedHashMap의 차이를 설명하시오.**
     2. **java Set 인터페이스 구현체의 종류**
     3. **java List 인터페이스 구현체의 종류**
-36. 깊은복사 , 얇은복사의 차이
-37. 동기화와 비동기화의 차이(Syncronous vs Asyncronous)
-38. **Stream이란? → 보통 어떨 때 Stream 많이 쓰세요?**
+27. 깊은복사 , 얇은복사의 차이
+28. 동기화와 비동기화의 차이(Syncronous vs Asyncronous)
+29. **Stream이란? → 보통 어떨 때 Stream 많이 쓰세요?**
     1. Stream과 for ~ loop의 성능 차이를 비교해 주세요,
     2. **Stream은 병렬 처리 할 수 있나요?**
     3. Stream에서 사용할 수 있는 함수형 인터페이스에 대해 설명해 주세요.
     4. 가끔 외부 변수를 사용할 때, final 키워드를 붙여서 사용하는데 왜 그럴까요? 꼭 그래야 할까요?
-39. Lambda란?
-40. 자바에 함수형 인터페이스에 선언문이 하나인 이유
-41. new String()과 ""의 차이에 대해 설명해주세요.
-42. 오버로딩과 오버라이딩의 차이
-43. java immutable Object
-44. Java Functional Interface 종류
-45. java heap 최대 사이즈 설정
-46. optional 생성 방법
-47. java map flatmap 차이
-48. heap dump 뜨는 방법
-49. 클래스변수, 인스턴스변수, 지역 변수
-50. java volatile vs atomic
-51. java String 불변 객체인 이유
-52. **Synchronized 키워드에 대해 설명해 주세요. → 동시성에 대한 질문에서 자바는 어떻게 하냐?**
+30. Lambda란?
+31. 자바에 함수형 인터페이스에 선언문이 하나인 이유
+32. new String()과 ""의 차이에 대해 설명해주세요.
+33. 오버로딩과 오버라이딩의 차이
+34. java immutable Object
+35. Java Functional Interface 종류
+36. java heap 최대 사이즈 설정
+37. optional 생성 방법
+38. java map flatmap 차이
+39. heap dump 뜨는 방법
+40. 클래스변수, 인스턴스변수, 지역 변수
+41. java volatile vs atomic
+42. java String 불변 객체인 이유
+43. **Synchronized 키워드에 대해 설명해 주세요. → 동시성에 대한 질문에서 자바는 어떻게 하냐?**
     1. Synchronized 키워드가 어디에 붙는지에 따라 의미가 약간씩 변화하는데, 각각 어떤 의미를 갖게 되는지 설명해 주세요.
     2. **효율적인 코드 작성 측면에서, Synchronized는 좋은 키워드일까요? → 느린 이유는 아는 지?**
     3. **Synchronized 를 대체할 수 있는 자바의 다른 동기화 기법에 대해 설명해 주세요.**
@@ -194,6 +195,13 @@ https://brownbears.tistory.com/45
     2. 그런데, 읽기에 트랜잭션을 걸 필요가 있나요? @Transactional을 안 붙이면 되는거 아닐까요?
 15. Tomcat이 정확히 어떤 역할을 하는 도구인가요?
     1. 혹시 Netty에 대해 들어보셨나요? 왜 이런 것을 사용할까요?
+
+## QuataLab
+
+1. inner join 과 outer join 의 차이점
+    1. nested loop 조인에 대해
+2. Database 격리 레벨에 대해서
+3. 동기와 비동기, 블로킹과 논블로킹에 대해
 
 ## Reference
 

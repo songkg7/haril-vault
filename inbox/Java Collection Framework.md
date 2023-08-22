@@ -2,14 +2,12 @@
 title: Java Collection Framework
 date: 2022-08-18 15:27:00 +0900
 publish: false
-fc-calendar: Gregorian Calendar
-fc-date: 2022-08-18
 aliases:
   - JCF
 tags:
-  - java
+  - java, collection
 categories: Java
-updated: 2023-08-19 12:37:33 +0900
+updated: 2023-08-22 09:40:09 +0900
 ---
 
 ## Overview
