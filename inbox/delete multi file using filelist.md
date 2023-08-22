@@ -2,9 +2,9 @@
 title: script 를 사용하여 여러 파일 한 번에 지우기
 date: 2023-08-20 01:32:00 +0900
 aliases: null
-tags: linux, shell
+tags: linux, shell, fzf
 categories: null
-updated: 2023-08-20 01:32:04 +0900
+updated: 2023-08-22 15:45:43 +0900
 ---
 
 먼저 삭제할 파일을 선택하여 텍스트 목록으로 저장합니다.
