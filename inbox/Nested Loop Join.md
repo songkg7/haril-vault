@@ -4,7 +4,7 @@ date: 2023-08-22 14:31:00 +0900
 aliases: null
 tags: database, join
 categories: null
-updated: 2023-08-22 15:06:06 +0900
+updated: 2023-08-24 17:15:24 +0900
 ---
 
 ## Nested Loop Join
@@ -20,3 +20,6 @@ Driving Table 이란 JOIN 을 할 때 먼저 액세스 되어 Access path 를 �
 ## Reference
 
 - https://coding-factory.tistory.com/756
+- https://dataonair.or.kr/db-tech-reference/d-guide/da-guide/?mod=document&uid=305
+- https://techblog.wclub.co.kr/posts/0010.rdb-join-algorithm/RDB%20Join%20Algorithm
+- 
