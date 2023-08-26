@@ -13,7 +13,7 @@ tags:
   - kotlin
   - reactive
 categories: Spring
-updated: 2023-08-19 12:38:08 +0900
+updated: 2023-08-26 23:40:26 +0900
 ---
 
 ## Overview
@@ -53,3 +53,4 @@ Webflux 가 탄생한 이유 중 하나는 적은 쓰레드로 동시 처리를 
 - [webflux 간단한 사용법](https://www.devkuma.com/docs/spring-webflux/)
 - https://pearlluck.tistory.com/712
 - [리액터 타입, 리포지토리, 테스트](https://velog.io/@backtony/Spring-WebFlux-%EB%A6%AC%EC%95%A1%ED%84%B0-%ED%83%80%EC%9E%85-%EB%A6%AC%ED%8F%AC%EC%A7%80%ED%86%A0%EB%A6%AC-%ED%85%8C%EC%8A%A4%ED%8A%B8)
+- [배민 개발 블로그](https://techblog.woowahan.com/12903/)

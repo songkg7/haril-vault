@@ -4,7 +4,11 @@
   "headerUpdated": "updated",
   "headerCreated": "created",
   "minMinutesBetweenSaves": 10,
-  "ignoreGlobalFolder": [],
+  "ignoreGlobalFolder": [
+    "templates",
+    "textgenerator",
+    "resources"
+  ],
   "ignoreCreatedFolder": [],
   "readDateFormat": "yyyy-MM-dd HH:mm:ss xx",
   "useDifferentReadFormat": true

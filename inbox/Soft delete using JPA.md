@@ -1,10 +1,12 @@
 ---
-title: "Soft delete using JPA"
+title: Soft delete using JPA
 date: 2023-07-19 09:07:00 +0900
-aliases: 
-tags: [jpa, soft-delete]
-categories: 
-updated: 2023-07-19 09:11:06 +0900
+aliases: null
+tags:
+  - jpa
+  - soft-delete
+categories: null
+updated: 2023-08-26 13:39:44 +0900
 ---
 
 ## JPA 에서 Soft delete 를 구현하려면?
@@ -89,4 +91,4 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
 ## Links
 
-[[JPA]]
+[[Java Persistence API|JPA]]

@@ -1,8 +1,15 @@
 ---
 title: "@DataJpaTest with TestContainer"
 date: 2022-07-18 11:21:00 +0900
-tags: [docker, java, test-container, jpa, junit, library]
-categories: 
+tags:
+  - docker
+  - java
+  - test-container
+  - jpa
+  - junit
+  - library
+categories: null
+updated: 2023-08-26 13:39:44 +0900
 ---
 
 ## What is TestContainers?
@@ -26,6 +33,6 @@ linux 환경에서 docker enviroment 관련 error 메세지와 함께 실행이 
 # Links
 
 - [[published/Docker]]
-- [[JPA]]
+- [[Java Persistence API|JPA]]
 - [[JUnit]]
 - [[Java]]
