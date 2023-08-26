@@ -6,7 +6,6 @@
   "userIgnoreFilters": [
     "templates/",
     "README",
-    "private/",
     "textgenerator/",
     "resources/"
   ],
