@@ -8309,14 +8309,21 @@ var SuggestFeature = class extends AbstractFeature {
     this.replacer.enable();
   }
   modifySuggestions(items) {
+    const aliases = /* @__PURE__ */ new Set();
     for (const item of items) {
-      if (!item || !item.type || item.type !== "file" || !item.file) {
+      if (!(item == null ? void 0 : item.file)) {
+        continue;
+      }
+      aliases.add(item.alias + item.file.path);
+      if (!item || !item.type || item.type !== "file") {
         continue;
       }
       const alias = this.resolver.resolve(item.file.path);
-      if (alias) {
+      const value = alias + item.file.path;
+      if (alias && !aliases.has(value)) {
         item.alias = alias;
         item.type = "alias";
+        aliases.add(value);
       }
     }
     return items;

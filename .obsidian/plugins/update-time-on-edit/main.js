@@ -5318,8 +5318,10 @@ var UpdateTimeOnSavePlugin = class extends import_obsidian5.Plugin {
           this.log("Something wrong happen, skipping");
           return;
         }
-        if (!this.shouldIgnoreCreated(file.path)) {
-          frontmatter[createdKey] = this.formatDate(cTime);
+        if (!frontmatter[createdKey]) {
+          if (!this.shouldIgnoreCreated(file.path)) {
+            frontmatter[createdKey] = this.formatDate(cTime);
+          }
         }
         const currentMTimeOnFile = this.parseDate(frontmatter[updatedKey]);
         if (!frontmatter[updatedKey] || !currentMTimeOnFile) {

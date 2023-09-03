@@ -1,13 +1,14 @@
 ---
 title: Spring batch 5.0 changes
 date: 2023-02-24 13:38:00 +0900
-aliases: null
+aliases: []
 tags:
   - spring
   - batch
   - changes
 categories: Spring
-updated: 2023-08-19 12:38:10 +0900
+updated: 2023-09-02 14:11:05 +0900
+publish: true
 ---
 
 [[Spring Batch]] 5.0 이 되면서 변경된 사항들을 정리합니다.
@@ -22,7 +23,7 @@ updated: 2023-08-19 12:38:10 +0900
 
 ### 다중 Job 실행은 더 이상 지원되지 않음
 
-지금까지는 하나의 배치에 여러개의 Job 이 있었다면 한꺼번에 실행할 수 있었습니다. 하지만 이제 단일 Job 을 감지하면 부트가 실행될 때 Job 을 실행시킵니다. 만약 여러 개의 Job 이 context 에 존재한다면, 부트를 실행할 때 `spring.batch.job.name` 을 통해 실행시킬 Job 을 명시해줘야 합니다.
+지금까지는 하나의 배치에 여러개의 [[Job|Job]] 이 있었다면 한꺼번에 실행할 수 있었습니다. 하지만 이제 단일 Job 을 감지하면 부트가 실행될 때 Job 을 실행시킵니다. 만약 여러 개의 Job 이 context 에 존재한다면, 부트를 실행할 때 `spring.batch.job.name` 을 통해 실행시킬 Job 을 명시해줘야 합니다.
 
 ### JobParameter 지원 범위 확대
 
@@ -42,7 +43,7 @@ _해당 issue 가 해결된 모습_
 
 이 issue 는 2023-02-23 에 릴리즈되며 해결되었습니다.
 
-## initializeSchema
+### initializeSchema
 
 ```yaml
 spring:
@@ -61,6 +62,44 @@ spring:
 ```
 
 currentSchema 옵션을 지정해줘야 정확하게 동작합니다.
+
+### ItemWriter 에서 List 타입 대신 Chunk 타입을 처리해야 함
+
+```java
+// 5.0 이전
+public interface ItemWriter<T> {
+
+	/**
+	 * Process the supplied data element. Will not be called with any null items
+	 * in normal operation.
+	 *
+	 * @param items items to be written
+	 * @throws Exception if there are errors. The framework will catch the
+	 * exception and convert or rethrow it as appropriate.
+	 */
+	void write(List<? extends T> items) throws Exception;
+
+}
+```
+
+```java
+// 5.0 이후
+@FunctionalInterface
+public interface ItemWriter<T> {
+
+	/**
+	 * Process the supplied data element. Will not be called with any null items in normal
+	 * operation.
+	 * @param chunk of items to be written. Must not be {@code null}.
+	 * @throws Exception if there are errors. The framework will catch the exception and
+	 * convert or rethrow it as appropriate.
+	 */
+	void write(@NonNull Chunk<? extends T> chunk) throws Exception;
+
+}
+```
+
+`Chunk` 는 `List` 에 비해 배치 프로세스에 특화된 메서드를 많이 가지고 있습니다. 이 변화로 [[ItemWriter]] 에서 더욱 다양한 처리가 쉽고 편리하게 가능해질 것 같습니다.
 
 ## Reference
 

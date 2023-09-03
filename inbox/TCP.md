@@ -2,17 +2,13 @@
 title: TCP and IP
 date: 2022-08-16 12:37:00 +0900
 publish: false
-fc-calendar: Gregorian Calendar
-fc-date: 2022-08-16
-aliases: null
+aliases: []
 tags:
   - network
   - tcp
   - ip
-categories:
-  - Computer science
-  - Network
-updated: 2023-08-19 12:37:47 +0900
+categories: Network
+updated: 2023-09-03 12:43:52 +0900
 ---
 
 [[Network]]

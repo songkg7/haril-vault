@@ -10,6 +10,7 @@ var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
 var __commonJS = (cb, mod) => function __require() {
   return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
 };
@@ -30,6 +31,10 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
   mod
 ));
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
+var __publicField = (obj, key, value) => {
+  __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
+  return value;
+};
 
 // node_modules/prettify-pinyin/index.js
 var require_prettify_pinyin = __commonJS({
@@ -3769,20 +3774,20 @@ function calcScore(history, latestUpdated) {
 var SelectionHistoryStorage = class {
   constructor(data = {}, maxDaysToKeepHistory, maxNumberOfHistoryToKeep) {
     this.data = data;
-    const now = Date.now();
-    this.version = now;
-    this.persistedVersion = now;
+    const now2 = Date.now();
+    this.version = now2;
+    this.persistedVersion = now2;
     this.maxDaysToKeepHistory = maxDaysToKeepHistory;
     this.maxNumberOfHistoryToKeep = maxNumberOfHistoryToKeep;
   }
   purge() {
     var _a;
-    const now = Date.now();
+    const now2 = Date.now();
     const times = [];
     for (const hit of Object.keys(this.data)) {
       for (const value of Object.keys(this.data[hit])) {
         for (const kind of Object.keys(this.data[hit][value])) {
-          if (this.maxDaysToKeepHistory && now - this.data[hit][value][kind].lastUpdated > this.maxDaysToKeepHistory * DAY) {
+          if (this.maxDaysToKeepHistory && now2 - this.data[hit][value][kind].lastUpdated > this.maxDaysToKeepHistory * DAY) {
             delete this.data[hit][value][kind];
           } else {
             times.push(this.data[hit][value][kind].lastUpdated);
@@ -3862,6 +3867,7 @@ function buildLogMessage(message, msec) {
 var AutoCompleteSuggest = class extends import_obsidian3.EditorSuggest {
   constructor(app2, statusBar) {
     super(app2);
+    this.selectionLock = false;
     this.pastCurrentTokenSeparatedWhiteSpace = "";
     this.previousCurrentLine = "";
     this.previousLinksCacheInActiveFile = /* @__PURE__ */ new Set();
@@ -4141,8 +4147,13 @@ var AutoCompleteSuggest = class extends import_obsidian3.EditorSuggest {
           selectSuggestionKey.keyBind.key,
           (evt, ctx) => {
             if (!evt.isComposing) {
-              this.suggestions.useSelectedItem({});
-              return false;
+              if (this.selectionLock) {
+                this.close();
+                return true;
+              } else {
+                this.suggestions.useSelectedItem({});
+                return false;
+              }
             }
           }
         )
@@ -4153,11 +4164,25 @@ var AutoCompleteSuggest = class extends import_obsidian3.EditorSuggest {
       return this.settings.propagateEsc;
     };
     const selectNext = (evt) => {
-      this.suggestions.setSelectedItem(this.suggestions.selectedItem + 1, evt);
+      if (this.settings.noAutoFocusUntilCycle && this.selectionLock) {
+        this.setSelectionLock(false);
+      } else {
+        this.suggestions.setSelectedItem(
+          this.suggestions.selectedItem + 1,
+          evt
+        );
+      }
       return false;
     };
     const selectPrevious = (evt) => {
-      this.suggestions.setSelectedItem(this.suggestions.selectedItem - 1, evt);
+      if (this.settings.noAutoFocusUntilCycle && this.selectionLock) {
+        this.setSelectionLock(false);
+      } else {
+        this.suggestions.setSelectedItem(
+          this.suggestions.selectedItem - 1,
+          evt
+        );
+      }
       return false;
     };
     const cycleThroughSuggestionsKeys = CycleThroughSuggestionsKeys.fromName(
@@ -4525,6 +4550,11 @@ var AutoCompleteSuggest = class extends import_obsidian3.EditorSuggest {
       );
       return null;
     }
+    if (this.runManually) {
+      this.setSelectionLock(false);
+    } else {
+      this.setSelectionLock(this.settings.noAutoFocusUntilCycle);
+    }
     showDebugLog(buildLogMessage("onTrigger", performance.now() - start));
     this.runManually = false;
     if (currentFrontMatter && ((_c = currentTokens.last()) == null ? void 0 : _c.word.match(/[^ ] $/))) {
@@ -4685,6 +4715,16 @@ var AutoCompleteSuggest = class extends import_obsidian3.EditorSuggest {
       console.log(toMessage());
     }
   }
+  setSelectionLock(lock) {
+    this.selectionLock = lock;
+    const lockClass = "various-complements__selection-lock";
+    const body = document.querySelector("body");
+    if (lock) {
+      body.addClass(lockClass);
+    } else {
+      body.removeClass(lockClass);
+    }
+  }
 };
 
 // src/setting/settings.ts
@@ -4728,6 +4768,7 @@ var DEFAULT_SETTINGS = {
   firstCharactersDisableSuggestions: ":/^",
   useCommonPrefixCompletionOfSuggestion: false,
   patternsToSuppressTrigger: ["^~~~.*", "^```.*"],
+  noAutoFocusUntilCycle: false,
   showMatchStrategy: true,
   showComplementAutomatically: true,
   showIndexingStatus: true,
@@ -4970,6 +5011,14 @@ var VariousComplementsSettingTab = class extends import_obsidian4.PluginSettingT
         await this.plugin.saveSettings();
       })
     );
+    new import_obsidian4.Setting(containerEl).setName("No auto-focus until the cycle").setDesc("No focus on the suggestions until the cycle key is pressed.").addToggle((tc) => {
+      tc.setValue(this.plugin.settings.noAutoFocusUntilCycle).onChange(
+        async (value) => {
+          this.plugin.settings.noAutoFocusUntilCycle = value;
+          await this.plugin.saveSettings();
+        }
+      );
+    });
   }
   addAppearanceSettings(containerEl) {
     containerEl.createEl("h3", { text: "Appearance" });
@@ -5557,7 +5606,7 @@ var ProviderStatusBar = class {
 // src/ui/CustomDictionaryWordAddModal.ts
 var import_obsidian5 = require("obsidian");
 
-// node_modules/svelte/internal/index.mjs
+// node_modules/svelte/src/runtime/internal/utils.js
 function noop() {
 }
 function assign(tar, src) {
@@ -5578,7 +5627,7 @@ function is_function(thing) {
   return typeof thing === "function";
 }
 function safe_not_equal(a, b) {
-  return a != a ? b == b : a !== b || (a && typeof a === "object" || typeof a === "function");
+  return a != a ? b == b : a !== b || a && typeof a === "object" || typeof a === "function";
 }
 function is_empty(obj) {
   return Object.keys(obj).length === 0;
@@ -5645,6 +5694,40 @@ function compute_rest_props(props, keys) {
 function null_to_empty(value) {
   return value == null ? "" : value;
 }
+
+// node_modules/svelte/src/runtime/internal/globals.js
+var globals = typeof window !== "undefined" ? window : typeof globalThis !== "undefined" ? globalThis : global;
+
+// node_modules/svelte/src/runtime/internal/ResizeObserverSingleton.js
+var ResizeObserverSingleton = class {
+  constructor(options) {
+    __publicField(this, "_listeners", "WeakMap" in globals ? /* @__PURE__ */ new WeakMap() : void 0);
+    __publicField(this, "_observer");
+    __publicField(this, "options");
+    this.options = options;
+  }
+  observe(element2, listener) {
+    this._listeners.set(element2, listener);
+    this._getObserver().observe(element2, this.options);
+    return () => {
+      this._listeners.delete(element2);
+      this._observer.unobserve(element2);
+    };
+  }
+  _getObserver() {
+    var _a;
+    return (_a = this._observer) != null ? _a : this._observer = new ResizeObserver((entries) => {
+      var _a2;
+      for (const entry of entries) {
+        ResizeObserverSingleton.entries.set(entry.target, entry);
+        (_a2 = this._listeners.get(entry.target)) == null ? void 0 : _a2(entry);
+      }
+    });
+  }
+};
+ResizeObserverSingleton.entries = "WeakMap" in globals ? /* @__PURE__ */ new WeakMap() : void 0;
+
+// node_modules/svelte/src/runtime/internal/dom.js
 var is_hydrating = false;
 function start_hydrating() {
   is_hydrating = true;
@@ -5675,12 +5758,15 @@ function get_root_for_style(node) {
 }
 function append_stylesheet(node, style) {
   append(node.head || node, style);
+  return style.sheet;
 }
 function insert(target, node, anchor) {
   target.insertBefore(node, anchor || null);
 }
 function detach(node) {
-  node.parentNode.removeChild(node);
+  if (node.parentNode) {
+    node.parentNode.removeChild(node);
+  }
 }
 function destroy_each(iterations, detaching) {
   for (let i = 0; i < iterations.length; i += 1) {
@@ -5720,20 +5806,21 @@ function children(element2) {
 }
 function set_data(text2, data) {
   data = "" + data;
-  if (text2.wholeText !== data)
-    text2.data = data;
+  if (text2.data === data)
+    return;
+  text2.data = data;
 }
 function set_input_value(input, value) {
   input.value = value == null ? "" : value;
 }
 function set_style(node, key, value, important) {
-  if (value === null) {
+  if (value == null) {
     node.style.removeProperty(key);
   } else {
     node.style.setProperty(key, value, important ? "important" : "");
   }
 }
-function select_option(select, value) {
+function select_option(select, value, mounting) {
   for (let i = 0; i < select.options.length; i += 1) {
     const option = select.options[i];
     if (option.__value === value) {
@@ -5741,20 +5828,31 @@ function select_option(select, value) {
       return;
     }
   }
-  select.selectedIndex = -1;
+  if (!mounting || value !== void 0) {
+    select.selectedIndex = -1;
+  }
 }
 function select_value(select) {
-  const selected_option = select.querySelector(":checked") || select.options[0];
+  const selected_option = select.querySelector(":checked");
   return selected_option && selected_option.__value;
 }
 function toggle_class(element2, name, toggle) {
-  element2.classList[toggle ? "add" : "remove"](name);
+  element2.classList.toggle(name, !!toggle);
 }
 function custom_event(type, detail, { bubbles = false, cancelable = false } = {}) {
-  const e = document.createEvent("CustomEvent");
-  e.initCustomEvent(type, bubbles, cancelable, detail);
-  return e;
+  return new CustomEvent(type, { detail, bubbles, cancelable });
 }
+function get_custom_elements_slots(element2) {
+  const result = {};
+  element2.childNodes.forEach(
+    (node) => {
+      result[node.slot || "default"] = true;
+    }
+  );
+  return result;
+}
+
+// node_modules/svelte/src/runtime/internal/lifecycle.js
 var current_component;
 function set_current_component(component) {
   current_component = component;
@@ -5781,11 +5879,13 @@ function createEventDispatcher() {
     return true;
   };
 }
+
+// node_modules/svelte/src/runtime/internal/scheduler.js
 var dirty_components = [];
 var binding_callbacks = [];
 var render_callbacks = [];
 var flush_callbacks = [];
-var resolved_promise = Promise.resolve();
+var resolved_promise = /* @__PURE__ */ Promise.resolve();
 var update_scheduled = false;
 function schedule_update() {
   if (!update_scheduled) {
@@ -5799,13 +5899,22 @@ function add_render_callback(fn) {
 var seen_callbacks = /* @__PURE__ */ new Set();
 var flushidx = 0;
 function flush() {
+  if (flushidx !== 0) {
+    return;
+  }
   const saved_component = current_component;
   do {
-    while (flushidx < dirty_components.length) {
-      const component = dirty_components[flushidx];
-      flushidx++;
-      set_current_component(component);
-      update(component.$$);
+    try {
+      while (flushidx < dirty_components.length) {
+        const component = dirty_components[flushidx];
+        flushidx++;
+        set_current_component(component);
+        update(component.$$);
+      }
+    } catch (e) {
+      dirty_components.length = 0;
+      flushidx = 0;
+      throw e;
     }
     set_current_component(null);
     dirty_components.length = 0;
@@ -5838,6 +5947,15 @@ function update($$) {
     $$.after_update.forEach(add_render_callback);
   }
 }
+function flush_render_callbacks(fns) {
+  const filtered = [];
+  const targets = [];
+  render_callbacks.forEach((c) => fns.indexOf(c) === -1 ? filtered.push(c) : targets.push(c));
+  targets.forEach((c) => c());
+  render_callbacks = filtered;
+}
+
+// node_modules/svelte/src/runtime/internal/transitions.js
 var outroing = /* @__PURE__ */ new Set();
 var outros;
 function transition_in(block, local) {
@@ -5864,7 +5982,13 @@ function transition_out(block, local, detach2, callback) {
     callback();
   }
 }
-var globals = typeof window !== "undefined" ? window : typeof globalThis !== "undefined" ? globalThis : global;
+
+// node_modules/svelte/src/runtime/internal/each.js
+function ensure_array_like(array_like_or_iterator) {
+  return (array_like_or_iterator == null ? void 0 : array_like_or_iterator.length) !== void 0 ? array_like_or_iterator : Array.from(array_like_or_iterator);
+}
+
+// node_modules/svelte/src/runtime/internal/spread.js
 function get_spread_update(levels, updates) {
   const update2 = {};
   const to_null_out = {};
@@ -5897,28 +6021,59 @@ function get_spread_update(levels, updates) {
   }
   return update2;
 }
+
+// node_modules/svelte/src/shared/boolean_attributes.js
+var _boolean_attributes = [
+  "allowfullscreen",
+  "allowpaymentrequest",
+  "async",
+  "autofocus",
+  "autoplay",
+  "checked",
+  "controls",
+  "default",
+  "defer",
+  "disabled",
+  "formnovalidate",
+  "hidden",
+  "inert",
+  "ismap",
+  "loop",
+  "multiple",
+  "muted",
+  "nomodule",
+  "novalidate",
+  "open",
+  "playsinline",
+  "readonly",
+  "required",
+  "reversed",
+  "selected"
+];
+var boolean_attributes = /* @__PURE__ */ new Set([..._boolean_attributes]);
+
+// node_modules/svelte/src/runtime/internal/Component.js
 function create_component(block) {
   block && block.c();
 }
-function mount_component(component, target, anchor, customElement) {
-  const { fragment, on_mount, on_destroy, after_update } = component.$$;
+function mount_component(component, target, anchor) {
+  const { fragment, after_update } = component.$$;
   fragment && fragment.m(target, anchor);
-  if (!customElement) {
-    add_render_callback(() => {
-      const new_on_destroy = on_mount.map(run).filter(is_function);
-      if (on_destroy) {
-        on_destroy.push(...new_on_destroy);
-      } else {
-        run_all(new_on_destroy);
-      }
-      component.$$.on_mount = [];
-    });
-  }
+  add_render_callback(() => {
+    const new_on_destroy = component.$$.on_mount.map(run).filter(is_function);
+    if (component.$$.on_destroy) {
+      component.$$.on_destroy.push(...new_on_destroy);
+    } else {
+      run_all(new_on_destroy);
+    }
+    component.$$.on_mount = [];
+  });
   after_update.forEach(add_render_callback);
 }
 function destroy_component(component, detaching) {
   const $$ = component.$$;
   if ($$.fragment !== null) {
+    flush_render_callbacks($$.after_update);
     run_all($$.on_destroy);
     $$.fragment && $$.fragment.d(detaching);
     $$.on_destroy = $$.fragment = null;
@@ -5938,7 +6093,7 @@ function init(component, options, instance5, create_fragment5, not_equal, props,
   set_current_component(component);
   const $$ = component.$$ = {
     fragment: null,
-    ctx: null,
+    ctx: [],
     props,
     update: noop,
     not_equal,
@@ -5981,7 +6136,7 @@ function init(component, options, instance5, create_fragment5, not_equal, props,
     }
     if (options.intro)
       transition_in(component.$$.fragment);
-    mount_component(component, options.target, options.anchor, options.customElement);
+    mount_component(component, options.target, options.anchor);
     end_hydrating();
     flush();
   }
@@ -5990,51 +6145,194 @@ function init(component, options, instance5, create_fragment5, not_equal, props,
 var SvelteElement;
 if (typeof HTMLElement === "function") {
   SvelteElement = class extends HTMLElement {
-    constructor() {
+    constructor($$componentCtor, $$slots, use_shadow_dom) {
       super();
-      this.attachShadow({ mode: "open" });
+      __publicField(this, "$$ctor");
+      __publicField(this, "$$s");
+      __publicField(this, "$$c");
+      __publicField(this, "$$cn", false);
+      __publicField(this, "$$d", {});
+      __publicField(this, "$$r", false);
+      __publicField(this, "$$p_d", {});
+      __publicField(this, "$$l", {});
+      __publicField(this, "$$l_u", /* @__PURE__ */ new Map());
+      this.$$ctor = $$componentCtor;
+      this.$$s = $$slots;
+      if (use_shadow_dom) {
+        this.attachShadow({ mode: "open" });
+      }
     }
-    connectedCallback() {
-      const { on_mount } = this.$$;
-      this.$$.on_disconnect = on_mount.map(run).filter(is_function);
-      for (const key in this.$$.slotted) {
-        this.appendChild(this.$$.slotted[key]);
+    addEventListener(type, listener, options) {
+      this.$$l[type] = this.$$l[type] || [];
+      this.$$l[type].push(listener);
+      if (this.$$c) {
+        const unsub = this.$$c.$on(type, listener);
+        this.$$l_u.set(listener, unsub);
+      }
+      super.addEventListener(type, listener, options);
+    }
+    removeEventListener(type, listener, options) {
+      super.removeEventListener(type, listener, options);
+      if (this.$$c) {
+        const unsub = this.$$l_u.get(listener);
+        if (unsub) {
+          unsub();
+          this.$$l_u.delete(listener);
+        }
+      }
+    }
+    async connectedCallback() {
+      this.$$cn = true;
+      if (!this.$$c) {
+        let create_slot2 = function(name) {
+          return () => {
+            let node;
+            const obj = {
+              c: function create() {
+                node = element("slot");
+                if (name !== "default") {
+                  attr(node, "name", name);
+                }
+              },
+              m: function mount(target, anchor) {
+                insert(target, node, anchor);
+              },
+              d: function destroy(detaching) {
+                if (detaching) {
+                  detach(node);
+                }
+              }
+            };
+            return obj;
+          };
+        };
+        await Promise.resolve();
+        if (!this.$$cn) {
+          return;
+        }
+        const $$slots = {};
+        const existing_slots = get_custom_elements_slots(this);
+        for (const name of this.$$s) {
+          if (name in existing_slots) {
+            $$slots[name] = [create_slot2(name)];
+          }
+        }
+        for (const attribute of this.attributes) {
+          const name = this.$$g_p(attribute.name);
+          if (!(name in this.$$d)) {
+            this.$$d[name] = get_custom_element_value(name, attribute.value, this.$$p_d, "toProp");
+          }
+        }
+        this.$$c = new this.$$ctor({
+          target: this.shadowRoot || this,
+          props: {
+            ...this.$$d,
+            $$slots,
+            $$scope: {
+              ctx: []
+            }
+          }
+        });
+        const reflect_attributes = () => {
+          this.$$r = true;
+          for (const key in this.$$p_d) {
+            this.$$d[key] = this.$$c.$$.ctx[this.$$c.$$.props[key]];
+            if (this.$$p_d[key].reflect) {
+              const attribute_value = get_custom_element_value(
+                key,
+                this.$$d[key],
+                this.$$p_d,
+                "toAttribute"
+              );
+              if (attribute_value == null) {
+                this.removeAttribute(key);
+              } else {
+                this.setAttribute(this.$$p_d[key].attribute || key, attribute_value);
+              }
+            }
+          }
+          this.$$r = false;
+        };
+        this.$$c.$$.after_update.push(reflect_attributes);
+        reflect_attributes();
+        for (const type in this.$$l) {
+          for (const listener of this.$$l[type]) {
+            const unsub = this.$$c.$on(type, listener);
+            this.$$l_u.set(listener, unsub);
+          }
+        }
+        this.$$l = {};
       }
     }
     attributeChangedCallback(attr2, _oldValue, newValue) {
-      this[attr2] = newValue;
+      var _a;
+      if (this.$$r)
+        return;
+      attr2 = this.$$g_p(attr2);
+      this.$$d[attr2] = get_custom_element_value(attr2, newValue, this.$$p_d, "toProp");
+      (_a = this.$$c) == null ? void 0 : _a.$set({ [attr2]: this.$$d[attr2] });
     }
     disconnectedCallback() {
-      run_all(this.$$.on_disconnect);
+      this.$$cn = false;
+      Promise.resolve().then(() => {
+        if (!this.$$cn) {
+          this.$$c.$destroy();
+          this.$$c = void 0;
+        }
+      });
     }
-    $destroy() {
-      destroy_component(this, 1);
-      this.$destroy = noop;
-    }
-    $on(type, callback) {
-      const callbacks = this.$$.callbacks[type] || (this.$$.callbacks[type] = []);
-      callbacks.push(callback);
-      return () => {
-        const index = callbacks.indexOf(callback);
-        if (index !== -1)
-          callbacks.splice(index, 1);
-      };
-    }
-    $set($$props) {
-      if (this.$$set && !is_empty($$props)) {
-        this.$$.skip_bound = true;
-        this.$$set($$props);
-        this.$$.skip_bound = false;
-      }
+    $$g_p(attribute_name) {
+      return Object.keys(this.$$p_d).find(
+        (key) => this.$$p_d[key].attribute === attribute_name || !this.$$p_d[key].attribute && key.toLowerCase() === attribute_name
+      ) || attribute_name;
     }
   };
 }
+function get_custom_element_value(prop, value, props_definition, transform) {
+  var _a;
+  const type = (_a = props_definition[prop]) == null ? void 0 : _a.type;
+  value = type === "Boolean" && typeof value !== "boolean" ? value != null : value;
+  if (!transform || !props_definition[prop]) {
+    return value;
+  } else if (transform === "toAttribute") {
+    switch (type) {
+      case "Object":
+      case "Array":
+        return value == null ? null : JSON.stringify(value);
+      case "Boolean":
+        return value ? "" : null;
+      case "Number":
+        return value == null ? null : value;
+      default:
+        return value;
+    }
+  } else {
+    switch (type) {
+      case "Object":
+      case "Array":
+        return value && JSON.parse(value);
+      case "Boolean":
+        return value;
+      case "Number":
+        return value != null ? +value : value;
+      default:
+        return value;
+    }
+  }
+}
 var SvelteComponent = class {
+  constructor() {
+    __publicField(this, "$$");
+    __publicField(this, "$$set");
+  }
   $destroy() {
     destroy_component(this, 1);
     this.$destroy = noop;
   }
   $on(type, callback) {
+    if (!is_function(callback)) {
+      return noop;
+    }
     const callbacks = this.$$.callbacks[type] || (this.$$.callbacks[type] = []);
     callbacks.push(callback);
     return () => {
@@ -6043,14 +6341,21 @@ var SvelteComponent = class {
         callbacks.splice(index, 1);
     };
   }
-  $set($$props) {
-    if (this.$$set && !is_empty($$props)) {
+  $set(props) {
+    if (this.$$set && !is_empty(props)) {
       this.$$.skip_bound = true;
-      this.$$set($$props);
+      this.$$set(props);
       this.$$.skip_bound = false;
     }
   }
 };
+
+// node_modules/svelte/src/shared/version.js
+var PUBLIC_VERSION = "4";
+
+// node_modules/svelte/src/runtime/internal/disclose-version/index.js
+if (typeof window !== "undefined")
+  (window.__svelte || (window.__svelte = { v: /* @__PURE__ */ new Set() })).v.add(PUBLIC_VERSION);
 
 // src/ui/component/ObsidianButton.svelte
 function create_fragment(ctx) {
@@ -6099,7 +6404,7 @@ function create_fragment(ctx) {
       if (!current || dirty & 2) {
         button.disabled = ctx2[1];
       }
-      if (dirty & 2) {
+      if (!current || dirty & 2) {
         toggle_class(button, "mod-cta", !ctx2[1]);
       }
     },
@@ -6114,8 +6419,9 @@ function create_fragment(ctx) {
       current = false;
     },
     d(detaching) {
-      if (detaching)
+      if (detaching) {
         detach(button);
+      }
       if (default_slot)
         default_slot.d(detaching);
       mounted = false;
@@ -6125,7 +6431,7 @@ function create_fragment(ctx) {
 }
 function instance($$self, $$props, $$invalidate) {
   let { $$slots: slots = {}, $$scope } = $$props;
-  let { popup } = $$props;
+  let { popup = "" } = $$props;
   let { disabled = false } = $$props;
   const dispatcher = createEventDispatcher();
   const handleClick = () => {
@@ -6230,8 +6536,9 @@ function create_fragment2(ctx) {
       current = false;
     },
     d(detaching) {
-      if (detaching)
+      if (detaching) {
         detach(svg);
+      }
       if (default_slot)
         default_slot.d(detaching);
     }
@@ -6332,8 +6639,9 @@ function create_fragment3(ctx) {
       current = false;
     },
     d(detaching) {
-      if (detaching)
+      if (detaching) {
         detach(div);
+      }
       if (default_slot)
         default_slot.d(detaching);
       mounted = false;
@@ -6387,7 +6695,7 @@ function create_each_block(ctx) {
       t0 = text(t0_value);
       t1 = space();
       option.__value = option_value_value = ctx[26];
-      option.value = option.__value;
+      set_input_value(option, option.__value);
     },
     m(target, anchor) {
       insert(target, option, anchor);
@@ -6399,12 +6707,13 @@ function create_each_block(ctx) {
         set_data(t0, t0_value);
       if (dirty & 32 && option_value_value !== (option_value_value = ctx2[26])) {
         option.__value = option_value_value;
-        option.value = option.__value;
+        set_input_value(option, option.__value);
       }
     },
     d(detaching) {
-      if (detaching)
+      if (detaching) {
         detach(option);
+      }
     }
   };
 }
@@ -6464,8 +6773,9 @@ function create_if_block_1(ctx) {
       }
     },
     d(detaching) {
-      if (detaching)
+      if (detaching) {
         detach(label);
+      }
       mounted = false;
       dispose();
     }
@@ -6503,12 +6813,11 @@ function create_if_block(ctx) {
       }
     },
     d(detaching) {
-      if (detaching)
+      if (detaching) {
         detach(h3);
-      if (detaching)
         detach(t1);
-      if (detaching)
         detach(textarea);
+      }
       ctx[23](null);
       mounted = false;
       dispose();
@@ -6525,8 +6834,9 @@ function create_default_slot(ctx) {
       insert(target, t, anchor);
     },
     d(detaching) {
-      if (detaching)
+      if (detaching) {
         detach(t);
+      }
     }
   };
 }
@@ -6561,7 +6871,7 @@ function create_fragment4(ctx) {
   let current;
   let mounted;
   let dispose;
-  let each_value = ctx[5];
+  let each_value = ensure_array_like(ctx[5]);
   let each_blocks = [];
   for (let i = 0; i < each_value.length; i += 1) {
     each_blocks[i] = create_each_block(get_each_context(ctx, each_value, i));
@@ -6648,9 +6958,11 @@ function create_fragment4(ctx) {
       append(div2, div0);
       append(div0, select);
       for (let i = 0; i < each_blocks.length; i += 1) {
-        each_blocks[i].m(select, null);
+        if (each_blocks[i]) {
+          each_blocks[i].m(select, null);
+        }
       }
-      select_option(select, ctx[2]);
+      select_option(select, ctx[2], true);
       append(div0, t4);
       mount_component(obsidianiconbutton, div0, null);
       append(div2, t5);
@@ -6692,7 +7004,7 @@ function create_fragment4(ctx) {
     },
     p(ctx2, [dirty]) {
       if (dirty & 32) {
-        each_value = ctx2[5];
+        each_value = ensure_array_like(ctx2[5]);
         let i;
         for (i = 0; i < each_value.length; i += 1) {
           const child_ctx = get_each_context(ctx2, each_value, i);
@@ -6773,8 +7085,9 @@ function create_fragment4(ctx) {
       current = false;
     },
     d(detaching) {
-      if (detaching)
+      if (detaching) {
         detach(div2);
+      }
       destroy_each(each_blocks, detaching);
       destroy_component(obsidianiconbutton);
       ctx[20](null);
@@ -6816,7 +7129,10 @@ function instance4($$self, $$props, $$invalidate) {
     });
   };
   onMount(() => {
-    setTimeout(() => wordRef.focus(), 50);
+    setTimeout(
+      () => wordRef === null || wordRef === void 0 ? void 0 : wordRef.focus(),
+      50
+    );
   });
   function select_change_handler() {
     selectedDictionary = select_value(this);
