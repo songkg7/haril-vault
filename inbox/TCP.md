@@ -1,5 +1,5 @@
 ---
-title: TCP and IP
+title: TCP
 date: 2022-08-16 12:37:00 +0900
 publish: false
 aliases: []
@@ -8,7 +8,7 @@ tags:
   - tcp
   - ip
 categories: Network
-updated: 2023-09-03 12:43:52 +0900
+updated: 2023-09-04 01:43:49 +0900
 ---
 
 [[Network]]

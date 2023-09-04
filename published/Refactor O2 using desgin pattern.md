@@ -1,9 +1,14 @@
 ---
-title: "O2 에 design pattern 적용하기"
+title: O2 에 design pattern 적용하기
 date: 2023-03-08 12:28:00 +0900
 aliases: 
-tags: [typescript, obsidian, o2, design-pattern]
+tags:
+  - typescript
+  - obsidian
+  - o2
+  - design-pattern
 categories: 
+updated: 2023-09-04 11:57:33 +0900
 ---
 
 [O2](https://github.com/songkg7/o2) 프로젝트를 좀 더 유연하게 관리할 수 있도록 디자인 패턴을 사용하여 구조를 개선하는 과정을 이야기합니다.
@@ -93,7 +98,7 @@ o2 --> D[Others...]
 2. 외부 설정값에 따라서 특정 변환 로직을 건너뛰거나 추가되는 등 동적으로 제어가 가능해야 함
 3. 새로운 기능의 구현이 간단해야 하며 기존 코드에 거의 영향을 주지 않거나 최소한이여야 함
 
-순서대로 실행되는 일종의 흐름이 있고, 사이사이에 기능을 추가할 수 있어야하므로 다양한 [[Design pattern]] 중 Chain of responsibility 패턴이 적절하다고 생각되어 적용하기로 했습니다.
+순서대로 실행되는 일종의 흐름이 있고, 사이사이에 기능을 추가할 수 있어야하므로 다양한 [[Design Pattern]] 중 Chain of responsibility 패턴이 적절하다고 생각되어 적용하기로 했습니다.
 
 ### 디자인 패턴 적용
 

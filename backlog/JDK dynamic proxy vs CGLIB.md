@@ -1,14 +1,14 @@
 ---
 title: JDK dynamic proxy vs CGLIB
 date: 2023-02-05 15:56:00 +0900
-aliases: null
+aliases: 
 tags:
   - java
   - proxy
   - cglib
   - jdk-dynamic-proxy
-categories: null
-updated: 2023-08-19 12:38:12 +0900
+categories: 
+updated: 2023-09-04 15:34:11 +0900
 ---
 
 - JDK Dynamic proxy
@@ -181,3 +181,4 @@ void mixin() {
 
 - [Stackoverflow](https://stackoverflow.com/questions/66974846/java-lang-exceptionininitializererror-with-java-16-j-l-classformaterror-access)
 - [Baeldung](https://www.baeldung.com/cglib)
+- https://logical-code.tistory.com/118

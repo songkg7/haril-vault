@@ -1,11 +1,15 @@
 ---
-title: "Kotlin 에서 builder 는 정말 의미가 없을까?"
+title: Kotlin 에서 builder 는 정말 의미가 없을까?
 date: 2022-10-12 20:09:00 +0900
 fc-calendar: Gregorian Calendar
 fc-date: 2022-10-12
 aliases: 
-tags: [kotlin, builder, design-pattern]
+tags:
+  - kotlin
+  - builder
+  - design-pattern
 categories: 
+updated: 2023-09-04 11:57:33 +0900
 ---
 
 [[Kotlin]] 은 default value 를 통해서 생성자로 값을 초기화하지 않아도 되는 기능을 이미 가지고 있다. 때문에 필요없는 파라미터를 굳이 생성자를 통해 전달하지 않아도 되기 때문에, `Builder` 를 구현하는 의미가 약한 것은 사실이다.
@@ -79,4 +83,4 @@ internal class FoodOrderTest: DescribeSpec({
 
 ## Links
 
-- [[Design pattern]]
+- [[Design Pattern]]
