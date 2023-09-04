@@ -1,19 +1,19 @@
 ---
 title: Observer pattern
 date: 2022-12-12 12:27:00 +0900
-aliases: null
+aliases: 
 tags:
   - design-pattern
   - observer
   - java
   - kotlin
-categories: null
-updated: 2023-08-19 12:38:13 +0900
+categories: 
+updated: 2023-09-04 11:57:33 +0900
 ---
 
 ## Overview
 
-[[Design pattern]] 중의 하나
+[[Design Pattern]] 중의 하나
 
 특정 데이터의 변화가 생기면 해당 데이터를 팔로우하고 있는 객체들에게 알려주어 데이터를 갱신하게 하는 작업에 사용된다.
 

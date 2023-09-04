@@ -1,10 +1,14 @@
 ---
 title: gRPC
 date: 2023-08-26 12:41:00 +0900
-aliases: gRPC
-tags: network, http
-categories: null
-updated: 2023-08-27 00:00:27 +0900
+aliases:
+  - gRPC
+tags:
+  - network
+  - http
+  - rpc
+categories: 
+updated: 2023-09-04 01:33:16 +0900
 ---
 
 특징
@@ -27,7 +31,8 @@ gRPC Client 는 resolver 와 LB 를 들고 있다.
 
 ## Reference
 
-- [Naver Cloud Platform Tech Blog](https://medium.com/naver-cloud-platform/nbp-%EA%B8%B0%EC%88%A0-%EA%B2%BD%ED%97%98-%EC%8B%9C%EB%8C%80%EC%9D%98-%ED%9D%90%EB%A6%84-grpc-%EA%B9%8A%EA%B2%8C-%ED%8C%8C%EA%B3%A0%EB%93%A4%EA%B8%B0-1-39e97cb3460)
+- [Naver Cloud Platform Tech Blog 1/2](https://medium.com/naver-cloud-platform/nbp-%EA%B8%B0%EC%88%A0-%EA%B2%BD%ED%97%98-%EC%8B%9C%EB%8C%80%EC%9D%98-%ED%9D%90%EB%A6%84-grpc-%EA%B9%8A%EA%B2%8C-%ED%8C%8C%EA%B3%A0%EB%93%A4%EA%B8%B0-1-39e97cb3460)
+- [Naver Cloud Platform Tech Blog 2/2](https://medium.com/naver-cloud-platform/nbp-%EA%B8%B0%EC%88%A0-%EA%B2%BD%ED%97%98-%EC%8B%9C%EB%8C%80%EC%9D%98-%ED%9D%90%EB%A6%84-grpc-%EA%B9%8A%EA%B2%8C-%ED%8C%8C%EA%B3%A0%EB%93%A4%EA%B8%B0-2-b01d390a7190)
 - [당근마켓](https://www.youtube.com/watch?v=igHrQPzLVRw&t=36s)
 
 ## Links

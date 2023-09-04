@@ -4,14 +4,14 @@ date: 2022-08-18 11:11:00 +0900
 publish: false
 fc-calendar: Gregorian Calendar
 fc-date: 2022-08-18
-aliases: null
+aliases: 
 tags:
   - design-pattern
   - kotlin
   - kotest
 categories:
   - Design pattern
-updated: 2023-08-19 12:37:58 +0900
+updated: 2023-09-04 11:57:33 +0900
 ---
 
 # Strategy pattern
@@ -72,4 +72,4 @@ internal class PrinterTest : DescribeSpec({
 
 # Links
 
-- [[Design pattern]]
+- [[Design Pattern]]
