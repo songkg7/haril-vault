@@ -1,9 +1,12 @@
 ---
-title: "Kotest"
+title: Kotest
 date: 2022-10-19 17:21:00 +0900
 aliases: 
-tags: [kotlin, test]
+tags:
+  - kotlin
+  - test
 categories: 
+updated: 2023-09-06 21:12:13 +0900
 ---
 
 ## Overview
@@ -15,3 +18,4 @@ categories:
 ## Reference
 
 - [우아한 형제들 기술블로그](https://techblog.woowahan.com/5825/)
+- [kotest](https://kotest.io/)
