@@ -1,6 +1,6 @@
 /*───────────────────────────────────────────────────────
 THINGS
-Version 2.1.11
+Version 2.1.16
 Created by @colineckert
 
 Readme:
@@ -49,6 +49,10 @@ body {
   --tag-font-color-l: #1d694b;
   --tag-background-color-d: #1d694b;
   --tag-font-color-d: #ffffff;
+
+  --highlight-background-color--normal: hsl(50deg 100% 50% / 15%) !important;
+  --highlight-background-color-underline: hsl(50deg 100% 50% / 100%) !important;
+  --highlight-background-color--active: hsl(50deg 100% 50% / 20%) !important;
 
   /* Font families */
   --font-text-theme: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
@@ -291,6 +295,51 @@ body.is-mobile.theme-dark.mobile-black-background {
   }
 }
 
+/* Header title */
+.view-header-title,
+.view-header-title-parent {
+  text-overflow: ellipsis;
+}
+.view-header-title-container:not(.mod-at-end):after {
+  display: none;
+}
+body:not(.is-mobile) .view-actions .view-action:last-child {
+  margin-left: -1px;
+}
+.workspace-ribbon:not(.is-collapsed)
+  ~ .mod-root
+  .view-header:hover
+  .view-actions,
+.mod-right.is-collapsed ~ .mod-root .view-header:hover .view-actions,
+.view-action.is-active:hover,
+.workspace-ribbon.mod-left.is-collapsed
+  ~ .mod-root
+  .view-header:hover
+  .view-actions,
+.workspace-ribbon:not(.is-collapsed) ~ .mod-root .view-actions {
+  opacity: 1;
+  transition: opacity 0.25s ease-in-out;
+}
+.view-header:hover .view-header-title-container,
+.workspace-tab-header-container:hover
+  + .workspace-tab-container
+  .view-header-title-container {
+  opacity: 1;
+  transition: opacity 0.1s ease-in-out;
+}
+.is-phone .view-header-title-container,
+.view-header-title-container {
+  opacity: 1;
+}
+.view-header-title-container {
+  opacity: 0;
+  transition: opacity 0.1s ease-in-out;
+}
+.view-header-title-container:focus-within {
+  opacity: 1;
+  transition: opacity 0.1s ease-in-out;
+}
+
 /* H2 styling */
 body.h2-underline h2,
 body.h2-underline .HyperMD-header.HyperMD-header-2.cm-line {
@@ -328,6 +377,29 @@ body:not(.default-font-color) span:not(.cm-highlight).cm-em {
 body:not(.default-font-color) mark strong,
 body:not(.default-font-color) mark em {
   color: var(--text-normal);
+}
+
+/* Highlight styling */
+span.cm-highlight,
+.markdown-preview-view mark,
+span.search-result-file-matched-text {
+  padding: 0.05em 0;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+/* Fancy highlight */
+body.fancy-highlight span.cm-highlight,
+body.fancy-highlight .markdown-preview-view mark,
+body.fancy-highlight span.search-result-file-matched-text {
+  background-image: linear-gradient(
+    0deg,
+    var(--highlight-background-color-underline) 0%,
+    var(--highlight-background-color-underline) 2px,
+    var(--highlight-background-color--active) 2px,
+    var(--highlight-background-color--active) 100%
+  ) !important;
+  background-color: var(--highlight-text-color--active) !important;
 }
 
 /* Markdown formatting */
@@ -370,36 +442,20 @@ body.active-line .cm-active.HyperMD-quote::before {
   opacity: 0.85;
 }
 
-/* Highlight styling */
-span.cm-highlight,
-.markdown-preview-view mark,
-span.search-result-file-matched-text {
-  padding: 0.1em 0;
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
-}
-
-/* Inline title align */
-body:not(.is-mobile)
-  .markdown-source-view.mod-cm6.is-readable-line-width
-  .inline-title {
-  width: calc(var(--line-width-adaptive) - var(--folding-offset));
-  max-width: calc(var(--max-width) - var(--folding-offset));
-  margin-right: auto;
-  margin-left: max(
-    calc(50% + var(--folding-offset) - var(--line-width-adaptive) / 2),
-    calc(50% + var(--folding-offset) - var(--max-width) / 2)
-  ) !important;
+/* Code blocks horizontal scroll */
+.markdown-reading-view .markdown-preview-view pre:not(.frontmatter) code {
+  white-space: pre;
 }
 
 /* ------------------- */
 /* One Dark Syntax Coloring */
 /* Source: https://github.com/AGMStudio/prism-theme-one-dark */
 /* ------------------- */
-.theme-light .token.comment {
+.theme-light .token.comment .theme-light .cm-comment {
   color: #ababab;
 }
 .theme-dark .token.comment,
+.theme-dark .cm-comment,
 .token.prolog,
 .token.doctype,
 .token.cdata {
@@ -407,33 +463,42 @@ body:not(.is-mobile)
 }
 .token.punctuation,
 .token.plain-text,
-.token.parameter,
 .token.dom.variable,
 .cm-hmd-codeblock.cm-bracket {
-  color: var(--atom-gray-2) !important;
+  color: var(--atom-gray-2);
 }
+code[class*='language-'],
 .token.selector,
-.token.tag,
-.token.property,
-.token.property-access,
+.cm-tag,
 .token.dom.variable,
-span.token.variable,
-.cm-hmd-codeblock.cm-tag,
-.cm-variable,
+.token.tag,
+.cm-def,
+.token.parameter,
 .cm-property,
 .cm-qualifier {
   color: var(--atom-red);
 }
+.token.class-name,
+.token.maybe-class-name,
+.token.property-access,
+.token.constant,
+.token.builtin,
+.cm-variable-2,
+.cm-type,
+.cm-atom,
+code .cm-tag {
+  color: var(--atom-yellow);
+}
+.token.property,
 .token.boolean,
 .token.number,
 .token.symbol,
-.token.builtin,
 .token.attr-name,
 .token.deleted,
 .cm-attribute,
 .cm-number,
 .cm-property.cm-string {
-  color: var(--atom-orange) !important;
+  color: var(--atom-orange);
 }
 .token.string,
 .token.char,
@@ -456,19 +521,11 @@ span.token.variable,
 .cm-keyword {
   color: var(--atom-purple);
 }
-.cm-builtin,
+.cm-variable,
 .token.function,
 .token.method,
 .token.macro.property {
   color: var(--atom-blue);
-}
-.token.class-name,
-.token.constant,
-.cm-atom,
-code .cm-tag,
-.cm-variable-2,
-.cm-type {
-  color: var(--atom-yellow);
 }
 .token.regex,
 .token.important,
@@ -1069,6 +1126,12 @@ settings:
         title: Highlight active line
         description: Change background color of current working line
         id: active-line
+        type: class-toggle
+        default: false
+    -
+        title: Fancy highlighting
+        description: Enable fancy highlight styles with highlight underlines
+        id: fancy-highlight
         type: class-toggle
         default: false
     -
