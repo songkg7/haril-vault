@@ -1,10 +1,13 @@
 ---
-title: "Consistent Hashing"
+title: Consistent Hashing
 date: 2023-04-20 13:41:00 +0900
 aliases: 안정 해시
-tags: [hash, algorithm, consistent]
+tags:
+  - hash
+  - algorithm
+  - consistent
 categories: 
-updated: 2023-06-04 21:41:07 +0900
+updated: 2023-09-17 21:20:46 +0900
 banner: "![[consistent hash.png]]"
 ---
 
@@ -178,7 +181,7 @@ public T routeNode(String businessKey) {
 }
 ```
 
-hash ring 은 `TreeMap` 을 사용하여 구현했다. `TreeMap` 은 저장과 동시에 key(해시값)의 오름차순으로 정렬을 유지하기 때문에 `tailMap(key)` 메서드를 통해서 key(해시값)보다 큰 값들을 찾아올 수 있고, 큰 key 를 찾을 수 없다면 `firstKey` 로 가장 작은 key 와 연결하여 링을 구현한다.
+hash ring 은 [[TreeMap|TreeMap]] 을 사용하여 구현했다. `TreeMap` 은 저장과 동시에 key(해시값)의 오름차순으로 정렬을 유지하기 때문에 `tailMap(key)` 메서드를 통해서 key(해시값)보다 큰 값들을 찾아올 수 있고, 큰 key 를 찾을 수 없다면 `firstKey` 로 가장 작은 key 와 연결하여 링을 구현한다.
 
 > [!INFO] Why TreeMap?
 > `TreeMap` 이 익숙하지 않다면, 이 [링크](https://coding-factory.tistory.com/557)를 참조해주기 바란다.
