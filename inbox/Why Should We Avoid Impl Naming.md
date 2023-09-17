@@ -2,8 +2,6 @@
 title: Impl naming 을 피해야하는 이유
 date: 2022-08-18 12:45:00 +0900
 publish: false
-fc-calendar: Gregorian Calendar
-fc-date: 2022-08-18
 aliases: 
 tags:
   - convention
