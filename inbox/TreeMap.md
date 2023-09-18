@@ -9,8 +9,9 @@ tags:
   - red-black
   - data-structure
 categories: 
-updated: 2023-09-17 21:17:19 +0900
+updated: 2023-09-18 11:20:03 +0900
 ---
+[[Java|Java]] 의 [[Map]] 은 인터페이스이다. TreeMap 은 Map 인터페이스의 구현체 중 하나이다.
 
 TreeMap은 키-값 쌍으로 이루어진 데이터를 저장하는 자료구조이다. TreeMap은 내부적으로 이진 트리([[Binary Tree|Binary Tree]])를 사용하여 데이터를 저장하므로, 데이터의 삽입, 삭제, 검색 등의 연산을 빠르게 수행할 수 있다.
 
