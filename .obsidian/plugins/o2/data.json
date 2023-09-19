@@ -1,7 +1,7 @@
 {
-  "attachmentsFolder": "resources",
+  "attachmentsFolder": "attachments",
   "readyFolder": "ready",
-  "backupFolder": "published",
+  "backupFolder": "Archive",
   "_jekyllPath": "/Users/kgsong/Library/CloudStorage/Dropbox/devlog",
   "_jekyllRelativeResourcePath": "assets/img",
   "_isAutoCreateFolder": false,

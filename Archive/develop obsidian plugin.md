@@ -8,8 +8,8 @@ tags:
   - side-project
   - typescript
   - o2
-categories: null
-updated: 2023-08-19 12:38:16 +0900
+categories: 
+updated: 2023-09-19 22:47:27 +0900
 ---
 
 # O2
@@ -213,7 +213,7 @@ Obsidian 만의 특별한 문법들은 정규표현식을 사용해서 처리했
 
 이제 community plugin 으로 등록하기 위해 PR 을 작성해주는 것으로 마무리합니다. 당연하지만 커뮤니티 가이드라인을 지키지 않으면 반려될 수 있으니 주의해야 합니다. 또한, Obsidian 에서 플러그인을 개발할 때 주의해야할 부분들을 문서로 안내하고 있으니 최대한 맞춰서 개발합니다.
 
-![[Obsidian-releases-pr.png]]
+![[obsidian-releases-pr.png]]
 
 기존 PR 들을 좀 살펴보니 merge 에는 대략 2~4주 정도 걸리는 것 같네요. 나중에 피드백이 오면 다시 수정하도록 하고 맘편히 기다리면 되겠습니다.
 

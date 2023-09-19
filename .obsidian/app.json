@@ -1,17 +1,17 @@
 {
   "vimMode": true,
   "showLineNumber": true,
-  "attachmentFolderPath": "resources",
+  "attachmentFolderPath": "attachments",
   "alwaysUpdateLinks": true,
   "userIgnoreFilters": [
     "templates/",
     "README",
     "textgenerator/",
-    "resources/"
+    "attachments/"
   ],
   "promptDelete": false,
   "newFileLocation": "folder",
-  "newFileFolderPath": "inbox",
+  "newFileFolderPath": "Resource",
   "readableLineLength": true,
   "showIndentGuide": true,
   "lineWrap": true,

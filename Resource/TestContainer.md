@@ -8,8 +8,8 @@ tags:
   - jpa
   - junit
   - library
-categories: null
-updated: 2023-08-26 13:39:44 +0900
+categories: 
+updated: 2023-09-19 22:53:41 +0900
 ---
 
 ## What is TestContainers?
@@ -32,7 +32,7 @@ linux 환경에서 docker enviroment 관련 error 메세지와 함께 실행이 
 
 # Links
 
-- [[published/Docker]]
+- [[Docker]]
 - [[Java Persistence API|JPA]]
 - [[JUnit]]
 - [[Java]]
