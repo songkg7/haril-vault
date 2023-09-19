@@ -10,10 +10,10 @@ tags:
   - sort
   - binary
 categories: 
-updated: 2023-09-17 21:11:40 +0900
+updated: 2023-09-18 18:00:29 +0900
 ---
 
-이진탐색트리(Binary Search Tree, BST) 는 왼쪽 자식은 부모보다 작고 오른쪽 자식은 부모보다 큰 이진트리([[Binary Tree|Binary Tree]]) 이다.
+이진탐색트리(Binary Search [[Tree]], BST) 는 왼쪽 자식은 부모보다 작고 오른쪽 자식은 부모보다 큰 이진트리([[Binary Tree|Binary Tree]]) 이다.
 
 이진탐색트리는 다음과 같은 특징을 가지고 있다:
 

@@ -1,12 +1,14 @@
 ---
 title: k8s hpa 적용
 date: 2023-01-06 17:01:00 +0900
-aliases: null
+aliases: 
 tags:
   - k8s
-categories: null
-updated: 2023-08-19 12:37:54 +0900
+categories: 
+updated: 2023-09-18 16:08:03 +0900
 ---
+
+[[Kubernetes]]
 
 hpa 적용을 위해 다음 명령어를 실행해본다.
 

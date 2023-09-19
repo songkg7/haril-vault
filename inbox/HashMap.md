@@ -9,7 +9,7 @@ tags:
   - java
   - data-structure
 categories: Data structure
-updated: 2023-09-18 16:05:02 +0900
+updated: 2023-09-19 22:32:15 +0900
 ---
 
 [[Map|Map]] 의 구현체 중 하나이다.
