@@ -1,11 +1,17 @@
 ---
-title: "Kubernetes"
+title: Kubernetes
 date: 2022-08-20 14:09:00 +0900
 fc-calendar: Gregorian Calendar
 fc-date: 2022-08-20
 aliases: k8s
-tags: [devops, container, docker, cloud]
-categories: [Kubernetes]
+tags:
+  - devops
+  - container
+  - docker
+  - cloud
+categories:
+  - Kubernetes
+updated: 2023-09-19 22:53:41 +0900
 ---
 
 ## Overview
@@ -71,7 +77,7 @@ kubectl get pod private-reg
 
 ## Links
 
-- [[published/Docker]]
+- [[Docker]]
 - [[Istio]]
 - [[Minikube]]
 - [[Helm]]

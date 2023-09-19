@@ -3,14 +3,14 @@ title: Elasticsearch
 date: 2022-09-20 17:36:00 +0900
 fc-calendar: Gregorian Calendar
 fc-date: 2022-09-20
-aliases: null
+aliases: 
 tags:
   - spring
   - elasticsearch
   - elk
   - kotlin
-categories: null
-updated: 2023-08-19 12:38:12 +0900
+categories: 
+updated: 2023-09-19 22:53:41 +0900
 ---
 
 > [!INFO] 이 아티클의 메인 언어는 Kotlin 입니다.
@@ -32,7 +32,7 @@ updated: 2023-08-19 12:38:12 +0900
 
 ## Elasticsearch 설정
 
-[[published/Docker]] 를 사용하면 Elasticsearch 를 아주 간단하게 설치하고 사용할 수 있다. 간편하게 실행하려면 단일 노드로 사용하면 되지만, 실무에서 단일 노드로만 사용하는 경우는 거의 없을 것이라 생각되기 때문에 멀티 노드를 통한 클러스터링을 해보자.
+[[Docker]] 를 사용하면 Elasticsearch 를 아주 간단하게 설치하고 사용할 수 있다. 간편하게 실행하려면 단일 노드로 사용하면 되지만, 실무에서 단일 노드로만 사용하는 경우는 거의 없을 것이라 생각되기 때문에 멀티 노드를 통한 클러스터링을 해보자.
 
 ```yaml
 ```
