@@ -1,5 +1,10 @@
 ---
-updated: 2023-08-19 12:34:33 +0900
+title: PostgreSQL
+date: 2023-09-27 15:25:00 +0900
+aliases: 
+tags: 
+categories: 
+updated: 2023-09-27 15:25:37 +0900
 ---
 
 ## Reference
