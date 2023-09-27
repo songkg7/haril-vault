@@ -1,8 +1,12 @@
 ---
 title: PostgreSQL
 date: 2023-09-27 15:25:00 +0900
-aliases: 
-tags: 
+aliases:
+  - postgres
+tags:
+  - postgresql
+  - rdb
+  - database
 categories: 
 updated: 2023-09-27 15:25:37 +0900
 ---
