@@ -2,9 +2,11 @@
 title: Pair Programming Game
 date: 2023-08-18 16:30:00 +0900
 aliases: 
-tags: study
+tags:
+  - study
 categories: 
-updated: 2023-09-30 15:09:57 +0900
+updated: 2023-10-01 15:38:18 +0900
+related: "[[Kotlin|Kotlin]]"
 ---
 
 - 필요인원: 최소 2명, 최대 4명

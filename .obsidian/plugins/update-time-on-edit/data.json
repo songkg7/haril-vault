@@ -17,8 +17,9 @@
     "private/Question list.md": "bac0886fd7272b973c3982bc1bb827040117f55159e18a1ea8df292007e984a9",
     "Resource/Concurrency.md": "de9aa6560d845a4d0f30bce24df0c42acd6589001c7a40903e49751ab0107762",
     "Resource/Pessimistic Lock.md": "d45947cde710de6922de2547f1f0cd8ed0922f48f6008a80c7092332f78fe681",
-    "Resource/Pair Programming Game.md": "d09206943af1872a7c6c2d5b911892494c7fd4f2ae9889a7a6959ee4f60da77b",
-    "Resource/Select for update in JPA.md": "c8f85516330e6e83bbdcd93e31c33da9edc575d7e435451be3f9895d70ffe2bd"
+    "Resource/Select for update in JPA.md": "c8f85516330e6e83bbdcd93e31c33da9edc575d7e435451be3f9895d70ffe2bd",
+    "Area/Pair Programming Game.md": "83fcc7322755c087437a2b3a4d0c14c6310e715ab9432089822f6cab3e1d5401",
+    "Project/Socket.md": "aecc7e088c25055887828c8a20202a1486124eeb8ba2116c0835b125b01ae08f"
   },
   "readDateFormat": "yyyy-MM-dd HH:mm:ss xx",
   "useDifferentReadFormat": true
