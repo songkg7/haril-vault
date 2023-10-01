@@ -1,7 +1,8 @@
 ---
 title: 동시성
 date: 2023-08-09 21:24:00 +0900
-aliases: 
+aliases:
+  - 동시성
 tags:
   - transaction
   - lock
