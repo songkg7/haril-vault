@@ -392,7 +392,8 @@
     "Archive/Docker network.md": "a26bfea1a9a40f2b41e262226e9c14e43119e7da0971f268fe73a6726ad08758",
     "Archive/Consistent Hashing.md": "042ea1f800ba6917ed0bae205b61b4c035e180ec583ed9e87ae5366b794f5760",
     "Project/Replication.md": "e99221286abb7c2fd04de990ac23bda32efc86c3cbd31876c8baa1a7870b806d",
-    "Resource/MySQL Gap Lock.md": "9ae8bcfaba54d69162ea07211cdc9d26f31cb603b192a9708cab8a0100d6b484"
+    "Resource/MySQL Gap Lock.md": "9ae8bcfaba54d69162ea07211cdc9d26f31cb603b192a9708cab8a0100d6b484",
+    "Resource/System Design Case.md": "c3395cd23cf2100befdcc468c51efa69fbea5bd0b02ba8eda828b5b0cc48bdb0"
   },
   "readDateFormat": "yyyy-MM-dd HH:mm:ss xx",
   "useDifferentReadFormat": true
