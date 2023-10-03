@@ -1,11 +1,13 @@
 ---
 title: 정렬 알고리즘 비교
 date: 2023-08-21 16:18:00 +0900
-aliases: null
+aliases: 
 tags: sort, algorithm, time-complexity
-categories: null
-updated: 2023-08-23 10:03:15 +0900
+categories: 
+updated: 2023-10-03 21:21:35 +0900
 ---
+
+![[sort.gif]]
 
 ## Reference
 
