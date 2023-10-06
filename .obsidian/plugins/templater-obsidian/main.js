@@ -1738,6 +1738,9 @@ function arraymove(arr, fromIndex, toIndex) {
   arr[fromIndex] = arr[toIndex];
   arr[toIndex] = element;
 }
+function get_active_file(app2) {
+  return app2.workspace.activeEditor?.file ?? app2.workspace.getActiveFile();
+}
 
 // src/settings/suggesters/FileSuggester.ts
 var FileSuggestMode;
@@ -2942,13 +2945,17 @@ var UserScriptFunctions = class {
     };
     const file_content = await app.vault.read(file);
     const wrapping_fn = window.eval("(function anonymous(require, module, exports){" + file_content + "\n})");
-    wrapping_fn(req, mod, exp);
+    try {
+      wrapping_fn(req, mod, exp);
+    } catch (err) {
+      throw new TemplaterError(`Failed to load user script at "${file.path}".`, err.message);
+    }
     const user_function = exp["default"] || mod.exports;
     if (!user_function) {
-      throw new TemplaterError(`Failed to load user script ${file.path}. No exports detected.`);
+      throw new TemplaterError(`Failed to load user script at "${file.path}". No exports detected.`);
     }
     if (!(user_function instanceof Function)) {
-      throw new TemplaterError(`Failed to load user script ${file.path}. Default export is not a function.`);
+      throw new TemplaterError(`Failed to load user script at "${file.path}". Default export is not a function.`);
     }
     user_script_functions.set(`${file.basename}`, user_function);
   }
@@ -3482,7 +3489,7 @@ var Templater = class {
     this.plugin.registerMarkdownPostProcessor((el, ctx) => this.process_dynamic_templates(el, ctx));
   }
   create_running_config(template_file, target_file, run_mode) {
-    const active_file = app.workspace.activeEditor?.file;
+    const active_file = get_active_file(app);
     return {
       template_file,
       target_file,
@@ -3505,7 +3512,7 @@ var Templater = class {
       const new_file_location = app.vault.getConfig("newFileLocation");
       switch (new_file_location) {
         case "current": {
-          const active_file = app.workspace.activeEditor?.file;
+          const active_file = get_active_file(app);
           if (active_file) {
             folder = active_file.parent;
           }
@@ -5365,7 +5372,7 @@ var Editor2 = class {
     if (auto_jump && !this.plugin.settings.auto_jump_to_cursor) {
       return;
     }
-    if (file && app.workspace.activeEditor?.file !== file) {
+    if (file && get_active_file(app) !== file) {
       return;
     }
     await this.cursor_jumper.jump_to_next_cursor_location();
