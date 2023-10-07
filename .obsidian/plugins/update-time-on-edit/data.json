@@ -397,8 +397,10 @@
     "Resource/B-Tree.md": "a5165c83463757859aa9c9ec03e03e78bc15fcd33cd350c6eeafcf21d97d7ef4",
     "Resource/Trie.md": "f9db2d44f63777c2b6c3e340cb1e514fc47274c4fc978fea57acbccc8d13bedf",
     "Resource/static and final keyword.md": "4eed5e5de6cfd8ffd8f6775e47f493225b9123ff6569024e258353cedebbd192",
-    "Resource/컨테이너가 IT 세상을 점령한 이유.md": "976f8d358fdf60be83f82ce0a938f19f7a7108623dc0f906a83c86362f21f25c",
-    "Resource/도커의 기본 사용 방법.md": "4c195d6c4cb0abfb732e8351fc41f3c0f742e78f1dda0f43bb805efad3dc977f"
+    "Resource/컨테이너가 IT 세상을 점령한 이유.md": "6cb2c1d38d117ea3a69c9980e04e988047da32854521e0539c2e84e0e681b05d",
+    "Resource/도커의 기본 사용 방법.md": "9a84ee78cddf84853ca4d61e325ca7900d4897ee10240e8dca3e5da19ee5756b",
+    "Resource/Virtual Machine.md": "b69ea97e9839bf8d99e1e6048bb5a239a35c7a10ad18c66b383397282e4159b6",
+    "Resource/containerd.md": "f32330e42ec20c30e22b350076d4e54935dd88ca3c41d8deacfd7e7929ea49c3"
   },
   "readDateFormat": "yyyy-MM-dd HH:mm:ss xx",
   "useDifferentReadFormat": true
