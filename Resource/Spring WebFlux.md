@@ -13,7 +13,7 @@ tags:
   - kotlin
   - reactive
 categories: Spring
-updated: 2023-08-26 23:40:26 +0900
+updated: 2023-10-09 18:48:34 +0900
 ---
 
 ## Overview
@@ -45,7 +45,7 @@ Webflux 가 탄생한 이유 중 하나는 적은 쓰레드로 동시 처리를 
 ## Next step
 
 - [[Reactive 에 대해]]
-- [[Non-blocking]]
+- [[Sync Async and Blocking Non-blocking|Sync Async and Blocking Non-blocking]]
 - [[Functional programming]]
 
 ## Reference
