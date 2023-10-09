@@ -3,14 +3,14 @@ title: Reactive 에 대해
 date: 2022-08-21 12:10:00 +0900
 fc-calendar: Gregorian Calendar
 fc-date: 2022-08-21
-aliases: null
+aliases: 
 tags:
   - reactive
-categories: null
-updated: 2023-08-19 12:38:02 +0900
+categories: 
+updated: 2023-10-09 14:47:26 +0900
 ---
 
-**Reactive** 라는 용어는 변화에 반응하는 것을 중심에 두고 만든 프로그래밍 모델을 의미한다. [[Non-blocking]] 은 작업을 기다리기보다 완료되거나 데이터를 사용할 수 있게 되면 반응하므로, 이 말대로면 Non-blocking 도 reactive 다.
+**Reactive** 라는 용어는 변화에 반응하는 것을 중심에 두고 만든 프로그래밍 모델을 의미한다. Non-blocking 은 작업을 기다리기보다 완료되거나 데이터를 사용할 수 있게 되면 반응하므로, 이 말대로면 Non-blocking 도 reactive 다.
 
 [[Spring framework|Spring]]은 reactive 와 관련된 중요한 매커니즘이 하나 더 있는데, Non-blocking back pressure 다. 동기식 명령형(imperative) 코드에서 블로킹 호출은 호출자를 강제로 기다리게하는 일종의 back pressure 다. Non-blocking 코드에선, 프로듀서 속도가 컨슈머 속도를 압도하지 않도록 이벤트 속도를 제어한다.
 
@@ -22,3 +22,4 @@ Reactive stream 은 back pressure 를 통한 비동기 컴포넌트 간의 상�
 ## Links
 
 - [[Back pressure]]
+- [[Sync Async and Blocking Non-blocking|Sync Async and Blocking Non-blocking]]
