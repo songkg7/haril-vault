@@ -8,7 +8,7 @@ tags:
   - reliability
   - book
 categories: 
-updated: 2023-10-01 22:18:02 +0900
+updated: 2023-10-10 17:59:15 +0900
 related: "[[Database|Database]]"
 ---
 
@@ -24,7 +24,7 @@ related: "[[Database|Database]]"
 
 1. 구문 기반 복제
 2. 쓰기 전 로그 배송
-    - Write-aead log([[WAL]])
+    - Write-ahead log([[WAL]])
     - 로그는 데이터베이스의 모든 쓰기를 포함하는 바이트 열이다. 이 로그를 사용하여 팔로워 노드에서 복제 서버를 구축할 수 있다.
     - 로그가 제일 저수준의 데이터 정보를 포함하기 때문에 저장소 엔진과 밀접하게 엮이고, 리더와 팔로워의 의존성을 강하게 한다. 이는 무중단 업데이트를 어렵게 한다.
 3. 논리적 로그 복제
