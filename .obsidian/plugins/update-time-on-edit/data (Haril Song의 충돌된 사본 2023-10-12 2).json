@@ -402,8 +402,7 @@
     "Resource/Virtual Machine.md": "b69ea97e9839bf8d99e1e6048bb5a239a35c7a10ad18c66b383397282e4159b6",
     "Resource/containerd.md": "f32330e42ec20c30e22b350076d4e54935dd88ca3c41d8deacfd7e7929ea49c3",
     "Resource/Sync Async and Blocking Non-blocking.md": "420aa79dbdf669079e365ed151b27a4249cf3b2cb87dcb2f46cff44eaee7b98a",
-    "Resource/JVM Compressed OOPS.md": "2ba277bd163e32d57513ce99bdd68f3cd18b71ce3c8dc190e33a4eb341255d89",
-    "Resource/JVM Memory Layout.md": "dbf1c04503165e83571e21949d9eb96fae3bddf092734c071571130674abf0da"
+    "Resource/JVM Compressed OOPS.md": "6f4958d9447373e540c4ce2c343c2802d082b61bca3ef1736468d9b9a1b0bad3"
   },
   "readDateFormat": "yyyy-MM-dd HH:mm:ss xx",
   "useDifferentReadFormat": true
