@@ -378,7 +378,7 @@
     "Archive/Infix functions.md": "b187d3ca0e48aa12236a7f7642e5005e145863daaef229c128a680b972c2c9dc",
     "Archive/JdbcItemReader sortKeys 설정시 주의사항.md": "d17edbe635813692e28d82710fe77895d08312b0d0fca052ec7713d9b5e51a0d",
     "Archive/Google cloud kubernetes 를 local 에서 접근하기.md": "f0ef4ddcd8d0f28ce0b2043a936864ebc67acfb5f8ba54934aa03d9e594cbe89",
-    "Archive/Garbage Collection.md": "4496e1d93a95ab481180bc9c4bcb4a0fe25045cdc2596df4e859ea16121c2b74",
+    "Archive/Garbage Collection.md": "20fadcdaea34bca52462d0dd761e6264ea0c79dd6cbf82f34534e43a227f33c0",
     "Archive/Image optimazation for SEO.md": "7bb274d0ffc013f3c77a105ee2b2752cae8a3b7302f9a53cc24c54d8011c2102",
     "Archive/Fixture monkey.md": "aba9cac5da74c7d0d2bbeaa01dbb77f150e905f58bff38d43cf08d3b0493745d",
     "Archive/EC2 cost optimization with Jenkins.md": "19822957df049193077ddecc7e10fe6edd3b19a1057bffc03387eafc30f0be83",
@@ -402,8 +402,7 @@
     "Resource/Virtual Machine.md": "b69ea97e9839bf8d99e1e6048bb5a239a35c7a10ad18c66b383397282e4159b6",
     "Resource/containerd.md": "f32330e42ec20c30e22b350076d4e54935dd88ca3c41d8deacfd7e7929ea49c3",
     "Resource/Sync Async and Blocking Non-blocking.md": "420aa79dbdf669079e365ed151b27a4249cf3b2cb87dcb2f46cff44eaee7b98a",
-    "Resource/JVM Compressed OOPS.md": "2ba277bd163e32d57513ce99bdd68f3cd18b71ce3c8dc190e33a4eb341255d89",
-    "Resource/JVM Memory Layout.md": "dbf1c04503165e83571e21949d9eb96fae3bddf092734c071571130674abf0da"
+    "Resource/JVM Compressed OOPS.md": "3e57c5d78fb4487b94d5909f2fba8ced49b5677605479d81d78b1e06b6ab47fd"
   },
   "readDateFormat": "yyyy-MM-dd HH:mm:ss xx",
   "useDifferentReadFormat": true
