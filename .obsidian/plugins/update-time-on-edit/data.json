@@ -401,9 +401,9 @@
     "Resource/도커의 기본 사용 방법.md": "fab0f63d155f4d217ed9bdfa199f84d75544c2a739c2b953766a32eeae9be81d",
     "Resource/Virtual Machine.md": "b69ea97e9839bf8d99e1e6048bb5a239a35c7a10ad18c66b383397282e4159b6",
     "Resource/containerd.md": "f32330e42ec20c30e22b350076d4e54935dd88ca3c41d8deacfd7e7929ea49c3",
-    "Resource/Sync Async and Blocking Non-blocking.md": "420aa79dbdf669079e365ed151b27a4249cf3b2cb87dcb2f46cff44eaee7b98a",
+    "Resource/Sync Async and Blocking Non-blocking.md": "d172d4338d672d0376c476e37d54d06b2e67fbaa8d4596e7565bb55d8d6df6dd",
     "Resource/JVM Compressed OOPS.md": "2ba277bd163e32d57513ce99bdd68f3cd18b71ce3c8dc190e33a4eb341255d89",
-    "Resource/JVM Memory Layout.md": "dbf1c04503165e83571e21949d9eb96fae3bddf092734c071571130674abf0da"
+    "Resource/기존에 접속한 ip 의 서버가 달라지면 재접속시 생기는 문제.md": "9e781af97e15eae8a4623950b1baea64cde22c1af756ea49b4fc3b8f9b8c90fc"
   },
   "readDateFormat": "yyyy-MM-dd HH:mm:ss xx",
   "useDifferentReadFormat": true
