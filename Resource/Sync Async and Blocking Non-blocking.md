@@ -8,7 +8,7 @@ tags:
   - blocking
   - non-blocking
 categories: 
-updated: 2023-10-09 18:55:26 +0900
+updated: 2023-10-13 18:18:00 +0900
 ---
 
 동기 비동기와 블록킹 논블로킹은 유사하면서 다르다. 핵심 키워드는 **제어권**과 **결과에 대한 관심**이다.
@@ -46,6 +46,7 @@ sequenceDiagram
     actor A
     actor B
     A ->> B: 리뷰 부탁드립니다.
+    Note left of A: 작업 가능(Non-Blocking)
 ```
 
 A 는 PR 을 생성했으니 이제 다른 이슈를 작업할 수 있게 되었다(Non-blocking). 그런데 B 시니어가 코드를 살펴보다가 맘에 안드는 부분이 있었는지 A 주니어를 호출하여 옆에 앉게 했다. A 주니어는 하려던 작업이 중단되었다(blocking).
@@ -56,14 +57,24 @@ sequenceDiagram
     actor B
     A ->> B: 리뷰 부탁드립니다.
     B ->> A: A, 잠깐 와주세요.
+    A -->> +B: 이동
+    Note right of B: Blocking
+    B -->> -A: 리뷰 종료
 ```
 
-A 는 PR 을 생성했지만 다음 이슈를 처리하기 위해서는 이 PR 이 먼저 병합되어야 했다. 마침 B 시니어가 호출하기도 했으니 자리를 옮겼다. 곧 리뷰가 끝나고 A 는 원래 자리로 돌아가 작업을 이어 시작한다(Sync)
+A 는 PR 을 생성했지만 다음 이슈를 처리하기 위해서는 이 PR 이 먼저 병합되어야 했다. 마침 B 시니어가 호출하기도 했으니 자리를 옮겼다(blocking). 곧 리뷰가 끝나고 A 는 원래 자리로 돌아가 작업을 이어 시작한다(Sync)
 
 ```mermaid
 sequenceDiagram
     actor A
     actor B
     A ->> B: 리뷰 부탁드립니다.
+    Note left of A: Sync
+    Note right of B: Non-Blocking
+    A -->> B: (끝났나..?)
     B ->> A: A, 잠깐 와주세요.
+    A -->> +B: 이동
+    Note right of B: Blocking
+    B -->> -A: 리뷰 종료
+    Note left of A: 이어서 작업 진행 Sync
 ```
