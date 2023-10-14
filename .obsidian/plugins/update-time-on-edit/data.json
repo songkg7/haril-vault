@@ -401,11 +401,11 @@
     "Resource/도커의 기본 사용 방법.md": "fab0f63d155f4d217ed9bdfa199f84d75544c2a739c2b953766a32eeae9be81d",
     "Resource/Virtual Machine.md": "b69ea97e9839bf8d99e1e6048bb5a239a35c7a10ad18c66b383397282e4159b6",
     "Resource/containerd.md": "f32330e42ec20c30e22b350076d4e54935dd88ca3c41d8deacfd7e7929ea49c3",
-    "Resource/Sync Async and Blocking Non-blocking.md": "d172d4338d672d0376c476e37d54d06b2e67fbaa8d4596e7565bb55d8d6df6dd",
+    "Resource/Sync Async and Blocking Non-blocking.md": "a798f6fea1a4f006a2bf6fbb730aca04d55e505e1da6b8cc1372cf811762bd59",
     "Resource/JVM Compressed OOPS.md": "2ba277bd163e32d57513ce99bdd68f3cd18b71ce3c8dc190e33a4eb341255d89",
     "Resource/기존에 접속한 ip 의 서버가 달라지면 재접속시 생기는 문제.md": "9e781af97e15eae8a4623950b1baea64cde22c1af756ea49b4fc3b8f9b8c90fc",
     "Resource/Docker Image.md": "ab224ac16e2ee3de8f88d2f5e4633a23b3ebb312699b8ca5c13d08ef36b03aa9",
-    "Resource/Docker multi-stage build example.md": "cdb75e56baab4b19ec1187f7da8aa2a005bb7870d00e7da05bd51d808ccdb0f9"
+    "Resource/Docker Study Example.md": "1f1dccead0f09937dd5cb2f8f6a4477f9059f03216616a7fef137e1cae7bc6a3"
   },
   "readDateFormat": "yyyy-MM-dd HH:mm:ss xx",
   "useDifferentReadFormat": true
