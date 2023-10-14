@@ -9,6 +9,7 @@ tags:
   - study
 categories: 
 updated: 2023-10-13 22:24:59 +0900
+related: "[[Docker|Docker]]"
 ---
 
 ```bash
