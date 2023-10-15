@@ -1,5 +1,5 @@
 ---
-title: Docker multi-stage build example
+title: Docker study example
 date: 2023-10-13 22:08:00 +0900
 aliases: 
 tags:
@@ -8,7 +8,7 @@ tags:
   - example
   - study
 categories: 
-updated: 2023-10-13 22:24:59 +0900
+updated: 2023-10-15 08:59:40 +0900
 related: "[[Docker|Docker]]"
 ---
 
