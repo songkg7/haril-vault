@@ -63,7 +63,7 @@
     "private/당근마켓 광고플랫폼 면접.md": "1a1f57981b1c682767bb25df52969977f04b3bb067859f80b7d482581b0b6204",
     "private/개발서버 컨테이너 환경 개선.md": "c9a22bcbbf128440d807bfe17929a99af6e1adef2e2c42226ff7a72e6cfba522",
     "private/poi batch.md": "fe5923930a4ef360a2460d655f9f30ff4f7bbe66151e073a4f6cb02db398f721",
-    "private/Port Pair.md": "98e89fb396048a46b38a3a7b9e087b1cfa7f0ab9ca28ff5f862f862cd4f9d9c8",
+    "private/Port Pair.md": "84bc43a5d35962a1672fb158b9ae8f5b5d7535b23260904ad608c05b0a9f893b",
     "private/gitlab runner toml sample.md": "c381047af870890f24834afac01b64a73d02d34b9e9e3ef00c2d16ea5fee217e",
     "private/coffeedback.md": "20a58c655f3f66de3201f66c60b97dda827f05ae4068580e6113ea826ee72b13",
     "private/Sverify.md": "02fe33fbbda801a0793276a3b60e51fcbacfeb91d4a6f3eb9e46eef83feda51f",
@@ -406,7 +406,8 @@
     "Resource/기존에 접속한 ip 의 서버가 달라지면 재접속시 생기는 문제.md": "9e781af97e15eae8a4623950b1baea64cde22c1af756ea49b4fc3b8f9b8c90fc",
     "Resource/Docker Image.md": "ab224ac16e2ee3de8f88d2f5e4633a23b3ebb312699b8ca5c13d08ef36b03aa9",
     "Resource/Docker Study Example.md": "d2a1631a52008c573158869d6c2e378c1d090bd5d978f47db31f69c1ec0130de",
-    "Resource/Docker Engine.md": "7df06a6fff14fae872b75e63d9a1fd3e18d1fb53cbc75a8af04a9b50fef95b9d"
+    "Resource/Docker Engine.md": "7df06a6fff14fae872b75e63d9a1fd3e18d1fb53cbc75a8af04a9b50fef95b9d",
+    "Resource/try-with-resource.md": "d5013949a58de389bc80e72cd1e1d16e44ae8ba809e5db585ed5f8c8bcc3542d"
   },
   "readDateFormat": "yyyy-MM-dd HH:mm:ss xx",
   "useDifferentReadFormat": true
