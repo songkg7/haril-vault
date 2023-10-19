@@ -6,8 +6,10 @@ tags:
   - jvm
   - java
 categories: Java
-updated: 2023-10-17 18:09:11 +0900
+updated: 2023-10-19 15:18:42 +0900
 ---
+
+![](https://blog.kakaocdn.net/dn/q2muK/btsfOIC1X3k/SaECNzbfZFZQTGKK4Kf6BK/img.png)
 
 ## JVM 이란 무엇인가?
 
@@ -40,3 +42,4 @@ JVM은 다양한 운영체제와 하드웨어에서 동작할 수 있도록 설�
 ## Reference
 
 - https://itminco.tistory.com/22
+- https://gngsn.tistory.com/252
