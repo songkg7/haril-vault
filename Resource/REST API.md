@@ -4,13 +4,13 @@ date: 2022-08-19 17:46:00 +0900
 publish: false
 fc-calendar: Gregorian Calendar
 fc-date: 2022-08-19
-aliases: null
+aliases: 
 tags:
   - http
   - api
   - restful
-categories: null
-updated: 2023-08-19 12:38:07 +0900
+categories: 
+updated: 2023-10-19 11:32:34 +0900
 ---
 
 ## REST 란?
@@ -85,6 +85,6 @@ REST 는 Resource Oriented Architecture 이다. API 설계의 중심에 자원(R
 
 ## Links
 
-- [[HTTP & HTTPS]]
+- [[HTTPS]]
 - [[GraphQL]]
 - [[Network]]
