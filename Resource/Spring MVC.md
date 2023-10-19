@@ -4,7 +4,7 @@ date: 2022-08-19 17:59:00 +0900
 publish: false
 fc-calendar: Gregorian Calendar
 fc-date: 2022-08-19
-aliases: null
+aliases: 
 tags:
   - mvc
   - web
@@ -14,7 +14,7 @@ tags:
   - model
   - view
 categories: Spring
-updated: 2023-08-19 12:35:31 +0900
+updated: 2023-10-19 11:32:34 +0900
 ---
 
 ## Links
@@ -22,4 +22,4 @@ updated: 2023-08-19 12:35:31 +0900
 - [[Spring WebFlux]]
 - [[REST API]]
 - [[Spring framework|Spring]]
-- [[HTTP & HTTPS]]
+- [[HTTPS]]

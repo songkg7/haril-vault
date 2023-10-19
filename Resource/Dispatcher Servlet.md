@@ -7,15 +7,15 @@ tags:
   - spring
 categories: Spring
 publish: false
-aliases: null
+aliases: 
 fc-calendar: Gregorian Calendar
 fc-date: 2022-08-14
-updated: 2023-08-19 12:38:06 +0900
+updated: 2023-10-19 11:32:34 +0900
 ---
 
 ## Dispatcher Servlet?
 
-> Servlet Container 에서 [[HTTP & HTTPS]] 프로토콜을 통해 들어오는 모든 요청을 프레젠테이션 계층의 제일 앞에 둬서 중앙집중식으로 처리해주는 프론트 컨트롤러(Front Controller)
+> Servlet Container 에서 [[HTTPS]] 프로토콜을 통해 들어오는 모든 요청을 프레젠테이션 계층의 제일 앞에 둬서 중앙집중식으로 처리해주는 프론트 컨트롤러(Front Controller)
 
 클라이언트로부터 어떠한 요청이 오면 Tomcat 과 같은 서블릿 컨테이너가 요청을 받는데, 이 때 제일 앞에서 서버로 들어오는 모든 요청을 처리하는 프론트 컨트롤러를 [[Spring framework|Spring]] 에서 정의하였고, 이를 Dispatcher Servlet 이라고 한다.
 

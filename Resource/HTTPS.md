@@ -1,16 +1,14 @@
 ---
-title: HTTP & HTTPS
+title: HTTPS
 date: 2022-08-16 13:23:00 +0900
 publish: false
-fc-calendar: Gregorian Calendar
-fc-date: 2022-08-16
-aliases: null
+aliases: 
 tags:
   - http
   - https
   - network
 categories: Network
-updated: 2023-08-19 12:38:06 +0900
+updated: 2023-10-19 11:32:49 +0900
 ---
 
 # HTTP (HyperText Transfer Protocol)
@@ -24,6 +22,8 @@ HTTP 는 텍스트 교환이므로, 누군가 네트워크에서 신호를 가�
 # HTTPS (HyperText Transfer Protocol Secure)
 
 > 인터넷 상에서 정보를 암호화하는 SSL protocol 을 사용해 클라이언트와 서버가 자원을 주고 받을 때 쓰는 통신 규약
+
+[[Transport Layer Security|TLS]] 를 사용해 암호화된 연결을 하는 HTTP 를 HTTPS(HTTP Secure)라고 하며, 기본 포트는 80번이 아닌 443번을 쓴다.
 
 HTTPS 는 [[대칭키 & 공개키]] 암호화 방식으로 텍스트를 암호화한다.
 
