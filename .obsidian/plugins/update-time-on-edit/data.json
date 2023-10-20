@@ -417,7 +417,8 @@
     "Resource/NginX.md": "7c77124f408e36afa42161582fd2da15138a16927c46904f79d3f4588277fe9c",
     "Resource/Linux Container.md": "dee34461f6e212e2262de72b7e7c66475b9c773118f5b889de335058b332cf61",
     "Resource/libcontainer.md": "489f414a32ba81a180c3b2e73578c05a876068f6df72f5b3667b41fb184811dd",
-    "Resource/Go.md": "0894803fc285df305525444025db3009235c4c13a5a6e430f02b868f4af32792"
+    "Resource/Go.md": "0894803fc285df305525444025db3009235c4c13a5a6e430f02b868f4af32792",
+    "daily/2023-10-20.md": "1f762d4e965dc3ca377b41bc81954fe94576fdd00eee338ad8a2d8a03d8acdad"
   },
   "readDateFormat": "yyyy-MM-dd HH:mm:ss xx",
   "useDifferentReadFormat": true
