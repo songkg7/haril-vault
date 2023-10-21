@@ -1,13 +1,13 @@
 ---
 title: Semantic release
 date: 2022-11-03 14:14:00 +0900
-aliases: null
+aliases: 
 tags:
   - release
   - automation
   - semantic-version
-categories: null
-updated: 2023-08-19 12:38:02 +0900
+categories: 
+updated: 2023-10-21 14:50:35 +0900
 ---
 
 ## Overview
@@ -82,3 +82,4 @@ prerelease 옵션을 true 로 할 경우 name 을 suffix 로 사용하여 x.x.x.
 ## Reference
 
 - [semantic release](https://github.com/semantic-release/semantic-release/blob/master/docs/usage/configuration.md#branches)
+- https://semver.org/

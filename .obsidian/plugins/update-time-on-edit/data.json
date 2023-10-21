@@ -180,7 +180,7 @@
     "Resource/Sharded Cluster.md": "6a8c2d7fba65a14ae5ed994a2e4b438adac0c37ec0fbe9820c7db30ea8cef7f8",
     "Resource/Snack API - Hangel.md": "261d65b2daea2c2eeb03a32c53d15e49e4b2380d1279b215f0bf1f82e5fe5550",
     "Resource/Soft delete using JPA.md": "4967e19e3027e7bd58927a997c83c877a6fb1e40444543b6780466d1ba03f2ec",
-    "Resource/Semantic release.md": "2016177c887a1554a2b6bec025ae1e8608e1f7d1b0a2adc7ec45c1c0b9df850e",
+    "Resource/Semantic release.md": "4b556b0b99b3ede763373949129e97d438043dd8db3ae270a335ca723723c583",
     "Resource/Secondary Index.md": "23509686e7265ba1baaac2c7997034c26492dc041ea5dcdcc7ee4b5ae5c9c1f0",
     "Resource/Saga Pattern.md": "fdd69aafc2553b62f31c9644f8e756d9f5d2e17c6c09d14140924568be69d98f",
     "Resource/Replica Set of MongoDB.md": "85d6b76e0854e99ca909a481147acf02dc1cbb5669e2e2e2f28153f51ca2a94e",
@@ -418,7 +418,9 @@
     "Resource/Linux Container.md": "dee34461f6e212e2262de72b7e7c66475b9c773118f5b889de335058b332cf61",
     "Resource/libcontainer.md": "489f414a32ba81a180c3b2e73578c05a876068f6df72f5b3667b41fb184811dd",
     "Resource/Go.md": "0894803fc285df305525444025db3009235c4c13a5a6e430f02b868f4af32792",
-    "daily/2023-10-20.md": "1f762d4e965dc3ca377b41bc81954fe94576fdd00eee338ad8a2d8a03d8acdad"
+    "daily/2023-10-20.md": "b9f063d0da770593d42cf0e87d393ecec2abe716ad42ba9fe7f36a0fe50af782",
+    "Resource/Geoshard.md": "1c754094afc004743d7b8a4a3252835cca245b69b5f05bf142d3520a89142318",
+    "Resource/Docker Study Chapter 5.md": "b5406ee4cf3d04e1e93363bcd77fdb2614c26a9ea5cef276a87e72045800eb73"
   },
   "readDateFormat": "yyyy-MM-dd HH:mm:ss xx",
   "useDifferentReadFormat": true
