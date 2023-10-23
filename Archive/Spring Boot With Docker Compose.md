@@ -1,12 +1,12 @@
 ---
 title: Spring Boot 3.1 의 Docker Compose Support 알아보기
 date: 2023-07-26 17:48:00 +0900
-aliases: null
+aliases: 
 tags:
   - docker
   - springboot
-categories: null
-updated: 2023-08-19 12:38:12 +0900
+categories: 
+updated: 2023-10-23 18:04:05 +0900
 ---
 
 Spring Boot 3.1 부터 추가된 Docker Compose Support 에 대해서 간단하게 소개합니다.
@@ -84,7 +84,7 @@ spring:
 
 ## Links
 
-[[Docker compose|Docker compose]]
+[[Docker Compose|Docker Compose]]
 
 ## Reference
 
