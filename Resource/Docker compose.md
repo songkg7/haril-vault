@@ -1,13 +1,18 @@
 ---
-title: Docker compose
+title: Docker Compose
 date: 2023-02-11 23:59:00 +0900
-aliases: null
+aliases: 
 tags:
   - docker
   - devops
 categories: DevOps
-updated: 2023-08-19 12:38:08 +0900
+updated: 2023-10-23 17:58:33 +0900
 ---
+
+> [!warning] Docker Compose V2
+> Docker Compose 가 V2 가 되면서 Docker CLI 로 편입되었다. 따라서 `docker-compose` 대신 `docker compose` 로 사용할 수 있다. V1 은 더 이상 업데이트가 제공되지 않으므로 migration 이 권장된다.
+> 
+> 참조: https://docs.docker.com/compose/migrate/
 
 ## Overview
 
