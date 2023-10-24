@@ -63,7 +63,7 @@
     "private/당근마켓 광고플랫폼 면접.md": "1a1f57981b1c682767bb25df52969977f04b3bb067859f80b7d482581b0b6204",
     "private/개발서버 컨테이너 환경 개선.md": "c9a22bcbbf128440d807bfe17929a99af6e1adef2e2c42226ff7a72e6cfba522",
     "private/poi batch.md": "fe5923930a4ef360a2460d655f9f30ff4f7bbe66151e073a4f6cb02db398f721",
-    "private/Port Pair.md": "59aa4ddab7fb2c9a52afc0ea8a7b03d5afde71d74c6479c3a613da047be4d877",
+    "private/Port Pair.md": "dc190a2d0b90fa7891fed526745d439a384cd97398bd51235cdba8d0d5d1775d",
     "private/gitlab runner toml sample.md": "c381047af870890f24834afac01b64a73d02d34b9e9e3ef00c2d16ea5fee217e",
     "private/coffeedback.md": "20a58c655f3f66de3201f66c60b97dda827f05ae4068580e6113ea826ee72b13",
     "private/Sverify.md": "02fe33fbbda801a0793276a3b60e51fcbacfeb91d4a6f3eb9e46eef83feda51f",
@@ -422,7 +422,8 @@
     "Resource/Docker Study Chapter 6.md": "862ddae151f47d449c508d0ce9f58499133fa526b1619dd4e1a6601a845b1ce7",
     "private/지속가능한 글쓰기.md": "418e3969fd82e8e7233512e613d94024f8f17c6c88bf1d0472dc585c74796b3e",
     "Resource/Docker Study Chapter 7.md": "396aafeb708ea8b8c130141f06eb493cf27c870b2b7701d36a9fa21a1db32c4f",
-    "Resource/Docker Compose.md": "b578863f0801e9542d74c71d50c0d8dee34a315c745a3466cec915a74f3c05d9"
+    "Resource/Docker Compose.md": "b578863f0801e9542d74c71d50c0d8dee34a315c745a3466cec915a74f3c05d9",
+    "Resource/The Scourge of Distributed System.md": "8b926d2f43b40b59a714fe2abb4282bcca46aeeb1a9352d154244044c0fc9dbb"
   },
   "readDateFormat": "yyyy-MM-dd HH:mm:ss xx",
   "useDifferentReadFormat": true
