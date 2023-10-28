@@ -1,7 +1,7 @@
 ---
 title: Docker Study Chapter 7
 date: 2023-10-23 17:56:00 +0900
-updated: 2023-10-28 19:28:08 +0900
+updated: 2023-10-28 19:28:14 +0900
 aliases: 
 tags:
   - docker
@@ -65,7 +65,7 @@ Name:      accesslog
 Address 1: 192.168.228.2 image-of-the-day-accesslog-1.nat
 ```
 
-컨테이너 이름으로 `nslookup` 기능이 동작하는 것을 볼 수 있다. 
+컨테이너 이름으로 `nslookup` 기능이 동작하는 것을 볼 수 있다.
 
 > [!warning] DNS 가 항상 가능한 것은 아니다
 > 컴포즈로 인하여 이미 같은 도커 네트워크(nat)에 존재하기 때문에 이 기능이 동작하는 것이고, 만약 도커 네트워크를 사용하지 않는다면 DNS 는 동작하지 않는다.
