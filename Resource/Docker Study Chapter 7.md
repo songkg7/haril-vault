@@ -1,7 +1,7 @@
 ---
 title: Docker Study Chapter 7
 date: 2023-10-23 17:56:00 +0900
-updated: 2023-10-26 17:35:22 +0900
+updated: 2023-10-28 19:28:08 +0900
 aliases: 
 tags:
   - docker
@@ -108,11 +108,25 @@ Address 3: 192.168.228.4 image-of-the-day-iotd-1.nat
 
 ---
 
+### 도커 컴포즈도 만능은 아니다
+
+컴포즈는 정의된대로 실행만 해줄 수 있다. 상태 관리나 내결함성을 유지하는 부분까지는 해줄 수 없다. 서로 다른 서버를 관리하는 환경에서도 사용하기 어렵다. 로컬 머신에서만 리소스를 관리할 수 있기 때문이다.
+
+---
+
+### 자주 사용되는 명령어 정리
+
 ```bash
 docker compose up -d
 docker compose stop
 docker compose start
 docker compose down
+docker compose -p {project_name} up
+docker compose -p {project_name} down
+docker compose -f {compose_file_path} up
+docker compose -f {compose_file_path} down
+docker compose ls
+docker compose logs
 ```
 
 [^1]: https://docs.docker.com/compose/migrate/
