@@ -8,7 +8,7 @@ tags:
   - health-check
   - dependency
 categories: 
-updated: 2023-10-28 18:02:12 +0900
+updated: 2023-10-29 09:48:21 +0900
 related: "[[Docker|Docker]]"
 ---
 
@@ -22,7 +22,7 @@ related: "[[Docker|Docker]]"
 HEALTHCHECK CMD curl --fail http://localhost/health
 ```
 
-`--fail` 옵션을 붙이면 curl 이 전달받은 상태코드를 도커에 전달한다.
+`--fail` 옵션을 붙이면 curl 이 전달받은 상태코드를 도커에 전달한다. 반환값은 아래와 같다
 
 - 성공: 0
 - 실패: 0 이외의 값
@@ -59,7 +59,7 @@ docker container inspect $(docker container ls --last 1 --format '{{.ID}}')
 
 ```bash
 # 위와 같은 명령, 옵션의 의미에 익숙하다면 사용해보자
-docker inspect $(docker ls -lq)
+docker inspect $(docker ps -lq)
 ```
 
 도커는 컨테이너의 이상을 감지할 수는 있지만 이후 작업을 처리해주지는 않는데, 이런 작업을 안전하게 처리할 수 없기 때문이다. 도커 스웜이나 쿠버네티스가 관리하는 클러스터 환경에서는 문제가 발생한 컨테이너를 종료해도 다른 컨테이너가 역할을 수행할 수 있으므로 안전하게 처리할 수 있다. 이런 상황에서는 헬스 체크가 매우 유용하다.
@@ -95,6 +95,8 @@ numbers-api:
 
 > [!NOTE] `depends_on` 설정을 사용하지 않은 이유
 > 도커 컴포즈가 디펜던시 체크를 할 수 있는 범위가 단일 서버로 제한되기 때문이다. 운영 환경에서 애플리케이션이 실제 시작할 때 일어나는 상황은 훨씬 예측하기 어렵다.
+> 
+> 운영환경이 아닐 경우는 굉장히 유용하게 사용할 수 있다.
 
 ### 헬스 체크와 디펜던시 체크로 복원력있는 애플리케이션을 만들 수 있는 이유
 

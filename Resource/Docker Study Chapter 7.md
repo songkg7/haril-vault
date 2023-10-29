@@ -1,15 +1,15 @@
 ---
 title: Docker Study Chapter 7
 date: 2023-10-23 17:56:00 +0900
-updated: 2023-10-28 19:28:14 +0900
+updated: 2023-10-29 08:56:20 +0900
 aliases: 
 tags:
   - docker
   - study
+  - docker-compose
+  - marp
 categories: 
 related: "[[Docker|Docker]]"
----
-
 ---
 
 ## Docker Compose
@@ -18,7 +18,7 @@ related: "[[Docker|Docker]]"
 
 ### 들어가기 전에
 
-- [[Docker Compose]] 가 V2 로 업데이트됨[^1]에 따라서 deprecated 된 `docker-compose` 명령은 `docker compose` 로 대체하여 설명합니다.
+- [[Docker Compose]] 가 V2 로 업데이트되면서 `docker-compose` 명령은 deprecated 되었기 때문에 `docker compose` 로 대체하여 설명합니다.
 
 ---
 
@@ -51,6 +51,7 @@ related: "[[Docker|Docker]]"
 #### 실습
 
  ```bash
+cd ~/IdeaProjects/080258/ch07/exercises/image-of-the-day
 docker compose up -d --scale iotd=3
 ```
 
@@ -114,6 +115,14 @@ Address 3: 192.168.228.4 image-of-the-day-iotd-1.nat
 
 ---
 
+### 도커 컴포즈와 스프링부트와의 통합
+
+SpringBoot 3.x 부터는 도커 컴포즈와 자연스럽게 통합되어 개발자가 도커 컴포즈의 라이프사이클을 직접 다루지 않아도 되도록 개선되었다.
+
+- [[Spring Boot With Docker Compose|Spring Boot 3.1 의 Docker Compose Support 알아보기]]
+
+---
+
 ### 자주 사용되는 명령어 정리
 
 ```bash
@@ -126,7 +135,7 @@ docker compose -p {project_name} down
 docker compose -f {compose_file_path} up
 docker compose -f {compose_file_path} down
 docker compose ls
-docker compose logs
+docker compose logs -f {project_name}
 ```
 
 [^1]: https://docs.docker.com/compose/migrate/
