@@ -19,5 +19,6 @@
   "update-time-on-edit",
   "obsidian-textgenerator-plugin",
   "obsidian-tasks-plugin",
-  "marp"
+  "marp",
+  "obsidian-list-callouts"
 ]
