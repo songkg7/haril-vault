@@ -424,7 +424,8 @@
     "Resource/Docker Study Chapter 7.md": "68133d464fa1fdf6d64a35e2935ddbc5dd614a1d24184a645292313ee264447d",
     "Resource/Docker Compose.md": "b578863f0801e9542d74c71d50c0d8dee34a315c745a3466cec915a74f3c05d9",
     "Resource/The Scourge of Distributed System.md": "8b926d2f43b40b59a714fe2abb4282bcca46aeeb1a9352d154244044c0fc9dbb",
-    "Resource/Docker Study Chapter 8.md": "9b8b47adc6447411b9bd70fbae41691752d46f08d72d370d0247b6b669b2cad7"
+    "Resource/Docker Study Chapter 8.md": "9b8b47adc6447411b9bd70fbae41691752d46f08d72d370d0247b6b669b2cad7",
+    "Resource/Docker 로 PostgreSQL 연결하기.md": "0458a6503da915777d361c694367c284e582b0679e89913b70943f7bf9de20b1"
   },
   "readDateFormat": "yyyy-MM-dd HH:mm:ss xx",
   "useDifferentReadFormat": true
