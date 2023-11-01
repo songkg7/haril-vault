@@ -426,13 +426,10 @@
     "Resource/The Scourge of Distributed System.md": "8b926d2f43b40b59a714fe2abb4282bcca46aeeb1a9352d154244044c0fc9dbb",
     "Resource/Docker Study Chapter 8.md": "9b8b47adc6447411b9bd70fbae41691752d46f08d72d370d0247b6b669b2cad7",
     "Resource/Docker 로 PostgreSQL 연결하기.md": "0458a6503da915777d361c694367c284e582b0679e89913b70943f7bf9de20b1",
-    "Resource/세션과 쿠키의 차이.md": "f59cd8db6ce7baac1abfe6e04aaf2edb78411f0cf5c89ada786b05ab1a18d7d2",
     "Resource/Session.md": "05823c4b6d0240f9decc32ae40c885a2486442271e2d7942528e555e21ac6144",
-    "Resource/Secure Socket Layer.md": "0a141680375f05ee6fbc60d7a85ace476f82c4955e124a8f30cf311ea4581522",
-    "Resource/Cookie.md": "84901eeaeaadfd311b7257d0f8dfda7d2f6724dc3d340074c71be357665e5e64",
+    "Resource/세션과 쿠키의 차이.md": "f59cd8db6ce7baac1abfe6e04aaf2edb78411f0cf5c89ada786b05ab1a18d7d2",
     "Resource/Docker Study Chapter 9.md": "bce3d0f9a6e8d05ddbb995561898cf779f4e3b32c772534d5dee9b5742352994",
-    "Resource/javap 사용법.md": "08b98f15005f2364607f54598ee317f03cddecb976ebfee3ef93eafc91debcd9",
-    "Resource/Java Lambda 의 동작 과정.md": "f7659ee196db5a55767d15e9fef963caee7394f157cccaff774032ec07be14f1"
+    "Resource/Java Lambda 의 동작 과정.md": "44eb61f7addc95d3daa499588d2a548bb7222061e56e1c5e144e0b4d94c1b2b9"
   },
   "readDateFormat": "yyyy-MM-dd HH:mm:ss xx",
   "useDifferentReadFormat": true
