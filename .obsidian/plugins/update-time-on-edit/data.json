@@ -428,8 +428,9 @@
     "Resource/Docker 로 PostgreSQL 연결하기.md": "0458a6503da915777d361c694367c284e582b0679e89913b70943f7bf9de20b1",
     "Resource/Session.md": "05823c4b6d0240f9decc32ae40c885a2486442271e2d7942528e555e21ac6144",
     "Resource/세션과 쿠키의 차이.md": "f59cd8db6ce7baac1abfe6e04aaf2edb78411f0cf5c89ada786b05ab1a18d7d2",
-    "Resource/Docker Study Chapter 9.md": "d7b8fbf97d763fce28d1b6578c64012d47d4d7e67b8e6b86991519b0ed5bb791",
-    "Resource/Java Lambda 의 동작 과정.md": "f7659ee196db5a55767d15e9fef963caee7394f157cccaff774032ec07be14f1"
+    "Resource/Docker Study Chapter 9.md": "9c1c8930609ab813c7a5342593b76741b27de10c605aa5257160c1fb02d91fe7",
+    "Resource/Java Lambda 의 동작 과정.md": "f7659ee196db5a55767d15e9fef963caee7394f157cccaff774032ec07be14f1",
+    "Resource/asdf.md": "a75b211f0dcea2e1c949daa8e46c9c414f04b5d0dfadd260120fdf8cc0c78e7d"
   },
   "readDateFormat": "yyyy-MM-dd HH:mm:ss xx",
   "useDifferentReadFormat": true

@@ -10,8 +10,7 @@ tags:
   - monitoring
   - observability
 categories: 
-updated: 2023-11-01 21:09:16 +0900
+updated: 2023-11-01 23:13:39 +0900
 ---
 
 # 컨테이너 모니터링으로 투명성 있는 애플리케이션 만들기
-
