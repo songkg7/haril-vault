@@ -1,13 +1,14 @@
 ---
-title: "Java"
+title: Java
 date: 2022-08-14 00:33:00 +0900
-publish: false
-fc-calendar: Gregorian Calendar
-fc-date: 2022-08-14
 aliases: 
-tags: [backend, java, programming-language, jvm]
+tags:
+  - backend
+  - java
+  - programming-language
+  - jvm
 categories: Java
-updated: 2023-07-16 23:44:52 +0900
+updated: 2023-11-05 19:19:44 +0900
 ---
 
 ## Overview
