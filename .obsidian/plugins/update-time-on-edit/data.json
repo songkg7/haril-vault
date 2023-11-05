@@ -255,7 +255,7 @@
     "Resource/Jenkins.md": "24d693698ffeab15e6b237df45bd6f1910644c368ecd26af06df82ef47554bbc",
     "Resource/Job.md": "fb6cda0bd18700a23388579b4066dde76e652e4d6f35840fd468fb373b4986d6",
     "Resource/Jenkins 에 node 추가하기.md": "3928c3ce8f83dc77fa66ea810362b51eb43c3b6e903e2ab3b0f76ca2d05d08db",
-    "Resource/Java.md": "b9ad646e5be728f8b783a0b7b2a6004fdd119b8360a958434f58a7ed6f2d5fae",
+    "Resource/Java.md": "511a063fa0131c551c84533220f3ed85d35f6ba04136a8a611dce01cffe632e3",
     "Resource/Java Virtual Machine.md": "c6387e4a5207add34fbaf2a0d24a83704c9bd9c995048f5d243208768a86015e",
     "Resource/Java Persistence API.md": "8321e94f958576988a066c50ecdf6824b239a35dca37ab586655c3c34270f492",
     "Resource/JVM Warm up.md": "bd759b5acd8a268070bd794bda070f30cf8765235729e10adca0173a3450308d",
@@ -433,7 +433,9 @@
     "Resource/Docker Study Chapter 10.md": "f71b1476dda95437d382b8fc42736a9a0aae75db2cabd3c0db70eae9ec12632a",
     "Project/The Scourge of Distributed System.md": "8b926d2f43b40b59a714fe2abb4282bcca46aeeb1a9352d154244044c0fc9dbb",
     "Area/면접 질문 모음.md": "afd3c214cb9765d39f3a7f2e2e95487aebfef3a44867c02ffa90c93c89b629f6",
-    "Area/면접 질문 답변.md": "49553ee0f375d85629b236812a0e252559f9ebd347d7ea959280d2649aaddb75"
+    "Area/면접 질문 답변.md": "49553ee0f375d85629b236812a0e252559f9ebd347d7ea959280d2649aaddb75",
+    "Resource/Managed vs Unmanaged.md": "66f2567cf35c8730f203a86fd85aaf5e29ad42f800af2b8640384815a622e8ea",
+    "Resource/Java 의 접근 제어자.md": "a89c69027763b6617984b809f8de0b7639f4fc5950163f0b2ce91d52e0d7e83d"
   },
   "readDateFormat": "yyyy-MM-dd HH:mm:ss xx",
   "useDifferentReadFormat": true
