@@ -8,7 +8,7 @@ tags:
   - aws
   - stress-test
 categories: 
-updated: 2023-11-06 17:37:02 +0900
+updated: 2023-11-07 14:57:11 +0900
 ---
 
 ## Goals
@@ -110,6 +110,9 @@ docker build -t sample-server .
 
 이대로라면 이미지의 identify 가 지정되지 않아 image 를 push 할 수 없다. 이후에는 편리한 이미지 배포를 위해 [[Java Image Builder|JIB]] 를 사용할 것이지만, 우선은 ECR 을 사용하기 위해 [[IAM]] role 을 생성하여 [[AWS CLI]] 에 로그인할 수 있도록 설정해보자.
 
+> [!NOTE]
+> AWS CLI 를 사용하려면 IAM User 의 access key 와 secret key 가 필요하니 이것은 미리 생성해서 `aws configure` 를 통해 인증해두자.
+
 ### IAM role 생성
 
 ![[Pasted image 20231106123949.png]]
@@ -135,7 +138,91 @@ brew install aws-session-manager-plugin
 
 ### EC2 인스턴스 생성
 
-## Private 로 사용하는 경우
+#### Docker 설치
+
+```bash
+sudo yum update -y
+sudo yum install docker -y
+```
+
+```bash
+ sudo systemctl start docker # 도커 데몬 실행
+sudo systemctl enable docker
+```
+
+![[Pasted image 20231107145058.png]]
+
+도커는 항상 root 로 실행되기 때문에 편의를 위해 일반 사용자에게도 도커 실행 권한을 부여해주려 한다. ec2-user 를 docker 그룹에 추가함으로써 sudo 명령어를 사용하지 않고도 도커를 사용할 수 있게 해보자.
+
+```bash
+sudo usermod -aG docker [username]
+sudo systemctl restart docker
+```
+
+이후 ec2-user 를 로그아웃했다가 다시 접근해보면 `docker ps` 명령을 실행할 수 있는 것을 확인할 수 있다.
+
+![[Pasted image 20231107145019.png]]
+
+우선은 여기까지만 진행해두자.
+
+### ECR registry 생성
+
+ECR registry 생성은 클릭 몇 번
+
+private registry 를 생성하고 리포지토리를 생성해준다. 이 때 리포지토리의 이름은 도커 이미지 이름으로 해야 하며, 이 리포지토리에 같은 이름의 이미지들이 버전 별로 저장되게 된다. sample-server 라는 ECR Repository 를 하나 생성했다.
+
+![[Pasted image 20231107142000.png]]
+
+check box 에 체크 표시를 하면 푸시 명령 보기 탭이 활성화 되는데 이 탭에서 ecr 에 로그인하는 과정 및 이미지를 푸시하는 과정이 자세히 설명되어 있으니 따라서 진행한다.
+
+![[Pasted image 20231107142116.png]]
+_이미지 푸시 완료_
+
+### EC2 인스턴스에 이미지 배포하기
+
+우리가 선택한 AWS Linux 2 에는 [[AWS CLI]]가 기본적으로 설치되어 있다.
+
+```bash
+aws --version
+```
+
+aws cli 는 EC2 인스턴스의 경우 EC2InstanceMetadata 를 사용하여 인증 정보를 해결할 수 있기 때문에, 인스턴스에 적절한 role 만 설정되어 있다면 별도의 토큰 없이도 cli 를 호출할 수 있다.
+
+```bash
+aws sts get-caller-identity
+```
+
+따라서 ECR 접근 권한을 ec2 인스턴스가 보유하고 있다면, 별도의 인증 과정없이도 바로 ECR 을 사용할 수 있다.
+
+로그인을 진행해보자. 명령어는 ECR 에 이미지를 푸시했을 때 사용했던 명령어와 비슷하다.
+
+![[Pasted image 20231107143718.png]]
+_별도의 인증 없이도 로그인이 성공한다_
+
+> [!NOTE] AccessDeniedException 이 발생하는 경우
+> `ecr:GetAuthorizationToken` 권한을 EC2 인스턴스가 보유하고 있어야 한다. 웹 콘솔에서 인스턴스가 보유한 권한을 확인해보고, 없다면 권한을 추가해주면 된다. 필자는 `EC2InstanceProfileForImageBuilderECRContainerBuilds` role 을 default-ec2-ssm-role 에 추가해뒀다.
+
+![[Pasted image 20231107144228.png]]
+
+이후는 간단하다. ECR registry 에 있는 이미지를 run 명령을 통해 실행시키면 된다.
+
+```bash
+docker run -p 8080:8080 --name sample-server -d 056876186590.dkr.ecr.ap-northeast-2.amazonaws.com/sample-server:latest
+```
+
+![[Pasted image 20231107145644.png]]
+_배포 완료!_
+
+이제 부하테스트를 위한 서버 준비는 끝났다.
+
+## Nest Step
+
+- [[IAM Identity Center 를 활용한 SSO 인증 활성화|IAM Identity Center 를 활용한 SSO 인증 활성화]] 를 살펴보면 access key 를 로컬에서 관리할 필요가 없어진다.
+- SSM 접근은 public IP 를 사용할 필요가 없다. VPC 를 설정하여 서버를 외부로부터 격리할 수 있다.
+
+---
+
+## Private IP 로 사용하는 경우
 
 default VPC 로는 private 환경이 안되었기 때문에 private 환경을 위해서 [[VPC]] 를 새로 만들어줘야 했다.
 
