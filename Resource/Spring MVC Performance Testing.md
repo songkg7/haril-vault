@@ -8,7 +8,7 @@ tags:
   - aws
   - stress-test
 categories: 
-updated: 2023-11-07 14:57:11 +0900
+updated: 2023-11-07 20:04:47 +0900
 ---
 
 ## Goals
@@ -136,6 +136,10 @@ brew tap dkanejs/aws-session-manager-plugin
 brew install aws-session-manager-plugin
 ```
 
+### VPC 생성
+
+
+
 ### EC2 인스턴스 생성
 
 #### Docker 설치
@@ -192,8 +196,6 @@ aws cli 는 EC2 인스턴스의 경우 EC2InstanceMetadata 를 사용하여 인�
 aws sts get-caller-identity
 ```
 
-따라서 ECR 접근 권한을 ec2 인스턴스가 보유하고 있다면, 별도의 인증 과정없이도 바로 ECR 을 사용할 수 있다.
-
 로그인을 진행해보자. 명령어는 ECR 에 이미지를 푸시했을 때 사용했던 명령어와 비슷하다.
 
 ![[Pasted image 20231107143718.png]]
@@ -213,7 +215,21 @@ docker run -p 8080:8080 --name sample-server -d 056876186590.dkr.ecr.ap-northeas
 ![[Pasted image 20231107145644.png]]
 _배포 완료!_
 
-이제 부하테스트를 위한 서버 준비는 끝났다.
+이제 부하테스트를 위한 서버 준비는 끝났다. 다음은 API 서버를 로컬에서 호출할 수 있도록 외부의 접근을 허용하는 과정을 진행해본다.
+
+### EC2 인스턴스 외부에 공개하기
+
+기본적으로 EC2 인스턴스에 설정하는 보안 그룹은 아웃바운드는 모두 허용하지만 인바운드는 제한한다. public IP 를 사용하는 EC2 인스턴스라면 보안 그룹의 인바운드 설정을 수정하여 외부 접근을 허용할 수 있다.
+
+- 모든 트래픽, 본인의 IP 만
+
+이렇게 설정하면 외부 트래픽이 EC2 로 접근할 수 있게 된다.
+
+실제 운영 환경이라면 [[VPC]] 설정을 통해 private network 로 설정하고 사용해야하겠지만, 해당 내용은 다른 글에서 다뤄보겠다.
+
+## K6
+
+[[K6]] 는 [[Grafana]] Lab 에서 만든 부하테스트 툴이다.
 
 ## Nest Step
 
@@ -224,7 +240,7 @@ _배포 완료!_
 
 ## Private IP 로 사용하는 경우
 
-default VPC 로는 private 환경이 안되었기 때문에 private 환경을 위해서 [[VPC]] 를 새로 만들어줘야 했다.
+private 환경을 위해서 [[VPC]] 를 새로 만들어 준다.
 
 ### VPC 엔드포인트 생성
 
