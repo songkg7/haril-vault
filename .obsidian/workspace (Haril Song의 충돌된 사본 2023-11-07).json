@@ -1,0 +1,338 @@
+{
+  "main": {
+    "id": "8d4b6916fffaa653",
+    "type": "split",
+    "children": [
+      {
+        "id": "d792050ed150f283",
+        "type": "tabs",
+        "dimension": 77.7027027027027,
+        "children": [
+          {
+            "id": "38627a51aa1b5ff5",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Project/Socket.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "0aaf0bd89e563dee",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Project/try-with-resource.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "f44bdb3395a6a6b6",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Project/Docker Engine.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "49a35209d67c9fbb",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Project/세션과 쿠키의 차이.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "73c0e20170100f6c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Resource/Spring MVC Performance Testing.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          }
+        ],
+        "currentTab": 4
+      },
+      {
+        "id": "66b7726885d66b3a",
+        "type": "tabs",
+        "dimension": 22.297297297297302,
+        "children": [
+          {
+            "id": "3f620b7e9c872c8b",
+            "type": "leaf",
+            "state": {
+              "type": "localgraph",
+              "state": {
+                "file": "Resource/Spring MVC Performance Testing.md",
+                "options": {
+                  "collapse-filter": true,
+                  "search": "",
+                  "localJumps": 1,
+                  "localBacklinks": true,
+                  "localForelinks": true,
+                  "localInterlinks": false,
+                  "showTags": false,
+                  "showAttachments": false,
+                  "hideUnresolved": false,
+                  "collapse-color-groups": true,
+                  "colorGroups": [],
+                  "collapse-display": true,
+                  "showArrow": false,
+                  "textFadeMultiplier": 0,
+                  "nodeSizeMultiplier": 1,
+                  "lineSizeMultiplier": 1,
+                  "collapse-forces": true,
+                  "centerStrength": 0.518713248970312,
+                  "repelStrength": 10,
+                  "linkStrength": 1,
+                  "linkDistance": 250,
+                  "scale": 1,
+                  "close": true
+                }
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "e7d1d1784716454d",
+    "type": "split",
+    "children": [
+      {
+        "id": "c283706535d19599",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ca4acbf2ba8f847f",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "61f04dc4a00fe3d9",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "tag:#docker  ",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "0da33f9fd5625e06",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "horizontal",
+    "width": 297.5,
+    "collapsed": true
+  },
+  "right": {
+    "id": "41a576e0627fcea3",
+    "type": "split",
+    "children": [
+      {
+        "id": "4705ab928852dd21",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "95595987c6ea6d11",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Resource/Spring MVC Performance Testing.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": false
+              }
+            }
+          },
+          {
+            "id": "ffbf13c224129e81",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Resource/Spring MVC Performance Testing.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "4ca6df124620813a",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "2567fb8b28f58d58",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Resource/Spring MVC Performance Testing.md"
+              }
+            }
+          },
+          {
+            "id": "696aa0455f6cdde9",
+            "type": "leaf",
+            "state": {
+              "type": "advanced-tables-toolbar",
+              "state": {}
+            }
+          },
+          {
+            "id": "c8049abf0fed9e22",
+            "type": "leaf",
+            "state": {
+              "type": "side-panel-control-view",
+              "state": {}
+            }
+          },
+          {
+            "id": "8b9c2576b03e94b9",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {}
+            }
+          },
+          {
+            "id": "24809d8e638192b0",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency"
+              }
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": true,
+      "command-palette:Open command palette": true,
+      "markdown-importer:Open format converter": false,
+      "workspaces:Manage workspace layouts": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
+      "templater-obsidian:Templater": false,
+      "obsidian-markdown-formatting-assistant-plugin:Open Markdown Formatting Assistant": false,
+      "obsidian-textgenerator-plugin:Generate Text!": false,
+      "obsidian-textgenerator-plugin:Text Generator: Templates Packages Manager": false,
+      "marp:Marp: Open Preview": false
+    }
+  },
+  "active": "73c0e20170100f6c",
+  "lastOpenFiles": [
+    "Resource/IAM Identity Center 를 활용한 SSO 인증 활성화.md",
+    "Project/Docker Engine.md",
+    "Resource/Spring MVC Performance Testing.md",
+    "Project/세션과 쿠키의 차이.md",
+    "Project/try-with-resource.md",
+    "Project/Socket.md",
+    "attachments/Pasted image 20231106124020.png",
+    "attachments/Pasted image 20231106123949.png",
+    "Project/Java Image Builder.md",
+    "Resource/K6.md",
+    "Area/면접 질문 답변.md",
+    "Resource/Java 의 접근 제어자.md",
+    "Resource/private method vs private static method.md",
+    "Resource/Managed vs Unmanaged.md",
+    "Resource/Java.md",
+    "Resource/Docker Study Chapter 10.md",
+    "Resource/Docker Study Chapter 9.md",
+    "private/토스 증권 면접.md",
+    "private/카카오뱅크 면접.md",
+    "Area/면접 질문 모음.md",
+    "private/Question list.md",
+    "private/당근마켓 광고플랫폼 면접.md",
+    "Resource/면접 질문.md",
+    "Resource/How to logging.md",
+    "Resource/Log Monitoring 을 해야하는 이유.md",
+    "attachments/Pasted image 20231103110011.png",
+    "attachments/Pasted image 20231103104954.png",
+    "Project/The Scourge of Distributed System.md",
+    "Resource/asdf.md",
+    "attachments/Pasted image 20231102181634.png",
+    "attachments/Pasted image 20231102181605.png",
+    "Resource/javap 사용법 (Haril Song의 충돌된 사본 2023-11-01).md",
+    "attachments/Pasted image 20231028173848.png",
+    "attachments/Pasted image 20231028173613.png",
+    "attachments/Pasted image 20231013222444.png",
+    "attachments/Pasted image 20231013222400.png",
+    "Area",
+    "ready",
+    "textgenerator/prompts/dalle-2",
+    "textgenerator/prompts/huggingface",
+    "textgenerator/prompts/default",
+    "textgenerator/prompts",
+    "textgenerator",
+    "Untitled.canvas"
+  ]
+}
