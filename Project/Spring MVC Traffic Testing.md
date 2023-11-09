@@ -1,5 +1,5 @@
 ---
-title: Spring MVC Performance Testing
+title: Spring MVC 트래픽 테스트
 date: 2023-11-06 10:33:00 +0900
 aliases: 
 tags:
