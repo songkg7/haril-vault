@@ -10,7 +10,7 @@ tags:
   - spike-test
   - performance-test
 categories: 
-updated: 2023-11-09 21:47:20 +0900
+updated: 2023-11-09 21:47:43 +0900
 ---
 
 ## Overview
@@ -144,7 +144,7 @@ http://localhost:3000 으로 접근하여 그라파나가 정상적으로 동작
 
 ![[Pasted image 20231108094916.png]]
 
-> [!info]
+> [!note]
 > Grafana 의 초기 계정정보는 아이디와 비밀번호 모두 admin 을 입력하면 된다. 비밀번호를 변경하라고 나오겠지만, 이번에 그라파나를 사용하는 이유는 운영이 아니라 테스트이므로 skip 해도 무방할 것이다.
 
 [[InfluxDB]] 를 datasource 로 설정한 뒤 [K6 dashboard](https://grafana.com/grafana/dashboards/2587-k6-load-testing-results/) URL 을 복사하여 import 해주면 모니터링 구성이 완료된다.
@@ -463,7 +463,7 @@ accept-count: 5000
 - `max-connections` 이 충분히 큰 값으로 설정되어 있더라도, OS 가 수용할 수 있는 커넥션에는 한계가 있다.
 - `accept-count` 는 `max-connections` 을 초과했을 때 OS 가 connection 을 추가적으로 수락하도록 한다. 이것은 단순한 작업 큐 이상의 의미를 가진다.
 
-> [!info]
+> [!note]
 > 글에 사용된 코드는 [GitHub]()에서 확인하실 수 있습니다.
 
 ## 미처 다루지 못한 내용들
