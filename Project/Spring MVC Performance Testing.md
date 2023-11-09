@@ -10,7 +10,7 @@ tags:
   - spike-test
   - performance-test
 categories: 
-updated: 2023-11-09 21:45:59 +0900
+updated: 2023-11-09 21:47:20 +0900
 ---
 
 ## Overview
@@ -96,19 +96,7 @@ ENTRYPOINT ["java", "-jar", "app.jar"]
 docker build -t sample-server .
 ```
 
-테스트를 위한 애플리케이션 준비는 거의 다 됐다. 이후는 적당한 registry 에 이미지를 push 하고, EC2 에서 `docker run` 을 실행하기만 하면 된다.
-
-## Infrastructure
-
-테스트 대상 서버가 로컬 서버 환경에 영향을 받는 것을 피하기 위해 별도의 서버 설정을 진행했다.
-
-1. EC2 t4g.small (Amazon Linux 2core 2GB 64bit ARM) 생성
-2. 보안그룹 생성
-3. 인바운드 규칙을 생성하여 public IP 로 접근가능하도록 설정, my IP 옵션 추천
-4. IAM role 을 생성하여 EC2 인스턴스에 부여 (Optional)
-
-> [!note]
-> 이 정도만 해둬도 테스트 진행에는 무리가 없을 것이라 생각합니다. 이번 글의 주제는 인프라 구성이 아니므로, 자세한 내용은 다른 포스트에서 다뤄봅니다.
+테스트를 위한 애플리케이션 준비는 거의 다 됐다. 이후는 적당한 registry 에 이미지를 push 하고, EC2 에서 `docker run` 을 실행하기만 하면 된다. 분량상 EC2 를 생성하고 이미지를 배포하는 과정은 생략한다.
 
 ## K6
 
