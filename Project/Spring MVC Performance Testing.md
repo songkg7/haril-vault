@@ -10,7 +10,7 @@ tags:
   - spike-test
   - performance-test
 categories: 
-updated: 2023-11-09 23:02:34 +0900
+updated: 2023-11-09 23:07:34 +0900
 ---
 
 ## Overview
@@ -453,17 +453,12 @@ accept-count: 5000
 
 ~~알면 알수록 모르는 것들만 더 늘어난 것 같기도 하다...~~
 
-- [?] Spring MVC 는 NIO Connector 를 사용한다. 하지만 200개씩 정직하게 처리되는 상황은 마치 BIO 처럼 보인다. 어떤 차이가 있을까?
-- [?] NIO Connector 가 Non-Blocking 방식을 사용한다면 기본 스레드풀 개수인 200개보다 많은 숫자를 처리할 수 있을 것이라 예상했는데 그렇지 않은 이유는 무엇일까?
-- [?] request timeout 이 1m 이라는 설정은 어디에 있을까?
-- [?] 스레드는 몇 개까지 늘리는게 가능할까?
-
 > [!note]
 > 글에 사용된 코드는 GitHub [test-script](https://github.com/songkg7/spike-test), [sample-server](https://github.com/songkg7/sample-server)에서 확인하실 수 있습니다.
 
 ## 미처 다루지 못한 내용들
 
-아래 내용들은 이 글을 작성하면서 정리했던 내용들이지만 주제에서 다소 벗어나 있거나, 확신이 없거나, 별도로 분리할만한 주제라고 생각한 목록들입니다.
+아래 내용들은 이 글을 작성하면서 정리했던 내용들이지만 주제에서 다소 벗어나 있거나, 별도로 분리할만한 주제라고 생각한 목록들입니다.
 
 - EC2 에 SSM 으로 접속하기, ECR 사용법, AWS Identity Center 로 SSO 를 설정해보자.
 - allocate memory error 는 서버 측 메모리를 늘리거나, swap 메모리를 설정하는 것이 해결방법이 될 수 있다.
