@@ -10,7 +10,7 @@ tags:
   - spike-test
   - performance-test
 categories: 
-updated: 2023-11-09 21:44:28 +0900
+updated: 2023-11-09 21:45:59 +0900
 ---
 
 ## Overview
@@ -424,7 +424,7 @@ private int acceptCount = 100;
 
 ##### 4. Connection Timeout
 
-이미 언급했듯이 `connection-timeout` 은 커넥션이 수락된 이후의 타임아웃 설정이기 때문에 최대 커넥션 개수 설정인 `max-connections` 와는 관련이 없다.
+이미 언급했듯이 `connection-timeout` 은 커넥션이 수락된 이후의 타임아웃 설정이기 때문에 최대 커넥션 수락 개수 설정인 `max-connections` 와는 관련이 없다.
 
 4. ~~`max-connections` 을 증가시키면 커넥션을 맺은 상태이기 때문에 connection timeout 을 회피할 수 있을 것이다~~ **관련 없음**
 
