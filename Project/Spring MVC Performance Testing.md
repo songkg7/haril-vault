@@ -10,16 +10,16 @@ tags:
   - spike-test
   - performance-test
 categories: 
-updated: 2023-11-09 21:47:43 +0900
+updated: 2023-11-09 22:42:28 +0900
 ---
 
 ## Overview
 
-먼저 정확히 하고자 한다. 이번 테스트의 목적은 **같은 순간에 매우 많은 사용자가 서버에 접근한다면 최대 몇 명까지 200 응답을 받을 수 있을까**에 대한 것이다. 일반적으로 1초당 트랜잭션 처리량을 의미하는 TPS 를 측정하는 것은 아니다. 따라서 이 글에서 처리라는 표현은 request connection 의 수락을 의미하는 것이다.
-
-## Question
-
 > [[Spring MVC]] 웹 애플리케이션은 동시 사용자를 몇 명까지 수용할 수 있을까? 🤔
+
+자신이 만든 서버가 어떤 상태여야 많은 유저를 수용하면서 안정적인 서비스를 제공할 수 있을지에 대한 대략적인 수치를 가늠하기 위해 Spring MVC 의 tomcat 설정을 중심으로 네트워크의 변화를 살펴봅니다.
+
+이후는 작성의 편의를 위해 '~한다'체를 사용합니다 🙏
 
 ## Test Scenario
 
@@ -333,6 +333,8 @@ _closed 가 10k 에 미치지 못한다. 정상적으로 커넥션이 생성되�
 
 ##### 1. Max Connection
 
+> `max-connections` 은 애플리케이션의 TCP 최대 커넥션 개수와 연관이 있을 것이다?
+
 먼저 max connection 값을 20k 로 증가시키고 테스트를 실행한다.
 
 ![](https://i.imgur.com/7wQDXG6.png)
@@ -341,39 +343,39 @@ _closed 가 10k 에 미치지 못한다. 정상적으로 커넥션이 생성되�
 
 ![](https://i.imgur.com/ETTdN93.png)
 
-심지어 아무런 에러 없이 성공한다. 이로써 `max-connections` 은 OS 에 생성되는 애플리케이션의 커넥션과 직접적으로 관련되어 있다고 생각할 수 있다.
-
-1. ~~max-connections 은 애플리케이션의 TCP 최대 커넥션 개수와 연관이 있을 것이다.~~ **관련 있음**
+심지어 아무런 에러 없이 성공한다. 이로써 `max-connections` 은 OS 에 생성되는 애플리케이션의 **커넥션과 직접적으로 관련되어 있다**고 생각할 수 있다.
 
 ##### 2. Connection Timeout
 
-2번을 명확히 하기 위해서 이번에는 `max-connections` 는 다시 기본값으로 하고, `connection-timeout` 만 30s 로 수정한 후 다시 테스트해본다.
+> request timeout 은 TCP 연결을 맺지 못한 상태로 20s 가 경과하여 발생한 `connection-timeout` 설정 관련 에러일 것이다?
+
+이번에는 `max-connections` 는 다시 기본값으로 하고, `connection-timeout` 을 30s 로 수정한 후 다시 테스트를 실행해보자.
 
 ```yaml
 max-connections: 8192
 connection-timeout: 30000
 ```
 
-여전히 20s 를 지난 시점에 request timeout 이 발생했다. 그렇다면, `connection-timeout` 은 연결의 시작 시점과는 무관하다고 생각할 수 있다. 이제서야 밝히자면, 사실 이 설정은 클라이언트와 **연결을 맺은 이후 종료할 때까지의 타임아웃**[^2]이다.
-
-2. ~~request timeout 은 TCP 연결을 맺지 못한 상태로 20s 가 경과하여 발생한 connection-timeout 에러일 것이다.~~ **관련 없음**
+여전히 20s 를 지난 시점에 request timeout 이 발생했다. 그렇다면, `connection-timeout` 은 연결의 시작 시점과는 무관하다고 생각할 수 있다. 이제서야 밝히자면, 사실 이 설정은 클라이언트와 **연결을 맺은 이후 종료할 때까지의 타임아웃**[^2]이다. 테스트 실행 시점 20s 에 발생하는 timeout 에러는 `maxConnections`, `acceptCount` 가 모두 가득차서 더 이상 커넥션이 수락되지 않아 발생하는 timeout 에러이다. 즉, `connection-timeout` 옵션과는 **관련이 없으며** 내용은 바로 다음에서 자세히 설명한다.
 
 ##### 3. Accept Count
 
-3번을 명확히 하기 위해서 이번에는 `accept-count` 만 늘려보자.
+> `accept-count` 속성도 마찬가지로 TCP 최대 커넥션 개수와 연관이 있을 것이다?
+
+이번에는 `accept-count` 만 늘려보자.
 
 ```yaml
 max-connections: 8192
 accept-count: 2000 # 작업 큐
 ```
 
-`accept-count` 가 100 일 때 성공한 요청 수는 8293 이였다. 2000 으로 늘리면 10k 이상의 요청을 처리할 수 있을까? 혹은 TCP 연결 수락과 작업 큐가 직접적인 관련은 없을테니 여전히 실패할까? 직접 확인해보자.
+`accept-count` 가 100 일 때 성공한 요청 수는 8293 이였다. 2000 으로 늘리면 10k 이상의 요청을 처리할 수 있을까? 혹은 TCP 연결 수락 개수와 작업 큐가 직접적인 관련은 없을테니 여전히 실패할까? 백문이불여일견, 직접 확인해보자.
 
 ![](https://i.imgur.com/9MohYiI.png)
 
 ![](https://i.imgur.com/B6aR4Y8.png)
 
-인상적이다. `max-connections` 을 늘리지 않았고 `accept-count` 만 늘려주었는데 10k 이상의 TCP 연결이 수락되었다.
+결과는 아주 인상적이다. `max-connections` 을 전혀 늘리지 않았고 `accept-count` 만 늘려주었는데 10k 이상의 TCP 연결이 수락되었다.
 
 몇몇 블로그에서는 `accept-count` 에서 대기하는 작업(request)는 TCP connection 을 맺지 않는다고 설명하고 있다. '내가 혹시 설정을 잘못했나?' 싶어서 actuator 를 활용하여 애플리케이션의 설정을 확인해봤지만, 의도한대로 설정된 상태다.
 
@@ -381,9 +383,7 @@ accept-count: 2000 # 작업 큐
 
 _actuator 는 동작 중인 애플리케이션의 상태를 확인하는데 매우 유용하게 사용할 수 있다_
 
-> `accept-count` 는 그저 작업 큐에만 관련된 설정이 아닌걸까? 큐 좀 늘렸다고 OS connection 카운트가 늘어나다니...?
-
-`ServerProperties` 클래스의 javaDoc 을 보면 이 의문에 대한 힌트를 발견할 수 있다.
+`ServerProperties` 클래스의 javaDoc 을 보다가 이 의문에 대한 힌트를 발견할 수 있었다.
 
 ```java
 /**
@@ -404,17 +404,15 @@ private int acceptCount = 100;
 
 > Once the limit has been reached, the operating system may still accept connections based on the "acceptCount" property (제한에 도달한 뒤에도, 운영체제는 "acceptCount" 속성에 따라 여전히 커넥션을 수락할 수 있습니다.)
 
-기본 값인 8192 개의 커넥션 제한에 도달하면, `acceptCount` 의 값만큼 OS 가 추가 커넥션을 수락하게 한다는 내용이다. 8192(thread) + 100(accept) = 8293(connection)[^3] 일 것이라는 기존의 추론을 뒷받침해주는 부분이다.
+`maxConnections` 제한에 도달하면, `acceptCount` 의 값만큼 OS 가 추가 커넥션을 수락하게 한다는 내용이다. 8192(thread) + 100(accept) = 8293(connection)[^3] 일 것이라는 기존의 가설을 뒷받침해주는 부분이다.
 
-정리하자면, `max-connections` 을 초과한 요청은 `acceptCount` 만큼 **TCP connection 이 수락된 상태에서 작업 큐에서 대기**한다. NIO Connector 는 작업 큐에서 요청을 가져와서 남아있는 worker thread 에게 할당한다. `acceptCount` 만큼의 **작업 큐마저 꽉 찬다면 TCP connection 을 맺지 못하고 대기하다가 request timeout 이 발생**한다.
+정리하자면, `max-connections` 을 초과한 요청은 `acceptCount` 만큼 **TCP connection 이 수락된 상태에서 작업 큐(이런 이유로 accepterQueue 라고도 한다)에서 대기**한다. NIO Connector 는 작업 큐에서 요청을 가져와서 남아있는 worker thread 에게 할당한다. `acceptCount` 만큼의 **작업 큐마저 꽉 찬다면 TCP connection 을 맺지 못하고 대기하다가 request timeout 이 발생**한다. `acceptCount` 는 최대 커넥션 개수와 너무나 밀접한 관계에 있다고 할 수 있겠다.
 
-3. ~~acceptCount 도 마찬가지로 TCP 최대 커넥션 개수와 연관이 있을 것이다.~~ **관련 있음**
+##### 4. Max Connections 와 Connection Timeout
 
-##### 4. Connection Timeout
+> `max-connections` 을 증가시키면 커넥션을 맺은 상태이기 때문에 connection timeout 을 회피할 수 있을 것이다?
 
-이미 언급했듯이 `connection-timeout` 은 커넥션이 수락된 이후의 타임아웃 설정이기 때문에 최대 커넥션 수락 개수 설정인 `max-connections` 와는 관련이 없다.
-
-4. ~~`max-connections` 을 증가시키면 커넥션을 맺은 상태이기 때문에 connection timeout 을 회피할 수 있을 것이다~~ **관련 없음**
+2번에서 살펴봤던 내용과 다소 일맥상통하는 부분이 있는 내용이다. `connection-timeout` 은 커넥션을 수락한 이후 종료되기 전까지의 유예 시간과 관련된 타임아웃 설정이다. `max-connections` 을 증가시켜서 회피할 수 있는 타임아웃은 커넥션이 자체가 수락되지 못해 발생하는 타임아웃이다. `max-connections` 으로 타임아웃을 회피할 수 있긴 하지만 그 종류가 다르다.
 
 ##### 10k problem 결론
 
@@ -441,21 +439,13 @@ max-connections: 50000
 accept-count: 5000
 ```
 
-다소 과격한(?) `max-connections` 과 `accept-count` 값이지만, `max-connections` 값이 크다해서 실제로 그만큼 커넥션을 많이 수락할 수 있다는 의미는 아니다.
+다소 과격한(?) `max-connections` 과 `accept-count` 값인데, `max-connections` 값이 크다해서 실제로 그만큼 커넥션이 수락된다는 보장이 있진 않다. 이 설정으로도 20k 이상의 요청에서는 `cannot assign requested address` 를 비롯한 다양한 에러가 발생하며 커넥션이 수락되지 않았다. 소켓이나 포트 할당과 관련된 네트워크 문제가 아닐까 싶은데 정확하게 알아내지는 못해서 이 부분은 다음 기회에 네트워크를 추가적으로 학습해나가면서 확인해봐야할 것 같다.
 
-또한 커넥션을 많이 수락할 수 있다는 것이 요청을 처리할 수 있다는 의미는 아니다. 커넥션이 수락되어도 처리속도가 충분히 빠르지 않다면 결국 클라이언트는 응답을 60s 안에 받지 못해 request timeout 이 발생할 것이기 때문이다.
+또 한가지 주의해야할 점은, 커넥션을 많이 수락할 수 있다는 것이 요청을 다 처리할 수 있다는 의미는 아니다. 커넥션이 수락되어도 처리속도가 충분히 빠르지 않다면 결국 클라이언트는 응답을 60s 안에 받지 못해 매우 많은 요청이 request timeout 으로 종료될 것이기 때문이다.
 
-> max-connections 는 그릇에 최대로 채울 수 있는 물의 부피이며, 처리 속도(throughput)는 물을 퍼내는 속도이다. 정해진 시간 안에 물을 다 퍼내지 못하면 OS 라는 관리자는 그릇에 남은 물을 다 쏟아버린다.
+> max-connections 는 그릇에 최대로 채울 수 있는 물의 부피이며, 처리 속도(throughput)는 물을 퍼내는 속도이다. 여러분이 정해진 시간 안에 물을 다 퍼내지 못하면 OS 라는 관리자는 그릇에 남은 물을 바닥에 다 쏟아버린다.
 
-이번 테스트에 사용한 인스턴스 사양에서는 15k 까지도 CPU 를 거의 사용하지 않고도 처리할 수 있었다. 20k 정도부터는 `cannot assign requested address` 에러가 발생했다. 소켓이나 포트 할당과 관련된 네트워크 문제가 아닐까 싶은데 정확하게 알아내지는 못해서 이 부분은 다음 기회에 네트워크를 추가적으로 학습하면서 확인해봐야할 것 같다.
-
-최근 'Spring MVC 가 동시 접속자를 몇 명이나 처리할 수 있나요?' 라는 질문에 애매모호하게 대답할 수 밖에 없던게 아쉬워서 여기까지 확인해보게 되었다. 조건에 따라서 변동폭이 매우 클 수 있어서 특정 수치로 정량화하기 매우 어려운 내용이지만 그래도 정리해본다.
-
-**초당 처리량(throughput)에 따라 매우 크게 차이가 나지만, AMI 2core 2GB 에서는 최소 15000 명의 사용자가 동시 접속해도 에러를 보여주지 않을 수 있다.**
-
-~~알면 알수록 모르는 것들만 더 늘어난 것 같기도 하다...~~
-
-## Summary
+## 마무리
 
 - `max-connections`, `accept-count` 는 애플리케이션이 사용하는 커넥션 수에 영향을 준다
 - `thread.max` 는 처리량(throughput)에 직접적인 영향을 주는 중요한 속성이다
@@ -463,12 +453,18 @@ accept-count: 5000
 - `max-connections` 이 충분히 큰 값으로 설정되어 있더라도, OS 가 수용할 수 있는 커넥션에는 한계가 있다.
 - `accept-count` 는 `max-connections` 을 초과했을 때 OS 가 connection 을 추가적으로 수락하도록 한다. 이것은 단순한 작업 큐 이상의 의미를 가진다.
 
+최근 'Spring MVC 가 동시 접속자를 몇 명이나 처리할 수 있나요?' 라는 질문에 애매모호하게 대답할 수 밖에 없던게 아쉬워서 여기까지 오게 되었다. 조건에 따라서 변동폭이 매우 클 수 있어서 수치로 정량화하기 매우 어려운 내용이지만 그래도 정리해본다.
+
+**"서버의 성능, 초당 처리량(throughput) 과 같은 조건에 따라 매우 크게 차이가 나지만, AMI 2core 2GB 에서 5초의 지연시간이 있는 API 에서는 최소 15000 명의 사용자가 동시 접속해도 에러를 보여주지 않을 수 있었습니다."**
+
+~~알면 알수록 모르는 것들만 더 늘어난 것 같기도 하다...~~
+
 > [!note]
-> 글에 사용된 코드는 [GitHub]()에서 확인하실 수 있습니다.
+> 글에 사용된 코드는 GitHub [test-script](https://github.com/songkg7/spike-test), [sample-server](https://github.com/songkg7/sample-server)에서 확인하실 수 있습니다.
 
 ## 미처 다루지 못한 내용들
 
-아래 내용들은 이 글을 작성하면서 정리했던 내용들이지만 주제에서 다소 벗어나 있거나, 확신이 없거나, 별도로 분리할만한 주제라고 생각한 목록들이다.
+아래 내용들은 이 글을 작성하면서 정리했던 내용들이지만 주제에서 다소 벗어나 있거나, 확신이 없거나, 별도로 분리할만한 주제라고 생각한 목록들입니다.
 
 - EC2 에 SSM 으로 접속하기, ECR 사용법, AWS Identity Center 로 SSO 를 설정해보자.
 - allocate memory error 는 서버 측 메모리를 늘리거나, swap 메모리를 설정하는 것이 해결방법이 될 수 있다.
