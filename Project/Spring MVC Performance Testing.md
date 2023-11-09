@@ -10,7 +10,7 @@ tags:
   - spike-test
   - performance-test
 categories: 
-updated: 2023-11-09 22:54:10 +0900
+updated: 2023-11-09 23:02:34 +0900
 ---
 
 ## Overview
@@ -398,7 +398,9 @@ private int acceptCount = 100;
 
 `maxConnections` 제한에 도달하면, `acceptCount` 의 값만큼 OS 가 추가 커넥션을 수락하게 한다는 내용이다. 8192(thread) + 100(accept) = 8293(connection)[^3] 일 것이라는 기존의 가설을 뒷받침해주는 부분이다.
 
-정리하자면, `max-connections` 을 초과한 요청은 `acceptCount` 만큼 **TCP connection 이 수락된 상태에서 작업 큐(이런 이유로 accepterQueue 라고도 한다)에서 대기**한다. NIO Connector 는 작업 큐에서 요청을 가져와서 남아있는 worker thread 에게 할당한다. `acceptCount` 만큼의 **작업 큐마저 꽉 찬다면 TCP connection 을 맺지 못하고 대기하다가 request timeout 이 발생**한다. `acceptCount` 는 최대 커넥션 개수와 너무나 밀접한 관계에 있다고 할 수 있겠다.
+정리하자면, `max-connections` 을 초과한 요청은 `acceptCount` 만큼 **TCP connection 이 수락된 상태에서 작업 큐(이런 이유로 acceptorQueue 라고도 한다)에서 대기**한다. NIO Connector 는 작업 큐에서 요청을 가져와서 남아있는 worker thread 에게 할당한다. `acceptCount` 만큼의 **작업 큐마저 꽉 찬다면 TCP connection 을 맺지 못하고 대기하다가 request timeout 이 발생**한다. `acceptCount` 는 최대 커넥션 개수와 너무나 밀접한 관계에 있다고 할 수 있겠다.
+
+![](https://i.imgur.com/LVUTzYy.png)
 
 ##### 4. Max Connections 와 Connection Timeout
 
