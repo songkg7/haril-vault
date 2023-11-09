@@ -10,7 +10,7 @@ tags:
   - spike-test
   - performance-test
 categories: 
-updated: 2023-11-09 18:06:58 +0900
+updated: 2023-11-09 18:10:14 +0900
 ---
 
 ## Goals
@@ -469,6 +469,12 @@ accept-count: 5000
 이번 테스트에 사용한 인스턴스 사양에서는 15k 까지도 CPU 를 거의 사용하지 않고도 처리할 수 있었다. 20k 정도부터는 `cannot assign requested address` 에러가 발생했다. 소켓이나 포트 할당과 관련된 네트워크 문제가 아닐까 싶은데 정확하게 알아내지는 못해서 이 부분은 다음 기회에 네트워크를 추가적으로 학습하면서 확인해봐야할 것 같다.
 
 최근 'Spring MVC 가 동시 접속자를 몇 명이나 처리할 수 있나요?' 라는 질문에 애매모호하게 대답할 수 밖에 없던게 아쉬워서 확인해보게 되었다. 이번 작업을 통해 새로운 의문만 더 늘어난 것 같지만, Spring MVC 와 OS 네트워크 사이를 살짝은 들여다볼 계기가 되었다.
+
+## Summary
+
+- `max-connections`, `accept-count` 는 애플리케이션이 사용하는 커넥션 수에 영향을 준다
+- `thread.max` 는 처리량(throughput)에 직접적인 영향을 주는 중요한 속성이다
+- `connection-timeout` 은 커넥션을 맺지 못할 때 발생하는 request timeout 과는 관련이 없다
 
 > [!info]
 > 글에 사용된 코드는 [GitHub]()에서 확인하실 수 있습니다.
