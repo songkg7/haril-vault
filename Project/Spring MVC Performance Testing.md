@@ -10,7 +10,7 @@ tags:
   - spike-test
   - performance-test
 categories: 
-updated: 2023-11-09 21:43:51 +0900
+updated: 2023-11-09 21:44:28 +0900
 ---
 
 ## Overview
@@ -465,7 +465,7 @@ accept-count: 5000
 
 **초당 처리량(throughput)에 따라 매우 크게 차이가 나지만, AMI 2core 2GB 에서는 최소 15000 명의 사용자가 동시 접속해도 에러를 보여주지 않을 수 있다.**
 
-이번 작업을 통해 새로운 의문만 더 늘어난 것 같기도 하다.
+~~알면 알수록 모르는 것들만 더 늘어난 것 같기도 하다...~~
 
 ## Summary
 
