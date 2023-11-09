@@ -10,7 +10,7 @@ tags:
   - spike-test
   - performance-test
 categories: 
-updated: 2023-11-09 18:10:14 +0900
+updated: 2023-11-09 18:13:34 +0900
 ---
 
 ## Goals
@@ -475,6 +475,8 @@ accept-count: 5000
 - `max-connections`, `accept-count` 는 애플리케이션이 사용하는 커넥션 수에 영향을 준다
 - `thread.max` 는 처리량(throughput)에 직접적인 영향을 주는 중요한 속성이다
 - `connection-timeout` 은 커넥션을 맺지 못할 때 발생하는 request timeout 과는 관련이 없다
+- `max-connections` 이 충분히 큰 값으로 설정되어 있더라도, OS 가 수용할 수 있는 커넥션에는 한계가 있다.
+- `accept-count` 는 `max-connections` 을 초과했을 때 OS 가 connection 을 추가적으로 수락하도록 한다. 단순한 작업 큐 이상의 의미를 가진다.
 
 > [!info]
 > 글에 사용된 코드는 [GitHub]()에서 확인하실 수 있습니다.
