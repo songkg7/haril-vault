@@ -10,7 +10,7 @@ tags:
   - spike-test
   - performance-test
 categories: 
-updated: 2023-11-09 22:42:28 +0900
+updated: 2023-11-09 22:54:10 +0900
 ---
 
 ## Overview
@@ -158,6 +158,7 @@ _5분이면 모니터링 환경 구성 끝...!_
 스파이크 테스트를 수행하기 위해서 아래와 같은 스크립트를 작성해주었다.
 
 ```js
+// spike-test.js
 import http from 'k6/http';
 import { check } from 'k6';
 
@@ -200,9 +201,6 @@ k6 run --out influxdb=http://localhost:8086/myk6db spike-test.js
 
 5초 간격으로 200개의 요청이 먼저 처리되고 뒤이어 100개의 나머지 요청이 처리되었다.
 
-- [?] Spring MVC 는 NIO Connector 를 사용한다. 하지만 200개씩 정직하게 처리되는 상황은 마치 BIO 처럼 보인다. 어떤 차이가 있을까?
-- [?] NIO Connector 가 Non-Blocking 방식을 사용한다면 기본 스레드풀 개수인 200개보다 많은 숫자를 처리할 수 있을 것이라 예상했는데 그렇지 않은 이유는 무엇일까?
-
 #### 1000 requests
 
 ![](https://i.imgur.com/RhJG0Wq.png)
@@ -210,8 +208,6 @@ k6 run --out influxdb=http://localhost:8086/myk6db spike-test.js
 5초 간격으로 요청을 처리하는 것을 확인할 수 있다. 총 처리 시간은 25s 남짓이 걸린다. 가장 빠르게 접근한 사용자는 5.01s 만에 결과를 확인하겠지만, 그렇지 못한 사용자는 25s 를 기다려야 결과를 확인할 수 있다.
 
 이 시점에 기본 톰캣 설정의 `connection-timeout` 인 20s 를 넘었다. 하지만 타임아웃 에러는 발생하지 않았고, 20s 이상을 기다려서라도 모두 처리되었다.
-
-- [?] `connection-timeout` 은 정확히 어떤 타임아웃을 의미할까?
 
 #### 2000 requests
 
@@ -252,8 +248,6 @@ export default function () {
 
 이번에는 요청이 1분이상 대기하게 되면서 request timeout 이 발생한다.
 
-- [?] request timeout 이 1m 이라는 설정은 어디에 있을까?
-
 200 스레드로 3000 개의 요청을 처리하므로, 5초의 대기시간까지 고려해보면 운이 없는 유저의 요청은 $3000 / 200 * 5 = 75(s)$ 를 대기해야 한다. 따라서 타임아웃 회피를 위해서는 15초 이상 시간의 단축이 필요하며, 기본설정으로는 request timeout 을 피하기 어려워보인다. 몇 가지 방법을 생각해볼 수 있을 것 같다.
 
 1. 타임아웃 시간을 늘려 유저를 더 기다리게 한다.
@@ -285,8 +279,6 @@ docker run -d -p "80:8080" -e TOMCAT_MAX_THREADS=500 --name sample-server --rest
 ![](https://i.imgur.com/3dorRSj.png)
 
 스레드 풀을 500 으로 늘렸지만, 6000 requests 부터는 다시 request timeout 이 발생한다. 동시처리량을 더 늘려야할 필요가 있다. 좀 전에 했던 방법처럼 스레드 개수를 더 늘리면 어떨까? 스레드가 너무 많으면 리소스 경합이 발생하므로 그다지 바람직하지 못하지만, 우선 가능할 때까지 스레드를 늘리는 방향으로 생각해보자. 이전과 같은 방식을 사용하여 1000 개로 늘려줬다.
-
-- [?] 스레드는 몇 개까지 늘리는게 가능할까?
 
 ![](https://i.imgur.com/l7uzhej.png)
 
@@ -458,6 +450,11 @@ accept-count: 5000
 **"서버의 성능, 초당 처리량(throughput) 과 같은 조건에 따라 매우 크게 차이가 나지만, AMI 2core 2GB 에서 5초의 지연시간이 있는 API 에서는 최소 15000 명의 사용자가 동시 접속해도 에러를 보여주지 않을 수 있었습니다."**
 
 ~~알면 알수록 모르는 것들만 더 늘어난 것 같기도 하다...~~
+
+- [?] Spring MVC 는 NIO Connector 를 사용한다. 하지만 200개씩 정직하게 처리되는 상황은 마치 BIO 처럼 보인다. 어떤 차이가 있을까?
+- [?] NIO Connector 가 Non-Blocking 방식을 사용한다면 기본 스레드풀 개수인 200개보다 많은 숫자를 처리할 수 있을 것이라 예상했는데 그렇지 않은 이유는 무엇일까?
+- [?] request timeout 이 1m 이라는 설정은 어디에 있을까?
+- [?] 스레드는 몇 개까지 늘리는게 가능할까?
 
 > [!note]
 > 글에 사용된 코드는 GitHub [test-script](https://github.com/songkg7/spike-test), [sample-server](https://github.com/songkg7/sample-server)에서 확인하실 수 있습니다.
