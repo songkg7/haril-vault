@@ -6,7 +6,7 @@ tags:
   - socket
   - network
 categories: Network
-updated: 2023-10-01 17:07:03 +0900
+updated: 2023-11-11 00:19:01 +0900
 ---
 
 ## Socket 의 본질에 대한 이해
@@ -26,3 +26,4 @@ Stream 이라는 키워드를 알아둬야 한다. 소켓 또한 파일이기 �
 ## Reference
 
 - [소켓의 본질에 대한 이해](https://www.youtube.com/watch?v=3jQ2dBpiqPo)
+- [커널과 함께 알아보는 소켓과 TCP Deep Dive](https://brewagebear.github.io/linux-kernel-internal-3/)
