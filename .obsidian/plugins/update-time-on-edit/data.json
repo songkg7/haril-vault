@@ -248,7 +248,7 @@
     "Resource/Json dynamic binding.md": "ddbbc9f540635cd9e3d0dd28d1dedf4ea90c4176e9709dca4679b1ce2a3c6d11",
     "Resource/JobRepository.md": "8fbde8986acf7ed3ff733e0df7fd13b7aa6c936b222c5d470fa6fa100cf21e16",
     "Resource/Jira vs Github Project.md": "73cd70c00e6270d599f68499fe1fd4385ae10705a942763b8faa5a046d7e9eb6",
-    "Resource/Jenkins.md": "24d693698ffeab15e6b237df45bd6f1910644c368ecd26af06df82ef47554bbc",
+    "Resource/Jenkins.md": "f612fb08a16594854592d030250c74b89da5c8da39a27a52ec890dd15b05b163",
     "Resource/Job.md": "fb6cda0bd18700a23388579b4066dde76e652e4d6f35840fd468fb373b4986d6",
     "Resource/Jenkins 에 node 추가하기.md": "3928c3ce8f83dc77fa66ea810362b51eb43c3b6e903e2ab3b0f76ca2d05d08db",
     "Resource/Java.md": "511a063fa0131c551c84533220f3ed85d35f6ba04136a8a611dce01cffe632e3",
@@ -436,7 +436,8 @@
     "Resource/운영체제 (Operating system).md": "cccb438b50855837caf66657c817cf50e03858ab41d5b8be693b85af23c72995",
     "Resource/Java Image Builder.md": "8e998d22b2e4dca3980d5ba2913c89d38ec2df9b0744039ed4e0a51f28dd153b",
     "Resource/block 대신 CompletableFuture 사용하기.md": "31ba1af57923fe9e49e7ab9636c13ae96c3ef9fe87f9c6ac386513286e2bb511",
-    "Resource/JDK dynamic proxy vs CGLIB.md": "e1b7d5d7dc8293e4560a68f0b4b52da5667597703da400383b8aeab36bd3169a"
+    "Resource/JDK dynamic proxy vs CGLIB.md": "e1b7d5d7dc8293e4560a68f0b4b52da5667597703da400383b8aeab36bd3169a",
+    "Resource/Docker Study Chapter 11.md": "009e575c0231e089bf0e6dba83af7fcd2dd0c3bd710094b7813b0b4aca4b8b7a"
   },
   "readDateFormat": "yyyy-MM-dd HH:mm:ss xx",
   "useDifferentReadFormat": true
