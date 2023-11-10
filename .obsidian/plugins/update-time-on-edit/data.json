@@ -50,13 +50,9 @@
     "daily/2022-11-14.md": "70eb4037215b617ac822a698752ffe4bd54cdc362b029a6e44c3015cdafd175f",
     "README.md": "aed29317d6ed377b7b73cd157d7aa151d72bf80f036e77ead2320ef25597b743",
     "Project/나무위키에 기여하기.md": "7ca425ec4c57c705c0a35ff618900646c8f06aea2400538788b742134b9f84b0",
-    "Project/운영체제 (Operating system).md": "cccb438b50855837caf66657c817cf50e03858ab41d5b8be693b85af23c72995",
     "Project/귀여움은 정말로 세상을 구할 수 있을까?.md": "666927a459216de6be8a266506bad04708fb7730d58e2fed8d5676dcbf109623",
-    "Project/block 대신 CompletableFuture 사용하기.md": "31ba1af57923fe9e49e7ab9636c13ae96c3ef9fe87f9c6ac386513286e2bb511",
     "Project/WebFlux with Cache.md": "d63ed736d700c407f050548aa9497957c23c02ffc8df110cf011970ca2691d02",
-    "Project/Java Image Builder.md": "8e998d22b2e4dca3980d5ba2913c89d38ec2df9b0744039ed4e0a51f28dd153b",
     "Project/Consideration of the appropriate type with the ID of Entity.md": "aef76e4674e3fae1ae16e6578bf5ff774d2dd1b6d1d72a2139b0357c2075bbc7",
-    "Project/JDK dynamic proxy vs CGLIB.md": "e1b7d5d7dc8293e4560a68f0b4b52da5667597703da400383b8aeab36bd3169a",
     "private/주차장 빈자리 알리미.md": "dab65b55e6c0f8607976da89e7f61bec62cbb38130e5a8a5f305998e03897c5b",
     "private/연협 방법.md": "be26c1d6d3796814cfa157c41991861e83257b2629d70c55d92758079e1a271f",
     "private/자기소개서.md": "140ffafeea30ec6b1aff9a53e3bc2c67f71652aa3be1abb2811fe9e0c80aa54a",
@@ -437,7 +433,10 @@
     "Resource/Managed vs Unmanaged.md": "66f2567cf35c8730f203a86fd85aaf5e29ad42f800af2b8640384815a622e8ea",
     "Resource/Java 의 접근 제어자.md": "a89c69027763b6617984b809f8de0b7639f4fc5950163f0b2ce91d52e0d7e83d",
     "Resource/IAM Identity Center 를 활용한 SSO 인증 활성화.md": "079a503490fba7f539d7b4c3a1b69fb2809128e9218026cc90c4734d5852b389",
-    "Project/Spring MVC Traffic Testing.md": "eb8c283323bb1f4d6f80c855b120a25f12cb101b4ee5f77f6c9e5c2a032c7d0d"
+    "Resource/운영체제 (Operating system).md": "cccb438b50855837caf66657c817cf50e03858ab41d5b8be693b85af23c72995",
+    "Resource/Java Image Builder.md": "8e998d22b2e4dca3980d5ba2913c89d38ec2df9b0744039ed4e0a51f28dd153b",
+    "Resource/block 대신 CompletableFuture 사용하기.md": "31ba1af57923fe9e49e7ab9636c13ae96c3ef9fe87f9c6ac386513286e2bb511",
+    "Resource/JDK dynamic proxy vs CGLIB.md": "e1b7d5d7dc8293e4560a68f0b4b52da5667597703da400383b8aeab36bd3169a"
   },
   "readDateFormat": "yyyy-MM-dd HH:mm:ss xx",
   "useDifferentReadFormat": true
