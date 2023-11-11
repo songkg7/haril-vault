@@ -17,7 +17,7 @@
     "Resource/Concurrency.md": "52abf849f45dce570b88202b2cd953186c06005ceee0cb847db5474529b28aff",
     "Resource/Pessimistic Lock.md": "d45947cde710de6922de2547f1f0cd8ed0922f48f6008a80c7092332f78fe681",
     "Resource/Select for update in JPA.md": "c8f85516330e6e83bbdcd93e31c33da9edc575d7e435451be3f9895d70ffe2bd",
-    "Area/Pair Programming Game.md": "6bd2979752e87a05068b8ece970b4d1486da7a0fe3552eec30e5d681473b81a6",
+    "Area/Pair Programming Game.md": "d80aabd3ed3b14803742b58d46db9c5bef2c5b8c7bb9de6252cbf8385fdcd94c",
     "Project/Socket.md": "771190316ad1d63f1bec1e4f838b51e36f22efafe6693c0b75c3ce8780cdc553",
     "daily/2023-09-12.md": "cec277e1deb6786f4239c51584e9f2678cbc8b7de2bf617b7df26a865a016e0a",
     "daily/2023-07-26.md": "6d44ad5a1fd9c5ce68cbca019f9adb62ef258d620071326a9374e50b69a30291",
@@ -437,7 +437,9 @@
     "Resource/Java Image Builder.md": "8e998d22b2e4dca3980d5ba2913c89d38ec2df9b0744039ed4e0a51f28dd153b",
     "Resource/block 대신 CompletableFuture 사용하기.md": "31ba1af57923fe9e49e7ab9636c13ae96c3ef9fe87f9c6ac386513286e2bb511",
     "Resource/JDK dynamic proxy vs CGLIB.md": "e1b7d5d7dc8293e4560a68f0b4b52da5667597703da400383b8aeab36bd3169a",
-    "Resource/Docker Study Chapter 11.md": "715db07ff9419a498d57d6b0f3f6fbbb418dacaacfe7dfd3d8298388f8d4ef16"
+    "Resource/Docker Study Chapter 11.md": "715db07ff9419a498d57d6b0f3f6fbbb418dacaacfe7dfd3d8298388f8d4ef16",
+    "Resource/Kover.md": "d20e50eb0ee9179cffd51bd29d3d67ccbcc66f537a2e014602c80d80cebf25c5",
+    "Resource/Docker Study Chapter 12.md": "80c04b7a34852c26c16bb1271853fe0d7d0e26dd6d8454ede566eaaa393e102e"
   },
   "readDateFormat": "yyyy-MM-dd HH:mm:ss xx",
   "useDifferentReadFormat": true
