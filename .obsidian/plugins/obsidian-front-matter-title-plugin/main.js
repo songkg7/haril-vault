@@ -835,7 +835,7 @@ var Reflect2;
 })(Reflect2 || (Reflect2 = {}));
 
 // main.ts
-var import_obsidian17 = require("obsidian");
+var import_obsidian18 = require("obsidian");
 
 // src/Settings/SettingsTab.ts
 var import_obsidian2 = require("obsidian");
@@ -3877,6 +3877,7 @@ var SI = {
   "feature:alias:config": "",
   "feature:notelink:approve": "",
   "feature:config": "",
+  "feature:explorer:file_mutator:factory": "",
   filter: "",
   "getter:delimiter": "",
   listener: "",
@@ -3887,8 +3888,6 @@ var SI = {
   "obsidian:app": "",
   "obsidian:plugin": "",
   placeholder: "",
-  "placeholder:brackets": "",
-  "placeholder:meta": "",
   resolver: "",
   "resolver:service": "",
   "factory:resolver:template": "",
@@ -7278,7 +7277,16 @@ var AbstractPlaceholder = class {
   getPlaceholder() {
     return this.placeholder;
   }
+  setPlaceholder(placeholder) {
+    this.placeholder = placeholder;
+    return this;
+  }
 };
+AbstractPlaceholder.META = "meta";
+AbstractPlaceholder.BRACKETS = "brackets";
+AbstractPlaceholder.HEADING = "heading";
+AbstractPlaceholder.FILE = "file";
+AbstractPlaceholder.LOGIC = "logic";
 AbstractPlaceholder = __decorateClass([
   injectable()
 ], AbstractPlaceholder);
@@ -7292,9 +7300,6 @@ var MetaPlaceholder = class extends AbstractPlaceholder {
   }
   makeValue(path) {
     return this.extractor.extract(this.placeholder, this.factory(path, "frontmatter"));
-  }
-  setPlaceholder(placeholder) {
-    this.placeholder = placeholder;
   }
 };
 MetaPlaceholder = __decorateClass([
@@ -7360,15 +7365,17 @@ var Factory2 = class {
     this.factory = factory;
   }
   create(placeholder) {
-    let type = "meta";
+    let type = AbstractPlaceholder.META;
     if (placeholder.startsWith("{{") && placeholder.endsWith("}}")) {
-      type = "brackets";
+      type = AbstractPlaceholder.BRACKETS;
     } else if (placeholder.startsWith("_")) {
-      type = "file";
+      type = AbstractPlaceholder.FILE;
     } else if (placeholder === "#heading") {
-      type = "heading";
+      type = AbstractPlaceholder.HEADING;
+    } else if (placeholder.includes("|")) {
+      type = AbstractPlaceholder.LOGIC;
     }
-    return this.factory(type, placeholder);
+    return this.factory(type, placeholder).setPlaceholder(placeholder);
   }
 };
 Factory2 = __decorateClass([
@@ -7412,19 +7419,25 @@ Composite = __decorateClass([
 var BracketsPlaceholder = class {
   constructor(factory) {
     this.factory = factory;
+    this.leftSpace = "";
+    this.rightSpace = "";
   }
   getPlaceholder() {
     return this.placeholder;
   }
   makeValue(path) {
-    return this.child.makeValue(path);
+    const value = this.child.makeValue(path);
+    return value ? `${this.leftSpace}${value}${this.rightSpace}` : null;
   }
   setPlaceholder(placeholder) {
     this.placeholder = placeholder;
     const {
-      groups: { inside }
-    } = this.placeholder.match(new RegExp(`^{{(?<inside>.*?)}}`));
-    this.child = this.factory.create(inside);
+      groups: { left, key, right }
+    } = this.placeholder.match(new RegExp(`^{{((?<left>\\s*)(?<key>.*\\b)(?<right>\\s*))}}`));
+    this.leftSpace = left != null ? left : "";
+    this.rightSpace = right != null ? right : "";
+    this.child = this.factory.create(key);
+    return this;
   }
 };
 BracketsPlaceholder = __decorateClass([
@@ -7443,8 +7456,8 @@ var FilePlaceholder = class extends AbstractPlaceholder {
     return this.extractor.extract(this.path, this.factory(path));
   }
   setPlaceholder(placeholder) {
-    this.placeholder = placeholder;
     this.path = placeholder.substring(1);
+    return super.setPlaceholder(placeholder);
   }
 };
 FilePlaceholder = __decorateClass([
@@ -7453,25 +7466,51 @@ FilePlaceholder = __decorateClass([
 ], FilePlaceholder);
 
 // src/Creator/Template/Placeholders/HeadingPlaceholder.ts
-var HeadingPlaceholder = class {
+var HeadingPlaceholder = class extends AbstractPlaceholder {
   constructor(factory) {
+    super();
     this.factory = factory;
-  }
-  getPlaceholder() {
-    return this.placeholder;
   }
   makeValue(path) {
     var _a, _b, _c;
     return (_c = (_b = (_a = this.factory(path, "headings")) == null ? void 0 : _a[0]) == null ? void 0 : _b.heading) != null ? _c : "";
-  }
-  setPlaceholder(placeholder) {
-    this.placeholder = placeholder;
   }
 };
 HeadingPlaceholder = __decorateClass([
   injectable(),
   __decorateParam(0, inject(inversify_types_default["factory:obsidian:meta"]))
 ], HeadingPlaceholder);
+
+// src/Creator/Template/Placeholders/LogicPlaceholder.ts
+var LogicPlaceholder = class {
+  constructor(factory) {
+    this.factory = factory;
+    this.DELIMITER = "|";
+    this.children = [];
+  }
+  makeValue(path) {
+    for (const child of this.children) {
+      const value = child.makeValue(path);
+      if (value) {
+        return value;
+      }
+    }
+  }
+  setPlaceholder(placeholder) {
+    this.placeholder = placeholder;
+    for (const item of this.placeholder.split(this.DELIMITER)) {
+      this.children.push(this.factory.create(item.trim()));
+    }
+    return this;
+  }
+  getPlaceholder() {
+    return this.placeholder;
+  }
+};
+LogicPlaceholder = __decorateClass([
+  injectable(),
+  __decorateParam(0, inject(inversify_types_default["factory:placeholder"]))
+], LogicPlaceholder);
 
 // config/services/creator.config.ts
 var creator_config_default = new ContainerModule((bind) => {
@@ -7481,19 +7520,21 @@ var creator_config_default = new ContainerModule((bind) => {
   );
   bind(inversify_types_default["creator:template"]).to(Simple).whenTargetNamed("simple");
   bind(inversify_types_default["creator:template"]).to(Composite).whenTargetNamed("composite");
-  bind(inversify_types_default.placeholder).to(MetaPlaceholder).whenTargetNamed("meta");
-  bind(inversify_types_default.placeholder).to(FilePlaceholder).whenTargetNamed("file");
-  bind(inversify_types_default.placeholder).to(BracketsPlaceholder).whenTargetNamed("brackets");
-  bind(inversify_types_default.placeholder).to(HeadingPlaceholder).whenTargetNamed("heading");
+  bind(inversify_types_default.placeholder).to(MetaPlaceholder).whenTargetNamed(AbstractPlaceholder.META);
+  bind(inversify_types_default.placeholder).to(FilePlaceholder).whenTargetNamed(AbstractPlaceholder.FILE);
+  bind(inversify_types_default.placeholder).to(BracketsPlaceholder).whenTargetNamed(AbstractPlaceholder.BRACKETS);
+  bind(inversify_types_default.placeholder).to(HeadingPlaceholder).whenTargetNamed(AbstractPlaceholder.HEADING);
+  bind(inversify_types_default.placeholder).to(LogicPlaceholder).whenTargetNamed(AbstractPlaceholder.LOGIC);
   bind(inversify_types_default["creator:creator"]).to(Creator);
-  bind(inversify_types_default["factory:placeholder:resolver"]).toFactory((context) => (type, placeholder) => {
-    const item = context.container.getNamed(inversify_types_default.placeholder, type);
-    item.setPlaceholder(placeholder);
-    return item;
-  });
+  bind(inversify_types_default["factory:placeholder:resolver"]).toAutoNamedFactory(
+    inversify_types_default.placeholder
+  );
   bind(inversify_types_default["getter:delimiter"]).toDynamicValue((c) => () => c.container.get(inversify_types_default.delimiter));
   bind(inversify_types_default["factory:placeholder"]).to(Factory2).inSingletonScope();
 });
+
+// src/Feature/Explorer/ExplorerManager.ts
+var import_obsidian3 = require("obsidian");
 
 // src/Feature/AbstractFeature.ts
 var AbstractFeature = class {
@@ -7538,13 +7579,13 @@ var ExplorerViewUndefined = class extends Error {
 
 // src/Feature/Explorer/ExplorerManager.ts
 var ExplorerManager = class extends AbstractManager {
-  constructor(facade) {
+  constructor(facade, factory) {
     super();
     this.facade = facade;
+    this.factory = factory;
     this.explorerView = null;
-    this.originTitles = /* @__PURE__ */ new Map();
+    this.modified = /* @__PURE__ */ new WeakMap();
     this.enabled = false;
-    this.isTitleEmpty = (title) => title === null || title === "" || title === void 0;
   }
   getId() {
     return "explorer" /* Explorer */;
@@ -7563,54 +7604,37 @@ var ExplorerManager = class extends AbstractManager {
     this.explorerView = this.getExplorerView();
     this.enabled = true;
   }
-  getFileItemInnerTitleEl(fileItem) {
-    var _a;
-    return (_a = fileItem.titleInnerEl) != null ? _a : fileItem.innerEl;
-  }
   getExplorerView() {
-    var _a;
-    const leaves = this.facade.getLeavesOfType("file-explorer" /* FE */);
-    if (leaves.length > 1) {
+    const views = this.facade.getViewsOfType("file-explorer" /* FE */);
+    if (views.length > 1) {
       throw new Error("There are some explorers' leaves");
     }
-    const view = (_a = leaves == null ? void 0 : leaves[0]) == null ? void 0 : _a.view;
-    if (view === void 0) {
+    const view = views == null ? void 0 : views[0];
+    if (view === void 0 || view === null) {
       throw new ExplorerViewUndefined("Explorer view is undefined");
     }
     return view;
   }
   async updateInternal(items) {
-    if (!items.filter((e) => e).length) {
-      return {};
+    for (const i of items) {
+      if (!(i.file instanceof import_obsidian3.TFile)) {
+        continue;
+      }
+      if (!this.modified.has(i)) {
+        this.modified.set(i, this.factory(i, this.resolver));
+      }
+      i.updateTitle();
     }
-    const result = {};
-    const promises = items.map((e) => this.setTitle(e).then((r) => result[e.file.path] = r));
-    await Promise.all(promises);
-    return result;
-  }
-  async setTitle(item) {
-    const title = await (async () => this.resolver.resolve(item.file.path))().catch(() => null);
-    if (this.isTitleEmpty(title)) {
-      return this.restore(item);
-    } else if (this.getFileItemInnerTitleEl(item).innerText !== title) {
-      this.keepOrigin(item);
-      this.getFileItemInnerTitleEl(item).innerText = title;
-      return true;
-    }
-    return false;
-  }
-  keepOrigin(item) {
-    if (!this.originTitles.has(item.file.path)) {
-      this.originTitles.set(item.file.path, this.getFileItemInnerTitleEl(item).innerText);
-    }
+    return {};
   }
   restoreTitles() {
     Object.values(this.explorerView.fileItems).map(this.restore.bind(this));
   }
   restore(item) {
-    if (this.originTitles.has(item.file.path)) {
-      this.getFileItemInnerTitleEl(item).innerText = this.originTitles.get(item.file.path);
-      this.originTitles.delete(item.file.path);
+    if (this.modified.has(item)) {
+      this.modified.get(item).destroy();
+      item.updateTitle();
+      this.modified.delete(item);
       return true;
     }
     return false;
@@ -7620,8 +7644,8 @@ var ExplorerManager = class extends AbstractManager {
   }
   async doUpdate(path) {
     const item = this.explorerView.fileItems[path];
-    const result = await this.updateInternal(item ? [item] : []);
-    return result[path] === true;
+    await this.updateInternal(item ? [item] : []);
+    return !!item;
   }
   static getId() {
     return "explorer" /* Explorer */;
@@ -7629,7 +7653,8 @@ var ExplorerManager = class extends AbstractManager {
 };
 ExplorerManager = __decorateClass([
   injectable(),
-  __decorateParam(0, inject(inversify_types_default["facade:obsidian"]))
+  __decorateParam(0, inject(inversify_types_default["facade:obsidian"])),
+  __decorateParam(1, inject(inversify_types_default["feature:explorer:file_mutator:factory"]))
 ], ExplorerManager);
 
 // src/Feature/FeatureComposer.ts
@@ -7724,7 +7749,7 @@ var FunctionReplacer = class _FunctionReplacer {
 };
 
 // src/Feature/Explorer/ExplorerSort.ts
-var import_obsidian3 = require("obsidian");
+var import_obsidian4 = require("obsidian");
 var ExplorerSort = class extends AbstractFeature {
   constructor(logger, facade, dispatcher, service) {
     super();
@@ -7734,7 +7759,7 @@ var ExplorerSort = class extends AbstractFeature {
     this.enabled = false;
     this.refs = [];
     this.resolver = service.createResolver("explorer" /* Explorer */);
-    const trigger = (0, import_obsidian3.debounce)(this.onManagerUpdate.bind(this), 1e3);
+    const trigger = (0, import_obsidian4.debounce)(this.onManagerUpdate.bind(this), 1e3);
     this.cb = (e) => {
       if (e.id === "explorer" /* Explorer */ && (e.result === true || e.result === void 0)) {
         trigger();
@@ -7799,7 +7824,7 @@ var ExplorerSort = class extends AbstractFeature {
       vanilla.call(item);
       return;
     }
-    if (!(item.file instanceof import_obsidian3.TFolder)) {
+    if (!(item.file instanceof import_obsidian4.TFolder)) {
       this.logger.log("File is not TFolder. Why? Skipped.");
       vanilla.call(item);
       return;
@@ -7809,8 +7834,8 @@ var ExplorerSort = class extends AbstractFeature {
     const result = [];
     children.sort((a, b) => {
       var _a, _b;
-      const i = a instanceof import_obsidian3.TFolder;
-      const r = b instanceof import_obsidian3.TFolder;
+      const i = a instanceof import_obsidian4.TFolder;
+      const r = b instanceof import_obsidian4.TFolder;
       let k;
       if (i && !r) {
         k = -1;
@@ -7832,7 +7857,7 @@ var ExplorerSort = class extends AbstractFeature {
   }
   getFolderItem() {
     for (const item of Object.values(this.view.fileItems)) {
-      if (item.file instanceof import_obsidian3.TFolder) {
+      if (item.file instanceof import_obsidian4.TFolder) {
         return item;
       }
     }
@@ -8778,7 +8803,7 @@ InlineTitleManager = __decorateClass([
 ], InlineTitleManager);
 
 // src/Feature/Canvas/CanvasManager.ts
-var import_obsidian4 = require("obsidian");
+var import_obsidian5 = require("obsidian");
 var CanvasManager = class extends AbstractManager {
   constructor(dispatcher, facade, logger, fakeTitleElementService) {
     super();
@@ -8789,7 +8814,7 @@ var CanvasManager = class extends AbstractManager {
     this.ref = null;
     this.enabled = false;
     this.queue = /* @__PURE__ */ new Set();
-    this.updateByRequestFrame = (0, import_obsidian4.debounce)(
+    this.updateByRequestFrame = (0, import_obsidian5.debounce)(
       () => {
         this.logger.log(`updateByRequestFrame`, this.queue);
         Array.from(this.queue.values()).forEach((e) => this.innerUpdate(e) && this.queue.delete(e));
@@ -9127,7 +9152,7 @@ BacklinkFeature = __decorateClass([
 ], BacklinkFeature);
 
 // src/Feature/NoteLink/NoteLinkFeature.ts
-var import_obsidian5 = require("obsidian");
+var import_obsidian6 = require("obsidian");
 var NoteLinkFeature = class extends AbstractFeature {
   constructor(featureService, service, dispatcher, approve, facade, config) {
     super();
@@ -9183,7 +9208,7 @@ var NoteLinkFeature = class extends AbstractFeature {
   }
   async executeChanges(path, changes) {
     const file = this.facade.getTFile(path);
-    let content = file instanceof import_obsidian5.TFile ? await this.facade.getFileContent(file) : null;
+    let content = file instanceof import_obsidian6.TFile ? await this.facade.getFileContent(file) : null;
     if (!content) {
       return;
     }
@@ -9264,6 +9289,35 @@ AliasConfig = __decorateClass([
   __decorateParam(0, inject(inversify_types_default["settings:storage"]))
 ], AliasConfig);
 
+// src/Feature/Explorer/ExplorerFileItemMutator.ts
+var ExplorerFileItemMutator = class {
+  constructor(item, resolver) {
+    this.item = item;
+    this.resolver = resolver;
+    item.updateTitle = this.updateTitle.bind(this);
+    item.startRename = this.startRename.bind(this);
+  }
+  getProto() {
+    return Object.getPrototypeOf(this.item);
+  }
+  updateTitle() {
+    this.getProto().updateTitle.call(this.item);
+    const title = this.resolver.resolve(this.item.file.path);
+    (title == null ? void 0 : title.length) > 0 && this.item.innerEl.setText(title);
+  }
+  startRename() {
+    this.item.innerEl.setText(this.item.getTitle());
+    return this.getProto().startRename.call(this.item);
+  }
+  destroy() {
+    this.item.updateTitle = this.getProto().updateTitle;
+    this.item.startRename = this.getProto().startRename;
+  }
+};
+ExplorerFileItemMutator = __decorateClass([
+  injectable()
+], ExplorerFileItemMutator);
+
 // config/services/feature.config.ts
 var feature_config_default = (container) => {
   container.bind(inversify_types_default["feature:service"]).to(FeatureService).inSingletonScope();
@@ -9304,10 +9358,11 @@ var feature_config_default = (container) => {
     const feature = c.currentRequest.target.getNamedTag().value;
     return c.container.get(inversify_types_default["settings:storage"]).get("features").get(feature).value();
   }).when(() => true);
+  container.bind(inversify_types_default["feature:explorer:file_mutator:factory"]).toFunction((item, resolver) => new ExplorerFileItemMutator(item, resolver));
 };
 
 // src/Settings/FeatureBuilder/DefaultBuilder.ts
-var import_obsidian6 = require("obsidian");
+var import_obsidian7 = require("obsidian");
 
 // src/Settings/FeatureBuilder/AbstractBuilder.ts
 var AbstractBuilder = class {
@@ -9319,7 +9374,7 @@ var AbstractBuilder = class {
 // src/Settings/FeatureBuilder/DefaultBuilder.ts
 var DefaultBuilder = class extends AbstractBuilder {
   build({ id: id3, name, desc, settings }) {
-    new import_obsidian6.Setting(this.context.getContainer()).setName(name).setDesc(desc).addToggle(
+    new import_obsidian7.Setting(this.context.getContainer()).setName(name).setDesc(desc).addToggle(
       (e) => e.setValue(settings.enabled).onChange((v) => {
         this.context.getDispatcher().dispatch("settings:tab:feature:changed", new Event({ id: id3, value: { enabled: v } }));
       })
@@ -9328,25 +9383,25 @@ var DefaultBuilder = class extends AbstractBuilder {
 };
 
 // src/Settings/FeatureBuilder/AliasBuilder.ts
-var import_obsidian7 = require("obsidian");
+var import_obsidian8 = require("obsidian");
 var AliasBuilder = class extends AbstractBuilder {
   build({ id: id3, name, desc, settings }) {
     this.id = id3;
     this.desc = desc;
-    this.setting = new import_obsidian7.Setting(this.context.getContainer()).setName(name).setDesc(desc);
+    this.setting = new import_obsidian8.Setting(this.context.getContainer()).setName(name).setDesc(desc);
     this.buildValidatorDropdown(settings.validator);
     this.buildStrategyDropdown(settings.strategy);
     this.buildToggle(settings.enabled);
     this.actualizeDesc();
   }
   buildValidatorDropdown(value) {
-    this.validatorDropdown = new import_obsidian7.DropdownComponent(this.setting.controlEl).addOptions({
+    this.validatorDropdown = new import_obsidian8.DropdownComponent(this.setting.controlEl).addOptions({
       ["fa" /* FrontmatterAuto */]: t2("feature.alias.validator.auto.name"),
       ["fr" /* FrontmatterRequired */]: t2("feature.alias.validator.required.name")
     }).setValue(value ? value : "fr" /* FrontmatterRequired */).onChange(this.onChange.bind(this));
   }
   buildStrategyDropdown(value) {
-    this.strategyDropdown = new import_obsidian7.DropdownComponent(this.setting.controlEl).addOptions({
+    this.strategyDropdown = new import_obsidian8.DropdownComponent(this.setting.controlEl).addOptions({
       ["ensure" /* Ensure */]: t2("feature.alias.strategy.ensure.name"),
       ["adjust" /* Adjust */]: t2("feature.alias.strategy.adjust.name"),
       ["replace" /* Replace */]: t2("feature.alias.strategy.replace.name")
@@ -9416,7 +9471,7 @@ var AliasBuilder = class extends AbstractBuilder {
 };
 
 // src/Settings/FeatureBuilder/ExplorerSortBuilder.ts
-var import_obsidian8 = require("obsidian");
+var import_obsidian9 = require("obsidian");
 var ExplorerSortBuilder = class extends AbstractBuilder {
   constructor() {
     super();
@@ -9426,7 +9481,7 @@ var ExplorerSortBuilder = class extends AbstractBuilder {
   }
   build(options) {
     this.bind();
-    this.setting = new import_obsidian8.Setting(this.context.getContainer()).setName(options.name).setDesc(options.desc);
+    this.setting = new import_obsidian9.Setting(this.context.getContainer()).setName(options.name).setDesc(options.desc);
     this.setting.addToggle((c) => this.toggle = c);
     this.toggle.setValue(options.settings.enabled).onChange(
       (v) => this.context.getDispatcher().dispatch(
@@ -9485,7 +9540,7 @@ AbstractBuilder2 = __decorateClass([
 ], AbstractBuilder2);
 
 // src/Settings/SettingBuilders/Templates/TemplatesBuilder.ts
-var import_obsidian9 = require("obsidian");
+var import_obsidian10 = require("obsidian");
 var TemplatesBuilder = class extends AbstractBuilder2 {
   constructor(factory, helper) {
     super();
@@ -9509,7 +9564,7 @@ var TemplatesBuilder = class extends AbstractBuilder2 {
     );
   }
   buildTemplate() {
-    new import_obsidian9.Setting(this.container).setName(this.createDocFragment(t2("template.commmon.main.name"))).setDesc(t2("template.commmon.main.desc")).addText(
+    new import_obsidian10.Setting(this.container).setName(this.createDocFragment(t2("template.commmon.main.name"))).setDesc(t2("template.commmon.main.desc")).addText(
       (text) => {
         var _a;
         return text.setPlaceholder(t2("template.placeholder")).setValue((_a = this.item.get("common").get("main").value()) != null ? _a : "").onChange(async (value) => this.item.get("common").get("main").set(value));
@@ -9517,7 +9572,7 @@ var TemplatesBuilder = class extends AbstractBuilder2 {
     );
   }
   buildFallbackTemplate() {
-    new import_obsidian9.Setting(this.container).setName(this.createDocFragment(t2("template.commmon.fallback.name"))).setDesc(t2("template.commmon.fallback.desc")).addText(
+    new import_obsidian10.Setting(this.container).setName(this.createDocFragment(t2("template.commmon.fallback.name"))).setDesc(t2("template.commmon.fallback.desc")).addText(
       (text) => {
         var _a;
         return text.setPlaceholder(t2("template.placeholder")).setValue((_a = this.item.get("common").get("fallback").value()) != null ? _a : "").onChange(async (value) => this.item.get("common").get("fallback").set(value));
@@ -9526,7 +9581,7 @@ var TemplatesBuilder = class extends AbstractBuilder2 {
   }
   buildConfigButton() {
     const getDesc = (type, value) => value ? t2("template.specific") : t2("template.used", { value: this.item.get("common").get(type).value() });
-    new import_obsidian9.Setting(this.container).setName(this.createDocFragment(t2("template.features.name"), "features-templates")).setDesc(t2("template.features.desc")).addButton(
+    new import_obsidian10.Setting(this.container).setName(this.createDocFragment(t2("template.features.name"), "features-templates")).setDesc(t2("template.features.desc")).addButton(
       (cb) => cb.setButtonText(t2("manage")).onClick(() => {
         const modal = this.factory();
         const { contentEl } = modal;
@@ -9541,7 +9596,7 @@ var TemplatesBuilder = class extends AbstractBuilder2 {
           const templates = this.item.get(feature);
           contentEl.createEl("h4", null, (e) => e.setText(this.helper.getName(feature)));
           for (const type of Object.keys(templates.value())) {
-            const s = new import_obsidian9.Setting(contentEl).setName(t2(`template.${type}`)).setDesc(getDesc(type, templates.get(type).value())).addText(
+            const s = new import_obsidian10.Setting(contentEl).setName(t2(`template.${type}`)).setDesc(getDesc(type, templates.get(type).value())).addText(
               (text) => text.setPlaceholder(this.item.get("common").get(type).value()).setValue(templates.get(type).value()).onChange((value) => {
                 templates.get(type).set(value ? value : null);
                 s.setDesc(getDesc(type, value));
@@ -9646,7 +9701,7 @@ FeaturesBuilder = __decorateClass([
 ], FeaturesBuilder);
 
 // src/Settings/SettingBuilders/Util/UtilBuilder.ts
-var import_obsidian10 = require("obsidian");
+var import_obsidian11 = require("obsidian");
 var UtilBuilder = class {
   constructor() {
     this.isTitleBuild = false;
@@ -9671,10 +9726,10 @@ var UtilBuilder = class {
     }
   }
   buildDebug(item, container) {
-    new import_obsidian10.Setting(container).setName(t2("debug_info.title")).setDesc(t2("debug_info.desc")).addToggle((e) => e.setValue(item.value()).onChange((e2) => item.set(e2)));
+    new import_obsidian11.Setting(container).setName(t2("debug_info.title")).setDesc(t2("debug_info.desc")).addToggle((e) => e.setValue(item.value()).onChange((e2) => item.set(e2)));
   }
   buildBoot(item, container) {
-    new import_obsidian10.Setting(container).setName(t2("boot_delay.title")).setDesc(t2("boot_delay.desc")).addText(
+    new import_obsidian11.Setting(container).setName(t2("boot_delay.title")).setDesc(t2("boot_delay.desc")).addText(
       (e) => e.setValue(item.get("delay").value().toString()).onChange((s) => {
         const v = !isNaN(parseInt(s)) ? parseInt(s) : 0;
         e.setValue(v.toString());
@@ -9691,7 +9746,7 @@ UtilBuilder = __decorateClass([
 ], UtilBuilder);
 
 // src/Settings/SettingBuilders/Rules/RulesDelimiterBuilder.ts
-var import_obsidian11 = require("obsidian");
+var import_obsidian12 = require("obsidian");
 var RulesDelimiterBuilder = class extends AbstractBuilder2 {
   constructor() {
     super(...arguments);
@@ -9702,20 +9757,20 @@ var RulesDelimiterBuilder = class extends AbstractBuilder2 {
     return k === "delimiter";
   }
   doBuild() {
-    this.setting = new import_obsidian11.Setting(this.container).setName(t2("rule.delimiter.name")).setDesc(t2("rule.delimiter.desc"));
+    this.setting = new import_obsidian12.Setting(this.container).setName(t2("rule.delimiter.name")).setDesc(t2("rule.delimiter.desc"));
     this.buildDropdown();
     this.buildText();
   }
   buildDropdown() {
     const enabled = this.item.get("enabled");
-    new import_obsidian11.DropdownComponent(this.setting.controlEl).addOptions({ N: t2("rule.delimiter.first"), Y: t2("rule.delimiter.join") }).setValue(enabled.value() ? "Y" : "N").onChange((e) => {
+    new import_obsidian12.DropdownComponent(this.setting.controlEl).addOptions({ N: t2("rule.delimiter.first"), Y: t2("rule.delimiter.join") }).setValue(enabled.value() ? "Y" : "N").onChange((e) => {
       enabled.set(e === "Y");
       this.text.setValue("").setPlaceholder(this.getPlaceholder()).setDisabled(e === "N").onChanged();
     });
   }
   buildText() {
     const v = this.item.get("value");
-    this.text = new import_obsidian11.TextComponent(this.setting.controlEl).setValue(v.value()).setDisabled(!this.isEnabled()).setPlaceholder(this.getPlaceholder()).onChange((e) => v.set(e));
+    this.text = new import_obsidian12.TextComponent(this.setting.controlEl).setValue(v.value()).setDisabled(!this.isEnabled()).setPlaceholder(this.getPlaceholder()).onChange((e) => v.set(e));
   }
   getPlaceholder() {
     return this.isEnabled() ? t2("rule.delimiter.placeholder.join") : t2("rule.delimiter.placeholder.first");
@@ -9729,14 +9784,14 @@ RulesDelimiterBuilder = __decorateClass([
 ], RulesDelimiterBuilder);
 
 // src/Settings/SettingBuilders/Rules/RulesPathsBuilder.ts
-var import_obsidian12 = require("obsidian");
+var import_obsidian13 = require("obsidian");
 var RulesPathsBuilder = class extends AbstractBuilder2 {
   constructor() {
     super(...arguments);
     this.settings = null;
   }
   doBuild() {
-    this.settings = new import_obsidian12.Setting(this.container).setName(t2("rule.path.name")).addDropdown(
+    this.settings = new import_obsidian13.Setting(this.container).setName(t2("rule.path.name")).addDropdown(
       (e) => e.addOptions({ white: t2("rule.path.white.name"), black: t2("rule.path.black.name") }).setValue(this.item.get("mode").value()).onChange((e2) => {
         this.item.get("mode").set(e2);
         this.updateDesc();
@@ -9762,7 +9817,7 @@ RulesPathsBuilder = __decorateClass([
 ], RulesPathsBuilder);
 
 // src/Settings/SettingBuilders/Processor/ProcessorBuilder.ts
-var import_obsidian13 = require("obsidian");
+var import_obsidian14 = require("obsidian");
 
 // src/Components/Processor/ProcessorUtils.ts
 var ProcessorTypes = /* @__PURE__ */ ((ProcessorTypes2) => {
@@ -9787,7 +9842,7 @@ var ProcessorBuilder = class extends AbstractBuilder2 {
         href: GITHUB_DOCS + "Processor.md"
       })
     );
-    this.setting = new import_obsidian13.Setting(this.container).setName(fragment);
+    this.setting = new import_obsidian14.Setting(this.container).setName(fragment);
     this.buildDynamic();
   }
   updateDesc() {
@@ -9884,7 +9939,7 @@ var ProcessorBuilder = class extends AbstractBuilder2 {
             e.appendChild(
               createDiv({ attr: { style: "margin-right: 10px" } }, (e2) => e2.appendText(`${item.name}:`))
             );
-            new import_obsidian13.TextComponent(e).setValue((_a = value == null ? void 0 : value[i]) != null ? _a : "").onChange((e2) => value.splice(i, 1, e2)).onChanged();
+            new import_obsidian14.TextComponent(e).setValue((_a = value == null ? void 0 : value[i]) != null ? _a : "").onChange((e2) => value.splice(i, 1, e2)).onChanged();
           }
         )
       );
@@ -9906,13 +9961,13 @@ var ProcessorBuilder = class extends AbstractBuilder2 {
 };
 
 // src/Settings/FeatureBuilder/NoteLinkBuilder.ts
-var import_obsidian14 = require("obsidian");
+var import_obsidian15 = require("obsidian");
 var NoteLinkBuilder = class extends AbstractBuilder {
   build({ id: id3, name, desc, settings, doc }) {
     var _a;
     this.id = id3;
     const fragment = createFragment((e) => e.createEl("a", { text: name, href: doc.link }));
-    this.setting = new import_obsidian14.Setting(this.context.getContainer()).setName(fragment).setDesc(desc);
+    this.setting = new import_obsidian15.Setting(this.context.getContainer()).setName(fragment).setDesc(desc);
     this.setting.addDropdown((e) => this.strategy = e);
     this.strategy.addOptions({
       ["all" /* All */]: t2("feature.noteLink.strategy.all"),
@@ -10512,7 +10567,7 @@ LoggerComposer = __decorateClass([
 ], LoggerComposer);
 
 // src/Utils/FileNoteLinkService.ts
-var import_obsidian15 = require("obsidian");
+var import_obsidian16 = require("obsidian");
 var FileNoteLinkService = class {
   constructor(facade) {
     this.facade = facade;
@@ -10527,7 +10582,7 @@ var FileNoteLinkService = class {
         continue;
       }
       const file = this.facade.getFirstLinkpathDest(link.link, path);
-      if (file instanceof import_obsidian15.TFile === false) {
+      if (file instanceof import_obsidian16.TFile === false) {
         continue;
       }
       result.push({
@@ -11045,7 +11100,7 @@ var PluginHelper = class {
 };
 
 // src/Obsidian/ObsidianFacade.ts
-var import_obsidian16 = require("obsidian");
+var import_obsidian17 = require("obsidian");
 var ObsidianFacade = class {
   constructor(app) {
     this.app = app;
@@ -11055,7 +11110,7 @@ var ObsidianFacade = class {
   }
   getTFile(path) {
     const file = this.app.vault.getAbstractFileByPath(path);
-    return file instanceof import_obsidian16.TFile ? file : null;
+    return file instanceof import_obsidian17.TFile ? file : null;
   }
   getFileContent(file) {
     return this.app.vault.cachedRead(file);
@@ -11086,7 +11141,7 @@ var ObsidianFacade = class {
 };
 
 // main.ts
-var MetaTitlePlugin = class extends import_obsidian17.Plugin {
+var MetaTitlePlugin = class extends import_obsidian18.Plugin {
   constructor() {
     super(...arguments);
     this.container = inversify_config_default;
@@ -11154,7 +11209,7 @@ var MetaTitlePlugin = class extends import_obsidian17.Plugin {
       Object.getPrototypeOf(this.app.workspace.editorSuggest.suggests[0].suggestions).constructor
     );
     inversify_config_default.bind(inversify_types_default["factory:obsidian:active:file"]).toFunction(() => this.app.workspace.getActiveFile());
-    inversify_config_default.bind(inversify_types_default["factory:obsidian:modal"]).toFunction(() => new import_obsidian17.Modal(this.app));
+    inversify_config_default.bind(inversify_types_default["factory:obsidian:modal"]).toFunction(() => new import_obsidian18.Modal(this.app));
   }
   onunload() {
     this.fc.disableAll();
