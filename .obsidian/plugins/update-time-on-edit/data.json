@@ -83,7 +83,6 @@
     "private/1일 10GB씩 생성되는 데이터를 RDB 에서 처리하기.md": "5366da9ce8326b4a87fa5e13c47eb55269c4cc34df4df23b41d6b6427dabd64e",
     "Resource/테스트 구성 파일 관리.md": "f099807964e95e730b651650df5da3e23d31faebcd91ebc14cea1be9cb28ade1",
     "Resource/패리티 비트 & 해밍 코드.md": "3907e8a52dc147619a9a077ecb8b7fb823c5ecbb3bd8641e6983b266a63370df",
-    "Resource/이미 push 된 파일을 ignore 처리하는 법.md": "ad45421abbbbbe20e34d6ceb0b2ed29417d6b2dafa87ad4b4c7abba0fc9371c2",
     "Resource/모의 해킹.md": "000e8b5a5c89a890f7574d4efc9e3d988cadbe21462f83d17f506b39378d0147",
     "Resource/공부해야할 keyword.md": "b2d972bd7d6d1e86716cca846962ffcb522154cd73e77be7966565142a83f82d",
     "Resource/중복되는 설정들을 Annotation 으로 간단하게 관리하기.md": "c8641a82a124d70e8a69b8626eda17e1a9a150626e7b59dc28f1c1b60f93c5b2",
@@ -441,7 +440,8 @@
     "Resource/Kover.md": "d20e50eb0ee9179cffd51bd29d3d67ccbcc66f537a2e014602c80d80cebf25c5",
     "Resource/Docker Study Chapter 12.md": "80c04b7a34852c26c16bb1271853fe0d7d0e26dd6d8454ede566eaaa393e102e",
     "Project/Java 에서 Hello world 를 출력하기까지.md": "4a5e9a42684354c782e54b4a5ba3f0f078edb8cecb7e7832c8a7d31d456a64b5",
-    "Resource/일관성과 합의.md": "377f4e404f4c427ce4358094ac0ad8ca10cb3e1484e4299d5f792f92f612fd6f"
+    "Resource/일관성과 합의.md": "1a2d6db27d781f1f34d481a049b5dd559b4a21010ba3dcfe4479685e66c17bd1",
+    "Resource/이미 git push 된 파일을 ignore 처리하는 법.md": "ad45421abbbbbe20e34d6ceb0b2ed29417d6b2dafa87ad4b4c7abba0fc9371c2"
   },
   "readDateFormat": "yyyy-MM-dd HH:mm:ss xx",
   "useDifferentReadFormat": true
