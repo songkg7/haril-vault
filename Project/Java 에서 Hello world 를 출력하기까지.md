@@ -7,20 +7,22 @@ tags:
   - compile
   - jvm
 categories: 
-updated: 2023-11-12 21:35:15 +0900
+updated: 2023-11-18 22:04:36 +0900
 ---
 
-```lua
-print("Hello World")
-```
+## Overview
 
 ```python
 print("Hello World")
 ```
 
+[[Python]]? 심플하다.
+
 ```js
 console.log("Hello World");
 ```
+
+[[JavaScript]]? 나쁘지 않다.
 
 ```java
 // 심지어 VerboseLanguage.java 파일이여야만 하는 점도 빼놓을 수 없다
@@ -30,6 +32,8 @@ public class VerboseLanguage {
     }
 }
 ```
+
+그런데 [[Java]] 는 마치 다른 세계에서 온 것 같다.
 
 타언어들에 비해 [[Java]] 는 Hello World 를 출력하기 위해 알아야하는 배경지식이 많은 편이다.
 
@@ -44,3 +48,11 @@ public class VerboseLanguage {
 - 왜 class 이름이 파일 이름과 같아야 하는지
 - 왜 `main` 메서드여야 하는지
 - `System.out` 의 의미
+
+## Java 의 탄생
+
+## JVM
+
+[[Java Virtual Machine]]
+
+## Compile
