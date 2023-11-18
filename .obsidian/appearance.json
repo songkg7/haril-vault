@@ -1,7 +1,10 @@
 {
-  "cssTheme": "Things",
-  "theme": "moonstone",
+  "cssTheme": "Obsidianite",
+  "theme": "obsidian",
   "translucency": true,
   "accentColor": "",
-  "baseFontSize": 14
+  "baseFontSize": 14,
+  "monospaceFontFamily": "Monaspace Krypton,D2Coding ligature",
+  "textFontFamily": "Rubik,Monaspace Neon,D2Coding ligature",
+  "interfaceFontFamily": "Rubik"
 }
