@@ -1,12 +1,12 @@
 ---
-title: Docker volume
+title: Docker Volume
 date: 2022-08-03 13:38:00 +0900
 tags:
   - devops
   - docker
   - volume
 categories: DevOps
-updated: 2023-10-01 22:11:32 +0900
+updated: 2023-11-19 08:58:41 +0900
 related: "[[Docker|Docker]]"
 ---
 

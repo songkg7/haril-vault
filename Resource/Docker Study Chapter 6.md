@@ -8,7 +8,7 @@ tags:
   - volume
   - persistence
 categories: Docker
-updated: 2023-10-21 16:48:01 +0900
+updated: 2023-11-19 08:58:35 +0900
 ---
 
 # Chapter 6
@@ -19,7 +19,7 @@ updated: 2023-10-21 16:48:01 +0900
 
 애플리케이션에 전혀 상태가 없을 수는 없다. 영속성이나 성능 향상을 위해 디스크를 사용하는 컴포넌트가 있어야하고 이 컴포넌트 역시 컨테이너에서 실행된다.
 
-[[Docker volume|Docker volume]]
+[[Docker Volume|Docker Volume]]
 
 ---
 

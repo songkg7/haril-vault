@@ -1,10 +1,11 @@
 {
   "cssTheme": "Obsidianite",
   "theme": "obsidian",
-  "translucency": true,
+  "translucency": false,
   "accentColor": "",
   "baseFontSize": 14,
   "monospaceFontFamily": "Monaspace Krypton,D2Coding ligature",
   "textFontFamily": "Rubik,Monaspace Neon,D2Coding ligature",
-  "interfaceFontFamily": "Rubik"
+  "interfaceFontFamily": "Rubik",
+  "nativeMenus": true
 }

@@ -1,10 +1,15 @@
 ---
-title: "Docker network"
+title: Docker Network
 date: 2022-08-13 22:21:00 +0900
-tags: [devops, docker, network]
-categories: [DevOps]
+tags:
+  - devops
+  - docker
+  - network
+categories:
+  - DevOps
 fc-calendar: Gregorian Calendar
 fc-date: 2022-08-13
+updated: 2023-11-19 08:59:07 +0900
 ---
 
 ## Overview
