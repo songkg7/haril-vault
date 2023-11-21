@@ -438,14 +438,15 @@
     "Resource/Kover.md": "d20e50eb0ee9179cffd51bd29d3d67ccbcc66f537a2e014602c80d80cebf25c5",
     "Resource/Docker Study Chapter 12.md": "80c04b7a34852c26c16bb1271853fe0d7d0e26dd6d8454ede566eaaa393e102e",
     "Project/Java 에서 Hello world 를 출력하기까지.md": "3eb6f50e6e3f6d75716d5a4173dfa7619152f9f5aa495e15016d1779649d9347",
-    "Resource/일관성과 합의.md": "f85c50df5b3c5d5847f3716640be1ff1c568009b2d0e4c1a59f4cc5a7f0a1353",
+    "Resource/일관성과 합의.md": "61aa078a3b23e6710c00cbe30a5a02fecb8887cb5d98bcdc9e322f70f17536ed",
     "Resource/이미 git push 된 파일을 ignore 처리하는 법.md": "ad45421abbbbbe20e34d6ceb0b2ed29417d6b2dafa87ad4b4c7abba0fc9371c2",
     "Resource/Docker Study Chapter 13.md": "ef8734072ffd58cdf5f118f75e08ffc37b3ed5b464c99c54971764165bcf87f7",
     "Resource/Docker Study Chapter 14.md": "f8cb7819b4d33ab1404a3b9db1d1e7e6087d9bd938e118d944379ab8b897a8c1",
     "Resource/Java Resource 들에 대한 고찰.md": "39a19354a9625bf8efa34931ea7fb0028562c94d40ed162ba520be7f12f3c437",
     "Archive/Docker Volume.md": "30b0c531697881b9a477590f5c47fb16df1cc7e4bcff57b7cb7a3783d17ef707",
     "Archive/Docker Network.md": "79ad3cd4ef18f44c4a4ac5123d88ba8499959d7d35290fe4ab9836b51ba088bb",
-    "Resource/Split Brain.md": "cfe6052eba7bb315becdfc6c47cd1fe63077f34df2fce253da9e7fb038d3c8d2"
+    "Resource/Split Brain.md": "cfe6052eba7bb315becdfc6c47cd1fe63077f34df2fce253da9e7fb038d3c8d2",
+    "Project/Understanding How Transactional Annotation Works.md": "3f67858054950468935c908af708b3c2b41fb96ab33d3121e04ee166883fe250"
   },
   "readDateFormat": "yyyy-MM-dd HH:mm:ss xx",
   "useDifferentReadFormat": true
