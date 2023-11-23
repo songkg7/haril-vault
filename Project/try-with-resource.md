@@ -6,9 +6,9 @@ tags:
   - resource
   - file
 categories: 
-updated: 2023-10-16 15:36:00 +0900
+updated: 2023-11-23 17:18:18 +0900
 ---
-
+움
 ## Java 7 이전의 try-catch-finally
 
 사용 후 반납해줘야 하는 자원들은 `Closable` 인터페이스를 구현하고 있으며 **사용 후에 close 메서드를 호출**해주어야 했다.

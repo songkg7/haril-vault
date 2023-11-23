@@ -7,7 +7,7 @@ tags:
   - compile
   - jvm
 categories: 
-updated: 2023-11-20 09:09:42 +0900
+updated: 2023-11-23 19:01:53 +0900
 ---
 
 ## Overview
@@ -51,7 +51,7 @@ public class VerboseLanguage {
 
 `public` 은 무엇이고 `class` 는 무엇이고, `static` 은 또 무엇이며, `void`, `main`, `String[]`, `System.out.println` 을 거쳐야 드디어 "Hello World" 라는 문자열에 도달한다. ~~이제 다른 언어를 배우러 가자.~~
 
-"Hello World" 라는 2 단어를 출력하기 위해 뒤에서는 무슨 일이 일어나는지 살펴본다.
+"Hello World" 라는 2단어를 출력하기 위해 뒤에서는 무슨 일이 일어나는지 살펴본다.
 
 ## JVM
 
@@ -60,3 +60,7 @@ public class VerboseLanguage {
 ## Compile
 
 Java 를 컴파일 할 경우 어떤 형태로 생성되는지 확인해보자.
+
+## Conclusion
+
+## Reference
