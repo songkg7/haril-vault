@@ -5,7 +5,7 @@
   "accentColor": "",
   "baseFontSize": 14,
   "monospaceFontFamily": "Monaspace Krypton,D2Coding ligature",
-  "textFontFamily": "Rubik,Monaspace Neon,D2Coding ligature",
-  "interfaceFontFamily": "Rubik",
+  "textFontFamily": "Rubik,NanumSquareRound,Noto Sans KR",
+  "interfaceFontFamily": "Rubik,NanumSquareRound,Noto Sans KR",
   "nativeMenus": true
 }
