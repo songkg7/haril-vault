@@ -401,7 +401,7 @@
     "Resource/Datomic.md": "dd10b4d79b7d266b92ea70af9f382d872258affc5cf8a66eb6b57aa032f8e395",
     "Resource/LMDB.md": "dfded05659a68e8f613e1287760399f369e6658c48155b530efaf13ee3ed679e",
     "Resource/Closure of Java.md": "2d37445415ae0b9e79d0413ba5a4c92ce2c78a9e4a3cc789d2fadff8a6d38070",
-    "Resource/Transport Layer Security.md": "7e52b768fef396dbf6f010df347a6e4c3ec1cc2c1386d309f661c8a93f9a4db2",
+    "Resource/Transport Layer Security.md": "939ea479921a5039ed3aff751e0427ddfdf43fa8bf19fe645fa5e370fbc1d036",
     "Resource/HTTPS.md": "b41519e6c4d95680ad3e6ad2aa4b67ffc045e384769735e1bf995ae0a04d1238",
     "Resource/NginX.md": "7c77124f408e36afa42161582fd2da15138a16927c46904f79d3f4588277fe9c",
     "Resource/Linux Container.md": "dee34461f6e212e2262de72b7e7c66475b9c773118f5b889de335058b332cf61",
@@ -450,8 +450,7 @@
     "Resource/What Makes Life Meaningful?.md": "eb6969b43e5e39ee1a20e6151941749333377a58d4ee04bcc91139b7347ba590",
     "Resource/공간정보 데이터의 기본 이해하기.md": "34a1ac956707550deb04e1db583f1a89753a22c308037955a0f441673f4199e6",
     "private/Code Review 231125.md": "d5ffce87378a9db730b3fe1f2ccb818a8634dfaaf9e095e2ecbff6f08863b2e2",
-    "Resource/Docker Study Chapter 16.md": "86b27670da5ac76547d8908ff8c0123542358a424a92982e35286b82333ece90",
-    "Resource/Docker Study Chapter 15.md": "09353d6cce6800bb497f0b5f647b7748f0934660d639d834bd7e3ef1560e70f9"
+    "Resource/Docker Study Chapter 16.md": "86b27670da5ac76547d8908ff8c0123542358a424a92982e35286b82333ece90"
   },
   "readDateFormat": "yyyy-MM-dd HH:mm:ss xx",
   "useDifferentReadFormat": true
