@@ -7,7 +7,7 @@ tags:
   - compile
   - jvm
 categories: 
-updated: 2023-11-23 19:01:53 +0900
+updated: 2023-11-29 20:44:19 +0900
 ---
 
 ## Overview
@@ -53,9 +53,55 @@ public class VerboseLanguage {
 
 "Hello World" 라는 2단어를 출력하기 위해 뒤에서는 무슨 일이 일어나는지 살펴본다.
 
-## JVM
+아직 늦지 않았다.
+
+## Java 를 실행하는 JVM
 
 [[Java Virtual Machine]]
+
+Hello World 가 어떤 메모리 영역에 적재되고 자바는 왜 main 메서드를 호출하는지
+
+### main
+
+`main` 이라는 메서드 이름은 JVM 이 애플리케이션을 실행하기 위해 찾는 진입점으로 설계되어 있다. OpenJDK 8 의 java.c 를 살펴보면 C 언어로 작성된 아래 코드를 발견할 수 있다.
+
+```c
+mainClassName = GetMainClassName(env, jarfile);
+mainClass = LoadClass(env, classname);
+
+// main 메소드의 아이디를 찾는다.
+mainID = (*env)->GetStaticMethodID(env, mainClass, "main", "([Ljava/lang/String;)V");
+
+/*
+  mainClass, mainID를 가지고 
+  java.lang.reflect.Method 객체로 변환한다.
+  JNI_TRUE면 static 메소드를 찾는다.
+*/
+jbject obj = (*env)->ToReflectedMethod(env, mainClass, mainID, JNI_TRUE);
+```
+
+```c
+mainID = (*env)->GetStaticMethodID(env, mainClass, "main", "([Ljava/lang/String;)V");
+```
+
+말 그대로 JVM 은 running 시점에 `main` 이라는 이름을 찾아 실행시키는 것이다.
+
+### public
+
+JVM 은 클래스 안에서 `main`  메서드를 찾아야 한다. 그렇다면 `public` 이어야 할 것이다. 실제로 접근제어자를 private 으로 바꾸면 main 을 찾지 못한다.
+
+```text
+Error: Main method not found in class com.choonghee.MainMethod, please define the main method as:
+   public static void main(String[] args)
+```
+
+### static
+
+`public main()` 이라는 메서드는 찾았다. 하지만 이 코드를 실행시키기 위해서는 `main` 메서드를 포함하고 있는 객체를 생성해야 한다. JVM 입장에서 이 객체는 필요한 객체일까? `main` 을 호출할 수 있기만 하면 된다. `static` 으로 선언함으로서 JVM 은 `main` 을 실행시키기 위해서만 존재하는 불필요한 객체를 생성할 필요가 없고, 메모리를 절약할 수 있다.
+
+### void
+
+`main` 메서드의 종료는 Java 의 종료를 의미한다. JVM 은 `main` 메서드의 반환값으로 아무 것도 할 수 없으며, 따라서 반환값의 존재가 무의미하다. 그렇게 `void` 가 되었다.
 
 ## Compile
 
@@ -63,4 +109,13 @@ Java 를 컴파일 할 경우 어떤 형태로 생성되는지 확인해보자.
 
 ## Conclusion
 
+Java 는 분명 어려운 언어다.
+
+면접을 보다보면 종종 이런 질문을 받는다.
+
+_Java 에 대해서 얼마나 알고 계신다고 생각하시나요?_
+
 ## Reference
+
+- [OpenJDK java.c](https://github.com/AdoptOpenJDK/openjdk-jdk8u/blob/master/jdk/src/share/bin/java.c)
+- [OpenJDK](https://github.com/openjdk/jdk/tree/master)
