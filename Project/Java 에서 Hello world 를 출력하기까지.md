@@ -57,7 +57,8 @@ public class VerboseLanguage {
 
 ## Java 를 실행하는 JVM
 
-[[Java Virtual Machine]]
+- [[Java Virtual Machine]]
+- [[JNI]]
 
 Hello World 가 어떤 메모리 영역에 적재되고 자바는 왜 main 메서드를 호출하는지
 
@@ -119,3 +120,4 @@ _Java 에 대해서 얼마나 알고 계신다고 생각하시나요?_
 
 - [OpenJDK java.c](https://github.com/AdoptOpenJDK/openjdk-jdk8u/blob/master/jdk/src/share/bin/java.c)
 - [OpenJDK](https://github.com/openjdk/jdk/tree/master)
+- https://www.geeksforgeeks.org/java-main-method-public-static-void-main-string-args/
