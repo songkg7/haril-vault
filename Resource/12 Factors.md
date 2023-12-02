@@ -1,10 +1,12 @@
 ---
-title: "12 Factors"
+title: 12 Factors
 date: 2023-07-24 22:33:00 +0900
 aliases: 
-tags: [heroku, msa]
+tags:
+  - heroku
+  - msa
 categories: 
-updated: 2023-07-24 22:34:37 +0900
+updated: 2023-12-02 20:11:13 +0900
 ---
 
 ## What is 12 Factors?
@@ -31,3 +33,7 @@ The 12 Factors are as follows:
 12. Admin processes: Run admin/management tasks as one-off processes.
 
 These factors provide a comprehensive framework that encompasses various aspects of application development and deployment strategies for modern cloud-based systems. By adhering to these principles, developers can ensure their applications are scalable, resilient, and easily maintainable in distributed environments like the cloud.
+
+## Reference
+
+- https://medium.com/dtevangelist/12-factors-%EB%9E%80-b39c7ef1ed30

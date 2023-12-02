@@ -7,7 +7,7 @@ tags:
   - compile
   - jvm
 categories: 
-updated: 2023-11-30 18:23:53 +0900
+updated: 2023-12-02 15:08:33 +0900
 ---
 
 프로그래밍 세계에서는 항상 첫 시작을 `Hello World` 라는 문구와 함께 한다. 그게 암묵적인 규칙이다.
@@ -53,11 +53,10 @@ java VerboseLanguage
 // Hello World
 ```
 
-그런데 [[Java]] 는 마치 다른 세계에서 온 것 같다. 심지어 여기서 끝이 아니다. 컴파일 과정은 아직 언급도 안했다. 여기서 이번 글의 주제가 등장한다. 스스로에게 질문해보자.
+그런데 [[Java]] 는 마치 다른 세계에서 온 것 같다. 심지어 여기서 끝이 아니다. 컴파일 과정은 아직 언급도 안했다. 
 
-> Java 에서 "Hello, World" 를 출력하기 위해 어떤 과정이 숨어있을까요?
+Java 는 도대체 왜 이리 말 많은(verbose) 과정이 필요할까?
 
-- Java 의 탄생 배경
 - JVM 컴파일 과정 및 메모리 로딩
 - public 접근제어자
 - JVM 메모리 구조와 public static
@@ -65,7 +64,7 @@ java VerboseLanguage
 - 왜 `main` 메서드여야 하는지
 - `System.out` 의 의미
 
-## Java 의 탄생
+## 들어가기 전에
 
 타언어들에 비해 [[Java]] 는 Hello World 를 출력하기 위해 알아야하는 배경지식이 많은 편이다.
 
@@ -81,11 +80,13 @@ java VerboseLanguage
 
 ## Why?
 
+Java 에서 Hello World 를 출력하기 전까지 살펴봐야할 몇가지 why moment 가 있다.
+
 ### 왜 클래스 이름이 파일명이 되어야 하는가?
 
 정확하게는 `public` 클래스의 이름이 파일명이어야 하는 것이다. 왜 그럴까?
 
-Java 는 **컴파일 시점에 모든 class 를 `.class` 파일로 생성**한다. java 파일 이름이 public class 와 동일하지 않다면 java interpreter 는 모든 class 를 읽어서 main 메서드를 찾아야 한다. 파일 이름과 public class 의 이름이 같다면 Java interpreter 는 해석해야하는 파일을 더 잘 식별할 수 있다.
+Java 는 **컴파일 시점에 모든 class 를 `.class` 파일로 생성**한다. java 파일 이름이 public class 와 동일하지 않다면 java interpreter%% footer 추가 %% 는 모든 class 파일을 읽어서 main 메서드를 찾아야 한다. 파일 이름과 public class 의 이름이 같다면 Java interpreter 는 해석해야하는 파일을 더 잘 식별할 수 있다.
 
 ```java
 public class Outer {
@@ -104,9 +105,9 @@ javac Outer.java
 
 ```text
 Permissions Size User   Date Modified Name
-.rw-r--r--   302 kgsong 30 Nov 16:09  Outer$Inner.class
-.rw-r--r--   503 kgsong 30 Nov 16:09  Outer.class
-.rw-r--r--   159 kgsong 30 Nov 16:09  Outer.java
+.rw-r--r--   302 haril  30 Nov 16:09  Outer$Inner.class
+.rw-r--r--   503 haril  30 Nov 16:09  Outer.class
+.rw-r--r--   159 haril  30 Nov 16:09  Outer.java
 ```
 
 `Java1000` 이라는 파일이 있고, 이 파일 내부에 1000개의 클래스가 존재한다고 생각해보자. 1000 개의 클래스 중 어디에 `main()` 이 있는지 식별하기 위해서는 모든 클래스 파일을 살펴봐야 한다.
@@ -124,7 +125,7 @@ Error: Main method not found in class VerboseLanguage, please define the main me
 
 ### static
 
-`public main()` 이라는 메서드는 찾았다. 하지만 이 코드를 실행시키기 위해서는 `main` 메서드를 포함하고 있는 객체를 생성해야 한다. JVM 입장에서 이 객체는 필요한 객체일까? 아니다, `main` 을 호출할 수 있기만 하면 된다. `static` 으로 선언함으로서 JVM 은 불필요한 객체를 생성할 필요가 없고, 메모리를 절약할 수 있다.
+`public main()` 이라는 메서드는 찾았다. 하지만 이 메서드를 호출시키기 위해서는 먼저 객체를 생성해야 한다. JVM 입장에서 이 객체는 필요한 객체일까? 아니다, `main` 을 호출할 수 있기만 하면 된다. `static` 으로 선언함으로서 JVM 은 불필요한 객체를 생성할 필요가 없고, 메모리를 절약할 수 있다.
 
 ```c
 // JNI 는 true 가 되기 때문에 static 메서드를 찾는다
@@ -168,15 +169,40 @@ mainID = (*env)->GetStaticMethodID(env, mainClass, "main", "([Ljava/lang/String;
 
 `main()` 에는 `main(String[] args)` 라는 arguments 가 포함되어 있다.
 
-### System.out.println()
+### System.out.println
+
+#native #JNI
 
 드디어 출력과 관련된 메서드에 대해 이야기를 시작할 수 있다.
 
-_굳이 다시 언급하자면, Python 은 `print("Hello World")` 였다. 생활코딩 파이썬 링크_
+_굳이 다시 언급하자면, Python 은 `print("Hello World")` 였다. %% 생활코딩 파이썬 링크 %%_
+
+자바 프로그램은 OS 에서 바로 실행되는 것이 아니라 JVM 이라는 가상 머신 위에서 실행된다. 따라서 OS 에 직접 접근하는 방법은 꽤나 까다롭다. Java 로 CLI 를 만들거나 OS 메트릭을 수집하는 등의 시스템 레벨의 코딩이 어렵다고 하는 이유일 것이다.
+
+하지만 제한적이나마 OS 기능을 빌려쓸 수 있는데, 이 기능을 제공하는 것이 바로 `System` 이다. 대표적인 기능은 아래와 같은 것들이 있다.
+
+- 표준 입력
+- **표준 출력**
+- 환경변수 설정
+- 수행 중인 응용프로그램 종료하고 status 코드를 반환
+
+`Hello World` 를 출력하기 위해 바로 이 표준 출력 기능을 빌려 사용하는 것이다.
 
 ### String
 
-Java 에서 문자열은 조금 특별하다.
+Java 에서 문자열은 조금 특별하다. 아니, 많이 특별한 것 같다. 메모리 레벨에서 별도의 공간을 할당 받을 정도니 분명히 특별취급을 받고 있다. 왜 그럴까?
+
+```java
+String greeting = new String("Hello World");
+```
+
+```java
+String greeting = "Hello World";
+```
+
+문자열 동작 원리 작성, 힙 영역의 차이를 그림으로 그리기
+
+힙 영역에 대해서는 이후 다시 살펴본다.
 
 ### 정리
 
@@ -191,7 +217,7 @@ Java 에서 문자열은 조금 특별하다.
 
 ## Compile
 
-Java 를 컴파일 할 경우 어떤 형태로 생성되는지 확인해보자. 앞서 컴파일 과정은 이미 진행했으니 `javap` 를 사용해서 바이트코드를 사람이 읽을 수 있는 형태로 변환한다.
+Java 를 컴파일 할 경우 어떤 형태로 생성되는지 확인해보자. 앞서 컴파일 과정은 이미 진행했으니 `javap` 를 사용해서 바이트코드를 사람이 읽을 수 있는 형태로 변환(decompile)한다.
 
 ```java
 public class VerboseLanguage {
@@ -223,6 +249,14 @@ public class VerboseLanguage {
 }
 ```
 
+출력된 결과를 보면 기본 생성자처럼 보이는 구조와 main 메서드를 확인할 수 있다.
+
+- `invokespecial`
+- `invokevirtual`
+- getstatic 에서 System.out 의 PrintStream 을 static 호출하는 것을 확인할 수 있다.
+- `ldc` 라인에서 문자열 생성
+- println 이 호출된다
+
 컴파일된 바이트 코드를 실행시키는건 JVM 이 담당한다.
 
 ## Java 를 실행하는 JVM
@@ -233,6 +267,8 @@ public class VerboseLanguage {
 - JVM 메모리 적재 과정
 
 앞선 챕터에서 Java 의 기본적인 규칙이 정의된 이유에 대해 대략적으로 들여다봤다. 이번 챕터에서는 JVM 이 실행되면서 코드 블록을 어떻게 동작시키는지 살펴본다.
+
+JVM 이 실행되면 `main` 메서드를 찾는다. 찾은 메서드를 Method Area 에 적재한 뒤 call 하여 호출
 
 ### Structure
 
@@ -252,7 +288,7 @@ _Java 에 대해서 얼마나 알고 계신다고 생각하시나요?_
 
 이젠 좀 확실히 대답할 수 있을 것 같다.
 
-_Hello World 정도요_
+_Hello World 정도요._
 
 ## Reference
 
@@ -261,3 +297,4 @@ _Hello World 정도요_
 - https://www.geeksforgeeks.org/java-main-method-public-static-void-main-string-args/
 - https://www.geeksforgeeks.org/myth-file-name-class-name-java/
 - https://www.includehelp.com/java/why-does-java-file-name-must-be-same-as-public-class-name.aspx
+- https://www.devkuma.com/docs/java/system-class/
