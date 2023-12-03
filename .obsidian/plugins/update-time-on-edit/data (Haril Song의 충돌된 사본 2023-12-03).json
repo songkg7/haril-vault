@@ -243,7 +243,7 @@
     "Resource/Keybase.md": "c06b89ad9128c737943862d0fa5cce3f0e3f07ff17b99ba14e08f480bc380790",
     "Resource/K8S NodePort.md": "2ea424b69f842a52d0f66c8b3e367407e0fb4b5c650a0f203212121b412fc1b9",
     "Resource/Jumpit to Back-End.md": "edc9ef72dfa5de44ab61f0ce692048e2ca2d4d5b0ab9548d8faad9b9759069ce",
-    "Resource/K6.md": "0973ec7eb18ea5bcd81ccef97d981baf2e1b72f389c1ccea81204b354faf1629",
+    "Resource/K6.md": "d24227ca0a8389bd45b825d85663dccc9332ef52c3beb52d91ecbe0cca06dfc3",
     "Resource/Json dynamic binding.md": "ddbbc9f540635cd9e3d0dd28d1dedf4ea90c4176e9709dca4679b1ce2a3c6d11",
     "Resource/JobRepository.md": "8fbde8986acf7ed3ff733e0df7fd13b7aa6c936b222c5d470fa6fa100cf21e16",
     "Resource/Jira vs Github Project.md": "73cd70c00e6270d599f68499fe1fd4385ae10705a942763b8faa5a046d7e9eb6",
@@ -343,7 +343,7 @@
     "Resource/AceJump.md": "62ada0fc843b6bd4ef8a1a5a13b5f1bf6704be6ffaeddb9aa77b71e2ca62ef86",
     "Resource/Access Control List.md": "0dcea3ea420fac48e44191ff1a58363c995741e20a0916d1fc74af07492f47fe",
     "Resource/ARM processor.md": "1e18c0ca9b9eb5a9eadf9c5dae84b9493c509df7ae474af1f6f6eeb872e6313d",
-    "Resource/12 Factors.md": "338723ceca15eee75071b4a81ab2e72b96887d7475a91fa5ae85fe1f0c44f345",
+    "Resource/12 Factors.md": "e9a224547a43f438ce8ae4244c43ad7f83a9d493a4f757edee0e31608c9146c9",
     "Resource/@Configuration, @Component 그리고 Proxy.md": "28c9f8dedf962f035d3c1d6e61e05f8865223be392cd6bee2a577296fab09ea1",
     "Resource/5 Whys.md": "ae0637e193c132ef68baba4fd872721be9d8016b0ea5fc54a1370d91513585fd",
     "Archive/삶의 지도.md": "e68a48bb78ae89764a5cfacd65063a0ed10adc966a21c79dd056bc332116eb6d",
@@ -454,12 +454,11 @@
     "Resource/Docker Study Chapter 15.md": "09353d6cce6800bb497f0b5f647b7748f0934660d639d834bd7e3ef1560e70f9",
     "private/Coffee Chat 231127.md": "238e0f07480e72b9c9d2b59771c165177da050f6a929234b59509a5117e3bd64",
     "Project/Network 대역폭과 이미지 전송의 상관관계.md": "13ed70121b353fd29d691cfd11ffe287be5770f792de92d782606157749c2883",
+    "Resource/Batch Processing.md": "575421218aaab3153c4f62084bcfc90275e3f5efe4ea45cd7a3afe688882aa3e",
     "Resource/DEFFERED keyword in PostgreSQL.md": "e46c55ae86076fc93a20e3d299456126f62370c59f8de4c06eb4439073d02120",
     "Resource/Input Output Stream.md": "5269fb194cd87ace9691070aae1c85c12efaacea7cd1c2a670d61f8c20b4c5a6",
     "Resource/Call by Value VS Call by Reference In Java.md": "aff6f5620fcc30f7f738ed6dd36f91f20ca8c8b9bb1f0e436cd9e44266c9d933",
-    "Resource/Docker Study Chapter 17.md": "f8cdb65d0ef4a48c37fd519e6a9930dd99a9edf41df8ba53a1806c88855351cf",
-    "Project/Batch Processing.md": "e9a0f8586353599d255b3119031d156df341a96ba146681e1d8f3dee961bdfac",
-    "Resource/Chebyshev Distance.md": "1eb2fa741b59629333eeb893f82d98807800dcd9b3786032c09ee7f9932abbc1"
+    "Resource/Docker Study Chapter 17.md": "2795bc0d191d430740d1bc76c69d25827d5f86a4abf97e7448c530dfa4d760e3"
   },
   "readDateFormat": "yyyy-MM-dd HH:mm:ss xx",
   "useDifferentReadFormat": true
