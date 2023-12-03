@@ -7,7 +7,7 @@ tags:
   - compile
   - jvm
 categories: 
-updated: 2023-12-02 15:08:33 +0900
+updated: 2023-12-03 22:31:42 +0900
 ---
 
 프로그래밍 세계에서는 항상 첫 시작을 `Hello World` 라는 문구와 함께 한다. 그게 암묵적인 규칙이다.
@@ -274,6 +274,20 @@ JVM 이 실행되면 `main` 메서드를 찾는다. 찾은 메서드를 Method A
 
 #### Class Loader
 
+Java 의 클래스들이 언제, 어디서, 어떻게 메모리에 올라가고 초기화가 일어나는지 알기 위해서는 우선 JVM **클래스 로더(Class Loader)** 에 대해 살펴볼 필요가 있다.
+
+클래스 로더는 컴파일된 자바의 클래스 파일(.class)을 동적으로 로드하고, JVM 의 메모리 영역인 Runtime Data Area 에 배치하는 작업을 수행한다.
+
+클래스 로더에서 class 파일을 로딩하는 순서는 다음과 같이 3단계로 구성된다.
+
+1. Loading: 클래스 파일을 가져와서 **JVM 의 메모리에 로드**한다.
+2. Linking: 클래스 파일을 사용하기 위해 **검증**하는 과정이다.
+3. Initialization: 클래스 파일을 적절한 값으로 **초기화**한다.
+
+유의할 점은, 클래스 파일은 한 번에 메모리에 올라가는 것이 아니라 **애플리케이션에서 필요할 경우 동적으로 메모리에 적재**된다는 점이다.
+
+많이들 착각하는 부분은 클래스나 클래스에 포함된 static 멤버들이 소스를 실행하자마자 메모리에 모두 올라가는줄 착각하는데, 언제 어디서 사용될지 모르는 static 멤버들을 시작 시점에 모두 메모리에 올려놓는다는 것은 비효율적이다. 클래스 내의 멤버를 호출하게 되면 그제서야 클래스가 동적으로 메모리에 로드된다.
+
 #### Runtime Data Area
 
 #### Execution Engine
@@ -298,3 +312,4 @@ _Hello World 정도요._
 - https://www.geeksforgeeks.org/myth-file-name-class-name-java/
 - https://www.includehelp.com/java/why-does-java-file-name-must-be-same-as-public-class-name.aspx
 - https://www.devkuma.com/docs/java/system-class/
+- https://inpa.tistory.com/entry/JAVA-%E2%98%95-%ED%81%B4%EB%9E%98%EC%8A%A4%EB%8A%94-%EC%96%B8%EC%A0%9C-%EB%A9%94%EB%AA%A8%EB%A6%AC%EC%97%90-%EB%A1%9C%EB%94%A9-%EC%B4%88%EA%B8%B0%ED%99%94-%EB%90%98%EB%8A%94%EA%B0%80-%E2%9D%93#jvm%EC%9D%98_%ED%81%B4%EB%9E%98%EC%8A%A4_%EB%A1%9C%EB%8D%94_class_loader
