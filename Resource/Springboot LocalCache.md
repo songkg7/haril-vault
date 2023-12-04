@@ -1,15 +1,17 @@
 ---
-title: "Springboot LocalCache"
+title: Springboot LocalCache
 date: 2023-06-14 10:09:00 +0900
 aliases: 
-tags: [cache, spring]
+tags:
+  - cache
+  - spring
 categories: 
-updated: 2023-06-14 14:38:40 +0900
+updated: 2023-12-04 22:53:25 +0900
 ---
 
 ## Introduction to Spring Boot Local Cache
 
-Spring Boot Local Cache is a caching mechanism that helps to store frequently accessed data in memory, thereby reducing the number of database queries and improving application performance. It is a simple and efficient way to improve the speed and efficiency of your application by storing data temporarily in the cache.
+[[Spring Boot]] Local Cache is a caching mechanism that helps to store frequently accessed data in memory, thereby reducing the number of database queries and improving application performance. It is a simple and efficient way to improve the speed and efficiency of your application by storing data temporarily in the cache.
 
 ## How does Spring Boot Local Cache work?
 
@@ -18,13 +20,9 @@ Spring Boot Local Cache works by creating an in-memory cache that stores frequen
 ## Advantages of Spring Boot Local Cache
 
 1. Improved application performance: By reducing database queries, Spring Boot Local Cache improves application performance and response time.
-
 2. Reduced network traffic: As data is stored locally in memory, there is no need for network communications, which reduces network traffic and improves scalability.
-
 3. Efficient use of resources: Spring Boot Local Cache optimizes resource usage by avoiding unnecessary database queries.
-
 4. Simple integration: Spring Boot Local Cache can be easily integrated with your existing codebase using annotations or configuration files.
-
 5. Increased reliability: By caching frequently accessed data locally, applications are less likely to fail due to network issues or server failures.
 
 ## Conclusion
@@ -34,3 +32,4 @@ In conclusion, Spring Boot Local Cache is a powerful caching mechanism that can 
 ## Links
 
 - [[Cache memory|Cache]]
+- [[Spring framework|Spring]]
