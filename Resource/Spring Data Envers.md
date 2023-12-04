@@ -9,7 +9,7 @@ tags:
   - regulatory
   - debugging
 categories: Spring
-updated: 2023-08-19 12:38:12 +0900
+updated: 2023-12-04 22:57:54 +0900
 ---
 
 Spring Data Envers: A Powerful Tool for Auditing Data Changes in Applications
@@ -33,7 +33,7 @@ In conclusion, Spring Data Envers is a powerful tool that provides essential aud
 
 Spring Data Envers: 애플리케이션에서 데이터 변경을 감사하는 강력한 도구
 
-Spring Data Envers는 Spring 애플리케이션에서 데이터 변경에 대한 감사 기능을 제공하는 강력한 오픈 소스 도구입니다. 이것은 Hibernate Envers 위에 구축된 것으로, Hibernate 기반 애플리케이션에서 엔티티 수정을 감사하기 위해 널리 사용되는 프레임워크입니다.
+Spring Data Envers는 [[Spring framework|Spring]] 애플리케이션에서 데이터 변경에 대한 감사 기능을 제공하는 강력한 오픈 소스 도구입니다. 이것은 Hibernate Envers 위에 구축된 것으로, Hibernate 기반 애플리케이션에서 엔티티 수정을 감사하기 위해 널리 사용되는 프레임워크입니다.
 
 Spring Data Envers를 사용하면 개발자는 애플리케이션의 엔티티 변경 사항을 쉽게 추적할 수 있습니다. 누가 변경을 했는지, 언제 변경되었는지, 무엇이 변경되었는지 등의 정보를 제공합니다. 이 정보는 규정 준수 및 규제 요구 사항, 문제 해결 및 디버깅에 필수적일 수 있습니다.
 
