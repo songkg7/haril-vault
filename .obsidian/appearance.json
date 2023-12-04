@@ -7,5 +7,8 @@
   "monospaceFontFamily": "Monaspace Krypton,D2Coding ligature",
   "textFontFamily": "Rubik,Nanum Gothic,Noto Sans KR",
   "interfaceFontFamily": "Rubik,Noto Sans KR",
-  "nativeMenus": true
+  "nativeMenus": true,
+  "enabledCssSnippets": [
+    "heading"
+  ]
 }
