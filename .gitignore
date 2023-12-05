@@ -9,5 +9,4 @@ private/
 .obsidian/plugins/obsidian-textgenerator-plugin
 .obsidian/text-generator.json
 textgenerator/prompts
-.obsidian/plugins/remember-cursor-position/cursor-positions.json
 
