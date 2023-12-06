@@ -7,10 +7,10 @@ tags:
   - compile
   - jvm
 categories: 
-updated: 2023-12-03 22:31:42 +0900
+updated: 2023-12-06 17:53:57 +0900
 ---
 
-프로그래밍 세계에서는 항상 첫 시작을 `Hello World` 라는 문구와 함께 한다. 그게 암묵적인 규칙이다.
+프로그래밍 세계에서는 항상 `Hello World` 라는 문장을 출력하면서 시작한다. 그게 ~~국룰~~ 암묵적인 규칙이다.
 
 ## Overview
 
@@ -53,16 +53,16 @@ java VerboseLanguage
 // Hello World
 ```
 
-그런데 [[Java]] 는 마치 다른 세계에서 온 것 같다. 심지어 여기서 끝이 아니다. 컴파일 과정은 아직 언급도 안했다. 
+그런데 [[Java]] 는 마치 다른 세계에서 온 것 같다. 심지어 여기서 끝이 아니다. 컴파일 과정은 아직 언급도 안했다.
 
 Java 는 도대체 왜 이리 말 많은(verbose) 과정이 필요할까?
 
-- JVM 컴파일 과정 및 메모리 로딩
 - public 접근제어자
 - JVM 메모리 구조와 public static
 - 왜 class 이름이 파일 이름과 같아야 하는지
 - 왜 `main` 메서드여야 하는지
 - `System.out` 의 의미
+- JVM 컴파일 과정 및 메모리 로딩
 
 ## 들어가기 전에
 
@@ -156,6 +156,8 @@ mainID = (*env)->GetStaticMethodID(env, mainClass, "main", "([Ljava/lang/String;
 jbject obj = (*env)->ToReflectedMethod(env, mainClass, mainID, JNI_TRUE);
 ```
 
+JNI 가 false 인 경우는 언제일까?
+
 %% 내용 추가 %%
 
 ```c
@@ -175,7 +177,7 @@ mainID = (*env)->GetStaticMethodID(env, mainClass, "main", "([Ljava/lang/String;
 
 드디어 출력과 관련된 메서드에 대해 이야기를 시작할 수 있다.
 
-_굳이 다시 언급하자면, Python 은 `print("Hello World")` 였다. %% 생활코딩 파이썬 링크 %%_
+_굳이 다시 언급하자면, Python 은 `print("Hello World")` 였다. [생활코딩 파이썬](https://www.opentutorials.org/course/4769)
 
 자바 프로그램은 OS 에서 바로 실행되는 것이 아니라 JVM 이라는 가상 머신 위에서 실행된다. 따라서 OS 에 직접 접근하는 방법은 꽤나 까다롭다. Java 로 CLI 를 만들거나 OS 메트릭을 수집하는 등의 시스템 레벨의 코딩이 어렵다고 하는 이유일 것이다.
 
@@ -190,17 +192,32 @@ _굳이 다시 언급하자면, Python 은 `print("Hello World")` 였다. %% 생
 
 ### String
 
-Java 에서 문자열은 조금 특별하다. 아니, 많이 특별한 것 같다. 메모리 레벨에서 별도의 공간을 할당 받을 정도니 분명히 특별취급을 받고 있다. 왜 그럴까?
+#constant-pool
 
-```java
-String greeting = new String("Hello World");
-```
+Java 에서 문자열은 조금 특별하다. 아니, 많이 특별한 것 같다(footnote: https://www3.ntu.edu.sg/home/ehchua/programming/java/J3d_String.html). 메모리 레벨에서 별도의 공간을 할당 받을 정도니 분명히 특별취급을 받고 있다. 왜 그럴까?
 
 ```java
 String greeting = "Hello World";
 ```
 
+```java
+String greeting = new String("Hello World");
+```
+
+```
+0: ldc           #7                  // String Hello World
+2: astore_1
+3: new           #9                  // class java/lang/String
+6: dup
+7: ldc           #7                  // String Hello World
+9: invokespecial #11                 // Method java/lang/String."<init>":(Ljava/lang/String;)V
+12: astore_2
+}
+```
+
 문자열 동작 원리 작성, 힙 영역의 차이를 그림으로 그리기
+
+문자열은 String Constant Pool 이라는 영역에 생성된다. 이후 같은 문자열을 생성하면, String Constant Pool 에 먼저 존재하는지 확인한 후, 없으면 새로 추가하고 이미 존재한다면 기존 문자열을 그대로 사용한다. 이 String Constant Pool 은 Heap 영역에 존재하는데, 덕분에 더 이상 참조되지 않는 문자열을 GC 를 통해 제거할 수 있다.
 
 힙 영역에 대해서는 이후 다시 살펴본다.
 
@@ -215,7 +232,7 @@ String greeting = "Hello World";
 
 ---
 
-## Compile
+## Compile & Decompile
 
 Java 를 컴파일 할 경우 어떤 형태로 생성되는지 확인해보자. 앞서 컴파일 과정은 이미 진행했으니 `javap` 를 사용해서 바이트코드를 사람이 읽을 수 있는 형태로 변환(decompile)한다.
 
@@ -259,6 +276,28 @@ public class VerboseLanguage {
 
 컴파일된 바이트 코드를 실행시키는건 JVM 이 담당한다.
 
+```java
+void spin() {
+    int i;
+    for (i = 0; i < 10; i++) {
+        // Loop body is empty
+    }
+}
+```
+
+```
+void spin();
+    Code:
+       0: iconst_0
+       1: istore_1
+       2: iload_1
+       3: bipush        10
+       5: if_icmpge     14
+       8: iinc          1, 1
+      11: goto          2
+      14: return
+```
+
 ## Java 를 실행하는 JVM
 
 - [[Java Virtual Machine]]
@@ -266,13 +305,11 @@ public class VerboseLanguage {
 - Hello World 가 어떤 메모리 영역과 상호작용하게 되는지
 - JVM 메모리 적재 과정
 
-앞선 챕터에서 Java 의 기본적인 규칙이 정의된 이유에 대해 대략적으로 들여다봤다. 이번 챕터에서는 JVM 이 실행되면서 코드 블록을 어떻게 동작시키는지 살펴본다.
+앞선 챕터에서 Java 의 기본적인 규칙이 정의된 이유에 대해 대략적으로 들여다봤다. 이번 챕터에서는 JVM 이 실행되면서 'Hello World' 코드 블록을 어떻게 동작시키는지 살펴본다.
 
 JVM 이 실행되면 `main` 메서드를 찾는다. 찾은 메서드를 Method Area 에 적재한 뒤 call 하여 호출
 
-### Structure
-
-#### Class Loader
+### Class Loader
 
 Java 의 클래스들이 언제, 어디서, 어떻게 메모리에 올라가고 초기화가 일어나는지 알기 위해서는 우선 JVM **클래스 로더(Class Loader)** 에 대해 살펴볼 필요가 있다.
 
@@ -286,11 +323,94 @@ Java 의 클래스들이 언제, 어디서, 어떻게 메모리에 올라가고 
 
 유의할 점은, 클래스 파일은 한 번에 메모리에 올라가는 것이 아니라 **애플리케이션에서 필요할 경우 동적으로 메모리에 적재**된다는 점이다.
 
-많이들 착각하는 부분은 클래스나 클래스에 포함된 static 멤버들이 소스를 실행하자마자 메모리에 모두 올라가는줄 착각하는데, 언제 어디서 사용될지 모르는 static 멤버들을 시작 시점에 모두 메모리에 올려놓는다는 것은 비효율적이다. 클래스 내의 멤버를 호출하게 되면 그제서야 클래스가 동적으로 메모리에 로드된다.
+많이들 착각하는 부분은 클래스나 클래스에 포함된 static 멤버들이 메모리에 올라가는 시점이다. 소스를 실행하자마자 메모리에 모두 올라가는줄 착각하는데, 언제 어디서 사용될지 모르는 static 멤버들을 시작 시점에 모두 메모리에 올려놓는다는 것은 비효율적이다. 클래스 내의 멤버를 호출하게 되면 그제서야 클래스가 동적으로 메모리에 로드된다.
 
-#### Runtime Data Area
+verbose 옵션을 사용하면 메모리에 올라가는 동작과정을 엿볼 수 있다.
 
-#### Execution Engine
+```bash
+java -verbose:class VerboseLanguage
+```
+
+![](https://i.imgur.com/4suH8mS.png)
+
+'Hello World' 가 출력되기 전에 `VerboseLanguage` 클래스가 먼저 로드되는걸 확인할 수 있다.
+
+> [!NOTE] 버전 별로 약간의 차이가 있다.
+> Java 1.8 과 Java 21 은 컴파일 결과물부터 로그 출력 포맷도 다르다. 버전이 올라감에 따라 최적화가 많이 이루어지고 컴파일러 동작도 약간씩 변하므로, 버전을 잘 확인하자. 이 글에서는 Java21 을 기본으로 사용하고 다른 버전의 경우 별도로 명시한다.
+
+### Runtime Data Area
+
+Runtime Data Area 는 프로그램이 동작하는 동안 데이터들이 저장되는 공간이다. 크게는 Shared Data Area 와 Per-thread Data Area 로 나누어진다.
+
+#### Shared Data Areas
+
+JVM 에는 JVM 안에서 동작하는 여러 스레드 간 데이터를 공유할 수 있는 여러 영역이 존재한다. 따라서 다양한 스레드가 이러한 영역 중 하나에 동시에 접근할 수 있다.
+
+##### Heap
+
+> `VerboseLanguage` 클래스가 로드되는 곳
+
+Heap 영역은 모든 자바 객체 혹은 배열이 생성될 때 할당되는 영역이다. JVM 이 실행되는 순간에 만들어지고 JVM 이 종료될 때 함께 사라진다.
+
+자바 스펙에 따라서, 이 공간은 자동으로 관리되어져야 한다. 이 역할은 [[Garbage Collection|GC]] 라고 알려진 도구에 의해 수행된다.
+
+Heap 사이즈에 대한 제약은 JVM 명세에 존재하지 않는다. 메모리 처리도 JVM 구현에 맡겨져 있다. 그럼에도 불구하고 Garbage Collector 가 새로운 객체를 생성하기에 충분한 공간을 확보하지 못한다면 JVM 은 OutOfMemory 에러를 발생시킨다.
+
+##### Method Area
+
+Method Area 는 클래스 및 인터페이스 정의를 저장하는 공유 데이터 영역이다. Heap 과 마찬가지로 JVM 이 시작될 때 생성되며 JVM 이 종료될 때만 소멸된다.
+
+전역 변수와 static 변수는 이 영역에 저장되므로 프로그램이 시작부터 종료될 때까지 어디서든 사용이 가능한 이유가 된다.
+
+구체적으로는 클래스 로더는 클래스의 바이트코드(.class)를 로드하여 JVM 에 전달하는데, JVM 은 객체를 생성하고 메서드를 호출하는 데 사용되는 클래스의 내부 표현을 런타임에 생성한다. 이 내부 표현은 클래스 및 인터페이스에 대한 필드, 메서드, 생성자에 대한 정보를 수집한다.
+
+사실 Method Area 는 JVM 명세에 따르면 구체적으로 '이래야 한다' 는 명확한 정의가 없는 영역이다. **논리적 영역**이며, 구현에 따라서 힙의 일부로 존재할 수도 있다. 간단한 구현에서는 힙의 일부이면서도 GC 나 압축이 발생하지 않도록 할 수도 있다.
+
+##### Run-Time Constant Pool
+
+Run-Time Constant Pool 은 Method Area 의 일부로 클래스 및 인터페이스 이름, 필드 이름, 메서드 이름에 대한 심볼릭 참조를 포함한다. JVM 은 Run-Time Constant Pool 을 통해 실제 메모리상 주소를 찾아서 참조할 수 있다.
+
+##### String Constant Pool
+
+> "Hello World" 문자열이 생성되면 저장되는 곳 (new 제외)
+
+앞 문단에서 Run-Time Constant Pool 이 Method Area 에 속한다고 했었다. Heap 에도 Constant Pool 이 하나 존재하는데 바로 String Constant Pool 이다.
+
+이전, String 을 설명하며 Heap 을 잠깐 언급했다. `new String("Hello World")` 을 사용하여 문자열을 생성할 경우, 문자열을 객체로 다루게 되므로 Heap 영역에서 관리된다.
+
+```java
+String s1 = "Hello World";
+String s2 = new String("Hello World");
+```
+
+```
+0: ldc           #7                  // String Hello World
+2: astore_1
+3: new           #9                  // class java/lang/String
+6: dup
+7: ldc           #7                  // String Hello World
+9: invokespecial #11                 // Method java/lang/String."<init>":(Ljava/lang/String;)V
+12: astore_2
+13: return
+```
+
+바이트코드를 확인해보면 invokespecial 을 통해 문자열이 heap 영역에 '생성' 되는걸 확인할 수 있다.
+
+invokespecial 은 객체 초기화 메서드가 직접 호출되었다는걸 의미한다.
+
+왜 Method Area 에 존재하는 Run-Time Constant Pool 과는 달리 String Constant Pool 은 Heap 에 존재할까? 문자열은 굉장히 큰 객체에 속한다. 또한 얼마나 생성될지 알기 어렵기 때문에, 메모리 공간을 효율적으로 사용하기 위해서는 사용되지 않는 문자열을 정리하는 과정이 필요하다. 즉, Heap 영역에 존재하는 GC 가 필요하다는 의미다.
+
+문자열은 불변으로 관리된다. 수정은 허용되지 않으며, 항상 새롭게 생성된다. 이미 생성된 적이 있다면 재활용함으로써 메모리 공간을 절약한다. 하지만 참조되지 않는 문자열이 생길 수 있으며, 애플리케이션의 생명 주기동안 계속해서 쌓여갈 것이다. 메모리를 효율적으로 활용하기 위해 참조되지 않는(unreachable) 문자열을 정리할 필요가 있고, 이 말은 GC 가 필요하다는 말과 동일하다. 결국 String Constant Pool 은 Heap 영역에 존재하는게 자연스러운 것이다.
+
+#### Per-thread Data Areas
+
+##### PC Register
+
+#### JVM Stack
+
+##### Native Method Stack
+
+### Execution Engine
 
 ## Conclusion
 
@@ -313,3 +433,7 @@ _Hello World 정도요._
 - https://www.includehelp.com/java/why-does-java-file-name-must-be-same-as-public-class-name.aspx
 - https://www.devkuma.com/docs/java/system-class/
 - https://inpa.tistory.com/entry/JAVA-%E2%98%95-%ED%81%B4%EB%9E%98%EC%8A%A4%EB%8A%94-%EC%96%B8%EC%A0%9C-%EB%A9%94%EB%AA%A8%EB%A6%AC%EC%97%90-%EB%A1%9C%EB%94%A9-%EC%B4%88%EA%B8%B0%ED%99%94-%EB%90%98%EB%8A%94%EA%B0%80-%E2%9D%93#jvm%EC%9D%98_%ED%81%B4%EB%9E%98%EC%8A%A4_%EB%A1%9C%EB%8D%94_class_loader
+- https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-2.html#jvms-2.5
+- https://www.baeldung.com/java-jvm-run-time-data-areas
+- https://sgcomputer.tistory.com/64
+- https://johngrib.github.io/wiki/java/run-time-constant-pool/
