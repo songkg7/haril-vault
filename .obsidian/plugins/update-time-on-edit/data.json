@@ -460,7 +460,8 @@
     "Resource/Docker Study Chapter 17.md": "f8cdb65d0ef4a48c37fd519e6a9930dd99a9edf41df8ba53a1806c88855351cf",
     "Resource/Chebyshev Distance.md": "1eb2fa741b59629333eeb893f82d98807800dcd9b3786032c09ee7f9932abbc1",
     "Resource/Batch Processing.md": "3096c6a2ce6329cb145062d23c3595c61cb79161409a23bdbe702c45297387b7",
-    "Resource/Fast Fourier Transform.md": "e410a9a20e3f8dac6faf74e6477d0d9c60903a353bf2a1fb26ad44b0ef6533f5"
+    "Resource/Karatusba Algorithm.md": "e34390e8133923a912ca97ecc3450a72ebf4aed96400b5667395cb73c69257a4",
+    "Resource/Toom Cook 3way.md": "673f90833f49affee81bd0e7bcb346fb5cf132a59bd7d690a9588a74bb6ec3c0"
   },
   "readDateFormat": "yyyy-MM-dd HH:mm:ss xx",
   "useDifferentReadFormat": true
