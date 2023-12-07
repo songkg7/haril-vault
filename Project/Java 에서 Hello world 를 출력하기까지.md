@@ -7,7 +7,7 @@ tags:
   - compile
   - jvm
 categories: 
-updated: 2023-12-07 17:10:12 +0900
+updated: 2023-12-07 18:46:44 +0900
 ---
 
 프로그래밍 세계에서는 항상 `Hello World` 라는 문장을 출력하면서 시작한다. 그게 ~~국룰~~ 암묵적인 규칙이다.
@@ -190,7 +190,7 @@ _굳이 다시 언급하자면, Python 은 `print("Hello World")` 였다. [생�
 
 ### String
 
-#constant-pool
+#constant-pool #intern
 
 Java 에서 문자열은 조금 특별하다. 아니, 많이 특별한 것 같다(footnote: https://www3.ntu.edu.sg/home/ehchua/programming/java/J3d_String.html). 메모리 레벨에서 별도의 공간을 할당 받을 정도니 분명히 특별취급을 받고 있다. 왜 그럴까?
 
@@ -202,18 +202,7 @@ String greeting = "Hello World";
 String greeting = new String("Hello World");
 ```
 
-```
-0: ldc           #7                  // String Hello World
-2: astore_1
-3: new           #9                  // class java/lang/String
-6: dup
-7: ldc           #7                  // String Hello World
-9: invokespecial #11                 // Method java/lang/String."<init>":(Ljava/lang/String;)V
-12: astore_2
-}
-```
-
-
+![](https://i.imgur.com/pN25lbX.png)
 
 문자열 동작 원리 작성, 힙 영역의 차이를 그림으로 그리기
 
@@ -234,7 +223,7 @@ String greeting = new String("Hello World");
 
 ## Chapter 2. Compile & Decompile
 
-Java 를 컴파일 할 경우 어떤 형태로 생성되는지 확인해보자. 
+Java 를 컴파일 할 경우 어떤 형태로 생성되는지 확인해보자.
 
 ### Compile
 
