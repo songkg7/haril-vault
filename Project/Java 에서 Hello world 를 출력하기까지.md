@@ -7,12 +7,10 @@ tags:
   - compile
   - jvm
 categories: 
-updated: 2023-12-06 22:14:02 +0900
+updated: 2023-12-07 17:10:12 +0900
 ---
 
 프로그래밍 세계에서는 항상 `Hello World` 라는 문장을 출력하면서 시작한다. 그게 ~~국룰~~ 암묵적인 규칙이다.
-
-## Overview
 
 ```python
 # hello.py
@@ -72,13 +70,13 @@ Java 는 도대체 왜 이리 말 많은(verbose) 과정이 필요할까?
 
 `public` 은 무엇이고 `class` 는 무엇이고, `static` 은 또 무엇이며, `void`, `main`, `String[]`, `System.out.println` 을 거쳐야 드디어 "Hello World" 라는 문자열에 도달한다. ~~이제 다른 언어를 배우러 가자.~~
 
-다음으로는 JVM 이 실행되는 과정에서 public static void main 을 메모리에 어떻게 적재하고 실행할 수 있는지 동작 원리에 대해 알아본다.
+다음으로는 JVM 이 실행되는 과정에서 `public static void main` 을 메모리에 어떻게 적재하고 실행할 수 있는지 동작 원리에 대해 알아본다.
 
 그 다음은 실제로 컴파일된 class 파일을 살펴보며 컴퓨터가 java 코드를 어떻게 해석하고 실행하는지 살펴본다.
 
 아직 늦지 않았다. [생활코딩 파이썬](https://www.opentutorials.org/course/4769)
 
-## Why?
+## Chapter 1. Why?
 
 Java 에서 Hello World 를 출력하기 전까지 살펴봐야할 몇가지 why moment 가 있다.
 
@@ -215,11 +213,13 @@ String greeting = new String("Hello World");
 }
 ```
 
+
+
 문자열 동작 원리 작성, 힙 영역의 차이를 그림으로 그리기
 
 힙 영역에 대해서는 이후 다시 살펴본다.
 
-문자열은 String Constant Pool 이라는 영역에 생성된다. 이후 같은 문자열을 생성하면, String Constant Pool 에 먼저 존재하는지 확인한 후, 없으면 새로 추가하고 이미 존재한다면 기존 문자열을 그대로 사용한다. 이 String Constant Pool 은 Heap 영역에 존재하는데, 덕분에 더 이상 참조되지 않는 문자열을 GC 를 통해 제거할 수 있다.
+문자열은 String Constant Pool 이라는 영역에 생성된다. 이후 같은 문자열을 생성하면, String Constant Pool 에 먼저 존재하는지 확인한 후, 없으면 새로 생성하고 이미 존재한다면 기존 문자열을 그대로 사용한다. 이 String Constant Pool 은 Heap 영역에 존재하는데, 덕분에 더 이상 참조되지 않는 문자열을 GC 를 통해 제거할 수 있다.
 
 ### 정리
 
@@ -232,9 +232,36 @@ String greeting = new String("Hello World");
 
 ---
 
-## Compile & Decompile
+## Chapter 2. Compile & Decompile
 
-Java 를 컴파일 할 경우 어떤 형태로 생성되는지 확인해보자. 앞서 컴파일 과정은 이미 진행했으니 `javap` 를 사용해서 바이트코드를 사람이 읽을 수 있는 형태로 변환(decompile)한다.
+Java 를 컴파일 할 경우 어떤 형태로 생성되는지 확인해보자. 
+
+### Compile
+
+Java 코드는 컴퓨터가 읽고 해석할 수 없다. Java 애플리케이션의 실행을 위해서는 컴퓨터가 읽고 해석할 수 있는 형태로 변환해줘야하는데, 이를 위해 아래와 같은 과정을 거치게 된다.
+
+```
+.java -> .class -> interpreting -> execution
+```
+
+`.class` 파일로 만들고 그걸 해석하는 과정이 있어야 비로소 Java 를 실행할 수 있는 것이다. `.java` 파일을 클래스 파일로 만들어보자. 아래 명령어를 사용할 수 있다.
+
+```bash
+$ javac VerboseLanguage.java
+```
+
+![](https://i.imgur.com/xPMY0Ib.png)
+
+클래스 파일이 생성된 것을 확인할 수 있다. `java` 명령어를 사용해서 클래스 파일을 실행시킬 수 있고, 이때 확장자는 명시하지 않아야 한다.
+
+```bash
+$ java VerboseLanguage
+// Hello World
+```
+
+### Decompile
+
+앞서 컴파일 과정은 이미 진행했으니 `javap` 를 사용해서 바이트코드를 사람이 읽을 수 있는 형태로 변환(decompile)한다.
 
 ```java
 public class VerboseLanguage {
@@ -268,10 +295,10 @@ public class VerboseLanguage {
 
 출력된 결과를 보면 기본 생성자처럼 보이는 구조와 main 메서드를 확인할 수 있다.
 
-- `invokespecial`
+- `invokespecial` : 생성자
 - `invokevirtual`
 - getstatic 에서 System.out 의 PrintStream 을 static 호출하는 것을 확인할 수 있다.
-- `ldc` 라인에서 문자열 생성
+- `ldc` 라인에서 문자열 생성, ldc 는 runtime data area 에 데이터를 로드했다는 의미
 - println 이 호출된다
 
 컴파일된 바이트 코드를 실행시키는건 JVM 이 담당한다.
@@ -298,7 +325,9 @@ void spin();
       14: return
 ```
 
-## Java 를 실행하는 JVM
+---
+
+## Chapter 3. Java 를 실행하는 JVM
 
 - [[Java Virtual Machine]]
 - [[JNI]]
@@ -372,7 +401,7 @@ Run-Time Constant Pool 은 Method Area 의 일부로 클래스 및 인터페이�
 
 ##### String Constant Pool
 
-> "Hello World" 문자열이 생성되면 저장되는 곳 (new 제외)
+> "Hello World" 문자열이 저장되는 곳
 
 앞 문단에서 Run-Time Constant Pool 이 Method Area 에 속한다고 했었다. Heap 에도 Constant Pool 이 하나 존재하는데 바로 String Constant Pool 이다.
 
@@ -396,7 +425,7 @@ String s2 = new String("Hello World");
 
 바이트코드를 확인해보면 invokespecial 을 통해 문자열이 heap 영역에 '생성' 되는걸 확인할 수 있다.
 
-invokespecial 은 객체 초기화 메서드가 직접 호출되었다는걸 의미한다.
+invokespecial 은 객체 초기화 메서드가 직접 호출된다는걸 의미한다.
 
 왜 Method Area 에 존재하는 Run-Time Constant Pool 과는 달리 String Constant Pool 은 Heap 에 존재할까? 문자열은 굉장히 큰 객체에 속한다. 또한 얼마나 생성될지 알기 어렵기 때문에, 메모리 공간을 효율적으로 사용하기 위해서는 사용되지 않는 문자열을 정리하는 과정이 필요하다. 즉, Heap 영역에 존재하는 GC 가 필요하다는 의미다.
 
@@ -412,19 +441,78 @@ invokespecial 은 객체 초기화 메서드가 직접 호출되었다는걸 의
 4. Per-Thread Date Area 중 Stack 에 있을 경우는 다른 스레드에서 재활용할 수 없고, 크기가 크면 할당 공간을 찾기 어렵다
 5. Shared Date Area 에 있는게 합리적 + Heap 에 있어야 하지만 JVM 레벨에서 불변으로 다뤄야하므로 전용 Constant Pool 을 Heap 내부에 별도로 생성하여 관리하게 되었다
 
+- ? `new String("Hello World)"` 로 생성자 호출로 문자열을 생성한다면 String Constant Pool 을 사용하지 않는 것일까?
 
-> [!question] BigInteger
-> Java 의 `BigInteger` 는 정수 범위를 초과하는 연산을 지원하기 위해 내부적으로 문자열을 사용한다. 이 때 문자열은 String Constant Pool 로 관리될까? 아니면 Heap 에서 관리될까?
+"Hello World" 라는 문자열을 선언한 시점에 바로 String Constant Pool 에 생성된다. new 키워드를 호출하면 Heap 영역에 객체가 생성되며 String Constant Pool 에 존재하는 "Hello World" 문자열의 주소를 참조하게 된다?
 
 #### Per-thread Data Areas
 
+Shared Data Area 외에도 JVM 은 개별 스레드 별로 데이터를 관리한다. **JVM 은 실제로 꽤 많은 스레드의 동시 실행을 지원**한다.
+
 ##### PC Register
+
+각 JVM 스레드는 PC(program counter) register 를 가진다.
+
+PC register 는 CPU 가 명령(instruction)을 이어서 실행시킬 수 있도록 현재 명령어가 어디까지 실행되었는지를 저장한다. 또한 다음으로 실행되어야할 위치(메모리 주소)를 가지고 명령 실행이 최적화될 수 있도록 돕는다.
+
+PC 의 동작은 메서드의 특성에 따라 달라진다.
+
+- non-native method 라면, PC register 는 현재 실행 중인 명령의 주소를 저장한다.
+- native method 라면, PC register 는 undefined 를 가진다.
+
+PC register 의 수명 주기는 기본적으로 스레드의 수명주기와 같다.
 
 ##### JVM Stack
 
+각 JVM 스레드는 독립된 스택을 가집니다. JVM 스택은 메서드 호출 정보를 저장하는 데이터 구조입니다. 각 메서드가 호출될 때마다 스택에 메서드의 지역 변수와 반환 값의 주소를 가지고 있는 새로운 프레임이 생성됩니다. 이 프레임들은 Heap 에 저장될 수 있습니다.
+
+- ? 힙에 저장될 수 있지만 공유되지는 않는가?
+
+JVM 스택 덕분에 JVM 은 프로그램 실행을 추적하고 필요에 따라 스택 추적을 기록할 수 있습니다. = stack trace
+
+JVM 구현에 따라 스택의 메모리 사이즈와 할당이 결정될 수 있습니다. = 구현이 항상 같진 않다는 뜻
+
+JVM 의 메모리 할당 에러는 stack overflow error 를 수반할 수 있습니다. 그러나 만약 JVM 구현이 JVM 스택 사이즈의 동적 확장을 허락한다면, 그리고 만약 메모리 에러가 확장 도중에 발생한다면 JVM 은 OutOfMemory 에러를 던질 수 있습니다.
+
+스레드마다 분리된 stack 영역을 갖는다. Stack 은 호출되는 메서드 실행을 위해 해당 메서드를 담고 있는 역할을 한다. 메서드가 호출되면 새로운 Frame 이 Stack 에 생성된다. 이 Frame 은 LIFO 로 처리되며, 메서드 실행이 완료되면 제거된다.
+
 ##### Native Method Stack
 
+Native Method 는 자바가 아닌 다른 언어로 작성된 메서드를 말한다. 이 메서드들은 바이트코드로 컴파일될 수 없기 때문에(Java 가 아니므로 javac 를 사용할 수 없다), 별도의 메모리 영역이 필요하다.
+
+Native Method Stack 은 JVM Stack 과 매우 유사하지만 오직 native method 전용이다.
+
+Native Method Stack 의 목적은 native method 의 실행을 추적하는 것이다.
+
+JVM 구현은 Native Method Stack 의 사이즈와 메모리 블록을 어떻게 조작할 것인지를 자체적으로 결정할 수 있다.
+
+JVM Stack 의 경우, Native Method Stack 에서 발생한 메모리 할당에러의 경우 스택오버플로우 에러가 됩니다. 반면에 Native Method Stack 의 사이즈를 늘리려는 시도가 실패한 경우 OutOfMemory 에러가 된다.
+
+결론적으로 JVM 구현은 Native Method 호출을 지원하지 않기로 결정할 수 있고, 이러한 구현은 Netive Method Stack 이 필요하지 않다는 점을 강조한다.
+
 ### Execution Engine
+
+로딩과 저장하는 단계가 끝나고 나면 JVM 은 마지막 단계로 Class File 을 실행시킨다. 다음과 같은 세 가지 요소로 구성된다.
+
+- Interpreter
+- JIT Compiler
+- Garbage Collector
+
+#### Interpreter
+
+프로그램을 시작하면 Interpreter 는 Bytecode 를 한 줄씩 읽어가며 기계가 이해할 수 있도록 변환한다.
+
+일반적으로 Interpreter 의 속도는 느린 편인데, 모든 코드를 한 줄씩 읽어야 하기 때문이고 반복적인 작업에 대한 최적화가 어렵기 때문이다.
+
+#### JIT Compiler
+
+Just In Time Compiler 는 Interpreter 의 단점을 극복하기 위해 도입되었다. (언제?)
+
+#### Garbage Collector
+
+별개의 문서로 다뤄야할만큼 매우 중요한 컴포넌트다.
+
+## Chapter 4. Java Native Interface
 
 ## Conclusion
 
@@ -436,7 +524,7 @@ _Java 에 대해서 얼마나 알고 계신다고 생각하시나요?_
 
 이젠 좀 확실히 대답할 수 있을 것 같다.
 
-_Hello World 정도요._
+_음... 🤔 Hello World 정도요._
 
 ## Reference
 
@@ -451,3 +539,4 @@ _Hello World 정도요._
 - https://www.baeldung.com/java-jvm-run-time-data-areas
 - https://sgcomputer.tistory.com/64
 - https://johngrib.github.io/wiki/java/run-time-constant-pool/
+- https://johngrib.github.io/wiki/jvm-stack/
