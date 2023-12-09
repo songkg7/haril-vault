@@ -7,7 +7,7 @@ tags:
   - compile
   - jvm
 categories: 
-updated: 2023-12-09 19:22:28 +0900
+updated: 2023-12-09 20:08:53 +0900
 ---
 
 프로그래밍 세계에서는 항상 `Hello World` 라는 문장을 출력하면서 시작한다. 그게 ~~국룰~~ 암묵적인 규칙이다.
@@ -63,7 +63,7 @@ java VerboseLanguage
 - 두 번째 챕터에서는 실제로 컴파일된 class 파일을 살펴보며 **컴퓨터가 java 코드를 어떻게 해석하고 실행하는지** 살펴본다.
 - 마지막으로 `public static void main` 을 **JVM 이 어떻게 메모리에 어떻게 적재하고 실행할 수 있는지 그 동작 원리**에 대해 살펴본다.
 
-3개의 챕터 내용을 조합하면 그제서야 "Hello World" 에 대해 그림이 그려진다. 꽤 긴 여정이니, 호흡을 가다듬고 시작해본다.
+3개의 챕터 내용을 조합하면 그제서야 "Hello World" 에 대해 그림이 그려진다. 꽤 긴 여정이니, 호흡을 가다듬고 출발해본다.
 
 ## Chapter 1. Why?
 
@@ -72,6 +72,10 @@ Java 에서 Hello World 를 출력하기 전까지 살펴봐야할 몇가지 why
 ### 왜 클래스 이름이 파일명이 되어야 하는가?
 
 정확하게는 `public` 클래스의 이름이 파일명이어야 하는 것이다. 왜 그럴까?
+
+Java 로 된 프로그램은 기본적으로 컴퓨터가 해석할 수 없다. 이 프로그램을 컴퓨터가 해석할 수 있도록 하려면 몇 가지 과정을 통해 기계어로 변환해주어야 하는데, 그 시작이 컴파일러를 사용해 JVM 이 해석할 수 있는 바이트코드로 변환하는 것이다. 변환된 바이트코드는 JVM 내부에 존재하는 인터프리터(interpreter) 를 거쳐서 기계어로 변환되고, 실행된다.
+
+우선 컴파일 과정을 간단하게 살펴보자.
 
 ```java
 public class Outer {
@@ -95,9 +99,13 @@ Permissions Size User   Date Modified Name
 .rw-r--r--   159 haril  30 Nov 16:09  Outer.java
 ```
 
-Java 는 **컴파일 시점에 모든 class 를 `.class` 파일로 생성**한다. java 파일 이름이 public class 와 동일하지 않다면 java 의 interpreter 는 모든 class 파일을 읽어서 main 메서드를 찾아야 한다. 파일 이름과 public class 의 이름이 같다면 Java interpreter 는 해석해야하는 파일을 더 잘 식별할 수 있다.
+위처럼 Java 는 **컴파일 시점에 모든 class 를 `.class` 파일로 생성**한다.
+
+이제 JVM 은 프로그램의 실행을 위해 `main` 메서드를 찾아야 한다. 어디에 `main` 메서드가 있는지 어떻게 알 수 있을까?
 
 _왜 하필 `main` 을 찾아야하냐고? 조금만 기다려주시라._
+
+Java 파일 이름이 public class 와 동일하지 않다면 Java interpreter 는 모든 class 파일을 읽어서 `main` 메서드를 찾아야 한다. 파일 이름과 public class 의 이름이 같다면 Java interpreter 는 해석해야하는 파일을 더 잘 식별할 수 있다.
 
 `Java1000` 이라는 파일이 있고, 이 파일 내부에 1000개의 클래스가 존재한다고 생각해보자. 1000 개의 클래스 중 어디에 `main()` 이 있는지 식별하기 위해서는 모든 클래스 파일을 살펴봐야 한다.
 
@@ -118,7 +126,7 @@ Error: Main method not found in class VerboseLanguage, please define the main me
 
 ### 왜 void 여야 할까?
 
-`main` 메서드의 종료는 Java 의 실행종료를 의미한다. JVM 은 `main` 메서드의 반환값으로 아무 것도 할 수 없으며, 따라서 반환값의 존재가 무의미하다. 그렇게 `void` 가 되었다.
+`main` 메서드의 종료는 Java 의 실행종료를 의미한다. JVM 은 `main` 메서드의 반환값으로 아무 것도 할 수 없으며, 따라서 반환값의 존재가 무의미하다. 그렇다면 `void` 로 선언하는게 자연스러울 것이다.
 
 ### 왜 main 이어야 할까?
 
@@ -164,7 +172,7 @@ _굳이 다시 언급하자면, Python 은 `print("Hello World")` 였다.[^2]_
 
 동시에 OS 가 제공하는 특정 기능을 JVM 에서 사용하기 어렵다는 단점이 된다. Java 로 CLI 를 만들거나 OS 메트릭을 수집하는 등의 시스템 레벨의 코딩이 어렵다고 하는 이유가 이 때문이다.
 
-하지만 제한적이나마 OS 기능을 빌려쓸 수 있는데([[Java Native Interface]]), 이 기능을 제공하는 것이 바로 `System` 이다. 대표적인 기능은 아래와 같은 것들이 있다.
+하지만 제한적이나마 OS 기능을 빌려쓸 수 있는데([[Java Native Interface|JNI]]), 이 기능을 제공하는 것이 바로 `System` 이다. 대표적인 기능은 아래와 같은 것들이 있다.
 
 - 표준 입력
 - **표준 출력**
@@ -181,13 +189,13 @@ private native void writeBytes(byte b[], int off, int len, boolean append)
     throws IOException;
 ```
 
-native 키워드가 붙은 메서드의 호출은 Java Native Interface([[Java Native Interface|JNI]]) 를 통해 동작하는데, 이에 대해서는 별도로 다룬다.
+native 키워드가 붙은 메서드의 호출은 Java Native Interface([[Java Native Interface|JNI]]) 를 통해 동작한다. 이에 대해서는 이후 챕터에서 다룬다.
 
 ### String
 
 #constant-pool #intern
 
-Java 에서 문자열은 조금 특별하다. 아니, 많이 특별한 것 같다([링크](https://www3.ntu.edu.sg/home/ehchua/programming/java/J3d_String.html)). 메모리 레벨에서 별도의 공간을 할당 받을 정도니 분명히 특별취급을 받고 있다. 왜 그럴까?
+Java 에서 문자열은 조금 특별하다. 아니, 많이 특별한 것 같다[^3]. 메모리 레벨에서 별도의 공간을 할당 받을 정도니 분명히 특별취급을 받고 있다. 왜 그럴까?
 
 문자열은 아래 속성을 가지고 있다는 점에 주목할 필요가 있다.
 
@@ -195,7 +203,7 @@ Java 에서 문자열은 조금 특별하다. 아니, 많이 특별한 것 같�
 - 비교적 재사용 빈도가 높다.
 - 같은 문자열인지 판단하기 위해서는 앞에서부터 모든 글자를 순차적으로 비교해야 한다.
 
-따라서 문자열은 한 번 생성한 이후 어떻게 재사용할 것인가에 주안점을 두고 설계되어 있다. 크기가 큰 문자열 데이터를 어떻게 관리하는지에 대해 완벽하게 이해하기 위해서는 이후 챕터에서 다룰 내용에 대한 이해가 필요하다. 지금은 간단하게 메모리 공간 절약의 관점에서만 짚고 넘어가본다.
+따라서 문자열은 한 번 생성한 이후 어떻게 재사용할 것인가에 주안점을 두고 설계되어 있다. 크기가 큰 문자열 데이터를 어떻게 관리하는지에 대해 완벽하게 이해하기 위해서는 이후 챕터에서 다룰 내용에 대한 이해가 필요하다. 지금은 간단하게 메모리 공간 절약의 관점에서만 짚고 넘어가보자.
 
 먼저 자바에서 문자열을 선언하는 방식에 대해 살펴보자.
 
@@ -221,7 +229,7 @@ String greeting = new String("Hello World");
 
 ![](https://i.imgur.com/pN25lbX.png)
 
-new 키워드 없이 문자열을 직접 사용했을 때에는 String Constant Pool 에 생성되어 재사용이 가능했다. 하지만 new 키워드를 통해 인스턴스화하면 일반 객체를 다루듯이 Heap 영역에 생성된다. 이 말은 같은 문자열을 몇 번이고 생성할 수 있다는 뜻이고, 메모리 공간을 쉽게 낭비하게 될 수 있다.
+new 키워드 없이 문자열을 직접 사용했을 때에는 String Constant Pool 에 생성되어 재사용이 가능했다. 하지만 new 키워드를 통해 인스턴스화하면 Constant Pool 에 생성되지 않는다. 이 말은 같은 문자열을 몇 번이고 생성할 수 있다는 뜻이고, 메모리 공간을 쉽게 낭비하게 될 수 있다.
 
 ### 정리
 
@@ -229,8 +237,10 @@ new 키워드 없이 문자열을 직접 사용했을 때에는 String Constant 
 
 - 왜 `.java` 파일과 class 이름이 같아야할까?
 - 왜 `public static void main(String[] args)` 이어야 할까?
-- 출력 원리
-- 문자열 동작 기초 원리
+- 출력 동작의 흐름
+- 문자열의 특징과 생성 및 사용 기초 원리
+
+이번 챕터에서 일부 내용은 다음 챕터에서 소개하는 내용을 이해하지 못하고는 납득하기 어려웠을 것 같다.
 
 ## Reference
 
@@ -251,3 +261,4 @@ new 키워드 없이 문자열을 직접 사용했을 때에는 String Constant 
 
 [^1]: [생활코딩 파이썬](https://www.opentutorials.org/course/4769)
 [^2]: [생활코딩 파이썬](https://www.opentutorials.org/course/4769)
+[^3]: https://www3.ntu.edu.sg/home/ehchua/programming/java/J3d_String.html
