@@ -7,10 +7,8 @@ tags:
   - compile
   - jvm
 categories: 
-updated: 2023-12-08 14:31:53 +0900
+updated: 2023-12-09 19:22:28 +0900
 ---
-
-## 들어가기 전에
 
 프로그래밍 세계에서는 항상 `Hello World` 라는 문장을 출력하면서 시작한다. 그게 ~~국룰~~ 암묵적인 규칙이다.
 
@@ -55,17 +53,17 @@ java VerboseLanguage
 
 그런데 [[Java]] 는 마치 다른 세계에서 온 것 같다. 심지어 여기서 끝이 아니다. 컴파일 과정은 아직 언급도 안했다.
 
-`public` 은 무엇이고 `class` 는 무엇이고, `static` 은 또 무엇이며, `void`, `main`, `String[]`, `System.out.println` 을 거쳐야 드디어 "Hello World" 라는 문자열에 도달한다. ~~이제 다른 언어를 배우러 가자.~~
+`public` 은 무엇이고 `class` 는 무엇이고, `static` 은 또 무엇이며, `void`, `main`, `String[]`, `System.out.println` 을 거쳐야 드디어 "Hello World" 라는 문자열에 도달한다. ~~이제 다른 언어를 배우러 가자.~~[^1]
 
-Java 는 도대체 왜 이리 말 많은(verbose) 과정이 필요할까?
+단순한 "Hello World" 를 출력하는 것임에도 Java 는 꽤 많은 배경 지식을 요구한다. Java 는 도대체 왜 이리 말 많은(verbose) 과정이 필요할까?
 
-이번 시리즈에서는 "Hello World" 라는 2단어를 출력하기 위해 뒤에서는 무슨 일이 일어나는지 살펴본다.
+이번 시리즈는 3개의 챕터로 구성되어 있다. 목표는 "Hello World" 라는 2단어를 출력하기 위해 뒤에서는 무슨 일이 일어나는지 자세하게 살펴보는 것이다. 구체적인 챕터의 내용은 아래와 같다.
 
-- 첫 번째 챕터에서는 의문의 시작이 되는 Hello World 를 살펴보면서 간단하게 이유를 소개한다.
-- 두 번째 챕터에서는 실제로 컴파일된 class 파일을 살펴보며 컴퓨터가 java 코드를 어떻게 해석하고 실행하는지 살펴본다.
-- 마지막으로 JVM 이 실행되는 과정에서 `public static void main` 을 메모리에 어떻게 적재하고 실행할 수 있는지 동작 원리에 대해 살펴본다.
+- 첫 번째 챕터에서는 의문의 시작이 되는 **Hello World 를 살펴보면서 간단하게 이유를 소개**한다.
+- 두 번째 챕터에서는 실제로 컴파일된 class 파일을 살펴보며 **컴퓨터가 java 코드를 어떻게 해석하고 실행하는지** 살펴본다.
+- 마지막으로 `public static void main` 을 **JVM 이 어떻게 메모리에 어떻게 적재하고 실행할 수 있는지 그 동작 원리**에 대해 살펴본다.
 
-아직 늦지 않았다. [생활코딩 파이썬](https://www.opentutorials.org/course/4769)
+3개의 챕터 내용을 조합하면 그제서야 "Hello World" 에 대해 그림이 그려진다. 꽤 긴 여정이니, 호흡을 가다듬고 시작해본다.
 
 ## Chapter 1. Why?
 
@@ -74,10 +72,6 @@ Java 에서 Hello World 를 출력하기 전까지 살펴봐야할 몇가지 why
 ### 왜 클래스 이름이 파일명이 되어야 하는가?
 
 정확하게는 `public` 클래스의 이름이 파일명이어야 하는 것이다. 왜 그럴까?
-
-Java 는 **컴파일 시점에 모든 class 를 `.class` 파일로 생성**한다. java 파일 이름이 public class 와 동일하지 않다면 java interpreter%% footer 추가 %% 는 모든 class 파일을 읽어서 main 메서드를 찾아야 한다. 파일 이름과 public class 의 이름이 같다면 Java interpreter 는 해석해야하는 파일을 더 잘 식별할 수 있다.
-
-_왜 `main` 을 찾아야하냐고? 조금만 기다려주시라._
 
 ```java
 public class Outer {
@@ -100,6 +94,10 @@ Permissions Size User   Date Modified Name
 .rw-r--r--   503 haril  30 Nov 16:09  Outer.class
 .rw-r--r--   159 haril  30 Nov 16:09  Outer.java
 ```
+
+Java 는 **컴파일 시점에 모든 class 를 `.class` 파일로 생성**한다. java 파일 이름이 public class 와 동일하지 않다면 java 의 interpreter 는 모든 class 파일을 읽어서 main 메서드를 찾아야 한다. 파일 이름과 public class 의 이름이 같다면 Java interpreter 는 해석해야하는 파일을 더 잘 식별할 수 있다.
+
+_왜 하필 `main` 을 찾아야하냐고? 조금만 기다려주시라._
 
 `Java1000` 이라는 파일이 있고, 이 파일 내부에 1000개의 클래스가 존재한다고 생각해보자. 1000 개의 클래스 중 어디에 `main()` 이 있는지 식별하기 위해서는 모든 클래스 파일을 살펴봐야 한다.
 
@@ -142,7 +140,7 @@ jbject obj = (*env)->ToReflectedMethod(env, mainClass, mainID, JNI_TRUE);
 
 ### args 의 존재 이유?
 
-지금까지 생략하여 표현했지만, `main()` 에는 `String[] args` 라는 arguments 가 포함되어 있다. 이 인자(arguments)는 명령행 인자(command-line arguments)라고 한다. 왜 문자열 배열로 선언되어 있고 명시하지 않으면 에러가 발생할까?
+지금까지 생략하여 표현했지만, `main()` 에는 `String[] args` 라는 arguments 를 명시해야 한다. 이 인자(arguments)는 명령행 인자(command-line arguments)라고 한다. 왜 문자열 배열로 선언되어 있고 명시하지 않으면 에러가 발생할까?
 
 `public static void main(String[] args)` 이 자바 애플리케이션의 실행지점인 이상, 이 인자는 반드시 자바 외부에서 들어오게 된다.
 
@@ -150,7 +148,7 @@ jbject obj = (*env)->ToReflectedMethod(env, mainClass, mainID, JNI_TRUE);
 
 이것이 args 가 문자열 배열로 선언된 이유이다. 그럼 왜 args 가 있어야할까?
 
-args 들을 단순한 방식으로 외부에서 내부로 넘겨줌으로써 자바 애플리케이션의 동작 방식을 바꿔줄 수 있고, 이런 메커니즘은 C 프로그램의 초창기부터 프로그램의 동작을 제어하기 위해 널리 쓰이던 방식이였다. 특히 간단하게 구현된 애플리케이션은 이 방법이 매우 효과적이다. Java 는 단순히 널리 쓰이던 방식을 채택했을 뿐이다.
+args 들을 단순한 방식으로 외부에서 내부로 넘겨줌으로써 자바 애플리케이션의 동작 방식을 바꿔줄 수 있고, 이런 메커니즘은 C 프로그램의 초창기부터 프로그램의 동작을 제어하기 위해 널리 쓰이던 방식이였다. 특히 간단하게 구현된 애플리케이션은 이 방법이 매우 효과적이다. **Java 는 단순히 널리 쓰이던 방식을 채택**했을 뿐이다.
 
 또한 Java 의 진입 지점으로 `public static void main(String[] args)` 단 하나만 허용되기 때문에, `String[] args` 를 생략할 수 없는 것이다.
 
@@ -160,7 +158,7 @@ args 들을 단순한 방식으로 외부에서 내부로 넘겨줌으로써 자
 
 드디어 출력과 관련된 메서드에 대해 이야기를 시작할 수 있다.
 
-_굳이 다시 언급하자면, Python 은 `print("Hello World")` 였다. [생활코딩 파이썬](https://www.opentutorials.org/course/4769)
+_굳이 다시 언급하자면, Python 은 `print("Hello World")` 였다.[^2]_
 
 자바 프로그램은 OS 에서 바로 실행되는 것이 아니라 JVM 이라는 가상 머신 위에서 실행된다. 이 점은 JVM 을 사용하는 언어라면 OS 에 상관없이 어디서나 애플리케이션을 실행할 수 있다는 장점이 된다.
 
@@ -175,7 +173,7 @@ _굳이 다시 언급하자면, Python 은 `print("Hello World")` 였다. [생�
 
 `Hello World` 를 출력하기 위해 `System` 의 표준 출력 기능을 빌려 사용하는 것이다.
 
-`System.out.println` 의 흐름을 따라가다보면 `native` 키워드가 달려있는 `writeBytes` 메서드를 만나게 되는데, 이 메서드 이후 C언어로 작성된 코드에 동작이 위임되며 표준 출력으로 넘어가게 된다.
+실제로 `System.out.println` 의 흐름을 따라가다보면 `native` 키워드가 달려있는 `writeBytes` 메서드를 만나게 되는데, 이 메서드 이후 C언어로 작성된 코드에 동작이 위임되며 표준 출력으로 넘어가게 된다.
 
 ```java
 // FileOutputStream.java
@@ -183,13 +181,21 @@ private native void writeBytes(byte b[], int off, int len, boolean append)
     throws IOException;
 ```
 
-이 기능은 Java Native Interface([[Java Native Interface]]) 를 통해 사용이 가능한데, 이에 대해서는 별도로 다룬다.
+native 키워드가 붙은 메서드의 호출은 Java Native Interface([[Java Native Interface|JNI]]) 를 통해 동작하는데, 이에 대해서는 별도로 다룬다.
 
 ### String
 
 #constant-pool #intern
 
-Java 에서 문자열은 조금 특별하다. 아니, 많이 특별한 것 같다(footnote: https://www3.ntu.edu.sg/home/ehchua/programming/java/J3d_String.html). 메모리 레벨에서 별도의 공간을 할당 받을 정도니 분명히 특별취급을 받고 있다. 왜 그럴까?
+Java 에서 문자열은 조금 특별하다. 아니, 많이 특별한 것 같다([링크](https://www3.ntu.edu.sg/home/ehchua/programming/java/J3d_String.html)). 메모리 레벨에서 별도의 공간을 할당 받을 정도니 분명히 특별취급을 받고 있다. 왜 그럴까?
+
+문자열은 아래 속성을 가지고 있다는 점에 주목할 필요가 있다.
+
+- 크기가 매우 커질 수 있다.
+- 비교적 재사용 빈도가 높다.
+- 같은 문자열인지 판단하기 위해서는 앞에서부터 모든 글자를 순차적으로 비교해야 한다.
+
+따라서 문자열은 한 번 생성한 이후 어떻게 재사용할 것인가에 주안점을 두고 설계되어 있다. 크기가 큰 문자열 데이터를 어떻게 관리하는지에 대해 완벽하게 이해하기 위해서는 이후 챕터에서 다룰 내용에 대한 이해가 필요하다. 지금은 간단하게 메모리 공간 절약의 관점에서만 짚고 넘어가본다.
 
 먼저 자바에서 문자열을 선언하는 방식에 대해 살펴보자.
 
@@ -203,6 +209,8 @@ String greeting = "Hello World";
 
 문자열은 String Constant Pool 이라는 곳에 생성되며, 불변 속성을 지니고 있다. 한 번 생성된 문자열은 변하지 않으며, 이 후 문자열을 생성하려고 할 때 같은 문자열이 Constant Pool 에 있다면 재활용하게 된다.
 
+_JVM Stack, Frame, Heap 에 관해서는 다음 챕터에서 다룬다_
+
 문자열을 선언하는 또 다른 방법은, 인스턴스화 하는 방식이다.
 
 ```java
@@ -213,7 +221,7 @@ String greeting = new String("Hello World");
 
 ![](https://i.imgur.com/pN25lbX.png)
 
-new 키워드 없이 문자열을 직접 사용했을 때에는 String Constant Pool 에 생성되어 재사용이 가능했다. 하지만 new 키워드를 통해 인스턴스화하면 일반 객체를 다루듯이 Heap 영역에 생성된다. 이 말은 같은 문자열을 몇 번이고 생성할 수 있다는 뜻이고, 메모리 공간을 낭비하게 될 수 있다.
+new 키워드 없이 문자열을 직접 사용했을 때에는 String Constant Pool 에 생성되어 재사용이 가능했다. 하지만 new 키워드를 통해 인스턴스화하면 일반 객체를 다루듯이 Heap 영역에 생성된다. 이 말은 같은 문자열을 몇 번이고 생성할 수 있다는 뜻이고, 메모리 공간을 쉽게 낭비하게 될 수 있다.
 
 ### 정리
 
@@ -222,19 +230,7 @@ new 키워드 없이 문자열을 직접 사용했을 때에는 String Constant 
 - 왜 `.java` 파일과 class 이름이 같아야할까?
 - 왜 `public static void main(String[] args)` 이어야 할까?
 - 출력 원리
-- 문자열 동작 원리
-
-## Conclusion
-
-Java 는 분명 어려운 언어다.
-
-면접을 보다보면 종종 이런 질문을 받는다.
-
-_Java 에 대해서 얼마나 알고 계신다고 생각하시나요?_
-
-이젠 좀 확실히 대답할 수 있을 것 같다.
-
-_음... 🤔 Hello World 정도요._
+- 문자열 동작 기초 원리
 
 ## Reference
 
@@ -252,3 +248,6 @@ _음... 🤔 Hello World 정도요._
 - https://johngrib.github.io/wiki/jvm-stack/
 - https://code-run.tistory.com/8
 - https://www.baeldung.com/java-command-line-arguments
+
+[^1]: [생활코딩 파이썬](https://www.opentutorials.org/course/4769)
+[^2]: [생활코딩 파이썬](https://www.opentutorials.org/course/4769)
