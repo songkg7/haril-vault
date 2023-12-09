@@ -5,8 +5,9 @@ aliases:
 tags:
   - study
   - livid
+  - interview
 categories: 
-updated: 2023-12-07 10:02:02 +0900
+updated: 2023-12-08 17:32:35 +0900
 ---
 
 ## 장소 후보

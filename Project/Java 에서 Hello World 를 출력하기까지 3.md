@@ -6,7 +6,7 @@ tags:
   - java
   - jvm
 categories: 
-updated: 2023-12-08 14:34:45 +0900
+updated: 2023-12-09 19:22:38 +0900
 ---
 
 ## Chapter 3. Java 를 실행하는 JVM
@@ -196,5 +196,17 @@ Just In Time Compiler 는 Interpreter 의 단점을 극복하기 위해 도입�
 #### Garbage Collector
 
 별개의 문서로 다뤄야할만큼 매우 중요한 컴포넌트다.
+
+## Conclusion
+
+Java 는 분명 어려운 언어다.
+
+면접을 보다보면 종종 이런 질문을 받는다.
+
+_Java 에 대해서 얼마나 알고 계신다고 생각하시나요?_
+
+이젠 좀 확실히 대답할 수 있을 것 같다.
+
+_음... 🤔 Hello World 정도요._
 
 ![[Java 에서 Hello World 를 출력하기까지 1#Reference|Java 에서 Hello World 를 출력하기까지 1]]
