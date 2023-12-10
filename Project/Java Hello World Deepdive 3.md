@@ -6,7 +6,7 @@ tags:
   - java
   - jvm
 categories: 
-updated: 2023-12-09 19:22:38 +0900
+updated: 2023-12-10 12:49:35 +0900
 ---
 
 ## Chapter 3. Java 를 실행하는 JVM
@@ -209,4 +209,4 @@ _Java 에 대해서 얼마나 알고 계신다고 생각하시나요?_
 
 _음... 🤔 Hello World 정도요._
 
-![[Java 에서 Hello World 를 출력하기까지 1#Reference|Java 에서 Hello World 를 출력하기까지 1]]
+![[Java Hello World Deepdive 1#Reference|Java 에서 Hello World 를 출력하기까지 1]]
