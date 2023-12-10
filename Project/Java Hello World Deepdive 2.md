@@ -8,10 +8,10 @@ tags:
   - javac
   - javap
 categories: 
-updated: 2023-12-08 14:33:20 +0900
+updated: 2023-12-10 12:49:35 +0900
 ---
 
-[[Java 에서 Hello World 를 출력하기까지 1]] 편에 이어서 "Hello World" 가 바이트코드로 컴파일되는 과정을 살펴봅니다.
+[[Java Hello World Deepdive 1]] 편에 이어서 "Hello World" 가 바이트코드로 컴파일되는 과정을 살펴봅니다.
 
 ## Chapter 2. Compile & Decompile
 
@@ -106,4 +106,4 @@ void spin();
       14: return
 ```
 
-![[Java 에서 Hello World 를 출력하기까지 1#Reference]]
+![[Java Hello World Deepdive 1#Reference]]
