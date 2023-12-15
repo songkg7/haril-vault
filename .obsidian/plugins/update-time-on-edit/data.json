@@ -466,7 +466,9 @@
     "Project/Java Hello World Deepdive 2.md": "054cdd006923bb62e5564bb8174b157c830f08fd2fec7c9a8ed59e1d0c571dcd",
     "Project/Java Hello World Deepdive 3.md": "458a411daabda32b092473cdb268561406884057aa451fa25093984989ed486b",
     "Resource/Virtual Thread.md": "16cbf3ff3cd528720ecc26eead6b87c1b2ee0f6cd94706d090a4565a234a9b14",
-    "Project/Spring MVC Traffic Testing 2.md": "bfd784429bbd7baf18aa4c6c22ba62313830fe7e69ff0e8618c3450b3d483883"
+    "Project/Spring MVC Traffic Testing 2.md": "bfd784429bbd7baf18aa4c6c22ba62313830fe7e69ff0e8618c3450b3d483883",
+    "Resource/Connection reset by peer.md": "13615a62d7ea59ceb13551be9126e05db732e308d6c521d005bdcac05ef31bf3",
+    "Resource/삽질을 대하는 마음가짐.md": "1a1b506457aa2434b27fd85b12034d6ce593ef3205e80e6c786239a2c96b4095"
   },
   "readDateFormat": "yyyy-MM-dd HH:mm:ss xx",
   "useDifferentReadFormat": true
