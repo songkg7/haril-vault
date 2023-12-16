@@ -394,7 +394,7 @@
     "Resource/Sync Async and Blocking Non-blocking.md": "a798f6fea1a4f006a2bf6fbb730aca04d55e505e1da6b8cc1372cf811762bd59",
     "Resource/JVM Compressed OOPS.md": "2ba277bd163e32d57513ce99bdd68f3cd18b71ce3c8dc190e33a4eb341255d89",
     "Resource/기존에 접속한 ip 의 서버가 달라지면 재접속시 생기는 문제.md": "9e781af97e15eae8a4623950b1baea64cde22c1af756ea49b4fc3b8f9b8c90fc",
-    "Resource/Docker Image.md": "477d2cab8944157f662dbf512496af142ce672dcf71c980b0bb0d0b234aeccfa",
+    "Resource/Docker Image.md": "ab224ac16e2ee3de8f88d2f5e4633a23b3ebb312699b8ca5c13d08ef36b03aa9",
     "Resource/Docker Study Example.md": "d2a1631a52008c573158869d6c2e378c1d090bd5d978f47db31f69c1ec0130de",
     "Resource/Couch DB.md": "2ca553dedafe48efab8b9dfd7e96e423c1d0f3102cf7ba73d40634ac2899b1d6",
     "Resource/Datomic.md": "dd10b4d79b7d266b92ea70af9f382d872258affc5cf8a66eb6b57aa032f8e395",
@@ -462,13 +462,11 @@
     "Resource/Toom Cook 3way.md": "673f90833f49affee81bd0e7bcb346fb5cf132a59bd7d690a9588a74bb6ec3c0",
     "Project/Interview Study.md": "26b3bf3235f1e896768555ac2f08e73403dcd6a1bd8c495d96b41f55ea2ced9a",
     "Resource/Java Native Interface.md": "429203c363c2c7ac8dc041145296425761eb28203f2eaa66d0445277fbdd37f9",
-    "Resource/Docker Study Chapter 19.md": "a466d491a0edc5b1ad6cf3ade4a743db959b12c4f576c453208ff1990380c846",
+    "Resource/Docker Study Chapter 19.md": "05a61a7c9050ecc756f74b00b448569a0b875eeab58a4da5c1d15eb4468ba245",
     "Project/Java Hello World Deepdive 2.md": "054cdd006923bb62e5564bb8174b157c830f08fd2fec7c9a8ed59e1d0c571dcd",
     "Project/Java Hello World Deepdive 3.md": "458a411daabda32b092473cdb268561406884057aa451fa25093984989ed486b",
     "Resource/Virtual Thread.md": "16cbf3ff3cd528720ecc26eead6b87c1b2ee0f6cd94706d090a4565a234a9b14",
-    "Project/Spring MVC Traffic Testing 2.md": "5626118644f40b8613c772bc734f8965bf870e4bb66e7653b5a3ed1bb16620fd",
-    "Resource/Docker Study Chapter 21.md": "e984b8ae7815d026963002724b502c7bb6ecb8ceb1e2cd66229c0260acbe2cdc",
-    "Resource/Docker Study Chapter 20.md": "b2c8453ed0d861382ad767dc9ad996fea8d9c9fbf9f2ecb26c9647b8f1865f63"
+    "Project/Spring MVC Traffic Testing 2.md": "5626118644f40b8613c772bc734f8965bf870e4bb66e7653b5a3ed1bb16620fd"
   },
   "readDateFormat": "yyyy-MM-dd HH:mm:ss xx",
   "useDifferentReadFormat": true

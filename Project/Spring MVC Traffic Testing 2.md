@@ -13,7 +13,7 @@ tags:
   - virtual-thread
   - k6
 categories: 
-updated: 2023-12-13 15:40:18 +0900
+updated: 2023-12-15 20:15:30 +0900
 ---
 
 TOC
@@ -22,6 +22,7 @@ TOC
 - DB Connection 기본 설정으로 살펴보기
 - 네트워크 에러가 어떻게 핸들링되는지 살펴보기
 - [[Virtual Thread]] 를 적용하고 테스트해보기
+- 메세지 큐를 도입하여 데이터베이스 커넥션의 한계를 넘어보자
 
 [[Spring MVC Traffic Testing|Spring MVC 트래픽 테스트]] 글에서 최소한의 설정 수정으로 얼마나 트래픽을 견딜 수 있을지 확인해봤었다. 이번 글에서는 조금 더 현실에 가까운 조건을 걸어보려 한다.
 
