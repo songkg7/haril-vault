@@ -8,7 +8,7 @@ tags:
   - javac
   - javap
 categories: 
-updated: 2023-12-10 12:49:35 +0900
+updated: 2023-12-18 03:18:54 +0900
 ---
 
 [[Java Hello World Deepdive 1]] 편에 이어서 "Hello World" 가 바이트코드로 컴파일되는 과정을 살펴봅니다.
@@ -25,7 +25,7 @@ Java 코드는 컴퓨터가 읽고 해석할 수 없다. Java 애플리케이션
 .java -> .class -> interpreting -> execution
 ```
 
-`.class` 파일로 만든 파일은 JVM 이 읽고 해석할 수 있는 바이트코드로 되어 있다. 하지만 이렇게 컴파일된 자바 파일도 기계어는 아니기 때문에 OS 에서 실행할 수는 없다. 그걸 interpreter 에서 해석하는 과정이 있어야 비로소 Java 를 컴퓨터가 실행할 수 있는 것이다. `.java` 파일을 클래스 파일로 만들어보자. 아래 명령어를 사용할 수 있다.
+`.class` 파일로 만든 파일은 JVM 이 읽고 해석할 수 있는 바이트코드로 되어 있다. 하지만 이렇게 컴파일된 자바 파일도 기계어는 아니기 때문에 OS 에서 실행할 수는 없다. 그걸 interpreter 에서 해석하는 과정이 있어야 비로소 컴퓨터가 실행할 수 있다. `.java` 파일을 클래스 파일로 만들어보자. 아래 명령어를 사용하면 된다.
 
 ```bash
 $ javac VerboseLanguage.java
@@ -39,6 +39,8 @@ $ javac VerboseLanguage.java
 $ java VerboseLanguage
 // Hello World
 ```
+
+컴파일 과정을 진행하면 읽기 어려운 바이트코드로 변환된다. JDK 에는 개발자가 컴파일된 바이트 코드를 확인해볼 수 있도록 도구를 제공하므로 사용해보자.
 
 ### Decompile
 
