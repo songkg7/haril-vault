@@ -463,14 +463,16 @@
     "Project/Interview Study.md": "26b3bf3235f1e896768555ac2f08e73403dcd6a1bd8c495d96b41f55ea2ced9a",
     "Resource/Java Native Interface.md": "429203c363c2c7ac8dc041145296425761eb28203f2eaa66d0445277fbdd37f9",
     "Resource/Docker Study Chapter 19.md": "a466d491a0edc5b1ad6cf3ade4a743db959b12c4f576c453208ff1990380c846",
-    "Project/Java Hello World Deepdive 2.md": "a2c78b5b7f537bc1c22b5ba91a1c08ab9594e95ed4cdbba245c0b63516a59b53",
+    "Project/Java Hello World Deepdive 2.md": "98fdc7414e6197c54fbb21af1ca66e9eff3a77d2435ff9254efd7d843c93bd8f",
     "Project/Java Hello World Deepdive 3.md": "458a411daabda32b092473cdb268561406884057aa451fa25093984989ed486b",
     "Resource/Virtual Thread.md": "16cbf3ff3cd528720ecc26eead6b87c1b2ee0f6cd94706d090a4565a234a9b14",
     "Project/Spring MVC Traffic Testing 2.md": "5626118644f40b8613c772bc734f8965bf870e4bb66e7653b5a3ed1bb16620fd",
     "Resource/Docker Study Chapter 21.md": "24b31e7d582e9c28732f6ac8628e4c74bf78e123803c0818c452acb7516ce7b3",
     "Resource/Docker Study Chapter 20.md": "b2c8453ed0d861382ad767dc9ad996fea8d9c9fbf9f2ecb26c9647b8f1865f63",
     "Resource/Stream Process.md": "4ef4c8afae0e867047a869c769ef54ab44a1af171cd777ac6e1ceff072fffe37",
-    "Resource/Domain Driven Design.md": "3e6f67acd7f04d72f4b483407d4b0e7035cd1f70d5ca207dfe0caaf611440dd5"
+    "Resource/Domain Driven Design.md": "3e6f67acd7f04d72f4b483407d4b0e7035cd1f70d5ca207dfe0caaf611440dd5",
+    "Project/Connection reset by peer.md": "7d7c7e82e90916867206feaa87107708e6e6fecceb20173a6a5357987b018668",
+    "private/글또 MT.md": "465db996f6b92dd37ba23690c4120ae4ebcaa25a544ba79702cac2d1df976299"
   },
   "readDateFormat": "yyyy-MM-dd HH:mm:ss xx",
   "useDifferentReadFormat": true
