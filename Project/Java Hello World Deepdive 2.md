@@ -7,6 +7,9 @@ tags:
   - compile
   - javac
   - javap
+  - instruction
+  - operand
+  - opcode
 categories: 
 updated: 2023-12-21 23:36:50 +0900
 ---
@@ -237,6 +240,8 @@ SourceFile: "VerboseLanguage.java"
 ## Conclusion
 
 전 챕터에서는 간단하게 Hello World 를 출력하기 위한 클래스 구조에 대해 의문점을 살펴봤었다면, 이번 챕터에서는 Hello World 를 출력하기 전 어떤 과정이 있는지 살펴봤다. 다음으로는 드디어 JVM과 함께 Hello World 출력 메서드의 실행(...!) 흐름을 살펴본다.
+
+## Reference
 
 - https://seung-nari.tistory.com/entry/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B5%AC%EC%A1%B0-%EB%AA%85%EB%A0%B9%EC%96%B4-%EC%BD%94%EB%93%9C-OP-Code-Mode-Operand
 - https://gngsn.tistory.com/252
