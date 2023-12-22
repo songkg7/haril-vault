@@ -1,0 +1,256 @@
+{
+  "main": {
+    "id": "8d4b6916fffaa653",
+    "type": "split",
+    "children": [
+      {
+        "id": "d792050ed150f283",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "039dba9d708190b7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Project/Spring MVC Traffic Testing 2.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "2cc456b2feb88353",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Project/Understanding How Transactional Annotation Works.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "b4977641784ff6a2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Project/Java Hello World Deepdive 2.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          }
+        ],
+        "currentTab": 2
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "e7d1d1784716454d",
+    "type": "split",
+    "children": [
+      {
+        "id": "c283706535d19599",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ca4acbf2ba8f847f",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "61f04dc4a00fe3d9",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "0da33f9fd5625e06",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 297.5,
+    "collapsed": true
+  },
+  "right": {
+    "id": "41a576e0627fcea3",
+    "type": "split",
+    "children": [
+      {
+        "id": "4705ab928852dd21",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "95595987c6ea6d11",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Project/Java Hello World Deepdive 2.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": false
+              }
+            }
+          },
+          {
+            "id": "ffbf13c224129e81",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Project/Java Hello World Deepdive 2.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "4ca6df124620813a",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "6776aee76fcd763f",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {}
+            }
+          },
+          {
+            "id": "60e288c7da73f0ec",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency"
+              }
+            }
+          },
+          {
+            "id": "7b8a8d2771fcf904",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Project/Java Hello World Deepdive 2.md"
+              }
+            }
+          }
+        ],
+        "currentTab": 5
+      }
+    ],
+    "direction": "horizontal",
+    "width": 450.5,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": true,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": true,
+      "command-palette:Open command palette": true,
+      "markdown-importer:Open format converter": false,
+      "workspaces:Manage workspace layouts": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
+      "obsidian-markdown-formatting-assistant-plugin:Open Markdown Formatting Assistant": false,
+      "obsidian-textgenerator-plugin:Generate Text!": true,
+      "obsidian-textgenerator-plugin:Text Generator: Templates Packages Manager": true,
+      "marp:Marp: Open Preview": false,
+      "copilot:Copilot Chat": false,
+      "obsidian-projects:Open projects": false,
+      "templater-obsidian:Templater": false,
+      "obsidian-excalidraw-plugin:Create new drawing": false
+    }
+  },
+  "active": "b4977641784ff6a2",
+  "lastOpenFiles": [
+    "Resource/kaniko.md",
+    "Archive/Java Hello World Deepdive 1.md",
+    "Project/Java Hello World Deepdive 2.md",
+    "private/글또 MT.md",
+    "Project/Spring MVC Traffic Testing 2.md",
+    "Project/Connection reset by peer.md",
+    "Project/Understanding How Transactional Annotation Works.md",
+    "Resource/Stream Process.md",
+    "Resource/Domain Driven Design.md",
+    "Resource/Two Phase Commit.md",
+    "Resource/Kubernetes handson session.md",
+    "Resource/Docker Study Chapter 21.md",
+    "Resource/Docker Study Chapter 20.md",
+    "Resource/NginX.md",
+    "Resource/Docker Study Chapter 19.md",
+    "Resource/Docker Image.md",
+    "Project/Docker Engine.md",
+    "Project/try-with-resource.md",
+    "Resource/삽질을 대하는 마음가짐.md",
+    "Archive/Image optimazation for SEO.md",
+    "Archive/Spring MVC Traffic Testing.md",
+    "Resource/How many requests can Spring MVC handle simultaneously?.md",
+    "Resource/Virtual Thread.md",
+    "Project/Interview Study.md",
+    "Resource/글또 큐레이션 논의.md",
+    "private/Question list.md",
+    "Untitled.canvas",
+    "Excalidraw",
+    "attachments/Pasted image 20231109095354.png",
+    "attachments/Pasted image 20231108111647.png",
+    "attachments/Pasted image 20231108094916.png",
+    "attachments/Pasted image 20231107145644.png",
+    "attachments/Pasted image 20231107144228.png",
+    "attachments/Pasted image 20231107145058.png",
+    "attachments/Pasted image 20231107145019.png",
+    "attachments/Pasted image 20231107143718.png",
+    "attachments/Pasted image 20231107142116.png",
+    "attachments/Pasted image 20231107142000.png",
+    "Area",
+    "ready",
+    "textgenerator/prompts/dalle-2",
+    "textgenerator/prompts/huggingface",
+    "textgenerator/prompts/default",
+    "textgenerator/prompts",
+    "textgenerator"
+  ]
+}
