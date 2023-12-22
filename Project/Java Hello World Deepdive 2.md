@@ -11,7 +11,7 @@ tags:
   - operand
   - opcode
 categories: 
-updated: 2023-12-23 00:03:05 +0900
+updated: 2023-12-23 00:06:03 +0900
 ---
 
 [[Java Hello World Deepdive 1]] 편에 이어서 "Hello World" 를 출력하기 위해 코드가 어떻게 변해가는지 살펴봅니다.
@@ -179,7 +179,7 @@ arr = [b2, 00, 07, 12, 0d, b6]
 
 getstatic 은 2바이트의 피연산자가 필요하고, ldc 는 1바이트의 피연산자가 필요하다. 따라서 0번째에 있는 getstatic 다음 명령어인 ldc 는 1, 2 를 건너뛴 3번째에 기록된다.
 
-`-verbose` 옵션을 주면 constant pool 을 포함한 역어셈블 결과를 볼 수 있다. operand 와 constant pool 을 비교해보는 것도 재밌을 것이다.
+`-verbose` 옵션을 주면 constant pool 을 포함한 역어셈블 결과를 볼 수 있다. operand 와 constant pool 을 함께 살펴보는 것도 재밌을 것이다.
 
 ```
   Compiled from "VerboseLanguage.java"
