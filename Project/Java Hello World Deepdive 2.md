@@ -11,7 +11,7 @@ tags:
   - operand
   - opcode
 categories: 
-updated: 2023-12-23 00:06:03 +0900
+updated: 2023-12-23 00:25:32 +0900
 ---
 
 [[Java Hello World Deepdive 1]] 편에 이어서 "Hello World" 를 출력하기 위해 코드가 어떻게 변해가는지 살펴봅니다.
@@ -97,6 +97,8 @@ _다행히 우리들의 판도라의 상자 안에는 0 과 1 이 들어있을 �
 > [!info] 역컴파일(decompile)과 역어셈블(disassemble)의 차이
 > 역컴파일의 경우는 말 그대로 바이트코드를 컴파일 하기 전처럼, 상대적으로 고수준의 언어로 표현하는 것을 말한다. 반면, 역어셈블은 바이트코드를 사람이 읽을 수 있는 특정 형식으로 표현해주는 것을 말한다.
 
+#### Virtual Machine Assembly Language
+
 이제 `javap` 를 사용해서 바이트코드를 변환(disassemble)해보자. 0, 1 보다는 훨씬 읽을만한 결과가 출력된다.
 
 ```bash
@@ -155,7 +157,7 @@ Code:
 
 _Hello World_
 
-참고로 getstatic, invokevirtual 같은 바이트 코드 명령어 opcode 들은 1바이트의 바이트 번호로 표현된다. getstatic=0xb2, invokevirtual = 0xb6 등이다. 1바이트는 256가지 종류의 수를 표현할 수 있으므로, 자바 바이트코드 명령어 opcode 역시 최대 256개라는 점을 알 수 있다.
+참고로 getstatic, invokevirtual 같은 바이트 코드 명령어 opcode 들은 1바이트의 바이트 번호로 표현된다. getstatic=0xb2, invokevirtual = 0xb6 등이다. 1바이트는 256가지 종류의 수를 표현할 수 있으므로, 자바 바이트 코드 명령어 opcode 역시 **최대 256개**라는 점을 알 수 있다.
 
 ![](https://i.imgur.com/FlBgfx7.png)
 
@@ -249,10 +251,10 @@ SourceFile: "VerboseLanguage.java"
 
 ## Conclusion
 
-전 챕터에서는 간단하게 Hello World 를 출력하기 위한 클래스 구조에 대해 의문점을 살펴봤었다면, 이번 챕터에서는 Hello World 를 출력하기 전 어떤 과정이 있는지 살펴봤다. 다음으로는 드디어 JVM과 함께 Hello World 출력 메서드의 실행(...!) 흐름을 살펴본다.
+전 챕터에서는 Hello World 를 출력하기 위해 왜 말많은 과정이 필요한지에 대해 살펴봤었다면, 이번 챕터에서는 Hello World 를 출력하기 전 어떤 과정이 진행되는지 살펴봤다. 다음으로는 드디어 JVM과 함께 Hello World 출력 메서드의 실행 흐름을 살펴본다.
 
 ## Reference
 
-- https://seung-nari.tistory.com/entry/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B5%AC%EC%A1%B0-%EB%AA%85%EB%A0%B9%EC%96%B4-%EC%BD%94%EB%93%9C-OP-Code-Mode-Operand
-- https://gngsn.tistory.com/252
-- https://d2.naver.com/helloworld/1230
+- [명령어 코드](https://seung-nari.tistory.com/entry/%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B5%AC%EC%A1%B0-%EB%AA%85%EB%A0%B9%EC%96%B4-%EC%BD%94%EB%93%9C-OP-Code-Mode-Operand)
+- [JVM Architecture, 제대로 이해하기](https://gngsn.tistory.com/252)
+- [Naver D2](https://d2.naver.com/helloworld/1230)
