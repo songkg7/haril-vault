@@ -11,7 +11,7 @@ tags:
   - operand
   - opcode
 categories: 
-updated: 2023-12-23 00:33:13 +0900
+updated: 2023-12-23 01:01:35 +0900
 ---
 
 [Java Hello World Deepdive 1](https://songkg7.github.io/posts/Java-Hello-World-Deepdive-1/) 편에 이어서 "Hello World" 를 출력하기 위해 코드가 어떻게 변해가는지 살펴봅니다.
@@ -183,7 +183,22 @@ arr = [b2, 00, 07, 12, 0d, b6]
 
 getstatic 은 2바이트의 피연산자가 필요하고, ldc 는 1바이트의 피연산자가 필요하다. 따라서 0번째에 있는 getstatic 다음 명령어인 ldc 는 1, 2 를 건너뛴 3번째에 기록된다.
 
-`-verbose` 옵션을 주면 constant pool 을 포함한 역어셈블 결과를 볼 수 있다. operand 와 constant pool 을 함께 살펴보는 것도 재밌을 것이다.
+마지막으로 4번째 줄에 보면 `(Ljava/lang/String;)V` 라는 주석이 눈에 띈다. 이 주석을 통해 자바 바이트 코드에서 클래스는 `L;` void 는 `V` 로 표현되는걸 알 수 있다. 다른 타입들도 고유의 표현이 있는데 이를 정리하면 다음과 같다.
+
+| 자바 바이트코드 | 타입      | 설명                                  |
+| --------------- | --------- | ------------------------------------- |
+| B               | byte      | signed byte                           |
+| C               | char      | Unicode character                     |
+| D               | double    | double-precision floating-point value |
+| F               | float     | single-precision floating-point value |
+| I               | int       | integer                               |
+| J               | long      | long integer                          |
+| L\<classname>;  | reference | an instance of class \<classname>     |
+| S               | short     | signed short                          |
+| Z               | boolean   | true or false                         |
+| [               | reference | one array dimension                   |
+
+`-verbose` 옵션을 주면 constant pool 을 포함한 역어셈블 결과를 자세히 볼 수 있다. operand 와 constant pool 을 함께 살펴보는 것도 재밌을 것이다.
 
 ```
   Compiled from "VerboseLanguage.java"
@@ -253,7 +268,7 @@ SourceFile: "VerboseLanguage.java"
 
 ## Conclusion
 
-전 챕터에서는 Hello World 를 출력하기 위해 왜 말많은 과정이 필요한지에 대해 살펴봤었다면, 이번 챕터에서는 Hello World 를 출력하기 전 어떤 과정이 진행되는지 살펴봤다. 다음으로는 드디어 JVM과 함께 Hello World 출력 메서드의 실행 흐름을 살펴본다.
+전 챕터에서는 Hello World 를 출력하기 위해 왜 말많은 과정이 필요한지에 대해 살펴봤었다면, 이번 챕터에서는 Hello World 를 출력하기 전 어떤 과정이 진행되는지 컴파일과 역어셈블 과정을 통해 살펴봤다. 다음으로는 드디어 JVM과 함께 Hello World 출력 메서드의 실행 흐름을 살펴본다.
 
 ## Reference
 
