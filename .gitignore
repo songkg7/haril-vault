@@ -10,3 +10,5 @@ private/
 .obsidian/text-generator.json
 textgenerator/prompts
 
+# **conflicted**.json
+
