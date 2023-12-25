@@ -6,19 +6,21 @@ tags:
   - java
   - jvm
 categories: 
-updated: 2023-12-10 12:49:35 +0900
+updated: 2023-12-25 18:38:57 +0900
 ---
+
+앞선 챕터에서 Java 의 기본적인 규칙이 정의된 이유에 대해 대략적으로 들여다봤다. 이번 챕터에서는 JVM 이 실행되면서 'Hello World' 코드 블록을 어떻게 동작시키는지 살펴본다.
 
 ## Chapter 3. Java 를 실행하는 JVM
 
 - [[Java Virtual Machine]]
 - [[Java Native Interface]]
-- Hello World 가 어떤 메모리 영역과 상호작용하게 되는지
 - JVM 메모리 적재 과정
-
-앞선 챕터에서 Java 의 기본적인 규칙이 정의된 이유에 대해 대략적으로 들여다봤다. 이번 챕터에서는 JVM 이 실행되면서 'Hello World' 코드 블록을 어떻게 동작시키는지 살펴본다.
+- Hello World 가 어떤 메모리 영역과 상호작용하게 되는지
 
 [[Java Virtual Machine|JVM]] 이 실행되면 `main` 메서드를 찾는다. 찾은 메서드를 Method Area 에 적재한 뒤 call 하여 호출
+
+### Java 가 실행된 순간
 
 ### Class Loader
 
@@ -127,8 +129,8 @@ invokespecial 은 객체 초기화 메서드가 직접 호출된다는걸 의미
 5. Shared Date Area 에 있는게 합리적 + Heap 에 있어야 하지만 JVM 레벨에서 불변으로 다뤄야하므로 전용 Constant Pool 을 Heap 내부에 별도로 생성하여 관리하게 되었다
 
 - ? `new String("Hello World)"` 로 생성자 호출로 문자열을 생성한다면 String Constant Pool 을 사용하지 않는 것일까?
-
-"Hello World" 라는 문자열을 선언한 시점에 바로 String Constant Pool 에 생성된다. new 키워드를 호출하면 Heap 영역에 객체가 생성되며 String Constant Pool 에 존재하는 "Hello World" 문자열의 주소를 참조하게 된다?
+    - "Hello World" 라는 문자열을 선언한 시점에 바로 String Constant Pool 에 생성된다. new 키워드를 호출하면 Heap 영역에 객체가 생성되며 String Constant Pool 에 존재하는 "Hello World" 문자열의 주소를 참조하게 된다?
+    - 혹은, String Constant Pool 에 생성되지 않고 바로 heap 영역에 생성될까?
 
 #### Per-thread Data Areas
 
