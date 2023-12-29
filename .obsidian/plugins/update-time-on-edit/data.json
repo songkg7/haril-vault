@@ -86,7 +86,6 @@
     "1. Project/Network 대역폭과 이미지 전송의 상관관계.md": "13ed70121b353fd29d691cfd11ffe287be5770f792de92d782606157749c2883",
     "1. Project/Socket.md": "771190316ad1d63f1bec1e4f838b51e36f22efafe6693c0b75c3ce8780cdc553",
     "1. Project/Spring MVC Traffic Testing 2.md": "5626118644f40b8613c772bc734f8965bf870e4bb66e7653b5a3ed1bb16620fd",
-    "1. Project/The Scourge of Distributed System.md": "8b926d2f43b40b59a714fe2abb4282bcca46aeeb1a9352d154244044c0fc9dbb",
     "1. Project/Replication.md": "324b87602cfa0543f5d6acfdc8c5b85c365a386665cdae30c0971141ec1e0457",
     "1. Project/Consideration of the appropriate type with the ID of Entity.md": "aef76e4674e3fae1ae16e6578bf5ff774d2dd1b6d1d72a2139b0357c2075bbc7",
     "1. Project/Interview Study.md": "26b3bf3235f1e896768555ac2f08e73403dcd6a1bd8c495d96b41f55ea2ced9a",
@@ -473,7 +472,9 @@
     "4. Archive/better then others, better then yesterday.md": "bd365bbe5cca7e66fc3291594dbc6de1848adba3823f1df0b39ae1e2221954b5",
     "4. Archive/mac 키보드 반복 활성화.md": "fa88851325df254835495882029713d08a5df433501a5e798bcc8d0c589a9cbe",
     "4. Archive/삶의 지도.md": "e68a48bb78ae89764a5cfacd65063a0ed10adc966a21c79dd056bc332116eb6d",
-    "4. Archive/kotlin loop.md": "c85c6017941d0576296b416d8614211091cbf2216a1e5a8732f4f7a777e0da66"
+    "4. Archive/kotlin loop.md": "c85c6017941d0576296b416d8614211091cbf2216a1e5a8732f4f7a777e0da66",
+    "3. Resource/The Scourge of Distributed System.md": "8b926d2f43b40b59a714fe2abb4282bcca46aeeb1a9352d154244044c0fc9dbb",
+    "private/Naver Webtoon Resume.md": "6f91b8cb4b6f2aac3b562b51773504e8b9e48e365a4230aba25d1efb708fdb1b"
   },
   "readDateFormat": "yyyy-MM-dd HH:mm:ss xx",
   "useDifferentReadFormat": true
