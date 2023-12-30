@@ -30,8 +30,8 @@
   "attachments": "RiAttachmentLine",
   "ready": "RiCheckboxMultipleBlankFill",
   "daily": "RiStickyNoteLine",
-  "1. Project": "RiProjectorLine",
-  "2. Area": "RiRestartLine",
-  "3. Resource": "FabBuffer",
-  "4. Archive": "RiArchiveLine"
+  "1_Project": "RiProjectorLine",
+  "2_Area": "RiRestartLine",
+  "3_Resource": "FabBuffer",
+  "4_Archive": "RiArchiveLine"
 }
