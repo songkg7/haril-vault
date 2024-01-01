@@ -1,7 +1,7 @@
 ---
 title: O2 - Obsidian plugin 개발하기
 date: 2023-02-23 08:59:00 +0900
-aliases: O2
+aliases: []
 tags:
   - obsidian
   - plugin
@@ -9,7 +9,7 @@ tags:
   - typescript
   - o2
 categories: 
-updated: 2023-09-19 22:47:27 +0900
+updated: 2024-01-01 19:13:54 +0900
 ---
 
 # O2
