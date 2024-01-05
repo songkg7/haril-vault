@@ -85,7 +85,7 @@
     "1_Project/Consideration of the appropriate type with the ID of Entity.md": "aef76e4674e3fae1ae16e6578bf5ff774d2dd1b6d1d72a2139b0357c2075bbc7",
     "1_Project/Docker Engine.md": "3fc001acec4ebf8b33068a25959fae47bc1a8aa24a2d69d95de7fbfeb99128de",
     "1_Project/Interview Study.md": "5f38ba48f373b80b4d64c67fa8aea1c52e0944134c1a35f9590c41a2063d0506",
-    "1_Project/Java Hello World Deepdive 3.md": "650062a6e2aefd48e3bfb1b02f8cb5e84955d34b7186927b21a7e99f4ff1a2e9",
+    "1_Project/Java Hello World Deepdive 3.md": "fc4bef11aad0fe42c863c0f08b06bd5415543f6dd6785213f4f5640778a2a662",
     "1_Project/Network 대역폭과 이미지 전송의 상관관계.md": "13ed70121b353fd29d691cfd11ffe287be5770f792de92d782606157749c2883",
     "1_Project/Replication.md": "324b87602cfa0543f5d6acfdc8c5b85c365a386665cdae30c0971141ec1e0457",
     "1_Project/Socket.md": "771190316ad1d63f1bec1e4f838b51e36f22efafe6693c0b75c3ce8780cdc553",
@@ -223,7 +223,7 @@
     "3_Resource/JDK dynamic proxy vs CGLIB.md": "e1b7d5d7dc8293e4560a68f0b4b52da5667597703da400383b8aeab36bd3169a",
     "3_Resource/JPA N + 1 Issue.md": "f7088c37f1acd2e5a52665e1352a5a62bc7cd4d4751f7453b23e0564a52e9fb7",
     "3_Resource/JUnit.md": "b84a36a1e770602627e00500cfb6c592170876b7b392b9e6ef1aef8ba77fff09",
-    "3_Resource/JVM Compressed OOPS.md": "2ba277bd163e32d57513ce99bdd68f3cd18b71ce3c8dc190e33a4eb341255d89",
+    "3_Resource/JVM Compressed OOPS.md": "7e1dce23f1145690e298b17b9313a24021c273ce8354dfd004f6ac95de3180a2",
     "3_Resource/JVM Warm up.md": "bd759b5acd8a268070bd794bda070f30cf8765235729e10adca0173a3450308d",
     "3_Resource/JVM stack and frame.md": "f35dc8eec3138f349d0cbff11698de76267bcd74513b438fe74a93e295ed1b44",
     "3_Resource/Java Collection Framework.md": "77f90b4e560f22a3040cfcaa2a7d7ee35aab91e80e6c522a6ad973022dee9d52",
@@ -300,7 +300,7 @@
     "3_Resource/Plain Old Java Object.md": "1e4eef982068cb150a55f62af3e5db4b9f09022376bd16734ed9bf5f62ba0cf8",
     "3_Resource/PostgreSQL Index Management.md": "64412ff1a8b2004b2f71475760a043df133a07781b8790c22711366772be4fb1",
     "3_Resource/PostgreSQL 성능 개선하기.md": "1b5bdce1917b70463a5acc77b5404b2360a915287a827c8301a6c78d5ab0bc91",
-    "3_Resource/PostgreSQL.md": "885cf415fa8410f3ca30a6599c1051e87deba40743a01f69d762e25d9fbd478e",
+    "3_Resource/PostgreSQL.md": "5cb1aa6011c42594df74569a5715dd879a8769f3798f2a429947fc259872aaf7",
     "3_Resource/Problems with Transactional annotation in Test.md": "d9ef9c28279e6318c7f584fb7d80ccf2887970f6df308292edee4e44145ff401",
     "3_Resource/Python.md": "fbffba61cfb0ae45b35bd63a5c83cc844cbddda3597d433ed3e9a0807f9e7a5d",
     "3_Resource/R2DBC.md": "b5d822416a76d9538bfa21aca92d745fd8cbd27e0ba54cfa57800a60f0989a93",
@@ -476,8 +476,7 @@
     "4_Archive/mac 키보드 반복 활성화.md": "fa88851325df254835495882029713d08a5df433501a5e798bcc8d0c589a9cbe",
     "4_Archive/삶의 지도.md": "e68a48bb78ae89764a5cfacd65063a0ed10adc966a21c79dd056bc332116eb6d",
     "O2.md": "2c7dd5cfca638bd6db54af93948b02c886ac6d3ea16ca257924be0542841caa0",
-    "private/2023 Review.md": "fd194ecd08e059f65e34d5a16ac1e1cc3f99dc438932c4ff2d2026c28858963c",
-    "daily/2024-01-03.md": "0a97153d8af09fba4ee144e8f9830bab2006ef10ae143114a58146989f3053cb"
+    "private/2023 Review.md": "fd194ecd08e059f65e34d5a16ac1e1cc3f99dc438932c4ff2d2026c28858963c"
   },
   "readDateFormat": "yyyy-MM-dd HH:mm:ss xx",
   "useDifferentReadFormat": true
