@@ -3,12 +3,13 @@ title: PostgreSQL
 date: 2023-09-27 15:25:00 +0900
 aliases:
   - postgres
+  - psql
 tags:
   - postgresql
   - rdb
   - database
 categories: 
-updated: 2023-10-27 16:42:21 +0900
+updated: 2024-01-04 11:10:14 +0900
 ---
 
 ## Indexes In PostgreSQL
@@ -24,6 +25,7 @@ updated: 2023-10-27 16:42:21 +0900
 - https://d2.naver.com/helloworld/227936
 - https://dev.to/mahmoudhossam917/indexes-in-postgresql-1hob
 - https://aws.amazon.com/ko/blogs/database/multi-tenant-data-isolation-with-postgresql-row-level-security/
+- https://github.com/jojoldu/postgresql-in-action
 
 ## Links
 
