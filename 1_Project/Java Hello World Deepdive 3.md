@@ -6,7 +6,7 @@ tags:
   - java
   - jvm
 categories: 
-updated: 2024-01-05 18:15:10 +0900
+updated: 2024-01-07 17:01:55 +0900
 ---
 
 앞선 챕터에서 Java 의 기본적인 규칙이 정의된 이유에 대해 대략적으로 들여다봤다. 이번 챕터에서는 JVM 이 실행되면서 'Hello World' 코드 블록을 어떻게 동작시키는지 살펴본다.
@@ -17,10 +17,6 @@ updated: 2024-01-05 18:15:10 +0900
 - [[Java Native Interface]]
 - JVM 메모리 적재 과정
 - Hello World 가 어떤 메모리 영역과 상호작용하게 되는지
-
-### Java 가 실행된 순간
-
-[[Java Virtual Machine|JVM]] 이 실행되면 `main` 메서드를 찾는다. 찾은 메서드를 Method Area 에 적재한 뒤 call 하여 호출
 
 ### Class Loader
 
@@ -90,9 +86,6 @@ Run-Time Constant Pool 은 Method Area 의 일부로 클래스 및 인터페이�
 
 ##### String Constant Pool
 
-- intern() 의 기능(ch.3)
-- 더 이상 intern 은 사용할 필요가 없다(ch.3)
-
 > "Hello World" 문자열이 저장되는 곳
 
 앞 문단에서 Run-Time Constant Pool 이 Method Area 에 속한다고 했었다. Heap 에도 Constant Pool 이 하나 존재하는데 바로 String Constant Pool 이다.
@@ -143,6 +136,8 @@ assertThat(greeting).isEqualTo("Hello World"); // true
 
 과거에는 메모리를 절약하기 위한 일종의 트릭으로 제공됐지만, 이제는 이런 트릭을 사용할 필요가 없으니 참고만 하자. 문자열은 그냥 리터럴로 사용하면 된다.
 
+다소 설명이 길었다. 요약해보자.
+
 1. 숫자들은 최댓값이 제한되어 있는 반면에 문자열은 그 특성상 최대 크기를 고정하기 애매하다.
 2. 매우 커질 수 있고, 생성 이후 자주 사용될 가능성이 다른 타입에 비해 높다
 3. 자연스럽게 메모리 효율성이 높을 것이 요구된다. 그러면서도 사용성을 높이기 위해 전역적으로 참조될 수 있어야 한다.
@@ -175,11 +170,14 @@ PC register 의 수명 주기는 기본적으로 스레드의 수명주기와 �
 
 JVM 스레드는 독립된 스택을 가진다. JVM 스택은 메서드 호출 정보를 저장하는 데이터 구조다. 각 메서드가 호출될 때마다 스택에 메서드의 지역 변수와 반환 값의 주소를 가지고 있는 새로운 프레임이 생성된다. 만약 primitive type 이라면 스택에 바로 저장되고, wrapper type 이라면 Heap 에 생성된 인스턴스의 참조를 갖게 된다. 이로 인하여 int 나 double 이 Integer, Double 보다 근소하게 성능상 이점을 갖게 된다.
 
-JVM 스택 덕분에 JVM 은 프로그램 실행을 추적하고 필요에 따라 스택 추적을 기록할 수 있다. = stack trace = 한 작업이 스레드를 넘나드는 webflux 의 이벤트루프에서 stack trace 가 의미를 갖기 어려운 이유
+JVM 스택 덕분에 JVM 은 프로그램 실행을 추적하고 필요에 따라 스택 추적을 기록할 수 있다.
 
-JVM 구현에 따라 스택의 메모리 사이즈와 할당 방식이 결정될 수 있습니다. 일반적으로는 1MB 남짓의 공간이 스레드가 시작될 때 할당됩니다. = 구현이 항상 같진 않다는 뜻
+- stack trace 라고 한다. `printStackTrace` 가 이것이다.
+- 한 작업이 스레드를 넘나드는 webflux 의 이벤트루프에서 stack trace 가 의미를 갖기 어려운 이유
 
-JVM 의 메모리 할당 에러는 stack overflow error 를 수반할 수 있습니다. 그러나 만약 JVM 구현이 JVM 스택 사이즈의 동적 확장을 허락한다면, 그리고 만약 메모리 에러가 확장 도중에 발생한다면 JVM 은 OutOfMemory 에러를 던지게 될 수 있습니다.
+JVM 구현에 따라 스택의 메모리 사이즈와 할당 방식이 결정될 수 있다. 일반적으로는 1MB 남짓의 공간이 스레드가 시작될 때 할당된다.
+
+JVM 의 메모리 할당 에러는 stack overflow error 를 수반할 수 있다. 그러나 만약 JVM 구현이 JVM 스택 사이즈의 동적 확장을 허락한다면, 그리고 만약 메모리 에러가 확장 도중에 발생한다면 JVM 은 OutOfMemory 에러를 던지게 될 수 있다.
 
 스레드마다 분리된 stack 영역을 갖는다. Stack 은 호출되는 메서드 실행을 위해 해당 메서드를 담고 있는 역할을 한다. 메서드가 호출되면 새로운 Frame 이 Stack 에 생성된다. 이 Frame 은 LIFO 로 처리되며, 메서드 실행이 완료되면 제거된다.
 
@@ -207,20 +205,26 @@ JVM Stack 의 경우, Native Method Stack 에서 발생한 메모리 할당에�
 
 #### Interpreter
 
-프로그램을 시작하면 Interpreter 는 Bytecode 를 한 줄씩 읽어가며 기계가 이해할 수 있도록 변환한다.
+프로그램을 시작하면 Interpreter 는 Bytecode 를 한 줄씩 읽어가며 기계가 이해할 수 있도록 기계어로 변환한다.
 
-일반적으로 Interpreter 의 속도는 느린 편인데, 모든 코드를 한 줄씩 읽어야 하기 때문이고 반복적인 작업에 대한 최적화가 어렵기 때문이다.
+일반적으로 Interpreter 의 속도는 느린 편이다. 왜 그럴까?
+
+컴파일 언어는 실행 전에 컴파일 과정을 통해 프로그램이 실행되기 위해 필요한 자원이나 타입 등을 미리 정의할 수 있다. 하지만 인터프리터 언어는 실행되기 전까지는 필요한 자원이나 변수의 타입을 알 수 없기 때문에 최적화 과정이 어렵기 때문이다.
 
 #### JIT Compiler
 
-Just In Time Compiler 는 Interpreter 의 단점을 극복하기 위해 도입되었다. (언제?)
+Just In Time Compiler 는 Interpreter 의 단점을 극복하기 위해 Java 1.1 부터 도입되었다.
+
+JIT 컴파일러는 런타임 시에 바이트코드를 기계어로 컴파일하여 자바 애플리케이션의 실행 속도를 향상시킨다. 전체 코드를 한 번에 기계어로 컴파일하는 것은 아니고, 자주 실행되는 부분(핫 코드)를 감지하여 컴파일한다.
 
 - ? 실행되는 라인을 카운트한 후 일정 횟수 이상이 된다면 별도의 메모리에 적재한다.
     - 카운트 라인을 직접 확인할 수 있는 방법 찾아보기
+    - `-XX:+PrintCompilation`: JIT 관련 로그 출력
+    - `-Djava.compiler=NONE`: JIT 비활성화. 성능 하락을 확인할 수 있다.
 
 #### Garbage Collector
 
-별개의 문서로 다뤄야할만큼 매우 중요한 컴포넌트다.
+별개의 문서로 다뤄야할만큼 매우 중요한 컴포넌트며 이미 [정리한 글](https://songkg7.github.io/posts/Garbage-Collection/)이 있어서 이번에는 생략한다.
 
 - GC 를 최적화해야하는 경우는 흔하지 않다.
     - 하지만 GC 동작으로 500ms 이상 처리가 지연되는 경우는 종종 있고, 많은 트래픽을 다루거나 캐시의 TTL 이 타이트한 곳이라면 500ms 의 지연은 충분히 문제가 될 수 있다.
