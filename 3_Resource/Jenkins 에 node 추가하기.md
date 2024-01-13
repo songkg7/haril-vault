@@ -1,14 +1,14 @@
 ---
 title: Jenkins 에 node 추가하기
 date: 2022-12-30 11:27:00 +0900
-aliases: null
+aliases: 
 tags:
   - jenkins
   - docker
   - ssh
   - linux
-categories: null
-updated: 2023-08-19 12:38:07 +0900
+categories: 
+updated: 2024-01-11 16:29:56 +0900
 ---
 
 [[Jenkins]] 에 node 를 추가하게 되면 Jenkins 자체의 부하를 줄이고 서버 자원을 효율적으로 활용할 수 있게 된다.
@@ -21,6 +21,13 @@ updated: 2023-08-19 12:38:07 +0900
 yum update
 ```
 
+Amazon Linux 2 2023~
+
+```bash
+sudo yum install java-11-amazon-corretto-headless
+# or
+sudo yum install java-11-amazon-corretto
+```
 ### Docker Agent
 
 ```bash

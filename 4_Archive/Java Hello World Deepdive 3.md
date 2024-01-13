@@ -6,13 +6,14 @@ tags:
   - java
   - jvm
 categories: 
-updated: 2024-01-07 17:01:55 +0900
+updated: 2024-01-08 14:14:35 +0900
 ---
 
-앞선 챕터에서 Java 의 기본적인 규칙이 정의된 이유에 대해 대략적으로 들여다봤다. 이번 챕터에서는 JVM 이 실행되면서 'Hello World' 코드 블록을 어떻게 동작시키는지 살펴본다.
+앞선 챕터에서는 Java 를 컴파일해보며 바이트코드 구조에 대해 살펴봤다. 이번 챕터에서는 JVM 이 실행되면서 'Hello World' 코드 블록을 어떻게 동작시키는지 살펴본다.
 
 ## Chapter 3. Java 를 실행하는 JVM
 
+- Class Loader
 - [[Java Virtual Machine]]
 - [[Java Native Interface]]
 - JVM 메모리 적재 과정
@@ -69,14 +70,11 @@ Heap 사이즈에 대한 제약은 JVM 명세에 존재하지 않는다. 메모�
 
 Method Area 는 클래스 및 인터페이스 정의를 저장하는 공유 데이터 영역이다. Heap 과 마찬가지로 JVM 이 시작될 때 생성되며 JVM 이 종료될 때만 소멸된다.
 
-전역 변수와 static 변수는 이 영역에 저장되므로 프로그램이 시작부터 종료될 때까지 어디서든 사용이 가능한 이유가 된다. (= Run-Time Constant Pool)
+클래스 전역 변수와 static 변수는 이 영역에 저장되므로 프로그램이 시작부터 종료될 때까지 어디서든 사용이 가능한 이유가 된다. (= Run-Time Constant Pool)
 
 구체적으로는 클래스 로더는 클래스의 바이트코드(.class)를 로드하여 JVM 에 전달하는데, JVM 은 객체를 생성하고 메서드를 호출하는 데 사용되는 클래스의 내부 표현을 런타임에 생성한다. 이 내부 표현은 클래스 및 인터페이스에 대한 필드, 메서드, 생성자에 대한 정보를 수집한다.
 
 사실 Method Area 는 JVM 명세에 따르면 구체적으로 '이래야 한다' 는 명확한 정의가 없는 영역이다. **논리적 영역**이며, 구현에 따라서 힙의 일부로 존재할 수도 있다. 간단한 구현에서는 힙의 일부이면서도 GC 나 압축이 발생하지 않도록 할 수도 있다.
-
-> [!NOTE]
-> `static final` 상수의 경우 constant pool 에서 관리되기 때문에 선언된 클래스를 로드하지 않는다.
 
 ##### Run-Time Constant Pool
 
@@ -134,7 +132,7 @@ greeting.intern(); // constant pool 사용
 assertThat(greeting).isEqualTo("Hello World"); // true
 ```
 
-과거에는 메모리를 절약하기 위한 일종의 트릭으로 제공됐지만, 이제는 이런 트릭을 사용할 필요가 없으니 참고만 하자. 문자열은 그냥 리터럴로 사용하면 된다.
+과거에는 메모리를 절약하기 위한 일종의 트릭으로 제공됐지만, 이제는 이런 트릭을 사용할 필요가 없으니 참고만 하자. **문자열은 그냥 리터럴로 사용**하면 된다.
 
 다소 설명이 길었다. 요약해보자.
 
@@ -144,10 +142,8 @@ assertThat(greeting).isEqualTo("Hello World"); // true
 4. Per-Thread Date Area 중 Stack 에 있을 경우는 다른 스레드에서 재활용할 수 없고, 크기가 크면 할당 공간을 찾기 어렵다
 5. Shared Date Area 에 있는게 합리적 + Heap 에 있어야 하지만 JVM 레벨에서 불변으로 다뤄야하므로 전용 Constant Pool 을 Heap 내부에 별도로 생성하여 관리하게 되었다
 
-- ? `new String("Hello World)"` 로 생성자 호출로 문자열을 생성한다면 String Constant Pool 을 사용하지 않는 것일까?
-    - "Hello World" 라는 문자열을 선언한 시점에 바로 String Constant Pool 에 생성된다. new 키워드를 호출하면 Heap 영역에 객체가 생성되며 String Constant Pool 에 존재하는 "Hello World" 문자열의 주소를 참조하게 된다?
-    - 혹은, String Constant Pool 에 생성되지 않고 바로 heap 영역에 생성될까?
-    - @ 생성자 내부의 문자열 리터럴은 String Constant Pool 에서 가져오지만 `new` 키워드는 독립된 문자열 생성을 보장한다. 결국, String Constant Pool 에 하나, Heap 영역에 하나씩 총 2개의 문자열이 존재하게 된다.
+> [!question] `"Hello Wrold"` 리터럴 선언 이후, `new String("Hello World)"` 처럼 생성자 호출로 문자열을 생성한다면 String Constant Pool 을 사용하지 않는 것일까?
+> 생성자 내부의 문자열 리터럴은 String Constant Pool 에서 가져오지만 `new` 키워드는 독립된 문자열 생성을 보장한다. 결국, String Constant Pool 에 하나, Heap 영역에 하나씩 총 2개의 문자열이 존재하게 된다.
 
 #### Per-thread Data Areas
 
@@ -185,15 +181,16 @@ JVM 의 메모리 할당 에러는 stack overflow error 를 수반할 수 있다
 
 Native Method 는 자바가 아닌 다른 언어로 작성된 메서드를 말한다. 이 메서드들은 바이트코드로 컴파일될 수 없기 때문에(Java 가 아니므로 javac 를 사용할 수 없다), 별도의 메모리 영역이 필요하다.
 
-Native Method Stack 은 JVM Stack 과 매우 유사하지만 오직 native method 전용이다.
-
-Native Method Stack 의 목적은 native method 의 실행을 추적하는 것이다.
+- Native Method Stack 은 JVM Stack 과 매우 유사하지만 오직 native method 전용이다.
+- Native Method Stack 의 목적은 native method 의 실행을 추적하는 것이다.
 
 JVM 구현은 Native Method Stack 의 사이즈와 메모리 블록을 어떻게 조작할 것인지를 자체적으로 결정할 수 있다.
 
-JVM Stack 의 경우, Native Method Stack 에서 발생한 메모리 할당에러의 경우 스택오버플로우 에러가 됩니다. 반면에 Native Method Stack 의 사이즈를 늘리려는 시도가 실패한 경우 OutOfMemory 에러가 된다.
+JVM Stack 의 경우, Native Method Stack 에서 발생한 메모리 할당에러의 경우 스택오버플로우 에러가 된다. 반면에 Native Method Stack 의 사이즈를 늘리려는 시도가 실패한 경우 OutOfMemory 에러가 된다.
 
-결론적으로 JVM 구현은 Native Method 호출을 지원하지 않기로 결정할 수 있고, 이러한 구현은 Netive Method Stack 이 필요하지 않다는 점을 강조한다.
+결론적으로, JVM 구현은 Native Method 호출을 지원하지 않기로 결정할 수 있고, 이러한 구현은 Netive Method Stack 이 필요하지 않다는 점을 강조한다.
+
+_[[Java Native Interface]] 의 사용 방법에 대해서는 별도의 글로 다룰 예정이다._
 
 ### Execution Engine
 
@@ -217,10 +214,10 @@ Just In Time Compiler 는 Interpreter 의 단점을 극복하기 위해 Java 1.1
 
 JIT 컴파일러는 런타임 시에 바이트코드를 기계어로 컴파일하여 자바 애플리케이션의 실행 속도를 향상시킨다. 전체 코드를 한 번에 기계어로 컴파일하는 것은 아니고, 자주 실행되는 부분(핫 코드)를 감지하여 컴파일한다.
 
-- ? 실행되는 라인을 카운트한 후 일정 횟수 이상이 된다면 별도의 메모리에 적재한다.
-    - 카운트 라인을 직접 확인할 수 있는 방법 찾아보기
-    - `-XX:+PrintCompilation`: JIT 관련 로그 출력
-    - `-Djava.compiler=NONE`: JIT 비활성화. 성능 하락을 확인할 수 있다.
+아래 키워드를 사용하면 JIT 관련 동작을 확인할 수 있으니 필요하다면 사용해보자.
+
+- `-XX:+PrintCompilation`: JIT 관련 로그 출력
+- `-Djava.compiler=NONE`: JIT 비활성화. 성능 하락을 확인할 수 있다.
 
 #### Garbage Collector
 
@@ -241,4 +238,12 @@ _Java 에 대해서 얼마나 알고 계신다고 생각하시나요?_
 
 _음... 🤔 Hello World 정도요._
 
-![[Java Hello World Deepdive 1#Reference|Java 에서 Hello World 를 출력하기까지 1]]
+## Reference
+
+- [inpa blog](https://inpa.tistory.com/entry/JAVA-%E2%98%95-%ED%81%B4%EB%9E%98%EC%8A%A4%EB%8A%94-%EC%96%B8%EC%A0%9C-%EB%A9%94%EB%AA%A8%EB%A6%AC%EC%97%90-%EB%A1%9C%EB%94%A9-%EC%B4%88%EA%B8%B0%ED%99%94-%EB%90%98%EB%8A%94%EA%B0%80-%E2%9D%93#jvm%EC%9D%98_%ED%81%B4%EB%9E%98%EC%8A%A4_%EB%A1%9C%EB%8D%94_class_loader)
+- https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-2.html#jvms-2.5
+- https://www.baeldung.com/java-jvm-run-time-data-areas
+- https://sgcomputer.tistory.com/64
+- https://johngrib.github.io/wiki/java/run-time-constant-pool/
+- https://johngrib.github.io/wiki/jvm-stack/
+- https://code-run.tistory.com/8
