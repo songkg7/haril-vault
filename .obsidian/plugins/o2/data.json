@@ -1,8 +1,8 @@
 {
   "attachmentsFolder": "attachments",
   "readyFolder": "ready",
-  "backupFolder": "Archive",
-  "_jekyllPath": "/Users/harilsong/Library/CloudStorage/Dropbox/devlog",
+  "backupFolder": "4_Archive",
+  "_jekyllPath": "/Users/kgsong/Library/CloudStorage/Dropbox/devlog",
   "_jekyllRelativeResourcePath": "assets/img",
   "_isAutoCreateFolder": false,
   "_isEnableCurlyBraceConvertMode": true,

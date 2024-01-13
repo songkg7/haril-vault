@@ -9,7 +9,7 @@ categories:
   - DevOps
 fc-calendar: Gregorian Calendar
 fc-date: 2022-08-13
-updated: 2023-11-19 08:58:34 +0900
+updated: 2024-01-10 18:05:11 +0900
 ---
 
 - [[Docker Volume]]
@@ -167,4 +167,5 @@ http localhost/ping
 
 ## Reference
 
-https://gngsn.tistory.com/128
+- https://gngsn.tistory.com/128
+- https://blog.cloudacode.com/%EB%8F%84%EC%BB%A4%EB%8A%94-%EB%AC%B4%EC%97%87%EC%9C%BC%EB%A1%9C-%EC%96%B4%EB%96%BB%EA%B2%8C-%EA%B5%AC%EC%84%B1%EB%90%98%EC%96%B4-%EC%9E%88%EC%9D%84%EA%B9%8C-1b2a52ca8d1c
