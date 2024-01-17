@@ -8,7 +8,7 @@ tags:
   - ssh
   - linux
 categories: 
-updated: 2024-01-11 16:29:56 +0900
+updated: 2024-01-17 11:21:44 +0900
 ---
 
 [[Jenkins]] 에 node 를 추가하게 되면 Jenkins 자체의 부하를 줄이고 서버 자원을 효율적으로 활용할 수 있게 된다.
@@ -70,6 +70,14 @@ ssh-keyscan -H {new node IP} >> /var/lib/jenkins/.ssh/known_hosts
 ```bash
 git ls-remote -h git@~.git HEAD
 # e.g. git ls-remote -h git@gitlab.com:seavantage/backend/hub/batch/svmp-ship-to-s3-batch.git HEAD
+```
+
+### node 에서 GitLab 접속의 경우
+
+node 에서 GitLab 의 private repository 에 접근할 때도 마찬가지로 known_hosts 에 등록되어 있어야 가능하다. 이번엔 node 에서 아래 명령을 통해 등록해준다.
+
+```bash
+ssh-keyscan gitlab.com >> ~/.ssh/known_hosts
 ```
 
 ## Docker
