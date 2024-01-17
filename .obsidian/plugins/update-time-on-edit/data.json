@@ -234,7 +234,7 @@
     "3_Resource/Java Virtual Machine.md": "c6387e4a5207add34fbaf2a0d24a83704c9bd9c995048f5d243208768a86015e",
     "3_Resource/Java 의 접근 제어자.md": "a89c69027763b6617984b809f8de0b7639f4fc5950163f0b2ce91d52e0d7e83d",
     "3_Resource/Java.md": "511a063fa0131c551c84533220f3ed85d35f6ba04136a8a611dce01cffe632e3",
-    "3_Resource/Jenkins 에 node 추가하기.md": "22dbb564146d0dd51b24237a1caab68ae7bdeb4b293f8ba5c00b6e6f3d14b462",
+    "3_Resource/Jenkins 에 node 추가하기.md": "e3fc3223ab0d2a49c1f2bc2300e7da880557b01c3f537f628428282744111fd1",
     "3_Resource/Jenkins.md": "f612fb08a16594854592d030250c74b89da5c8da39a27a52ec890dd15b05b163",
     "3_Resource/Jira vs Github Project.md": "73cd70c00e6270d599f68499fe1fd4385ae10705a942763b8faa5a046d7e9eb6",
     "3_Resource/Job.md": "fb6cda0bd18700a23388579b4066dde76e652e4d6f35840fd468fb373b4986d6",
@@ -478,7 +478,8 @@
     "private/2023 Review.md": "fd194ecd08e059f65e34d5a16ac1e1cc3f99dc438932c4ff2d2026c28858963c",
     "PostgreSQL Dump.md": "28bdea6173199c740bd6a8791de865b64720d781541a1e491d3b3f370b4ac471",
     "Printing Hello When the terminal opens.md": "fc9a821b0558c02cb330a5f0fdfda34aa9be311644286be785cc455aa57f9f6e",
-    "당근 개발자 플랫폼은 어떤 문제를 해결하고 있는가?.md": "35c9b0c55ab214f7a5db0d05a0ae9b5ebd611cbb8ef3bd90459a2df23d33eacb"
+    "당근 개발자 플랫폼은 어떤 문제를 해결하고 있는가?.md": "35c9b0c55ab214f7a5db0d05a0ae9b5ebd611cbb8ef3bd90459a2df23d33eacb",
+    "Spatial index.md": "df9df049e6d0efd72167ae12f72aa7ecbdcd2bf00de61a0f845feeba247ca943"
   },
   "readDateFormat": "yyyy-MM-dd HH:mm:ss xx",
   "useDifferentReadFormat": true
