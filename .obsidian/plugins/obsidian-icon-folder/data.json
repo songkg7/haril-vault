@@ -1,6 +1,6 @@
 {
   "settings": {
-    "migrated": 3,
+    "migrated": 4,
     "iconPacksPath": ".obsidian/icons",
     "fontSize": 16,
     "emojiStyle": "none",
@@ -24,7 +24,8 @@
     "iconInTitleEnabled": true,
     "iconInFrontmatterEnabled": false,
     "iconsBackgroundCheckEnabled": false,
-    "iconsInNotesEnabled": true
+    "iconsInNotesEnabled": true,
+    "iconIdentifier": ":"
   },
   "private": "RiLockLine",
   "attachments": "RiAttachmentLine",

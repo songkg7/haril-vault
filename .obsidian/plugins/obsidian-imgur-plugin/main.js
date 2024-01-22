@@ -27,14 +27,14 @@ __export(ImgurPlugin_exports, {
   default: () => ImgurPlugin
 });
 module.exports = __toCommonJS(ImgurPlugin_exports);
-var import_obsidian9 = require("obsidian");
+var import_obsidian10 = require("obsidian");
 
 // src/ui/ImgurPluginSettingsTab.ts
 var import_obsidian4 = require("obsidian");
 
 // src/imgur/constants.ts
 var IMGUR_PLUGIN_CLIENT_ID = "5d3647b14ed585f";
-var IMGUR_API_BASE = "https://api.imgur.com/3/";
+var IMGUR_API_BASE = "https://api.imgur.com/3";
 var IMGUR_ACCESS_TOKEN_LOCALSTORAGE_KEY = "imgur-access_token";
 
 // src/UploadStrategy.ts
@@ -462,8 +462,9 @@ function stringToFormDataSection(formName, strValue) {
   return `Content-Disposition: form-data; name="${formName}"${DOUBLE_LINE_BREAK}${strValue}`;
 }
 function fileToFormDataSection(formName, file) {
-  const firstLine = `Content-Disposition: form-data; name="${formName}"; filename="${file.name}"${DOUBLE_LINE_BREAK}`;
-  return new Blob([firstLine, file]);
+  const firstLine = `Content-Disposition: form-data; name="${formName}"; filename="${file.name}"`;
+  const contentType = file.type ? [MIME_LINE_BREAK, `Content-Type: ${file.type}`] : [""];
+  return new Blob([firstLine, ...contentType, DOUBLE_LINE_BREAK, file]);
 }
 function composeMultipartBodyFrom(multipartPieces, boundaryLine) {
   const allPieces = addMultipartBoundaries(multipartPieces, boundaryLine);
@@ -511,7 +512,7 @@ var AuthenticatedImgurClient = class {
   }
   async accountInfo() {
     const req = {
-      url: `${IMGUR_API_BASE}account/me`,
+      url: `${IMGUR_API_BASE}/account/me`,
       method: "GET",
       headers: { Authorization: `Bearer ${this.accessToken}` },
       throw: false
@@ -529,7 +530,7 @@ var AuthenticatedImgurClient = class {
       requestData.append("album", albumId);
     }
     const request = {
-      url: `${IMGUR_API_BASE}image`,
+      url: `${IMGUR_API_BASE}/image`,
       method: "POST",
       headers: { Authorization: `Bearer ${this.accessToken}` },
       ...await prepareMultipartRequestPiece(requestData),
@@ -543,7 +544,7 @@ var AuthenticatedImgurClient = class {
   }
   async listAlbums() {
     const req = {
-      url: `${IMGUR_API_BASE}account/${this.authenticatedUser}/albums`,
+      url: `${IMGUR_API_BASE}/account/${this.authenticatedUser}/albums`,
       method: "GET",
       headers: { Authorization: `Bearer ${this.accessToken}` },
       throw: false
@@ -561,7 +562,7 @@ var AuthenticatedImgurClient = class {
       requestData.append("description", description);
     }
     const request = {
-      url: `${IMGUR_API_BASE}album`,
+      url: `${IMGUR_API_BASE}/album`,
       method: "POST",
       headers: { Authorization: `Bearer ${this.accessToken}` },
       ...await prepareMultipartRequestPiece(requestData),
@@ -585,7 +586,7 @@ var ImgurAnonymousUploader = class {
     const requestData = new FormData();
     requestData.append("image", image);
     const request = {
-      url: `${IMGUR_API_BASE}image`,
+      url: `${IMGUR_API_BASE}/image`,
       method: "POST",
       headers: { Authorization: `Client-ID ${this.clientId}` },
       ...await prepareMultipartRequestPiece(requestData),
@@ -821,13 +822,7 @@ var editorCheckCallbackFor = (size) => (checking, editor) => {
 };
 var plugin_callback_default = editorCheckCallbackFor;
 
-// src/ImgurPlugin.ts
-var DEFAULT_SETTINGS = {
-  uploadStrategy: UploadStrategy.ANONYMOUS_IMGUR.id,
-  clientId: null,
-  showRemoteUploadConfirmation: true,
-  albumToUpload: void 0
-};
+// src/utils/FileList.ts
 function allFilesAreImages(files) {
   if (files.length === 0)
     return false;
@@ -837,7 +832,101 @@ function allFilesAreImages(files) {
   }
   return true;
 }
-var ImgurPlugin = class _ImgurPlugin extends import_obsidian9.Plugin {
+
+// src/ui/ImageUploadBlockingModal.ts
+var import_obsidian9 = require("obsidian");
+var ImageUploadBlockingModal = class extends import_obsidian9.Modal {
+  onOpen() {
+    this.titleEl.setText("Imgur plugin");
+    this.contentEl.setText("Uploading image...");
+    const buttonsDiv = this.modalEl.createDiv("modal-button-container");
+    new import_obsidian9.ButtonComponent(buttonsDiv).setButtonText("Cancel").setCta().onClick(() => {
+      this.close();
+    });
+    this.isOpen = true;
+  }
+  onClose() {
+    this.isOpen = false;
+  }
+};
+
+// src/utils/events.ts
+function buildPasteEventCopy(originalEvent, files) {
+  const clipboardData = new DataTransfer();
+  for (let i = 0; i < files.length; i += 1) {
+    clipboardData.items.add(files[i]);
+  }
+  return new ClipboardEvent(originalEvent.type, { clipboardData });
+}
+
+// src/Canvas.ts
+function createImgurCanvasPasteHandler(plugin, originalPasteHandler) {
+  return function(e) {
+    return imgurCanvasPaste.call(this, plugin, originalPasteHandler, e);
+  };
+}
+async function imgurCanvasPaste(plugin, originalPasteHandler, e) {
+  const { files } = e.clipboardData;
+  if (!allFilesAreImages(files) || files.length != 1) {
+    void originalPasteHandler.call(this, e);
+    return;
+  }
+  if (plugin.settings.showRemoteUploadConfirmation) {
+    const modal = new RemoteUploadConfirmationDialog(plugin.app);
+    modal.open();
+    const userResp = await modal.response();
+    switch (userResp.shouldUpload) {
+      case void 0:
+        return;
+      case true:
+        if (userResp.alwaysUpload) {
+          plugin.settings.showRemoteUploadConfirmation = false;
+          void plugin.saveSettings();
+        }
+        break;
+      case false:
+        void originalPasteHandler.call(this, e);
+        return;
+      default:
+        return;
+    }
+  }
+  const canvas = this.canvas;
+  uploadImageOnCanvas(canvas, plugin, buildPasteEventCopy(e, files)).catch(() => {
+    void originalPasteHandler.call(this, e);
+  });
+}
+function uploadImageOnCanvas(canvas, plugin, e) {
+  const modal = new ImageUploadBlockingModal(plugin.app);
+  modal.open();
+  const file = e.clipboardData.files[0];
+  return plugin.getCurrentImagesUploader().upload(file, plugin.settings.albumToUpload).then((url) => {
+    if (!modal.isOpen) {
+      return;
+    }
+    modal.close();
+    pasteRemoteImageToCanvas(canvas, url);
+  }).catch((err) => {
+    modal.close();
+    throw err;
+  });
+}
+function pasteRemoteImageToCanvas(canvas, imageUrl) {
+  canvas.createTextNode({
+    pos: canvas.posCenter(),
+    position: "center",
+    text: `![](${imageUrl})`
+  });
+}
+
+// src/ImgurPlugin.ts
+var DEFAULT_SETTINGS = {
+  uploadStrategy: UploadStrategy.ANONYMOUS_IMGUR.id,
+  clientId: null,
+  showRemoteUploadConfirmation: true,
+  albumToUpload: void 0
+};
+var ImgurPlugin = class _ImgurPlugin extends import_obsidian10.Plugin {
   constructor() {
     super(...arguments);
     this.customPasteEventCallback = async (e, _, markdownView) => {
@@ -931,6 +1020,9 @@ var ImgurPlugin = class _ImgurPlugin extends import_obsidian9.Plugin {
       );
     };
   }
+  getCurrentImagesUploader() {
+    return this.imgUploaderField;
+  }
   get imgUploader() {
     return this.imgUploaderField;
   }
@@ -944,6 +1036,32 @@ var ImgurPlugin = class _ImgurPlugin extends import_obsidian9.Plugin {
     await this.saveData(this.settings);
   }
   async onload() {
+    await this.loadSettings();
+    this.addSettingTab(new ImgurPluginSettingsTab(this.app, this));
+    this.setupImagesUploader();
+    this.setupImgurHandlers();
+    this.addResizingCommands();
+  }
+  setupImagesUploader() {
+    this.imgUploaderField = buildUploaderFrom(this.settings);
+  }
+  setupImgurHandlers() {
+    this.registerEvent(this.app.workspace.on("editor-paste", this.customPasteEventCallback));
+    this.registerEvent(this.app.workspace.on("editor-drop", this.customDropEventListener));
+    this.registerEvent(
+      this.app.workspace.on("active-leaf-change", (leaf) => {
+        const view = leaf.view;
+        if (view.getViewType() === "canvas") {
+          this.overridePasteHandlerForCanvasView(view);
+        }
+      })
+    );
+  }
+  overridePasteHandlerForCanvasView(view) {
+    const originalPasteFn = view.handlePaste;
+    view.handlePaste = createImgurCanvasPasteHandler(this, originalPasteFn);
+  }
+  addResizingCommands() {
     const sizes = ImgurSize.values();
     for (const size of sizes) {
       this.addCommand({
@@ -952,13 +1070,6 @@ var ImgurPlugin = class _ImgurPlugin extends import_obsidian9.Plugin {
         editorCheckCallback: plugin_callback_default(size)
       });
     }
-    await this.loadSettings();
-    this.addSettingTab(new ImgurPluginSettingsTab(this.app, this));
-    this.setupImgurHandlers();
-    this.setupImagesUploader();
-  }
-  setupImagesUploader() {
-    this.imgUploaderField = buildUploaderFrom(this.settings);
   }
   getAuthenticatedImgurClient() {
     if (this.imgUploader instanceof ImgurAuthenticatedUploader) {
@@ -966,13 +1077,9 @@ var ImgurPlugin = class _ImgurPlugin extends import_obsidian9.Plugin {
     }
     return null;
   }
-  setupImgurHandlers() {
-    this.registerEvent(this.app.workspace.on("editor-paste", this.customPasteEventCallback));
-    this.registerEvent(this.app.workspace.on("editor-drop", this.customDropEventListener));
-  }
   static showUnconfiguredPluginNotice() {
     const fiveSecondsMillis = 5e3;
-    new import_obsidian9.Notice("\u26A0\uFE0F Please configure Imgur plugin or disable it", fiveSecondsMillis);
+    new import_obsidian10.Notice("\u26A0\uFE0F Please configure Imgur plugin or disable it", fiveSecondsMillis);
   }
   async uploadFileAndEmbedImgurImage(file) {
     const pasteId = (Math.random() + 1).toString(36).substring(2, 7);
@@ -1012,7 +1119,7 @@ var ImgurPlugin = class _ImgurPlugin extends import_obsidian9.Plugin {
     _ImgurPlugin.replaceFirstOccurrence(this.getEditor(), progressText, `<!--${message}-->`);
   }
   getEditor() {
-    const mdView = this.app.workspace.getActiveViewOfType(import_obsidian9.MarkdownView);
+    const mdView = this.app.workspace.getActiveViewOfType(import_obsidian10.MarkdownView);
     return mdView.editor;
   }
   static replaceFirstOccurrence(editor, target, replacement) {

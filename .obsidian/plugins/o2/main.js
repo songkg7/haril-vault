@@ -1380,6 +1380,7 @@ var O2SettingTab = class extends import_obsidian.PluginSettingTab {
     this.addBackupFolderSetting();
     this.addAttachmentsFolderSetting();
     this.addJekyllPathSetting();
+    this.addJekyllRelativeResourcePathSetting();
     this.containerEl.createEl("h2", {
       text: "Features"
     });
@@ -1419,6 +1420,13 @@ var O2SettingTab = class extends import_obsidian.PluginSettingTab {
     const jekyllSetting = this.plugin.settings.jekyllSetting();
     new import_obsidian.Setting(this.containerEl).setName("Jekyll path").setDesc("The absolute path where Jekyll is installed.").addText((text) => text.setPlaceholder("Enter path").setValue(jekyllSetting.jekyllPath).onChange(async (value) => {
       jekyllSetting.jekyllPath = value;
+      await this.plugin.saveSettings();
+    }));
+  }
+  addJekyllRelativeResourcePathSetting() {
+    const jekyllSetting = this.plugin.settings.jekyllSetting();
+    new import_obsidian.Setting(this.containerEl).setName("Relative resource path").setDesc("The relative path where resources are stored. (default: assets/img)").addText((text) => text.setPlaceholder("Enter path").setValue(jekyllSetting.jekyllRelativeResourcePath).onChange(async (value) => {
+      jekyllSetting.jekyllRelativeResourcePath = value;
       await this.plugin.saveSettings();
     }));
   }
@@ -9851,7 +9859,7 @@ async function renameMarkdownFile(plugin) {
   const markdownFiles = getFilesInReady.call(this, plugin);
   for (const file of markdownFiles) {
     const newFileName = dateString + "-" + file.name;
-    const newFilePath = file.path.replace(file.name, newFileName).replace(" ", "-");
+    const newFilePath = file.path.replace(file.name, newFileName).replace(/\s/g, "-");
     await plugin.app.vault.rename(file, newFilePath);
   }
   return markdownFiles;
