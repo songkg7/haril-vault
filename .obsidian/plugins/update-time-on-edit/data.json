@@ -362,7 +362,7 @@
     "3_Resource/To Transfer Real-time Replication Data.md": "34b4e552477857adf7c3a3680476f1e6a840cda53a393c88489d91202c5e4696",
     "3_Resource/Toom Cook 3way.md": "673f90833f49affee81bd0e7bcb346fb5cf132a59bd7d690a9588a74bb6ec3c0",
     "3_Resource/Transaction.md": "0a8787bd3e4fd14281b863852441afb8586f51112608df6832c96a27405d6dab",
-    "3_Resource/Transactional Outbox Pattern.md": "7beb87ab10f6ff7d5c79982c112530f6ab182b59e38eb4ca3cc9bfd6293dfe03",
+    "3_Resource/Transactional Outbox Pattern.md": "9c98f7cf21eb7b420c5109d87fa14d2573176d4ffe060fea7334094927200725",
     "3_Resource/Transport Layer Security.md": "7e52b768fef396dbf6f010df347a6e4c3ec1cc2c1386d309f661c8a93f9a4db2",
     "3_Resource/TreeMap.md": "843cdb5c1dcc3983319b48d8b3761d2523af2f84900112385b3417c21d747885",
     "3_Resource/Trie.md": "f9db2d44f63777c2b6c3e340cb1e514fc47274c4fc978fea57acbccc8d13bedf",
@@ -483,7 +483,8 @@
     "private/유정님 모의 면접 질문.md": "ef32fb6d5c78bfd90857d12312472270549e012bf0f2c711c6d906c9502d70c1",
     "Promtail.md": "ef0504229be9314495f5eb4e1bda824d3bb79882258dbba15274e77936f91719",
     "R-tree.md": "e7cf93721e1825ae54900c9e6d02ee3a7d53f3afd24efcd9e249f3a3ead6b20a",
-    "B+Tree.md": "6b0b30e4bf8f4f935a05627a737ea0e89d0c96e5e1276bf130367201de312c12"
+    "B+Tree.md": "6b0b30e4bf8f4f935a05627a737ea0e89d0c96e5e1276bf130367201de312c12",
+    "Anti-Join.md": "20fe2d792faf9d3fc945a00b665485acb28eb7e6d9528e5aa5a4a0cc340f39b8"
   },
   "readDateFormat": "yyyy-MM-dd HH:mm:ss xx",
   "useDifferentReadFormat": true
