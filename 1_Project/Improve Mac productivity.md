@@ -6,7 +6,7 @@ tags:
   - productivity
   - tool
 categories: 
-updated: 2024-01-24 21:23:21 +0900
+updated: 2024-01-25 23:39:48 +0900
 ---
 
 ## 1. 입문
