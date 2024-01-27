@@ -1,15 +1,15 @@
 ---
 title: Toss Interview Review
 date: 2023-08-17 16:22:00 +0900
-aliases: null
-tags: null
-categories: null
-updated: 2023-08-17 17:05:31 +0900
+aliases: 
+tags: 
+categories: 
+updated: 2024-01-27 14:46:11 +0900
 ---
 
 ### MSA 에서 트랜잭션 원자성을 보장하는 법
 
-- [[Saga Pattern|Saga Pattern]]
+- [[SAGA Pattern|SAGA Pattern]]
 - [[Transactional Outbox Pattern|Transactional Outbox Pattern]]
 - [[Change Data Capture|CDC]]
 - [[Two Phase Commit|2PC]]

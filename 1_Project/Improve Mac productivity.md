@@ -6,8 +6,10 @@ tags:
   - productivity
   - tool
 categories: 
-updated: 2024-01-25 23:39:48 +0900
+updated: 2024-01-27 20:59:15 +0900
 ---
+
+- 목적별로 정리해두기
 
 ## 1. 입문
 
@@ -20,12 +22,13 @@ updated: 2024-01-25 23:39:48 +0900
 - hiddenbar
 - shottr
 - gureumkim(구름 입력기)
-- [[Notion]]
-- [[Obsidian]]
-- Notion Calendar
-- [[Arc]]
 - Amphetamine
 - WeatherBug
+- [[Notion]]
+- [[Obsidian]]
+- [[Arc]]
+- Spark Desktop
+- Notion Calendar
 
 ## 2. 초급
 
