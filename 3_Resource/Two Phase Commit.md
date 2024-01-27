@@ -3,8 +3,8 @@ title: Two Phase Commit
 date: 2023-08-10 20:41:00 +0900
 aliases: 2PC
 tags: msa, atomic, distribution
-categories: null
-updated: 2023-08-11 17:41:30 +0900
+categories: 
+updated: 2024-01-27 14:37:13 +0900
 ---
 
 ## What is Two Phase Commit?
@@ -39,7 +39,10 @@ Coordinator 가 각 DB에 해당 trasaction 이 문제없이 commit 이 가능�
 
 ### 주의해야할 부분
 
-coordinator 에 장애가 발생하거나 failure 되면 어떻게 될까?
+- coordinator 에 장애가 발생하거나 failure 되면 어떻게 될까?
+- 성능 오버헤드(강한 일관성을 위해)
+- 벤더에 종속될 수 있다
+- 호환성 문제가 생길 수 있다
 
 ## 언제 사용해야 할까?
 

@@ -1,10 +1,13 @@
 ---
-title: Saga Pattern
+title: SAGA Pattern
 date: 2023-08-11 17:38:00 +0900
-aliases: null
-tags: msa, distribute, transaction
-categories: null
-updated: 2023-08-12 15:43:16 +0900
+aliases: 
+tags:
+  - msa
+  - distribute
+  - transaction
+categories: 
+updated: 2024-01-27 14:46:23 +0900
 ---
 
 ## 분산 트랜잭션 처리 패턴
@@ -49,12 +52,12 @@ updated: 2023-08-12 15:43:16 +0900
 
 각각의 Step 들은 다음과 같다.
 
-|Step|Triggering event|Participant|Command|Events|
-|---|---|---|---|---|
-|1|(External Request)|Order Service|createPendingOrder()|OrderCreated|
-|2|OrderCreated|Customer Service|reserveCredit()|Credit Reserved, Credit Limit Exceeded|
-|3a|Credit Reserved|Order Service|approveOrder()||
-|3b|Credit Limit Exceeded|Order Service|rejectOrder()|
+| Step | Triggering event | Participant | Command | Events |
+| ---- | ---- | ---- | ---- | ---- |
+| 1 | (External Request) | Order Service | createPendingOrder() | OrderCreated |
+| 2 | OrderCreated | Customer Service | reserveCredit() | Credit Reserved, Credit Limit Exceeded |
+| 3a | Credit Reserved | Order Service | approveOrder() |  |
+| 3b | Credit Limit Exceeded | Order Service | rejectOrder() |  |
 
 Step 2 같은 경우는 가능한 이벤트가 두 가지 있다고 생각하면 된다.
 
@@ -72,6 +75,11 @@ Step 2 같은 경우는 가능한 이벤트가 두 가지 있다고 생각하면
 3. `CustomerService` 는 이 이벤트를 수신하고 나서 `Credit Reserve` 를 시도한다.
 4. 그 후 `CustomerService` 는 이 결과에 대해 이벤트를 만든다.
 5. `OrderService` 는 이 이벤트를 받고나서 `Order` 를 Approve 할지 reject 할 지 결정한다.
+
+#### 단점
+
+- 이벤트 유실
+- 순서 보장이 어려움 -> [[Transactional Outbox Pattern|Transactional Outbox Pattern]] 으로 해결
 
 ### Orchestration-Based Pattern
 
