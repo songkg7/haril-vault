@@ -1,19 +1,19 @@
 ---
 title: Fixture monkey 0.4.x
 date: 2022-11-11 14:25:00 +0900
-aliases: null
+aliases: 
 tags:
   - fixture
   - test
   - naver
   - open-source
-categories: null
-updated: 2023-08-19 12:38:06 +0900
+categories: 
+updated: 2024-01-31 13:03:39 +0900
 ---
 
 ## Overview
 
-[[Fixture monkey]] 가 0.4.x 으로 업데이트되면서 많은 기능의 변경이 있었다. 이전 글을 작성한지 채 한달도 되지 않았는데 많은 수정이 발생해서(ㅠ) 당황스러웠지만, 커뮤니티가 활발한 신호라는 점으로 마음을 위로하면서 업데이트된 부분을 반영하여 새로 글을 작성한다.
+[[Fixture Monkey 0.3]] 가 0.4.x 으로 업데이트되면서 많은 기능의 변경이 있었다. 이전 글을 작성한지 채 한달도 되지 않았는데 많은 수정이 발생해서(ㅠ) 당황스러웠지만, 커뮤니티가 활발한 신호라는 점으로 마음을 위로하면서 업데이트된 부분을 반영하여 새로 글을 작성한다.
 
 ## Contents
  
@@ -35,7 +35,7 @@ private final LabMonkey fixture = LabMonkey.create();
 
 #### Record 지원
 
-이제 `Record` 또한 fixture monkey 를 통해 생성할 수 있다.
+이제 `Record` 또한 [[Fixture Monkey]] 를 통해 생성할 수 있다.
 
 ```java
 public record LottoRecord(int number) {} 

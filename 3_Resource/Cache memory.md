@@ -1,12 +1,15 @@
 ---
-title: "Cache memory"
+title: Cache memory
 date: 2022-08-14 02:28:00 +0900
 publish: false
 fc-calendar: Gregorian Calendar
 fc-date: 2022-08-14
-aliases: [Cache]
-tags: [cache]
+aliases:
+  - Cache
+tags:
+  - cache
 categories: Computer science
+updated: 2024-01-31 16:25:51 +0900
 ---
 
 ## Cache memory
@@ -106,3 +109,8 @@ Direct + Fully 방식이다. 특정 행을 지정하고, 그 행안의 어떤 �
 <aside> ☝🏻 실제로 위의 두가지보다 나중에 나온 방식이다
 
 </aside>
+
+## Reference
+
+- https://www.linkedin.com/pulse/three-popular-caching-strategies-donny-widjaja-mspm-cspo/
+- https://docs.aws.amazon.com/whitepapers/latest/database-caching-strategies-using-redis/caching-patterns.html

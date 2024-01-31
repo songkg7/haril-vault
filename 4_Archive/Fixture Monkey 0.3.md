@@ -1,13 +1,13 @@
 ---
-title: Fixture monkey
+title: Fixture monkey 0.3
 date: 2022-09-19 18:34:00 +0900
-aliases: null
+aliases: 
 tags:
   - test
   - naver
   - open-source
-categories: null
-updated: 2023-08-19 12:38:16 +0900
+categories: 
+updated: 2024-01-31 13:05:13 +0900
 ---
 
 > [!NOTE] Example code
@@ -51,7 +51,7 @@ public class LottoNumber {
 } 
 ```
 
-Fixture monkey 를 사용한 테스트는 아래처럼 작성할 수 있다.
+[[Fixture Monkey]] 를 사용한 테스트는 아래처럼 작성할 수 있다.
 
 ```java
 class LottoNumberTest {
@@ -166,9 +166,9 @@ public class LottoNumber {
 
 이 코드는 Static factory method(이하 SFM) 를 사용한 형태이다(자세한건 Effective Java 1장을 참조). SFM 를 사용하면 생성자에 이름을 붙여서 사용할 수 있는데, 생성자 대신 이름을 붙인 static method 의 사용을 강제하기 위해 생성자에 `private` 를 붙인 형태로 많이 사용한다.
 
-하지만 역시 `package-private` 뿐만 아니라 기본 `NoArgsConstructor` 도 없기 때문에 일반적인 방법으론 Fixture monkey 를 이용할 수 없다.
+하지만 역시 `package-private` 뿐만 아니라 기본 `NoArgsConstructor` 도 없기 때문에 일반적인 방법으론 [[Fixture Monkey]] 를 이용할 수 없다.
 
-SFM 을 사용하면서 Fixture monkey 를 사용하려면 어쩔 수 없이 생성자의 접근 제한 레벨을 조정하거나, 아래처럼 `@Builder` 의 접근 제어를 `private` 으로 설정한 후 `BuilderArbitraryGenerator` 를 사용해야 한다.
+SFM 을 사용하면서 [[Fixture Monkey]] 를 사용하려면 어쩔 수 없이 생성자의 접근 제한 레벨을 조정하거나, 아래처럼 `@Builder` 의 접근 제어를 `private` 으로 설정한 후 `BuilderArbitraryGenerator` 를 사용해야 한다.
 
 ```java
 public class LottoNumber {
@@ -291,7 +291,7 @@ void createRandomLottoNumbers() {
 앞서 설명한 Generator 외에도 Field Reflection 을 사용하는 `FieldReflectionArbitraryGenerator` 도 있지만 `package-private` `NoArgsConstructor` 가 필요하다. 또한 `final`, `transient` 는 생성할 수 없어서 여전히 production 코드를 수정해야하는 문제가 있을 수 있다.
 
 > [!INFO] package-private
-> 어째선지 Fixture monkey 공식 문서에는 `package-public` 이라고 되어있지만, 일반적으로 Java 에서 `default` 접근 제어자를 뜻하는 `package-private` 으로 작성합니다.
+> 어째선지 [[Fixture Monkey]] 공식 문서에는 `package-public` 이라고 되어있지만, 일반적으로 Java 에서 `default` 접근 제어자를 뜻하는 `package-private` 으로 작성합니다.
 
 사실 Java 의 `Reflection` 은 `final` field 도 수정할 수 있고 `private` 이여도 데이터를 읽어올 수 있으므로 field 나 constructor 에 `final` 이 붙어있는 것만으로는 Reflection 을 통한 객체 생성을 막을 수 없다.
 
@@ -341,7 +341,7 @@ Process finished with exit code 0
 
 ### Record 를 사용할 수 없다.
 
-Java 16 부터 정식으로 추가된 `record` 는 DTO 같은 데이터를 담는 객체를 설계할 때 아주 유용한데, `record` 는 기본적으로 불변 객체로 생성되며 생성자는 `AllArgsConstructor` 하나만 존재한다. 따라서 대부분의 객체 생성에 `NoArgsConstructor` 가 필요한 Fixture monkey 에서는 `record` 타입을 지원하지 않는다.
+Java 16 부터 정식으로 추가된 `record` 는 DTO 같은 데이터를 담는 객체를 설계할 때 아주 유용한데, `record` 는 기본적으로 불변 객체로 생성되며 생성자는 `AllArgsConstructor` 하나만 존재한다. 따라서 대부분의 객체 생성에 `NoArgsConstructor` 가 필요한 [[Fixture Monkey]] 에서는 `record` 타입을 지원하지 않는다.
 
 #### 11.03
 
