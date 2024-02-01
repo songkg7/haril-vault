@@ -2,9 +2,12 @@
 title: CAP
 date: 2024-01-27 14:40:00 +0900
 aliases: 
-tags: 
+tags:
+  - consistency
+  - availability
+  - partition-tolerance
 categories: 
-updated: 2024-01-27 14:40:22 +0900
+updated: 2024-02-01 11:21:52 +0900
 ---
 
 ## CAP 정리
