@@ -6871,7 +6871,7 @@ function convertImageSize(width, height) {
     return "";
   }
   if (height === void 0 || height.length === 0) {
-    return `{ width="${width}" }`;
+    return `{: width="${width}" }`;
   }
   return `{: width="${width}" height="${height}" }`;
 }
