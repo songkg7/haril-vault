@@ -7,7 +7,7 @@ tags:
   - index
   - postgis
 categories: 
-updated: 2024-01-17 20:41:14 +0900
+updated: 2024-02-05 22:40:26 +0900
 ---
 
 [[PostGIS]]
@@ -36,3 +36,7 @@ GIST index 를 사용하면 R-tree 와 유사한 공간 인덱스를 생성할 �
 0.23ms ~ 0.243ms
 
 ## 결론
+
+## Reference
+
+- [Spatial Indexing](https://postgis.net/workshops/postgis-intro/indexing.html)
