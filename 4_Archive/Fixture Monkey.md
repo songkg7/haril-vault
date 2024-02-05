@@ -9,7 +9,7 @@ tags:
   - naver
   - opensource
 categories: 
-updated: 2024-02-03 23:37:25 +0900
+updated: 2024-02-04 02:23:56 +0900
 ---
 
 > "Write once, Test anywhere"
@@ -174,6 +174,8 @@ _여러 프로퍼티들을 잘 채워준다_
 ### Post Condition
 
 하지만 대부분의 경우, **특정 조건에 맞는 프로퍼티 값이 필요**하다. 예를 들어 예시에서는 `id` 가 음수로 생성되었지만, 실제로 `id` 는 양수로 사용하는 경우가 많을 것이다.
+
+![](https://i.imgur.com/ZdFuJtM.png)
 
 랜덤 속성을 유지하되, 범위를 조금 제한해보자.
 
