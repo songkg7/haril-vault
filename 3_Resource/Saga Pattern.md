@@ -7,7 +7,7 @@ tags:
   - distribute
   - transaction
 categories: 
-updated: 2024-01-31 13:57:41 +0900
+updated: 2024-02-06 15:52:48 +0900
 ---
 
 ## 분산 트랜잭션 처리 패턴
@@ -76,10 +76,15 @@ Step 2 같은 경우는 가능한 이벤트가 두 가지 있다고 생각하면
 4. 그 후 `CustomerService` 는 이 결과에 대해 이벤트를 만든다.
 5. `OrderService` 는 이 이벤트를 받고나서 `Order` 를 Approve 할지 reject 할 지 결정한다.
 
+실패한다면?
+
+에러가 발생한 지점부터 롤백이벤트를 발행하고 다른 컴포넌트에서 이 롤백이벤트를 구독하여 보상 처리를 진행한다.
+
 #### 단점
 
-- 이벤트 유실
+- 이벤트 유실, DB 에 저장은 했지만 이벤트 발행에 실패했다면?
 - 순서 보장이 어려움 -> [[Transactional Outbox Pattern|Transactional Outbox Pattern]] 으로 해결
+- 테스트를 실행하려면 모든 서비스 실행 필요 = 통합 테스트 및 디버깅의 어려움
 
 ### Orchestration-Based Pattern
 
