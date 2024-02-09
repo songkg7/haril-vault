@@ -7,7 +7,7 @@ tags:
   - reactive
   - reactor
 categories: 
-updated: 2023-09-18 13:32:56 +0900
+updated: 2024-02-09 22:51:17 +0900
 ---
 
 ## Overview
@@ -19,3 +19,9 @@ Event Loop 는 중단되지 않고 실행되는 상태로 존재하다가 event 
 하나의 event 는 event 의 라이프사이클동안은 같은 thread 안에서 동작한다.
 
 [[Spring WebFlux|WebFlux]]
+
+- [ ] 멀티스레드와 이벤트 루프의 차이점
+- [ ] 이벤트 루프는 비동기인가?
+- [ ] 이벤트 루프는 논블락킹인가?
+
+## 구현
