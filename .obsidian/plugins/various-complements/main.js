@@ -689,6 +689,12 @@ function excludeEmoji(text2) {
 function encodeSpace(text2) {
   return text2.replace(/ /g, "%20");
 }
+function removeFromPattern(pattern, removeChars) {
+  return new RegExp(
+    pattern.source.replace(new RegExp(`[${removeChars}]`, "g"), ""),
+    pattern.flags
+  );
+}
 function normalizeAccentsDiacritics(text2) {
   return text2.replace(/[^\u0000-\u007E]/g, (x) => {
     var _a;
@@ -815,23 +821,34 @@ var ExhaustiveError = class extends Error {
   }
 };
 
+// src/tokenizer/tokenizers/AbstractTokenizer.ts
+var INPUT_TRIM_CHAR_PATTERN = /[\n\t\[\]$/:?!=()<>"',|;*~ `_“„«»‹›‚‘’”]/g;
+var INDEXING_TRIM_CHAR_PATTERN = /[\n\t\[\]/:?!=()<>"',|;*~ `_“„«»‹›‚‘’”]/g;
+var AbstractTokenizer = class {
+  constructor(args) {
+    this.inputTrimCharPattern = (args == null ? void 0 : args.treatUnderscoreAsPartOfWord) ? removeFromPattern(INPUT_TRIM_CHAR_PATTERN, "_") : INPUT_TRIM_CHAR_PATTERN;
+    this.indexingTrimCharPattern = (args == null ? void 0 : args.treatUnderscoreAsPartOfWord) ? removeFromPattern(INDEXING_TRIM_CHAR_PATTERN, "_") : INDEXING_TRIM_CHAR_PATTERN;
+  }
+  getTrimPattern(target) {
+    switch (target) {
+      case "input":
+        return this.inputTrimCharPattern;
+      case "indexing":
+        return this.indexingTrimCharPattern;
+      default:
+        throw new ExhaustiveError(target);
+    }
+  }
+  shouldIgnoreOnCurrent(_str) {
+    return false;
+  }
+};
+
 // src/tokenizer/tokenizers/DefaultTokenizer.ts
 function pickTokens(content, trimPattern) {
   return content.split(trimPattern).filter((x) => x !== "");
 }
-var INPUT_TRIM_CHAR_PATTERN = /[\n\t\[\]$/:?!=()<>"',|;*~ `_“„«»‹›‚‘’”]/g;
-var INDEXING_TRIM_CHAR_PATTERN = /[\n\t\[\]/:?!=()<>"',|;*~ `_“„«»‹›‚‘’”]/g;
-function getTrimPattern(target) {
-  switch (target) {
-    case "input":
-      return INPUT_TRIM_CHAR_PATTERN;
-    case "indexing":
-      return INDEXING_TRIM_CHAR_PATTERN;
-    default:
-      throw new ExhaustiveError(target);
-  }
-}
-var DefaultTokenizer = class {
+var DefaultTokenizer = class extends AbstractTokenizer {
   tokenize(content, raw) {
     const tokens = raw ? Array.from(splitRaw(content, this.getTrimPattern("indexing"))).filter(
       (x) => x !== " "
@@ -850,27 +867,16 @@ var DefaultTokenizer = class {
       }))
     ];
   }
-  getTrimPattern(target) {
-    return getTrimPattern(target);
-  }
-  shouldIgnoreOnCurrent(str) {
-    return false;
-  }
 };
 
 // src/tokenizer/tokenizers/ArabicTokenizer.ts
 var INPUT_ARABIC_TRIM_CHAR_PATTERN = /[\n\t\[\]/:?!=()<>"'.,|;*~ `،؛]/g;
 var INDEXING_ARABIC_TRIM_CHAR_PATTERN = /[\n\t\[\]$/:?!=()<>"'.,|;*~ `،؛]/g;
 var ArabicTokenizer = class extends DefaultTokenizer {
-  getTrimPattern(target) {
-    switch (target) {
-      case "input":
-        return INPUT_ARABIC_TRIM_CHAR_PATTERN;
-      case "indexing":
-        return INDEXING_ARABIC_TRIM_CHAR_PATTERN;
-      default:
-        throw new ExhaustiveError(target);
-    }
+  constructor(_args) {
+    super();
+    this.inputTrimCharPattern = INPUT_ARABIC_TRIM_CHAR_PATTERN;
+    this.indexingTrimCharPattern = INDEXING_ARABIC_TRIM_CHAR_PATTERN;
   }
 };
 
@@ -2371,7 +2377,7 @@ var segmenter = new tiny_segmenter_default();
 function pickTokensAsJapanese(content, trimPattern) {
   return content.split(trimPattern).filter((x) => x !== "").flatMap((x) => joinNumberWithSymbol(segmenter.segment(x)));
 }
-var JapaneseTokenizer = class {
+var JapaneseTokenizer = class extends AbstractTokenizer {
   tokenize(content, raw) {
     return pickTokensAsJapanese(
       content,
@@ -2394,9 +2400,6 @@ var JapaneseTokenizer = class {
       }
     }
     return ret;
-  }
-  getTrimPattern(target) {
-    return getTrimPattern(target);
   }
   shouldIgnoreOnCurrent(str) {
     return Boolean(str.match(/^[ぁ-んａ-ｚＡ-Ｚ。、ー　]*$/));
@@ -2458,7 +2461,7 @@ var EnglishOnlyTokenizer = class extends DefaultTokenizer {
 
 // src/tokenizer/tokenizers/ChineseTokenizer.ts
 var import_chinese_tokenizer = __toESM(require_main());
-var ChineseTokenizer = class {
+var ChineseTokenizer = class extends AbstractTokenizer {
   static create(dict) {
     const ins = new ChineseTokenizer();
     ins._tokenize = import_chinese_tokenizer.default.load(dict);
@@ -2480,21 +2483,19 @@ var ChineseTokenizer = class {
     }
     return ret;
   }
-  getTrimPattern(target) {
-    return getTrimPattern(target);
-  }
-  shouldIgnoreOnCurrent(str) {
-    return false;
-  }
 };
 
 // src/tokenizer/tokenizer.ts
 async function createTokenizer(strategy, app2, settings) {
   switch (strategy.name) {
     case "default":
-      return new DefaultTokenizer();
+      return new DefaultTokenizer({
+        treatUnderscoreAsPartOfWord: settings.treatUnderscoreAsPartOfWord
+      });
     case "english-only":
-      return new EnglishOnlyTokenizer();
+      return new EnglishOnlyTokenizer({
+        treatUnderscoreAsPartOfWord: settings.treatUnderscoreAsPartOfWord
+      });
     case "arabic":
       return new ArabicTokenizer();
     case "japanese":
@@ -2513,10 +2514,11 @@ async function createTokenizer(strategy, app2, settings) {
 
 // src/tokenizer/TokenizeStrategy.ts
 var _TokenizeStrategy = class {
-  constructor(name, triggerThreshold, indexingThreshold) {
+  constructor(name, triggerThreshold, indexingThreshold, canTreatUnderscoreAsPartOfWord) {
     this.name = name;
     this.triggerThreshold = triggerThreshold;
     this.indexingThreshold = indexingThreshold;
+    this.canTreatUnderscoreAsPartOfWord = canTreatUnderscoreAsPartOfWord;
     _TokenizeStrategy._values.push(this);
   }
   static fromName(name) {
@@ -2528,11 +2530,16 @@ var _TokenizeStrategy = class {
 };
 var TokenizeStrategy = _TokenizeStrategy;
 TokenizeStrategy._values = [];
-TokenizeStrategy.DEFAULT = new _TokenizeStrategy("default", 3, 5);
-TokenizeStrategy.ENGLISH_ONLY = new _TokenizeStrategy("english-only", 3, 5);
-TokenizeStrategy.JAPANESE = new _TokenizeStrategy("japanese", 2, 2);
-TokenizeStrategy.ARABIC = new _TokenizeStrategy("arabic", 3, 3);
-TokenizeStrategy.CHINESE = new _TokenizeStrategy("chinese", 1, 2);
+TokenizeStrategy.DEFAULT = new _TokenizeStrategy("default", 3, 5, true);
+TokenizeStrategy.ENGLISH_ONLY = new _TokenizeStrategy(
+  "english-only",
+  3,
+  5,
+  true
+);
+TokenizeStrategy.JAPANESE = new _TokenizeStrategy("japanese", 2, 2, false);
+TokenizeStrategy.ARABIC = new _TokenizeStrategy("arabic", 3, 3, false);
+TokenizeStrategy.CHINESE = new _TokenizeStrategy("chinese", 1, 2, false);
 
 // src/app-helper.ts
 var import_obsidian = require("obsidian");
@@ -4690,6 +4697,7 @@ var DEFAULT_SETTINGS = {
   minFuzzyMatchScore: 0.5,
   matchingWithoutEmoji: true,
   treatAccentDiacriticsAsAlphabeticCharacters: false,
+  treatUnderscoreAsPartOfWord: false,
   maxNumberOfSuggestions: 5,
   maxNumberOfWordsAsPhrase: 3,
   minNumberOfCharactersTriggered: 0,
@@ -4800,9 +4808,6 @@ var VariousComplementsSettingTab = class extends import_obsidian6.PluginSettingT
       })
     );
     if (this.plugin.settings.strategy === TokenizeStrategy.CHINESE.name) {
-      const el = containerEl.createEl("div", {
-        cls: "various-complements__settings__warning"
-      });
       const df = document.createDocumentFragment();
       df.append(
         createSpan({
@@ -4870,6 +4875,23 @@ var VariousComplementsSettingTab = class extends import_obsidian6.PluginSettingT
         });
       });
     });
+    if (TokenizeStrategy.fromName(this.plugin.settings.strategy).canTreatUnderscoreAsPartOfWord) {
+      new import_obsidian6.Setting(containerEl).setName("Treat an underscore as a part of a word.").setDesc(
+        "If this setting is enabled, aaa_bbb will be tokenized as a single token aaa_bbb, rather than being split into aaa and bbb."
+      ).addToggle((tc) => {
+        tc.setValue(
+          this.plugin.settings.treatUnderscoreAsPartOfWord
+        ).onChange(async (value) => {
+          this.plugin.settings.treatUnderscoreAsPartOfWord = value;
+          await this.plugin.saveSettings({
+            internalLink: true,
+            customDictionary: true,
+            currentVault: true,
+            currentFile: true
+          });
+        });
+      });
+    }
     new import_obsidian6.Setting(containerEl).setName("Matching without emoji").setDesc("Ex: If enabled, 'aaa' matches with '\u{1F600}aaa'").addToggle((tc) => {
       tc.setValue(this.plugin.settings.matchingWithoutEmoji).onChange(
         async (value) => {

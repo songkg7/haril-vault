@@ -64824,7 +64824,7 @@ var DEFAULT_SETTINGS = {
   openAIProxyBaseUrl: "",
   ollamaModel: "llama2",
   ollamaBaseUrl: "",
-  lmStudioPort: "1234",
+  lmStudioBaseUrl: "http://localhost:1234/v1",
   ttlDays: 30,
   stream: true,
   embeddingProvider: "openai" /* OPENAI */,
@@ -64998,24 +64998,6 @@ function createChangeToneSelectionPrompt(tone) {
 ${selectedText}`;
   };
 }
-function createAdhocSelectionPrompt(adhocPrompt) {
-  return (selectedText) => {
-    if (!adhocPrompt) {
-      return selectedText;
-    }
-    return `${adhocPrompt}.
-
-${selectedText}`;
-  };
-}
-function fillInSelectionForCustomPrompt(prompt) {
-  return (selectedText) => {
-    if (!prompt) {
-      return selectedText;
-    }
-    return prompt.replace("{}", selectedText);
-  };
-}
 function extractChatHistory(memoryVariables) {
   var _a2, _b;
   const chatHistory = [];
@@ -65026,6 +65008,13 @@ function extractChatHistory(memoryVariables) {
     chatHistory.push([userMessage, aiMessage]);
   }
   return chatHistory;
+}
+function processVariableName(variableName) {
+  variableName = variableName.trim();
+  if (variableName.startsWith("[[") && variableName.endsWith("]]")) {
+    return `${variableName.slice(2, -2).trim()}.md`;
+  }
+  return variableName;
 }
 
 // src/vectorDBManager.ts
@@ -72363,7 +72352,7 @@ var ChatModelManager = class {
       },
       ["lm_studio" /* LM_STUDIO */]: {
         openAIApiKey: "placeholder",
-        openAIProxyBaseUrl: `http://localhost:${params.lmStudioPort}/v1`
+        openAIProxyBaseUrl: `${params.lmStudioBaseUrl}`
       },
       ["ollama" /* OLLAMA */]: {
         ...params.ollamaBaseUrl ? { baseUrl: params.ollamaBaseUrl } : {},
@@ -74147,13 +74136,28 @@ var AddPromptModal = class extends import_obsidian3.Modal {
       "h3",
       { text: "Prompt", cls: "copilot-command-header" }
     );
-    promptContainer.createEl(
-      "p",
-      {
-        text: 'The content of the prompt. Use "{}" to represent the selected text. For example, "Improve the readability of the following text: {}"',
-        cls: "copilot-command-input-description"
-      }
-    );
+    const promptDescFragment = createFragment((frag) => {
+      frag.createEl(
+        "strong",
+        { text: "- {} represents the selected text (not required). " }
+      );
+      frag.createEl("br");
+      frag.createEl(
+        "strong",
+        { text: "- {[[Note Title]]} represents a note. " }
+      );
+      frag.createEl("br");
+      frag.createEl(
+        "strong",
+        { text: "- {FolderPath} represents a folder of notes. " }
+      );
+      frag.createEl("br");
+      frag.createEl("br");
+      frag.appendText("Tip: turn on debug mode to show the processed prompt in the chat window.");
+      frag.createEl("br");
+      frag.createEl("br");
+    });
+    promptContainer.appendChild(promptDescFragment);
     const promptField = promptContainer.createEl("textarea");
     if (initialPrompt) {
       promptField.value = initialPrompt;
@@ -74200,11 +74204,32 @@ var import_obsidian4 = require("obsidian");
 var AdhocPromptModal = class extends import_obsidian4.Modal {
   constructor(app2, onSubmit) {
     super(app2);
-    this.placeholderText = "Please enter your custom ad-hoc prompt to process the selection.";
+    this.placeholderText = "Please enter your custom ad-hoc prompt here, press enter to send.";
     this.onSubmit = onSubmit;
   }
   onOpen() {
     const { contentEl } = this;
+    const promptDescFragment = createFragment((frag) => {
+      frag.createEl(
+        "strong",
+        { text: "- {} represents the selected text (not required). " }
+      );
+      frag.createEl("br");
+      frag.createEl(
+        "strong",
+        { text: "- {[[Note Title]]} represents a note. " }
+      );
+      frag.createEl("br");
+      frag.createEl(
+        "strong",
+        { text: "- {FolderPath} represents a folder of notes. " }
+      );
+      frag.createEl("br");
+      frag.appendText("Tip: turn on debug mode to show the processed prompt in the chat window.");
+      frag.createEl("br");
+      frag.createEl("br");
+    });
+    contentEl.appendChild(promptDescFragment);
     const textareaEl = contentEl.createEl("textarea", { attr: { placeholder: this.placeholderText } });
     textareaEl.style.width = "100%";
     textareaEl.style.height = "100px";
@@ -83174,8 +83199,76 @@ var ChatMessages_default = ChatMessages;
 var React8 = __toESM(require_react());
 var AppContext = React8.createContext(void 0);
 
-// src/langchainStream.ts
+// src/customPromptProcessor.ts
 var import_obsidian7 = require("obsidian");
+var _CustomPromptProcessor = class {
+  constructor(vault) {
+    this.vault = vault;
+  }
+  static getInstance(vault) {
+    if (!_CustomPromptProcessor.instance) {
+      _CustomPromptProcessor.instance = new _CustomPromptProcessor(vault);
+    }
+    return _CustomPromptProcessor.instance;
+  }
+  /**
+   * Extract variables and get their content.
+   *
+   * @param {CustomPrompt} doc - the custom prompt to process
+   * @return {Promise<string[]>} the processed custom prompt
+   */
+  async extractVariablesFromPrompt(customPrompt) {
+    const variablesWithContent = [];
+    const variableRegex = /\{([^}]+)\}/g;
+    let match2;
+    while ((match2 = variableRegex.exec(customPrompt)) !== null) {
+      const variableName = match2[1].trim();
+      const processedVariableName = processVariableName(variableName);
+      const noteFiles = await getNotesFromPath(this.vault, processedVariableName);
+      const notes = [];
+      for (const file of noteFiles) {
+        const content3 = await getFileContent(file);
+        if (content3) {
+          notes.push({ name: getFileName(file), content: content3 });
+        }
+      }
+      if (notes.length > 0) {
+        variablesWithContent.push(JSON.stringify(notes));
+      } else {
+        new import_obsidian7.Notice(`Warning: No valid notes found for the provided path '${variableName}'.`);
+      }
+    }
+    return variablesWithContent;
+  }
+  async processCustomPrompt(customPrompt, selectedText) {
+    const variablesWithContent = await this.extractVariablesFromPrompt(customPrompt);
+    let processedPrompt = customPrompt;
+    let index2 = 0;
+    processedPrompt = processedPrompt.replace(/\{([^}]+)\}/g, () => {
+      return `{noteCollection${index2++}}`;
+    });
+    let additionalInfo = "";
+    if (processedPrompt.includes("{}")) {
+      processedPrompt = processedPrompt.replace(/\{\}/g, "{selectedText}");
+      additionalInfo += `selectedText:
+
+ ${selectedText}`;
+    }
+    for (let i = 0; i < index2; i++) {
+      additionalInfo += `
+
+noteCollection${i}:
+
+${variablesWithContent[i]}`;
+    }
+    return processedPrompt + "\n\n" + additionalInfo;
+  }
+};
+var CustomPromptProcessor = _CustomPromptProcessor;
+CustomPromptProcessor.instance = null;
+
+// src/langchainStream.ts
+var import_obsidian8 = require("obsidian");
 var getAIResponse = async (userMessage, chainManager, addMessage, updateCurrentAiMessage, updateShouldAbort, options = {}) => {
   const abortController = new AbortController();
   updateShouldAbort(abortController);
@@ -83189,7 +83282,7 @@ var getAIResponse = async (userMessage, chainManager, addMessage, updateCurrentA
     );
   } catch (error) {
     console.error("Model request failed:", error);
-    new import_obsidian7.Notice("Model request failed:", error);
+    new import_obsidian8.Notice("Model request failed:", error);
   }
 };
 
@@ -83233,7 +83326,7 @@ function useSharedState(sharedState) {
 var sharedState_default = SharedState;
 
 // src/components/Chat.tsx
-var import_obsidian8 = require("obsidian");
+var import_obsidian9 = require("obsidian");
 var import_react12 = __toESM(require_react());
 var Chat3 = ({
   sharedState,
@@ -83326,11 +83419,11 @@ var Chat3 = ({
     const file = app2.workspace.getActiveFile();
     if (noteFiles.length === 0) {
       if (!file) {
-        new import_obsidian8.Notice("No active note found.");
+        new import_obsidian9.Notice("No active note found.");
         console.error("No active note found.");
         return;
       }
-      new import_obsidian8.Notice("No valid Chat context provided. Defaulting to the active note.");
+      new import_obsidian9.Notice("No valid Chat context provided. Defaulting to the active note.");
       noteFiles = [file];
     }
     const notes = [];
@@ -83371,14 +83464,14 @@ var Chat3 = ({
     }
     const file = app2.workspace.getActiveFile();
     if (!file) {
-      new import_obsidian8.Notice("No active note found.");
+      new import_obsidian9.Notice("No active note found.");
       console.error("No active note found.");
       return;
     }
     const noteContent = await getFileContent(file);
     const noteName = getFileName(file);
     if (!noteContent) {
-      new import_obsidian8.Notice("No note content found.");
+      new import_obsidian9.Notice("No note content found.");
       console.error("No note content found.");
       return;
     }
@@ -83430,8 +83523,9 @@ var Chat3 = ({
         // Ignore system message by default for commands
       } = options;
       const handleSelection = async (selectedText, eventSubtype) => {
+        const messageWithPrompt = await promptFn(selectedText, eventSubtype);
         const promptMessage = {
-          message: promptFn(selectedText, eventSubtype),
+          message: messageWithPrompt,
           sender: USER_SENDER,
           isVisible
         };
@@ -83503,20 +83597,30 @@ var Chat3 = ({
     ),
     []
   );
+  const customPromptProcessor = CustomPromptProcessor.getInstance(vault);
   (0, import_react12.useEffect)(
     createEffect(
-      "applyCustomPromptSelection",
-      (selectedText, prompt) => fillInSelectionForCustomPrompt(prompt)(selectedText)
-      // Not showing the custom prompt in the chat UI for now, Leaving it here as an option.
-      // To check the prompt, use Debug mode in the setting.
-      // { isVisible: true },
+      "applyCustomPrompt",
+      async (selectedText, customPrompt) => {
+        if (!customPrompt) {
+          return selectedText;
+        }
+        return await customPromptProcessor.processCustomPrompt(customPrompt, selectedText);
+      },
+      { isVisible: debug2, ignoreSystemMessage: true, custom_temperature: 0.1 }
     ),
     []
   );
   (0, import_react12.useEffect)(
     createEffect(
-      "applyAdhocPromptSelection",
-      (selectedText, prompt) => createAdhocSelectionPrompt(prompt)(selectedText)
+      "applyAdhocPrompt",
+      async (selectedText, customPrompt) => {
+        if (!customPrompt) {
+          return selectedText;
+        }
+        return await customPromptProcessor.processCustomPrompt(customPrompt, selectedText);
+      },
+      { isVisible: debug2, ignoreSystemMessage: true, custom_temperature: 0.1 }
     ),
     []
   );
@@ -83560,10 +83664,10 @@ var Chat_default = Chat3;
 
 // src/components/CopilotView.tsx
 var import_events = require("events");
-var import_obsidian9 = require("obsidian");
+var import_obsidian10 = require("obsidian");
 var React10 = __toESM(require_react());
 var import_client3 = __toESM(require_client5());
-var CopilotView = class extends import_obsidian9.ItemView {
+var CopilotView = class extends import_obsidian10.ItemView {
   constructor(leaf, plugin) {
     super(leaf);
     this.plugin = plugin;
@@ -83627,7 +83731,7 @@ var CopilotView = class extends import_obsidian9.ItemView {
 };
 
 // src/components/LanguageModal.tsx
-var import_obsidian10 = require("obsidian");
+var import_obsidian11 = require("obsidian");
 var LANGUAGES = [
   { code: "en", name: "English" },
   { code: "zh", name: "Chinese" },
@@ -83682,7 +83786,7 @@ var LANGUAGES = [
   { code: "pa", name: "Punjabi" },
   { code: "si", name: "Sinhala" }
 ];
-var LanguageModal = class extends import_obsidian10.FuzzySuggestModal {
+var LanguageModal = class extends import_obsidian11.FuzzySuggestModal {
   constructor(app2, onChooseLanguage) {
     super(app2);
     this.onChooseLanguage = onChooseLanguage;
@@ -83699,8 +83803,8 @@ var LanguageModal = class extends import_obsidian10.FuzzySuggestModal {
 };
 
 // src/components/ListPromptModal.tsx
-var import_obsidian11 = require("obsidian");
-var ListPromptModal = class extends import_obsidian11.FuzzySuggestModal {
+var import_obsidian12 = require("obsidian");
+var ListPromptModal = class extends import_obsidian12.FuzzySuggestModal {
   constructor(app2, promptTitles, onChoosePromptTitle) {
     super(app2);
     this.promptTitles = promptTitles;
@@ -83718,7 +83822,7 @@ var ListPromptModal = class extends import_obsidian11.FuzzySuggestModal {
 };
 
 // src/components/ToneModal.tsx
-var import_obsidian12 = require("obsidian");
+var import_obsidian13 = require("obsidian");
 var TONES = [
   "Professional",
   "Casual",
@@ -83726,7 +83830,7 @@ var TONES = [
   "Confident",
   "Friendly"
 ];
-var ToneModal = class extends import_obsidian12.FuzzySuggestModal {
+var ToneModal = class extends import_obsidian13.FuzzySuggestModal {
   constructor(app2, onChooseTone) {
     super(app2);
     this.onChooseTone = onChooseTone;
@@ -83743,12 +83847,12 @@ var ToneModal = class extends import_obsidian12.FuzzySuggestModal {
 };
 
 // src/settings/SettingsPage.tsx
-var import_obsidian14 = require("obsidian");
+var import_obsidian15 = require("obsidian");
 var import_react21 = __toESM(require_react());
 var import_client4 = __toESM(require_client5());
 
 // src/settings/components/SettingsMain.tsx
-var import_obsidian13 = require("obsidian");
+var import_obsidian14 = require("obsidian");
 var import_react20 = __toESM(require_react());
 
 // src/settings/components/AdvancedSettings.tsx
@@ -83984,8 +84088,8 @@ var ApiSettings_default = ApiSettings;
 // src/settings/components/LocalCopilotSettings.tsx
 var import_react18 = __toESM(require_react());
 var LocalCopilotSettings = ({
-  lmStudioPort,
-  setLmStudioPort,
+  lmStudioBaseUrl,
+  setlmStudioBaseUrl,
   ollamaModel,
   setOllamaModel,
   ollamaBaseUrl,
@@ -83994,11 +84098,11 @@ var LocalCopilotSettings = ({
   return /* @__PURE__ */ import_react18.default.createElement("div", null, /* @__PURE__ */ import_react18.default.createElement("br", null), /* @__PURE__ */ import_react18.default.createElement("h1", null, "Local Copilot (No Internet Required!)"), /* @__PURE__ */ import_react18.default.createElement("div", { className: "warning-message" }, "Please check the doc to set up LM Studio or Ollama server on your device."), /* @__PURE__ */ import_react18.default.createElement("p", null, "Local models can be limited in capabilities and may not work for some use cases at this time. Keep in mind that it is still in early experimental phase. But some 13B even 7B models are already quite capable!"), /* @__PURE__ */ import_react18.default.createElement("h3", null, "LM Studio"), /* @__PURE__ */ import_react18.default.createElement("p", null, "To use Local Copilot with LM Studio:", /* @__PURE__ */ import_react18.default.createElement("br", null), "1. Start LM Studio server with CORS on. Default port is 1234 but if you change it, you can provide it below.", /* @__PURE__ */ import_react18.default.createElement("br", null), "2. Pick LM Studio in the Copilot Chat model selection dropdown to chat with it!"), /* @__PURE__ */ import_react18.default.createElement(
     TextComponent,
     {
-      name: "LM Studio Server Port",
-      description: "Default is 1234.",
-      value: lmStudioPort,
-      onChange: setLmStudioPort,
-      placeholder: "1234"
+      name: "LM Studio Server Base URL",
+      description: "Default is http://localhost:1234/v1",
+      value: lmStudioBaseUrl,
+      onChange: setlmStudioBaseUrl,
+      placeholder: "http://localhost:1234/v1"
     }
   ), /* @__PURE__ */ import_react18.default.createElement("h3", null, "Ollama"), /* @__PURE__ */ import_react18.default.createElement("p", null, "To use Local Copilot with Ollama, pick Ollama in the Copilot Chat model selection dropdown."), /* @__PURE__ */ import_react18.default.createElement("p", null, "Run the local Ollama server by running this in your terminal:"), /* @__PURE__ */ import_react18.default.createElement("p", null, /* @__PURE__ */ import_react18.default.createElement("strong", null, "OLLAMA_ORIGINS=app://obsidian.md* ollama serve")), /* @__PURE__ */ import_react18.default.createElement(
     TextComponent,
@@ -84124,7 +84228,7 @@ function SettingsMain({ plugin, reloadPlugin }) {
   const [huggingfaceApiKey, setHuggingfaceApiKey] = (0, import_react20.useState)(plugin.settings.huggingfaceApiKey);
   const [userSystemPrompt, setUserSystemPrompt] = (0, import_react20.useState)(plugin.settings.userSystemPrompt);
   const [openAIProxyBaseUrl, setOpenAIProxyBaseUrl] = (0, import_react20.useState)(plugin.settings.openAIProxyBaseUrl);
-  const [lmStudioPort, setLmStudioPort] = (0, import_react20.useState)(plugin.settings.lmStudioPort);
+  const [lmStudioBaseUrl, setlmStudioBaseUrl] = (0, import_react20.useState)(plugin.settings.lmStudioBaseUrl);
   const [ollamaModel, setOllamaModel] = (0, import_react20.useState)(plugin.settings.ollamaModel);
   const [ollamaBaseUrl, setOllamaBaseUrl] = (0, import_react20.useState)(plugin.settings.ollamaBaseUrl);
   const saveAllSettings = async () => {
@@ -84150,18 +84254,18 @@ function SettingsMain({ plugin, reloadPlugin }) {
     plugin.settings.huggingfaceApiKey = huggingfaceApiKey;
     plugin.settings.userSystemPrompt = userSystemPrompt;
     plugin.settings.openAIProxyBaseUrl = openAIProxyBaseUrl;
-    plugin.settings.lmStudioPort = lmStudioPort;
+    plugin.settings.lmStudioBaseUrl = lmStudioBaseUrl;
     plugin.settings.ollamaModel = ollamaModel;
     plugin.settings.ollamaBaseUrl = ollamaBaseUrl;
     await plugin.saveSettings();
     await reloadPlugin();
-    new import_obsidian13.Notice("Settings have been saved and the plugin has been reloaded.");
+    new import_obsidian14.Notice("Settings have been saved and the plugin has been reloaded.");
   };
   const resetToDefaultSettings = async () => {
     plugin.settings = DEFAULT_SETTINGS;
     await plugin.saveSettings();
     await reloadPlugin();
-    new import_obsidian13.Notice("Settings have been reset to their default values.");
+    new import_obsidian14.Notice("Settings have been reset to their default values.");
   };
   return /* @__PURE__ */ import_react20.default.createElement(import_react20.default.Fragment, null, /* @__PURE__ */ import_react20.default.createElement("div", null, /* @__PURE__ */ import_react20.default.createElement("h2", null, "Copilot Settings"), /* @__PURE__ */ import_react20.default.createElement("div", { className: "button-container" }, /* @__PURE__ */ import_react20.default.createElement("button", { className: "mod-cta", onClick: saveAllSettings }, "Save and Reload"), /* @__PURE__ */ import_react20.default.createElement("button", { className: "mod-cta", onClick: resetToDefaultSettings }, "Reset to Default Settings")), /* @__PURE__ */ import_react20.default.createElement("div", { className: "warning-message" }, "Please Save and Reload the plugin when you change any setting below!"), /* @__PURE__ */ import_react20.default.createElement(
     DropdownComponent,
@@ -84266,8 +84370,8 @@ function SettingsMain({ plugin, reloadPlugin }) {
   ), /* @__PURE__ */ import_react20.default.createElement(
     LocalCopilotSettings_default,
     {
-      lmStudioPort,
-      setLmStudioPort,
+      lmStudioBaseUrl,
+      setlmStudioBaseUrl,
       ollamaModel,
       setOllamaModel,
       ollamaBaseUrl,
@@ -84277,7 +84381,7 @@ function SettingsMain({ plugin, reloadPlugin }) {
 }
 
 // src/settings/SettingsPage.tsx
-var CopilotSettingTab = class extends import_obsidian14.PluginSettingTab {
+var CopilotSettingTab = class extends import_obsidian15.PluginSettingTab {
   constructor(app2, plugin) {
     super(app2, plugin);
     this.plugin = plugin;
@@ -84289,9 +84393,9 @@ var CopilotSettingTab = class extends import_obsidian14.PluginSettingTab {
       await app2.plugins.disablePlugin("copilot");
       await app2.plugins.enablePlugin("copilot");
       app2.setting.openTabById("copilot").display();
-      new import_obsidian14.Notice("Plugin reloaded successfully.");
+      new import_obsidian15.Notice("Plugin reloaded successfully.");
     } catch (error) {
-      new import_obsidian14.Notice("Failed to reload the plugin. Please reload manually.");
+      new import_obsidian15.Notice("Failed to reload the plugin. Please reload manually.");
       console.error("Error reloading plugin:", error);
     }
   }
@@ -84306,7 +84410,7 @@ var CopilotSettingTab = class extends import_obsidian14.PluginSettingTab {
     );
     const devModeHeader = containerEl.createEl("h1", { text: "Development mode" });
     devModeHeader.style.marginTop = "40px";
-    new import_obsidian14.Setting(containerEl).setName("Debug mode").setDesc(
+    new import_obsidian15.Setting(containerEl).setName("Debug mode").setDesc(
       createFragment((frag) => {
         frag.appendText("Debug mode will log all API requests and prompts to the console.");
       })
@@ -84320,7 +84424,7 @@ var CopilotSettingTab = class extends import_obsidian14.PluginSettingTab {
 };
 
 // src/main.ts
-var import_obsidian15 = require("obsidian");
+var import_obsidian16 = require("obsidian");
 
 // node_modules/pouchdb/lib/index-browser.es.js
 var import_immediate = __toESM(require_lib3());
@@ -92941,7 +93045,7 @@ PouchDB.plugin(IDBPouch).plugin(HttpPouch$1).plugin(mapreduce).plugin(replicatio
 var index_browser_es_default = PouchDB;
 
 // src/main.ts
-var CopilotPlugin = class extends import_obsidian15.Plugin {
+var CopilotPlugin = class extends import_obsidian16.Plugin {
   constructor() {
     super(...arguments);
     this.activateViewPromise = null;
@@ -93079,7 +93183,7 @@ var CopilotPlugin = class extends import_obsidian15.Plugin {
       editorCallback: (editor) => {
         new LanguageModal(this.app, (language) => {
           if (!language) {
-            new import_obsidian15.Notice("Please select a language.");
+            new import_obsidian16.Notice("Please select a language.");
             return;
           }
           this.processSelection(editor, "translateSelection", language);
@@ -93092,7 +93196,7 @@ var CopilotPlugin = class extends import_obsidian15.Plugin {
       editorCallback: (editor) => {
         new ToneModal(this.app, (tone) => {
           if (!tone) {
-            new import_obsidian15.Notice("Please select a tone.");
+            new import_obsidian16.Notice("Please select a tone.");
             return;
           }
           this.processSelection(editor, "changeToneSelection", tone);
@@ -93108,14 +93212,14 @@ var CopilotPlugin = class extends import_obsidian15.Plugin {
     });
     this.addCommand({
       id: "add-custom-prompt",
-      name: "Add custom prompt for selection",
+      name: "Add custom prompt",
       editorCallback: (editor) => {
         new AddPromptModal(this.app, async (title, prompt) => {
           try {
             await this.dbPrompts.put({ _id: title, prompt });
-            new import_obsidian15.Notice("Custom prompt saved successfully.");
+            new import_obsidian16.Notice("Custom prompt saved successfully.");
           } catch (e) {
-            new import_obsidian15.Notice("Error saving custom prompt. Please check if the title already exists.");
+            new import_obsidian16.Notice("Error saving custom prompt. Please check if the title already exists.");
             console.error(e);
           }
         }).open();
@@ -93123,27 +93227,27 @@ var CopilotPlugin = class extends import_obsidian15.Plugin {
     });
     this.addCommand({
       id: "apply-custom-prompt",
-      name: "Apply custom prompt to selection",
+      name: "Apply custom prompt",
       editorCallback: (editor) => {
         this.fetchPromptTitles().then((promptTitles) => {
           new ListPromptModal(this.app, promptTitles, async (promptTitle) => {
             if (!promptTitle) {
-              new import_obsidian15.Notice("Please select a prompt title.");
+              new import_obsidian16.Notice("Please select a prompt title.");
               return;
             }
             try {
               const doc = await this.dbPrompts.get(promptTitle);
               if (!doc.prompt) {
-                new import_obsidian15.Notice(`No prompt found with the title "${promptTitle}".`);
+                new import_obsidian16.Notice(`No prompt found with the title "${promptTitle}".`);
                 return;
               }
-              this.processSelection(editor, "applyCustomPromptSelection", doc.prompt);
+              this.processCustomPrompt(editor, "applyCustomPrompt", doc.prompt);
             } catch (err) {
               if (err.name === "not_found") {
-                new import_obsidian15.Notice(`No prompt found with the title "${promptTitle}".`);
+                new import_obsidian16.Notice(`No prompt found with the title "${promptTitle}".`);
               } else {
                 console.error(err);
-                new import_obsidian15.Notice("An error occurred.");
+                new import_obsidian16.Notice("An error occurred.");
               }
             }
           }).open();
@@ -93152,14 +93256,14 @@ var CopilotPlugin = class extends import_obsidian15.Plugin {
     });
     this.addCommand({
       id: "apply-adhoc-prompt",
-      name: "Apply ad-hoc custom prompt to selection",
+      name: "Apply ad-hoc custom prompt",
       editorCallback: async (editor) => {
         const modal = new AdhocPromptModal(this.app, async (adhocPrompt) => {
           try {
-            this.processSelection(editor, "applyAdhocPromptSelection", adhocPrompt);
+            this.processCustomPrompt(editor, "applyAdhocPrompt", adhocPrompt);
           } catch (err) {
             console.error(err);
-            new import_obsidian15.Notice("An error occurred.");
+            new import_obsidian16.Notice("An error occurred.");
           }
         });
         modal.open();
@@ -93175,23 +93279,23 @@ var CopilotPlugin = class extends import_obsidian15.Plugin {
         this.fetchPromptTitles().then((promptTitles) => {
           new ListPromptModal(this.app, promptTitles, async (promptTitle) => {
             if (!promptTitle) {
-              new import_obsidian15.Notice("Please select a prompt title.");
+              new import_obsidian16.Notice("Please select a prompt title.");
               return;
             }
             try {
               const doc = await this.dbPrompts.get(promptTitle);
               if (doc._rev) {
                 await this.dbPrompts.remove(doc);
-                new import_obsidian15.Notice(`Prompt "${promptTitle}" has been deleted.`);
+                new import_obsidian16.Notice(`Prompt "${promptTitle}" has been deleted.`);
               } else {
-                new import_obsidian15.Notice(`Failed to delete prompt "${promptTitle}": No revision found.`);
+                new import_obsidian16.Notice(`Failed to delete prompt "${promptTitle}": No revision found.`);
               }
             } catch (err) {
               if (err.name === "not_found") {
-                new import_obsidian15.Notice(`No prompt found with the title "${promptTitle}".`);
+                new import_obsidian16.Notice(`No prompt found with the title "${promptTitle}".`);
               } else {
                 console.error(err);
-                new import_obsidian15.Notice("An error occurred while deleting the prompt.");
+                new import_obsidian16.Notice("An error occurred while deleting the prompt.");
               }
             }
           }).open();
@@ -93209,7 +93313,7 @@ var CopilotPlugin = class extends import_obsidian15.Plugin {
         this.fetchPromptTitles().then((promptTitles) => {
           new ListPromptModal(this.app, promptTitles, async (promptTitle) => {
             if (!promptTitle) {
-              new import_obsidian15.Notice("Please select a prompt title.");
+              new import_obsidian16.Notice("Please select a prompt title.");
               return;
             }
             try {
@@ -93220,17 +93324,17 @@ var CopilotPlugin = class extends import_obsidian15.Plugin {
                     ...doc,
                     prompt: newPrompt
                   });
-                  new import_obsidian15.Notice(`Prompt "${title}" has been updated.`);
+                  new import_obsidian16.Notice(`Prompt "${title}" has been updated.`);
                 }, doc._id, doc.prompt, true).open();
               } else {
-                new import_obsidian15.Notice(`No prompt found with the title "${promptTitle}".`);
+                new import_obsidian16.Notice(`No prompt found with the title "${promptTitle}".`);
               }
             } catch (err) {
               if (err.name === "not_found") {
-                new import_obsidian15.Notice(`No prompt found with the title "${promptTitle}".`);
+                new import_obsidian16.Notice(`No prompt found with the title "${promptTitle}".`);
               } else {
                 console.error(err);
-                new import_obsidian15.Notice("An error occurred.");
+                new import_obsidian16.Notice("An error occurred.");
               }
             }
           }).open();
@@ -93246,11 +93350,11 @@ var CopilotPlugin = class extends import_obsidian15.Plugin {
           await this.dbVectorStores.destroy();
           this.dbVectorStores = new index_browser_es_default("copilot_vector_stores");
           vectorDBManager_default.updateDBInstance(this.dbVectorStores);
-          new import_obsidian15.Notice("Local vector store cleared successfully.");
+          new import_obsidian16.Notice("Local vector store cleared successfully.");
           console.log("Local vector store cleared successfully, new instance created.");
         } catch (err) {
           console.error("Error clearing the local vector store:", err);
-          new import_obsidian15.Notice("An error occurred while clearing the local vector store.");
+          new import_obsidian16.Notice("An error occurred while clearing the local vector store.");
         }
       }
     });
@@ -93265,23 +93369,25 @@ var CopilotPlugin = class extends import_obsidian15.Plugin {
       }
     });
   }
-  processSelection(editor, eventType, eventSubtype) {
-    if (editor.somethingSelected() === false) {
-      new import_obsidian15.Notice("Please select some text to rewrite.");
-      return;
-    }
+  async processText(editor, eventType, eventSubtype, checkSelectedText = true) {
     const selectedText = editor.getSelection();
     const isChatWindowActive = this.app.workspace.getLeavesOfType(CHAT_VIEWTYPE).length > 0;
     if (!isChatWindowActive) {
-      this.activateView();
+      await this.activateView();
     }
     setTimeout(() => {
       var _a2;
       const activeCopilotView = (_a2 = this.app.workspace.getLeavesOfType(CHAT_VIEWTYPE).find((leaf) => leaf.view instanceof CopilotView)) == null ? void 0 : _a2.view;
-      if (selectedText && activeCopilotView) {
+      if (activeCopilotView && (!checkSelectedText || selectedText)) {
         activeCopilotView.emitter.emit(eventType, selectedText, eventSubtype);
       }
     }, 0);
+  }
+  processSelection(editor, eventType, eventSubtype) {
+    this.processText(editor, eventType, eventSubtype);
+  }
+  processCustomPrompt(editor, eventType, customPrompt) {
+    this.processText(editor, eventType, customPrompt, false);
   }
   toggleView() {
     const leaves = this.app.workspace.getLeavesOfType(CHAT_VIEWTYPE);
@@ -93349,7 +93455,7 @@ var CopilotPlugin = class extends import_obsidian15.Plugin {
       embeddingProvider,
       ollamaModel,
       ollamaBaseUrl,
-      lmStudioPort
+      lmStudioBaseUrl
     } = sanitizeSettings(this.settings);
     return {
       openAIApiKey,
@@ -93366,7 +93472,7 @@ var CopilotPlugin = class extends import_obsidian15.Plugin {
       openRouterModel: openRouterModel || DEFAULT_SETTINGS.openRouterModel,
       ollamaModel: ollamaModel || DEFAULT_SETTINGS.ollamaModel,
       ollamaBaseUrl: ollamaBaseUrl || DEFAULT_SETTINGS.ollamaBaseUrl,
-      lmStudioPort: lmStudioPort || DEFAULT_SETTINGS.lmStudioPort,
+      lmStudioBaseUrl: lmStudioBaseUrl || DEFAULT_SETTINGS.lmStudioBaseUrl,
       model: this.settings.defaultModel,
       modelDisplayName: this.settings.defaultModelDisplayName,
       embeddingModel: embeddingModel || DEFAULT_SETTINGS.embeddingModel,

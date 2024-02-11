@@ -1,8 +1,9 @@
 ---
-title: 운영체제 (Operating system)
+title: 운영체제
 date: 2022-08-16 10:36:00 +0900
 publish: false
-aliases: OS
+aliases:
+  - OS
 tags:
   - os
 categories: Computer science
