@@ -70,4 +70,5 @@ libuv는 이벤트 루프를 단일 스레드에서 동작하면서, 시스템 �
 
 ## Reference
 
+- https://www.baeldung.com/cs/async-vs-multi-threading
  - https://jayhyun-hwang.github.io/2021/09/02/The-Difference-Between-Asynchronous-And-Multi-Threading/
