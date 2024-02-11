@@ -6,12 +6,12 @@ tags:
   - socket
   - network
 categories: Network
-updated: 2023-11-11 00:19:01 +0900
+updated: 2024-02-11 16:25:51 +0900
 ---
 
 ## Socket 의 본질에 대한 이해
 
-- 소켓(Socket)은 [[운영체제 (Operating system)|OS]] 커널에 구현되어 있는 프로토콜 요소에 대한 추상화된 인터페이스
+- 소켓(Socket)은 [[Operating system|OS]] 커널에 구현되어 있는 프로토콜 요소에 대한 추상화된 인터페이스
 - **장치 파일의 일종**으로 이해할 수 있음
 - 일반 파일에 대한 개념이 대부분 적용됨
 
