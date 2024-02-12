@@ -7,7 +7,7 @@ tags:
   - reactive
   - reactor
 categories: 
-updated: 2024-02-09 22:51:17 +0900
+updated: 2024-02-12 22:08:41 +0900
 ---
 
 ## Overview
@@ -25,3 +25,12 @@ Event Loop 는 중단되지 않고 실행되는 상태로 존재하다가 event 
 - [ ] 이벤트 루프는 논블락킹인가?
 
 ## 구현
+
+- while 루프를 통한 task 위임
+- Java 21 의 [[Virtual Thread]] 를 사용해보기
+- thread pool 구현
+- stack trace 문제를 어떻게 해결할 수 있을까?
+    - stack trace 는 스레드에 할당되는 stack 공간에 대한 추적 정보이다. 따라서 스레드를 넘나드는 태스크라면 활용하기 어렵다.
+    - stack trace 대신 로그 정보를 담는 기능을 boolean 값으로 전달할 수 있으면 좋을듯
+
+이벤트 루프는 단일 스레드로 구현하되, 메인 스레드가 블로킹되는 상황 회피를 위해 멀티스레드 방식을 혼합해야 한다. 이 때 멀티스레드는 스레드풀을 구현하여 미리 생성되어 있는 스레드르 사용하자.
