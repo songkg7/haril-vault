@@ -7,7 +7,7 @@ tags:
   - reactive
   - reactor
 categories: 
-updated: 2024-02-13 12:02:20 +0900
+updated: 2024-02-13 18:21:43 +0900
 ---
 
 ## Overview
@@ -24,6 +24,8 @@ Event Loop 는 중단되지 않고 실행되는 상태로 존재하다가 event 
 - [ ] 이벤트 루프는 비동기인가?
 - [ ] 이벤트 루프는 논블락킹인가?
 
+blocking, non-blocking I/O 시스템콜에 대한 이해가 필요하다.
+
 ## 구현
 
 - while 루프를 통한 task 위임
@@ -37,6 +39,92 @@ Event Loop 는 중단되지 않고 실행되는 상태로 존재하다가 event 
 이벤트 루프는 단일 스레드로 구현하되, 메인 스레드가 블로킹되는 상황 회피를 위해 멀티스레드 방식을 혼합해야 할 수 있다. 이 때 멀티스레드는 스레드풀을 구현하여 미리 생성되어 있는 스레드르 사용하자.
 
 이벤트 루프를 완전한 단일 스레드로 구현하기 위해서는 시스템 콜에 의해 블로킹되지 않도록, non-blocking I/O 를 사용하여야 한다.
+
+블로킹을 해야한다면 이벤트 루프가 블록되는 상황을 피하기 위해 별도의 스레드에서 작업을 수행해야 한다
+
+네트워크 호출은 OS 가 처리한다. 일반적으로는 blocking 작업이지만 non-blocking I/O 를 사용하여 구현할 수 있다.
+
+- `Socket`: blocking network call
+- `SocketChnnel`: non-blocking network call
+
+> [!NOTE] `ServerSocket`
+> 클라이언트의 요청을 받기 위한 socket, 즉 서버 애플리케이션을 만들기 위한 클래스이다
+
+```java
+import java.net.InetSocketAddress;
+import java.nio.ByteBuffer;
+import java.nio.channels.SelectionKey;
+import java.nio.channels.Selector;
+import java.nio.channels.SocketChannel;
+import java.util.Iterator;
+import java.util.Set;
+
+public class NonBlockingClient {
+    public static void main(String[] args) {
+        try {
+            // Create a non-blocking socket channel
+            SocketChannel socketChannel = SocketChannel.open();
+            socketChannel.configureBlocking(false);
+
+            // Create a selector
+            Selector selector = Selector.open();
+
+            // Register the socket channel with the selector to connect
+            socketChannel.register(selector, SelectionKey.OP_CONNECT);
+
+            // Attempt to connect to the server
+            socketChannel.connect(new InetSocketAddress("localhost", 8080));
+
+            while (true) {
+                // Wait for events
+                selector.select();
+
+                // Get selected keys
+                Set<SelectionKey> selectedKeys = selector.selectedKeys();
+                Iterator<SelectionKey> iter = selectedKeys.iterator();
+
+                while (iter.hasNext()) {
+                    SelectionKey key = iter.next();
+
+                    if (key.isConnectable()) {
+                        // Finish the connection if it's ready
+                        SocketChannel client = (SocketChannel) key.channel();
+                        if (client.isConnectionPending()) {
+                            client.finishConnect();
+                            System.out.println("Connected to server");
+                            // Once connected, register interest in writing data
+                            client.register(selector, SelectionKey.OP_WRITE);
+                        }
+                    } else if (key.isWritable()) {
+                        // Write data
+                        SocketChannel client = (SocketChannel) key.channel();
+                        ByteBuffer buffer = ByteBuffer.wrap("Hello, server!".getBytes());
+                        client.write(buffer);
+                        System.out.println("Sent message to server");
+                        // Once written, register interest in reading the response
+                        client.register(selector, SelectionKey.OP_READ);
+                        buffer.clear();
+                    } else if (key.isReadable()) {
+                        // Read data
+                        SocketChannel client = (SocketChannel) key.channel();
+                        ByteBuffer buffer = ByteBuffer.allocate(256);
+                        client.read(buffer);
+                        String response = new String(buffer.array()).trim();
+                        System.out.println("Server response: " + response);
+                        // Close the connection after reading the response
+                        client.close();
+                        System.out.println("Connection closed");
+                        return; // Exit after processing
+                    }
+                    iter.remove();
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
 
 ## Reference
 
