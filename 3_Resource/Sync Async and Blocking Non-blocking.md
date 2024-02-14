@@ -8,7 +8,7 @@ tags:
   - blocking
   - non-blocking
 categories: 
-updated: 2023-10-14 17:22:02 +0900
+updated: 2024-02-14 16:57:49 +0900
 ---
 
 동기 비동기와 블록킹 논블로킹은 유사하면서 다르다. 핵심 키워드는 **제어권**과 **결과에 대한 관심**이다.
@@ -84,3 +84,7 @@ sequenceDiagram
 ## Conclusion
 
 동기-비동기, 블로킹-논블로킹은 결국 일련의 프로세스가 어떤 관점에 의해 제어되는지에 따라 정해진다.
+
+## Reference
+
+- https://limdongjin.github.io/concepts/blocking-non-blocking-io.html#ibm-%E1%84%8B%E1%85%A1%E1%84%90%E1%85%B5%E1%84%8F%E1%85%B3%E1%86%AF
