@@ -5,9 +5,12 @@ aliases:
 tags:
   - productivity
   - tool
+  - inflearn
 categories: 
-updated: 2024-01-30 00:18:57 +0900
+updated: 2024-02-15 21:33:28 +0900
 ---
+
+> 인프런 생산성 강의 촬영을 위해 정리
 
 ## 1. 입문
 

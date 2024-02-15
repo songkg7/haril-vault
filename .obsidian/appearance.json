@@ -1,8 +1,8 @@
 {
-  "cssTheme": "Obsidianite",
+  "cssTheme": "Minimal",
   "theme": "obsidian",
   "translucency": false,
-  "accentColor": "",
+  "accentColor": "#8a5cf5",
   "baseFontSize": 14,
   "monospaceFontFamily": "Monaspace Krypton,D2Coding ligature",
   "textFontFamily": "Rubik,Nanum Gothic,Noto Sans KR",

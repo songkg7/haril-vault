@@ -1,14 +1,11 @@
 ---
 title: Network
 date: 2022-08-16 13:43:00 +0900
-publish: false
-fc-calendar: Gregorian Calendar
-fc-date: 2022-08-16
-aliases: null
+aliases: 
 tags:
   - network
 categories: Network
-updated: 2023-08-19 12:38:12 +0900
+updated: 2024-02-14 21:11:13 +0900
 ---
 
 # 네트워크란 무엇인가?
