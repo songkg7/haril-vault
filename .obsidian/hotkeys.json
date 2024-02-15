@@ -86,5 +86,6 @@
   "workspace:goto-tab-6": [],
   "workspace:goto-tab-7": [],
   "workspace:goto-tab-8": [],
-  "workspace:goto-last-tab": []
+  "workspace:goto-last-tab": [],
+  "quick-latex:addInlineMath": []
 }
