@@ -6,7 +6,7 @@ tags:
   - debug
   - webclient
 categories: 
-updated: 2023-12-20 16:54:27 +0900
+updated: 2024-02-19 00:20:35 +0900
 ---
 
 # Connection reset by peer 문제 해결하기
@@ -24,7 +24,7 @@ updated: 2023-12-20 16:54:27 +0900
 
 AWS NAT gateway 에서 차단되는게 아닐까?
 
-- NAT gateway 의 idle timeout 은 350s
+- NAT gateway 의 idle timeout 은 350s[^1]
     - NAT gateway 는 타임아웃이 될 때 **FIN 이 아니라 RST 패킷**을 보내고, 이는 클라이언트의 커넥션을 정상적으로 종료시키지 못하는 원인이 된다.
 - ELB 의 timeout 은 60s
 
@@ -59,3 +59,5 @@ ConnectionProvider connectionProvider = ConnectionProvider.builder("myConnection
 - https://velog.io/@swjeong98/EC2-ElasticSearch-%EC%97%90%EC%84%9C-Connection-Reset-by-peer-%EC%97%90%EB%9F%AC-%EB%B0%9C%EC%83%9D
 - https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/vpc-nat-gateway-cloudwatch.html
 - https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/nat-gateway-troubleshooting.html#nat-gateway-troubleshooting-timeout
+
+[^1]: https://docs.aws.amazon.com/ko_kr/vpc/latest/userguide/nat-gateway-troubleshooting.html#nat-gateway-troubleshooting-timeout
