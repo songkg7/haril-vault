@@ -822,8 +822,8 @@ var ExhaustiveError = class extends Error {
 };
 
 // src/tokenizer/tokenizers/AbstractTokenizer.ts
-var INPUT_TRIM_CHAR_PATTERN = /[\n\t\[\]$/:?!=()<>"',|;*~ `_“„«»‹›‚‘’”]/g;
-var INDEXING_TRIM_CHAR_PATTERN = /[\n\t\[\]/:?!=()<>"',|;*~ `_“„«»‹›‚‘’”]/g;
+var INPUT_TRIM_CHAR_PATTERN = /[\r\n\t\[\]$/:?!=()<>"',|;*~ `_“„«»‹›‚‘’”]/g;
+var INDEXING_TRIM_CHAR_PATTERN = /[\r\n\t\[\]/:?!=()<>"',|;*~ `_“„«»‹›‚‘’”]/g;
 var AbstractTokenizer = class {
   constructor(args) {
     this.inputTrimCharPattern = (args == null ? void 0 : args.treatUnderscoreAsPartOfWord) ? removeFromPattern(INPUT_TRIM_CHAR_PATTERN, "_") : INPUT_TRIM_CHAR_PATTERN;
@@ -870,8 +870,8 @@ var DefaultTokenizer = class extends AbstractTokenizer {
 };
 
 // src/tokenizer/tokenizers/ArabicTokenizer.ts
-var INPUT_ARABIC_TRIM_CHAR_PATTERN = /[\n\t\[\]/:?!=()<>"'.,|;*~ `،؛]/g;
-var INDEXING_ARABIC_TRIM_CHAR_PATTERN = /[\n\t\[\]$/:?!=()<>"'.,|;*~ `،؛]/g;
+var INPUT_ARABIC_TRIM_CHAR_PATTERN = /[\r\n\t\[\]/:?!=()<>"'.,|;*~ `،؛]/g;
+var INDEXING_ARABIC_TRIM_CHAR_PATTERN = /[\r\n\t\[\]$/:?!=()<>"'.,|;*~ `،؛]/g;
 var ArabicTokenizer = class extends DefaultTokenizer {
   constructor(_args) {
     super();

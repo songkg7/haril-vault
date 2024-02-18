@@ -9761,7 +9761,7 @@ var EmbedsConverter = class {
 // src/jekyll/FilenameConverter.ts
 var FilenameConverter = class {
   convert(filename) {
-    return filename.replace(".md", "").replace(/\s/g, "-").replace(/[^a-zA-Z0-9-]/g, "");
+    return filename.replace(".md", "").replace(/\s/g, "-").replace(/[^a-zA-Z0-9-\uAC00-\uD7A3]/g, "");
   }
 };
 
