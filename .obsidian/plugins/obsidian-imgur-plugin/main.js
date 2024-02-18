@@ -833,6 +833,17 @@ function allFilesAreImages(files) {
   return true;
 }
 
+// src/utils/misc.ts
+function fixImageTypeIfNeeded(image) {
+  if (passesInstanceofCheck(image)) {
+    return image;
+  }
+  return new File([image], image.name, { type: image.type, lastModified: image.lastModified });
+  function passesInstanceofCheck(image2) {
+    return image2 instanceof File;
+  }
+}
+
 // src/ui/ImageUploadBlockingModal.ts
 var import_obsidian9 = require("obsidian");
 var ImageUploadBlockingModal = class extends import_obsidian9.Modal {
@@ -1043,7 +1054,10 @@ var ImgurPlugin = class _ImgurPlugin extends import_obsidian10.Plugin {
     this.addResizingCommands();
   }
   setupImagesUploader() {
-    this.imgUploaderField = buildUploaderFrom(this.settings);
+    const uploader = buildUploaderFrom(this.settings);
+    this.imgUploaderField = {
+      upload: (image, albumId) => uploader.upload(fixImageTypeIfNeeded(image), albumId)
+    };
   }
   setupImgurHandlers() {
     this.registerEvent(this.app.workspace.on("editor-paste", this.customPasteEventCallback));
