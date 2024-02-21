@@ -64739,10 +64739,7 @@ var ChatModelDisplayNames = /* @__PURE__ */ ((ChatModelDisplayNames2) => {
   ChatModelDisplayNames2["GPT_4"] = "GPT-4";
   ChatModelDisplayNames2["GPT_4_TURBO"] = "GPT-4 TURBO";
   ChatModelDisplayNames2["GPT_4_32K"] = "GPT-4 32K";
-  ChatModelDisplayNames2["AZURE_GPT_35_TURBO"] = "AZURE GPT-3.5";
-  ChatModelDisplayNames2["AZURE_GPT_35_TURBO_16K"] = "AZURE GPT-3.5-16K";
-  ChatModelDisplayNames2["AZURE_GPT_4"] = "AZURE GPT-4";
-  ChatModelDisplayNames2["AZURE_GPT_4_32K"] = "AZURE GPT-4 32K";
+  ChatModelDisplayNames2["AZURE_OPENAI"] = "AZURE OPENAI";
   ChatModelDisplayNames2["GEMINI_PRO"] = "GEMINI PRO";
   ChatModelDisplayNames2["OPENROUTERAI"] = "OPENROUTER.AI";
   ChatModelDisplayNames2["OLLAMA"] = "OLLAMA (LOCAL)";
@@ -64758,10 +64755,7 @@ var OPENAI_MODELS = /* @__PURE__ */ new Set([
   "LM STUDIO (LOCAL)" /* LM_STUDIO */
 ]);
 var AZURE_MODELS = /* @__PURE__ */ new Set([
-  "AZURE GPT-3.5" /* AZURE_GPT_35_TURBO */,
-  "AZURE GPT-3.5-16K" /* AZURE_GPT_35_TURBO_16K */,
-  "AZURE GPT-4" /* AZURE_GPT_4 */,
-  "AZURE GPT-4 32K" /* AZURE_GPT_4_32K */
+  "AZURE OPENAI" /* AZURE_OPENAI */
 ]);
 var GOOGLE_MODELS = /* @__PURE__ */ new Set([
   "GEMINI PRO" /* GEMINI_PRO */
@@ -64781,10 +64775,7 @@ var DISPLAY_NAME_TO_MODEL = {
   ["GPT-4" /* GPT_4 */]: "gpt-4" /* GPT_4 */,
   ["GPT-4 TURBO" /* GPT_4_TURBO */]: "gpt-4-turbo-preview" /* GPT_4_TURBO */,
   ["GPT-4 32K" /* GPT_4_32K */]: "gpt-4-32k" /* GPT_4_32K */,
-  ["AZURE GPT-3.5" /* AZURE_GPT_35_TURBO */]: "gpt-35-turbo" /* AZURE_GPT_35_TURBO */,
-  ["AZURE GPT-3.5-16K" /* AZURE_GPT_35_TURBO_16K */]: "gpt-35-turbo-16k" /* AZURE_GPT_35_TURBO_16K */,
-  ["AZURE GPT-4" /* AZURE_GPT_4 */]: "gpt-4" /* GPT_4 */,
-  ["AZURE GPT-4 32K" /* AZURE_GPT_4_32K */]: "gpt-4-32k" /* GPT_4_32K */,
+  ["AZURE OPENAI" /* AZURE_OPENAI */]: "azure_openai",
   ["GEMINI PRO" /* GEMINI_PRO */]: "gemini-pro" /* GEMINI_PRO */
 };
 var EMBEDDING_PROVIDERS = [
@@ -64830,11 +64821,13 @@ var DEFAULT_SETTINGS = {
   embeddingProvider: "openai" /* OPENAI */,
   defaultSaveFolder: "copilot-conversations",
   chatNoteContextPath: "",
+  chatNoteContextTags: [],
   debug: false
 };
 
 // src/utils.ts
 var import_moment = __toESM(require_moment());
+var import_obsidian = require("obsidian");
 var isFolderMatch = (fileFullpath, inputPath) => {
   const fileSegments = fileFullpath.split("/").map((segment) => segment.toLowerCase());
   return fileSegments.includes(inputPath.toLowerCase());
@@ -64850,6 +64843,28 @@ var getNotesFromPath = async (vault, path2) => {
     return isFolderMatch(file.path, lastSegment) || file.basename === lastSegment;
   });
 };
+async function getTagsFromNote(file, vault) {
+  var _a2, _b;
+  const fileContent = await vault.cachedRead(file);
+  const frontMatter = (0, import_obsidian.parseYaml)((_b = (_a2 = fileContent.split("---")) == null ? void 0 : _a2[1]) != null ? _b : "") || {};
+  const tags = frontMatter.tags || [];
+  return tags.map((tag) => tag.replace("#", ""));
+}
+async function getNotesFromTags(vault, tags, noteFiles) {
+  if (tags.length === 0) {
+    return [];
+  }
+  tags = tags.map((tag) => tag.replace("#", ""));
+  const files = noteFiles && noteFiles.length > 0 ? noteFiles : await getNotesFromPath(vault, "/");
+  const filesWithTag = [];
+  for (const file of files) {
+    const noteTags = await getTagsFromNote(file, vault);
+    if (tags.some((tag) => noteTags.includes(tag))) {
+      filesWithTag.push(file);
+    }
+  }
+  return filesWithTag;
+}
 var stringToChainType = (chain) => {
   switch (chain) {
     case "llm_chain":
@@ -64879,10 +64894,10 @@ var formatDateTime = (now, timezone = "local") => {
   }
   return formattedDateTime.format("YYYY_MM_DD-HH_mm_ss");
 };
-async function getFileContent(file) {
+async function getFileContent(file, vault) {
   if (file.extension != "md")
     return null;
-  return await this.app.vault.cachedRead(file);
+  return await vault.cachedRead(file);
 }
 function getFileName(file) {
   return file.basename;
@@ -64909,9 +64924,20 @@ ${JSON.stringify(notes)}
 Please reply with the following word for word:"OK I've read these notes. Feel free to ask related questions, such as 'give me a summary of these notes in bullet points', 'what key questions does these notes answer', etc. "
 `;
 }
-function getSendChatContextNotesPrompt(notes) {
-  const noteTitles = notes.map((note) => `[[${note.name}]]`).join("\n\n");
-  return `Please read the notes below and be ready to answer questions about them. 
+function getNoteTitleAndTags(noteWithTag) {
+  return `[[${noteWithTag.name}]]` + (noteWithTag.tags && noteWithTag.tags.length > 0 ? `
+tags: ${noteWithTag.tags.join(",")}` : "");
+}
+function getChatContextStr(chatNoteContextPath, chatNoteContextTags) {
+  const pathStr = chatNoteContextPath ? `
+Chat context by path: ${chatNoteContextPath}` : "";
+  const tagsStr = (chatNoteContextTags == null ? void 0 : chatNoteContextTags.length) > 0 ? `
+Chat context by tags: ${chatNoteContextTags}` : "";
+  return pathStr + tagsStr;
+}
+function getSendChatContextNotesPrompt(notes, chatNoteContextPath, chatNoteContextTags) {
+  const noteTitles = notes.map((note) => getNoteTitleAndTags(note)).join("\n\n");
+  return `Please read the notes below and be ready to answer questions about them. ` + getChatContextStr(chatNoteContextPath, chatNoteContextTags) + `
 
 ${noteTitles}`;
 }
@@ -65009,7 +65035,7 @@ function extractChatHistory(memoryVariables) {
   }
   return chatHistory;
 }
-function processVariableName(variableName) {
+function processVariableNameForNotePath(variableName) {
   variableName = variableName.trim();
   if (variableName.startsWith("[[") && variableName.endsWith("]]")) {
     return `${variableName.slice(2, -2).trim()}.md`;
@@ -66485,7 +66511,7 @@ var RecursiveCharacterTextSplitter = class extends TextSplitter {
 };
 
 // src/LLMProviders/chainManager.ts
-var import_obsidian2 = require("obsidian");
+var import_obsidian3 = require("obsidian");
 
 // node_modules/openai/version.mjs
 var VERSION = "4.24.1";
@@ -72305,7 +72331,7 @@ var ChatGoogleGenerativeAI = class extends BaseChatModel {
 };
 
 // src/LLMProviders/chatModelManager.ts
-var import_obsidian = require("obsidian");
+var import_obsidian2 = require("obsidian");
 var ChatModelManager = class {
   constructor(langChainParams) {
     this.langChainParams = langChainParams;
@@ -72420,10 +72446,11 @@ var ChatModelManager = class {
     if (!ChatModelManager.modelMap.hasOwnProperty(modelDisplayName)) {
       throw new Error(`No model found for: ${modelDisplayName}`);
     }
+    this.langChainParams.model = getModelName(modelDisplayName);
     const selectedModel = ChatModelManager.modelMap[modelDisplayName];
     if (!selectedModel.hasApiKey) {
       const errorMessage = `API key is not provided for the model: ${modelDisplayName}. Model switch failed.`;
-      new import_obsidian.Notice(errorMessage);
+      new import_obsidian2.Notice(errorMessage);
       throw new Error(errorMessage);
     }
     const modelConfig = this.getModelConfig(selectedModel.vendor);
@@ -72434,7 +72461,7 @@ var ChatModelManager = class {
       ChatModelManager.chatModel = newModelInstance;
     } catch (error) {
       console.error(error);
-      new import_obsidian.Notice(`Error creating model: ${modelDisplayName}`);
+      new import_obsidian2.Notice(`Error creating model: ${modelDisplayName}`);
     }
   }
   validateChatModel(chatModel) {
@@ -72444,7 +72471,7 @@ var ChatModelManager = class {
     return true;
   }
   async countTokens(inputStr) {
-    return ChatModelManager.chatOpenAI.getNumTokens(inputStr);
+    return ChatModelManager.chatModel.getNumTokens(inputStr);
   }
 };
 
@@ -73838,7 +73865,7 @@ var _ChainManager = class {
     try {
       this.setChain(chainType, options);
     } catch (error) {
-      new import_obsidian2.Notice("Error creating chain:", error);
+      new import_obsidian3.Notice("Error creating chain:", error);
       console.error("Error creating chain:", error);
     }
   }
@@ -73881,7 +73908,7 @@ var _ChainManager = class {
       }
       case "retrieval_qa" /* RETRIEVAL_QA_CHAIN */: {
         if (!options.noteContent) {
-          new import_obsidian2.Notice("No note content provided");
+          new import_obsidian3.Notice("No note content provided");
           throw new Error("No note content provided");
         }
         this.setNoteContent(options.noteContent);
@@ -73939,7 +73966,7 @@ var _ChainManager = class {
     } = options;
     if (!this.chatModelManager.validateChatModel(this.chatModelManager.getChatModel())) {
       const errorMsg = "Chat model is not initialized properly, check your API key in Copilot setting and make sure you have API access.";
-      new import_obsidian2.Notice(errorMsg);
+      new import_obsidian3.Notice(errorMsg);
       console.error(errorMsg);
       return;
     }
@@ -74031,10 +74058,10 @@ chat context turns: ${chatContextTurns}
       const errorCode = (errorData == null ? void 0 : errorData.code) || error;
       if (errorCode === "model_not_found") {
         const modelNotFoundMsg = "You do not have access to this model or the model does not exist, please check with your API provider.";
-        new import_obsidian2.Notice(modelNotFoundMsg);
+        new import_obsidian3.Notice(modelNotFoundMsg);
         console.error(modelNotFoundMsg);
       } else {
-        new import_obsidian2.Notice(`LangChain error: ${errorCode}`);
+        new import_obsidian3.Notice(`LangChain error: ${errorCode}`);
         console.error(errorData);
       }
     } finally {
@@ -74078,7 +74105,7 @@ chat context turns: ${chatContextTurns}
       const embeddingsAPI = this.embeddingsManager.getEmbeddingsAPI();
       if (!embeddingsAPI) {
         const errorMsg = "Failed to create vector store, embedding API is not set correctly, please check your settings.";
-        new import_obsidian2.Notice(errorMsg);
+        new import_obsidian3.Notice(errorMsg);
         console.error(errorMsg);
         return;
       }
@@ -74088,9 +74115,9 @@ chat context turns: ${chatContextTurns}
       );
       vectorDBManager_default.setMemoryVectors(this.vectorStore.memoryVectors, docHash);
       console.log("Vector store created successfully.");
-      new import_obsidian2.Notice("Vector store created successfully.");
+      new import_obsidian3.Notice("Vector store created successfully.");
     } catch (error) {
-      new import_obsidian2.Notice("Failed to create vector store, please try again:", error);
+      new import_obsidian3.Notice("Failed to create vector store, please try again:", error);
       console.error("Failed to create vector store, please try again.:", error);
     }
   }
@@ -74100,8 +74127,8 @@ ChainManager.isOllamaModelActive = false;
 ChainManager.isOpenRouterModelActive = false;
 
 // src/components/AddPromptModal.tsx
-var import_obsidian3 = require("obsidian");
-var AddPromptModal = class extends import_obsidian3.Modal {
+var import_obsidian4 = require("obsidian");
+var AddPromptModal = class extends import_obsidian4.Modal {
   constructor(app2, onSave, initialTitle = "", initialPrompt = "", disabledTitle) {
     super(app2);
     this.contentEl.createEl("h2", { text: "User Custom Prompt" });
@@ -74152,6 +74179,11 @@ var AddPromptModal = class extends import_obsidian3.Modal {
         { text: "- {FolderPath} represents a folder of notes. " }
       );
       frag.createEl("br");
+      frag.createEl(
+        "strong",
+        { text: "- {#tag1, #tag2} represents ALL notes with ANY of the specified tags in their property (an OR operation). " }
+      );
+      frag.createEl("br");
       frag.createEl("br");
       frag.appendText("Tip: turn on debug mode to show the processed prompt in the chat window.");
       frag.createEl("br");
@@ -74193,15 +74225,15 @@ var AddPromptModal = class extends import_obsidian3.Modal {
         onSave(titleField.value, promptField.value);
         this.close();
       } else {
-        new import_obsidian3.Notice("Please fill in both fields: Title and Prompt.");
+        new import_obsidian4.Notice("Please fill in both fields: Title and Prompt.");
       }
     });
   }
 };
 
 // src/components/AdhocPromptModal.tsx
-var import_obsidian4 = require("obsidian");
-var AdhocPromptModal = class extends import_obsidian4.Modal {
+var import_obsidian5 = require("obsidian");
+var AdhocPromptModal = class extends import_obsidian5.Modal {
   constructor(app2, onSubmit) {
     super(app2);
     this.placeholderText = "Please enter your custom ad-hoc prompt here, press enter to send.";
@@ -74224,6 +74256,12 @@ var AdhocPromptModal = class extends import_obsidian4.Modal {
         "strong",
         { text: "- {FolderPath} represents a folder of notes. " }
       );
+      frag.createEl("br");
+      frag.createEl(
+        "strong",
+        { text: "- {#tag1, #tag2} represents ALL notes with ANY of the specified tags in their property (an OR operation). " }
+      );
+      frag.createEl("br");
       frag.createEl("br");
       frag.appendText("Tip: turn on debug mode to show the processed prompt in the chat window.");
       frag.createEl("br");
@@ -74253,8 +74291,8 @@ var AdhocPromptModal = class extends import_obsidian4.Modal {
 };
 
 // src/components/ChatNoteContextModal.tsx
-var import_obsidian5 = require("obsidian");
-var ChatNoteContextModal = class extends import_obsidian5.Modal {
+var import_obsidian6 = require("obsidian");
+var ChatNoteContextModal = class extends import_obsidian6.Modal {
   constructor(app2, settings, onSubmit) {
     super(app2);
     this.settings = settings;
@@ -74263,7 +74301,7 @@ var ChatNoteContextModal = class extends import_obsidian5.Modal {
   onOpen() {
     const formContainer = this.contentEl.createEl("div", { cls: "copilot-command-modal" });
     const pathContainer = formContainer.createEl("div", { cls: "copilot-command-input-container" });
-    pathContainer.createEl("h3", { text: "Folder Path", cls: "copilot-command-header" });
+    pathContainer.createEl("h3", { text: "Filter by Folder Path", cls: "copilot-command-header" });
     const descFragment = createFragment((frag) => {
       frag.appendText("All notes under the path will be sent to the prompt when the ");
       frag.createEl(
@@ -74287,6 +74325,29 @@ var ChatNoteContextModal = class extends import_obsidian5.Modal {
       }
     );
     pathField.setAttribute("name", "folderPath");
+    pathContainer.createEl("h3", { text: "Filter by Tags", cls: "copilot-command-header" });
+    const descTagsFragment = createFragment((frag) => {
+      frag.createEl(
+        "strong",
+        { text: "Only tags in note property are used, tags in note content are not used." }
+      );
+      frag.createEl("p", { text: "All notes under the path above are further filtered by the specified tags. If no path is provided, only tags are used. Multiple tags should be separated by commas. " });
+      frag.createEl(
+        "strong",
+        { text: "Tags function as an OR filter, " }
+      );
+      frag.appendText(" any note that matches one of the tags will be sent to the prompt when button is clicked in Chat mode.");
+    });
+    pathContainer.appendChild(descTagsFragment);
+    const tagsField = pathContainer.createEl(
+      "input",
+      {
+        type: "text",
+        cls: "copilot-command-input",
+        value: this.settings.chatNoteContextTags.join(",")
+      }
+    );
+    tagsField.setAttribute("name", "tags");
     const submitButtonContainer = formContainer.createEl("div", { cls: "copilot-command-save-btn-container" });
     const submitButton = submitButtonContainer.createEl("button", { text: "Submit", cls: "copilot-command-save-btn" });
     submitButton.addEventListener("click", () => {
@@ -74294,7 +74355,8 @@ var ChatNoteContextModal = class extends import_obsidian5.Modal {
       if (pathValue.startsWith("/") && pathValue.length > 1) {
         pathValue = pathValue.slice(1);
       }
-      this.onSubmit(pathValue);
+      const tagsValue = tagsField.value.split(",").map((tag) => tag.trim()).map((tag) => tag.replace("#", "")).filter((tag) => tag !== "");
+      this.onSubmit(pathValue, tagsValue);
       this.close();
     });
   }
@@ -74329,7 +74391,7 @@ function useAIState(chainManager) {
 }
 
 // src/components/ChatComponents/ChatIcons.tsx
-var import_obsidian6 = require("obsidian");
+var import_obsidian7 = require("obsidian");
 var import_react3 = __toESM(require_react());
 
 // src/components/Icons.tsx
@@ -74484,7 +74546,8 @@ var ChatIcons = ({
   onSaveAsNote,
   onSendActiveNoteToPrompt,
   onForceRebuildActiveNoteContext,
-  addMessage
+  addMessage,
+  vault
 }) => {
   const [selectedChain, setSelectedChain] = (0, import_react3.useState)(currentChain);
   const handleModelChange = (event) => {
@@ -74505,11 +74568,11 @@ var ChatIcons = ({
       }
       const file = app.workspace.getActiveFile();
       if (!file) {
-        new import_obsidian6.Notice("No active note found.");
+        new import_obsidian7.Notice("No active note found.");
         console.error("No active note found.");
         return;
       }
-      const noteContent = await getFileContent(file);
+      const noteContent = await getFileContent(file, vault);
       const noteName = getFileName(file);
       const activeNoteOnMessage = {
         sender: AI_SENDER,
@@ -74540,10 +74603,7 @@ Please note that this is a retrieval-based QA for notes longer than the model co
     /* @__PURE__ */ import_react4.default.createElement("option", { value: "GPT-4" /* GPT_4 */ }, "GPT-4" /* GPT_4 */),
     /* @__PURE__ */ import_react4.default.createElement("option", { value: "GPT-4 TURBO" /* GPT_4_TURBO */ }, "GPT-4 TURBO" /* GPT_4_TURBO */),
     /* @__PURE__ */ import_react4.default.createElement("option", { value: "GPT-4 32K" /* GPT_4_32K */ }, "GPT-4 32K" /* GPT_4_32K */),
-    /* @__PURE__ */ import_react4.default.createElement("option", { value: "AZURE GPT-3.5" /* AZURE_GPT_35_TURBO */ }, "AZURE GPT-3.5" /* AZURE_GPT_35_TURBO */),
-    /* @__PURE__ */ import_react4.default.createElement("option", { value: "AZURE GPT-3.5-16K" /* AZURE_GPT_35_TURBO_16K */ }, "AZURE GPT-3.5-16K" /* AZURE_GPT_35_TURBO_16K */),
-    /* @__PURE__ */ import_react4.default.createElement("option", { value: "AZURE GPT-4" /* AZURE_GPT_4 */ }, "AZURE GPT-4" /* AZURE_GPT_4 */),
-    /* @__PURE__ */ import_react4.default.createElement("option", { value: "AZURE GPT-4 32K" /* AZURE_GPT_4_32K */ }, "AZURE GPT-4 32K" /* AZURE_GPT_4_32K */),
+    /* @__PURE__ */ import_react4.default.createElement("option", { value: "AZURE OPENAI" /* AZURE_OPENAI */ }, "AZURE OPENAI" /* AZURE_OPENAI */),
     /* @__PURE__ */ import_react4.default.createElement("option", { value: "GEMINI PRO" /* GEMINI_PRO */ }, "GEMINI PRO" /* GEMINI_PRO */),
     /* @__PURE__ */ import_react4.default.createElement("option", { value: "OPENROUTER.AI" /* OPENROUTERAI */ }, "OPENROUTER.AI" /* OPENROUTERAI */),
     /* @__PURE__ */ import_react4.default.createElement("option", { value: "LM STUDIO (LOCAL)" /* LM_STUDIO */ }, "LM STUDIO (LOCAL)" /* LM_STUDIO */),
@@ -74558,7 +74618,7 @@ Please note that this is a retrieval-based QA for notes longer than the model co
     },
     /* @__PURE__ */ import_react4.default.createElement("option", { value: "llm_chain" }, "Chat"),
     /* @__PURE__ */ import_react4.default.createElement("option", { value: "retrieval_qa" }, "QA")
-  ), /* @__PURE__ */ import_react4.default.createElement("span", { className: "tooltip-text" }, "Mode Selection"))), selectedChain === "llm_chain" && /* @__PURE__ */ import_react4.default.createElement("button", { className: "chat-icon-button", onClick: onSendActiveNoteToPrompt }, /* @__PURE__ */ import_react4.default.createElement(SendActiveNoteToPromptIcon, { className: "icon-scaler" }), /* @__PURE__ */ import_react4.default.createElement("span", { className: "tooltip-text" }, "Send Note(s) to Prompt", /* @__PURE__ */ import_react4.default.createElement("br", null), "(Set with Copilot command.", /* @__PURE__ */ import_react4.default.createElement("br", null), "Default is active note)")), selectedChain === "retrieval_qa" && /* @__PURE__ */ import_react4.default.createElement("button", { className: "chat-icon-button", onClick: onForceRebuildActiveNoteContext }, /* @__PURE__ */ import_react4.default.createElement(UseActiveNoteAsContextIcon, { className: "icon-scaler" }), /* @__PURE__ */ import_react4.default.createElement("span", { className: "tooltip-text" }, "Rebuild Index for Active Note")));
+  ), /* @__PURE__ */ import_react4.default.createElement("span", { className: "tooltip-text" }, "Mode Selection"))), selectedChain === "llm_chain" && /* @__PURE__ */ import_react4.default.createElement("button", { className: "chat-icon-button", onClick: onSendActiveNoteToPrompt }, /* @__PURE__ */ import_react4.default.createElement(SendActiveNoteToPromptIcon, { className: "icon-scaler" }), /* @__PURE__ */ import_react4.default.createElement("span", { className: "tooltip-text" }, "Send Note(s) to Prompt", /* @__PURE__ */ import_react4.default.createElement("br", null), "(Set with Copilot command: ", /* @__PURE__ */ import_react4.default.createElement("br", null), "set note context ", /* @__PURE__ */ import_react4.default.createElement("br", null), "in Chat mode.", /* @__PURE__ */ import_react4.default.createElement("br", null), "Default is active note)")), selectedChain === "retrieval_qa" && /* @__PURE__ */ import_react4.default.createElement("button", { className: "chat-icon-button", onClick: onForceRebuildActiveNoteContext }, /* @__PURE__ */ import_react4.default.createElement(UseActiveNoteAsContextIcon, { className: "icon-scaler" }), /* @__PURE__ */ import_react4.default.createElement("span", { className: "tooltip-text" }, "Rebuild Index for Active Note")));
 };
 var ChatIcons_default = ChatIcons;
 
@@ -83200,7 +83260,7 @@ var React8 = __toESM(require_react());
 var AppContext = React8.createContext(void 0);
 
 // src/customPromptProcessor.ts
-var import_obsidian7 = require("obsidian");
+var import_obsidian8 = require("obsidian");
 var _CustomPromptProcessor = class {
   constructor(vault) {
     this.vault = vault;
@@ -83223,29 +83283,47 @@ var _CustomPromptProcessor = class {
     let match2;
     while ((match2 = variableRegex.exec(customPrompt)) !== null) {
       const variableName = match2[1].trim();
-      const processedVariableName = processVariableName(variableName);
-      const noteFiles = await getNotesFromPath(this.vault, processedVariableName);
       const notes = [];
-      for (const file of noteFiles) {
-        const content3 = await getFileContent(file);
-        if (content3) {
-          notes.push({ name: getFileName(file), content: content3 });
+      if (variableName.startsWith("#")) {
+        const tagNames = variableName.slice(1).split(",").map((tag) => tag.trim());
+        const noteFiles = await getNotesFromTags(this.vault, tagNames);
+        for (const file of noteFiles) {
+          const content3 = await getFileContent(file, this.vault);
+          if (content3) {
+            notes.push({ name: getFileName(file), content: content3 });
+          }
+        }
+      } else {
+        const processedVariableName = processVariableNameForNotePath(variableName);
+        const noteFiles = await getNotesFromPath(
+          this.vault,
+          processedVariableName
+        );
+        for (const file of noteFiles) {
+          const content3 = await getFileContent(file, this.vault);
+          if (content3) {
+            notes.push({ name: getFileName(file), content: content3 });
+          }
         }
       }
       if (notes.length > 0) {
         variablesWithContent.push(JSON.stringify(notes));
       } else {
-        new import_obsidian7.Notice(`Warning: No valid notes found for the provided path '${variableName}'.`);
+        new import_obsidian8.Notice(
+          `Warning: No valid notes found for the provided path '${variableName}'.`
+        );
       }
     }
     return variablesWithContent;
   }
   async processCustomPrompt(customPrompt, selectedText) {
-    const variablesWithContent = await this.extractVariablesFromPrompt(customPrompt);
+    const variablesWithContent = await this.extractVariablesFromPrompt(
+      customPrompt
+    );
     let processedPrompt = customPrompt;
     let index2 = 0;
     processedPrompt = processedPrompt.replace(/\{([^}]+)\}/g, () => {
-      return `{noteCollection${index2++}}`;
+      return `{context${index2++}}`;
     });
     let additionalInfo = "";
     if (processedPrompt.includes("{}")) {
@@ -83257,18 +83335,19 @@ var _CustomPromptProcessor = class {
     for (let i = 0; i < index2; i++) {
       additionalInfo += `
 
-noteCollection${i}:
+context${i}:
 
 ${variablesWithContent[i]}`;
     }
-    return processedPrompt + "\n\n" + additionalInfo;
+    const endLine = "\nAvoid mentioning the variable names 'selectedText' or 'contextX' in the reply. ";
+    return processedPrompt + "\n\n" + additionalInfo + (index2 > 0 ? endLine : "");
   }
 };
 var CustomPromptProcessor = _CustomPromptProcessor;
 CustomPromptProcessor.instance = null;
 
 // src/langchainStream.ts
-var import_obsidian8 = require("obsidian");
+var import_obsidian9 = require("obsidian");
 var getAIResponse = async (userMessage, chainManager, addMessage, updateCurrentAiMessage, updateShouldAbort, options = {}) => {
   const abortController = new AbortController();
   updateShouldAbort(abortController);
@@ -83282,7 +83361,7 @@ var getAIResponse = async (userMessage, chainManager, addMessage, updateCurrentA
     );
   } catch (error) {
     console.error("Model request failed:", error);
-    new import_obsidian8.Notice("Model request failed:", error);
+    new import_obsidian9.Notice("Model request failed:", error);
   }
 };
 
@@ -83326,7 +83405,7 @@ function useSharedState(sharedState) {
 var sharedState_default = SharedState;
 
 // src/components/Chat.tsx
-var import_obsidian9 = require("obsidian");
+var import_obsidian10 = require("obsidian");
 var import_react12 = __toESM(require_react());
 var Chat3 = ({
   sharedState,
@@ -83412,25 +83491,30 @@ var Chat3 = ({
     let noteFiles = [];
     if (debug2) {
       console.log("Chat note context path:", settings.chatNoteContextPath);
+      console.log("Chat note context tags:", settings.chatNoteContextTags);
     }
     if (settings.chatNoteContextPath) {
       noteFiles = await getNotesFromPath(vault, settings.chatNoteContextPath);
     }
+    if (settings.chatNoteContextTags) {
+      noteFiles = await getNotesFromTags(vault, settings.chatNoteContextTags, noteFiles);
+    }
     const file = app2.workspace.getActiveFile();
     if (noteFiles.length === 0) {
       if (!file) {
-        new import_obsidian9.Notice("No active note found.");
+        new import_obsidian10.Notice("No active note found.");
         console.error("No active note found.");
         return;
       }
-      new import_obsidian9.Notice("No valid Chat context provided. Defaulting to the active note.");
+      new import_obsidian10.Notice("No valid Chat context provided. Defaulting to the active note.");
       noteFiles = [file];
     }
     const notes = [];
     for (const file2 of noteFiles) {
-      const content3 = await getFileContent(file2);
+      const content3 = await getFileContent(file2, vault);
+      const tags = await getTagsFromNote(file2, vault);
       if (content3) {
-        notes.push({ name: getFileName(file2), content: content3 });
+        notes.push({ name: getFileName(file2), content: content3, tags });
       }
     }
     const promptMessageHidden = {
@@ -83438,7 +83522,11 @@ var Chat3 = ({
       sender: USER_SENDER,
       isVisible: false
     };
-    const sendNoteContentUserMessage = getSendChatContextNotesPrompt(notes);
+    const sendNoteContentUserMessage = getSendChatContextNotesPrompt(
+      notes,
+      settings.chatNoteContextPath,
+      settings.chatNoteContextTags
+    );
     const promptMessageVisible = {
       message: sendNoteContentUserMessage,
       sender: USER_SENDER,
@@ -83464,14 +83552,14 @@ var Chat3 = ({
     }
     const file = app2.workspace.getActiveFile();
     if (!file) {
-      new import_obsidian9.Notice("No active note found.");
+      new import_obsidian10.Notice("No active note found.");
       console.error("No active note found.");
       return;
     }
-    const noteContent = await getFileContent(file);
+    const noteContent = await getFileContent(file, vault);
     const noteName = getFileName(file);
     if (!noteContent) {
-      new import_obsidian9.Notice("No note content found.");
+      new import_obsidian10.Notice("No note content found.");
       console.error("No note content found.");
       return;
     }
@@ -83647,7 +83735,8 @@ var Chat3 = ({
       onSaveAsNote: handleSaveAsNote,
       onSendActiveNoteToPrompt: handleSendActiveNoteToPrompt,
       onForceRebuildActiveNoteContext: forceRebuildActiveNoteContext,
-      addMessage
+      addMessage,
+      vault
     }
   ), /* @__PURE__ */ import_react12.default.createElement(
     ChatInput_default,
@@ -83664,10 +83753,10 @@ var Chat_default = Chat3;
 
 // src/components/CopilotView.tsx
 var import_events = require("events");
-var import_obsidian10 = require("obsidian");
+var import_obsidian11 = require("obsidian");
 var React10 = __toESM(require_react());
 var import_client3 = __toESM(require_client5());
-var CopilotView = class extends import_obsidian10.ItemView {
+var CopilotView = class extends import_obsidian11.ItemView {
   constructor(leaf, plugin) {
     super(leaf);
     this.plugin = plugin;
@@ -83731,7 +83820,7 @@ var CopilotView = class extends import_obsidian10.ItemView {
 };
 
 // src/components/LanguageModal.tsx
-var import_obsidian11 = require("obsidian");
+var import_obsidian12 = require("obsidian");
 var LANGUAGES = [
   { code: "en", name: "English" },
   { code: "zh", name: "Chinese" },
@@ -83786,7 +83875,7 @@ var LANGUAGES = [
   { code: "pa", name: "Punjabi" },
   { code: "si", name: "Sinhala" }
 ];
-var LanguageModal = class extends import_obsidian11.FuzzySuggestModal {
+var LanguageModal = class extends import_obsidian12.FuzzySuggestModal {
   constructor(app2, onChooseLanguage) {
     super(app2);
     this.onChooseLanguage = onChooseLanguage;
@@ -83803,8 +83892,8 @@ var LanguageModal = class extends import_obsidian11.FuzzySuggestModal {
 };
 
 // src/components/ListPromptModal.tsx
-var import_obsidian12 = require("obsidian");
-var ListPromptModal = class extends import_obsidian12.FuzzySuggestModal {
+var import_obsidian13 = require("obsidian");
+var ListPromptModal = class extends import_obsidian13.FuzzySuggestModal {
   constructor(app2, promptTitles, onChoosePromptTitle) {
     super(app2);
     this.promptTitles = promptTitles;
@@ -83822,7 +83911,7 @@ var ListPromptModal = class extends import_obsidian12.FuzzySuggestModal {
 };
 
 // src/components/ToneModal.tsx
-var import_obsidian13 = require("obsidian");
+var import_obsidian14 = require("obsidian");
 var TONES = [
   "Professional",
   "Casual",
@@ -83830,7 +83919,7 @@ var TONES = [
   "Confident",
   "Friendly"
 ];
-var ToneModal = class extends import_obsidian13.FuzzySuggestModal {
+var ToneModal = class extends import_obsidian14.FuzzySuggestModal {
   constructor(app2, onChooseTone) {
     super(app2);
     this.onChooseTone = onChooseTone;
@@ -83847,12 +83936,12 @@ var ToneModal = class extends import_obsidian13.FuzzySuggestModal {
 };
 
 // src/settings/SettingsPage.tsx
-var import_obsidian15 = require("obsidian");
+var import_obsidian16 = require("obsidian");
 var import_react21 = __toESM(require_react());
 var import_client4 = __toESM(require_client5());
 
 // src/settings/components/SettingsMain.tsx
-var import_obsidian14 = require("obsidian");
+var import_obsidian15 = require("obsidian");
 var import_react20 = __toESM(require_react());
 
 // src/settings/components/AdvancedSettings.tsx
@@ -84057,6 +84146,7 @@ var ApiSettings = ({
     ApiSetting_default,
     {
       title: "Azure OpenAI API Deployment Name",
+      description: "This is your actual model, no need to pass a model name separately.",
       value: azureOpenAIApiDeploymentName,
       setValue: setAzureOpenAIApiDeploymentName,
       placeholder: "Enter Azure OpenAI API Deployment Name",
@@ -84259,13 +84349,13 @@ function SettingsMain({ plugin, reloadPlugin }) {
     plugin.settings.ollamaBaseUrl = ollamaBaseUrl;
     await plugin.saveSettings();
     await reloadPlugin();
-    new import_obsidian14.Notice("Settings have been saved and the plugin has been reloaded.");
+    new import_obsidian15.Notice("Settings have been saved and the plugin has been reloaded.");
   };
   const resetToDefaultSettings = async () => {
     plugin.settings = DEFAULT_SETTINGS;
     await plugin.saveSettings();
     await reloadPlugin();
-    new import_obsidian14.Notice("Settings have been reset to their default values.");
+    new import_obsidian15.Notice("Settings have been reset to their default values.");
   };
   return /* @__PURE__ */ import_react20.default.createElement(import_react20.default.Fragment, null, /* @__PURE__ */ import_react20.default.createElement("div", null, /* @__PURE__ */ import_react20.default.createElement("h2", null, "Copilot Settings"), /* @__PURE__ */ import_react20.default.createElement("div", { className: "button-container" }, /* @__PURE__ */ import_react20.default.createElement("button", { className: "mod-cta", onClick: saveAllSettings }, "Save and Reload"), /* @__PURE__ */ import_react20.default.createElement("button", { className: "mod-cta", onClick: resetToDefaultSettings }, "Reset to Default Settings")), /* @__PURE__ */ import_react20.default.createElement("div", { className: "warning-message" }, "Please Save and Reload the plugin when you change any setting below!"), /* @__PURE__ */ import_react20.default.createElement(
     DropdownComponent,
@@ -84381,7 +84471,7 @@ function SettingsMain({ plugin, reloadPlugin }) {
 }
 
 // src/settings/SettingsPage.tsx
-var CopilotSettingTab = class extends import_obsidian15.PluginSettingTab {
+var CopilotSettingTab = class extends import_obsidian16.PluginSettingTab {
   constructor(app2, plugin) {
     super(app2, plugin);
     this.plugin = plugin;
@@ -84393,9 +84483,9 @@ var CopilotSettingTab = class extends import_obsidian15.PluginSettingTab {
       await app2.plugins.disablePlugin("copilot");
       await app2.plugins.enablePlugin("copilot");
       app2.setting.openTabById("copilot").display();
-      new import_obsidian15.Notice("Plugin reloaded successfully.");
+      new import_obsidian16.Notice("Plugin reloaded successfully.");
     } catch (error) {
-      new import_obsidian15.Notice("Failed to reload the plugin. Please reload manually.");
+      new import_obsidian16.Notice("Failed to reload the plugin. Please reload manually.");
       console.error("Error reloading plugin:", error);
     }
   }
@@ -84410,7 +84500,7 @@ var CopilotSettingTab = class extends import_obsidian15.PluginSettingTab {
     );
     const devModeHeader = containerEl.createEl("h1", { text: "Development mode" });
     devModeHeader.style.marginTop = "40px";
-    new import_obsidian15.Setting(containerEl).setName("Debug mode").setDesc(
+    new import_obsidian16.Setting(containerEl).setName("Debug mode").setDesc(
       createFragment((frag) => {
         frag.appendText("Debug mode will log all API requests and prompts to the console.");
       })
@@ -84424,7 +84514,7 @@ var CopilotSettingTab = class extends import_obsidian15.PluginSettingTab {
 };
 
 // src/main.ts
-var import_obsidian16 = require("obsidian");
+var import_obsidian17 = require("obsidian");
 
 // node_modules/pouchdb/lib/index-browser.es.js
 var import_immediate = __toESM(require_lib3());
@@ -93045,7 +93135,7 @@ PouchDB.plugin(IDBPouch).plugin(HttpPouch$1).plugin(mapreduce).plugin(replicatio
 var index_browser_es_default = PouchDB;
 
 // src/main.ts
-var CopilotPlugin = class extends import_obsidian16.Plugin {
+var CopilotPlugin = class extends import_obsidian17.Plugin {
   constructor() {
     super(...arguments);
     this.activateViewPromise = null;
@@ -93183,7 +93273,7 @@ var CopilotPlugin = class extends import_obsidian16.Plugin {
       editorCallback: (editor) => {
         new LanguageModal(this.app, (language) => {
           if (!language) {
-            new import_obsidian16.Notice("Please select a language.");
+            new import_obsidian17.Notice("Please select a language.");
             return;
           }
           this.processSelection(editor, "translateSelection", language);
@@ -93196,7 +93286,7 @@ var CopilotPlugin = class extends import_obsidian16.Plugin {
       editorCallback: (editor) => {
         new ToneModal(this.app, (tone) => {
           if (!tone) {
-            new import_obsidian16.Notice("Please select a tone.");
+            new import_obsidian17.Notice("Please select a tone.");
             return;
           }
           this.processSelection(editor, "changeToneSelection", tone);
@@ -93217,9 +93307,9 @@ var CopilotPlugin = class extends import_obsidian16.Plugin {
         new AddPromptModal(this.app, async (title, prompt) => {
           try {
             await this.dbPrompts.put({ _id: title, prompt });
-            new import_obsidian16.Notice("Custom prompt saved successfully.");
+            new import_obsidian17.Notice("Custom prompt saved successfully.");
           } catch (e) {
-            new import_obsidian16.Notice("Error saving custom prompt. Please check if the title already exists.");
+            new import_obsidian17.Notice("Error saving custom prompt. Please check if the title already exists.");
             console.error(e);
           }
         }).open();
@@ -93232,22 +93322,22 @@ var CopilotPlugin = class extends import_obsidian16.Plugin {
         this.fetchPromptTitles().then((promptTitles) => {
           new ListPromptModal(this.app, promptTitles, async (promptTitle) => {
             if (!promptTitle) {
-              new import_obsidian16.Notice("Please select a prompt title.");
+              new import_obsidian17.Notice("Please select a prompt title.");
               return;
             }
             try {
               const doc = await this.dbPrompts.get(promptTitle);
               if (!doc.prompt) {
-                new import_obsidian16.Notice(`No prompt found with the title "${promptTitle}".`);
+                new import_obsidian17.Notice(`No prompt found with the title "${promptTitle}".`);
                 return;
               }
               this.processCustomPrompt(editor, "applyCustomPrompt", doc.prompt);
             } catch (err) {
               if (err.name === "not_found") {
-                new import_obsidian16.Notice(`No prompt found with the title "${promptTitle}".`);
+                new import_obsidian17.Notice(`No prompt found with the title "${promptTitle}".`);
               } else {
                 console.error(err);
-                new import_obsidian16.Notice("An error occurred.");
+                new import_obsidian17.Notice("An error occurred.");
               }
             }
           }).open();
@@ -93263,7 +93353,7 @@ var CopilotPlugin = class extends import_obsidian16.Plugin {
             this.processCustomPrompt(editor, "applyAdhocPrompt", adhocPrompt);
           } catch (err) {
             console.error(err);
-            new import_obsidian16.Notice("An error occurred.");
+            new import_obsidian17.Notice("An error occurred.");
           }
         });
         modal.open();
@@ -93279,23 +93369,23 @@ var CopilotPlugin = class extends import_obsidian16.Plugin {
         this.fetchPromptTitles().then((promptTitles) => {
           new ListPromptModal(this.app, promptTitles, async (promptTitle) => {
             if (!promptTitle) {
-              new import_obsidian16.Notice("Please select a prompt title.");
+              new import_obsidian17.Notice("Please select a prompt title.");
               return;
             }
             try {
               const doc = await this.dbPrompts.get(promptTitle);
               if (doc._rev) {
                 await this.dbPrompts.remove(doc);
-                new import_obsidian16.Notice(`Prompt "${promptTitle}" has been deleted.`);
+                new import_obsidian17.Notice(`Prompt "${promptTitle}" has been deleted.`);
               } else {
-                new import_obsidian16.Notice(`Failed to delete prompt "${promptTitle}": No revision found.`);
+                new import_obsidian17.Notice(`Failed to delete prompt "${promptTitle}": No revision found.`);
               }
             } catch (err) {
               if (err.name === "not_found") {
-                new import_obsidian16.Notice(`No prompt found with the title "${promptTitle}".`);
+                new import_obsidian17.Notice(`No prompt found with the title "${promptTitle}".`);
               } else {
                 console.error(err);
-                new import_obsidian16.Notice("An error occurred while deleting the prompt.");
+                new import_obsidian17.Notice("An error occurred while deleting the prompt.");
               }
             }
           }).open();
@@ -93313,7 +93403,7 @@ var CopilotPlugin = class extends import_obsidian16.Plugin {
         this.fetchPromptTitles().then((promptTitles) => {
           new ListPromptModal(this.app, promptTitles, async (promptTitle) => {
             if (!promptTitle) {
-              new import_obsidian16.Notice("Please select a prompt title.");
+              new import_obsidian17.Notice("Please select a prompt title.");
               return;
             }
             try {
@@ -93324,17 +93414,17 @@ var CopilotPlugin = class extends import_obsidian16.Plugin {
                     ...doc,
                     prompt: newPrompt
                   });
-                  new import_obsidian16.Notice(`Prompt "${title}" has been updated.`);
+                  new import_obsidian17.Notice(`Prompt "${title}" has been updated.`);
                 }, doc._id, doc.prompt, true).open();
               } else {
-                new import_obsidian16.Notice(`No prompt found with the title "${promptTitle}".`);
+                new import_obsidian17.Notice(`No prompt found with the title "${promptTitle}".`);
               }
             } catch (err) {
               if (err.name === "not_found") {
-                new import_obsidian16.Notice(`No prompt found with the title "${promptTitle}".`);
+                new import_obsidian17.Notice(`No prompt found with the title "${promptTitle}".`);
               } else {
                 console.error(err);
-                new import_obsidian16.Notice("An error occurred.");
+                new import_obsidian17.Notice("An error occurred.");
               }
             }
           }).open();
@@ -93350,11 +93440,11 @@ var CopilotPlugin = class extends import_obsidian16.Plugin {
           await this.dbVectorStores.destroy();
           this.dbVectorStores = new index_browser_es_default("copilot_vector_stores");
           vectorDBManager_default.updateDBInstance(this.dbVectorStores);
-          new import_obsidian16.Notice("Local vector store cleared successfully.");
+          new import_obsidian17.Notice("Local vector store cleared successfully.");
           console.log("Local vector store cleared successfully, new instance created.");
         } catch (err) {
           console.error("Error clearing the local vector store:", err);
-          new import_obsidian16.Notice("An error occurred while clearing the local vector store.");
+          new import_obsidian17.Notice("An error occurred while clearing the local vector store.");
         }
       }
     });
@@ -93362,8 +93452,9 @@ var CopilotPlugin = class extends import_obsidian16.Plugin {
       id: "set-chat-note-context",
       name: "Set note context for Chat mode",
       callback: async () => {
-        new ChatNoteContextModal(this.app, this.settings, async (path2) => {
+        new ChatNoteContextModal(this.app, this.settings, async (path2, tags) => {
           this.settings.chatNoteContextPath = path2;
+          this.settings.chatNoteContextTags = tags;
           await this.saveSettings();
         }).open();
       }

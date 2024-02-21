@@ -4,12 +4,11 @@ date: 2022-08-14 02:28:00 +0900
 publish: false
 fc-calendar: Gregorian Calendar
 fc-date: 2022-08-14
-aliases:
-  - Cache
+aliases: []
 tags:
   - cache
 categories: Computer science
-updated: 2024-01-31 16:25:51 +0900
+updated: 2024-02-21 10:58:56 +0900
 ---
 
 ## Cache memory
