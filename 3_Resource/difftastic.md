@@ -1,9 +1,13 @@
 ---
-title: "difftastic"
+title: difftastic
 date: 2022-11-09 12:53:00 +0900
 aliases: 
-tags: [tool, git, diff]
+tags:
+  - tool
+  - git
+  - diff
 categories: 
+updated: 2024-02-22 17:57:25 +0900
 ---
 
 ## Overview
@@ -26,7 +30,7 @@ git config --global diff.external difft
 
 Now, we can use difftastic by default.
 
-awosome! It looks better than before default git diff.
+awesome! It looks better than before default git diff.
 
 ![[스크린샷 2022-11-09 오후 1.00.44.png]]
 
