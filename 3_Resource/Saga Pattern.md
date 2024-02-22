@@ -7,7 +7,7 @@ tags:
   - distribute
   - transaction
 categories: 
-updated: 2024-02-06 15:52:48 +0900
+updated: 2024-02-22 11:10:49 +0900
 ---
 
 ## 분산 트랜잭션 처리 패턴
@@ -108,3 +108,4 @@ Saga Orchestrator 는 참가자들과 비동기 통신을 통해서 상호작용
 ## Reference
 
 - [마이크로서비스 - 분산 트랜잭션 처리 패턴](https://velog.io/@youngerjesus/%EB%A7%88%EC%9D%B4%ED%81%AC%EB%A1%9C%EC%84%9C%EB%B9%84%EC%8A%A4-%ED%8C%A8%ED%84%B4-%EB%B6%84%EC%82%B0-%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98-%EC%B2%98%EB%A6%AC)
+- https://hudi.blog/saga-pattern/
