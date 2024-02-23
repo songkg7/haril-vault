@@ -5,6 +5,7 @@ private/
 .obsidian/workspace
 .obsidian/graph.json
 .DS_Store
+.trash/
 
 .obsidian/plugins/obsidian-textgenerator-plugin
 .obsidian/text-generator.json
