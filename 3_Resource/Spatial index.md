@@ -8,7 +8,7 @@ tags:
   - postgis
   - geometry
 categories: 
-updated: 2024-02-22 17:58:00 +0900
+updated: 2024-02-27 22:14:49 +0900
 ---
 
 매우 비효율적이였던 기존 구현 방식을 설명하고, 개선하기 위해 시도한 방법들을 기록합니다.
@@ -53,6 +53,8 @@ JOIN port AS p ON st_contains(p.geom, a.geom);
 ![](https://i.imgur.com/aMFmfCh.png)
 _Awesome..._
 
+결론부터 설명했다. 왜 이런 결과가 나오는지 살펴보자.
+
 GIST 인덱스의 동작 원리 설명
 
 ## 적용 결과
@@ -73,3 +75,4 @@ GIST 인덱스의 동작 원리 설명
 ## Reference
 
 - [Spatial Indexing](https://postgis.net/workshops/postgis-intro/indexing.html)
+- https://dbknowledge.tistory.com/48
