@@ -8,7 +8,7 @@ tags:
   - postgis
   - geometry
 categories: 
-updated: 2024-02-27 22:14:49 +0900
+updated: 2024-02-28 22:23:58 +0900
 ---
 
 매우 비효율적이였던 기존 구현 방식을 설명하고, 개선하기 위해 시도한 방법들을 기록합니다.
@@ -57,6 +57,29 @@ _Awesome..._
 
 GIST 인덱스의 동작 원리 설명
 
+## GiST (Generalized Search Tree)
+
+복합적인 지리(geometric) 데이터를 조회하는데 매우 유용한 인덱스이며 내부 구조 예시는 아래와 같다.
+
+이러한 구조를 시각화하기 위해 세 가지 수준의 [[R-tree]] 에 대한 이미지를 제공합니다. 점은 공항의 좌표입니다(데모 데이터베이스의 '공항' 표에 있는 것과 유사하지만, openflights.org에서 더 많은 데이터가 제공됨).
+
+![](https://i.imgur.com/VnMOteR.png)
+
+Level one: two large intersecting rectangles are visible.
+교차하는 두 직사각형이 표시된다.
+
+![](https://i.imgur.com/HSqc7xA.png)
+
+Level two: large rectangles are split into smaller areas.
+큰 직사각형이 작은 영역으로 분할된다.
+
+![](https://i.imgur.com/PLDS9BR.png)
+
+Level three: each rectangle contains as many points as to fit one index page.
+각 직사각형에는 하나의 색인 페이지에 맞는 만큼의 점들이 포함된다.
+
+이후 영역들은 트리로 구성되고, 조회시 트리를 스캔한다. 더 자세한 정보가 필요하다면 [다음 글](https://medium.com/postgres-professional/indexes-in-postgresql-5-gist-86e19781b5db)을 살펴보시는걸 추천한다.
+
 ## 적용 결과
 
 ### spatial index 적용 전
@@ -76,3 +99,4 @@ GIST 인덱스의 동작 원리 설명
 
 - [Spatial Indexing](https://postgis.net/workshops/postgis-intro/indexing.html)
 - https://dbknowledge.tistory.com/48
+- https://medium.com/postgres-professional/indexes-in-postgresql-5-gist-86e19781b5db
