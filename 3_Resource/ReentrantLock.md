@@ -19,12 +19,12 @@ ReentrantLock는 java.util.concurrent.locks 패키지에 포함되어 있으며,
 
 ## 기본 동작 원리
 
-lock 을 획득하면 state 카운트가 증가한다.
+`lock()` 을 호출하여 lock 을 획득하면 state 카운트가 증가한다. 반대로 `unlock()` 을 호출하면 카운트가 감소한다.
 
 - `0`: free, 점유되지 않음
 - `1`: lock 을 점유한 스레드가 존재함
 
-이미 lock 을 점유한 스레드가 다시 lock 을 획득하려 하는 경우는 어떻게 될까?
+이미 lock 을 점유한 스레드가 다시 lock 을 획득하려 하는 경우는 어떻게 될까? state 카운트를 계속 증가시킨다. 따라서 의도치 않게 lock 을 여러 번 호출하게 된 경우, 
 
 ## DeadLock 발생 예시
 
