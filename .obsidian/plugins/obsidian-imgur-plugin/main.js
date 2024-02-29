@@ -1055,8 +1055,14 @@ var ImgurPlugin = class _ImgurPlugin extends import_obsidian10.Plugin {
   }
   setupImagesUploader() {
     const uploader = buildUploaderFrom(this.settings);
-    this.imgUploaderField = {
-      upload: (image, albumId) => uploader.upload(fixImageTypeIfNeeded(image), albumId)
+    this.imgUploaderField = uploader;
+    if (!uploader)
+      return;
+    const originalUploadFunction = uploader.upload;
+    uploader.upload = function(image, albumId) {
+      if (!uploader)
+        return;
+      return originalUploadFunction.call(uploader, fixImageTypeIfNeeded(image), albumId);
     };
   }
   setupImgurHandlers() {
