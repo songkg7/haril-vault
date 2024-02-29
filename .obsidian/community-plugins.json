@@ -1,5 +1,4 @@
 [
-  "cm-editor-syntax-highlight-obsidian",
   "dataview",
   "periodic-notes",
   "table-editor-obsidian",
@@ -22,12 +21,10 @@
   "marp",
   "obsidian-list-callouts",
   "obsidian-imgur-plugin",
-  "copilot",
   "obsidian-projects",
   "obsidian-icon-folder",
   "obsidian-excalidraw-plugin",
   "obsidian-style-settings",
-  "execute-code",
   "quick-latex",
   "obsidian-minimal-settings"
 ]
