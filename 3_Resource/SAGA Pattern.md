@@ -7,7 +7,7 @@ tags:
   - distribute
   - transaction
 categories: 
-updated: 2024-02-22 11:10:49 +0900
+updated: 2024-03-04 08:59:54 +0900
 ---
 
 ## 분산 트랜잭션 처리 패턴
@@ -52,12 +52,12 @@ updated: 2024-02-22 11:10:49 +0900
 
 각각의 Step 들은 다음과 같다.
 
-| Step | Triggering event | Participant | Command | Events |
-| ---- | ---- | ---- | ---- | ---- |
-| 1 | (External Request) | Order Service | createPendingOrder() | OrderCreated |
-| 2 | OrderCreated | Customer Service | reserveCredit() | Credit Reserved, Credit Limit Exceeded |
-| 3a | Credit Reserved | Order Service | approveOrder() |  |
-| 3b | Credit Limit Exceeded | Order Service | rejectOrder() |  |
+| Step | Triggering event      | Participant      | Command              | Events                                 |
+| ---- | --------------------- | ---------------- | -------------------- | -------------------------------------- |
+| 1    | (External Request)    | Order Service    | createPendingOrder() | OrderCreated                           |
+| 2    | OrderCreated          | Customer Service | reserveCredit()      | Credit Reserved, Credit Limit Exceeded |
+| 3a   | Credit Reserved       | Order Service    | approveOrder()       |                                        |
+| 3b   | Credit Limit Exceeded | Order Service    | rejectOrder()        |                                        |
 
 Step 2 같은 경우는 가능한 이벤트가 두 가지 있다고 생각하면 된다.
 
