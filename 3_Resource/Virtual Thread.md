@@ -9,7 +9,7 @@ tags:
   - loom-project
   - jdk21
 categories: 
-updated: 2023-12-12 20:03:55 +0900
+updated: 2024-03-07 15:58:42 +0900
 ---
 
 ## 배경
@@ -106,3 +106,8 @@ spring:
     - OS 스레드일듯
     - 이걸 어떻게 증명하지?
 - 
+
+## Reference
+
+- https://d2.naver.com/helloworld/1203723
+- https://guruma.github.io/posts/2018-09-27-Project-Loom-Fiber-And-Continuation/
