@@ -5,7 +5,7 @@ aliases:
 tags:
   - network
 categories: Network
-updated: 2024-02-14 21:11:13 +0900
+updated: 2024-03-09 10:26:42 +0900
 ---
 
 # 네트워크란 무엇인가?
@@ -54,3 +54,4 @@ updated: 2024-02-14 21:11:13 +0900
 # Reference
 
 - [coding-factory](https://coding-factory.tistory.com/340)
+- https://github.com/ddoddii/Computer-Science-Study/blob/main/network/network.md
