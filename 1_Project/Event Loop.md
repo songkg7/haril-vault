@@ -7,7 +7,7 @@ tags:
   - reactive
   - reactor
 categories: 
-updated: 2024-03-04 22:24:52 +0900
+updated: 2024-03-09 10:32:05 +0900
 ---
 
 ## Overview
@@ -35,6 +35,7 @@ blocking, non-blocking I/O 시스템콜에 대한 이해가 필요하다.
     - stack trace 는 스레드에 할당되는 stack 공간에 대한 추적 정보이다. 따라서 스레드를 넘나드는 태스크라면 활용하기 어렵다.
     - stack trace 대신 로그 정보를 담는 기능을 boolean 값으로 전달할 수 있으면 좋을듯
     - 퍼포먼스 관점에서 트레이드오프 지점인지 체크
+    - **Continuation**
 - non-blocking I/O 로 처리할 경우, 응답을 어떻게 다시 돌려받을 수 있는지 확인
 - event loop 에서 실행될 작업은 `Runnable` 을 구현한 `Task` 객체를 정의하여 구현
 
