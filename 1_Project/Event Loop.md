@@ -7,7 +7,7 @@ tags:
   - reactive
   - reactor
 categories: 
-updated: 2024-03-09 10:32:05 +0900
+updated: 2024-03-11 00:34:02 +0900
 ---
 
 ## Overview
@@ -133,3 +133,4 @@ public class NonBlockingClient {
 
 - https://developer.ibm.com/articles/l-async/
 - https://grip.news/archives/1304
+- https://smileostrich.tistory.com/entry/What-is-IOuring-Inside-IOuring
