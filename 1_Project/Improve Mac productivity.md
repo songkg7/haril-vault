@@ -7,10 +7,17 @@ tags:
   - tool
   - inflearn
 categories: 
-updated: 2024-03-06 18:37:05 +0900
+updated: 2024-03-12 20:18:23 +0900
 ---
 
 > 인프런 생산성 강의 촬영을 위해 정리
+
+SCQA
+
+- Situation
+- Complication
+- Question
+- Answer
 
 ## 1. 입문
 
@@ -86,9 +93,56 @@ updated: 2024-03-06 18:37:05 +0900
 
 ---
 
-- 목적별로 정리해두기
+- alt-tab
+- hiddenbar
+- shottr
+- gureumkim(구름 입력기)
+- [[Notion]]
+- [[Obsidian]]
+- [[Arc]]
+- Spark Desktop
+- Notion Calendar
 
 ## 생산성
+
+### alt-tab
+
+#### Situation
+
+여러 앱들이 열려있는 상태에서 포커스를 이동시키고 싶다.
+
+#### Complication
+ 
+ 앱 간 전환을 위해 `cmd + tab` 을 사용해보니 열려있는 크롬 창은 여러개지만 화면에 보이는 크롬 아이콘은 하나뿐.
+#### Question
+
+같은 앱을 여러 윈도우로 사용할 때, 정확히 특정 윈도우로 포커스를 이동시키려면 어떻게 해야 하나?
+
+#### Answer
+
+alt-tab 을 사용하면 윈도우에서 사용하던 포커스 전환 경험을 맥에 그대로 이식할 수 있다.
+
+### Amphetamine
+
+#### Situation
+
+업무 중 잠깐만 자리를 비워도 화면이 잠긴다.
+
+#### Complication
+
+하루에도 몇 번씩 잠긴 화면을 해제해야 한다.
+
+#### Question
+
+최소한 업무시간에는 화면이 잠기지 않게 할 수 있을까요?
+
+#### Answer
+
+Amphetamine 을 사용하면 특정 시간 등 조건에 따라 화면이 잠기지 않도록 제어할 수 있습니다. 보안을 위해 화면을 잠궈야 하는 경우까지 방해하지는 않으며, 시간의 흐름에 따라 잠기는 경우만 방지해줍니다.
+
+### WeatherBug
+
+맥의 상단에 현재 기온과 날씨를 표시해주는 간단한 앱
 
 ### Raycast
 
