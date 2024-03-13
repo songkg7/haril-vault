@@ -9,7 +9,7 @@ tags:
   - rdb
   - database
 categories: 
-updated: 2024-02-06 17:37:31 +0900
+updated: 2024-03-13 21:44:13 +0900
 ---
 
 ## Indexes In PostgreSQL
@@ -71,6 +71,7 @@ Repeatable Read 일 때, 일반적인 RDB 라면 언두 영역의 데이터가 �
 - https://aws.amazon.com/ko/blogs/database/multi-tenant-data-isolation-with-postgresql-row-level-security/
 - https://github.com/jojoldu/postgresql-in-action
 - https://chrisjune-13837.medium.com/db-postgresql-lock-%ED%8C%8C%ED%97%A4%EC%B9%98%EA%B8%B0-57d37ebe057
+- https://github.com/junhkang/postgresql
 
 ## Links
 

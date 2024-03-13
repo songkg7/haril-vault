@@ -5,7 +5,7 @@ aliases:
 tags:
   - git
 categories: 
-updated: 2024-03-13 17:17:22 +0900
+updated: 2024-03-13 18:07:27 +0900
 ---
 
 [[Git|Git]]
@@ -17,6 +17,9 @@ updated: 2024-03-13 17:17:22 +0900
 ```bash
 git filter-branch -f --index-filter 'git rm --cached --ignore-unmatch {파일명}' --prune-empty -- --all
 ```
+
+> [!error]
+> 이 명령을 실행하면 원본파일 또한 삭제되니, 만약 삭제되면 안되는 파일의 경우에는 미리 백업해둬야 한다.
 
 ```bash
 git push -f --all

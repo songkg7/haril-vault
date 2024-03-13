@@ -1,11 +1,12 @@
 ---
-title: "Surround.vim"
+title: Surround.vim
 date: 2022-09-05 16:59:00 +0900
-fc-calendar: Gregorian Calendar
-fc-date: 2022-09-05
 aliases: 
-tags: [vim, plugin]
-categories: [Vim]
+tags:
+  - vim
+  - plugin
+categories: Vim
+updated: 2024-03-13 17:43:05 +0900
 ---
 
 ## Tip
