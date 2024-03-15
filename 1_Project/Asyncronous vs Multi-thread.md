@@ -1,5 +1,5 @@
 ---
-title: Asnycronous vs Multi-thread
+title: 
 date: 2024-02-11 16:19:00 +0900
 aliases: 
 tags:
@@ -7,7 +7,7 @@ tags:
   - multi-thread
   - event-loop
 categories: 
-updated: 2024-02-11 16:19:44 +0900
+updated: 2024-03-15 10:11:33 +0900
 ---
 
 > 멀티 스레딩 방식은 비동기의 구현 방식 중 한가지

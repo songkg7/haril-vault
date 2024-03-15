@@ -12,9 +12,7 @@
   "obsidian-wakatime",
   "o2",
   "various-complements",
-  "obsidian-front-matter-title-plugin",
   "obsidian-advanced-uri",
-  "obsidian-banners",
   "update-time-on-edit",
   "obsidian-textgenerator-plugin",
   "obsidian-tasks-plugin",
@@ -22,9 +20,11 @@
   "obsidian-list-callouts",
   "obsidian-imgur-plugin",
   "obsidian-projects",
-  "obsidian-icon-folder",
   "obsidian-excalidraw-plugin",
   "obsidian-style-settings",
   "quick-latex",
-  "obsidian-minimal-settings"
+  "obsidian-minimal-settings",
+  "obsidian-icon-folder",
+  "obsidian-banners",
+  "obsidian-front-matter-title-plugin"
 ]

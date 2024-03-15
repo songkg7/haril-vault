@@ -7,7 +7,7 @@ tags:
   - tool
   - inflearn
 categories: 
-updated: 2024-03-12 20:18:23 +0900
+updated: 2024-03-14 14:52:25 +0900
 ---
 
 > 인프런 생산성 강의 촬영을 위해 정리
@@ -63,6 +63,7 @@ SCQA
 - ripgrep
 - lsd
 - RunCat
+- Clop (파일 용량 감소)
 - @ figlet
 - @ lolcat
 
