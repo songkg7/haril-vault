@@ -5,7 +5,7 @@ aliases:
 tags:
   - http
 categories: 
-updated: 2024-03-11 13:47:19 +0900
+updated: 2024-03-19 17:56:05 +0900
 ---
 
 HTTP 는 현재 3.0까지 존재한다. 각 버전 별 어떤 차이점이 존재하는지 알아보자.
@@ -96,6 +96,10 @@ HTTP 3는 HTTP 2와 비슷한 구조를 가지고 있지만, 전송 프로토콜
 
 HTTP 2에서 발생할 수 있는 `head-of-line blocking` 문제를 해결하기 위해 생긴 기술인 QUIC (Quick UDP Internet Connections) 를 사용한다.
 
+
+> [!NOTE] HOLB
+> TCP 는 패킷이 유실되거나 오류가 있을 때 재전송을 하는데 이 재전송하는 패킷에 지연이 발생하면 이후 패킷이 모두 지연되는 현상
+
 QUIC은 스트림을 사용하여 여러 요청/응답을 처리하므로 `Multiplexing` 과 같은 장점을 가진다. 하지만 스트림이라는 개념으로 인해 이전에 몰랐던 새로운 문제가 발생하기도 한다. 바로 패킷 손실이다. 스트림을 사용하게 되면 하나의 요청/응답 분위기가 서로 상호 의존적이므로, 중간에 패킷 손실이 발생하면 그 이후의 모든 요청/응답도 실패하게 된다는 것이다. 그래서 이러한 문제를 해결하기 위해 기존에 사용되던 [[TCP]]의 기능 중 하나인 재전송 기능을 구현하여 HTTP 3 에서 사용한다.
 
 #quic
@@ -105,3 +109,4 @@ QUIC은 스트림을 사용하여 여러 요청/응답을 처리하므로 `Multi
 - [HTTP/3: The Past, The Present, and The Future](https://blog.cloudflare.com/http3-the-past-present-and-future/)
 - [HTTP 2.0은 무엇이 좋고 나쁜가](https://blueshw.github.io/2016/02/17/http2-what-is-good-and-bad/)
 - https://gngsn.tistory.com/234
+- [HTTP 3.0 소개 & 통신 기술 알아보기](https://inpa.tistory.com/entry/WEB-%F0%9F%8C%90-HTTP-30-%ED%86%B5%EC%8B%A0-%EA%B8%B0%EC%88%A0-%EC%9D%B4%EC%A0%9C%EB%8A%94-%ED%99%95%EC%8B%A4%ED%9E%88-%EC%9D%B4%ED%95%B4%ED%95%98%EC%9E%90)
