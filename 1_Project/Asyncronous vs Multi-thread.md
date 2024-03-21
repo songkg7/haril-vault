@@ -7,7 +7,7 @@ tags:
   - multi-thread
   - event-loop
 categories: 
-updated: 2024-03-20 21:31:32 +0900
+updated: 2024-03-21 12:38:17 +0900
 ---
 
 > 멀티 스레딩 방식은 비동기의 구현 방식 중 한가지
@@ -71,6 +71,7 @@ libuv는 이벤트 루프를 단일 스레드에서 동작하면서, 시스템 �
 ## 별도의 스레드에서 시스템콜을 한다고 해도 결국 그 스레드는 블로킹되는 것이 아닌가?
 
 따라서 non-blocking I/O 작업을 처리할 수 있어야 하며, java 는 nio 패키지의 [[Selector]], channel 등으로 관리한다. non-blocking I/O 의 경우, OS 는 처리 결과를 다시 JVM 으로 통지할 수 있어야 하는데 이 때  select, poll, epoll 등이 활용된다.
+
 
 ## Reference
 

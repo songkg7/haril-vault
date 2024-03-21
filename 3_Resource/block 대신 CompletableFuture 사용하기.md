@@ -1,13 +1,13 @@
 ---
 title: block 대신 CompletableFuture 사용하기
 date: 2022-12-06 10:10:00 +0900
-aliases: null
+aliases: 
 tags:
   - webflux
   - block
   - asnyc
-categories: null
-updated: 2023-08-19 12:38:04 +0900
+categories: 
+updated: 2024-03-21 12:38:30 +0900
 ---
 
 ## Overview
@@ -62,3 +62,4 @@ void execute_after_10s() {
 body 의 delay 를 11초로 설정하여 `future.get()` 에 설정한 시간인 10초를 초과하게 한다.
 
 `join()` 을 사용하면 exception 을 던지지 않는다. timeout 관련 처리는 어떻게 되는지 확인 필요
+
