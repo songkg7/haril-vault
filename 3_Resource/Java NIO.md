@@ -7,7 +7,7 @@ tags:
   - nio
   - non-blocking
 categories: 
-updated: 2024-03-21 17:44:30 +0900
+updated: 2024-03-22 19:11:43 +0900
 ---
 
 ## nio 란?
@@ -45,7 +45,7 @@ java nio에서는 데이터가 채널로부터 읽어들여서 이동할 때, �
 
 인스턴스 생성 후 put 메서드로 값을 입력하고, flip 메서드로 limit와 position 값 설정 후 get 메서드로 값을 추출한다.
 
-```
+```java
 ByteBuffer buf = ByteBuffer.allocate(1024);
 buf.put("some string".getBytes());
 buf.flip();
@@ -57,7 +57,7 @@ buf.get(b, 0, 10); // some string
 
 charset은 문자들의 인코딩 방식을 의미한다. charset 객체를 이용해서 문자열을 byte buffer로 변환하거나 반대로 변환할 수 있다.
 
-```
+```java
 Charset charset = Charset.forName("UTF-8");
 
 String str = "안녕하세요";
