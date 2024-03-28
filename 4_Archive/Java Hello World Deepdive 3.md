@@ -6,7 +6,7 @@ tags:
   - java
   - jvm
 categories: 
-updated: 2024-03-05 17:46:15 +0900
+updated: 2024-03-27 13:15:56 +0900
 ---
 
 앞선 챕터에서는 Java 를 컴파일해보며 바이트코드 구조에 대해 살펴봤다. 이번 챕터에서는 JVM 이 실행되면서 'Hello World' 코드 블록을 어떻게 동작시키는지 살펴본다.
@@ -14,7 +14,7 @@ updated: 2024-03-05 17:46:15 +0900
 ## Chapter 3. Java 를 실행하는 JVM
 
 - Class Loader
-- [[Java Virtual Machine]]
+- [[Java Virtual Machine|JVM]]
 - [[Java Native Interface]]
 - JVM 메모리 적재 과정
 - Hello World 가 어떤 메모리 영역과 상호작용하게 되는지
@@ -166,14 +166,14 @@ PC register 의 수명 주기는 기본적으로 스레드의 수명주기와 �
 
 ##### JVM Stack
 
-JVM 스레드는 독립된 스택을 가진다. JVM 스택은 메서드 호출 정보를 저장하는 데이터 구조다. 각 메서드가 호출될 때마다 스택에 메서드의 지역 변수와 반환 값의 주소를 가지고 있는 새로운 프레임이 생성된다. 만약 primitive type 이라면 스택에 바로 저장되고, wrapper type 이라면 Heap 에 생성된 인스턴스의 참조를 갖게 된다. 이로 인하여 int 나 double 이 Integer, Double 보다 근소하게 성능상 이점을 갖게 된다.
+JVM 스레드는 독립된 스택을 가진다. JVM 스택은 메서드 호출 정보를 저장하는 데이터 구조다. 각 메서드가 호출될 때마다 스택에 메서드의 지역 변수와 반환 값의 주소를 가지고 있는 **새로운 프레임이 생성**된다. 만약 primitive type 이라면 스택에 바로 저장되고, wrapper type 이라면 Heap 에 생성된 인스턴스의 참조를 갖게 된다. 이로 인하여 int 나 double 이 Integer, Double 보다 근소하게 성능상 이점을 갖게 된다.
 
 JVM 스택 덕분에 JVM 은 프로그램 실행을 추적하고 필요에 따라 스택 추적을 기록할 수 있다.
 
-- stack trace 라고 한다. `printStackTrace` 가 이것이다.
+- stack trace 라고 한다. `printStackTrace` 가 이것을 출력하는 것
 - 한 작업이 스레드를 넘나드는 webflux 의 이벤트루프에서 stack trace 가 의미를 갖기 어려운 이유
 
-JVM 구현에 따라 스택의 메모리 사이즈와 할당 방식이 결정될 수 있다. 일반적으로는 1MB 남짓의 공간이 스레드가 시작될 때 할당된다.
+JVM 구현에 따라 스택의 메모리 사이즈와 할당 방식이 결정될 수 있다. 일반적으로는 **1MB 남짓의 공간이 스레드가 시작될 때 할당**된다.
 
 JVM 의 메모리 할당 에러는 stack overflow error 를 수반할 수 있다. 그러나 만약 JVM 구현이 JVM 스택 사이즈의 동적 확장을 허락한다면, 그리고 만약 메모리 에러가 확장 도중에 발생한다면 JVM 은 OutOfMemory 에러를 던지게 될 수 있다.
 
