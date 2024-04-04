@@ -4,14 +4,14 @@ date: 2022-08-16 12:50:00 +0900
 publish: false
 fc-calendar: Gregorian Calendar
 fc-date: 2022-08-16
-aliases: null
+aliases: 
 tags:
   - network
   - ip
 categories:
   - Computer science
   - Network
-updated: 2023-08-19 12:37:43 +0900
+updated: 2024-04-02 10:42:57 +0900
 ---
 
 [[Network]]
@@ -36,3 +36,7 @@ updated: 2023-08-19 12:37:43 +0900
 중간에 패킷이 사라진다면?
 
 패킷이 순서대로 오지 않는다면?
+
+## IPv4
+
+

@@ -7,7 +7,7 @@ tags:
   - aws
   - network
 categories: 
-updated: 2024-04-01 20:18:30 +0900
+updated: 2024-04-02 11:07:12 +0900
 ---
 
 ### Hybrid Cloud 를 네트워크 인프라
@@ -32,7 +32,7 @@ On-prem -> AWS 연동 시 on-prem 보안 최적화
 - VPC subnet 의 랜덤 IP 를 사용자 정의하여 생성할 수 있게됨
 - Public VIF 의 사용에 대한 이점 소개
 
-- [[NAT gateway]] 를 사용하면 IP 대역이 얼마나 크든 상관없이 온프레미스에서 특정 아이피를 열어줄 수 있다.
+- [[Network Address Translation|NAT gateway]] 를 사용하면 IP 대역이 얼마나 크든 상관없이 온프레미스에서 특정 아이피를 열어줄 수 있다.
 - ErrorPortAllocation = NAT 는 최대 55000개의 동시 연결 지원하기 때문
 - 현재는 8개의 IP 주소를 연결하여 440000 개의 동시연결을 할 수 있다
 

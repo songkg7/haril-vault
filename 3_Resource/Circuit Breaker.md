@@ -1,0 +1,30 @@
+---
+title: Circuit Breaker
+date: 2024-04-02 16:18:00 +0900
+aliases: 
+tags: 
+categories: 
+updated: 2024-04-02 16:18:06 +0900
+---
+
+## Circuit breaker 란?
+
+- Circuit breaker는 일반적인 전기 회로에 사용되는 장치로, 과도한 전류가 흐를 때 회로를 차단하여 장치를 보호하는 역할을 한다.
+- 이와 유사하게 소프트웨어에서의 Circuit breaker는 서버간의 연결에서 과도한 요청으로 인해 서버가 다운될 수 있는 상황을 방지하기 위해 사용된다.
+- Circuit breaker는 기본적으로 open, half-open, close 3가지 상태로 나뉜다.
+
+### Open
+
+- Circuit breaker의 기본 상태이며, 요청이 너무 많이 들어오면, circuit breaker는 서버에 대한 요청을 모두 차단한다.
+- 일정 시간 동안 해당 서버에 대해서는 요청을 받지 않고 에러 메시지만 응답한다.
+
+### Half-open
+
+- open 상태일 때 일정 시간이 지나면 circuit breaker는 다시 half-open 상태로 전환된다.
+- 이 상태에서 circuit breaker는 일부 요청만 서버로 보내서 연결 가능한지 확인한다.
+- 만약 정상적인 응답을 받으면 open -> close 로 전환되고 다시 서버에 대해 정상적으로 요청을 할 수 있게 된다.
+- 만약 여전히 에러 응답을 받으면 다시 open 상태로 전환된다.
+
+### Close
+
+- 기본 상태와 같으며, 서버에는 정상적인 요청을 할 수 있게 된다.
