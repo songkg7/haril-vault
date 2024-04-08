@@ -7,7 +7,7 @@ tags:
   - livid
   - interview
 categories: 
-updated: 2024-01-07 18:39:54 +0900
+updated: 2024-04-07 22:03:50 +0900
 ---
 
 ## 장소
@@ -70,3 +70,9 @@ updated: 2024-01-07 18:39:54 +0900
     - 회의실 예약 방식 등
     - 모르는 내용이 있었다면 정리해두고 진행
 - 인터뷰어 추첨
+
+---
+
+## 면접 기록
+
+https://clovanote.naver.com/w/GLoWBokaTq4xbS6CFdJw/note-detail/74959975-4c92-49d5-8709-f26f243381a5n
