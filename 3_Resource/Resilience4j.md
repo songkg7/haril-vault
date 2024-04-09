@@ -6,7 +6,7 @@ tags:
   - rate-limit
   - circuit-breaker
 categories: 
-updated: 2024-04-02 16:19:10 +0900
+updated: 2024-04-08 22:06:56 +0900
 ---
 
 ## Resilience4j 란
@@ -64,7 +64,7 @@ Gradle을 사용하여 샘플을 실행한다.
 
 ## Resilience4j 주요 기능
 
-* [[Circuit Breaker]]
+* [[Circuit Breaker|Circuit breaker]]
 * [[Rate Limiter]]
 * [[Bulkhead]]
 * [[Retry]]

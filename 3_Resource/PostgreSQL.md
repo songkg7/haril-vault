@@ -9,7 +9,7 @@ tags:
   - rdb
   - database
 categories: 
-updated: 2024-03-13 21:44:13 +0900
+updated: 2024-04-09 09:42:53 +0900
 ---
 
 ## Indexes In PostgreSQL
@@ -60,7 +60,7 @@ WHERE NOT blockedl.granted;
 
 Repeatable Read 일 때, 일반적인 RDB 라면 언두 영역의 데이터가 아니라 테이블의 레코드를 가져오게 되면서 phantom read 가 발생한다. 
 - [[MySQL]] 에서는 gap lock 이 존재하기 때문에 next key lock 을 건다. 따라서 범위에 해당하는 데이터의 삽입을 시도한다면 대기하게 되면서 phantom read 를 막는다.
-- PostgreSQL 에서는 next key lock 없이도 phantom read 가 발생하지 않는다.
+- PostgreSQL 에서는 next key lock 없이도 phantom read 가 발생하지 않는다. TXID 를 통해 특정 트랜잭션 이후에 실행된 트랜잭션의 변경은 읽지 않으면 되기 때문이다.
 
 ## Reference
 

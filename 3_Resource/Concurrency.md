@@ -7,7 +7,7 @@ tags:
   - transaction
   - lock
 categories: 
-updated: 2023-10-01 22:01:22 +0900
+updated: 2024-04-09 10:01:26 +0900
 ---
 
 ## 동시성에 대한 정의
@@ -24,7 +24,7 @@ updated: 2023-10-01 22:01:22 +0900
 
 ### 해결 방법
 
-- 비관적 락([[Pessimistic Lock]])
+- 비관적 락([[Pessimistic Lock|비관적 락]])
 - 낙관적 락([[Optimistic Lock]])
 
 ## Links
@@ -35,4 +35,5 @@ updated: 2023-10-01 22:01:22 +0900
 
 ## Reference
 
-https://helloworld.kurly.com/blog/distributed-redisson-lock/
+- https://helloworld.kurly.com/blog/distributed-redisson-lock/
+- [동시성 문제 해결을 위한 락 선택에 고려해볼 것들](https://www.blog.ecsimsw.com/entry/%EB%8F%99%EC%8B%9C%EC%84%B1-%ED%85%8C%EC%8A%A4%ED%8A%B8%EC%99%80-%ED%95%B4%EA%B2%B0-%EB%B0%A9%EC%95%88)

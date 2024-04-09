@@ -6,7 +6,7 @@ tags:
   - network
   - study
 categories: 
-updated: 2024-04-07 19:48:59 +0900
+updated: 2024-04-10 01:16:05 +0900
 ---
 
 # Deeeeeep Network
@@ -64,3 +64,77 @@ updated: 2024-04-07 19:48:59 +0900
     - write 와 read
     - 수신 버퍼 송신 버퍼는 모두 메모리 개념이며 애플리케이션에서 준비해둔 영역
 - `socket()` 시스템콜을 호출하면 OS 는 소켓을 생성 후 애플리케이션에 디스크립터를 반환해준다. 이후 I/O 작업은 이 디스크립터를 사용하여 이루어진다
+- pingpong 서버 만들기
+    - 짧은 메세지를 반환하는 엔드포인트
+    - MSS 에 의해 패킷이 나눠지는걸 확인하기 위해 긴 메세지를 반환하는 엔드포인트
+
+## 패킷 캡처하기
+
+Mac 을 기준으로 설명합니다.
+
+```bash
+brew install httpie termshark
+```
+
+```bash
+docker run -p 8080:8080 songkg7/rest-server
+```
+
+```bash
+http localhost:8080/ping
+```
+
+패킷 분석 툴로는 좀 더 범용적인 wireshark 를 사용하려 했으나 설치가 안되는 이슈로 부득이하게 termshark 를 사용합니다. termshark 도 충분히 좋은 툴이므로 편하신걸로 사용하시면 되겠습니다.
+
+`ifconfig` 를 통해 현재 머신에 존재하는 네트워크 인터페이스를 확인할 수 있습니다.
+
+```bash
+ifconfig
+tshark -D
+```
+
+![](https://i.imgur.com/NjtA2p3.png)
+
+`lo0` 라는 이름으로 존재하네요. 이제 이 장비에 오고가는 패킷을 dump 해보겠습니다.
+
+```bash
+sudo tcpdump -v -i lo0 -w test.pcap
+sudo tshark -i lo0 -w test.pcap
+```
+
+tcpdump 를 실행하면 network packet 을 캡쳐하는 상태로 진입합니다. 다른 터미널 세션에서 [[Loopback]] 으로 요청을 보내고,
+
+```bash
+http localhost:8080/ping
+```
+
+tcpdump 를 실행한 세션에서는 `ctrl + c` 를 눌러 캡쳐를 종료합니다.
+
+> [!NOTE] 루프백(Loopback)이란?
+> Contents
+
+![](https://i.imgur.com/f7cGNTK.png)
+
+```bash
+termshark -r test.pcap tcp.port==8080
+```
+
+![](https://i.imgur.com/9R32wPz.png)
+
+색상은 wireshark 룰을 따릅니다.
+
+- 회색: TCP SYN/FIN
+- 녹색: HTTP
+- 붉은색: ABORT
+
+패킷 분석 방법에 익숙해지셨길 바랍니다...!
+
+### 알 수 있는 내용
+
+- 클라이언트는 커넥션을 생성할 때 매번 새로운 포트를 사용
+- Flags 는 0, 1 의 비트를 사용해서 표시
+- SYN 과정에서 시퀀스 넘버 설정
+
+### 추가
+
+- `tcpdump` 를 대체할 수 있는 `tshark` 를 사용해보세요. wireshark 의 공식 cli 입니다.
