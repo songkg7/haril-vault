@@ -4,7 +4,7 @@ date: 2024-04-02 16:18:00 +0900
 aliases: 
 tags: 
 categories: 
-updated: 2024-04-02 16:18:06 +0900
+updated: 2024-04-11 11:01:58 +0900
 ---
 
 ## Circuit breaker 란?
@@ -28,3 +28,11 @@ updated: 2024-04-02 16:18:06 +0900
 ### Close
 
 - 기본 상태와 같으며, 서버에는 정상적인 요청을 할 수 있게 된다.
+
+## 스프링에서의 Resilience4j
+
+- readTimeOut 이 발생한다면 fallback 값을 리턴하도록 해서 클라이언트에는 timeout 이 발생했다는 사실을 숨길 수 있다.
+
+## Reference
+
+- https://tech.kakaopay.com/post/katfun-joy-multiple-biz-partner-02/
