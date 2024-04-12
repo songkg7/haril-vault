@@ -4,7 +4,7 @@ date: 2024-04-02 16:18:00 +0900
 aliases: 
 tags: 
 categories: 
-updated: 2024-04-11 11:01:58 +0900
+updated: 2024-04-12 21:56:23 +0900
 ---
 
 ## Circuit breaker 란?
@@ -31,7 +31,11 @@ updated: 2024-04-11 11:01:58 +0900
 
 ## 스프링에서의 Resilience4j
 
-- readTimeOut 이 발생한다면 fallback 값을 리턴하도록 해서 클라이언트에는 timeout 이 발생했다는 사실을 숨길 수 있다.
+### 서킷브레이커로 얻을 수 있는 효과
+
+#### 에러를 보여주지 않을 수 있다
+
+- timeout 시간을 짧게 주고 만약 readTimeOut 이 발생한다면 fallback 값을 리턴하도록 해서 클라이언트에는 timeout 이 발생했다는 사실을 숨길 수 있다.
 
 ## Reference
 
