@@ -6,7 +6,7 @@ tags:
   - network
   - packet
 categories: 
-updated: 2024-04-11 22:27:36 +0900
+updated: 2024-04-13 11:47:38 +0900
 ---
 
 Mac 을 기준으로 설명합니다.
@@ -105,3 +105,7 @@ ifconfig | grep 'inet '
 이제는 https 로 요청을 보냈기 때문에 [[Transport Layer Security|TLS]] 라는 키워드가 등장한다. body 가 인코딩된 것을 확인할 수 있고 내용을 볼 수 없다.
 
 - 항상 RST 로 연결을 종료하는 것을 볼 수 있는데 정확한 이유를 아직 모르겠다.
+
+## Reference
+
+- https://www.cloudflare.com/ko-kr/learning/network-layer/what-is-a-packet/

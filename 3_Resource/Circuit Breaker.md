@@ -4,7 +4,7 @@ date: 2024-04-02 16:18:00 +0900
 aliases: 
 tags: 
 categories: 
-updated: 2024-04-12 21:56:23 +0900
+updated: 2024-04-12 21:56:31 +0900
 ---
 
 ## Circuit breaker 란?
