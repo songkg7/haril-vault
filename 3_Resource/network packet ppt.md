@@ -6,7 +6,7 @@ tags:
   - packet
   - ppt
 categories: 
-updated: 2024-04-13 16:55:50 +0900
+updated: 2024-04-14 19:38:33 +0900
 ---
 
 # Week 1. 네트워크와 친해지기 with Wireshark
@@ -161,3 +161,5 @@ termshark -r test.pcap
 
 - 책을 좀 더 살펴보면서 직접 해결해보자
 - 시간 측정 부분
+
+책을 이용한 스터디가 특이하다

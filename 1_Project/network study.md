@@ -6,7 +6,7 @@ tags:
   - network
   - study
 categories: 
-updated: 2024-04-13 16:51:31 +0900
+updated: 2024-04-14 14:23:03 +0900
 ---
 
 # Deeeeeep Network
@@ -69,4 +69,4 @@ updated: 2024-04-13 16:51:31 +0900
     - 짧은 메세지를 반환하는 엔드포인트
     - MSS 에 의해 패킷이 나눠지는걸 확인하기 위해 긴 메세지를 반환하는 엔드포인트
 
-![[How to capturing packet|패킷 캡처하기]]
+![[How to capturing packet with termshark|패킷 캡처하기]]
