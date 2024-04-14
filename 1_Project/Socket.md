@@ -6,7 +6,7 @@ tags:
   - socket
   - network
 categories: Network
-updated: 2024-02-11 16:25:51 +0900
+updated: 2024-04-14 12:04:31 +0900
 ---
 
 ## Socket 의 본질에 대한 이해
@@ -22,6 +22,10 @@ Stream 이라는 키워드를 알아둬야 한다. 소켓 또한 파일이기 �
 - Stream: 데이터
 - Segment: 데이터 조각
 - Packet: 네트워크 전송을 위해 포장된 Segment
+
+## 소켓 생성 과정
+
+- `socket()` 이라는 시스템콜을 호출하게 되면 OS 는 메모리에 소켓 파일 작성을 위한 공간을 확보한 후 fd 를 반환해준다.
 
 ## Reference
 
