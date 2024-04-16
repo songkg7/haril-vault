@@ -6,7 +6,7 @@ tags:
   - lock
   - concurrency
 categories: 
-updated: 2024-02-29 16:47:04 +0900
+updated: 2024-04-15 13:11:33 +0900
 ---
 
 ## ReentrantLock 이란
@@ -65,7 +65,7 @@ fun deposit(id: Long, amount: Long): Account {
 }
 ```
 
-위 코드는 deadlock 이 발생한다.
+위 코드는 deadlock 이 발생한다. tryLock 에서 lock 을 획득하려고 시도하고 획득했다면 withLock 에서 한 번 더 lock 을 걸기 때문에 state 가 0으로 초기화되지 않기 때문에 잠금 상태에서 벗어날 수 없기 때문이다.
 
 ```java
 @ReservedStackAccess
