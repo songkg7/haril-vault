@@ -4,7 +4,7 @@ date: 2024-04-02 16:18:00 +0900
 aliases: 
 tags: 
 categories: 
-updated: 2024-04-12 21:56:31 +0900
+updated: 2024-04-16 15:42:43 +0900
 ---
 
 ## Circuit breaker 란?
@@ -36,6 +36,37 @@ updated: 2024-04-12 21:56:31 +0900
 #### 에러를 보여주지 않을 수 있다
 
 - timeout 시간을 짧게 주고 만약 readTimeOut 이 발생한다면 fallback 값을 리턴하도록 해서 클라이언트에는 timeout 이 발생했다는 사실을 숨길 수 있다.
+
+## With WebFlux
+
+```groovy
+implementation 'io.github.resilience4j:resilience4j-reactor:{version}'
+```
+
+[[Spring WebFlux]] 의 경우 [[Reactor]] 를 사용하기 때문에 관련 의존성을 추가해주면 reactor 와 함께 적용할 수 있다.
+
+![](https://i.imgur.com/ixUfGQJ.png)
+
+```java
+
+private final CircuitBreakerRegistry circuitBreakerRegistry; // autowired
+
+// ...
+
+public Flux<String> getRequest(SomeRequest request) {
+    return get(request)
+        .bodyToFlux(String.class)
+            .transform(CircuitBreakerOperator.of(circuitBreakerRegistry.circuitBreaker("apple")))
+            .onErrorResume(this::fallback);
+}
+
+private <T> Mono<T> fallback(Throwable throwable) {
+    log.error(throwable.getMessage());
+    return Mono.empty();
+}
+```
+
+`CircuitBreakerOperator` 를 통해 reactor 의 chaining 으로 자연스럽게 사용할 수 있다.
 
 ## Reference
 
