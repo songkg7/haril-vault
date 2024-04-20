@@ -1,5 +1,5 @@
 ---
-updated: 2024-04-14 16:45:34 +0900
+updated: 2024-04-19 13:54:53 +0900
 ---
 
 - [ ] #task 스프링 트랜잭션 동작원리 살펴보기
@@ -13,7 +13,7 @@ updated: 2024-04-14 16:45:34 +0900
 - [ ] #task 모든 외부 api 한번에 요청하기
 - [x] #task 서킷 브레이커 적용하기
 
-- [ ] #task gitmodule 로 init script 추가
+- [ ] #task gitmodule 로 init script 추가 for env in carrier
 
 - [ ] #task error 수집이 제대로 안되는 부분 해결하기 - 로그가 너무 길어서 생기는 문제인듯
 

@@ -7,7 +7,7 @@ tags:
   - momory
   - grid
 categories: 
-updated: 2023-10-03 21:25:24 +0900
+updated: 2024-04-18 22:04:25 +0900
 ---
 
 ## What is Redis?
@@ -35,3 +35,4 @@ Note that these are just potential advantages and may not apply to all use cases
 - [레디스의 50가지 그림자](https://papercut.blog/235?category=232322)
 - [레디스를 적용하기 전 꼭 알아야하는 전략](https://velog.io/@youngerjesus/Redis-%EB%A5%BC-%EC%8B%A4%EB%AC%B4%EC%97%90-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0-%EC%A0%84-%EA%BC%AD-%EC%95%8C%EC%95%84%EC%95%BC-%ED%95%98%EB%8A%94-%EC%A0%84%EB%9E%B5)
 - [Redis Thread I/O](https://charsyam.wordpress.com/2020/05/05/%EC%9E%85-%EA%B0%9C%EB%B0%9C-redis-6-0-threadedio%EB%A5%BC-%EC%95%8C%EC%95%84%EB%B3%B4%EC%9E%90/)
+- [레디스 캐시 전략](https://inpa.tistory.com/entry/REDIS-%F0%9F%93%9A-%EC%BA%90%EC%8B%9CCache-%EC%84%A4%EA%B3%84-%EC%A0%84%EB%9E%B5-%EC%A7%80%EC%B9%A8-%EC%B4%9D%EC%A0%95%EB%A6%AC)

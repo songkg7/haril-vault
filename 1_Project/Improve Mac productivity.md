@@ -7,7 +7,7 @@ tags:
   - tool
   - inflearn
 categories: 
-updated: 2024-03-14 14:52:25 +0900
+updated: 2024-04-18 20:49:14 +0900
 ---
 
 > 인프런 생산성 강의 촬영을 위해 정리
@@ -51,7 +51,7 @@ SCQA
 
 - Warp or iTerm2
 - [[Homebrew]]
-- [[asdf]]
+- [[asdf]] or [[mise]]
 - tldr
 - zoxide
 - [[HTTPie]]
