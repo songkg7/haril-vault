@@ -5,13 +5,22 @@ aliases:
 tags:
   - postgresql
   - transaction
+  - 2pl
 categories: 
-updated: 2024-04-20 20:22:57 +0900
+updated: 2024-04-20 21:55:13 +0900
 ---
 
 ## SELECT FOR UPDATE 구문의 동작 방식
 
-`select for update` 는 티켓 예매 등, 특정 고객이 티켓 예매 과정을 진행하는 동안 다른 고객이 데이터를 변경할 수 없도록 막기 위해 사용할 수 있어요.
+PostgreSQL의 FOR UPDATE 잠금은 트랜잭션 내에서 SELECT 쿼리를 수행하는 동안 테이블의 행을 명시적으로 잠그는 데 사용됩니다. 이 잠금 모드는 일반적으로 트랜잭션이 완료될 때까지 선택한 행이 변경되지 않도록 하여 다른 트랜잭션이 충돌하는 방식으로 해당 행을 수정하거나 잠그지 못하도록 하려는 경우에 사용합니다.
+
+예를 들면 티켓 예매처럼 특정 고객이 티켓 예매 과정을 진행하는 동안 다른 고객이 데이터를 변경할 수 없도록 막기 위해 사용할 수 있어요.
+
+이번 글에서 살펴볼 케이스들은 조금 특별합니다.
+
+- 잠금을 사용하는 읽기와 잠금을 사용하지 않는 읽기를 혼용하게 된다면 `select for update` 는 어떻게 동작할까요?
+- 애초에 잠금을 사용했는데 다른 트랜잭션에서 읽기가 가능하긴 한 걸까요?
+- 읽기 방식을 혼용해도 데이터의 일관된 읽기를 보장할 수 있을까요?
 
 [[PostgreSQL]] 에서 `select for update` 구문은 **트랜잭션 격리레벨에 따라서 다르게 동작**합니다. 따라서 격리레벨 별로 살펴봐야 해요.
 
@@ -25,8 +34,10 @@ updated: 2024-04-20 20:22:57 +0900
 
 - [[PostgreSQL]] 의 기본 격리레벨
 - A 트랜잭션이 `select for update` 로 행을 잠그더라도 B 트랜잭션에서 데이터를 읽을 수 있다.
+    - 잠금없는 읽기
 - A 트랜잭션이 커밋하기 전까지는 B 트랜잭션에서 데이터를 변경할 수 없다.
 - B 트랜잭션이 A 트랜잭션이 커밋되길 기다리고 있을 경우, A 트랜잭션이 커밋되면 B 트랜잭션이 곧바로 커밋된다.
+- 일관된 읽기를 보장하지 않는다.
 - **갱신 유실이 발생**한다.
 
 ```mermaid
@@ -36,7 +47,7 @@ sequenceDiagram
     participant B as B transation
     A->>DB: BEGIN
     B->>DB: BEGIN
-    A->>DB: select for update<br/>where id = 1
+    A->>DB: select where id = 1 <br/>for update
     activate DB
     DB->>A: id=1, name=null
     B->>DB: select where id = 1
@@ -62,6 +73,7 @@ Exclusive Lock 이 적용된 부분은 진한 색으로 표시했어요. 위 다
 - A 트랜잭션이 `select for update` 로 행을 잠그더라도 B 트랜잭션에서 데이터를 읽을 수 있다.
 - A 트랜잭션이 커밋하기 전까지는 B 트랜잭션에서 데이터를 변경할 수 없다.
 - B 트랜잭션에서 데이터를 변경하려고 하면 **직렬화 오류가 발생**한다. (B 트랜잭션 rollback 조치 필요)
+- 일관된 읽기를 보장한다.
 - **갱신 유실이 발생하지 않는다.**
 
 ### 트랜잭션간 데이터 변경 작업이 충돌하는 경우
@@ -73,8 +85,10 @@ sequenceDiagram
     participant B as B transation
     A->>DB: BEGIN
     B->>DB: BEGIN
-    A->>DB: select for update<br/>where id = 1
+    A->>DB: select where id = 1<br/>for update
     activate DB
+    B->>DB: select where id = 1
+    DB->>B: id=1,name=null
     B-->>DB: update set name = 'B'<br/>where id = 1
     Note over B,DB: A 가 커밋되기 전까지 대기
     A->>DB: update set name = 'A'<br/>where id = 1
@@ -93,9 +107,9 @@ sequenceDiagram
 
 ### 트랜잭션간 데이터 변경 작업이 충돌하지 않는 경우
 
-만약 A 트랜잭션에서 A 아이디에 해당하는 row 를 잠궜지만 변경하지 않았고, B 트랜잭션에서는 변경했다고 할 때 이 경우 트랜잭션이 충돌할까?
+만약 A 트랜잭션에서 row 를 잠궜지만 변경하지 않았고, B 트랜잭션에서는 변경했다고 할 때 이 경우 결과는 어떻게 될까요?
 
-[[PostgreSQL]] 에서는 상호 잠금이 충돌하지 않는 경우는 모든 변경사항이 반영됩니다.
+[[PostgreSQL]] 에서는 커밋 결과가 충돌하지 않는 경우는 모든 변경사항이 반영됩니다.
 
 ```mermaid
 sequenceDiagram
@@ -104,8 +118,10 @@ sequenceDiagram
     participant B as B transation
     A->>DB: BEGIN
     B->>DB: BEGIN
-    A->>DB: select for update<br/>where id = 1
+    A->>DB: select where id = 1<br/>for update
     activate DB
+    B->>DB: select where id = 1
+    DB->>B: id=1,name=null
     B-->>DB: update set name = 'B'<br/>where id = 1
     Note over B,DB: A 가 커밋되기 전까지 대기
     A->>DB: commit
@@ -115,11 +131,12 @@ sequenceDiagram
     B->>DB: commit
 ```
 
-A 트랜잭션이 commit 된 시점에 충돌하는 데이터 변경사항이 없기 때문에 B 트랜잭션의 변경사항이 에러없이 반영되게 되어요.
+A 트랜잭션이 먼저 lock 을 획득했지만, 결과적으로 충돌은 없기 때문에 B 트랜잭션의 변경사항이 에러없이 반영되요.
 
 ## 3. Serializable
 
-- Repeatable Read 와 동일합니다.
+- Repeatable Read 와 거의 동일합니다.
+- Serializable 이 항상 안좋은 것은 아니에요. 최근 DB 들의 Serializable 은 고려해볼 가치[^1]가 있습니다.
 
 ## A, B 모두 SELECT FOR UPDATE 를 호출하는 경우
 
@@ -134,14 +151,15 @@ sequenceDiagram
     participant B as B transation
     A->>DB: BEGIN
     B->>DB: BEGIN
-    A->>DB: select for update<br/>where id = 1
+    A->>DB: select where id = 1<br/>for update
     activate DB
     DB->>A: id=1, name=null
-    B->>DB: select for update<br/>where id = 1
+    B-->>DB: select where id = 1<br/>for update
     Note over B,DB: A 가 커밋되기 전까지 대기
     A->>DB: update set name = 'A'<br/>where id = 1
     A->>DB: commit
     deactivate DB
+    B->>DB: select where id = 1<br/>for update
     DB->>B: id=1,name='A'
     B->>DB: update set name = 'B'<br/>where id = 1
     B->>DB: commit
@@ -154,11 +172,13 @@ sequenceDiagram
 지금까지 살펴본 부분들을 정리해볼게요.
 
 - `select for update` 구문에서 잠금없는 읽기 동작을 막지 않아요.
-- 모든 읽기를 막는 것이 아닌 잠금 기반으로 제어함으로써 성능을 최대한 높일 수 있어요.
-- 잠금으로 동시성을 제어하고자 한다면 모든 트랜잭션에서 `select for update` 를 사용해야 해요.
+- 동시성을 안전하게 제어하고자 한다면 모든 트랜잭션에서 `select for update` 를 사용하는게 좋아요.
+- [[PostgreSQL]] 은 First-Committer Win 정책을 통해 가장 먼저 커밋된 트랜잭션을 허용하고 나머지는 허용하지 않는 방식으로 동시성을 제어해요.
 
-[[PostgreSQL]] 의 select for update 구문은 **모든 격리 수준에서 잠금없는 읽기를 방해하지 않아요.** 대신 커밋 시점에서 데이터의 변경이 감지되면 그 때 에러를 발생시켜서 추가적인 동작을 유도합니다. 또한 잠금이라고 해서 항상 다른 트랜잭션을 기다려야하는 것도 아니에요. 상황에 맞게 처리하면서 성능을 최대한 발휘하도록 설계되어 있는 점이 재밌는 점이네요.
+[[PostgreSQL]] 의 `select for update` 구문은 **모든 격리 수준에서 잠금없는 읽기를 방해하지 않아요.** 대신 커밋 시점에서 데이터의 변경이 감지되면 그 때 에러를 발생시켜서 추가적인 핸들링을 유도합니다. 또한 잠금이라고 해서 항상 다른 트랜잭션을 기다려야하는 것도 아니에요. 상황에 맞게 처리하면서 성능을 최대한 발휘하도록 설계되어 있는 점이 흥미롭습니다.
 
 ## Reference
 
-- https://dev.to/mahmoudhossam917/postgresql-locks-part-3-3481#:~:text=The%20FOR%20SHARE%20lock%20mode%20in%20PostgreSQL,ensuring%20data%20consistency%20without%20blocking%20other%20readers.
+- [Locks in PostgreSQL part 3](https://dev.to/mahmoudhossam917/postgresql-locks-part-3-3481#:~:text=The%20FOR%20SHARE%20lock%20mode%20in%20PostgreSQL,ensuring%20data%20consistency%20without%20blocking%20other%20readers)
+
+[^1]: [PSQL에서 Serializable 격리수준을 쓰기 무서우신가요?](https://velog.io/@jaquan1227/PSQL-%EC%97%90%EC%84%9C-Serializable-%EA%B2%A9%EB%A6%AC%EC%88%98%EC%A4%80%EC%9D%84-%EC%93%B0%EA%B8%B0-%EB%AC%B4%EC%84%9C%EC%9A%B0%EC%8B%A0%EA%B0%80%EC%9A%94)
