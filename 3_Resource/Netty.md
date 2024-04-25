@@ -8,7 +8,7 @@ tags:
   - non-blocking
   - asnyc
 categories: 
-updated: 2024-02-13 17:19:18 +0900
+updated: 2024-04-21 15:23:24 +0900
 ---
 
 ## Netty 란
@@ -46,3 +46,4 @@ _위 내용은 GPT 에 의해 작성되었습니다._
 - https://hbase.tistory.com/39
 - https://sightstudio.tistory.com/15
 - https://www.getoutsidedoor.com/2021/10/03/eventloop-%EC%84%A4%EA%B3%84%EC%99%80-%EA%B5%AC%ED%98%84-el-project/
+- https://mark-kim.blog/netty_workflow/
