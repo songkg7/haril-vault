@@ -7,7 +7,7 @@ tags:
   - nio
   - non-blocking
 categories: 
-updated: 2024-03-22 19:11:43 +0900
+updated: 2024-04-21 14:41:27 +0900
 ---
 
 ## nio 란?
@@ -197,3 +197,4 @@ while(true) {
 ## Reference
 
 - https://dev-coco.tistory.com/44
+- https://e-una.tistory.com/76
