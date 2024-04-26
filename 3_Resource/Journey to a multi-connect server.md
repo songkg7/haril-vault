@@ -2,9 +2,14 @@
 title: 다중 접속 서버로의 여정
 date: 2024-04-27 00:27:00 +0900
 aliases: 
-tags: 
+tags:
+  - network
+  - socket
+  - multi-thread
+  - eventloop
+  - kernel
 categories: 
-updated: 2024-04-27 03:20:21 +0900
+updated: 2024-04-27 03:31:17 +0900
 ---
 
 네트워크 원리 챕터 6의 내용을 애플리케이션 레벨에서 좀 더 살펴보기
@@ -31,9 +36,31 @@ updated: 2024-04-27 03:20:21 +0900
 > [!question] 소켓을 fd 로 사용하는 이유는?
 > 자신의 ip, port, 상대방의 ip, port 를 사용해도 소켓을 사용할 수 있지만 fd 를 사용하는 이유는 연결이 수락되기 전 소켓에는 아무런 정보가 없기 때문이고 또한 단순한 정수인 fd 보다 많은 데이터가 필요하기 때문
 
----
+![](https://vos.line-scdn.net/landpress-content-v2_1761/1672029326745.png?updatedAt=1672029327000)
 
 ### 단일 프로세스 서버
+
+```java
+try (ServerSocket serverSocket = new ServerSocket(PORT)) {
+    while (true) {
+        try (
+                Socket clientSocket = serverSocket.accept();
+                BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+                PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true)
+        ) {
+            String inputLine;
+            while ((inputLine = in.readLine()) != null) {
+                out.println("Echo: " + inputLine);
+            }
+            System.out.println("Client disconnected.");
+        } catch (IOException e) {
+            println("Exception in connection with client: " + e.getMessage());
+        }
+    }
+} catch (IOException e) {
+    println("Could not listen on port " + PORT + ": " + e.getMessage());
+}
+```
 
 - 하나의 클라이언트가 연결할 때는 문제가 없지만 다수의 클라이언트가 연결하는 경우에는 문제
 - 처음 연결한 클라이언트가 연결을 종료하기 전까진 큐에 들어가 대기해야 하기 때문
@@ -43,19 +70,55 @@ updated: 2024-04-27 03:20:21 +0900
 
 edf1a1b0faadb996c5a5fe1e866c3b89425ba6ca
 
----
-
 ### 멀티 프로세스 서버
 
 - [[Operating system|OS]] 에서 프로세스는 서로 독립된 실행 객체로 존재하기 때문에, 안정적으로 동작이 가능
 - 리소스를 많이 사용
 - 자바에서는 멀티 프로세스를 다루기가 까다로우므로 생략
 
----
-
 ### 멀티스레드 서버
 
 https://github.com/songkg7/network-study-code-sample/tree/multi-thread
+
+```java
+try (ServerSocket serverSocket = new ServerSocket(PORT)) {
+    LOGGER.info("Server is running on port " + PORT);
+
+    while (true) {
+        Socket clientSocket = serverSocket.accept(); // 메인 스레드가 요청을 수락하면서 클라이언트 소켓 생성
+        new Thread(new ClientHandler(clientSocket)).start(); // 워커 스레드에 위임
+    }
+} catch (IOException e) {
+    LOGGER.severe("Could not listen on port " + PORT + ": " + e.getMessage());
+}
+```
+
+```java
+public class ClientHandler implements Runnable {
+    // 생략...
+
+    @Override
+    public void run() {
+        try (
+                BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+                PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true)
+        ) {
+            String inputLine;
+            while ((inputLine = in.readLine()) != null) {
+                out.println("Echo: " + inputLine); // Echo back the received message
+            }
+        } catch (IOException e) {
+            LOGGER.severe("Error handling client: " + e.getMessage());
+        } finally {
+            try {
+                clientSocket.close();
+            } catch (IOException e) {
+                LOGGER.severe("Failed to close client socket: " + e.getMessage());
+            }
+        }
+    }
+}
+```
 
 - 요청이 들어올 때마다 별개의 스레드를 생성해서 요청 처리
 - 다중 접속 처리 가능
@@ -69,14 +132,10 @@ https://github.com/songkg7/network-study-code-sample/tree/multi-thread
 
 연결이 하나 생성될 때마다 스레드를 생성해서 서비스를 제공하는 것
 
----
-
 #### 장점
 
 - 프로세스 복사 비용보다는 스레드 생성비용이 적다.
 - 서로 공유하는 메모리가 있기 때문에 스레드간 정보 교환이 쉽다.
-
----
 
 #### 단점
 
@@ -85,8 +144,6 @@ https://github.com/songkg7/network-study-code-sample/tree/multi-thread
 - 스레드풀을 사용하여 운영할 수 있지만, 여전히 풀보다 큰 요청을 동시에 처리할 수는 없다. = https://songkg7.github.io/posts/Spring-MVC-Traffic-Testing/
 - 멀티스레드로 다중 요청을 처리할 수 있게 되었고, 많은 스레드가 생성되어 서버의 리소스를 낭비하게 되는 경우를 막기 위해 스레드풀로 고정 개수의 스레드를 관리하게 되었지만, 스레드 하나가 블록될 때의 기회비용이 매우 커짐
     - 스레드 하나하나 열심히 굴려야하는 마당에, 블로킹되어 일하지 못하고 대기하는 것
-
----
 
 ### 멀티플렉싱
 
@@ -99,8 +156,6 @@ https://github.com/songkg7/network-study-code-sample/tree/multi-thread
 - [[Spring WebFlux]] 의 모델
 - 이게 무슨 의미인가?
 
----
-
 ## Blocking I/O
 
 ![](https://vos.line-scdn.net/landpress-content-v2_954/1663604281440.png?updatedAt=1663604282000)
@@ -108,17 +163,13 @@ https://github.com/songkg7/network-study-code-sample/tree/multi-thread
 - read 를 호출한 순간에는 데이터가 도착하지 않았을 수 있다.
 - 데이터가 네트워크를 통해 커널 공간에 도착해 사용자 공간의 프로세스 버퍼에 복사될 때까지 시스템콜이 반환되지 않는다.
 
----
-
 ## I/O 멀티플렉싱 모델
 
 ![](https://vos.line-scdn.net/landpress-content-v2_954/1663604384989.png?updatedAt=1663604385000)
 
-- select 함수를 호출해서 여러 개의 소켓 중 읽을 준비가 된 소켓이 생길 때까지 대기 (blocking)
+- **select 함수를 호출해서 여러 개의 소켓 중 읽을 준비가 된 소켓이 생길 때까지 대기 (blocking)**
 - 준비가 된 소켓이 반환되면, read 함수를 호출
 - 여러 소켓을 바라보다가 준비가 된 소켓부터 반환받아서 데이터를 처리하기 때문에, 블로킹되는 시간이 짧다.
-
----
 
 ## 멀티플렉싱 구현의 두 가지 모델
 
@@ -127,6 +178,10 @@ https://github.com/songkg7/network-study-code-sample/tree/multi-thread
 - 단일 프로세스는 다중 접속을 처리할 수 없었고,
 - 멀티 프로세스, 멀티 스레드는 리소스가 너무 많이 필요했으며,
 - 스레드풀은 리소스 문제는 해결했지만, 많은 요청을 동시에 처리하기는 여전히 부족했다.
+
+### Polling
+
+### Event Loop
 
 ## Reference
 
