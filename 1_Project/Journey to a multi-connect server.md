@@ -9,7 +9,7 @@ tags:
   - eventloop
   - kernel
 categories: 
-updated: 2024-04-27 03:31:17 +0900
+updated: 2024-04-27 18:00:35 +0900
 ---
 
 네트워크 원리 챕터 6의 내용을 애플리케이션 레벨에서 좀 더 살펴보기
@@ -126,6 +126,8 @@ public class ClientHandler implements Runnable {
 
 ![](https://i.imgur.com/HwdAnxF.png)
 
+![thread blocking i o](https://mark-kim.blog/static/b6c2670ce0509c3f3f241df696922319/d1b94/thread_blocking_i_o.png "thread blocking i o")
+
 1. 메인 스레드는 listening 중인 서버 소켓을 사용하여 accept 함수를 호출해서 연결 요청을 수락
 2. 이때 얻는 소켓을 별도의 워커 스레드를 생성하여 넘겨준다.
 3. 워커 스레드에서 서비스 제공
@@ -171,7 +173,77 @@ public class ClientHandler implements Runnable {
 - 준비가 된 소켓이 반환되면, read 함수를 호출
 - 여러 소켓을 바라보다가 준비가 된 소켓부터 반환받아서 데이터를 처리하기 때문에, 블로킹되는 시간이 짧다.
 
-## 멀티플렉싱 구현의 두 가지 모델
+## Java NIO
+
+[[Java NIO]] 는 기존 I/O API 를 대체하기 위해 도입된 API
+
+- 기존 I/O 는 왜 느렸나?
+- JVM 이 커넉 메모리 영역에 직접 접근할 수없었기 때문에, 커널 버퍼를 JVM 메모리에 복사해야하는 과정이 필요했고, 이 동안 블로킹되었다.
+- NIO 에서는 커널 메모리 영역에 직접 접근할 수 있는 API 가 추가되었고, 이것이 ByteBuffer
+
+### Channel
+
+서버에서 클라이언트와 데이터를 주고 받을 때 채널을 통해서 버퍼(ByteBuffer)를 이용해 읽고 씁니다.
+
+- FileChannel: 파일에 데이터를 읽고 쓴다
+- DatagramChannel: UDP 를 이용해 네트워크에서 데이터를 읽고 쓴다
+- **SocketChannel**: [[TCP]] 를 이용해 네트워크에서 데이터를 읽고 쓴다.
+- **ServerSocketChannel**: 클라이언트의 TCP 연결 요청을 수신(listening)할 수 있으며, SocketChannel 은 각 연결마다 생성된다.
+
+### Buffer
+
+데이터를 읽고 쓰는데 사용하는 컴포넌트. 양방향으로 동작해야하기 때문에 `flip()` 이라는 메서드로 쓰기 모드와 읽기 모드를 전환합니다. 모든 데이터를 읽은 후에는 버퍼를 지우고 다시 쓸 준비를 해야 하며, 이 때 `clear()` 메서드를 호출해서 전체 버퍼를 지울 수 있습니다.
+
+### Selector
+
+> 멀티플렉싱을 가능하게 하는 핵심 컴포넌트
+
+![](https://vos.line-scdn.net/landpress-content-v2_1761/1672025602251.png?updatedAt=1672025604000)
+
+![selector channel non blocking io](https://mark-kim.blog/static/0481f8c77c11b67a84bf2084d4fe599f/78d47/selector_channel_non_blocking_io.png "selector channel non blocking io")
+
+- 여러 개의 채널에서 발생하는 이벤트를 모니터링할 수 있는 [[Selector]]
+- 하나의 스레드로 여러 채널을 모니터링하는게 가능
+- 내부적으로 SelectorProvider 에서 운영체제와 버전에 따라서 사용가능한 멀티플렉싱 기술을 선택해 사용
+    - select, poll, epoll, kqueue..
+
+#### 셀렉터 생성
+
+```java
+Selector selector = Selector.open();
+```
+
+#### 채널 등록
+
+```java
+ServerSocketChannel channel = ServerSocketChannel.open();
+channel.bind(new InetSocketAddress("localhost", 8080));
+channel.configureBlocking(false); // non-blocking mode
+SelectionKey key = channel.register(selector, SelectionKey.OP_READ);
+```
+
+반드시 non-blocking 모드로 전환해야 합니다. 셀렉터에 채널을 등록할 때는 어떤 이벤트를 모니터링할 지 전달해줄 수 있는데, 이벤트에는 네 가지 종류가 있으며 SelectionKey 상수로 표시합니다.
+
+- OP_CONNECT
+- OP_ACCEPT
+- OP_READ
+- OP_WRITE
+
+#### 셀렉터를 이용하여 채널 선택
+
+어떤 소켓이 준비가 완료되었는지 알기 위해서 셀렉터는 블로킹 호출을 할 수 밖에 없습니다.
+
+```java
+selector.select();
+```
+
+`select()` 를 호출하면 셀렉터에 등록된 채널 중 하나 이상의 준비가 완료된 채널이 있을 때까지 blocking 됩니다. 이후 `selectedKeys()` 메서드를 사용해 준비된 채널의 집합을 받아올 수 있습니다.
+
+```java
+selector.selectedKeys();
+```
+
+## 멀티플렉싱 구현
 
 지금까지 다중 접속 서버를 구현하기 위해 어떤 고민 과정이 있었는지 알아보았다.
 
@@ -186,3 +258,4 @@ public class ClientHandler implements Runnable {
 ## Reference
 
 - https://engineering.linecorp.com/ko/blog/do-not-block-the-event-loop-part1#mcetoc_1gdcaies0o
+- https://mark-kim.blog/understanding-non-blocking-io-and-nio/
