@@ -6,7 +6,7 @@ tags:
   - network
   - study
 categories: 
-updated: 2024-04-27 00:27:54 +0900
+updated: 2024-04-28 20:21:46 +0900
 ---
 
 # Deeeeeep Network
@@ -61,7 +61,9 @@ updated: 2024-04-27 00:27:54 +0900
 ![[How to capturing packet with termshark|패킷 캡처하기]]
 
 
-## 2. Time out or Socket or Traffic Test
+## 2. Journey to a multi-connect server
+
+![[Journey to a multi-connect server|다중 접속 서버로의 여정]]
 
 - 소켓 통신?
 
@@ -77,7 +79,3 @@ updated: 2024-04-27 00:27:54 +0900
 - 타임아웃을 어떻게 시뮬레이션할 수 있을까?
 
 - 커넥션 개수 모니터링 확인하기
-
-다중 연결 서버로의 여정
-
-    
