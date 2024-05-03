@@ -7,7 +7,7 @@ tags:
   - database
   - transaction
 categories: 
-updated: 2023-09-29 20:07:18 +0900
+updated: 2024-05-03 13:37:14 +0900
 ---
 
 Pessimistic Locking refers to a concurrency control mechanism in computer systems that assumes conflicts will occur and locks resources to prevent concurrent access. This approach is pessimistic because it assumes that conflicts will happen, and takes the precaution of locking resources to avoid them.
@@ -27,7 +27,7 @@ Overall, pessimistic locking provides a cautious approach to concurrency control
 
 비관적인 잠금은 컴퓨터 시스템에서 동시 액세스를 방지하기 위해 리소스를 잠그는 동시성 제어 메커니즘을 가리킵니다. 이 방법은 **충돌이 발생할 것으로 가정**하고, 충돌을 피하기 위해 리소스를 잠그는 접근 방식입니다.
 
-비관적 잠금에서 트랜잭션이 리소스에 액세스하려면 해당 리소스에 대한 잠금을 요청합니다. 이 잠금은 다른 트랜잭션이 해당 리소스에 액세스하거나 수정하는 것을 방지하여 리소스의 일관성을 유지하고 충돌을 방지합니다.
+스비관적 잠금에서 트랜잭션이 리소스에 액세스하려면 해당 리소스에 대한 잠금을 요청합니다. 이 잠금은 다른 트랜잭션이 해당 리소스에 액세스하거나 수정하는 것을 방지하여 리소스의 일관성을 유지하고 충돌을 방지합니다.
 
 비관적 잠금에는 두 가지 유형의 잠금이 사용됩니다:
 
