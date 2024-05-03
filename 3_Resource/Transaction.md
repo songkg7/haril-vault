@@ -9,7 +9,7 @@ tags:
   - book
   - transaction
 categories: 
-updated: 2023-10-17 14:49:59 +0900
+updated: 2024-05-02 20:56:47 +0900
 ---
 
 ## What is Transaction?
@@ -46,10 +46,10 @@ Transactions play a crucial role in various industries and sectors by facilitati
 
 ### ACID의 의미
 
-- Atomicity(원자성)
-- Consistency(일관성)
-- Isolation(격리성)
-- Durability(지속성)
+- Atomicity (원자성)
+- Consistency (일관성)
+- Isolation (격리성)
+- Durability (지속성)
 
 저자가 해당 원칙의 모호함에 대해 엄청 디스하는 느낌
 
