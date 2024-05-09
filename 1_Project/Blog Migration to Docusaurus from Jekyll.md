@@ -8,12 +8,15 @@ tags:
   - algolia
   - react
 categories: 
-updated: 2024-05-08 12:15:20 +0900
+updated: 2024-05-08 15:15:46 +0900
 ---
 
 - [[Jekyll]] 이 자유도가 높지 않고, 버전업그레이드나 전체적으로 관리하기 어렵다는 느낌이 계속 들어 [[Docusaurus]] 로 마이그레이션을 시도
+    - fork 를 통해 블로그를 구성하는 특성상, github 에 잔디 기록이 남지 않아 아쉬웠음
+    - Ruby 를 사용하는 부분에 있어서 인텔 맥과 애플 실리콘 맥 간 오류가 나지 않도록 주의가 필요
 - [[O2]] 의 이슈 중 docusaurus 를 지원해달라는 이슈가 있음 - https://github.com/songkg7/o2/discussions/346
 - 24년 4월에 발생한 Jdelivery CDN 이슈가 블로그를 망가트림
+    - CDN 이슈인 이상 조금 기다리면 문제가 해결되었겠으나, 그동안 쌓인 불편으로 인해 코드를 잘못 작성했나보다고 오해하게 되었다..
 
 docusaurus 를 한 번도 사용해보지 않아 지원기능을 만들기 애매했던 점 등 종합적인 이유들로 블로그를 마이그레이션하기로 했다.
 
@@ -128,7 +131,7 @@ const config: Config = {
 };
 ```
 
-## code block highlight
+## Code block highlight
 
 java 가 기본지원이 아니기 때문에(...!!) prism 설정을 통해 java 추가. 겸사겸사 bash 도 추가해주었음.
 
@@ -390,6 +393,16 @@ https://docusaurus.io/docs/i18n/tutorial
 - front matter 를 rich 하게 만들기
     - Docusaurus 는 front matter 를 기반으로 meta 정보를 많이 생성한다
 - https://www.opengraph.xyz/ 에서 meta 정보를 쉽게 확인할 수 있다.
+
+## Conclusion
+
+KPT 회고하기
+
+- 즉흥적으로 기존 블로그를 그냥 폐쇄해버리고 새로 만드는 다소 과격한 조치를 한 것이 아쉬움
+    - 기존 방문자들을 고려하면 최소한 리다이렉트 정도는 해뒀어야했다고 생각
+    - URL 을 최대한 변경하지 않고 옮기려했으나, 생각대로 되지 않아 생긴 문제
+- 이전 블로그 플랫폼에서는 세련되게 유지하기 어려웠던 부분들을 최대한 신경 써보자
+    - ex) 디자인, 프론트엔드 기술들 적용
 
 ## Reference
 
