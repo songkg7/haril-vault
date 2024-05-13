@@ -9,7 +9,7 @@ tags:
   - eventloop
   - kernel
 categories: 
-updated: 2024-04-30 18:20:51 +0900
+updated: 2024-05-13 16:59:46 +0900
 ---
 
 네트워크 원리 챕터 6의 내용을 애플리케이션 레벨에서 좀 더 살펴보기
@@ -234,13 +234,15 @@ SelectionKey key = channel.register(selector, SelectionKey.OP_READ);
 
 #### 셀렉터를 이용하여 채널 선택
 
-어떤 소켓이 준비가 완료되었는지 알기 위해서 셀렉터는 블로킹 호출을 할 수 밖에 없습니다.
+셀렉터는 어떤 소켓이 준비가 완료되었는지 알기 위해서 select 를 호출합니다. select 는 데이터가 준비된 채널이 있다면 채널 목록을 반환해주고, 준비된 채널이 없다면 블로킹되게 됩니다.
 
 ```java
 selector.select();
 ```
 
-`select()` 를 호출하면 셀렉터에 등록된 채널 중 하나 이상의 준비가 완료된 채널이 있을 때까지 blocking 됩니다. 이후 `selectedKeys()` 메서드를 사용해 준비된 채널의 집합을 받아올 수 있습니다.
+재밌지 않나요? 논블로킹이라 해서 모든 내부 동작이 논블로킹인 것은 아니에요. 준비된 채널이 없는데 데이터를 읽으면 에러를 반환하겠죠? 어떻게 보면 블로킹이 당연하겠죠. 물론 필요하다면 select 도 논블로킹으로 동작시킬 수 있습니다. `selectNow` 를 호출하면 됩니다.
+ 
+이후 `selectedKeys()` 메서드를 사용해 준비된 채널의 집합을 받아올 수 있습니다.
 
 ```java
 selector.selectedKeys();
@@ -256,7 +258,66 @@ selector.selectedKeys();
 
 ### 예제
 
-[[Selector]] 를 사용하면 어떤 채널(소켓)이 준비되었는지 알 수 있으므로, 스레드를 블로킹하고 하나의 소켓만 바라볼 필요가 없어집니다. 이제는 셀렉터가 준비된 채널을 핸들러를 통해 스레드에 할당해줍니다. 덕분에 메인 스레드의 블로킹 시간을 최소로 하면서도 많은 연결을 동시에 처리할 수 있습니다. 여기서 중요한 점은, 논블로킹 모델이라해서 블로킹이 아예 없는 것은 아니라는 것입니다. 준비된 채널이 하나도 없다면 준비된 채널이 생길 때까지 셀렉터에 의해 메인 스레드가 블로킹됩니다.
+%% [[Selector]] 를 사용하면 어떤 채널(소켓)이 준비되었는지 알 수 있으므로, 스레드를 블로킹하고 하나의 소켓만 바라볼 필요가 없어집니다. 이제는 셀렉터가 준비된 채널을 핸들러를 통해 스레드에 할당해줍니다. 덕분에 메인 스레드의 블로킹 시간을 최소로 하면서도 많은 연결을 동시에 처리할 수 있습니다. 여기서 중요한 점은, 논블로킹 모델이라해서 블로킹이 아예 없는 것은 아니라는 것입니다. 준비된 채널이 하나도 없다면 준비된 채널이 생길 때까지 셀렉터에 의해 메인 스레드가 블로킹됩니다. %%
+
+```java
+try (
+        ServerSocketChannel channel = ServerSocketChannel.open();
+        Selector selector = Selector.open()
+) {
+    channel.bind(new InetSocketAddress(PORT));
+    channel.configureBlocking(false); // non-blocking mode
+    LOGGER.info("Server started on port " + PORT);
+
+    channel.register(selector, SelectionKey.OP_ACCEPT);
+    ByteBuffer buffer = ByteBuffer.allocate(256);
+
+    while (true) {
+        selector.select(); // blocking
+
+        // 선택된 키 셋 반복
+        Iterator<SelectionKey> keys = selector.selectedKeys().iterator();
+        while (keys.hasNext()) {
+            SelectionKey key = keys.next();
+            keys.remove();
+
+            if (key.isAcceptable()) {
+                // 새로운 클라이언트 연결 수락
+                accept(channel, selector);
+            } else if (key.isReadable()) {
+                // 클라이언트로부터 데이터 읽기
+                read(key, buffer);
+            }
+        }
+    }
+}
+```
+
+## Reactor 패턴
+
+- 크게 Reactor 와 핸들러로 구성
+- 무한반복문을 실행해 이벤트가 발생할 때까지 대기하다가 이벤트가 발생하면 처리할 수 있는 핸들러에게 디스패치한다. = 이벤트루프라고도 부름
+
+생략
+
+## 이벤트루프
+
+아마 이벤트루프를 한 번이라도 접해보셨던 분들이라면 '무한루프를 돌면서 이벤트를 처리한다' 는 내용의 글들을 보신 적이 있을 것이라 생각되요. 사실 지금까지의 코드를 살펴보면 꼭 이벤트루프가 아니더라도 모든 서버 코드 구현은 리스닝 소켓을 유지하기 위해서도 무한루프가 필수불가결이였다는 것을 알 수 있어요. 무한루프가 핵심은 아니라는 것이에요.
+
+```java
+while (true) {
+    selector.select();
+    Set<SelectionKey> selected = selector.selectedKeys();
+    for (SelectionKey selectionKey : selected) {
+        dispatch(selectionKey);
+    }
+    selected.clear();
+}
+```
+
+## One more thing
+
+- 가상 스레드
 
 ## Reference
 

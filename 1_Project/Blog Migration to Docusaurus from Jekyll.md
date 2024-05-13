@@ -8,7 +8,7 @@ tags:
   - algolia
   - react
 categories: 
-updated: 2024-05-08 15:15:46 +0900
+updated: 2024-05-11 14:56:16 +0900
 ---
 
 - [[Jekyll]] 이 자유도가 높지 않고, 버전업그레이드나 전체적으로 관리하기 어렵다는 느낌이 계속 들어 [[Docusaurus]] 로 마이그레이션을 시도
@@ -387,12 +387,29 @@ https://docusaurus.io/docs/i18n/tutorial
 - 기존에 만들어진 것들 중엔 유명한게 없는 것 같다.
 - Sweep AI 를 활용해보려 했지만 번역을 위해 설계되지 않았다는 로그가 출력
 - Github Action + Open AI or DeepL API 를 활용하면 어떨까?
+- 404 page 등 몇몇 기본 페이지는 호스팅 서비스에 따라 번역된 페이지로 리다이렉트를 지원하지 않을 수 있다. github page 는 지원하지 않는다.
+
+찾아보니 이런 github action 이 이미 존재했다 (역시)
+
+- https://github.com/marketplace/actions/gpt-translate
+
+OpenAI 의 유료 서비스인 api token 이 필요하지만, 이미 사용하고 있는게 있었으므로 큰 부담없이 써보기로 했다.
+
+- https://github.com/songkg7/songkg7.github.io/pull/10/files
+
+사용해보니 꽤나 잘 된다
 
 ## SEO
 
 - front matter 를 rich 하게 만들기
     - Docusaurus 는 front matter 를 기반으로 meta 정보를 많이 생성한다
 - https://www.opengraph.xyz/ 에서 meta 정보를 쉽게 확인할 수 있다.
+
+## UpdateAt, UpdateBy
+
+option 만 활성화 시켜주면 되며, 별도의 frontmatter 는 필요하지 않다.
+
+[[git history]] 를 기반으로 update 를 판단하므로, github action 에서 clone 할 때 depth 옵션은 한 번 체크해주자. 기본값으로는 가장 마지막 커밋만 가져오기 때문이다.
 
 ## Conclusion
 
