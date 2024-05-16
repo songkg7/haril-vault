@@ -8,7 +8,7 @@ tags:
   - algolia
   - react
 categories: 
-updated: 2024-05-11 14:56:16 +0900
+updated: 2024-05-13 18:51:37 +0900
 ---
 
 - [[Jekyll]] 이 자유도가 높지 않고, 버전업그레이드나 전체적으로 관리하기 어렵다는 느낌이 계속 들어 [[Docusaurus]] 로 마이그레이션을 시도
@@ -25,6 +25,7 @@ docusaurus 를 한 번도 사용해보지 않아 지원기능을 만들기 애�
 - [ ] O2 에서 docusaurus 를 지원할 수 있도록 기능 추가하기 🛫 2024-05-02 ⏫
     - [ ] blog/2024-05-05/title.md 로 문서를 옮기고 리소스를 같은 디렉토리로 옮기면 깔끔
     - [ ] 같은 디렉토리에 위치하기 때문에 리소스 경로 또한 ./banner.png 처럼 깔끔하게 작성할 수 있다
+    - [ ] updated front matter on/off 기능 제공. 기본적으로 docusaurus 에서 제공하기 때문에 별도 작성 필요 없음
 - [x] algolia 적용
     - algolia 관련 이슈가 있어 contextualSearch 옵션을 true 로 할 경우 초기에는 검색 기능이 동작하지 않을 수 있다 - https://github.com/facebook/docusaurus/issues/6693
     - Orama 라는 대안도 존재 https://docs.askorama.ai/open-source/plugins/plugin-docusaurus
@@ -33,9 +34,10 @@ docusaurus 를 한 번도 사용해보지 않아 지원기능을 만들기 애�
 - [ ] banner 를 front matter 의 image 키값을 사용해서 넣기 🛫 2024-05-06
 - [ ] SEO 를 위해 모든 포스트의 front matter 에 description 정보 추가하기
     - https://www.opengraph.xyz/ 에서 확인할 수 있다
-- [ ] 문서 자동 번역🛫 2024-05-07
+- [x] 문서 자동 번역🛫 2024-05-07
     - [ ] github pr 을 생성하면, 특정 언어로 번역된 문서가 PR 에 포함되게 함 -> github action & DeepL
     - [ ] ~~crowdin 사용~~ 협업 툴에 가까워서 개인 블로그 용도로는 적합하지 않다고 판단
+    - [ ] 이미 존재하는 액션이 있어서 해당 액션을 사용
 
 ## Docusaurus 의 특징
 

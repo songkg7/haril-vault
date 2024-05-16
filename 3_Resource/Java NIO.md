@@ -7,7 +7,7 @@ tags:
   - nio
   - non-blocking
 categories: 
-updated: 2024-04-21 14:41:27 +0900
+updated: 2024-05-14 14:33:13 +0900
 ---
 
 ## nio 란?
@@ -25,7 +25,7 @@ Channel은 입출력이 가능한 엔티티를 의미한다. 채널은 스트림
 | SocketChannel                   | TCP 방식의 네트워크 입출력             |
 | ServerSocketChannel             | TCP 방식에서 서버에 대한 연결을 수락하는 채널  |
 | AsynchronousServerSocketChannel | 비동기화 버전의 ServerSocketChannel |
-| AsynchronousFileChannel         | 비동기화 버전의 FileChanne          |
+| AsynchronousFileChannel         | 비동기화 버전의 FileChannel         |
 
 ### Buffer
 
