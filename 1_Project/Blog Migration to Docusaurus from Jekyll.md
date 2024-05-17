@@ -8,7 +8,7 @@ tags:
   - algolia
   - react
 categories: 
-updated: 2024-05-13 18:51:37 +0900
+updated: 2024-05-16 22:50:59 +0900
 ---
 
 - [[Jekyll]] 이 자유도가 높지 않고, 버전업그레이드나 전체적으로 관리하기 어렵다는 느낌이 계속 들어 [[Docusaurus]] 로 마이그레이션을 시도
@@ -35,9 +35,9 @@ docusaurus 를 한 번도 사용해보지 않아 지원기능을 만들기 애�
 - [ ] SEO 를 위해 모든 포스트의 front matter 에 description 정보 추가하기
     - https://www.opengraph.xyz/ 에서 확인할 수 있다
 - [x] 문서 자동 번역🛫 2024-05-07
-    - [ ] github pr 을 생성하면, 특정 언어로 번역된 문서가 PR 에 포함되게 함 -> github action & DeepL
+    - [ ] ! github pr 을 생성하면, 특정 언어로 번역된 문서가 PR 에 포함되게 함 -> github action & DeepL
     - [ ] ~~crowdin 사용~~ 협업 툴에 가까워서 개인 블로그 용도로는 적합하지 않다고 판단
-    - [ ] 이미 존재하는 액션이 있어서 해당 액션을 사용
+    - [x] 이미 존재하는 액션이 있어서 해당 액션을 사용
 
 ## Docusaurus 의 특징
 
@@ -133,7 +133,7 @@ const config: Config = {
 };
 ```
 
-## Code block highlight
+## Code Block Highlight
 
 java 가 기본지원이 아니기 때문에(...!!) prism 설정을 통해 java 추가. 겸사겸사 bash 도 추가해주었음.
 
@@ -404,10 +404,10 @@ OpenAI 의 유료 서비스인 api token 이 필요하지만, 이미 사용하�
 ## SEO
 
 - front matter 를 rich 하게 만들기
-    - Docusaurus 는 front matter 를 기반으로 meta 정보를 많이 생성한다
+    - Docusaurus 는 front matter 를 기반으로 meta 정보를 생성한다
 - https://www.opengraph.xyz/ 에서 meta 정보를 쉽게 확인할 수 있다.
 
-## UpdateAt, UpdateBy
+## UpdateAt and UpdateBy
 
 option 만 활성화 시켜주면 되며, 별도의 frontmatter 는 필요하지 않다.
 

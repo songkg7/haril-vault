@@ -7,7 +7,7 @@ aliases:
 tags:
   - java, collection
 categories: Java
-updated: 2023-08-22 09:40:09 +0900
+updated: 2024-05-17 11:06:02 +0900
 ---
 
 ## Overview
@@ -25,3 +25,4 @@ updated: 2023-08-22 09:40:09 +0900
 ## Links
 
 - [[Java]]
+- https://github.com/villainscode/collections
