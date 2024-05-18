@@ -6,12 +6,15 @@ tags:
   - tool
   - network
 categories: 
-updated: 2024-05-18 13:58:59 +0900
+updated: 2024-05-19 01:32:00 +0900
 ---
 
 네트워크 모니터링 및 실험에 사용할 수 있는 다양한 도구들에 대해 소개.
 
-[[Linux]] 환경에서 동작하는 명령도 있기 때문에, vm 을 하나 생성해서 진행. vm 생성은 [[Orbstack]] 을 사용.
+- EC2 로 리눅스를 하나 생성해서 하는게 가장 확실하지만, 가끔은 간단하게 리눅스 명령어 정도만 확인해보고 싶을 수 있는데 EC2 를 생성하는건 너무 비효율적
+- docker 로 리눅스를 설치하는 방법도 있지만, VM 을 관리하는 방법도 알아두면 나쁘지 않다
+    - 도커로 OS 를 설치해서 써버리면 VM 을 쓰는것과 크게 차이도 없는듯
+- [[Linux]] 환경에서만 동작하는 명령도 있기 때문에, vm 을 하나 생성해서 진행. vm 생성은 [[Orbstack]] 을 사용.
 
 먼저 ubuntu 머신을 하나 생성
 
@@ -29,6 +32,8 @@ ssh 를 통해 방금 생성한 가상머신에 접근
 
 ```bash
 ssh orb
+# or
+ssh machine@orb
 ```
 
 현재 접속한 가상머신의 아키텍처 확인
@@ -41,6 +46,18 @@ arch
 준비 완료.
 
 net-tools 프로그램의 일원으로 아래 명령어들이 있다.
+
+간단한 네트워크 요청 테스트를 위해 [[NginX]] 를 설치
+
+```bash
+sudo apt update
+sudo apt install nginx
+```
+
+localhost or http://ubuntu.orb.local/ 로 접근해보자
+
+![](https://i.imgur.com/2OAjyz9.png)
+
 
 ## ifconfig
 
@@ -97,6 +114,12 @@ ss -a # 모든 소켓 표시
 ss -t # TCP 소켓 표시
 ss -u # UDP 소켓 표시
 ss -lt src :80 # 80 포트 리스닝 소켓 표시
+```
+
+브라우저를 통해 nginx 에 접근하면 tcp 연결이 생성되는걸 볼 수 있다.
+
+```bash
+watch ss -t
 ```
 
 ## Reference
