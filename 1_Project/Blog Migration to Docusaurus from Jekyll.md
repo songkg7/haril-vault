@@ -8,8 +8,10 @@ tags:
   - algolia
   - react
 categories: 
-updated: 2024-05-16 22:50:59 +0900
+updated: 2024-05-24 01:55:14 +0900
 ---
+
+## Overview
 
 - [[Jekyll]] 이 자유도가 높지 않고, 버전업그레이드나 전체적으로 관리하기 어렵다는 느낌이 계속 들어 [[Docusaurus]] 로 마이그레이션을 시도
     - fork 를 통해 블로그를 구성하는 특성상, github 에 잔디 기록이 남지 않아 아쉬웠음
@@ -214,15 +216,17 @@ jobs:
         uses: actions/deploy-pages@v4
 ```
 
-이후 `Settings > Pages` 에서 main/root 로 설정해주면 배포 끝. 이후는 main 브랜치에 커밋이 push 될 때마다 자동으로 배포 작업이 진행된다.
+이후 `Settings > Pages` 에서 Source 를 GitHub Actions 로 설정해주면 배포 끝. 이후는 main 브랜치에 커밋이 push 될 때마다 자동으로 배포 작업이 진행된다.
 
-![](https://i.imgur.com/42rOiuF.png)
+![](https://i.imgur.com/E2pWDp6.png)
+
+만약 Source 를 `Deploy from a branch` 로 할 경우, 배포 과정동안 블로그 서비스가 중단되는 현상이 발생할 수 있다.
 
 ## 커스텀 도메인 연결하기
 
-기본 깃허브 도메인을 써도 큰 지장은 없지만, 블로그를 이전하는 김에 도메인도 하나 구매해서 개발자 느낌 좀 내보려 한다.
+기본 깃허브 도메인(user-id.github.io)을 써도 큰 지장은 없지만, 블로그를 이전하는 김에 도메인도 하나 구매해서 개발자 느낌을 좀 내보려 한다.
 
-도메인 구매
+### 도메인 구매
 
 - haril.dev 로 개발자스러운 느낌의 도메인을 godaddy 에서 구매(연간 20$)
 - github pages 에서 커스텀 도메인 등록을 해줘야 한다
@@ -238,7 +242,7 @@ dig songkg7.github.io
 
 ![](https://i.imgur.com/lUEshGu.png)
 
-고대디에 등록해주자
+godaddy에 등록해주자
 
 깃허브 페이지 설정에 가서 구매한 도메인을 등록해주면
 
@@ -248,13 +252,12 @@ dig songkg7.github.io
 
 ## 추가. 도메인 verified 로 탈취 방지하기
 
+- Profile Settings -> Pages
 - IP 를 추가했던 것처럼 TXT 또한 추가
 
 ![](https://i.imgur.com/PH3fifE.png)
 
-1번이 키고 2번이 값인 느낌이다.
-
-godaddy 로 가서 이름과 값에 위의 값들을 각각 복사해서 넣으면 된다.
+1번이 키고 2번이 값인 느낌이다. godaddy 로 가서 레코드에 위의 값들을 각각 복사해서 넣으면 된다.
 
 ![](https://i.imgur.com/eMYlw2I.png)
 
@@ -262,7 +265,7 @@ godaddy 로 가서 이름과 값에 위의 값들을 각각 복사해서 넣으�
 
 ![](https://i.imgur.com/bBquRwp.png)
 
-이렇게 도메인 인증이 완료되고 도메인 탈취 공격으로부터 보호할 수 있게 된다.
+이렇게 도메인 인증이 완료되고 도메인 탈취 공격으로부터 보호할 수 있게 된다. ~~누가 이런 도메인을 탈취하려고 할까 싶지만...~~
 
 ---
 
@@ -372,6 +375,15 @@ Docsearch 승인을 받으면, 도큐사우루스 사용과 관련된 크롤러 
 
 이후 검색이 잘 동작하는 것을 확인할 수 있다.
 
+### 글 작성 직후 인덱스 갱신에도 불구하고 검색되지 않는 문제
+
+- 새로운 글을 포스팅한 뒤 수동으로 크롤러를 트리거하여 인덱스를 갱신했지만 검색되지 않고 있다.
+- Algolia 인덱스에 직접 접근하여 쿼리해보면 새 글이 제대로 검색된다.
+- local 에서 contextualSearch 를 false 로 해도 검색되지 않았다.
+- API 를 사용할 때만 검색되지 않는 듯하다.
+- API 파라미터를 조사해볼 필요가 있겠다.
+- 크롤링을 다시 트리거한 직후에는 검색 결과가 정상적이였지만, 새 창을 열어서 테스트하니 다시 이전 버전의 검색 결과가 등장했다.
+
 ## i18n
 
 예전부터 영어를 모국어로 쓰는 국가에서 유입되는 경우가 꽤 되기도 했고, 겸사겸사 영어 공부도 할 겸 영문 블로그를 운영해보고 싶다는 생각이 있었는데, Docusaurus 에서 i18n 국제화 기능이 지원되는 것을 확인하고 적용하기로 했다.
@@ -412,6 +424,13 @@ OpenAI 의 유료 서비스인 api token 이 필요하지만, 이미 사용하�
 option 만 활성화 시켜주면 되며, 별도의 frontmatter 는 필요하지 않다.
 
 [[git history]] 를 기반으로 update 를 판단하므로, github action 에서 clone 할 때 depth 옵션은 한 번 체크해주자. 기본값으로는 가장 마지막 커밋만 가져오기 때문이다.
+
+updateBy 는 적용해봤다가 롤백했는데,
+
+- github action 이 수정자로 표시되는 현상이 마음에 들지 않았고,
+- edit 버튼을 노출시킴으로써 협업을 지향하고는 있지만, 실제로 PR 이 많이 생성되지는 않을 것 같았기 때문이다.
+
+당장은 updateAt 만 있어도 충분할 것 같다.
 
 ## Conclusion
 
