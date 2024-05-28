@@ -8,7 +8,7 @@ tags:
   - algolia
   - react
 categories: 
-updated: 2024-05-24 01:55:14 +0900
+updated: 2024-05-25 21:59:55 +0900
 ---
 
 ## Overview
@@ -28,6 +28,7 @@ docusaurus 를 한 번도 사용해보지 않아 지원기능을 만들기 애�
     - [ ] blog/2024-05-05/title.md 로 문서를 옮기고 리소스를 같은 디렉토리로 옮기면 깔끔
     - [ ] 같은 디렉토리에 위치하기 때문에 리소스 경로 또한 ./banner.png 처럼 깔끔하게 작성할 수 있다
     - [ ] updated front matter on/off 기능 제공. 기본적으로 docusaurus 에서 제공하기 때문에 별도 작성 필요 없음
+    - [ ] image front matter 에 imgur 혹은 직접 관리하는 리소스를 링크할 수 있음
 - [x] algolia 적용
     - algolia 관련 이슈가 있어 contextualSearch 옵션을 true 로 할 경우 초기에는 검색 기능이 동작하지 않을 수 있다 - https://github.com/facebook/docusaurus/issues/6693
     - Orama 라는 대안도 존재 https://docs.askorama.ai/open-source/plugins/plugin-docusaurus
@@ -64,6 +65,9 @@ npm 은 너무 자주 써왔기 때문에 이번에는 pnpm 을 사용해보기�
 ```bash
 pnpm start
 ```
+
+- pnpm 에서는 github action 을 설정할 때 마음에 들지 않는 부분도 있었음
+- 결정적으로, 05.23 에 토스 기술블로그에 올라온 [패키지 매니저 관련 글](https://toss.tech/article/lightning-talks-package-manager)을 보고 [[yarn]] 으로 변경
 
 ## Mode
 
@@ -308,7 +312,7 @@ done
 
 모든 파일이 한 번에 깔끔하게 이동한다. 이후에는 포스트에서 참조하는 리소스들을 맞는 디렉토리로 이동해주는 작업을 해주면 된다.
 
-rg 명령으로 로컬 리소스를 참조하는 부분을 찾아보자.
+ripgrep 명령으로 로컬 리소스를 참조하는 부분을 찾아보자.
 
 ![](https://i.imgur.com/YkUnVRQ.png)
 
@@ -321,18 +325,21 @@ rg 명령으로 로컬 리소스를 참조하는 부분을 찾아보자.
 
 여러분께 드리는 숙제로 남겨둔다. 😜
 
-## 포스트 검색 색인
+## 검색 엔진
 
 Algolia 대신 최근 등장한 Orama 를 사용해봤다.
 
 - algolia: 무료버전에서는 크롤러가 일주일에 한 번만 동작하여 검색 색인을 갱신
-- Orama: 배포 트리거를 감지하고 배포가 일어났을 때 색인을 갱신. openAi 를 연동한 의미론적 검색도 지원.
-    - 다소 투박한 Algolia 에 비해 UI 가 예쁘다.
-    - [한글이 지원되지 않는 문제](https://docs.askorama.ai/open-source/supported-languages/) 가 있어서 algolia 를 그대로 쓰기로 했다.
+    - 수동으로 트리거해서 색인을 즉시 갱신할 수 있다
+- Orama: 배포 트리거를 감지하고 배포가 일어났을 때 색인을 갱신. openAI 를 연동한 의미론적 검색도 지원.
+    - 다소 투박한 Algolia 에 비해 UI 가 예쁘다. 개인적으로 기능만큼 디자인을 중요하게 여긴다.
 
-Algolia 는 배포할 때 자동으로 색인이 갱신되지 않는 점이 아쉬워서 Orama 를 사용해보려했으나, 한글 지원이 아직 이뤄지지 않아 메인으로 쓰기에는 부족하다고 판단되었다. 따라서 docusaurus 에서 밀어주는 Algolia 를 그대로 사용한다.
+Algolia 는 배포할 때 자동으로 색인이 갱신되지 않는 점이 아쉬워서 Orama 를 사용해보려했으나, 고민 끝에 Algolia 를 사용하기로 했는데 이유는 다음과 같다.
 
-### Alogolia 검색시 아무 것도 나오지 않을 경우
+- Docusaurus 는 공식적으로 Algolia 를 추천하며, support 를 지원한다.
+- Orama 에서는 아직 [한글 토크나이저가 지원되지 않아](https://docs.askorama.ai/open-source/supported-languages/), 한국어 검색이 불가능하다. <= 치명적
+
+### Algolia 검색시 아무 것도 나오지 않을 경우
 
 docusaurus 에서 algolia 검색 api 를 사용할 경우
 
@@ -367,7 +374,7 @@ Docsearch 승인을 받으면, 도큐사우루스 사용과 관련된 크롤러 
 
 ![](https://i.imgur.com/57DUIyE.jpeg)
 
-위의 facets 이 모두 있어야 한다. 나는 docusaurus-tag facets 이 표시되지 않았었기 때문에 직접 추가해주었다.
+위의 facets 이 모두 있어야 한다. 나는 docusaurus_tag facets 이 표시되지 않았었기 때문에 직접 추가해주었다.
 
 `Index > Configuration > Filtering and faceting - Facets` 에 `+ Add an Attribute` 로 누락된 속성을 추가해주자
 
@@ -383,6 +390,7 @@ Docsearch 승인을 받으면, 도큐사우루스 사용과 관련된 크롤러 
 - API 를 사용할 때만 검색되지 않는 듯하다.
 - API 파라미터를 조사해볼 필요가 있겠다.
 - 크롤링을 다시 트리거한 직후에는 검색 결과가 정상적이였지만, 새 창을 열어서 테스트하니 다시 이전 버전의 검색 결과가 등장했다.
+- DSN(distributed search network) 라는 기술을 활용 중인데 분산되어 있는 환경에 의해 갱신된 인덱스가 화면에 바로 반영이 되지 않는 것인지 의심된다.
 
 ## i18n
 

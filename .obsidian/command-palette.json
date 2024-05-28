@@ -1,5 +1,6 @@
 {
   "pinned": [
-    "file-explorer:move-file"
+    "file-explorer:move-file",
+    "workspaces:save-and-load"
   ]
 }

@@ -4,10 +4,10 @@ date: 2024-05-20 11:59:00 +0900
 aliases: 
 tags: 
 categories: 
-updated: 2024-05-21 09:33:10 +0900
+updated: 2024-05-29 00:21:39 +0900
 ---
 
-## 재귀
+## Backtrack
 
 ```java
 public List<List<Integer>> solution() {
@@ -29,8 +29,6 @@ private void generateSubsets(int[] nums, int index, List<Integer> subset, List<L
     generateSubsets(nums, index + 1, subset, subsets);
 }
 ```
-
-## 백트래킹
 
 ```java
 class Solution {
