@@ -8,16 +8,16 @@ tags:
   - algolia
   - react
 categories: 
-updated: 2024-05-25 21:59:55 +0900
+updated: 2024-05-29 17:31:57 +0900
 ---
 
 ## Overview
 
 - [[Jekyll]] 이 자유도가 높지 않고, 버전업그레이드나 전체적으로 관리하기 어렵다는 느낌이 계속 들어 [[Docusaurus]] 로 마이그레이션을 시도
     - fork 를 통해 블로그를 구성하는 특성상, github 에 잔디 기록이 남지 않아 아쉬웠음
-    - Ruby 를 사용하는 부분에 있어서 인텔 맥과 애플 실리콘 맥 간 오류가 나지 않도록 주의가 필요
+    - Ruby 를 사용하는 부분에 있어서 인텔 맥과 애플 실리콘 맥 간 오류가 나지 않도록 주의가 필요하다
 - [[O2]] 의 이슈 중 docusaurus 를 지원해달라는 이슈가 있음 - https://github.com/songkg7/o2/discussions/346
-- 24년 4월에 발생한 Jdelivery CDN 이슈가 블로그를 망가트림
+- 24년 4월에 발생한 Jdelivery CDN 이슈가 [[Jekyll]] 블로그를 망가트림
     - CDN 이슈인 이상 조금 기다리면 문제가 해결되었겠으나, 그동안 쌓인 불편으로 인해 코드를 잘못 작성했나보다고 오해하게 되었다..
 
 docusaurus 를 한 번도 사용해보지 않아 지원기능을 만들기 애매했던 점 등 종합적인 이유들로 블로그를 마이그레이션하기로 했다.
@@ -34,8 +34,8 @@ docusaurus 를 한 번도 사용해보지 않아 지원기능을 만들기 애�
     - Orama 라는 대안도 존재 https://docs.askorama.ai/open-source/plugins/plugin-docusaurus
 - [x] 리소스 업데이트가 빠르게 이루어지지 않는 문제
     - 커스텀 도메인 연결로 해결
-- [ ] banner 를 front matter 의 image 키값을 사용해서 넣기 🛫 2024-05-06
-- [ ] SEO 를 위해 모든 포스트의 front matter 에 description 정보 추가하기
+- [x] banner 를 front matter 의 image 키값을 사용해서 넣기 🛫 2024-05-06
+- [x] SEO 를 위해 모든 포스트의 front matter 에 description 정보 추가하기
     - https://www.opengraph.xyz/ 에서 확인할 수 있다
 - [x] 문서 자동 번역🛫 2024-05-07
     - [ ] ! github pr 을 생성하면, 특정 언어로 번역된 문서가 PR 에 포함되게 함 -> github action & DeepL
@@ -56,9 +56,7 @@ docusaurus 를 한 번도 사용해보지 않아 지원기능을 만들기 애�
 
 ## Package manager
 
-docusaurus 는 [[npm]], [[yarn]], [[pnpm]] 을 모두 지원.
-
-npm 은 너무 자주 써왔기 때문에 이번에는 pnpm 을 사용해보기로 함.
+docusaurus 는 [[npm]], [[yarn]], [[pnpm]] 을 모두 지원. npm 은 너무 자주 써왔기 때문에 이번에는 pnpm 을 사용해보기로 함.
 
 이 정도부터 `pnpm start` 명령을 통해 현재 블로그 상태를 확인할 수 있다.
 
@@ -68,6 +66,10 @@ pnpm start
 
 - pnpm 에서는 github action 을 설정할 때 마음에 들지 않는 부분도 있었음
 - 결정적으로, 05.23 에 토스 기술블로그에 올라온 [패키지 매니저 관련 글](https://toss.tech/article/lightning-talks-package-manager)을 보고 [[yarn]] 으로 변경
+
+```bash
+yarn start
+```
 
 ## Mode
 
@@ -82,7 +84,7 @@ docusaurus 는 docs 와 blog 모드가 각각 존재하며, docs 는 기술 문�
 플러그인 설치
 
 ```bash
-pnpm add @docusaurus/theme-mermaid
+yarn add @docusaurus/theme-mermaid
 ```
 
 ```ts
@@ -98,10 +100,12 @@ https://docusaurus.io/docs/markdown-features/diagrams
 
 ## Latex
 
-Katex 플러그인 설치
+가끔씩 수식을 입력해야하는 경우가 있다. 아마 데이터 엔지니어 직군이라면 더더욱 그런 유즈케이스가 많으리라 생각한다. 일반적으로 수식 입력에는 Latex 방식을 사용하므로 Docusaurus 에서도 사용가능하도록 설정해보자.
+
+Docusaurus 에서는 Katex 플러그인으로 Latex 를 사용할 수 있다.
 
 ```bash
-pnpm add remark-math@6 rehype-katex@7
+yarn add remark-math@6 rehype-katex@7
 ```
 
 ```ts
@@ -141,7 +145,7 @@ const config: Config = {
 
 ## Code Block Highlight
 
-java 가 기본지원이 아니기 때문에(...!!) prism 설정을 통해 java 추가. 겸사겸사 bash 도 추가해주었음.
+java 가 기본지원이 아니기 때문에(...!!) prism 설정을 통해 java 추가. 겸사겸사 bash 도 추가해주었다.
 
 ```ts
 const config: Config = {
@@ -181,18 +185,15 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - uses: pnpm/action-setup@v3
-        with:
-          version: 8
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: pnpm
+          cache: yarn
 
       - name: Install dependencies
-        run: pnpm install
+        run: yarn install --frozen-lockfile
       - name: Build website
-        run: pnpm run build
+        run: yarn run build
 
       - name: Upload Build Artifact
         uses: actions/upload-pages-artifact@v3
@@ -220,7 +221,7 @@ jobs:
         uses: actions/deploy-pages@v4
 ```
 
-이후 `Settings > Pages` 에서 Source 를 GitHub Actions 로 설정해주면 배포 끝. 이후는 main 브랜치에 커밋이 push 될 때마다 자동으로 배포 작업이 진행된다.
+이후 `Settings > Pages` 에서 Source 를 `GitHub Actions` 으로 설정해주면 배포 끝. 이후는 main 브랜치에 커밋이 push 될 때마다 자동으로 배포 작업이 진행된다.
 
 ![](https://i.imgur.com/E2pWDp6.png)
 
@@ -228,7 +229,7 @@ jobs:
 
 ## 커스텀 도메인 연결하기
 
-기본 깃허브 도메인(user-id.github.io)을 써도 큰 지장은 없지만, 블로그를 이전하는 김에 도메인도 하나 구매해서 개발자 느낌을 좀 내보려 한다.
+기본 깃허브 도메인(~.github.io)을 써도 큰 지장은 없지만, 블로그를 이전하는 김에 도메인도 하나 구매해서 개발자 느낌을 좀 내보려 한다.
 
 ### 도메인 구매
 
@@ -281,9 +282,11 @@ godaddy에 등록해주자
 
 ## tip. 폴더구조 수정
 
-docusaurus 같은 경우 [[Jekyll]] 처럼 날짜를 파일이름에 명시하는 방법도 지원하지만, 폴더로 구성하면 리소스를 같은 폴더 안에 모아둘 수 있어서 편리하다. 글이 많은 만큼 스크립트를 작성해서 한 번에 수정해주자.
-
 ![](https://i.imgur.com/ucjhZ0G.png)
+
+_기존 디렉토리 구조. `_posts` 폴더 아래에 markdown 문서가 한 번에 들어있다._
+
+docusaurus 같은 경우 [[Jekyll]] 처럼 날짜를 파일이름에 명시하는 방법도 지원하지만, 폴더로 구성하면 이미지 등의 리소스들을 같은 폴더 안에 모아둘 수 있어서 편리하다. 글이 많은 만큼 스크립트를 작성해서 한 번에 수정해주자.
 
 ```bash
 #!/bin/bash
@@ -363,9 +366,9 @@ docusaurus 에서 algolia 검색 api 를 사용할 경우
 - `type`
 - `version`
 
-따라서 Algolia 인덱스를 생성했을 때 위 Facets 들은 **반드시 인덱스에 설정되어 있어야** 한다. 그러나 자주 이 facets 들이 설정되지 않은채로 Docsearch 인덱스가 생성되고는 한다.
+따라서 Algolia 인덱스를 생성했을 때 위 Facets 들은 **반드시 인덱스에 설정되어 있어야** 한다. 그러나 자주 이 facets 들이 설정되지 않은채로 DocSearch 인덱스가 생성되고는 한다.
 
-Docsearch 승인을 받으면, 도큐사우루스 사용과 관련된 크롤러 설정 변경이 반영되기 전에 크롤러가 동작할 수 있기 때문. 이 때는 이미 인덱스 설정이 고정된 채라 도큐사우루스 설정이 반영되지 않는다.
+DocSearch 승인을 받으면, 도큐사우루스 사용과 관련된 크롤러 설정 변경이 반영되기 전에 크롤러가 동작할 수 있기 때문. 이 때는 이미 인덱스 설정이 고정된 채라 도큐사우루스 설정이 반영되지 않는다.
 
 해결방법은 필요한 모든 인덱스 facets 이 존재하는지 직접 확인하고, 없다면 추가해주는 것이다.
 
@@ -391,13 +394,14 @@ Docsearch 승인을 받으면, 도큐사우루스 사용과 관련된 크롤러 
 - API 파라미터를 조사해볼 필요가 있겠다.
 - 크롤링을 다시 트리거한 직후에는 검색 결과가 정상적이였지만, 새 창을 열어서 테스트하니 다시 이전 버전의 검색 결과가 등장했다.
 - DSN(distributed search network) 라는 기술을 활용 중인데 분산되어 있는 환경에 의해 갱신된 인덱스가 화면에 바로 반영이 되지 않는 것인지 의심된다.
+- 하루 정도 좀 지나니 반영되었다.
 
 ## i18n
 
 예전부터 영어를 모국어로 쓰는 국가에서 유입되는 경우가 꽤 되기도 했고, 겸사겸사 영어 공부도 할 겸 영문 블로그를 운영해보고 싶다는 생각이 있었는데, Docusaurus 에서 i18n 국제화 기능이 지원되는 것을 확인하고 적용하기로 했다.
 
 ```bash
-pnpm run write-translations --locale en
+yarn run write-translations --locale en
 ```
 
 https://docusaurus.io/docs/i18n/tutorial
@@ -411,7 +415,7 @@ https://docusaurus.io/docs/i18n/tutorial
 - Github Action + Open AI or DeepL API 를 활용하면 어떨까?
 - 404 page 등 몇몇 기본 페이지는 호스팅 서비스에 따라 번역된 페이지로 리다이렉트를 지원하지 않을 수 있다. github page 는 지원하지 않는다.
 
-찾아보니 이런 github action 이 이미 존재했다 (역시)
+찾아보니 이런 github action 이 이미 존재했다 (역시 바퀴는 항상 존재한다)
 
 - https://github.com/marketplace/actions/gpt-translate
 
@@ -419,7 +423,7 @@ OpenAI 의 유료 서비스인 api token 이 필요하지만, 이미 사용하�
 
 - https://github.com/songkg7/songkg7.github.io/pull/10/files
 
-사용해보니 꽤나 잘 된다
+사용해보니 꽤나 잘 된다. 개인적으로 일본어도 공부하고 있기 때문에, 앞으로 글을 작성하면 영어와 일본어로 번역한 뒤 검수 작업을 거쳐서 국제화를 제공할 예정이다.
 
 ## SEO
 
@@ -435,7 +439,7 @@ option 만 활성화 시켜주면 되며, 별도의 frontmatter 는 필요하지
 
 updateBy 는 적용해봤다가 롤백했는데,
 
-- github action 이 수정자로 표시되는 현상이 마음에 들지 않았고,
+- 자동화 시켜놓은 몇몇 작업에서 github action 이 수정자로 표시되는 현상이 마음에 들지 않았고,
 - edit 버튼을 노출시킴으로써 협업을 지향하고는 있지만, 실제로 PR 이 많이 생성되지는 않을 것 같았기 때문이다.
 
 당장은 updateAt 만 있어도 충분할 것 같다.
