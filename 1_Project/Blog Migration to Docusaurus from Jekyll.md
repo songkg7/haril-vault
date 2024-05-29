@@ -8,7 +8,7 @@ tags:
   - algolia
   - react
 categories: 
-updated: 2024-05-29 17:31:57 +0900
+updated: 2024-05-29 18:02:20 +0900
 ---
 
 ## Overview
@@ -38,7 +38,7 @@ docusaurus 를 한 번도 사용해보지 않아 지원기능을 만들기 애�
 - [x] SEO 를 위해 모든 포스트의 front matter 에 description 정보 추가하기
     - https://www.opengraph.xyz/ 에서 확인할 수 있다
 - [x] 문서 자동 번역🛫 2024-05-07
-    - [ ] ! github pr 을 생성하면, 특정 언어로 번역된 문서가 PR 에 포함되게 함 -> github action & DeepL
+    - [x] github pr 을 생성하면, 특정 언어로 번역된 문서가 PR 에 포함되게 함 -> github action & DeepL
     - [ ] ~~crowdin 사용~~ 협업 툴에 가까워서 개인 블로그 용도로는 적합하지 않다고 판단
     - [x] 이미 존재하는 액션이 있어서 해당 액션을 사용
 
@@ -52,20 +52,18 @@ docusaurus 를 한 번도 사용해보지 않아 지원기능을 만들기 애�
 
 ## Language
 
-[[TypeScript]]. 굳이 JS 를 선택해야하는 이유를 못느낌.
+[[TypeScript]]. 최근 TS 에서 벗어나려는 시도가 있었지만, 개인적으로는 공감하지 못했다. 오히려 굳이 JS 를 선택해야하는 이유를 못느끼기 때문에 당연하게도 TS 로 환경을 구성했다.
 
 ## Package manager
 
-docusaurus 는 [[npm]], [[yarn]], [[pnpm]] 을 모두 지원. npm 은 너무 자주 써왔기 때문에 이번에는 pnpm 을 사용해보기로 함.
+Docusaurus 는 [[npm]], [[yarn]], [[pnpm]] 을 모두 지원한다. npm 은 너무 자주 써왔기 때문에 이번에는 pnpm 이나 yarn 중에 사용해보고자 했다.
 
-이 정도부터 `pnpm start` 명령을 통해 현재 블로그 상태를 확인할 수 있다.
+결론만 적자면, yarn 을 선택했다. 이유는 다음과 같았다.
 
-```bash
-pnpm start
-```
-
-- pnpm 에서는 github action 을 설정할 때 마음에 들지 않는 부분도 있었음
+- pnpm 에서는 github action 을 설정할 때 마음에 들지 않는 부분이 있었음
 - 결정적으로, 05.23 에 토스 기술블로그에 올라온 [패키지 매니저 관련 글](https://toss.tech/article/lightning-talks-package-manager)을 보고 [[yarn]] 으로 변경
+
+패키지 매니저까지 선택했다면, 이제 바로 블로그를 확인해볼 수 있다.
 
 ```bash
 yarn start
@@ -73,15 +71,13 @@ yarn start
 
 ## Mode
 
-docusaurus 는 docs 와 blog 모드가 각각 존재하며, docs 는 기술 문서에 가까운 형태를 띔. 개발 블로그는 blog mode 만 있어도 충분했기 때문에 blog only 로 설정할까 고민했음. 하지만 이럴 경우 메인 랜딩 페이지가 없어지기 때문에 뭔가 아쉬웠음.
+Docusaurus 는 docs 와 blog 모드가 각각 존재하며, docs 는 기술 문서를 위한 포맷이다. 개발 블로그는 blog mode 만 있어도 충분했기 때문에 blog only 로 설정하여 docs 페이지를 제거해버릴까 고민했다. 하지만 이럴 경우 메인 랜딩 페이지가 없어지기 때문에 뭔가 아쉬웠다. 디자인할 수 있는 요소 하나가 사라지는 느낌이랄까.
 
-따라서 랜딩 페이지를 유지하기 위해 blog only 는 포기하고 docs 만 다른 형태로 바꿔주기로 함
+고민 끝에 랜딩 페이지를 유지하기 위해 blog only 는 포기하고 docs 만 다른 형태로 바꿔주기로 했다.
 
 ## Mermaid
 
-[[Mermaid]] 는 다이어그램을 코드로 간단하고 빠르게 그리는데 적합하여 평소에 자주 쓰던 도구다. Docusaurus 에서는 플러그인으로 지원하니 포함시켜주도록 하자.
-
-플러그인 설치
+[[Mermaid]] 는 다이어그램을 코드로 간단하고 빠르게 그리는데 적합하여 평소에 자주 쓰는 도구다. Docusaurus 에서는 플러그인으로 지원하니 포함시켜주도록 하자.
 
 ```bash
 yarn add @docusaurus/theme-mermaid
@@ -96,7 +92,7 @@ const config: Config = {
 };
 ```
 
-https://docusaurus.io/docs/markdown-features/diagrams
+자세한 내용은 [공식 문서](https://docusaurus.io/docs/markdown-features/diagrams) 를 참고.
 
 ## Latex
 
@@ -159,13 +155,11 @@ const config: Config = {
 };
 ```
 
-## Github pages 배포
+## GitHub Pages 배포
 
-배포 방법에는 여러 종류가 있지만, github 를 벗어나지 않고 한 군데에서 모두 처리하고 싶었기 때문에 [[GitHub]] pages 를 쓰기로 했다. 기본적으로 도메인도 `~.github.io` 처럼 깔끔하게 생성해주기 때문에 나쁘지 않은 옵션이다.
+배포 방법에는 여러 종류가 있지만, GitHub 를 벗어나지 않고 한 군데에서 모두 처리하고 싶었기 때문에 [[GitHub]] pages 를 쓰기로 했다. 기본적으로 도메인도 `~.github.io` 처럼 깔끔하게 생성해주기 때문에 나쁘지 않은 옵션이다.
 
-Github Actions 을 통해 CI/CD 를 구성해보자.
-
-먼저 `./.github/workflows/` 에 yaml 파일을 하나 생성해준다. 내용은 아래와 같다.
+블로그 글을 작성하면 자동으로 배포되도록 Github Actions 을 통해 CI/CD 를 구성해보자. 먼저 `./.github/workflows/` 에 yaml 파일을 하나 생성해준다. 내용은 아래와 같다.
 
 ```yaml
 name: Deploy to GitHub Pages
@@ -229,12 +223,12 @@ jobs:
 
 ## 커스텀 도메인 연결하기
 
-기본 깃허브 도메인(~.github.io)을 써도 큰 지장은 없지만, 블로그를 이전하는 김에 도메인도 하나 구매해서 개발자 느낌을 좀 내보려 한다.
+기본 깃허브 도메인(~.github.io)을 써도 큰 지장은 없지만, 블로그를 이전하는 김에 도메인도 하나 구매해서 긱(Geek) 한 개발자 느낌을 좀 내보려 한다. 만약 나중에 GitHub Pages 가 아닌 다른 플랫폼을 사용하여 배포하게 되더라도, 도메인이 있다면 SEO 를 유지하기 수월할 것이다.
 
 ### 도메인 구매
 
-- haril.dev 로 개발자스러운 느낌의 도메인을 godaddy 에서 구매(연간 20$)
-- github pages 에서 커스텀 도메인 등록을 해줘야 한다
+- haril.dev 도메인을 godaddy 에서 구매(연간 20$)
+- GitHub Pages 에 커스텀 도메인 등록을 해줘야 한다.
 - 기존 사용하던 도메인의 아이피 주소부터 확인하자.
 
 ```bash
@@ -247,7 +241,7 @@ dig songkg7.github.io
 
 ![](https://i.imgur.com/lUEshGu.png)
 
-godaddy에 등록해주자
+godaddy 레코드에 등록해주자
 
 깃허브 페이지 설정에 가서 구매한 도메인을 등록해주면
 
@@ -272,75 +266,35 @@ godaddy에 등록해주자
 
 이렇게 도메인 인증이 완료되고 도메인 탈취 공격으로부터 보호할 수 있게 된다. ~~누가 이런 도메인을 탈취하려고 할까 싶지만...~~
 
----
-
 ## Giscus 댓글
 
-기존 컴포넌트의 디자인을 수정할 수 있다. Giscus 컴포넌트를 구현하여 추가함으로써 댓글 기능을 간단하게 구현한다.
+Docusaurus 에서는 기존 컴포넌트의 디자인을 수정할 수 있다. Giscus 컴포넌트를 구현하여 추가함으로써 댓글 기능을 간단하게 구현할 수 있다.
 
 참고: https://rikublock.dev/docs/tutorials/giscus-integration/
 
-## tip. 폴더구조 수정
-
-![](https://i.imgur.com/ucjhZ0G.png)
-
-_기존 디렉토리 구조. `_posts` 폴더 아래에 markdown 문서가 한 번에 들어있다._
-
-docusaurus 같은 경우 [[Jekyll]] 처럼 날짜를 파일이름에 명시하는 방법도 지원하지만, 폴더로 구성하면 이미지 등의 리소스들을 같은 폴더 안에 모아둘 수 있어서 편리하다. 글이 많은 만큼 스크립트를 작성해서 한 번에 수정해주자.
-
-```bash
-#!/bin/bash
-
-# 모든 .md 파일에 대해 실행
-for file in *.md; do
-  # 파일 이름에서 날짜 추출
-  date=$(echo $file | rg -o '\d{4}-\d{2}-\d{2}')
-
-  # 해당 날짜로 디렉토리 생성 (디렉토리가 이미 존재하면 무시)
-  mkdir -p "$date"
-
-  # 파일을 해당 디렉토리로 이동
-  mv "$file" "$date/"
-done
-
-# 각 디렉토리에 대해 실행
-for dir in */; do
-    # 출력되는 파일에서 yyyy-MM-dd 부분을 제거
-    new_filename=$(ls $dir | sed "s/[0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}-//g")
-    mv "$dir/$(ls $dir)" "$dir/$new_filename"
-done
-```
-
-![](https://i.imgur.com/B8q31Qu.png)
-
-모든 파일이 한 번에 깔끔하게 이동한다. 이후에는 포스트에서 참조하는 리소스들을 맞는 디렉토리로 이동해주는 작업을 해주면 된다.
-
-ripgrep 명령으로 로컬 리소스를 참조하는 부분을 찾아보자.
-
-![](https://i.imgur.com/YkUnVRQ.png)
-
-이렇게 출력되는 파일의 상대경로가 있으니 저 파일들을 찾아서 옮겨주면 되겠다.
-
-1. 각 리소스파일은 `blog/{yyyy-MM-dd}` 로 이동하면 된다.
-2. 더 이상 글에서 `img` 디렉토리를 참조하지 않으므로, `![image](./resource.webp)` 처럼 `./` 형태로 수정한다.
-
-역시 sh 을 사용하면 빠르고 쉽게 모든 링크 수정이 가능하겠다... 만, 리소스 이미지가 몇 개 안되어 수작업으로 몇 번 만져주니 끝나버려 스크립트를 작성하지 않았다.
-
-여러분께 드리는 숙제로 남겨둔다. 😜
-
 ## 검색 엔진
 
-Algolia 대신 최근 등장한 Orama 를 사용해봤다.
+엄청 많은 글을 발행하는 편은 아니지만, 점점 글이 많아지는건 사실이다. 글 목록이 한 페이지를 넘어가게 되어 스크롤이 필요하다고 느껴진 순간부터, 검색 기능이 있으면 좋겠다 싶었다. 글들을 검색할 수 있게 인덱싱해놓는다면 제목 뿐만 아니라 글 내용으로도 검색이 가능해질 것이므로, 방문객들이 원하는 내용을 찾기가 수월할 것이다.
 
-- algolia: 무료버전에서는 크롤러가 일주일에 한 번만 동작하여 검색 색인을 갱신
-    - 수동으로 트리거해서 색인을 즉시 갱신할 수 있다
-- Orama: 배포 트리거를 감지하고 배포가 일어났을 때 색인을 갱신. openAI 를 연동한 의미론적 검색도 지원.
+Docusaurus 에서 사용할 수 있는 상용 검색 엔진은 두 가지 정도가 있다.
+
+- Algolia
+    - 무료버전에서는 크롤러가 일주일에 한 번만 동작하여 검색 색인을 갱신
+    - Docusaurus 가 공식적으로 밀어주는 검색 엔진
+    - 수동으로 트리거해서 색인을 갱신할 수 있다
+- [Orama](https://askorama.ai/)
+    - 적용이 매우 간편하다. 따로 분석이 필요하지 않다면 코드를 붙여넣는 것만으로도 적용이 끝난다.
+    - 배포 트리거를 감지하고 배포가 일어났을 때 색인을 갱신
+    - openAI 를 연동한 의미론적 검색도 지원
     - 다소 투박한 Algolia 에 비해 UI 가 예쁘다. 개인적으로 기능만큼 디자인을 중요하게 여긴다.
 
-Algolia 는 배포할 때 자동으로 색인이 갱신되지 않는 점이 아쉬워서 Orama 를 사용해보려했으나, 고민 끝에 Algolia 를 사용하기로 했는데 이유는 다음과 같다.
+Algolia 는 배포할 때 자동으로 색인이 갱신되지 않는 점이 아쉽고, 아무래도 UI/UX 가 더 좋았던 Orama 를 적용했다.
 
-- Docusaurus 는 공식적으로 Algolia 를 추천하며, support 를 지원한다.
-- Orama 에서는 아직 [한글 토크나이저가 지원되지 않아](https://docs.askorama.ai/open-source/supported-languages/), 한국어 검색이 불가능하다. <= 치명적
+![](https://i.imgur.com/VCp0Eee.png)
+
+_orama 는 main 페이지도 아름답다_
+
+하지만 곧 롤백할 수 밖에 없었는데, Orama 에서는 아직 [한글 토크나이저가 지원되지 않고 있어서](https://docs.askorama.ai/open-source/supported-languages/) 한국어 검색이 불가능했다 😭. 메인 타겟층이 국내인 이상, 한국어 검색은 필수적이므로 아쉽지만 Algolia 를 사용하기로 했다.
 
 ### Algolia 검색시 아무 것도 나오지 않을 경우
 
@@ -377,13 +331,15 @@ DocSearch 승인을 받으면, 도큐사우루스 사용과 관련된 크롤러 
 
 ![](https://i.imgur.com/57DUIyE.jpeg)
 
-위의 facets 이 모두 있어야 한다. 나는 docusaurus_tag facets 이 표시되지 않았었기 때문에 직접 추가해주었다.
+위의 facets 이 모두 있어야 한다. 나는 `docusaurus_tag` facets 이 표시되지 않았었기 때문에 직접 추가해주었다.
 
-`Index > Configuration > Filtering and faceting - Facets` 에 `+ Add an Attribute` 로 누락된 속성을 추가해주자
+`Index > Configuration > Filtering and faceting - Facets` 의 `+ Add an Attribute` 로 누락된 속성을 추가해줄 수 있다.
 
 ![](https://i.imgur.com/x9qjnxI.png)
 
 이후 검색이 잘 동작하는 것을 확인할 수 있다.
+
+![](https://i.imgur.com/XPVw3UJ.png)
 
 ### 글 작성 직후 인덱스 갱신에도 불구하고 검색되지 않는 문제
 
@@ -415,7 +371,7 @@ https://docusaurus.io/docs/i18n/tutorial
 - Github Action + Open AI or DeepL API 를 활용하면 어떨까?
 - 404 page 등 몇몇 기본 페이지는 호스팅 서비스에 따라 번역된 페이지로 리다이렉트를 지원하지 않을 수 있다. github page 는 지원하지 않는다.
 
-찾아보니 이런 github action 이 이미 존재했다 (역시 바퀴는 항상 존재한다)
+찾아보니 이런 github action 이 이미 존재했다 (역시 사람 생각은 다 비슷한가보다)
 
 - https://github.com/marketplace/actions/gpt-translate
 
@@ -443,6 +399,54 @@ updateBy 는 적용해봤다가 롤백했는데,
 - edit 버튼을 노출시킴으로써 협업을 지향하고는 있지만, 실제로 PR 이 많이 생성되지는 않을 것 같았기 때문이다.
 
 당장은 updateAt 만 있어도 충분할 것 같다.
+
+## Migration Tip. 폴더구조 수정
+
+![](https://i.imgur.com/ucjhZ0G.png)
+
+_기존 디렉토리 구조. `_posts` 폴더 아래에 markdown 문서가 한 번에 들어있다._
+
+Docusaurus 같은 경우 [[Jekyll]] 처럼 날짜를 파일이름에 명시하는 방법도 지원하지만, 폴더로 구성하면 이미지 등의 리소스들을 같은 폴더 안에 모아둘 수 있어서 편리하다. 글이 많은 만큼 스크립트를 작성해서 한 번에 수정해주자.
+
+```bash
+#!/bin/bash
+
+# 모든 .md 파일에 대해 실행
+for file in *.md; do
+  # 파일 이름에서 날짜 추출
+  date=$(echo $file | rg -o '\d{4}-\d{2}-\d{2}')
+
+  # 해당 날짜로 디렉토리 생성 (디렉토리가 이미 존재하면 무시)
+  mkdir -p "$date"
+
+  # 파일을 해당 디렉토리로 이동
+  mv "$file" "$date/"
+done
+
+# 각 디렉토리에 대해 실행
+for dir in */; do
+    # 출력되는 파일에서 yyyy-MM-dd 부분을 제거
+    new_filename=$(ls $dir | sed "s/[0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}-//g")
+    mv "$dir/$(ls $dir)" "$dir/$new_filename"
+done
+```
+
+![](https://i.imgur.com/B8q31Qu.png)
+
+모든 파일이 한 번에 깔끔하게 이동한다. 이후에는 포스트에서 참조하는 리소스들을 맞는 디렉토리로 이동해주는 작업을 해주면 된다.
+
+`ripgrep` 명령으로 로컬 리소스를 참조하는 부분을 찾아보자.
+
+![](https://i.imgur.com/YkUnVRQ.png)
+
+이렇게 출력되는 파일의 상대경로가 있으니 저 파일들을 찾아서 옮겨주면 되겠다.
+
+1. 각 리소스파일은 `blog/{yyyy-MM-dd}` 로 이동하면 된다.
+2. 더 이상 글에서 `img` 디렉토리를 참조하지 않으므로, `![image](./resource.webp)` 처럼 `./` 형태로 수정한다.
+
+역시 sh 을 사용하면 빠르고 쉽게 모든 링크 수정이 가능하겠다... 만, 리소스 이미지가 몇 개 안되어 수작업으로 몇 번 만져주니 끝나버려 스크립트를 작성하지 않았다.
+
+여러분께 드리는 숙제로 남겨둔다. 😜 (GPT 선생님께 여쭤보면 이 정도는 순식간이다)
 
 ## Conclusion
 
