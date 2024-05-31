@@ -4,6 +4,7 @@ private/
 .obsidian/workspaces.json
 .obsidian/workspace
 .obsidian/graph.json
+.obsidian/plugins/various-complements/histories.json
 .DS_Store
 .trash/
 
