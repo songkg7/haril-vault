@@ -1,5 +1,5 @@
 ---
-title: what is time-wait?
+title: TIME_WAIT 상태란 무엇일까?
 date: 2024-05-19 00:05:00 +0900
 aliases: 
 tags:
@@ -7,7 +7,7 @@ tags:
   - packet
   - tcp
 categories: 
-updated: 2024-05-19 00:05:29 +0900
+updated: 2024-06-02 18:52:50 +0900
 ---
 
 ## TIME_WAIT 상태란 무엇인가?
@@ -37,6 +37,12 @@ updated: 2024-05-19 00:05:29 +0900
 2. 클라이언트 측에서 타임아웃 시간 설정
    - setsockopt(SOL_SOCKET, SO_LINGER)
 3. 네트워크 레벨에서 타임아웃 시간 설정
+
+## 사용 명령어
+
+```bash
+ss -tanop
+```
 
 ## Reference
 
