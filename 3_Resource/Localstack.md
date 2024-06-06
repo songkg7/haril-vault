@@ -7,8 +7,28 @@ tags:
   - aws
   - sqs
 categories: 
-updated: 2024-05-30 14:13:44 +0900
+updated: 2024-06-05 22:12:16 +0900
 ---
+
+## Docker compose 사용시 초기화 스크립트
+
+```yaml
+volumes:
+  - '.localstack-init/init-resources.sh:/etc/localstack/init/ready.d/init-resources.sh'
+```
+
+```bash
+#!/bin/sh
+echo "Init localstack"
+awslocal s3 mb s3://test-bucket
+awslocal sqs create-queue --queue-name test-queue
+```
+
+### permission 관련 에러가 출력될 경우
+
+```bash
+chmod +x ./init-resources.sh
+```
 
 ## Reference
 
