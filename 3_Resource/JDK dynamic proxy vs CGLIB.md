@@ -8,7 +8,7 @@ tags:
   - cglib
   - jdk-dynamic-proxy
 categories: 
-updated: 2023-09-04 15:34:11 +0900
+updated: 2024-06-09 21:10:16 +0900
 ---
 
 - JDK Dynamic proxy
@@ -37,7 +37,7 @@ interface 가 필요하며 reflection 을 통해 proxy 객체를 생성하므로
 
 ## CGLIB
 
-CGLIB(Code Genereator library)는 바이트 코드를 조작하여 proxy 객체를 생성한다.
+CGLIB(Code Genereator library)는 런타임에 바이트 코드를 조작하여 proxy 객체를 생성한다.
 
 ```java
 public class PersonService {

@@ -9,7 +9,7 @@ tags:
   - book
   - transaction
 categories: 
-updated: 2024-05-02 20:56:47 +0900
+updated: 2024-06-09 18:16:07 +0900
 ---
 
 ## What is Transaction?
@@ -249,7 +249,7 @@ UPDATE wiki_pages SET content = 'new content'
 
 - 트랜잭션을 순차적으로 실행하기
 - 2 Phase Lock (2단계 잠금)
-- 직렬성 스냅숏 격리 같은 낙관적 동시성 제어(Optimistic concurrency control, [[Optimistic Lock]]) 기법
+- 직렬성 스냅숏 격리 같은 낙관적 동시성 제어(Optimistic concurrency control, [[Optimistic Lock|낙관적 락]]) 기법
 
 ### 실제적인 직렬 실행
 
@@ -410,3 +410,4 @@ SELECT * FROM bookings
 ## Reference
 
 - https://m-falcon.tistory.com/527
+- https://goodmilktea.tistory.com/62
