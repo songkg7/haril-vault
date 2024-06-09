@@ -8,7 +8,7 @@ tags:
   - https
   - network
 categories: Network
-updated: 2023-10-19 11:32:49 +0900
+updated: 2024-06-09 14:17:32 +0900
 ---
 
 # HTTP (HyperText Transfer Protocol)
@@ -47,3 +47,4 @@ HTTPS 라고 해서 무조건 안전한 것은 아니다. (신뢰받는 CA 기�
 # Reference
 
 - [[Network]]
+- https://velog.io/@alscjf6315/HTTPS-%EC%9D%98-%EB%8F%99%EC%9E%91%EC%9B%90%EB%A6%AC

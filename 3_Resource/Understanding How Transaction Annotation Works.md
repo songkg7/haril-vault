@@ -1,13 +1,13 @@
 ---
-title: 트랜잭션 격리 레벨의 동작 원리
+title: 트랜잭션 어노테이션의 격리레벨 동작 원리
 date: 2023-07-14 23:29:00 +0900
-aliases: null
+aliases: 
 tags:
   - transaction
   - database
   - jdbc
-categories: null
-updated: 2023-08-06 13:54:11 +0900
+categories: 
+updated: 2024-06-09 17:24:00 +0900
 ---
 
 ## `@Transational` 로 설정하는 격리레벨은 실제로 어떻게 동작할까
