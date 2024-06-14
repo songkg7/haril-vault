@@ -7,7 +7,7 @@ tags:
   - tool
   - inflearn
 categories: 
-updated: 2024-04-18 20:49:14 +0900
+updated: 2024-06-14 21:37:01 +0900
 ---
 
 > 인프런 생산성 강의 촬영을 위해 정리
@@ -103,6 +103,8 @@ SCQA
 - [[Arc]]
 - Spark Desktop
 - Notion Calendar
+
+난이도보다는 유저 스토리에 초점을 맞춰서 강의를 설계해보라는 피드백을 받았고, 이를 적용해보려고 한다.
 
 ## 생산성
 
