@@ -9,7 +9,7 @@ categories:
   - DevOps
 fc-calendar: Gregorian Calendar
 fc-date: 2022-08-13
-updated: 2023-11-19 08:59:07 +0900
+updated: 2024-06-16 13:04:52 +0900
 ---
 
 ## Overview
@@ -29,9 +29,7 @@ Docker 네트워크는 `bridge`, `host`, `overlay` 등 목적에 따라 다양�
 `docker network create` 커맨드를 사용해서 새로운 Docker 네트워크를 생성해보도록 하자.
 
 ```bash
-
 docker network create my-net
-
 ```
 
 추가된 네트워크는 `docker network ls` 커맨드로 확인할 수 있다. `-d` 옵션을 사용하지 않았기 때문에 기본값인 `bridge` 네트워크로 생성된 것을 확인할 수 있다.
@@ -138,6 +136,14 @@ docker exec two ping one
 ```
 
 서로 원활한 통신이 가능한 것을 확인할 수 있다.
+
+아래 명령을 사용하면 DNS 리졸브가 가능한 것도 확인할 수 있다.
+
+```bash
+nslookup two
+```
+
+![](https://i.imgur.com/mDUY6Ot.png)
 
 ## 네트워크 제거
 
