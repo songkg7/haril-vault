@@ -7,10 +7,12 @@ tags:
   - aws
   - sqs
 categories: 
-updated: 2024-06-05 22:12:16 +0900
+updated: 2024-06-16 00:58:45 +0900
 ---
 
 ## Docker compose 사용시 초기화 스크립트
+
+[[docker|Docker]]
 
 ```yaml
 volumes:
@@ -24,7 +26,7 @@ awslocal s3 mb s3://test-bucket
 awslocal sqs create-queue --queue-name test-queue
 ```
 
-### permission 관련 에러가 출력될 경우
+### Permission 관련 에러가 출력될 경우
 
 ```bash
 chmod +x ./init-resources.sh
