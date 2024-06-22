@@ -1,6 +1,7 @@
 {
   "pinned": [
     "file-explorer:move-file",
-    "workspaces:save-and-load"
+    "workspaces:save-and-load",
+    "daily-notes"
   ]
 }
