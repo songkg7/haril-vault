@@ -7,10 +7,24 @@ tags:
   - network
   - study
 categories: 
-updated: 2024-06-22 18:47:21 +0900
+updated: 2024-06-23 18:31:19 +0900
 ---
 
 ## Docker 의 네트워크 관리
+
+docker 의 네트워크 모드는 총 6가지가 있다.
+
+- bridge
+- host
+- ipvlan
+- macvlan
+- null
+- overlay
+
+하나씩 알아보자.
+
+> [!tip]
+> `docker info` 명령을 사용하면 사용할 수 있는 네트워크 종류를 확인할 수 있다.
 
 ```bash
 orb create ubuntu
@@ -22,6 +36,8 @@ sudo gpasswd -a $USER docker # sudo 를 생략하기 위해 현재 유저에 doc
 ```
 
 ![](https://i.imgur.com/Eu3w1T0.png)
+
+![](https://i.imgur.com/wf6vS1n.png)
 
 docker0 인터페이스는 도커의 기본 네트워크 인터페이스이며, 브릿지로 동작한다.
 
@@ -35,6 +51,8 @@ docker network ls
 ```
 
 ## Default
+
+![](https://i.imgur.com/0m7hPgu.png)
 
 서비스를 하나 실행시킨 후 네트워크 상태를 다시 확인해보자
 
@@ -87,9 +105,11 @@ docker run -itd --rm --name web -p 80:80 nginx
 
 ![](https://i.imgur.com/souVECS.png)
 
+![](https://i.imgur.com/KapxOIK.png)
+
 이 정도면 충분히 사이드 프로젝트를 배포하고 외부에 공개할 수 있다. 하지만 도커에서는 default 네트워크 사용을 권장하지 않는다. 그리고 앞으로 알아볼 user-defined network 를 사용하도록 권장한다. 왜 그럴까? 지금부터 살펴보자.
 
-## User-defined
+## User-defined bridge
 
 docker 에서 유저 정의 네트워크를 사용하는 것은 매우 쉽다.
 
@@ -116,6 +136,8 @@ docker run -itd --rm --name three --network numbers busybox
 docker run -itd --rm --name four --network numbers busybox
 ```
 
+![](https://i.imgur.com/kvd8goV.png)
+
 ```bash
 docker inspect numbers
 ```
@@ -134,8 +156,6 @@ two 로 ping 을 날리던 때와는 달리 통신되지 않는다. 하지만 th
 
 네트워크 간 상호 격리는 굉장히 중요한 기능이다.
 
-%% 왜 중요한지 적어두기. %%
-
 두 번째로는 DNS resolve 기능을 제공해주기 때문이다. 같은 사용자 정의 네트워크에 속해있다면, 아이피가 아닌 컨테이너 이름으로도 통신할 수 있다.
 
 ![](https://i.imgur.com/PfiY7qi.png)
@@ -149,7 +169,7 @@ two 로 ping 을 날리던 때와는 달리 통신되지 않는다. 하지만 th
 
 ## Host
 
-Host 네트워크를 구성하는건 매우 쉽다.
+포트를 매핑하지 않고 컨테이너의 서비스를 외부에 노출할 수 없을까?
 
 ```bash
 docker run -itd --rm --name web --network host nginx
@@ -157,19 +177,27 @@ docker run -itd --rm --name web --network host nginx
 
 포트를 노출하는대신 host 네트워크를 사용하도록 한다. 호스트 머신과 컨테이너 간의 네트워크 격리가 없으며 가상 인터페이스가 없다. docker 없이 실행되는 것처럼 이 컨테이너를 실행하므로 컨테이너 내부의 서비스에 직접 접근할 수 있다.
 
+![](https://i.imgur.com/pdGZBr1.png)
+
+도커 컨테이너의 서비스가 호스트와 격리되지 않고 포트 스캐닝에 그대로 노출되기 때문에 보안 문제가 발생할 수 있는 점은 주의해야 한다. 포트 스캐닝의 위험성은 지난 번 [[Nmap]] 을 살펴보면서 알아보았으니 생략.
+
 ## IPvlan
+
+> IPvlan networks give users total control over both IPv4 and IPv6 addressing. The VLAN driver builds on top of that in giving operators complete control of layer 2 VLAN tagging and even IPvlan L3 routing for users interested in underlay network integration.
+
+![](https://i.imgur.com/fr7JZI8.png)
 
 전통적으로 컨테이너는 브릿지를 사용하여 외부 네트워크와 통신한다. 이것은 잘 동작하지만 네트워크 구성에 복잡성을 추가한다. 또한 네트워크 홉이 추가되어 성능적인 패널티를 갖게 된다.
 
-IPvlan 은 네트워크 가상화 테크닉이다. 네트워크 격리를 위해 브릿지를 사용하지 않고, 호스트 네트워크 장비에 직접 연결하여 매우 가벼운 네트워크 구성이 가능하다. 따라서 포트 매핑이 필요하지 않다.
+IPvlan 은 네트워크 가상화 테크닉이다. 사용자에게 IPv4 및 IPv6 주소 지정에 대해 완전한 제어권을 제공한다. 네트워크 격리를 위해 브릿지를 사용하지 않고, 호스트 네트워크 장비에 직접 연결하여 매우 가벼운 네트워크 구성이 가능하다. 따라서 포트 매핑이 필요하지 않다.
 
 - 고성능 네트워킹
 - 보안 격리
 
 ```bash
 docker network create -d ipvlan \
-    --subnet 198.19.249.0/24 \
-    --gateway 198.19.249.1 \
+    --subnet=198.19.249.0/24 \
+    --gateway=198.19.249.1 \
     -o ipvlan_mode=l2 \
     -o parent=eth0 my-ipvlan-net
 ```
@@ -182,11 +210,19 @@ docker run -itd --rm --name web --network my-ipvlan-net nginx
 
 _네트워크 인터페이스를 생성하지 않는다._
 
-## Macvlan
+198.19.249.2 로 접근하면 nginx 페이지가 보이는걸 확인할 수 있다.
 
-한 가지 예를 들어보자. 웹 서비스를 구성하고 대용량 파일을 다운로드 받아서 그것을 사용하려고 한다고 해보자. 파일의 용량은 수 백 기가바이트에 달할 수 있지만, 사용하는 서버는 하나이다. 이때 사용해볼 수 있는 방법중 하나는 아래와 같다.
+## MACvlan
 
-서버는 랜카드가 하나만 있다면 문제가 생길 수 있다. 이는 너무 많은 리소스를 사용할 수 있기 때문이다. 그리고 1Gbps 로 통신한다면, 이 작업에 걸리게 되는 시간은 굉장히 길어질 것이며, 그러므로 제공하는 웹 서비스도 항상 속도가 낮아질 것이다.
+> Macvlan networks allow you to assign a MAC address to a container, making it appear as a physical device on your network. The Docker daemon routes traffic to containers by their MAC addresses. Using the `macvlan` driver is sometimes the best choice when dealing with legacy applications that expect to be directly connected to the physical network, rather than routed through the Docker host's network stack.
+
+![](https://i.imgur.com/PV3WpG8.png)
+
+MACvlan 을 사용하면 컨테이너에 MAC 주소를 할당하여 네트워크에서 물리적 장치로 보이게 할 수 있다. 도커 데몬은 MAC 주소를 기준으로 트래픽을 컨테이너로 라우팅하게 된다. 도커 호스트의 네트워크 스택을 통해 라우팅되지 않고 물리적 네트워크에 직접 연결될 것으로 예상되는 레거시 애플리케이션을 처리할 때 도움이 될 수 있다.
+
+한 가지 예를 들어보자. 웹 서비스를 구성하고 대용량 파일을 다운로드 받아서 그것을 사용하려고 한다고 해보자. 파일의 용량은 수 백 기가바이트에 달할 수 있지만, 사용하는 서버는 하나이다.
+
+서버에 랜카드가 하나만 있다면 문제가 생길 수 있다. 이는 너무 많은 리소스를 사용할 수 있기 때문이다. 그리고 1Gbps 로 통신한다면, 이 작업에 걸리게 되는 시간은 굉장히 길어질 것이며, 그러므로 제공하는 웹 서비스도 항상 속도가 낮아질 것이다.
 
 그러므로 4개의 인터페이스를 모두 바라보도록 설정하면 된다. 이때 MAC address 는 모두 다르게 설정해주어야 한다. 이것을 가능케 해주는 기술이 macvlan 이다.
 
@@ -246,11 +282,20 @@ docker swarm init
 
 ## None
 
+![](https://i.imgur.com/FURiKXn.png)
+
 네트워크 설정이 존재하지 않는다. 따라서 완전히 격리되어 있으며 I/O 인터페이스만 존재하게 된다.
 
-- 어떤 포트도 노출하지 않는다.
+- 루프백 인터페이스만 존재하여 외부의 어떤 접근도 불가능하다.
 - batch job 이나 데이터 프로세싱을 위한 컨테이너에 유용하다.
+
+```bash
+docker run -itd --rm --name batch --network none busybox
+docker exec -it batch sh
+ip addr
+```
 
 ## 참고할만한 글들
 
 - https://zerone-code.tistory.com/16
+- https://docs.docker.com/network/

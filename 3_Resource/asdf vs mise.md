@@ -7,7 +7,7 @@ tags:
   - mise
   - package-manager
 categories: 
-updated: 2024-05-14 14:34:01 +0900
+updated: 2024-06-25 14:40:09 +0900
 ---
 
 ## asdf
@@ -16,7 +16,7 @@ updated: 2024-05-14 14:34:01 +0900
 
 ## mise
 
-[[mise]]
+[[mise|개발도구 버전 관리하기, mise]]
 
 ## Conclusion
 
