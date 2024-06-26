@@ -1,5 +1,5 @@
 ---
-title: Docker network study
+title: 도커 네트워크 살펴보기
 date: 2024-06-16 16:54:00 +0900
 aliases: 
 tags:
@@ -7,24 +7,21 @@ tags:
   - network
   - study
 categories: 
-updated: 2024-06-23 18:31:19 +0900
+updated: 2024-06-26 11:07:29 +0900
 ---
 
 ## Docker 의 네트워크 관리
 
-docker 의 네트워크 모드는 총 6가지가 있다.
+docker 의 네트워크 타입은 총 6가지가 있다.
 
-- bridge
-- host
-- ipvlan
-- macvlan
-- null
-- overlay
+- Bridge
+- Host
+- IPvlan
+- MACvlan
+- Overlay
+- None
 
 하나씩 알아보자.
-
-> [!tip]
-> `docker info` 명령을 사용하면 사용할 수 있는 네트워크 종류를 확인할 수 있다.
 
 ```bash
 orb create ubuntu
@@ -43,14 +40,12 @@ docker0 인터페이스는 도커의 기본 네트워크 인터페이스이며, 
 
 ![[docker-network-arch.excalidraw]]
 
-- ? 브릿지와 라우터의 차이
-
 ```bash
 # docker network interface 목록
 docker network ls
 ```
 
-## Default
+## Default Network (bridge)
 
 ![](https://i.imgur.com/0m7hPgu.png)
 
@@ -185,9 +180,9 @@ docker run -itd --rm --name web --network host nginx
 
 > IPvlan networks give users total control over both IPv4 and IPv6 addressing. The VLAN driver builds on top of that in giving operators complete control of layer 2 VLAN tagging and even IPvlan L3 routing for users interested in underlay network integration.
 
-![](https://i.imgur.com/fr7JZI8.png)
-
 전통적으로 컨테이너는 브릿지를 사용하여 외부 네트워크와 통신한다. 이것은 잘 동작하지만 네트워크 구성에 복잡성을 추가한다. 또한 네트워크 홉이 추가되어 성능적인 패널티를 갖게 된다.
+
+![](https://i.imgur.com/fr7JZI8.png)
 
 IPvlan 은 네트워크 가상화 테크닉이다. 사용자에게 IPv4 및 IPv6 주소 지정에 대해 완전한 제어권을 제공한다. 네트워크 격리를 위해 브릿지를 사용하지 않고, 호스트 네트워크 장비에 직접 연결하여 매우 가벼운 네트워크 구성이 가능하다. 따라서 포트 매핑이 필요하지 않다.
 
@@ -284,7 +279,7 @@ docker swarm init
 
 ![](https://i.imgur.com/FURiKXn.png)
 
-네트워크 설정이 존재하지 않는다. 따라서 완전히 격리되어 있으며 I/O 인터페이스만 존재하게 된다.
+네트워크 설정이 존재하지 않는다. 따라서 완전히 격리되어 있으며  루프백 인터페이스만 존재하게 된다.
 
 - 루프백 인터페이스만 존재하여 외부의 어떤 접근도 불가능하다.
 - batch job 이나 데이터 프로세싱을 위한 컨테이너에 유용하다.
@@ -295,7 +290,6 @@ docker exec -it batch sh
 ip addr
 ```
 
-## 참고할만한 글들
+## Reference
 
-- https://zerone-code.tistory.com/16
 - https://docs.docker.com/network/
