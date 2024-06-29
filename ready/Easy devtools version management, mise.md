@@ -6,7 +6,7 @@ tags:
   - mise
   - version-manager
 categories: 
-updated: 2024-06-26 13:02:15 +0900
+updated: 2024-06-29 12:49:14 +0900
 description: 개발 도구의 여러 버전을 바꿔가며 사용해야한다면 어떻게 해야할까요? 이번 글에서는 mise 를 통해 개발 환경을 편리하게 관리하는 방법을 살펴봅니다.
 ---
 
@@ -63,6 +63,8 @@ echo 'eval "$(~/.local/bin/mise activate zsh)"' >> ~/.zshrc
 ```
 
 ## 사용 사례
+
+### 의존 버전 관리
 
 새로운 환경으로 취직 or 이직하게 되서 새로운 장비를 받았다고 가정해볼까요? 새로운 곳에서는 [[Java]] 를 기본으로 사용하고 있다고 하니, 필요로하는 버전을 설치할 수 있는지 확인해봅니다.
 
@@ -190,6 +192,57 @@ mise use --global node@lts python@3.12.3 go@latest
 
 > [!tip]
 > 저는 보통 개발 언어만 관리하는 편이지만, gradle 이나 awscli 등 다른 도구들도 mise 를 통해 버전 관리가 가능합니다.
+
+### 환경 변수 관리
+
+> mise = asdf + **direnv**
+
+mise 를 사용하면 각기 다른 프로젝트마다 서로 다른 개별적인 환경변수도 지정할 수 있어요. [direnv](https://direnv.net/) 로 얻을 수 있는 사용자 경험과 완전히 동일합니다. 아니, 오히려 `.envrc` 파일을 관리하지 않아도 되니 더 편하게 느껴지네요.
+
+`.mise.toml` 에 간단한 변수를 하나 정의해보겠습니다.
+
+```toml
+[env]
+HELLO = 'WORLD'
+```
+
+> [!warning]
+> `.mise.toml` 에 정의한 환경변수가 적용되려면, `mise trust` 라는 명령을 통해서 확인해줘야 합니다. 이는 다른 프로젝트 파일을 다운받았다가 자동으로 실행되어 보안문제가 발생하는 것을 막기 위함이에요.
+
+`echo` 로 출력해보면 환경 변수가 정상적으로 동작하고 있는 것을 확인할 수 있어요.
+
+![](https://i.imgur.com/jyU0Rwj.png)
+
+`~/project/.mise.toml` 에 설정된 정보는 `~/project` 디렉토리 내에서만 유효하므로 이 scope 를 벗어나면 HELLO 환경변수도 자동으로 해제됩니다.
+
+![](https://i.imgur.com/Sb11T0T.png)
+
+`.mise.toml` 을 직접 수정하지 않고, CLI 를 통해서도 관리할 수 있습니다.
+
+```bash
+mise set HELLO=world
+mise set HELLO
+# world
+mise set
+# key    value source
+# HELLO  WORLD ~/project/.mise.toml
+mise unset HELLO
+mise set
+# key    value source
+```
+
+간단하죠? global 로 환경변수를 관리해야한다면, 상술했듯이 `~/.config/mise/config.toml` 에 정의해두면 됩니다.
+
+```bash
+mise set -g GLOBAL='mise is insane!'
+mise set
+# key     value           source
+# GLOBAL  mise is insane! ~/.config/mise/config.toml
+```
+
+특정 개발환경에 필요한 정보를 모두 `.mise.toml` 에 담아두고 공유받는다면 훨씬 쉽게 환경 설정을 마무리할 수 있겠죠. 상술했듯이 mise 로는 패키지 버전도 관리할 수 있으니까요. `asdf` 도 all-in-one 에 가까운 매우 훌륭한 도구였는데, 환경변수까지 관리할 수 있는 점은 mise 를 더욱 특별하게 만들어줍니다.
+
+## Conclusion
 
 이렇게 대략적인 개발환경 구성을 끝냈습니다.언어만 설치했을 뿐인데 뭐가 끝이냐구요? 다른 부분은 [dotfile 관리하기](https://haril.dev/blog/2023/03/26/chezmoi-awesome-dotfile-manager) 를 참고해주세요. 다들 새로운 장비를 받고 개발 환경을 구성하는데 1~2시간은 걸린다고 생각하실테니 남은 시간은 개발 서적이나 읽어야겠습니다.
 
