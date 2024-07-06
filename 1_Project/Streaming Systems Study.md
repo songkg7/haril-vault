@@ -10,7 +10,7 @@ tags:
   - batch
 categories: 
 description: 
-updated: 2024-07-03 15:18:07 +0900
+updated: 2024-07-03 18:38:38 +0900
 ---
 
 ## 1부. 빔모델
