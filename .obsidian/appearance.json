@@ -1,6 +1,6 @@
 {
-  "cssTheme": "Things",
-  "theme": "moonstone",
+  "cssTheme": "Primary",
+  "theme": "system",
   "translucency": false,
   "accentColor": "#8a5cf5",
   "baseFontSize": 14,
