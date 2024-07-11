@@ -1,12 +1,12 @@
 ---
 title: Linux 유저에 Docker 실행 권한 부여하기
 date: 2023-03-16 11:28:00 +0900
-aliases: null
+aliases: 
 tags:
   - linux
   - docker
-categories: null
-updated: 2023-08-19 12:37:53 +0900
+categories: 
+updated: 2024-07-11 14:57:37 +0900
 ---
 
 ## add user
@@ -17,7 +17,7 @@ adduser jenkins
 
 jenkins 유저를 추가하고 `/home/jenkins` 경로가 홈으로 설정되었는지 확인한다.
 
-## 
+## add group
 
 docker group 이 없을 경우 생성한다. 보통은 docker 를 설치하면 자동으로 생성된다.
 
