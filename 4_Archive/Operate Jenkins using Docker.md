@@ -1,7 +1,7 @@
 ---
 title: Docker 로 Jenkins 운영하기
 date: 2022-11-17 00:47:00 +0900
-aliases: null
+aliases: 
 tags:
   - ci
   - cd
@@ -9,7 +9,7 @@ tags:
   - jenkins
   - docker
 categories: DevOps
-updated: 2023-08-19 12:38:10 +0900
+updated: 2024-07-17 10:21:08 +0900
 ---
 
 ## Overview

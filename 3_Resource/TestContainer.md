@@ -9,7 +9,7 @@ tags:
   - junit
   - library
 categories: 
-updated: 2023-09-19 22:53:41 +0900
+updated: 2024-07-17 10:37:04 +0900
 ---
 
 ## What is TestContainers?
@@ -24,7 +24,7 @@ updated: 2023-09-19 22:53:41 +0900
 
 linux 환경에서 docker enviroment 관련 error 메세지와 함께 실행이 안되는 경우, 권한 관련 문제일 가능성이 높다.
 
-[[Docker 로 Jenkins 운영하기]] 에 설명되어 있는 방법을 참고한다.
+[[Operate Jenkins using Docker|Docker 로 Jenkins 운영하기]] 에 설명되어 있는 방법을 참고한다.
 
 ## Example
 
