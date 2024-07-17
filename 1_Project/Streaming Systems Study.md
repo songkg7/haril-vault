@@ -10,14 +10,15 @@ tags:
   - batch
 categories: 
 description: 
-updated: 2024-07-09 22:40:18 +0900
+updated: 2024-07-17 16:35:59 +0900
 ---
 
 ## 1부. 빔모델
 
 ## 스트리밍 101
 
-[Streaming 101: The world beyond batch – O’Reilly](https://www.oreilly.com/radar/the-world-beyond-batch-streaming-101/)
+- [Streaming 101: The world beyond batch – O’Reilly](https://www.oreilly.com/radar/the-world-beyond-batch-streaming-101/)
+- [Figures: Streaming Systems Book](http://streamingbook.net/fig)
 
 스트리밍 데이터 처리가 주목받는 이유
 
@@ -196,8 +197,35 @@ updated: 2024-07-09 22:40:18 +0900
 
 - ? 워터마크는 정확히 무엇일까
 - ? 데이터 셋 중 이벤트 시간이 없거나, 정확하지 않은 경우가 많은가
-- 
 
 [Streaming 102: The world beyond batch – O’Reilly](https://www.oreilly.com/radar/the-world-beyond-batch-streaming-102/)
 
 사용자 위치를 10초마다 모바일에 저장 후 네트워크로 전송하는 네비게이션 앱이 있다고 하자. 만약 모바일 기기가 터널 안을 지나고 있을 경우, 네트워크 송신이 지연되어 모바일에 쌓이다가, 한 꺼번에 전송되는 경우가 있을 수 있을 것 같다. 근데 만약, 서버 측에서 사용자 위치 정보를 실시간으로 수집하고 분석하는 스트리밍 시스템이 있다고 할 때, 이런 데이터는 어떻게 다룰 수 있을까
+
+---
+
+## 3장. 워터마크
+
+#watermark
+
+- ? 워터마크는 데이터 생성 시점에 표시하는 이벤트 타임인가?
+    - @ 워터마크는 아직 완료되지 않은 작업 중 가장 오래된 작업이 갖는 단조 증가 타임스탬프
+    - 이벤트 데이터가 지연되더라도 처리하기 위해서 '이만큼은 대기하겠다'고 명시적으로 선언하는 시간 범위?
+    - 혹은 현재 데이터를 처리 중인 이벤트 타임 시간 범위를 선언한 것? 예) 19시5분10초~19시5분15초 범위를 처리 중
+    - 그렇다면 워터마크가 뒤로 진행할 수 없다는 것도 이해는 됨
+    - & 현재 시간은 11시 9분, 2분 윈도우로 데이터를 처리한다면 11시 8분~11시 10분 윈도우로 처리 중이다. 만약 이 시점에 11시 3분의 데이터가 지연되어 들어온다면 어떻게 해야하는가? 기다려야할까? 2시간이고 3시간이고? 스트리밍 시스템에서는 데이터의 지연을 어느 정도까지 허용할 지 가상의 경계를 그어야하며, 이 개념이 워터마크
+    - 배치에서는 기본적으로 데이터셋이 갖춰진 상태에서 실행되므로 워터마크 개념이 없다고 생각한다.
+- 완벽한 워터마크, 휴리스틱 워터마크
+    - 완벽한 워터마크는 데이터의 처리 지연을 감수하고서라도 모든 데이터 처리를 보장하려 한다
+    - 휴리스틱은 어느 정도 지연된 데이터가 있을 수 있음을 인정하고, 누락시킨다?
+- ? 데이터를 생성할 때 이벤트 생성 시간을 함께 포함하고 입력 소스로 전달하면 완벽한 워터마크를 만들 수 있는거 아닌가?
+- 휴리스틱 워터마크는 워터마크보다 이른 이벤트 시간을 갖는 데이터를 만날 가능성이 적다는 추정에 대한 워터마크를 생성한다.
+- 시간순으로 정렬된 동적 로그 데이터, 구글 클라우드 pub/sub 같은 경우는 정확한 휴리스틱 워터마크 생성 가능
+- 오프라인 기기가 온라인 상태가 되었을 때 지연된 데이터는 별개의 파이프라인을 통해 처리해야하는가
+- 왜 워터마크가 전파되는가
+    - 전파 설명으로만 보면 마치 spanId 를 전파하는 것을 통해 트랜잭션을 로깅하려는 과정과 비슷해보인다
+
+### Reference
+
+- [스트림 프로세싱의 긴 여정을 위한 이정표 (w. Apache Flink) | by scalalang2 | 취미로 논문 읽는 그룹 | Medium](https://medium.com/rate-labs/%EC%8A%A4%ED%8A%B8%EB%A6%BC-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8B%B1%EC%9D%98-%EA%B8%B4-%EC%97%AC%EC%A0%95%EC%9D%84-%EC%9C%84%ED%95%9C-%EC%9D%B4%EC%A0%95%ED%91%9C-with-flink-8e3953f97986)
+- [Understanding Watermarking and Late Data in Data Streaming | by Pavitra Gupta | Medium](https://medium.com/@guptapavitra/understanding-watermarking-and-late-data-in-data-streaming-2b2e67bded36)

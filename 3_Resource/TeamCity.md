@@ -3,14 +3,14 @@ title: TeamCity
 date: 2022-08-20 13:26:00 +0900
 fc-calendar: Gregorian Calendar
 fc-date: 2022-08-20
-aliases: null
+aliases: 
 tags:
   - CI
   - CD
   - teamcity
   - jetbrains
 categories: DevOps
-updated: 2023-08-19 12:38:06 +0900
+updated: 2024-07-17 10:37:04 +0900
 ---
 
 ## Overview
@@ -65,4 +65,4 @@ Jenkins 에 비해 유려한 UI 및 기능에도 불구하고, 여전히 Jenkins
 ## Links
 
 - [[Spring Batch]]
-- [[Docker 로 Jenkins 운영하기]]
+- [[Operate Jenkins using Docker|Docker 로 Jenkins 운영하기]]
