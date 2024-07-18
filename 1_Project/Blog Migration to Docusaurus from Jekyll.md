@@ -8,7 +8,7 @@ tags:
   - algolia
   - react
 categories: 
-updated: 2024-07-02 15:59:18 +0900
+updated: 2024-07-18 15:47:32 +0900
 ---
 
 최근 블로그 플랫폼을 옮기는 작업을 진행했습니다. 이 과정에서 문제를 마주할 때마다 우아한 해결방법은 없을 지 고민하며 몇 자 적어두었는데, 나름 수요가 있을지도 모른다는 생각에 글로 발행해보았습니다.
@@ -22,7 +22,7 @@ updated: 2024-07-02 15:59:18 +0900
     - 조금 기다리면 문제가 해결되었겠으나, 그동안 쌓인 불편으로 인해 코드를 잘못 작성했나보다고 오해하게 되었다..
 - [[Jekyll]] 이 자유도가 높지 않고, 유지보수의 불편 등 전체적으로 관리하기 어렵다는 느낌이 계속 들어 [[Docusaurus]] 로 마이그레이션을 시도
     - 특히 fork 를 통해 블로그를 구성하는 특성상, github 에 잔디 기록이 남지 않아 아쉬웠다
-- [[O2]] 의 이슈 중 docusaurus 를 지원해달라는 이슈가 있었지만 사용해보지 않아 해결하지 못하고 있었다 - https://github.com/songkg7/o2/discussions/346
+- [[O2]] 의 이슈 중 docusaurus 를 지원해달라는 이슈가 있었지만 사용해보지 않아 해결하지 못하고 있었다 - [\[FR\] support mkdocs-material, docusaurus · songkg7/o2 · Discussion #346 · GitHub](https://github.com/songkg7/o2/discussions/346)
 
 이상의 종합적인 이유들로 블로그를 마이그레이션하기로 결정.
 
@@ -251,7 +251,7 @@ dig songkg7.github.io
 
 Docusaurus 에서는 기존 컴포넌트의 디자인을 수정할 수 있다. Giscus 컴포넌트를 구현하여 추가함으로써 댓글 기능을 간단하게 구현할 수 있다.
 
-참고: https://rikublock.dev/docs/tutorials/giscus-integration/
+참고: [Add Giscus Comments to Docusaurus 3 Blog Posts and Doc Pages | Riku Block](https://rikublock.dev/docs/tutorials/giscus-integration/)
 
 ## 검색 엔진
 
@@ -341,7 +341,7 @@ DocSearch 승인을 받으면, 도큐사우루스 사용과 관련된 크롤러 
 yarn run write-translations --locale en
 ```
 
-https://docusaurus.io/docs/i18n/tutorial
+[Docusaurus](https://docusaurus.io/docs/i18n/tutorial)
 
 이제 문제는 문서 번역 작업이다.
 
@@ -356,11 +356,11 @@ https://docusaurus.io/docs/i18n/tutorial
 
 찾아보니 이런 github action 이 이미 존재했다 (역시 사람 생각은 다 비슷한가보다)
 
-- https://github.com/marketplace/actions/gpt-translate
+- [GPT Translate · Actions · GitHub Marketplace · GitHub](https://github.com/marketplace/actions/gpt-translate)
 
 OpenAI 의 유료 서비스인 api token 이 필요하지만, 이미 사용하고 있는게 있었으므로 큰 부담없이 써보기로 했다.
 
-- https://github.com/songkg7/songkg7.github.io/pull/10/files
+- [🌐 Add LLM Translations by github-actions\[bot\] · Pull Request #10 · songkg7/haril.dev · GitHub](https://github.com/songkg7/songkg7.github.io/pull/10/files)
 
 사용해보니 꽤나 잘 된다. 개인적으로 일본어도 공부하고 있기 때문에, 앞으로 글을 작성하면 영어와 일본어로 번역한 뒤 퇴고 작업을 거치며 컨텐츠를 제공할 예정이다.
 
@@ -368,7 +368,7 @@ OpenAI 의 유료 서비스인 api token 이 필요하지만, 이미 사용하�
 
 - front matter 를 rich 하게 만들기
     - Docusaurus 는 front matter 를 기반으로 meta 정보를 생성한다
-- https://www.opengraph.xyz/ 에서 meta 정보를 쉽게 확인할 수 있다.
+-  [OpenGraph](https://www.opengraph.xyz/)에서 meta 정보를 쉽게 확인할 수 있다.
 
 ## UpdateAt and UpdateBy
 
@@ -436,7 +436,7 @@ done
 - 이미지의 대체 텍스트는 번거로워서 잘 신경쓰지 않았었는데, 시각 장애인처럼 특수한 점자 리더기를 사용하는 등의 접근 편의성이 필요한 사람들에게 이미지 대신 제공될 수 있는 텍스트라고 한다.
 - 이 사실을 알게 된 이후로, 대체 텍스트를 신경써야겠다는 생각을 하게 되었다.
 - 깃허브에서 관련 워크플로우를 추가했다고 하니 살펴볼만하다.
-    - https://github.com/github/accessibility-alt-text-bot
+    - [GitHub - github/accessibility-alt-text-bot: An action to remind users to add alt text on Issues, Pull Requests, and Discussions](https://github.com/github/accessibility-alt-text-bot)
 
 ## Conclusion
 
@@ -451,7 +451,7 @@ done
 
 ## Reference
 
-- https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages
-- https://rikublock.dev/docs/tutorials/giscus-integration/
-- https://docusaurus.io/docs/search#algolia-troubleshooting
-- https://discourse.algolia.com/t/no-results-with-docusaurus-contextual-search/19409/7
+- [About custom domains and GitHub Pages - GitHub Docs](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages)
+- [Add Giscus Comments to Docusaurus 3 Blog Posts and Doc Pages | Riku Block](https://rikublock.dev/docs/tutorials/giscus-integration/)
+- [Docusaurus](https://docusaurus.io/docs/search#algolia-troubleshooting)
+- [No results with Docusaurus contextual search - Open Q&A - Algolia Community](https://discourse.algolia.com/t/no-results-with-docusaurus-contextual-search/19409/7)
