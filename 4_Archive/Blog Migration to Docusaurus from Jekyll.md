@@ -8,10 +8,13 @@ tags:
   - algolia
   - react
 categories: 
-updated: 2024-07-18 15:47:32 +0900
+updated: 2024-07-22 17:54:45 +0900
+published: 2024-07-22
 ---
 
 최근 블로그 플랫폼을 옮기는 작업을 진행했습니다. 이 과정에서 문제를 마주할 때마다 우아한 해결방법은 없을 지 고민하며 몇 자 적어두었는데, 나름 수요가 있을지도 모른다는 생각에 글로 발행해보았습니다.
+
+<!-- truncate -->
 
 ## Overview
 
@@ -368,7 +371,7 @@ OpenAI 의 유료 서비스인 api token 이 필요하지만, 이미 사용하�
 
 - front matter 를 rich 하게 만들기
     - Docusaurus 는 front matter 를 기반으로 meta 정보를 생성한다
--  [OpenGraph](https://www.opengraph.xyz/)에서 meta 정보를 쉽게 확인할 수 있다.
+- [OpenGraph](https://www.opengraph.xyz/)에서 meta 정보를 쉽게 확인할 수 있다.
 
 ## UpdateAt and UpdateBy
 
