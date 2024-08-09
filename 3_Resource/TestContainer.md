@@ -1,5 +1,5 @@
 ---
-title: "@DataJpaTest with TestContainer"
+title: TestContainer
 date: 2022-07-18 11:21:00 +0900
 tags:
   - docker
@@ -9,7 +9,7 @@ tags:
   - junit
   - library
 categories: 
-updated: 2024-07-17 10:37:04 +0900
+updated: 2024-08-07 17:56:07 +0900
 ---
 
 ## What is TestContainers?
