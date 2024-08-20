@@ -1,9 +1,11 @@
 ---
-title: "Git"
+title: Git
 date: 2022-11-10 21:08:00 +0900
 aliases: 
-tags: [git]
+tags:
+  - git
 categories: 
+updated: 2024-08-14 09:44:00 +0900
 ---
 
 ## Overview
@@ -83,6 +85,8 @@ secret 정보라던가 credential 등 보안상 민감한 정보는 공유하지
 ### merge
 
 ### rebase 에 대한 이해
+
+[[Merge vs. Rebase vs. Squash]]
 
 ## Advance
 
