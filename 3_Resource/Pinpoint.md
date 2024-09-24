@@ -1,12 +1,12 @@
 ---
 title: Pinpoint
 date: 2023-04-30 05:07:00 +0900
-aliases: null
+aliases: 
 tags:
   - tracing
   - apm
-categories: null
-updated: 2023-08-08 21:42:30 +0900
+categories: 
+updated: 2024-09-23 09:14:40 +0900
 ---
 
 ## What is Pinpoint
@@ -31,4 +31,4 @@ Overall, Pinpoint helps developers and businesses to identify issues in their ap
 
 ## Links
 
-- [[Application Performance Monitoring]]
+- [[Application Performance Monitoring|APM]]
