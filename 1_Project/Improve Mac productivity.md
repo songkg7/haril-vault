@@ -7,7 +7,7 @@ tags:
   - tool
   - inflearn
 categories: 
-updated: 2024-06-27 23:37:24 +0900
+updated: 2024-09-27 18:35:26 +0900
 ---
 
 > 인프런 생산성 강의 촬영을 위해 정리
@@ -37,6 +37,7 @@ SCQA
 - [[Arc]]
 - Spark Desktop
 - Notion Calendar
+- [GitHub - gao-sun/eul: 🖥️ macOS status monitoring app written in SwiftUI.](https://github.com/gao-sun/eul)
 
 ## 2. 초급
 
@@ -62,7 +63,7 @@ SCQA
 - fd
 - ripgrep
 - lsd
-- RunCat
+- @ RunCat
 - Clop (파일 용량 감소)
 - @ figlet
 - @ lolcat
@@ -85,7 +86,7 @@ SCQA
 > Vim 에 익숙하며, Terminal 이 근본이라고 생각하는 개발자
 
 - [[Vim]], [[NeoVim]], Lunarvim
-- yabai and skhd
+- yabai and skhd -> [[Aerospace]]
 - ranger
 - lazygit
 - homerow
@@ -105,6 +106,8 @@ SCQA
 - Notion Calendar
 
 난이도보다는 유저 스토리에 초점을 맞춰서 강의를 설계해보라는 피드백을 받았고, 이를 적용해보려고 한다.
+
+알쓸신잡 컨셉?
 
 ## 생산성
 
@@ -171,6 +174,10 @@ Raycast 는 이 spotlight 의 기능에 확장성을 추가하여 다양한 조�
 
 %% 단축키 리스트 몇가지 작성 %%
 
+### [[Loop]]
+
+Rectangle 보다 단축키를 외울 필요가 적어져서 쓰기 쉬운 편
+
 ### 1Password (유료)
 
 > 3.99$
@@ -190,3 +197,6 @@ Mac 및 윈도우를 가리지 않고 사용가능한 Password Manager. 터미�
 ### iTerm2 or Warp
 
 개인적으로는 warp 를 조금 더 추천.
+
+- iterm2 다중입력 기능 = shift + cmd + i
+- warp 다중입력
