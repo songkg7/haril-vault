@@ -1,5 +1,5 @@
 ---
-title: TestContainer
+title: Testcontainers
 date: 2022-07-18 11:21:00 +0900
 tags:
   - docker
@@ -9,7 +9,7 @@ tags:
   - junit
   - library
 categories: 
-updated: 2024-08-07 17:56:07 +0900
+updated: 2024-10-01 14:25:15 +0900
 ---
 
 ## What is TestContainers?
@@ -27,6 +27,8 @@ linux 환경에서 docker enviroment 관련 error 메세지와 함께 실행이 
 [[Operate Jenkins using Docker|Docker 로 Jenkins 운영하기]] 에 설명되어 있는 방법을 참고한다.
 
 ## Example
+
+코드 예제
 
 ## Conclusion
 
