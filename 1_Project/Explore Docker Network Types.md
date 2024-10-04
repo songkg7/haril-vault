@@ -1,5 +1,5 @@
 ---
-title: 도커 네트워크 살펴보기
+title: 도커의 네트워크 타입들
 date: 2024-06-16 16:54:00 +0900
 aliases: 
 tags:
@@ -7,7 +7,7 @@ tags:
   - network
   - study
 categories: 
-updated: 2024-06-26 11:07:29 +0900
+updated: 2024-10-04 15:39:25 +0900
 ---
 
 ## Docker 의 네트워크 관리
@@ -21,7 +21,9 @@ docker 의 네트워크 타입은 총 6가지가 있다.
 - Overlay
 - None
 
-하나씩 알아보자.
+아마 많은 백엔드 개발자들은 네트워크 타입에 대해서 잘모르거나, 알아도 bridge 만 쓰고 있을거라 생각한다.
+
+이번 글을 통해서 하나씩 알아보자. [[Orbstack]] 으로 VM 을 실행하여 실습을 진행한다.
 
 ```bash
 orb create ubuntu
@@ -102,7 +104,7 @@ docker run -itd --rm --name web -p 80:80 nginx
 
 ![](https://i.imgur.com/KapxOIK.png)
 
-이 정도면 충분히 사이드 프로젝트를 배포하고 외부에 공개할 수 있다. 하지만 도커에서는 default 네트워크 사용을 권장하지 않는다. 그리고 앞으로 알아볼 user-defined network 를 사용하도록 권장한다. 왜 그럴까? 지금부터 살펴보자.
+이 정도면 충분히 사이드 프로젝트를 배포하고 외부에 공개할 수 있다. 하지만 도커에서는 default 네트워크 사용을 권장하지 않는다. 그리고 앞으로 알아볼 user-defined network 를 사용하도록 권장한다. 왜 그럴까?
 
 ## User-defined bridge
 
@@ -121,8 +123,6 @@ ip addr show
 ![](https://i.imgur.com/zxhdBGW.png)
 
 가상의 네트워크 장비가 하나 추가된 것을 볼 수 있다. 네트워크 서브넷은 172.18.0.1/16 을 할당하고 있다.
-
-- ? inet 의 의미
 
 몇 개의 서비스를 추가하고 네트워크를 살펴보자.
 
