@@ -1,6 +1,6 @@
 ---
 kanban-plugin: board
-updated: 2024-10-01 14:27:40 +0900
+updated: 2024-10-05 11:10:08 +0900
 ---
 
 ## Plan
@@ -10,12 +10,13 @@ updated: 2024-10-01 14:27:40 +0900
 - [ ] [[알아두면 쓸데있는 개발자 도구]] @{2024-12-29}
 - [ ] 유닛테스트 생산성 끌어올리기
 - [ ] [[Explore Docker Network Types|도커 네트워크 살펴보기]] @{2024-10-13}
-- [ ] [[Testcontainers|TestContainer]] Best Practice
 - [ ] 비동기 테스트하기
+- [ ] 물경력이란 무엇일까
 
 
 ## Writing
 
+- [ ] [[Testcontainers Best Practice]]
 
 
 ## Publish
