@@ -7,7 +7,7 @@ tags:
   - transaction
   - 2pl
 categories: 
-updated: 2024-04-20 21:55:13 +0900
+updated: 2024-10-05 11:44:36 +0900
 ---
 
 ## SELECT FOR UPDATE 구문의 동작 방식

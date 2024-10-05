@@ -7,7 +7,7 @@ tags:
   - naver
   - open-source
 categories: 
-updated: 2024-01-31 13:05:13 +0900
+updated: 2024-10-05 11:44:43 +0900
 ---
 
 > [!NOTE] Example code
@@ -17,7 +17,7 @@ updated: 2024-01-31 13:05:13 +0900
 > 이 글은 오픈소스를 개인적으로 살펴보며 작성한 글이므로 잘못된 부분이 있을 수 있습니다. 얼마든지 지적해주시면 감사하겠습니다.
 
 > [!INFO] LabMonkey
-> `fixturemonkey:0.4.0` 이 release 되면서 이 글에서 설명하는 기능들이 일부 변경되었습니다. 해당 정보는 [[Fixture Monkey 0.4.x]] 를 살펴봐주시기 바랍니다.
+> `fixturemonkey:0.4.0` 이 release 되면서 이 글에서 설명하는 기능들이 일부 변경되었습니다. 해당 정보는 [[Fixture Monkey 0.4.x|Fixture monkey 0.4.x]] 를 살펴봐주시기 바랍니다.
 
 ## Overview
 

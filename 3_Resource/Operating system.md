@@ -7,7 +7,7 @@ aliases:
 tags:
   - os
 categories: Computer science
-updated: 2023-08-19 12:38:08 +0900
+updated: 2024-10-05 11:44:36 +0900
 ---
 
 # 운영체제란?

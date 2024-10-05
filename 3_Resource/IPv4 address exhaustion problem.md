@@ -7,7 +7,7 @@ tags:
   - ipv4
   - network
 categories: 
-updated: 2024-04-02 10:52:22 +0900
+updated: 2024-10-05 11:44:36 +0900
 ---
 
 ## IP 주소 고갈 문제

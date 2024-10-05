@@ -8,12 +8,12 @@ tags:
   - programming-language
   - jvm
 categories: Java
-updated: 2024-02-11 16:25:51 +0900
+updated: 2024-10-05 11:44:43 +0900
 ---
 
 ## Overview
 
-Java 는 [[Operating system|OS]]에 독립적인 특징을 가지고 있다. 그게 가능한 이유는 [[Java Virtual Machine]] 덕분이다. 그렇다면 JVM 의 어떠한 기능 덕분에 OS에 독립적으로 실행시킬 수 있는지 Java 컴파일 과정을 통해 알아보도록 하자.
+Java 는 [[Operating system|OS]]에 독립적인 특징을 가지고 있다. 그게 가능한 이유는 [[Java Virtual Machine|JVM]] 덕분이다. 그렇다면 JVM 의 어떠한 기능 덕분에 OS에 독립적으로 실행시킬 수 있는지 Java 컴파일 과정을 통해 알아보도록 하자.
 
 ## Java 컴파일 순서
 
@@ -35,4 +35,4 @@ Java 는 [[Operating system|OS]]에 독립적인 특징을 가지고 있다. 그
 
 ## Links
 
-- [[Java Virtual Machine]]
+- [[Java Virtual Machine|JVM]]

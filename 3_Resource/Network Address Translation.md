@@ -7,7 +7,7 @@ tags:
   - nat
   - network
 categories: 
-updated: 2024-04-02 11:02:54 +0900
+updated: 2024-10-05 11:44:36 +0900
 ---
 
 ## NAT 란?

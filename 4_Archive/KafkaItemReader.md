@@ -9,8 +9,8 @@ categories: Spring
 publish: true
 fc-calendar: Gregorian Calendar
 fc-date: 2022-08-16
-aliases: null
-updated: 2023-08-19 12:38:10 +0900
+aliases: 
+updated: 2024-10-05 11:44:42 +0900
 ---
 
 > 저는 Docker 를 사용하여 Kafka 설치 후 이번 글을 작성했지만 해당 내용은 이번 글에서 다루지 않습니다.
@@ -18,7 +18,7 @@ updated: 2023-08-19 12:38:10 +0900
 
 ## KafkaItemReader..?
 
-[[Spring Batch]] 에서는 [[Kafka]] Topic 의 데이터를 처리하는 경우를 위해서 [[ItemReader]] 의 구현체인[[KafkaItemReader]] 를 제공하고 있습니다.
+[[Spring Batch]] 에서는 [[Kafka]] Topic 의 데이터를 처리하는 경우를 위해서 [[ItemReader]] 의 구현체인[[KafkaItemReader|[Spring Batch] KafkaItemReader]] 를 제공하고 있습니다.
 
 간단한 배치를 하나 만들어보겠습니다.
 

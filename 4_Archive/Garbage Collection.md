@@ -7,12 +7,12 @@ tags:
   - jvm
   - garbage-collection
 categories: 
-updated: 2023-10-12 17:43:35 +0900
+updated: 2024-10-05 11:44:42 +0900
 ---
 
 ## Overview
 
-[[Java Virtual Machine]] 의 Garbage collection(이하 GC) 에 대해서 정리해봅니다.
+[[Java Virtual Machine|JVM]] 의 Garbage collection(이하 GC) 에 대해서 정리해봅니다.
 
 ## What is GC?
 

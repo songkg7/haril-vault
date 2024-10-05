@@ -6,7 +6,7 @@ tags:
   - editor
   - collaboration
 categories: 
-updated: 2024-01-24 20:46:05 +0900
+updated: 2024-10-05 11:44:36 +0900
 ---
 
 # Notion

@@ -10,7 +10,7 @@ tags:
   - spike-test
   - performance-test
 categories: 
-updated: 2023-11-10 12:57:26 +0900
+updated: 2024-10-05 11:44:36 +0900
 ---
 
 ## Overview
@@ -76,7 +76,7 @@ server:
     connection-timeout: ${TOMCAT_CONNECTION_TIMEOUT:20000}
 ```
 
-[[Docker Image]] 를 빌드하기 위해 [[Dockerfile]] 을 작성한다.
+[[Docker Image|docker image]] 를 빌드하기 위해 [[Dockerfile]] 을 작성한다.
 
 ```dockerfile
 # java 17 multi stage build

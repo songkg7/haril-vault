@@ -6,7 +6,7 @@ tags:
   - interview
   - culture
 categories: 
-updated: 2024-01-05 00:42:28 +0900
+updated: 2024-10-05 11:44:36 +0900
 ---
 
 ### 사내 정치란 어떤 것일까

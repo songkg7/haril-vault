@@ -7,7 +7,7 @@ tags:
   - browser
   - client
 categories: 
-updated: 2023-11-01 09:59:40 +0900
+updated: 2024-10-05 11:44:36 +0900
 ---
 
 ## 쿠키란?

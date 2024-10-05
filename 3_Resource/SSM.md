@@ -4,7 +4,7 @@ date: 2023-11-09 17:34:00 +0900
 aliases: 
 tags: 
 categories: 
-updated: 2023-11-09 17:34:45 +0900
+updated: 2024-10-05 11:44:36 +0900
 ---
 
 ### IAM role 생성
