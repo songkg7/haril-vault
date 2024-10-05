@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# gum과 fd가 설치되어 있는지 확인
-if ! command -v gum &> /dev/null || ! command -v fd &> /dev/null; then
-    echo "Error: This script requires both 'gum' and 'fd' to be installed."
+# gum, fd, trash-cli 가 설치되어 있는지 확인
+if ! command -v gum &> /dev/null || ! command -v fd &> /dev/null || ! command -v trash &> /dev/null; then
+    echo "Error: This script requires 'gum', 'fd', and 'trash-cli' to be installed."
     echo "Please install them and try again."
     exit 1
 fi
@@ -36,7 +36,7 @@ if gum confirm "Are you sure you want to delete these files?"; then
     echo "$selected_files" | while IFS= read -r file; do
         if [ -e "$file" ]; then
             gum style --foreground 214 "Deleting: $file"
-            rm -f "$file"
+            trash "$file"
         else
             gum style --foreground 203 "File not found: $file"
         fi
