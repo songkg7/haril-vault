@@ -11,7 +11,7 @@ tags:
   - cloud
 categories:
   - Kubernetes
-updated: 2024-01-31 13:57:41 +0900
+updated: 2024-10-05 11:44:43 +0900
 ---
 
 ## Overview
@@ -81,4 +81,4 @@ kubectl get pod private-reg
 - [[Istio]]
 - [[Minikube]]
 - [[Helm]]
-- [[Micro-Service Architecture]]
+- [[Micro-Service Architecture|MSA]]

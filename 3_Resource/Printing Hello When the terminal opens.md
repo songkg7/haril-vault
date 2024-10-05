@@ -9,7 +9,7 @@ tags:
   - lolcat
   - ascii-art
 categories: 
-updated: 2024-01-10 11:13:39 +0900
+updated: 2024-10-05 11:44:36 +0900
 ---
 
 figlet 과 lolcat 을 활용하면 터미널 세션을 시작할 때 문구가 출력되게 할 수 있다.

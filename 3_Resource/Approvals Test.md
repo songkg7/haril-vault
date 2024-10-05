@@ -6,7 +6,7 @@ tags:
   - test
   - approval
 categories: 
-updated: 2024-04-07 21:02:28 +0900
+updated: 2024-10-05 11:44:36 +0900
 ---
 
 ## Approvals Testing 이란?

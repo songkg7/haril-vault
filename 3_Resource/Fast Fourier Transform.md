@@ -6,7 +6,7 @@ aliases:
 tags:
   - math
 categories: 
-updated: 2023-12-06 22:07:23 +0900
+updated: 2024-10-05 11:44:36 +0900
 ---
 
 ## 고속 푸리에 변환

@@ -9,7 +9,7 @@ tags:
   - java
   - data-structure
 categories: Data structure
-updated: 2023-09-19 22:32:15 +0900
+updated: 2024-10-05 11:44:43 +0900
 ---
 
 [[Map|Map]] 의 구현체 중 하나이다.
@@ -71,7 +71,7 @@ HashMap 이 처음 생성되면 버킷사이즈는 16이고 16의 75%가 임계�
 
 버킷의 사이즈를 조절한다고 충돌이 안 일어나는 것은 아니다. 그래서 충돌 시 어떻게 대응하는지 아는 것이 중요하다. Java 에서는 충돌의 횟수에 따라 충돌한 데이터들의 저장방식을 달리 한다.
 
-충돌 초기에는 [[Linked List]] 방식으로 충돌에 대응한다. 이를 separate chaining 방식이라 부른다.
+충돌 초기에는 [[Linked List|LinkedList]] 방식으로 충돌에 대응한다. 이를 separate chaining 방식이라 부른다.
 
 ![[Pasted image 20230918143157.png]]
 
@@ -92,7 +92,7 @@ for (int binCount = 0; ; ++binCount) {
 }
 ```
 
-버킷에 객체를 저장하는 메서드인 `putVal` 메서드를 살펴보면 binCount 가 있다. binCount 는 충돌이 일어나는 횟수를 체크한다. 충돌 횟수가 (TREEIFY_THRESHOLD - 1) 를 넘으면 [[Linked List]] 방식의 데이터 저장방식은 효율이 떨어진다.
+버킷에 객체를 저장하는 메서드인 `putVal` 메서드를 살펴보면 binCount 가 있다. binCount 는 충돌이 일어나는 횟수를 체크한다. 충돌 횟수가 (TREEIFY_THRESHOLD - 1) 를 넘으면 [[Linked List|LinkedList]] 방식의 데이터 저장방식은 효율이 떨어진다.
 
 ![[Pasted image 20230918143615.png]]
 
@@ -108,9 +108,9 @@ Linked List 방식은 Node 객체여야 하지만 충돌이 심해져 [[Red-Blac
 
 `treeifyBin` 메서드는 Node 객체를 TreeNode 객체로 바꿔주는 메서드이다.
 
-`replacementTreeNode` 메서드에 의해 Node 객체가 TreeNode 객체로 바뀐다. do-while 반복문의 첫 반복일 때, 실인수로 들어간 e는 충돌이 발생한 인덱스에 저장된 첫번째 Node 객체이다. do-while 반복문을 돌면서 인덱스에 [[Linked List]] 방식으로 저장된 Node 들을 하나씩 TreeNode 로 바꿔준다.
+`replacementTreeNode` 메서드에 의해 Node 객체가 TreeNode 객체로 바뀐다. do-while 반복문의 첫 반복일 때, 실인수로 들어간 e는 충돌이 발생한 인덱스에 저장된 첫번째 Node 객체이다. do-while 반복문을 돌면서 인덱스에 [[Linked List|LinkedList]] 방식으로 저장된 Node 들을 하나씩 TreeNode 로 바꿔준다.
 
-이렇게 트리화가 완료되면 데이터를 탐색하는데 걸리는 시간복잡도는 $O(logN)$ 이 된다. [[Linked List]] 의 $O(N)$ 보다 효율적인 탐색이 가능해지는 것이다.
+이렇게 트리화가 완료되면 데이터를 탐색하는데 걸리는 시간복잡도는 $O(logN)$ 이 된다. [[Linked List|LinkedList]] 의 $O(N)$ 보다 효율적인 탐색이 가능해지는 것이다.
 
 #### 트리화의 Threshold 는 왜 6 과 8일까?
 

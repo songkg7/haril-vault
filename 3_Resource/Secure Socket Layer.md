@@ -8,7 +8,7 @@ tags:
   - socket
   - network
 categories: 
-updated: 2023-11-01 09:58:09 +0900
+updated: 2024-10-05 11:44:36 +0900
 ---
 
 ## SSL 이란

@@ -6,7 +6,7 @@ tags:
   - jvm
   - memory
 categories: 
-updated: 2023-10-12 18:15:31 +0900
+updated: 2024-10-05 11:44:36 +0900
 related: "[[Java Virtual Machine|JVM]]"
 ---
 

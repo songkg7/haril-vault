@@ -11,7 +11,7 @@ tags:
   - pg_dump
   - pg_restore
 categories: 
-updated: 2024-01-11 09:50:56 +0900
+updated: 2024-10-05 11:44:36 +0900
 ---
 
 ## Condition

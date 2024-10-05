@@ -8,7 +8,7 @@ tags:
   - tool
   - ruby
 categories: 
-updated: 2024-01-24 20:55:27 +0900
+updated: 2024-10-05 11:44:36 +0900
 ---
 
 # Homebrew 란?

@@ -5,7 +5,7 @@ aliases:
   - MSA
 tags: 
 categories: 
-updated: 2024-01-31 14:23:09 +0900
+updated: 2024-10-05 11:44:36 +0900
 ---
 
 ## MSA 란?

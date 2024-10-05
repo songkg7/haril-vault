@@ -6,7 +6,7 @@ tags:
   - distribution
   - 2pc
 categories: 
-updated: 2024-01-27 14:43:20 +0900
+updated: 2024-10-05 11:44:36 +0900
 ---
 
 ## TCC 패턴이란?

@@ -7,7 +7,7 @@ tags:
   - aws
   - infrastructure
 categories: 
-updated: 2023-11-09 17:38:32 +0900
+updated: 2024-10-05 11:44:36 +0900
 ---
 
 ### EC2 인스턴스에 이미지 배포하기

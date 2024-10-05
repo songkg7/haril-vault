@@ -6,7 +6,7 @@ tags:
   - tree
   - b-tree
 categories: 
-updated: 2024-01-21 22:21:12 +0900
+updated: 2024-10-05 11:44:36 +0900
 ---
 
 ## B+ Tree 란?

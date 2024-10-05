@@ -8,7 +8,7 @@ tags:
   - promtail
   - log
 categories: 
-updated: 2024-01-18 15:47:40 +0900
+updated: 2024-10-05 11:44:36 +0900
 ---
 
 경량 log 수집기. 로그를 [[Loki]] 로 전송하고 [[Grafana]] 등으로 모니터링할 수 있다.

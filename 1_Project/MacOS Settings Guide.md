@@ -5,7 +5,7 @@ aliases:
 tags: 
 categories: 
 description: 
-updated: 2024-07-02 15:54:31 +0900
+updated: 2024-10-05 11:44:36 +0900
 ---
 
 ## MacOS 세팅 탭 만들기
