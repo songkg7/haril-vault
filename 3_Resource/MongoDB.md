@@ -1,12 +1,12 @@
 ---
 title: MongoDB
 date: 2022-09-13 11:45:00 +0900
-aliases: null
+aliases: 
 tags:
   - mongodb
   - nosql
 categories: MongoDB
-updated: 2023-08-19 12:38:12 +0900
+updated: 2024-10-06 20:48:53 +0900
 ---
 
 ## Overview
@@ -98,3 +98,6 @@ MongoDB 는 유연하고 확장성 높은 Opensource Document 지향 DB 이다.
 ## Reference
 
 - [MongoDB 이해하기](https://kciter.so/posts/about-mongodb)
+- [Naver속도의, 속도에 의한, 속도를 위한 몽고DB (네이버 컨텐츠검색과 몽고DB) \[Naver\] | PPT](https://www.slideshare.net/slideshow/naver-db-db-naver/172660008#7)
+- [mongodb tip](https://jacking75.github.io/choiheungbae/%EB%AC%B8%EC%84%9C/%EC%9B%94%EA%B0%84%2010%EC%96%B5%20PV%EB%A5%BC%20%EC%A7%80%EC%A7%80%ED%95%98%EA%B8%B0%20%EC%9C%84%ED%95%9C%20MongoDB%20Tip.pdf)
+- [LINE 알림 센터의 메인 스토리지를 Redis에서 MongoDB로 전환하기](https://engineering.linecorp.com/ko/blog/LINE-integrated-notification-center-from-redis-to-mongodb)

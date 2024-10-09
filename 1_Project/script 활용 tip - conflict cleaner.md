@@ -1,5 +1,5 @@
 ---
-title: Dropbox conflict 파일 정리하기
+title: script 활용 tip - conflict cleaner
 date: 2024-10-05 12:23:00 +0900
 aliases: 
 tags:
@@ -8,7 +8,7 @@ tags:
   - fd
 categories: 
 description: 
-updated: 2024-10-05 12:55:32 +0900
+updated: 2024-10-09 12:19:39 +0900
 ---
 
 [![AI Assisted Yes](https://img.shields.io/badge/AI%20Assisted-Yes-green?style=for-the-badge)](https://github.com/mefengl/made-by-ai)
