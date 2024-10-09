@@ -1,6 +1,6 @@
 ---
 kanban-plugin: board
-updated: 2024-10-05 12:38:28 +0900
+updated: 2024-10-09 12:19:22 +0900
 ---
 
 ## Plan
@@ -17,7 +17,7 @@ updated: 2024-10-05 12:38:28 +0900
 ## Writing
 
 - [ ] [[Testcontainers Best Practice]]
-- [ ] [[Dropbox conflict 파일 정리하기]] @{2024-10-13}
+- [ ] [[script 활용 tip - conflict cleaner|Dropbox conflict 파일 정리하기]] @{2024-10-13}
 
 
 ## Publish
