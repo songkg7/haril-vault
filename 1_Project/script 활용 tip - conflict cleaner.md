@@ -8,7 +8,7 @@ tags:
   - fd
 categories: 
 description: 
-updated: 2024-10-09 12:19:39 +0900
+updated: 2024-10-09 12:23:38 +0900
 ---
 
 [![AI Assisted Yes](https://img.shields.io/badge/AI%20Assisted-Yes-green?style=for-the-badge)](https://github.com/mefengl/made-by-ai)
@@ -130,8 +130,8 @@ if ! command -v gum &> /dev/null || ! command -v fd &> /dev/null || ! command -v
     exit 1
 fi
 
-# fd를 사용하여 'conflict'를 포함하는 파일 검색
-file_list=$(fd -H -I -t f 'conflict')
+# fd를 사용하여 'conflicted'를 포함하는 파일 검색
+file_list=$(fd -H -I -t f 'conflicted')
 
 # 검색된 파일이 없으면 종료
 if [ -z "$file_list" ]; then
