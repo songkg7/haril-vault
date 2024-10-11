@@ -8,14 +8,28 @@ tags:
   - fd
 categories: 
 description: 
-updated: 2024-10-09 12:23:38 +0900
+updated: 2024-10-11 23:46:01 +0900
 ---
 
 [![AI Assisted Yes](https://img.shields.io/badge/AI%20Assisted-Yes-green?style=for-the-badge)](https://github.com/mefengl/made-by-ai)
 
 ## Overview
 
-여러 기기에서 클라우드 저장소를 사용하다보면 충돌된 파일이 생성되서 더미처럼 남을 때가 있습니다. 개인적으로는 이런 파일들을 주기적으로 정리해주는 편인데요.
+여러 기기에서 클라우드 스토리지를 사용하다보면 충돌된 파일이 조금씩 늘어나는 경험을 하실 수 있어요.
+
+![](https://i.imgur.com/wExLU6I.gif)
+
+_틈만 나면 늘어나는 conflicted 파일_
+
+파일이 동기화되기 전에 수정작업을 하거나, 네트워크 이슈로 동기화가 조금 지연되었거나 하는, 여러 이유로 충돌파일은 계속해서 늘어만 갑니다.
+
+개인적으로 항상 깔끔한 상태를 좋아하는 편이라, 불필요하다고 판단되면 주기적으로 지워주곤 해요.
+
+늘 하던 것처럼, 터미널 명령으로 지우려다가 반복적인 작업이 귀찮아졌습니다. 오랜만에 [[shell]] 을 작성해서 개발자 티를 좀 내보려 합니다.
+
+## Shell 작성하기
+
+[[shell]] 스크립트에 대한 지식이 있으면 이런 소소한 일들을 자동화하는데에 정말 유리합니다. 요즘은 GPT 가 정말 잘 만들어주기 때문에 아래 스크립트에 대해 잘 이해가 안되신다면 GPT 를 활용해보시는 것도 좋을 것 같아요.
 
 ```bash
 #!/bin/bash
@@ -88,37 +102,34 @@ else
 fi
 ```
 
-%% gif 로 만들어서 첨부하기 %%
+간단하게 원하는 작업을 몇 단계에 걸쳐서 적어봤어요. 한 번 실행해볼까요?
 
-기능적으로는 요구사항을 충실히 만족했으니 이 정도로도 충분히 사용할 수 있을거에요. 하지만 몇 가지 아쉬운 점도 있어요.
+![first-result](https://i.imgur.com/wI3rvym.gif)
+
+정말로 삭제할건지 확인작업을 거치면서 최종 파일 삭제까지 완료됩니다 🎉
+
+기능적으로는 요구사항을 충실히 만족했으니 이 정도로도 충분히 사용할 수 있을거에요. 특별한 패키지가 필요한 것도 아니니 단순히 스크립트가 필요했던 분이라면 여기까지만 읽으셔도 됩니다.
+
+저는 직접 사용해보다보니 몇 가지 아쉬운 점이 눈에 띄어서 조금만 우아하게 고쳐볼까 합니다.
 
 1. `rm` 은 특성상 실수로 제거될 경우 복구가 어려움
 2. 삭제해야할 파일이 많다면 필터링이 다소 귀찮을 수 있음
 
 ## 조금 더 우아하게
 
-UX 를 개선해봅시다.
+![](https://i.imgur.com/VkruAdx.png)
 
-Linux 기본 명령만 사용했던 이전 스크립트와 달리 몇가지 의존성이 추가되지만, 그만한 가치는 있을거에요.
+약간의 ~~소금~~도구만 사용해도 UX 를 극적으로 개선할 수 있어요. Linux 기본 명령만 사용했던 이전 스크립트와 달리 몇가지 의존성이 추가되지만, 충분한 가치는 있을거에요.
 
-사용하는 도구 fd, gum, trash-cli
+우리가 뿌릴 도구에 대해 간단하게만 소개해보자면,
 
-- [GitHub - sharkdp/fd: A simple, fast and user-friendly alternative to 'find'](https://github.com/sharkdp/fd)
-- [GitHub - charmbracelet/gum: A tool for glamorous shell scripts 🎀](https://github.com/charmbracelet/gum)
-- [GitHub - andreafrancia/trash-cli: Command line interface to the freedesktop.org trashcan.](https://github.com/andreafrancia/trash-cli)
+- `fd`[^1] : `find` 명령을 개선한 Rust 기반의 명령어에요. 빠르고 간편한 검색을 지원해줘요.
+- `gum`[^2] : [[Go|Golang]] 으로 작성된 세련된 CLI 작성 도구로, shell 문법에 익숙하지 않더라도 다양한 기능을 구현할 수 있게 해준답니다.
+- `trash-cli`[^3]: 일반적으로 생각하는 '휴지통'의 개념을 cli 로 가져온 것이에요. 실수로 파일을 지우더라도 복구할 수 있게 해주기 때문에, `rm` 명령어를 더 이상 두려워할 필요가 없어질거에요.
 
-trash-cli 를 사용하여 실수로 잘못된 파일을 제거하는 것을 막는걸 추천
+각각의 도구들은 이렇게 짧게 소개하기 아쉬울 정도로 매력적인 도구들이에요. 하지만 이번 글에서 모두 다루기에는 내용이 방대하기 때문에, 자세한 내용은 별도의 글로 소개해볼게요.
 
-- `gum`과 `fd`가 설치되어 있는지 확인합니다.
-- `fd -H -I -t f 'conflict'` 명령을 사용하여 파일명에 'conflict'를 포함하는 모든 파일을 검색합니다.
-    - `-H`: 숨김 파일도 포함
-    - `-I`: 무시 패턴 (.gitignore 등)을 무시
-    - `-t f`: 일반 파일만 검색
-- `gum choose`를 사용하여 사용자가 삭제할 파일을 선택할 수 있게 합니다.
-- 선택된 파일 목록을 표시합니다.
-- `gum confirm`을 사용하여 사용자에게 삭제 확인을 요청합니다.
-- 확인되면 각 파일을 순차적으로 삭제합니다.
-- `gum style`을 사용하여 결과 메시지에 색상을 적용합니다.
+이제 스크립트를 아래처럼 작성할 수 있게 됩니다.
 
 ```bash
 #!/bin/bash
@@ -155,17 +166,33 @@ echo
 
 # gum confirm을 사용하여 사용자에게 확인 요청
 if gum confirm "Are you sure you want to delete these files?"; then
-    # 각 선택된 파일에 대해 삭제 수행
-    echo "$selected_files" | while IFS= read -r file; do
-        if [ -e "$file" ]; then
-            gum style --foreground 214 "Deleting: $file"
-            trash "$file"
-        else
-            gum style --foreground 203 "File not found: $file"
-        fi
-    done
+    # 선택된 파일에 대해 삭제 수행
+    trash $selected_files
     gum style --foreground 212 "File deletion process completed."
 else
+    gum style --foreground 213 "Operation cancelled. No files were deleted."
+fi
 ```
 
-%% gif 로 만들어서 첨부하기 %%
+- `gum`과 `fd`가 설치되어 있는지 확인합니다.
+- `fd -H -I -t f 'conflict'` 명령을 사용하여 파일명에 'conflict'를 포함하는 모든 파일을 검색합니다.
+    - `-H`: 숨김 파일도 포함
+    - `-I`: 무시 패턴 (.gitignore 등)을 무시
+    - `-t f`: 일반 파일만 검색
+- `gum choose`를 사용하여 사용자가 삭제할 파일을 선택할 수 있게 합니다.
+- 선택된 파일 목록을 표시합니다.
+- `gum confirm`을 사용하여 사용자에게 삭제 확인을 요청합니다.
+- 확인되면 선택된 파일들을 삭제합니다.
+- `gum style`을 사용하여 결과 메시지에 색상을 적용합니다.
+
+![result](https://i.imgur.com/evtMYm4.gif)
+
+별다른 노력을 하지 않았는데도 selector 나 confirm 창을 활용해서 더 직관적인 스크립트 기능을 구현했어요. `rm` 기반의 스크립트와는 달리 삭제된 파일들은 언제든지 복구가 가능하기 때문에 훨씬 더 안전하기까지 하죠 🔒
+
+## Conclusion
+
+저는 `conflicted` 라는 키워드로만 찾도록 스크립트를 적었지만, 필요에 따라 이 부분도 외부 주입 형태로 바꾼다면 파일을 필터링하는 방식으로도 지우실 수 있을거에요.
+
+[^1]: [GitHub - sharkdp/fd: A simple, fast and user-friendly alternative to 'find'](https://github.com/sharkdp/fd)
+[^2]: [GitHub - charmbracelet/gum: A tool for glamorous shell scripts 🎀](https://github.com/charmbracelet/gum)
+[^3]: [GitHub - andreafrancia/trash-cli: Command line interface to the freedesktop.org trashcan.](https://github.com/andreafrancia/trash-cli)
