@@ -9193,8 +9193,8 @@ var O2Plugin = class extends import_obsidian7.Plugin {
   async onload() {
     await this.loadSettings();
     this.addCommand({
-      id: "jekyll-chirpy-syntax",
-      name: "convert to Jekyll Chirpy",
+      id: "grammar-transformation",
+      name: "Grammar Transformation",
       checkCallback: (checking) => {
         if (this.jekyll.afterPropertiesSet() || this.docusaurus.afterPropertiesSet()) {
           if (checking) {

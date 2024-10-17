@@ -1,6 +1,6 @@
 ---
 kanban-plugin: board
-updated: 2024-10-11 21:37:11 +0900
+updated: 2024-10-14 10:38:57 +0900
 ---
 
 ## Plan
@@ -17,12 +17,12 @@ updated: 2024-10-11 21:37:11 +0900
 ## Writing
 
 - [ ] [[Testcontainers Best Practice]]
-- [ ] [[script 활용 tip - conflict cleaner]] @{2024-10-13}
 
 
 ## Publish
 
 **Complete**
+- [x] [[Easy organizing of annoying dummy files|script 활용 tip - conflict cleaner]] @{2024-10-13} ✅ 2024-10-14
 
 
 
