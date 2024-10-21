@@ -1181,6 +1181,14 @@ var O2SettingTab = class extends import_obsidian.PluginSettingTab {
     });
     this.addDocusaurusPathSetting();
     this.dateExtractionPatternSetting();
+    this.addDocusaurusAuthorsSetting();
+  }
+  addDocusaurusAuthorsSetting() {
+    const docusaurus = this.plugin.docusaurus;
+    new import_obsidian.Setting(this.containerEl).setName("Docusaurus authors").setDesc("Author(s) for Docusaurus front matter. For multiple authors, separate with commas.").addText((text) => text.setPlaceholder("jmarcey, slorber").setValue(docusaurus.authors).onChange(async (value) => {
+      docusaurus.authors = value;
+      await this.plugin.saveSettings();
+    }));
   }
   enableUpdateFrontmatterTimeOnEditSetting() {
     const jekyllSetting = this.plugin.jekyll;
@@ -4148,6 +4156,10 @@ var convert = (frontMatter) => {
   if (fm.categories && JSON.stringify(fm.categories).startsWith("[")) {
     fm.categories = `${JSON.stringify(fm.categories).replace(/,/g, ", ").replace(/"/g, "")}`;
   }
+  if (fm.authors) {
+    const authorList = fm.authors.split(",").map((author) => author.trim());
+    fm.authors = authorList.length > 1 ? `[${authorList.join(", ")}]` : authorList[0];
+  }
   if (fm.tags) {
     fm.tags = Array.isArray(fm.tags) ? `[${fm.tags.join(", ")}]` : `[${fm.tags}]`;
   }
@@ -4212,7 +4224,7 @@ function replaceDateFrontMatter(frontMatter, isEnable) {
   }
   return frontMatter;
 }
-var convertFrontMatter = (input) => {
+var convertFrontMatter = (input, authors) => {
   const [frontMatter, body] = parseFrontMatter(input);
   if (Object.keys(frontMatter).length === 0) {
     return input;
@@ -4223,6 +4235,11 @@ var convertFrontMatter = (input) => {
   }
   delete frontMatter["aliases"];
   delete frontMatter["published"];
+  if (authors) {
+    delete frontMatter["authors"];
+    delete frontMatter["author"];
+    frontMatter.authors = authors;
+  }
   return join(
     convert({ ...frontMatter }),
     body
@@ -9136,7 +9153,8 @@ var convertToDocusaurus = async (plugin) => {
         convertFootnotes(
           convertWikiLink(
             convertFrontMatter(
-              contents
+              contents,
+              plugin.docusaurus.authors
             )
           )
         )
@@ -9239,3 +9257,5 @@ var o2ConversionCommand = async (plugin) => {
 js-yaml/dist/js-yaml.mjs:
   (*! js-yaml 4.1.0 https://github.com/nodeca/js-yaml @license MIT *)
 */
+
+/* nosourcemap */

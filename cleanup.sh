@@ -33,15 +33,9 @@ echo
 # gum confirm을 사용하여 사용자에게 확인 요청
 if gum confirm "Are you sure you want to delete these files?"; then
     # 각 선택된 파일에 대해 삭제 수행
-    echo "$selected_files" | while IFS= read -r file; do
-        if [ -e "$file" ]; then
-            gum style --foreground 214 "Deleting: $file"
-            trash "$file"
-        else
-            gum style --foreground 203 "File not found: $file"
-        fi
-    done
+    trash $selected_files
     gum style --foreground 212 "File deletion process completed."
 else
     gum style --foreground 213 "Operation cancelled. No files were deleted."
 fi
+
