@@ -1,6 +1,6 @@
 ---
 kanban-plugin: board
-updated: 2024-10-14 10:38:57 +0900
+updated: 2024-10-26 10:57:29 +0900
 ---
 
 ## Plan
@@ -23,6 +23,7 @@ updated: 2024-10-14 10:38:57 +0900
 
 **Complete**
 - [x] [[Easy organizing of annoying dummy files|script 활용 tip - conflict cleaner]] @{2024-10-13} ✅ 2024-10-14
+- [x] [[if(kakaoAI) 2024 Report]] ✅ 2024-10-26
 
 
 
