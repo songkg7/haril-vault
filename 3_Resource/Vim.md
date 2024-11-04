@@ -1,11 +1,11 @@
 ---
 title: Vim
 date: 2022-10-21 15:30:00 +0900
-aliases: null
+aliases: 
 tags:
   - vim
-categories: null
-updated: 2023-08-19 12:38:12 +0900
+categories: 
+updated: 2024-10-31 10:13:06 +0900
 ---
 
 ## Overview
@@ -103,3 +103,4 @@ vim 은 플러그인을 통해 다양한 커스터마이징이 가능하다.
 ## Links
 
 - [[NeoVim]]
+- [vim 플러그인 만들기](https://soooprmx.com/how-to-write-a-vim-plugin/)

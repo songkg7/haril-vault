@@ -32,10 +32,9 @@ echo
 
 # gum confirm을 사용하여 사용자에게 확인 요청
 if gum confirm "Are you sure you want to delete these files?"; then
-    # 각 선택된 파일에 대해 삭제 수행
-    trash $selected_files
+    # xargs를 사용하여 효율적으로 처리
+    echo "$selected_files" | tr '\n' '\0' | xargs -0 trash
     gum style --foreground 212 "File deletion process completed."
 else
     gum style --foreground 213 "Operation cancelled. No files were deleted."
 fi
-
