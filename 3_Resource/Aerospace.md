@@ -9,7 +9,7 @@ tags:
   - yabai
   - tool
 categories: 
-updated: 2024-06-26 10:17:48 +0900
+updated: 2024-11-08 17:46:53 +0900
 ---
 
 - 윈도우 매니저
@@ -29,7 +29,8 @@ updated: 2024-06-26 10:17:48 +0900
 
 ## Cons
 
-- 일종의 가상 그룹인 워크스페이스로 관리하는데 전환이 부드럽지 않고, 워크스페이스 구현 방식으로 인해 맥OS 의 기본 기능인 mission control 의 UI 를 망침
+- 일종의 가상 그룹인 워크스페이스로 전환이 부드럽지 않고, 이유는 정확하지 않지만 맥OS 의 기본 기능인 mission control 의 UI 를 과하게 작게 표시하는 문제가 있음
+    - `defaults write com.apple.dock expose-group-apps -bool true && killall Dock` 명령을 사용하여 앱별로 그룹화하면 해결 가능
 
 ## Reference
 
