@@ -3,10 +3,12 @@ title: Retrieval-Augmented Generation
 date: 2024-08-20 14:28:00 +0900
 aliases:
   - RAG
-tags: 
+tags:
+  - ai
+  - llm
 categories: 
 description: 
-updated: 2024-08-20 14:28:25 +0900
+updated: 2024-11-11 23:27:29 +0900
 ---
 
 ## RAG의 기본 개념
@@ -36,6 +38,10 @@ RAG(Retrieval-Augmented Generation)는 LLM의 단점 중 ‘사실 관계 오류
 3. 맥락 이해력 향상
     - 외부 지식을 통해 질의에 대한 배경 지식과 맥락 정보를 파악
     - 단순한 패턴 매칭이 아닌 추론 능력을 바탕으로 한 답변 생성
+
+## RAG 의 단점
+
+- 검색 엔진의 성능에 크게 의존
 
 ## Reference
 
