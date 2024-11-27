@@ -1,6 +1,6 @@
 ---
 kanban-plugin: board
-updated: 2024-10-26 10:57:29 +0900
+updated: 2024-11-23 18:59:25 +0900
 ---
 
 ## Plan
@@ -17,12 +17,15 @@ updated: 2024-10-26 10:57:29 +0900
 ## Writing
 
 - [ ] [[Testcontainers Best Practice]]
+- [ ] 코드 컨벤션 책 리뷰
 
 
 ## Publish
 
 **Complete**
 - [x] [[Easy organizing of annoying dummy files|script 활용 tip - conflict cleaner]] @{2024-10-13} ✅ 2024-10-14
+- [x] [[Naver DAN 24 Review]] ✅ 2024-11-23
+- [x] [[KafkaKRU review]] ✅ 2024-11-23
 - [x] [[if(kakaoAI) 2024 Report]] ✅ 2024-10-26
 
 
