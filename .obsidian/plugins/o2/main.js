@@ -1158,25 +1158,29 @@ var O2SettingTab = class extends import_obsidian.PluginSettingTab {
     this.containerEl.createEl("h1", {
       text: "Settings for O2 plugin"
     });
-    this.containerEl.createEl("h2", {
+    this.containerEl.createEl("h3", {
       text: "Path Settings"
     });
     this.addReadyFolderSetting();
     this.addArchiveFolderSetting();
     this.addAttachmentsFolderSetting();
-    this.containerEl.createEl("h2", {
+    this.containerEl.createEl("h3", {
       text: "Features"
     });
     this.enableCurlyBraceSetting();
     this.enableUpdateFrontmatterTimeOnEditSetting();
     this.enableAutoCreateFolderSetting();
     this.enableAutoArchiveSetting();
-    this.containerEl.createEl("h2", {
+    this.containerEl.createEl("h3", {
       text: "Jekyll"
     });
     this.addJekyllPathSetting();
     this.addJekyllRelativeResourcePathSetting();
-    this.containerEl.createEl("h2", {
+    this.containerEl.createEl("h5", {
+      text: "Liquid Filter"
+    });
+    this.addJekyllRelativeUrlSetting();
+    this.containerEl.createEl("h3", {
       text: "Docusaurus"
     });
     this.addDocusaurusPathSetting();
@@ -1185,69 +1189,95 @@ var O2SettingTab = class extends import_obsidian.PluginSettingTab {
   }
   addDocusaurusAuthorsSetting() {
     const docusaurus = this.plugin.docusaurus;
-    new import_obsidian.Setting(this.containerEl).setName("Docusaurus authors").setDesc("Author(s) for Docusaurus front matter. For multiple authors, separate with commas.").addText((text) => text.setPlaceholder("jmarcey, slorber").setValue(docusaurus.authors).onChange(async (value) => {
-      docusaurus.authors = value;
-      await this.plugin.saveSettings();
-    }));
+    new import_obsidian.Setting(this.containerEl).setName("Docusaurus authors").setDesc(
+      "Author(s) for Docusaurus front matter. For multiple authors, separate with commas."
+    ).addText(
+      (text) => text.setPlaceholder("jmarcey, slorber").setValue(docusaurus.authors).onChange(async (value) => {
+        docusaurus.authors = value;
+        await this.plugin.saveSettings();
+      })
+    );
   }
   enableUpdateFrontmatterTimeOnEditSetting() {
     const jekyllSetting = this.plugin.jekyll;
-    new import_obsidian.Setting(this.containerEl).setName("Replace date frontmatter to updated time").setDesc("If 'updated' frontmatter exists, replace the value of 'date' frontmatter with the value of 'updated' frontmatter.").addToggle((toggle) => toggle.setValue(jekyllSetting.isEnableUpdateFrontmatterTimeOnEdit).onChange(async (value) => {
-      jekyllSetting.isEnableUpdateFrontmatterTimeOnEdit = value;
-      await this.plugin.saveSettings();
-    }));
+    new import_obsidian.Setting(this.containerEl).setName("Replace date frontmatter to updated time").setDesc(
+      "If 'updated' frontmatter exists, replace the value of 'date' frontmatter with the value of 'updated' frontmatter."
+    ).addToggle(
+      (toggle) => toggle.setValue(jekyllSetting.isEnableUpdateFrontmatterTimeOnEdit).onChange(async (value) => {
+        jekyllSetting.isEnableUpdateFrontmatterTimeOnEdit = value;
+        await this.plugin.saveSettings();
+      })
+    );
   }
   enableAutoCreateFolderSetting() {
-    new import_obsidian.Setting(this.containerEl).setName("Auto create folders").setDesc("Automatically create necessary folders if they do not exist.").addToggle((toggle) => toggle.setValue(this.plugin.obsidianPathSettings.isAutoCreateFolder).onChange(async (value) => {
-      this.plugin.obsidianPathSettings.isAutoCreateFolder = value;
-      await this.plugin.saveSettings();
-    }));
+    new import_obsidian.Setting(this.containerEl).setName("Auto create folders").setDesc("Automatically create necessary folders if they do not exist.").addToggle(
+      (toggle) => toggle.setValue(this.plugin.obsidianPathSettings.isAutoCreateFolder).onChange(async (value) => {
+        this.plugin.obsidianPathSettings.isAutoCreateFolder = value;
+        await this.plugin.saveSettings();
+      })
+    );
   }
   enableCurlyBraceSetting() {
     const jekyllSetting = this.plugin.jekyll;
-    new import_obsidian.Setting(this.containerEl).setName("Curly Brace Conversion").setDesc("Convert double curly braces to jekyll raw tag.").addToggle((toggle) => toggle.setValue(jekyllSetting.isEnableCurlyBraceConvertMode).onChange(async (value) => {
-      jekyllSetting.isEnableCurlyBraceConvertMode = value;
-      await this.plugin.saveSettings();
-    }));
+    new import_obsidian.Setting(this.containerEl).setName("Curly Brace Conversion").setDesc("Convert double curly braces to jekyll raw tag.").addToggle(
+      (toggle) => toggle.setValue(jekyllSetting.isEnableCurlyBraceConvertMode).onChange(async (value) => {
+        jekyllSetting.isEnableCurlyBraceConvertMode = value;
+        await this.plugin.saveSettings();
+      })
+    );
   }
   addJekyllPathSetting() {
     const jekyllSetting = this.plugin.jekyll;
-    new import_obsidian.Setting(this.containerEl).setName("Jekyll path").setDesc("The absolute path where Jekyll workspace is located.").addText((text) => text.setPlaceholder("Enter path").setValue(jekyllSetting.jekyllPath).onChange(async (value) => {
-      jekyllSetting.jekyllPath = value;
-      await this.plugin.saveSettings();
-    }));
+    new import_obsidian.Setting(this.containerEl).setName("Jekyll path").setDesc("The absolute path where Jekyll workspace is located.").addText(
+      (text) => text.setPlaceholder("Enter path").setValue(jekyllSetting.jekyllPath).onChange(async (value) => {
+        jekyllSetting.jekyllPath = value;
+        await this.plugin.saveSettings();
+      })
+    );
   }
   addJekyllRelativeResourcePathSetting() {
     const jekyllSetting = this.plugin.jekyll;
-    new import_obsidian.Setting(this.containerEl).setName("Relative resource path").setDesc("The relative path where resources are stored. (default: assets/img)").addText((text) => text.setPlaceholder("Enter path").setValue(jekyllSetting.jekyllRelativeResourcePath).onChange(async (value) => {
-      jekyllSetting.jekyllRelativeResourcePath = value;
-      await this.plugin.saveSettings();
-    }));
+    new import_obsidian.Setting(this.containerEl).setName("Relative resource path").setDesc(
+      "The relative path where resources are stored. (default: assets/img)"
+    ).addText(
+      (text) => text.setPlaceholder("Enter path").setValue(jekyllSetting.jekyllRelativeResourcePath).onChange(async (value) => {
+        jekyllSetting.jekyllRelativeResourcePath = value;
+        await this.plugin.saveSettings();
+      })
+    );
   }
   addAttachmentsFolderSetting() {
-    new import_obsidian.Setting(this.containerEl).setName("Folder to store attachments in").setDesc("Where the attachments will be stored.").addText((text) => text.setPlaceholder("Enter folder name").setValue(this.plugin.obsidianPathSettings.attachmentsFolder).onChange(async (value) => {
-      this.plugin.obsidianPathSettings.attachmentsFolder = value;
-      await this.plugin.saveSettings();
-    }));
+    new import_obsidian.Setting(this.containerEl).setName("Folder to store attachments in").setDesc("Where the attachments will be stored.").addText(
+      (text) => text.setPlaceholder("Enter folder name").setValue(this.plugin.obsidianPathSettings.attachmentsFolder).onChange(async (value) => {
+        this.plugin.obsidianPathSettings.attachmentsFolder = value;
+        await this.plugin.saveSettings();
+      })
+    );
   }
   addReadyFolderSetting() {
-    new import_obsidian.Setting(this.containerEl).setName("Folder to convert notes to another syntax in").setDesc("Where the notes will be converted to another syntax.").addText((text) => text.setPlaceholder("Enter folder name").setValue(this.plugin.obsidianPathSettings.readyFolder).onChange(async (value) => {
-      this.plugin.obsidianPathSettings.readyFolder = value;
-      await this.plugin.saveSettings();
-    }));
+    new import_obsidian.Setting(this.containerEl).setName("Folder to convert notes to another syntax in").setDesc("Where the notes will be converted to another syntax.").addText(
+      (text) => text.setPlaceholder("Enter folder name").setValue(this.plugin.obsidianPathSettings.readyFolder).onChange(async (value) => {
+        this.plugin.obsidianPathSettings.readyFolder = value;
+        await this.plugin.saveSettings();
+      })
+    );
   }
   addArchiveFolderSetting() {
-    new import_obsidian.Setting(this.containerEl).setName("Folder to Archive notes in").setDesc("Where the notes will be archived after conversion.").addText((text) => text.setPlaceholder("Enter folder name").setValue(this.plugin.obsidianPathSettings.archiveFolder).onChange(async (value) => {
-      this.plugin.obsidianPathSettings.archiveFolder = value;
-      await this.plugin.saveSettings();
-    }));
+    new import_obsidian.Setting(this.containerEl).setName("Folder to Archive notes in").setDesc("Where the notes will be archived after conversion.").addText(
+      (text) => text.setPlaceholder("Enter folder name").setValue(this.plugin.obsidianPathSettings.archiveFolder).onChange(async (value) => {
+        this.plugin.obsidianPathSettings.archiveFolder = value;
+        await this.plugin.saveSettings();
+      })
+    );
   }
   addDocusaurusPathSetting() {
     const docusaurus = this.plugin.docusaurus;
-    new import_obsidian.Setting(this.containerEl).setName("Docusaurus path").setDesc("The absolute path where Docusaurus workspace is located.").addText((text) => text.setPlaceholder("Enter path").setValue(docusaurus.docusaurusPath).onChange(async (value) => {
-      docusaurus.docusaurusPath = value;
-      await this.plugin.saveSettings();
-    }));
+    new import_obsidian.Setting(this.containerEl).setName("Docusaurus path").setDesc("The absolute path where Docusaurus workspace is located.").addText(
+      (text) => text.setPlaceholder("Enter path").setValue(docusaurus.docusaurusPath).onChange(async (value) => {
+        docusaurus.docusaurusPath = value;
+        await this.plugin.saveSettings();
+      })
+    );
   }
   dateExtractionPatternSetting() {
     const docusaurus = this.plugin.docusaurus;
@@ -1263,10 +1293,23 @@ var O2SettingTab = class extends import_obsidian.PluginSettingTab {
     });
   }
   enableAutoArchiveSetting() {
-    new import_obsidian.Setting(this.containerEl).setName("Auto archive").setDesc("Automatically move files to archive folder after converting.").addToggle((toggle) => toggle.setValue(this.plugin.obsidianPathSettings.isAutoArchive).onChange(async (value) => {
-      this.plugin.obsidianPathSettings.isAutoArchive = value;
-      await this.plugin.saveSettings();
-    }));
+    new import_obsidian.Setting(this.containerEl).setName("Auto archive").setDesc("Automatically move files to archive folder after converting.").addToggle(
+      (toggle) => toggle.setValue(this.plugin.obsidianPathSettings.isAutoArchive).onChange(async (value) => {
+        this.plugin.obsidianPathSettings.isAutoArchive = value;
+        await this.plugin.saveSettings();
+      })
+    );
+  }
+  addJekyllRelativeUrlSetting() {
+    const jekyllSetting = this.plugin.jekyll;
+    new import_obsidian.Setting(this.containerEl).setName("Enable relative URL for images").setDesc(
+      "Use Jekyll's relative_url filter for image paths. Required when using baseurl."
+    ).addToggle(
+      (toggle) => toggle.setValue(jekyllSetting.isEnableRelativeUrl).onChange(async (value) => {
+        jekyllSetting.isEnableRelativeUrl = value;
+        await this.plugin.saveSettings();
+      })
+    );
   }
 };
 
@@ -1278,6 +1321,7 @@ var JekyllSettings = class {
   constructor() {
     this._jekyllPath = "";
     this._jekyllRelativeResourcePath = "assets/img";
+    this._isEnableRelativeUrl = false;
   }
   get jekyllPath() {
     return this._jekyllPath;
@@ -1308,6 +1352,12 @@ var JekyllSettings = class {
   }
   set isEnableUpdateFrontmatterTimeOnEdit(value) {
     this._isEnableUpdateFrontmatterTimeOnEdit = value;
+  }
+  get isEnableRelativeUrl() {
+    return this._isEnableRelativeUrl;
+  }
+  set isEnableRelativeUrl(value) {
+    this._isEnableRelativeUrl = value;
   }
   targetPath() {
     return `${this._jekyllPath}/_posts`;
@@ -1344,7 +1394,7 @@ var ObsidianRegex = {
   ATTACHMENT_LINK: /!\[\[([^|\]]+)\.(\w+)\|?(\d*)x?(\d*)]](\n{0,2}(_.*_))?/g,
   EMBEDDED_LINK: /!\[\[([\w\s-]+)[#^]*([\w\s]*)]]/g,
   WIKI_LINK: /(?<!!)\[\[([^|\]]+)\|?([^|\]]*)]]/g,
-  CALLOUT: /> \[!(.*)](.*)?\n(>.*)/ig,
+  CALLOUT: /> \[!(.*)](.*)?\n(>.*)/gi,
   SIMPLE_FOOTNOTE: /\[\^(\d+)]/g,
   COMMENT: /%%(.*?)%%/g,
   DOUBLE_CURLY_BRACES: /{{(.*?)}}/g
@@ -1353,13 +1403,13 @@ var ObsidianRegex = {
 // src/WikiLinkConverter.ts
 var WikiLinkConverter = class {
   convert(input) {
-    return input.replace(ObsidianRegex.WIKI_LINK, (match, p1, p2) => p2 ? p2 : p1);
+    return input.replace(
+      ObsidianRegex.WIKI_LINK,
+      (match, p1, p2) => p2 ? p2 : p1
+    );
   }
 };
-var convertWikiLink = (input) => input.replace(
-  ObsidianRegex.WIKI_LINK,
-  (match, p1, p2) => p2 ? p2 : p1
-);
+var convertWikiLink = (input) => input.replace(ObsidianRegex.WIKI_LINK, (match, p1, p2) => p2 ? p2 : p1);
 
 // src/ResourceLinkConverter.ts
 var import_fs = __toESM(require("fs"));
@@ -1371,12 +1421,13 @@ var removeTempPrefix = (filename) => filename.replace("o2-temp", "");
 
 // src/ResourceLinkConverter.ts
 var ResourceLinkConverter = class {
-  constructor(fileName, resourcePath, absolutePath, attachmentsFolder, relativeResourcePath) {
+  constructor(fileName, resourcePath, absolutePath, attachmentsFolder, relativeResourcePath, liquidFilterOptions) {
     this.fileName = fileName;
     this.resourcePath = resourcePath;
     this.absolutePath = absolutePath;
     this.attachmentsFolder = attachmentsFolder;
     this.relativeResourcePath = relativeResourcePath;
+    this.liquidFilterOptions = liquidFilterOptions != null ? liquidFilterOptions : { useRelativeUrl: false };
   }
   convert(input) {
     const sanitizedFileName = removeTempPrefix(this.fileName);
@@ -1397,7 +1448,11 @@ var ResourceLinkConverter = class {
         }
       );
     });
-    const replacer = (match, contents, suffix, width, height, space, caption) => `![image](/${this.relativeResourcePath}/${sanitizedFileName}/${contents.replace(/\s/g, "-")}.${suffix})${convertImageSize(width, height)}${convertImageCaption(caption)}`;
+    const replacer = (match, contents, suffix, width, height, space, caption) => {
+      const imagePath = `/${this.relativeResourcePath}/${sanitizedFileName}/${contents.replace(/\s/g, "-")}.${suffix}`;
+      const imageUrl = this.liquidFilterOptions.useRelativeUrl ? `{{ "${imagePath}" | relative_url }}` : imagePath;
+      return `![image](${imageUrl})${convertImageSize(width, height)}${convertImageCaption(caption)}`;
+    };
     return input.replace(ObsidianRegex.ATTACHMENT_LINK, replacer);
   }
 };
@@ -1406,7 +1461,9 @@ function extractResourceNames(content) {
   if (result === null) {
     return void 0;
   }
-  return result.map((imageLink) => imageLink.replace(ObsidianRegex.ATTACHMENT_LINK, "$1.$2"));
+  return result.map(
+    (imageLink) => imageLink.replace(ObsidianRegex.ATTACHMENT_LINK, "$1.$2")
+  );
 }
 function convertImageSize(width, height) {
   if (width === void 0 || width.length === 0) {
@@ -4208,7 +4265,11 @@ function convertImageFrontMatter(isEnable, fileName, resourcePath, frontMatter) 
   if (match) {
     frontMatter.image = `${match[1]}.${match[2]}`;
   }
-  frontMatter.image = convertImagePath(fileName, frontMatter.image, resourcePath);
+  frontMatter.image = convertImagePath(
+    fileName,
+    frontMatter.image,
+    resourcePath
+  );
   return frontMatter;
 }
 function convertImagePath(postTitle, imagePath, resourcePath) {
@@ -4240,10 +4301,7 @@ var convertFrontMatter = (input, authors) => {
     delete frontMatter["author"];
     frontMatter.authors = authors;
   }
-  return join(
-    convert({ ...frontMatter }),
-    body
-  );
+  return join(convert({ ...frontMatter }), body);
 };
 
 // src/utils.ts
@@ -8946,7 +9004,9 @@ var copyMarkdownFile = async (plugin) => {
   }
   return plugin.app.vault.getMarkdownFiles().filter((file) => file.path.includes(TEMP_PREFIX));
 };
-var getFilesInReady = (plugin) => plugin.app.vault.getMarkdownFiles().filter((file) => file.path.startsWith(plugin.obsidianPathSettings.readyFolder));
+var getFilesInReady = (plugin) => plugin.app.vault.getMarkdownFiles().filter(
+  (file) => file.path.startsWith(plugin.obsidianPathSettings.readyFolder)
+);
 var copyFile = (sourceFilePath, targetFilePath) => {
   const targetDirectory = import_path.default.dirname(targetFilePath);
   if (!import_fs2.default.existsSync(targetDirectory)) {
@@ -8962,7 +9022,10 @@ var copy = (sourceFolderPath, targetFolderPath, replacer, publishedDate) => {
       publishedDate
     );
     const sourceFilePath = import_path.default.join(sourceFolderPath, filename);
-    const targetFilePath = import_path.default.join(targetFolderPath, transformedFileName.replace(TEMP_PREFIX, "").replace(/\s/g, "-"));
+    const targetFilePath = import_path.default.join(
+      targetFolderPath,
+      transformedFileName.replace(TEMP_PREFIX, "").replace(/\s/g, "-")
+    );
     copyFile(sourceFilePath, targetFilePath);
   });
 };
@@ -8972,16 +9035,17 @@ var archiving = async (plugin) => {
   }
   const readyFiles = getFilesInReady(plugin);
   readyFiles.forEach((file) => {
-    plugin.app.fileManager.renameFile(file, file.path.replace(plugin.obsidianPathSettings.readyFolder, plugin.obsidianPathSettings.archiveFolder));
+    plugin.app.fileManager.renameFile(
+      file,
+      file.path.replace(
+        plugin.obsidianPathSettings.readyFolder,
+        plugin.obsidianPathSettings.archiveFolder
+      )
+    );
   });
 };
 var moveFiles = async (sourceFolderPath, targetFolderPath, pathReplacer, publishedDate) => {
-  copy(
-    sourceFolderPath,
-    targetFolderPath,
-    pathReplacer,
-    publishedDate
-  );
+  copy(sourceFolderPath, targetFolderPath, pathReplacer, publishedDate);
 };
 var cleanUp = async (plugin) => {
   const markdownFiles = plugin.app.vault.getMarkdownFiles().filter((file) => file.path.includes(TEMP_PREFIX));
@@ -9051,10 +9115,16 @@ var ConverterChain = class _ConverterChain {
 // src/CommentsConverter.ts
 var CommentsConverter = class {
   convert(input) {
-    return input.replace(ObsidianRegex.COMMENT, (match, comments) => `<!--${comments}-->`);
+    return input.replace(
+      ObsidianRegex.COMMENT,
+      (match, comments) => `<!--${comments}-->`
+    );
   }
 };
-var convertComments = (input) => input.replace(ObsidianRegex.COMMENT, (match, comments) => `<!--${comments}-->`);
+var convertComments = (input) => input.replace(
+  ObsidianRegex.COMMENT,
+  (match, comments) => `<!--${comments}-->`
+);
 
 // src/EmbedsConverter.ts
 var EmbedsConverter = class {
@@ -9072,7 +9142,10 @@ var CurlyBraceConverter = class {
     if (!this.isEnable) {
       return input;
     }
-    return input.replace(ObsidianRegex.DOUBLE_CURLY_BRACES, (match, content) => `{% raw %}${match}{% endraw %}`);
+    return input.replace(
+      ObsidianRegex.DOUBLE_CURLY_BRACES,
+      (match, content) => `{% raw %}${match}{% endraw %}`
+    );
   }
 };
 
@@ -9094,7 +9167,8 @@ async function convertToChirpy(plugin) {
         settings.resourcePath(),
         vaultAbsolutePath(plugin),
         plugin.obsidianPathSettings.attachmentsFolder,
-        settings.jekyllRelativeResourcePath
+        settings.jekyllRelativeResourcePath,
+        { useRelativeUrl: false }
       );
       const curlyBraceConverter = new CurlyBraceConverter(
         settings.isEnableCurlyBraceConvertMode
@@ -9118,29 +9192,23 @@ var import_obsidian5 = require("obsidian");
 var markPublished = async (plugin) => {
   const filesInReady = getFilesInReady(plugin);
   for (const file of filesInReady) {
-    await plugin.app.fileManager.processFrontMatter(
-      file,
-      (fm) => {
-        if (fm.published) {
-          return fm;
-        }
-        fm.published = (/* @__PURE__ */ new Date()).toISOString().split("T")[0];
+    await plugin.app.fileManager.processFrontMatter(file, (fm) => {
+      if (fm.published) {
         return fm;
       }
-    );
+      fm.published = (/* @__PURE__ */ new Date()).toISOString().split("T")[0];
+      return fm;
+    });
   }
 };
 var checkPublished = async (plugin, file) => {
   let publishedDate = (/* @__PURE__ */ new Date()).toISOString().split("T")[0];
-  await plugin.app.fileManager.processFrontMatter(
-    file,
-    (fm) => {
-      if (fm.published) {
-        publishedDate = fm.published;
-        return fm;
-      }
+  await plugin.app.fileManager.processFrontMatter(file, (fm) => {
+    if (fm.published) {
+      publishedDate = fm.published;
+      return fm;
     }
-  );
+  });
   return publishedDate;
 };
 var convertToDocusaurus = async (plugin) => {
@@ -9152,10 +9220,7 @@ var convertToDocusaurus = async (plugin) => {
       convertDocusaurusCallout(
         convertFootnotes(
           convertWikiLink(
-            convertFrontMatter(
-              contents,
-              plugin.docusaurus.authors
-            )
+            convertFrontMatter(contents, plugin.docusaurus.authors)
           )
         )
       )
@@ -9179,29 +9244,53 @@ var validation_default = async (plugin) => {
   const adapter = plugin.app.vault.adapter;
   if (!await adapter.exists(plugin.obsidianPathSettings.attachmentsFolder)) {
     if (plugin.obsidianPathSettings.isAutoCreateFolder) {
-      new import_obsidian6.Notice(`Auto create attachments folder: ${plugin.obsidianPathSettings.attachmentsFolder}.`, 5e3);
+      new import_obsidian6.Notice(
+        `Auto create attachments folder: ${plugin.obsidianPathSettings.attachmentsFolder}.`,
+        5e3
+      );
       await adapter.mkdir(plugin.obsidianPathSettings.attachmentsFolder);
     } else {
-      new import_obsidian6.Notice(`Attachments folder ${plugin.obsidianPathSettings.attachmentsFolder} does not exist.`, 5e3);
-      throw new Error(`Attachments folder ${plugin.obsidianPathSettings.attachmentsFolder} does not exist.`);
+      new import_obsidian6.Notice(
+        `Attachments folder ${plugin.obsidianPathSettings.attachmentsFolder} does not exist.`,
+        5e3
+      );
+      throw new Error(
+        `Attachments folder ${plugin.obsidianPathSettings.attachmentsFolder} does not exist.`
+      );
     }
   }
   if (!await adapter.exists(plugin.obsidianPathSettings.readyFolder)) {
     if (plugin.obsidianPathSettings.isAutoCreateFolder) {
-      new import_obsidian6.Notice(`Auto create ready folder: ${plugin.obsidianPathSettings.readyFolder}.`, 5e3);
+      new import_obsidian6.Notice(
+        `Auto create ready folder: ${plugin.obsidianPathSettings.readyFolder}.`,
+        5e3
+      );
       await adapter.mkdir(plugin.obsidianPathSettings.readyFolder);
     } else {
-      new import_obsidian6.Notice(`Ready folder ${plugin.obsidianPathSettings.readyFolder} does not exist.`, 5e3);
-      throw new Error(`Ready folder ${plugin.obsidianPathSettings.readyFolder} does not exist.`);
+      new import_obsidian6.Notice(
+        `Ready folder ${plugin.obsidianPathSettings.readyFolder} does not exist.`,
+        5e3
+      );
+      throw new Error(
+        `Ready folder ${plugin.obsidianPathSettings.readyFolder} does not exist.`
+      );
     }
   }
   if (!await adapter.exists(plugin.obsidianPathSettings.archiveFolder)) {
     if (plugin.obsidianPathSettings.isAutoCreateFolder) {
-      new import_obsidian6.Notice(`Auto create backup folder: ${plugin.obsidianPathSettings.archiveFolder}.`, 5e3);
+      new import_obsidian6.Notice(
+        `Auto create backup folder: ${plugin.obsidianPathSettings.archiveFolder}.`,
+        5e3
+      );
       await adapter.mkdir(plugin.obsidianPathSettings.archiveFolder);
     } else {
-      new import_obsidian6.Notice(`Backup folder ${plugin.obsidianPathSettings.archiveFolder} does not exist.`, 5e3);
-      throw new Error(`Backup folder ${plugin.obsidianPathSettings.archiveFolder} does not exist.`);
+      new import_obsidian6.Notice(
+        `Backup folder ${plugin.obsidianPathSettings.archiveFolder} does not exist.`,
+        5e3
+      );
+      throw new Error(
+        `Backup folder ${plugin.obsidianPathSettings.archiveFolder} does not exist.`
+      );
     }
   }
 };
@@ -9231,9 +9320,15 @@ var O2Plugin = class extends import_obsidian7.Plugin {
   onunload() {
   }
   async loadSettings() {
-    this.obsidianPathSettings = Object.assign(new ObsidianPathSettings(), await this.loadData());
+    this.obsidianPathSettings = Object.assign(
+      new ObsidianPathSettings(),
+      await this.loadData()
+    );
     this.jekyll = Object.assign(new JekyllSettings(), await this.loadData());
-    this.docusaurus = Object.assign(new DocusaurusSettings(), await this.loadData());
+    this.docusaurus = Object.assign(
+      new DocusaurusSettings(),
+      await this.loadData()
+    );
   }
   async saveSettings() {
     await this.saveData({
