@@ -1,6 +1,6 @@
 ---
 kanban-plugin: board
-updated: 2024-11-23 18:59:25 +0900
+updated: 2024-12-17T14:23
 ---
 
 ## Plan
@@ -17,7 +17,7 @@ updated: 2024-11-23 18:59:25 +0900
 ## Writing
 
 - [ ] [[Testcontainers Best Practice]]
-- [ ] 코드 컨벤션 책 리뷰
+- [ ] [[길벗 도서 리뷰]]
 
 
 ## Publish

@@ -9168,7 +9168,7 @@ async function convertToChirpy(plugin) {
         vaultAbsolutePath(plugin),
         plugin.obsidianPathSettings.attachmentsFolder,
         settings.jekyllRelativeResourcePath,
-        { useRelativeUrl: false }
+        { useRelativeUrl: settings.isEnableRelativeUrl }
       );
       const curlyBraceConverter = new CurlyBraceConverter(
         settings.isEnableCurlyBraceConvertMode
