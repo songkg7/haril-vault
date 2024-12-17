@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "4_Archive/Easy devtools version management, mise.md",
+                "file": "daily/2024-12-13.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Easy devtools version management, mise"
+              "title": "2024-12-13"
             }
           }
         ]
@@ -155,8 +155,8 @@
         "state": {
           "type": "calendar",
           "state": {},
-          "icon": "calendar-with-checkmark",
-          "title": "Calendar"
+          "icon": "lucide-file",
+          "title": "Plugin no longer active"
         }
       }
     ],
@@ -177,12 +177,13 @@
       "obsidian-git:Open Git source control": false,
       "obsidian-markdown-formatting-assistant-plugin:Open Markdown Formatting Assistant": false,
       "obsidian-projects:Open projects": false,
-      "obsidian-kanban:Create new board": false,
-      "obsidian-excalidraw-plugin:Create new drawing": false
+      "obsidian-excalidraw-plugin:Create new drawing": false,
+      "obsidian-kanban:Create new board": false
     }
   },
   "active": "54137e971e651ed7",
   "lastOpenFiles": [
+    "4_Archive/Easy devtools version management, mise.md",
     "3_Resource/mise.md",
     "3_Resource/asdf vs mise.md",
     "daily/2024-12-05.md",
