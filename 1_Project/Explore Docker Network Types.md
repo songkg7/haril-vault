@@ -1,13 +1,13 @@
 ---
 title: 도커의 네트워크 타입들
-date: 2024-06-16 16:54:00 +0900
+date: 2024-06-16T16:54:00
 aliases: 
 tags:
   - docker
   - network
   - study
 categories: 
-updated: 2024-10-04 15:39:25 +0900
+updated: 2025-01-07T00:32
 ---
 
 ## Docker 의 네트워크 관리

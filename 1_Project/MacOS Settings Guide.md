@@ -1,11 +1,11 @@
 ---
 title: MacOS 설정 가이드
-date: 2024-07-02 15:54:00 +0900
+date: 2024-07-02T15:54:00
 aliases: 
 tags: 
 categories: 
 description: 
-updated: 2024-10-05 11:44:36 +0900
+updated: 2025-01-07T00:32
 ---
 
 ## MacOS 세팅 탭 만들기

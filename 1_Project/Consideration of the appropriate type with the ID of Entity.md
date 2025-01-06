@@ -1,6 +1,6 @@
 ---
 title: Entity 의 ID 로 적절한 타입은 무엇일까?
-date: 2022-10-24 17:08:00 +0900
+date: 2022-10-24T17:08:00
 aliases: 
 tags:
   - entity
@@ -9,7 +9,7 @@ tags:
   - uuid
   - long
 categories: 
-updated: 2024-02-19 00:21:54 +0900
+updated: 2025-01-07T00:32
 ---
 
 ## Overview
