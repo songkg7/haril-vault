@@ -1,15 +1,15 @@
 ---
 title: Jenkins 로 EC2 비용 절약하기
-date: 2023-03-22 12:53:00 +0900
-aliases: null
+date: 2023-03-22T12:53:00
+aliases: 
 tags:
   - jenkins
   - aws
   - ec2
   - edd
-categories: null
+categories: 
 mermaid: true
-updated: 2023-08-19 12:38:07 +0900
+updated: 2025-01-07T00:36
 ---
 
 특정 시간, 특정 조건에서만 실행되야하는 배치성 애플리케이션이 존재할 때 리소스 비용을 최적화하는 아주 간단한 방법에 대해서 공유합니다.

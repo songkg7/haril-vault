@@ -1,12 +1,12 @@
 ---
 title: ZonedDateTime 의 equals
-date: 2022-11-21 16:51:00 +0900
-aliases: null
+date: 2022-11-21T16:51:00
+aliases: 
 tags:
   - java
   - zoneddatetime
 categories: Java
-updated: 2023-08-19 12:38:12 +0900
+updated: 2025-01-07T00:36
 ---
 
 ## Overview

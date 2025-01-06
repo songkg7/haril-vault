@@ -1,12 +1,16 @@
 ---
-title: "kotlin loop"
-date: 2022-08-16 21:03:00 +0900
+title: kotlin loop
+date: 2022-08-16T21:03:00
 publish: true
 fc-calendar: Gregorian Calendar
 fc-date: 2022-08-16
 aliases: 
-tags: [kotlin, loop, 반복문]
+tags:
+  - kotlin
+  - loop
+  - 반복문
 categories: Kotlin
+updated: 2025-01-07T00:36
 ---
 
 [[Kotlin]] 에서는 Java 보다 훨씬 심플하고 편리한 반복문을 작성할 수 있다. 어떻게 사용할 수 있는지 살펴보자.

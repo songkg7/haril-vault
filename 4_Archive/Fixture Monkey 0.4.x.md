@@ -1,6 +1,6 @@
 ---
 title: Fixture monkey 0.4.x
-date: 2022-11-11 14:25:00 +0900
+date: 2022-11-11T14:25:00
 aliases: 
 tags:
   - fixture
@@ -8,7 +8,7 @@ tags:
   - naver
   - open-source
 categories: 
-updated: 2024-10-05 11:44:42 +0900
+updated: 2025-01-07T00:36
 ---
 
 ## Overview

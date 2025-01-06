@@ -1,9 +1,16 @@
 ---
-title: "복합키 상황에서의 페이징 최적화하기"
-date: 2023-03-15 13:28:00 +0900
+title: 복합키 상황에서의 페이징 최적화하기
+date: 2023-03-15T13:28:00
 aliases: 
-tags: [spring, batch, sql, pagination, optimize, postgresql]
+tags:
+  - spring
+  - batch
+  - sql
+  - pagination
+  - optimize
+  - postgresql
 categories: 
+updated: 2025-01-07T00:36
 ---
 
 [[Spring Batch]] 를 사용하여 수억건의 데이터가 존재하는 테이블을 조회할때 겪었던 문제를 설명합니다.

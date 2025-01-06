@@ -1,13 +1,13 @@
 ---
 title: PostgreSQL 에서 SELECT FOR UPDATE 구문의 동작방식
-date: 2024-04-20 18:30:00 +0900
+date: 2024-04-20T18:30:00
 aliases: 
 tags:
   - postgresql
   - transaction
   - 2pl
 categories: 
-updated: 2024-10-05 11:44:36 +0900
+updated: 2025-01-07T00:36
 ---
 
 ## SELECT FOR UPDATE 구문의 동작 방식

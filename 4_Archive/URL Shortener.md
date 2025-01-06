@@ -1,13 +1,13 @@
 ---
 title: 직접 구현해보는 URL 단축기
-date: 2023-05-07 14:13:00 +0900
-aliases: null
+date: 2023-05-07T14:13:00
+aliases: 
 tags:
   - url
   - system-architecture
   - kotlin
-categories: null
-updated: 2023-08-16 13:35:25 +0900
+categories: 
+updated: 2025-01-07T00:36
 ---
 
 > [!INFO]

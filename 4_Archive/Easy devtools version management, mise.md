@@ -1,12 +1,12 @@
 ---
 title: 개발도구 버전 관리하기, mise
-date: 2024-04-18 20:35:00 +0900
+date: 2024-04-18T20:35:00
 aliases: 
 tags:
   - mise
   - version-manager
 categories: 
-updated: 2024-10-05 11:44:36 +0900
+updated: 2025-01-07T00:36
 description: 개발 도구의 여러 버전을 바꿔가며 사용해야한다면 어떻게 해야할까요? 이번 글에서는 mise 를 통해 개발 환경을 편리하게 관리하는 방법을 살펴봅니다.
 published: 2024-06-27
 ---

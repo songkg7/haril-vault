@@ -1,13 +1,13 @@
 ---
 title: Google cloud kubernetes 를 local 에서 접근하기
-date: 2022-11-24 13:38:00 +0900
-aliases: null
+date: 2022-11-24T13:38:00
+aliases: 
 tags:
   - gcp
   - kubernetes
   - cli
 categories: DevOps
-updated: 2023-08-19 12:38:11 +0900
+updated: 2025-01-07T00:36
 ---
 
 ## Overview

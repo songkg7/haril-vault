@@ -1,10 +1,12 @@
 ---
-title: "1년여간의 블로그 여정"
-date: 2023-06-23 11:16:00 +0900
+title: 1년여간의 블로그 여정
+date: 2023-06-23T11:16:00
 aliases: 
-tags: [essay, review]
+tags:
+  - essay
+  - review
 categories: Essay
-updated: 2023-07-14 19:22:54 +0900
+updated: 2025-01-07T00:36
 ---
 
 ## 개요

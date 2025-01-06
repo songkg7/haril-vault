@@ -1,13 +1,13 @@
 ---
 title: Spring batch 5.0 changes
-date: 2023-02-24 13:38:00 +0900
+date: 2023-02-24T13:38:00
 aliases: []
 tags:
   - spring
   - batch
   - changes
 categories: Spring
-updated: 2023-09-02 14:11:05 +0900
+updated: 2025-01-07T00:36
 publish: true
 ---
 

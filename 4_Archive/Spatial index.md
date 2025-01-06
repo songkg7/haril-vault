@@ -1,6 +1,6 @@
 ---
 title: Spatial index
-date: 2024-03-03 14:00:40 +0900
+date: 2024-03-03T14:00:40
 aliases: 
 tags:
   - spatial-index
@@ -8,7 +8,7 @@ tags:
   - postgis
   - geometry
 categories: 
-updated: 2024-03-03 14:01:05 +0900
+updated: 2025-01-07T00:36
 ---
 
 매우 비효율적이였던 기존 구현 방식을 설명하고, 개선하기 위해 시도한 방법들을 기록합니다.

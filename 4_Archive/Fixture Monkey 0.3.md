@@ -1,13 +1,13 @@
 ---
 title: Fixture monkey 0.3
-date: 2022-09-19 18:34:00 +0900
+date: 2022-09-19T18:34:00
 aliases: 
 tags:
   - test
   - naver
   - open-source
 categories: 
-updated: 2024-10-05 11:44:43 +0900
+updated: 2025-01-07T00:36
 ---
 
 > [!NOTE] Example code

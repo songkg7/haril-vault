@@ -1,6 +1,6 @@
 ---
 title: 패킷으로 알아보는 3 way handshake with Termshark
-date: 2024-04-10 01:18:00 +0900
+date: 2024-04-10T01:18:00
 aliases: 
 tags:
   - network
@@ -9,7 +9,7 @@ tags:
   - termshark
   - wireshark
 categories: 
-updated: 2024-04-14 21:31:41 +0900
+updated: 2025-01-07T00:36
 ---
 
 ## 네트워크 패킷이란

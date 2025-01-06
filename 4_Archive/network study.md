@@ -1,12 +1,12 @@
 ---
 title: network study
-date: 2024-03-25 15:45:00 +0900
+date: 2024-03-25T15:45:00
 aliases: 
 tags:
   - network
   - study
 categories: 
-updated: 2024-10-05 11:44:36 +0900
+updated: 2025-01-07T00:36
 ---
 
 # Deeeeeep Network

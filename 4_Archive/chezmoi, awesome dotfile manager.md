@@ -1,12 +1,12 @@
 ---
 title: chezmoi, awosome dotfile manager
-date: 2023-03-25 10:50:00 +0900
+date: 2023-03-25T10:50:00
 aliases: chezmoi
 tags:
   - chezmoi
   - dotfiles
 categories: 
-updated: 2023-10-19 14:51:36 +0900
+updated: 2025-01-07T00:36
 ---
 
 새로운 맥북을 사서 기분이 좋았다가 개발 환경을 다시 세팅해줄 생각에 머리가 어지러웠던 적은 없으신가요? 업무 중 기가 막힌 툴을 찾았지만, 집에서 개인 환경에 다시 설정할 생각에 귀찮으셨던 적은 없으신가요? github 으로 설정들을 관리하고 싶지만, 보안성이 신경쓰여 push 할때도 한 참 고민하신 적은 없으신가요?

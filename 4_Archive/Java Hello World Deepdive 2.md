@@ -1,6 +1,6 @@
 ---
 title: Java 에서 Hello World 를 출력하기까지 2
-date: 2023-12-08 14:33:00 +0900
+date: 2023-12-08T14:33:00
 aliases: 
 tags:
   - java
@@ -11,7 +11,7 @@ tags:
   - operand
   - opcode
 categories: 
-updated: 2024-10-05 11:44:36 +0900
+updated: 2025-01-07T00:36
 ---
 
 [Java Hello World Deepdive 1](https://songkg7.github.io/posts/Java-Hello-World-Deepdive-1/) 편에 이어서 "Hello World" 를 출력하기 위해 코드가 어떻게 변해가는지 살펴봅니다.

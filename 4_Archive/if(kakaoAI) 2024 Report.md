@@ -1,6 +1,6 @@
 ---
 title: if(kakaoAI) 2024 Report
-date: 2024-10-21 15:02:00 +0900
+date: 2024-10-21T15:02:00
 aliases: 
 tags:
   - kakao
@@ -8,7 +8,7 @@ tags:
   - mongodb
   - kafka
 description: if(kakaoAI) 2024 day 3 에 참여한 후기
-updated: 2024-10-26 10:32:15 +0900
+updated: 2025-01-07T00:36
 published: 2024-10-26
 ---
 

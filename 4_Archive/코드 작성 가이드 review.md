@@ -1,13 +1,13 @@
 ---
 title: "[book-review] 코드 작성 가이드"
-date: 2024-12-17 14:20:00 +0900
+date: 2024-12-17T14:20:00
 aliases: 
 tags:
   - review
   - book
   - convention
 description: 코드 작성 가이드 책을 읽고 느낀 점을 작성해보았습니다.
-updated: 2024-12-18T00:35
+updated: 2025-01-07T00:36
 published: 2024-12-17
 ---
 

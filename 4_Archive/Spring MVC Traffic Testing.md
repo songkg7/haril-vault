@@ -1,6 +1,6 @@
 ---
 title: Spring MVC 트래픽 테스트
-date: 2023-11-06 10:33:00 +0900
+date: 2023-11-06T10:33:00
 aliases: 
 tags:
   - test
@@ -10,7 +10,7 @@ tags:
   - spike-test
   - performance-test
 categories: 
-updated: 2024-10-05 11:44:36 +0900
+updated: 2025-01-07T00:36
 ---
 
 ## Overview
