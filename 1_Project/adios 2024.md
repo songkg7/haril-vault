@@ -4,25 +4,17 @@ date: 2025-01-03T15:56:00
 aliases: 
 tags: 
 description: 
-updated: 2025-01-07T00:32
+updated: 2025-01-07T00:40
 ---
 2024 회고
 
 2024년에 쓴 글 리스트 뽑기
 
-
 ```dataview
 LIST
 FROM -"daily"
-WHERE date = date(2025-01-03)
+WHERE date.year = 2024
 SORT date asc
-```
-
-```dataview
-TABLE tags, date
-FROM -"daily" and "1_Project"
-WHERE title = "adios 2024"
-LIMIT 10
 ```
 
 - 블로그 플랫폼 이동
