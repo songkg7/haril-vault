@@ -4,14 +4,14 @@ date: 2025-01-03T15:56:00+0900
 aliases: 
 tags: 
 description: 
-updated: 2025-01-07T00:48
+updated: 2025-01-07T01:14
 ---
 2024 회고
 
-2024년에 쓴 글 리스트 뽑기
+- [x] 2024년에 쓴 글 리스트 뽑기
 
 ```dataview
-LIST
+TABLE date
 FROM -"daily"
 WHERE date.year = 2024
 SORT date asc
@@ -32,3 +32,17 @@ SORT date asc
 - 영어 공부에 집중
 - AI 를 위한 수학 공부 비중을 늘릴 것
 - 
+
+## Contents
+
+- 2024년에는 총 `$= dv.pages('"4_Archive"').filter(p => p.date && p.date.year === 2024).length`개의 글을 발행했다.
+- 2024년에는 총 13개의 글을 발행했다.
+
+```dataview
+TABLE date
+FROM "4_Archive"
+WHERE date.year = 2024
+```
+
+## Conclusion
+
