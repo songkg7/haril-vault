@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "daily/2024-12-13.md",
+                "file": "1_Project/adiós 2024.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2024-12-13"
+              "title": "adiós 2024"
             }
           }
         ]
@@ -183,6 +183,7 @@
   },
   "active": "54137e971e651ed7",
   "lastOpenFiles": [
+    "daily/2024-12-13.md",
     "4_Archive/Easy devtools version management, mise.md",
     "3_Resource/mise.md",
     "3_Resource/asdf vs mise.md",
