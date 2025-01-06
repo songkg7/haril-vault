@@ -1,10 +1,10 @@
 ---
 title: adios 2024
-date: 2025-01-03T15:56:00
+date: 2025-01-03T15:56:00+0900
 aliases: 
 tags: 
 description: 
-updated: 2025-01-07T00:40
+updated: 2025-01-07T00:48
 ---
 2024 회고
 
