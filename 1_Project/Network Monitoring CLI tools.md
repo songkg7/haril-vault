@@ -1,12 +1,12 @@
 ---
 title: Network Monitoring CLI tools
-date: 2024-05-18 13:00:00 +0900
+date: 2024-05-18T13:00:00
 aliases: 
 tags:
   - tool
   - network
 categories: 
-updated: 2024-05-19 17:13:54 +0900
+updated: 2025-01-07T00:32
 ---
 
 ## Overview

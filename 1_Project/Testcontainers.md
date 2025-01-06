@@ -1,6 +1,6 @@
 ---
 title: Testcontainers
-date: 2022-07-18 11:21:00 +0900
+date: 2022-07-18T11:21:00
 tags:
   - docker
   - java
@@ -9,7 +9,7 @@ tags:
   - junit
   - library
 categories: 
-updated: 2024-10-01 14:25:15 +0900
+updated: 2025-01-07T00:32
 ---
 
 ## What is TestContainers?

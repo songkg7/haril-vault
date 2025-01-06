@@ -1,6 +1,6 @@
 ---
 title: Streaming Systems Study
-date: 2024-07-02 11:30:00 +0900
+date: 2024-07-02T11:30:00
 aliases: 
 tags:
   - book
@@ -10,7 +10,7 @@ tags:
   - batch
 categories: 
 description: 
-updated: 2024-07-24 23:06:49 +0900
+updated: 2025-01-07T00:32
 ---
 
 ## 1부. 빔모델

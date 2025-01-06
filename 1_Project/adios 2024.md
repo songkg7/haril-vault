@@ -4,7 +4,7 @@ date: 2025-01-03T15:56:00
 aliases: 
 tags: 
 description: 
-updated: 2025-01-07T00:22
+updated: 2025-01-07T00:32
 ---
 2024 회고
 

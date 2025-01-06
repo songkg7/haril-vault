@@ -1,12 +1,12 @@
 ---
 title: KafkaKRU review
-date: 2024-11-21 23:02:00 +0900
+date: 2024-11-21T23:02:00
 aliases: 
 tags:
   - kafka
   - meet-up
 description: 
-updated: 2024-11-22 21:38:02 +0900
+updated: 2025-01-07T00:32
 ---
 
 ![](https://i.imgur.com/Cg9Usdb.png)
