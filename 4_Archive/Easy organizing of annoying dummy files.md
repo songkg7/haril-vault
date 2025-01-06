@@ -1,6 +1,6 @@
 ---
 title: "[Shell] 귀찮은 더미파일 쉽게 정리하기"
-date: 2024-10-05 12:23:00 +0900
+date: 2024-10-05T12:23:00
 aliases: 
 tags:
   - shell
@@ -9,7 +9,7 @@ tags:
   - trash-cli
 categories: 
 description: 
-updated: 2024-10-13 01:16:05 +0900
+updated: 2025-01-07T00:36
 published: 2024-10-11
 ---
 

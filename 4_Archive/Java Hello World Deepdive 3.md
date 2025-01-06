@@ -1,12 +1,12 @@
 ---
 title: Java 에서 Hello World 를 출력하기까지 3
-date: 2023-12-08 14:34:00 +0900
+date: 2023-12-08T14:34:00
 aliases: 
 tags:
   - java
   - jvm
 categories: 
-updated: 2024-03-27 13:15:56 +0900
+updated: 2025-01-07T00:36
 ---
 
 앞선 챕터에서는 Java 를 컴파일해보며 바이트코드 구조에 대해 살펴봤다. 이번 챕터에서는 JVM 이 실행되면서 'Hello World' 코드 블록을 어떻게 동작시키는지 살펴본다.

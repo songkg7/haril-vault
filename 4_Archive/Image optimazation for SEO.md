@@ -1,7 +1,7 @@
 ---
 title: 블로그 검색 노출을 위한 이미지 최적화하기
-date: 2023-04-18 15:15:00 +0900
-aliases: null
+date: 2023-04-18T15:15:00
+aliases: 
 tags:
   - webp
   - imagemin
@@ -9,8 +9,8 @@ tags:
   - jekyll
   - seo
   - javascript
-categories: null
-updated: 2023-08-19 12:38:14 +0900
+categories: 
+updated: 2025-01-07T00:36
 ---
 
 블로그 포스팅 자동화 과정 중 SEO 를 위한 이미지 최적화에 대해 이야기합니다. 성공이 아닌 실패에 대한, Plan B 로 돌아가야만 했던 이야기입니다.

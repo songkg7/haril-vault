@@ -1,6 +1,6 @@
 ---
 title: Naver DAN 24 Review
-date: 2024-11-11 12:50:00 +0900
+date: 2024-11-11T12:50:00
 aliases: 
 tags:
   - naver
@@ -8,7 +8,7 @@ tags:
   - conference
   - review
 description: Naver DAN24 에 참여하면서 겪은 경험을 정리해뒀습니다
-updated: 2024-11-23 18:09:10 +0900
+updated: 2025-01-07T00:36
 image: https://i.imgur.com/C6O6y1I.png
 published: 2024-11-23
 ---

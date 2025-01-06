@@ -1,12 +1,12 @@
 ---
 title: Could not find a valid Docker environment
-date: 2022-10-28 11:26:00 +0900
-aliases: null
+date: 2022-10-28T11:26:00
+aliases: 
 tags:
   - error
   - docker
-categories: null
-updated: 2023-08-19 12:38:08 +0900
+categories: 
+updated: 2025-01-07T00:36
 ---
 
 ## Overview

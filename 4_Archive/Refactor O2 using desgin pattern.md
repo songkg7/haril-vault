@@ -1,6 +1,6 @@
 ---
 title: O2 에 design pattern 적용하기
-date: 2023-03-08 12:28:00 +0900
+date: 2023-03-08T12:28:00
 aliases: 
 tags:
   - typescript
@@ -8,7 +8,7 @@ tags:
   - o2
   - design-pattern
 categories: 
-updated: 2023-09-04 11:57:33 +0900
+updated: 2025-01-07T00:36
 ---
 
 [O2](https://github.com/songkg7/o2) 프로젝트를 좀 더 유연하게 관리할 수 있도록 디자인 패턴을 사용하여 구조를 개선하는 과정을 이야기합니다.

@@ -1,6 +1,6 @@
 ---
 title: Fixture Monkey
-date: 2024-01-31 13:03:00 +0900
+date: 2024-01-31T13:03:00
 aliases: 
 tags:
   - testing
@@ -9,7 +9,7 @@ tags:
   - naver
   - opensource
 categories: 
-updated: 2024-02-04 02:23:56 +0900
+updated: 2025-01-07T00:36
 ---
 
 > "Write once, Test anywhere"

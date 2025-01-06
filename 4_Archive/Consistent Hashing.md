@@ -1,6 +1,6 @@
 ---
 title: 안정 해시
-date: 2023-04-20 13:41:00 +0900
+date: 2023-04-20T13:41:00
 aliases:
   - 안정 해시
 tags:
@@ -8,7 +8,7 @@ tags:
   - algorithm
   - consistent
 categories: 
-updated: 2023-10-03 07:31:38 +0900
+updated: 2025-01-07T00:36
 banner: "![[consistent hash.png]]"
 ---
 

@@ -1,13 +1,13 @@
 ---
 title: Java 에서 Hello World 를 출력하기까지 1
-date: 2023-11-12 16:20:00 +0900
+date: 2023-11-12T16:20:00
 aliases: 
 tags:
   - java
   - compile
   - jvm
 categories: 
-updated: 2024-10-05 11:44:36 +0900
+updated: 2025-01-07T00:36
 ---
 
 프로그래밍 세계에서는 항상 `Hello World` 라는 문장을 출력하면서 시작한다. 그게 ~~국룰~~ 암묵적인 규칙이다.

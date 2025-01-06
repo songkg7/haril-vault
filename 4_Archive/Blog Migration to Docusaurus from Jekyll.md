@@ -1,6 +1,6 @@
 ---
 title: 지킬 블로그를 도큐사우루스로 이사하기
-date: 2024-05-02 16:47:00 +0900
+date: 2024-05-02T16:47:00
 aliases: 
 tags:
   - docusaurus
@@ -8,7 +8,7 @@ tags:
   - algolia
   - react
 categories: 
-updated: 2024-07-22 17:54:45 +0900
+updated: 2025-01-07T00:36
 published: 2024-07-22
 ---
 

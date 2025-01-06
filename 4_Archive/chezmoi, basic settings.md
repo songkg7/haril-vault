@@ -1,12 +1,12 @@
 ---
 title: chezmoi, 본격적으로 활용하기
-date: 2023-03-26 21:49:00 +0900
+date: 2023-03-26T21:49:00
 aliases: 
 tags:
   - chezmoi
   - dotfiles
 categories: 
-updated: 2024-10-05 11:44:42 +0900
+updated: 2025-01-07T00:36
 ---
 
 지난 글 [[chezmoi, awesome dotfile manager|chezmoi, awosome dotfile manager]]에 이어 좀 더 편리하게 활용할 수 있는 방법들에 대해 공유합니다.

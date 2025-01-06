@@ -1,6 +1,6 @@
 ---
 title: 다중 접속 서버로의 여정
-date: 2024-04-27 00:27:00 +0900
+date: 2024-04-27T00:27:00
 aliases: 
 tags:
   - network
@@ -12,7 +12,7 @@ tags:
   - nio
   - java
 categories: 
-updated: 2024-05-25 12:10:14 +0900
+updated: 2025-01-07T00:36
 ---
 
 ![](https://i.imgur.com/bDTb83y.png)

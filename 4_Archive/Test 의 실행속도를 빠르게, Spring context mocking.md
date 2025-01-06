@@ -1,15 +1,15 @@
 ---
 title: Test 의 실행속도를 빠르게, Spring context mocking
-date: 2022-09-05 12:33:00 +0900
-published: 2023-01-25 11:33:00 +0900
-aliases: null
+date: 2022-09-05T12:33:00
+published: 2023-01-25T11:33:00
+aliases: 
 tags:
   - test
   - spring
   - mockito
   - junit
-categories: null
-updated: 2023-08-19 12:38:11 +0900
+categories: 
+updated: 2025-01-07T00:36
 ---
 
 ## Overview

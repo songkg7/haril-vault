@@ -1,6 +1,6 @@
 ---
 title: "[Spring Batch] KafkaItemReader"
-date: 2022-06-10 16:11:00 +0900
+date: 2022-06-10T16:11:00
 tags:
   - kafka
   - batch
@@ -10,7 +10,7 @@ publish: true
 fc-calendar: Gregorian Calendar
 fc-date: 2022-08-16
 aliases: 
-updated: 2024-10-05 11:44:42 +0900
+updated: 2025-01-07T00:36
 ---
 
 > 저는 Docker 를 사용하여 Kafka 설치 후 이번 글을 작성했지만 해당 내용은 이번 글에서 다루지 않습니다.

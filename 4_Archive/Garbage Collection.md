@@ -1,13 +1,13 @@
 ---
 title: Garbage Collection 에 대한 이해
-date: 2022-12-21 10:12:00 +0900
+date: 2022-12-21T10:12:00
 aliases: GC
 tags:
   - gc
   - jvm
   - garbage-collection
 categories: 
-updated: 2024-10-05 11:44:42 +0900
+updated: 2025-01-07T00:36
 ---
 
 ## Overview

@@ -1,9 +1,14 @@
 ---
-title: "JdbcItemReader sortKeys 설정시 주의사항"
-date: 2023-03-06 16:46:00 +0900
+title: JdbcItemReader sortKeys 설정시 주의사항
+date: 2023-03-06T16:46:00
 aliases: 
-tags: [postgresql, rdb, spring, batch]
+tags:
+  - postgresql
+  - rdb
+  - spring
+  - batch
 categories: 
+updated: 2025-01-07T00:36
 ---
 
 [[PostgreSQL]]에서  대용량 데이터를 조회하며 겪었던 문제에 대해 공유합니다.

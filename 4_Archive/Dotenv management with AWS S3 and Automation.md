@@ -1,6 +1,6 @@
 ---
 title: AWS S3 를 사용한 env 관리 방법 및 자동화
-date: 2024-03-14 22:02:00 +0900
+date: 2024-03-14T22:02:00
 aliases: 
 tags:
   - cli
@@ -8,7 +8,7 @@ tags:
   - automation
   - s3
 categories: 
-updated: 2024-03-16 18:17:03 +0900
+updated: 2025-01-07T00:36
 ---
 
 ## Situation
