@@ -1,10 +1,12 @@
 ---
-title: "Linux"
-date: 2023-05-24 20:11:00 +0900
+title: Linux
+date: 2023-05-24T20:11:00
 aliases: 
-tags: [linux, os]
+tags:
+  - linux
+  - os
 categories: OS
-updated: 2023-05-24 20:12:58 +0900
+updated: 2025-01-07T00:35
 ---
 
 Linux is an open-source operating system based on Unix that is freely distributed and used by individuals, businesses, and governments around the world. It was first created by Linus Torvalds in 1991 and has since grown to become one of the most popular operating systems in use today.

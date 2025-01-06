@@ -1,12 +1,12 @@
 ---
 title: Transactional Outbox Pattern
-date: 2023-07-10 11:15:00 +0900
+date: 2023-07-10T11:15:00
 aliases: 
 tags:
   - distribute
   - transaction
 categories: 
-updated: 2024-02-06 21:22:06 +0900
+updated: 2025-01-07T00:35
 ---
 
 The Transactional Outbox Pattern is a design pattern used in distributed systems to ensure reliable message delivery. It is often used in systems where multiple services need to be notified of changes or events.

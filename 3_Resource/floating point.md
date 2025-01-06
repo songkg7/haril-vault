@@ -1,6 +1,6 @@
 ---
 title: floating point
-date: 2022-08-14 02:54:00 +0900
+date: 2022-08-14T02:54:00
 publish: false
 fc-calendar: Gregorian Calendar
 fc-date: 2022-08-14
@@ -10,7 +10,7 @@ tags:
   - floating-point
   - float
 categories: Computer science
-updated: 2023-08-29 16:44:43 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## 부동소수?

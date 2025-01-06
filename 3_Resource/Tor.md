@@ -1,13 +1,13 @@
 ---
 title: Tor
-date: 2024-07-01 21:22:00 +0900
+date: 2024-07-01T21:22:00
 aliases: 
 tags:
   - browser
   - security
 categories: 
 description: 
-updated: 2024-07-01 21:22:38 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## Tor 브라우저란?

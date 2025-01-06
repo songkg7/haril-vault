@@ -1,12 +1,12 @@
 ---
 title: Ethernet
-date: 2024-04-10 00:10:00 +0900
+date: 2024-04-10T00:10:00
 aliases: 
 tags:
   - network
   - ethernet
 categories: 
-updated: 2024-04-10 00:10:09 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## 이더넷이란?

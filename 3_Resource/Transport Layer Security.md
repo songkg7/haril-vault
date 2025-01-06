@@ -1,13 +1,13 @@
 ---
 title: Transport Layer Security
-date: 2023-10-19 11:28:00 +0900
+date: 2023-10-19T11:28:00
 aliases:
   - TLS
 tags:
   - network
   - https
 categories: Network
-updated: 2023-11-26 08:31:20 +0900
+updated: 2025-01-07T00:35
 ---
 
 > 전송 계층(L4) 보안

@@ -1,12 +1,15 @@
 ---
-title: "ArchUnit"
-date: 2022-09-14 10:33:00 +0900
+title: ArchUnit
+date: 2022-09-14T10:33:00
 fc-calendar: Gregorian Calendar
 fc-date: 2022-09-14
 aliases: 
-tags: [test, architecture, java]
+tags:
+  - test
+  - architecture
+  - java
 categories: 
-updated: 2023-07-05 16:16:12 +0900
+updated: 2025-01-07T00:35
 ---
 
 소프트웨어의 아키텍처를 테스트할 수 있게 도와주는 java 진영의 테스트 도구. 일반적인 unit test 와는 테스트하고자 하는 관점이 다르다.

@@ -1,12 +1,12 @@
 ---
 title: Secondary Index
-date: 2022-10-30 17:58:00 +0900
-aliases: null
+date: 2022-10-30T17:58:00
+aliases: 
 tags:
   - database
   - index
-categories: null
-updated: 2023-08-19 12:36:16 +0900
+categories: 
+updated: 2025-01-07T00:35
 ---
 
 PK 로 생성되는 index 외에 개발자가 추가로 생성하는 모든 종류의 인덱스.

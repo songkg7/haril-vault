@@ -1,10 +1,10 @@
 ---
 title: Serverless Framework
-date: 2024-12-09 17:01:00 +0900
+date: 2024-12-09T17:01:00
 aliases: 
 tags: 
 description: 
-updated: 2024-12-09T17:02
+updated: 2025-01-07T00:35
 ---
 
 ## Reference

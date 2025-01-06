@@ -1,13 +1,13 @@
 ---
 title: javap 사용법
-date: 2023-11-01 13:45:00 +0900
+date: 2023-11-01T13:45:00
 aliases: 
 tags:
   - java
   - bytecode
   - javap
 categories: 
-updated: 2024-10-05 11:44:36 +0900
+updated: 2025-01-07T00:35
 ---
 
 Javap는 [[Java]] 클래스 파일의 바이트 코드를 분석하는 도구입니다. 이 도구를 사용하면 클래스 파일의 내용, 메서드, 필드 등을 살펴볼 수 있습니다.

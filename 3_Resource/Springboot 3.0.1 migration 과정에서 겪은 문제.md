@@ -1,9 +1,13 @@
 ---
-title: "Springboot 3.0.1 migration 과정에서 겪은 문제"
-date: 2023-01-18 14:56:00 +0900
+title: Springboot 3.0.1 migration 과정에서 겪은 문제
+date: 2023-01-18T14:56:00
 aliases: 
-tags: [java, spring, springboot]
+tags:
+  - java
+  - spring
+  - springboot
 categories: Spring
+updated: 2025-01-07T00:35
 ---
 
 [[Spring framework|Spring]]

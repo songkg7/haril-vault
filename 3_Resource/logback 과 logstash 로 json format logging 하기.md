@@ -1,9 +1,10 @@
 ---
-title: "logback 과 logstash 로 json format logging 하기"
-date: 2023-01-03 16:30:00 +0900
+title: logback 과 logstash 로 json format logging 하기
+date: 2023-01-03T16:30:00
 aliases: 
 tags: 
 categories: 
+updated: 2025-01-07T00:35
 ---
 
 logback 관련 의존성 추가

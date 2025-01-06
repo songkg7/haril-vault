@@ -1,12 +1,12 @@
 ---
 title: DataJpaTest
-date: 2023-09-21 15:56:00 +0900
+date: 2023-09-21T15:56:00
 aliases: 
 tags:
   - jpa
   - test
 categories: 
-updated: 2023-09-21 15:56:26 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## 사용방법

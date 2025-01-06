@@ -1,6 +1,6 @@
 ---
 title: Aerospace
-date: 2024-06-22 16:22:00 +0900
+date: 2024-06-22T16:22:00
 aliases: 
 tags:
   - display
@@ -9,7 +9,7 @@ tags:
   - yabai
   - tool
 categories: 
-updated: 2024-11-08 17:46:53 +0900
+updated: 2025-01-07T00:35
 ---
 
 - 윈도우 매니저

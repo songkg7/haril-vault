@@ -1,16 +1,16 @@
 ---
 title: Spring batch 에서 Quartz 사용에 대한 고찰
-date: 2022-09-07 11:38:00 +0900
+date: 2022-09-07T11:38:00
 fc-calendar: Gregorian Calendar
 fc-date: 2022-09-07
-aliases: null
+aliases: 
 tags:
   - spring
   - batch
   - quartz
   - schedular
 categories: Spring
-updated: 2023-08-19 12:37:58 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## Overview

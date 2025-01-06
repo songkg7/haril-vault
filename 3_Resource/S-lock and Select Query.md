@@ -1,6 +1,6 @@
 ---
 title: 배타적 잠금에서는 조회가 가능할까
-date: 2023-09-28 16:45:00 +0900
+date: 2023-09-28T16:45:00
 aliases: 
 tags:
   - s-lock
@@ -9,7 +9,7 @@ tags:
   - lock
   - sql
 categories: Database
-updated: 2023-09-28 16:45:33 +0900
+updated: 2025-01-07T00:35
 ---
 
 select for update 문을 사용하면 데이터에 X-lock 이 걸리고 다른 트랜잭션에서 lock 을 획득하려하는 시도를 차단한다.

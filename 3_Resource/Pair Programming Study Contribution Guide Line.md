@@ -1,6 +1,6 @@
 ---
 title: Pair Programming Study 가이드라인
-date: 2023-09-06 20:45:00 +0900
+date: 2023-09-06T20:45:00
 aliases: []
 tags:
   - livid
@@ -9,7 +9,7 @@ tags:
   - codecov
   - ktlint
 categories: 
-updated: 2023-09-06 22:04:35 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## Contribution Guide Line

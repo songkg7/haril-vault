@@ -1,6 +1,6 @@
 ---
 title: Netty
-date: 2024-02-13 14:42:00 +0900
+date: 2024-02-13T14:42:00
 aliases: 
 tags:
   - java
@@ -8,7 +8,7 @@ tags:
   - non-blocking
   - asnyc
 categories: 
-updated: 2024-04-21 15:23:24 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## Netty 란

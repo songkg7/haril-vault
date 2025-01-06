@@ -1,12 +1,12 @@
 ---
 title: Pinpoint
-date: 2023-04-30 05:07:00 +0900
+date: 2023-04-30T05:07:00
 aliases: 
 tags:
   - tracing
   - apm
 categories: 
-updated: 2024-09-23 09:14:40 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## What is Pinpoint

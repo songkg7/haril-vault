@@ -1,13 +1,13 @@
 ---
 title: Awaitility
-date: 2024-10-01 14:26:00 +0900
+date: 2024-10-01T14:26:00
 aliases: 
 tags:
   - test
   - library
 categories: 
 description: 
-updated: 2024-10-01 14:26:17 +0900
+updated: 2025-01-07T00:35
 ---
 
 비동기 동작을 테스트할 때 사용하는 테스트 유틸.

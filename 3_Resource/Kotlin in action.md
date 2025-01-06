@@ -1,9 +1,12 @@
 ---
-title: "Kotlin in action"
-date: 2022-12-19 20:44:00 +0900
+title: Kotlin in action
+date: 2022-12-19T20:44:00
 aliases: 
-tags: [book, kotlin]
+tags:
+  - book
+  - kotlin
 categories: 
+updated: 2025-01-07T00:35
 ---
 
 [[Kotlin]]

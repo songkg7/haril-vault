@@ -1,13 +1,13 @@
 ---
 title: DataDog
-date: 2023-05-08 13:14:00 +0900
-aliases: null
+date: 2023-05-08T13:14:00
+aliases: 
 tags:
   - datadog
   - apm
   - monitoring
-categories: null
-updated: 2023-08-08 21:45:17 +0900
+categories: 
+updated: 2025-01-07T00:35
 ---
 
 ```

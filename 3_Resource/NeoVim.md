@@ -1,11 +1,15 @@
 ---
-title: "NeoVim"
-date: 2022-09-06 20:46:00 +0900
+title: NeoVim
+date: 2022-09-06T20:46:00
 fc-calendar: Gregorian Calendar
 fc-date: 2022-09-06
 aliases: 
-tags: [vim, nvim, neovim]
+tags:
+  - vim
+  - nvim
+  - neovim
 categories: Vim
+updated: 2025-01-07T00:35
 ---
 
 ## Overview

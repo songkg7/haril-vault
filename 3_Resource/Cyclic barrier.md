@@ -1,11 +1,11 @@
 ---
 title: Cyclic barrier
-date: 2024-02-25 22:37:00 +0900
+date: 2024-02-25T22:37:00
 aliases: 
 tags:
   - synchronize
 categories: 
-updated: 2024-02-25 22:37:12 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## CyclicBarrier 란?

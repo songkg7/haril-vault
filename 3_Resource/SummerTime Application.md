@@ -1,13 +1,13 @@
 ---
 title: SummerTime Application
-date: 2024-03-28 19:51:00 +0900
+date: 2024-03-28T19:51:00
 aliases: 
 tags:
   - app
   - summertime
   - api
 categories: 
-updated: 2024-03-30 17:45:08 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## Overview

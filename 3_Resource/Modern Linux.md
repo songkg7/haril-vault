@@ -1,10 +1,10 @@
 ---
 title: Modern Linux
-date: 2023-08-22 17:38:00 +0900
-aliases: null
+date: 2023-08-22T17:38:00
+aliases: 
 tags: linux, tool, terminal
-categories: null
-updated: 2023-08-22 17:38:20 +0900
+categories: 
+updated: 2025-01-07T00:35
 ---
 
 리눅스를 편리하게 사용해보자

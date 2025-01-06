@@ -1,12 +1,12 @@
 ---
 title: Couch DB
-date: 2023-10-16 23:07:00 +0900
+date: 2023-10-16T23:07:00
 aliases: 
 tags:
   - apache
   - database
 categories: 
-updated: 2023-10-16 23:07:44 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## 아파치 카우치 DB

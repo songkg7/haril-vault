@@ -1,10 +1,14 @@
 ---
-title: "Hadoop"
-date: 2023-05-24 20:12:00 +0900
+title: Hadoop
+date: 2023-05-24T20:12:00
 aliases: HDFS
-tags: [apache, distribute, open-source, hdfs]
+tags:
+  - apache
+  - distribute
+  - open-source
+  - hdfs
 categories: 
-updated: 2023-05-24 20:16:24 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## 하둡이란?

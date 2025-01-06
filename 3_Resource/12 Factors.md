@@ -1,12 +1,12 @@
 ---
 title: 12 Factors
-date: 2023-07-24 22:33:00 +0900
+date: 2023-07-24T22:33:00
 aliases: 
 tags:
   - heroku
   - msa
 categories: 
-updated: 2023-12-02 20:11:13 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## What is 12 Factors?

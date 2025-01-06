@@ -1,12 +1,12 @@
 ---
 title: Geoshard
-date: 2023-10-20 21:29:00 +0900
+date: 2023-10-20T21:29:00
 aliases: 
 tags:
   - geometry
   - sharding
 categories: 
-updated: 2023-10-20 21:29:41 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## Reference

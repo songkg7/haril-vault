@@ -1,13 +1,13 @@
 ---
 title: 비관적 락
-date: 2023-09-29 20:07:00 +0900
+date: 2023-09-29T20:07:00
 aliases: 
 tags:
   - rdb
   - database
   - transaction
 categories: 
-updated: 2024-05-03 13:37:14 +0900
+updated: 2025-01-07T00:35
 ---
 
 Pessimistic Locking refers to a concurrency control mechanism in computer systems that assumes conflicts will occur and locks resources to prevent concurrent access. This approach is pessimistic because it assumes that conflicts will happen, and takes the precaution of locking resources to avoid them.

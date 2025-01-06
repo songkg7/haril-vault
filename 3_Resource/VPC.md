@@ -1,12 +1,12 @@
 ---
 title: VPC
-date: 2023-06-15 15:42:00 +0900
-aliases: null
+date: 2023-06-15T15:42:00
+aliases: 
 tags:
   - vpc
   - cloud
-categories: null
-updated: 2023-08-19 12:37:55 +0900
+categories: 
+updated: 2025-01-07T00:35
 ---
 
 ## What is a VPC?

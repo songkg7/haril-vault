@@ -1,6 +1,6 @@
 ---
 title: Transaction
-date: 2023-08-08 21:48:00 +0900
+date: 2023-08-08T21:48:00
 aliases: 
 tags:
   - database
@@ -9,7 +9,7 @@ tags:
   - book
   - transaction
 categories: 
-updated: 2024-06-09 18:16:07 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## What is Transaction?

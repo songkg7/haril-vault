@@ -1,10 +1,10 @@
 ---
 title: Open Session In View
-date: 2023-09-01 12:31:00 +0900
+date: 2023-09-01T12:31:00
 aliases: OSIV
 tags: osiv, jpa, entity, persistence
-categories: null
-updated: 2023-09-01 12:31:15 +0900
+categories: 
+updated: 2025-01-07T00:35
 ---
 
 영속성 컨텍스트의 생명주기를 뷰 계층까지 유지시키는 기능. 기본값은 true 로 지정되어 있다.

@@ -1,13 +1,13 @@
 ---
 title: Java NIO
-date: 2024-03-21 17:44:00 +0900
+date: 2024-03-21T17:44:00
 aliases: 
 tags:
   - java
   - nio
   - non-blocking
 categories: 
-updated: 2024-05-14 14:33:13 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## nio 란?

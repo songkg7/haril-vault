@@ -1,13 +1,13 @@
 ---
 title: Equals 와 Hashcode 를 함께 재정의해야하는 이유
-date: 2023-09-18 13:11:00 +0900
+date: 2023-09-18T13:11:00
 aliases: 
 tags:
   - java
   - equality
   - hash
 categories: 
-updated: 2023-09-18 13:23:52 +0900
+updated: 2025-01-07T00:35
 ---
 
 둘 다 재정의하지 않더라도 `Object` 에 기본적으로 정의되어 있으므로 모든 객체는 두 메서드를 사용할 수 있다.

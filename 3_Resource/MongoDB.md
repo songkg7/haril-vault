@@ -1,12 +1,12 @@
 ---
 title: MongoDB
-date: 2022-09-13 11:45:00 +0900
+date: 2022-09-13T11:45:00
 aliases: 
 tags:
   - mongodb
   - nosql
 categories: MongoDB
-updated: 2024-10-06 20:48:53 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## Overview

@@ -1,6 +1,6 @@
 ---
 title: JPA 에서의 select for update 동작
-date: 2023-09-30 19:48:00 +0900
+date: 2023-09-30T19:48:00
 aliases: 
 tags:
   - jpa
@@ -8,7 +8,7 @@ tags:
   - transaction
   - lock
 categories: 
-updated: 2024-09-23 09:14:39 +0900
+updated: 2025-01-07T00:35
 ---
 
 [[Java Persistence API|JPA]] 에서는 `@Lock` 어노테이션을 통해서 `select for update` 구문을 사용할 수 있다.

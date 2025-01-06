@@ -1,13 +1,13 @@
 ---
 title: Dead Lock
-date: 2024-07-25 22:46:00 +0900
+date: 2024-07-25T22:46:00
 aliases: 
 tags:
   - deadlock
   - lock
 categories: 
 description: 
-updated: 2024-07-25 22:46:30 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## Dead Lock

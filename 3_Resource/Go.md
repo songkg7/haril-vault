@@ -1,12 +1,12 @@
 ---
 title: Go
-date: 2023-10-19 14:51:00 +0900
+date: 2023-10-19T14:51:00
 aliases:
   - Golang
 tags:
   - programming-language
 categories: 
-updated: 2023-10-19 14:51:27 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## Golang 에 대해서

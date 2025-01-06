@@ -1,6 +1,6 @@
 ---
 title: Obsidian 사용 후기
-date: 2022-08-29 11:18:00 +0900
+date: 2022-08-29T11:18:00
 fc-calendar: Gregorian Calendar
 fc-date: 2022-08-29
 aliases: Obsidian
@@ -8,8 +8,8 @@ tags:
   - editor
   - obsidian
   - vscode
-categories: null
-updated: 2023-08-19 12:38:01 +0900
+categories: 
+updated: 2025-01-07T00:35
 ---
 
 ## Overview

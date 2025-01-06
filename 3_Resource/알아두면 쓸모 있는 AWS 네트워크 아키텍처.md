@@ -1,13 +1,13 @@
 ---
 title: 알아두면 쓸모 있는 AWS 네트워크 아키텍처
-date: 2024-04-01 19:39:00 +0900
+date: 2024-04-01T19:39:00
 aliases: 
 tags:
   - awskrug
   - aws
   - network
 categories: 
-updated: 2024-04-02 11:07:12 +0900
+updated: 2025-01-07T00:35
 ---
 
 ### Hybrid Cloud 를 네트워크 인프라

@@ -1,9 +1,15 @@
 ---
-title: "Warp + starship + nerd font"
-date: 2022-11-21 17:04:00 +0900
+title: Warp + starship + nerd font
+date: 2022-11-21T17:04:00
 aliases: 
-tags: [terminal, custom, warp, starship, nerd-font]
+tags:
+  - terminal
+  - custom
+  - warp
+  - starship
+  - nerd-font
 categories: 
+updated: 2025-01-07T00:35
 ---
 
 ## Overview

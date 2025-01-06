@@ -1,6 +1,6 @@
 ---
 title: gRPC
-date: 2023-08-26 12:41:00 +0900
+date: 2023-08-26T12:41:00
 aliases:
   - gRPC
 tags:
@@ -8,7 +8,7 @@ tags:
   - http
   - rpc
 categories: 
-updated: 2023-09-04 01:33:16 +0900
+updated: 2025-01-07T00:35
 ---
 
 특징

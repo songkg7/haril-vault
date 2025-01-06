@@ -1,9 +1,12 @@
 ---
-title: "Create custom annotation to validate request parameter"
-date: 2022-10-24 14:35:00 +0900
+title: Create custom annotation to validate request parameter
+date: 2022-10-24T14:35:00
 aliases: 
-tags: [spring-boot, annotation]
+tags:
+  - spring-boot
+  - annotation
 categories: 
+updated: 2025-01-07T00:35
 ---
 
 ## Reference

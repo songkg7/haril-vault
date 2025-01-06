@@ -1,16 +1,16 @@
 ---
 title: ItemProcessor
-date: 2022-08-17 17:06:00 +0900
+date: 2022-08-17T17:06:00
 publish: false
 fc-calendar: Gregorian Calendar
 fc-date: 2022-08-17
-aliases: null
+aliases: 
 tags:
   - batch
   - step
   - chunk
 categories: Spring
-updated: 2023-08-19 12:37:48 +0900
+updated: 2025-01-07T00:35
 ---
 
 `ItemProcessor` 는 [[ItemReader]] 로 읽어온 배치 데이터를 변환하는 역할을 수행합니다.

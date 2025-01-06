@@ -1,12 +1,12 @@
 ---
 title: 스프링 빈 생성주기
-date: 2023-07-15 13:51:00 +0900
+date: 2023-07-15T13:51:00
 aliases: 
 tags:
   - spring
   - bean
 categories: Spring
-updated: 2024-06-09 17:06:16 +0900
+updated: 2025-01-07T00:35
 ---
 
 In [[Spring framework|Spring]], a bean's lifecycle consists of several stages that define its creation, initialization, and destruction. Understanding the bean lifecycle is important for managing dependencies and performing necessary actions at specific stages.

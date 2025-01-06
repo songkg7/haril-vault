@@ -1,11 +1,15 @@
 ---
-title: "Jira vs Github Project"
-date: 2022-09-16 12:37:00 +0900
+title: Jira vs Github Project
+date: 2022-09-16T12:37:00
 fc-calendar: Gregorian Calendar
 fc-date: 2022-09-16
 aliases: 
-tags: [jira, github, project]
+tags:
+  - jira
+  - github
+  - project
 categories: 
+updated: 2025-01-07T00:35
 ---
 
 ## Overview

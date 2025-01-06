@@ -1,6 +1,6 @@
 ---
 title: Merge vs. Rebase vs. Squash
-date: 2024-08-14 09:44:00 +0900
+date: 2024-08-14T09:44:00
 aliases: 
 tags:
   - git
@@ -8,7 +8,7 @@ tags:
   - history
 categories: 
 description: 
-updated: 2024-08-14 09:44:20 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## Reference

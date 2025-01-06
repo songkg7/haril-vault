@@ -1,6 +1,6 @@
 ---
 title: 데이터베이스 복제
-date: 2023-10-01 21:22:00 +0900
+date: 2023-10-01T21:22:00
 aliases: 
 tags:
   - database
@@ -8,7 +8,7 @@ tags:
   - reliability
   - book
 categories: 
-updated: 2024-09-23 09:14:40 +0900
+updated: 2025-01-07T00:35
 related: "[[Database|Database]]"
 ---
 

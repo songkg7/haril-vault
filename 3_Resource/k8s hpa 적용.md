@@ -1,11 +1,11 @@
 ---
 title: k8s hpa 적용
-date: 2023-01-06 17:01:00 +0900
+date: 2023-01-06T17:01:00
 aliases: 
 tags:
   - k8s
 categories: 
-updated: 2023-09-18 16:08:03 +0900
+updated: 2025-01-07T00:35
 ---
 
 [[Kubernetes]]

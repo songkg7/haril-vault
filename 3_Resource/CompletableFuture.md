@@ -1,13 +1,13 @@
 ---
 title: CompletableFuture
-date: 2024-03-21 12:38:00 +0900
+date: 2024-03-21T12:38:00
 aliases: 
 tags:
   - java
   - nio
   - async
 categories: 
-updated: 2024-03-21 17:43:25 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## CompletableFuture 란?

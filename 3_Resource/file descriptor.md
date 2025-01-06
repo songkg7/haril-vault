@@ -1,13 +1,13 @@
 ---
 title: file descriptor
-date: 2024-02-20 13:54:00 +0900
+date: 2024-02-20T13:54:00
 aliases:
   - fd
 tags:
   - linux
   - file
 categories: 
-updated: 2024-04-02 10:34:13 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## File descriptor 란?

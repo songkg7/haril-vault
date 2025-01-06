@@ -1,12 +1,12 @@
 ---
 title: atuin
-date: 2024-02-16 10:31:00 +0900
+date: 2024-02-16T10:31:00
 aliases: 
 tags:
   - history
   - tool
 categories: 
-updated: 2024-02-16 10:31:57 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## Story

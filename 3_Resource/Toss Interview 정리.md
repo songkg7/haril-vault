@@ -1,11 +1,11 @@
 ---
 title: Toss Interview 정리
-date: 2024-09-19 22:51:00 +0900
+date: 2024-09-19T22:51:00
 aliases: 
 tags: 
 categories: 
 description: 
-updated: 2024-09-19 22:51:00 +0900
+updated: 2025-01-07T00:35
 ---
 
 # 1회차

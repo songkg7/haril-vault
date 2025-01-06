@@ -1,12 +1,12 @@
 ---
 title: JVM Memory Layout
-date: 2023-10-12 18:15:00 +0900
+date: 2023-10-12T18:15:00
 aliases: 
 tags:
   - jvm
   - memory
 categories: 
-updated: 2024-10-05 11:44:36 +0900
+updated: 2025-01-07T00:35
 related: "[[Java Virtual Machine|JVM]]"
 ---
 

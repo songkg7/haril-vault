@@ -1,13 +1,13 @@
 ---
 title: TIME_WAIT 상태란 무엇일까?
-date: 2024-05-19 00:05:00 +0900
+date: 2024-05-19T00:05:00
 aliases: 
 tags:
   - network
   - packet
   - tcp
 categories: 
-updated: 2024-06-02 18:52:50 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## TIME_WAIT 상태란 무엇인가?

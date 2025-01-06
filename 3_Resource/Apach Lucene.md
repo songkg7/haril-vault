@@ -1,12 +1,12 @@
 ---
 title: Apach Lucene
-date: 2023-06-16 20:32:00 +0900
-aliases: null
+date: 2023-06-16T20:32:00
+aliases: 
 tags:
   - apache
   - search-engine
-categories: null
-updated: 2023-08-19 12:37:58 +0900
+categories: 
+updated: 2025-01-07T00:35
 ---
 
 ## What is Lucene?

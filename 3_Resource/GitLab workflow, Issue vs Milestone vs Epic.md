@@ -1,14 +1,14 @@
 ---
 title: GitLab workflow, Issue vs Milestone vs Epic
-date: 2022-12-29 10:31:00 +0900
-aliases: null
+date: 2022-12-29T10:31:00
+aliases: 
 tags:
   - gitlab
   - issue
   - milestone
   - epic
-categories: null
-updated: 2023-08-19 12:38:07 +0900
+categories: 
+updated: 2025-01-07T00:35
 ---
 
 ## Overview

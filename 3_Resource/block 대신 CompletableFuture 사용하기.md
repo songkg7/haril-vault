@@ -1,13 +1,13 @@
 ---
 title: block 대신 CompletableFuture 사용하기
-date: 2022-12-06 10:10:00 +0900
+date: 2022-12-06T10:10:00
 aliases: 
 tags:
   - webflux
   - block
   - asnyc
 categories: 
-updated: 2024-03-21 12:38:30 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## Overview

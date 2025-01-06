@@ -1,13 +1,13 @@
 ---
 title: fzf
-date: 2022-10-19 11:12:00 +0900
-aliases: null
+date: 2022-10-19T11:12:00
+aliases: 
 tags:
   - fuzzy
   - fzf
   - find
-categories: null
-updated: 2023-08-22 23:59:59 +0900
+categories: 
+updated: 2025-01-07T00:35
 ---
 
 터미널이나 vim 에서 파일 검색을 굉장히 효율적으로 도와주는 라이브러리. 다양한 응용이 가능하다.

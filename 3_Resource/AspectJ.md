@@ -1,10 +1,10 @@
 ---
 title: AspectJ
-date: 2024-06-09 21:06:00 +0900
+date: 2024-06-09T21:06:00
 aliases: 
 tags: 
 categories: 
-updated: 2024-06-09 21:06:16 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## AspectJ 란?

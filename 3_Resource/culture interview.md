@@ -1,12 +1,12 @@
 ---
 title: culture interview
-date: 2024-01-05 00:42:00 +0900
+date: 2024-01-05T00:42:00
 aliases: 
 tags:
   - interview
   - culture
 categories: 
-updated: 2024-10-05 11:44:36 +0900
+updated: 2025-01-07T00:35
 ---
 
 ### 사내 정치란 어떤 것일까

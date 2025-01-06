@@ -1,6 +1,6 @@
 ---
 title: Docker Study Chapter 5
-date: 2023-10-21 14:04:00 +0900
+date: 2023-10-21T14:04:00
 aliases: 
 tags:
   - study
@@ -8,7 +8,7 @@ tags:
   - registry
   - image
 categories: Docker
-updated: 2023-10-21 15:41:12 +0900
+updated: 2025-01-07T00:35
 ---
 
 # Chapter 5

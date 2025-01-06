@@ -1,6 +1,6 @@
 ---
 title: Spring WebFlux
-date: 2022-08-21 11:52:00 +0900
+date: 2022-08-21T11:52:00
 fc-calendar: Gregorian Calendar
 fc-date: 2022-08-21
 aliases: WebFlux
@@ -13,7 +13,7 @@ tags:
   - kotlin
   - reactive
 categories: Spring
-updated: 2024-03-28 14:12:10 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## Overview

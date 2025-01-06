@@ -1,11 +1,11 @@
 ---
 title: PostgreSQL 100% 사용하기 밋업
-date: 2024-04-17 18:51:00 +0900
+date: 2024-04-17T18:51:00
 aliases: 
 tags:
   - postgresql
 categories: 
-updated: 2024-04-17 19:29:16 +0900
+updated: 2025-01-07T00:35
 ---
 
 # 연사 소개

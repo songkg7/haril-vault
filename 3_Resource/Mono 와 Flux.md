@@ -1,16 +1,16 @@
 ---
 title: Mono 와 Flux
-date: 2022-08-21 12:59:00 +0900
+date: 2022-08-21T12:59:00
 fc-calendar: Gregorian Calendar
 fc-date: 2022-08-21
-aliases: null
+aliases: 
 tags:
   - reactive
   - webflux
   - mono
   - flux
-categories: null
-updated: 2023-08-19 12:37:56 +0900
+categories: 
+updated: 2025-01-07T00:35
 ---
 
 [[Spring WebFlux]] 에서 사용하는 reactive library 가 Reactor 이고 Reactor 가 Reactive streams 의 구현체입니다. `Flux` 와 `Mono` 는 Reactor 객체이며, 차이점은 발행하는 데이터 갯수입니다.

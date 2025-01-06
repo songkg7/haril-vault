@@ -1,6 +1,6 @@
 ---
 title: Observer pattern
-date: 2022-12-12 12:27:00 +0900
+date: 2022-12-12T12:27:00
 aliases: 
 tags:
   - design-pattern
@@ -8,7 +8,7 @@ tags:
   - java
   - kotlin
 categories: 
-updated: 2023-09-04 11:57:33 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## Overview

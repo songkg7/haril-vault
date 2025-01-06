@@ -1,11 +1,15 @@
 ---
-title: "Vimium"
-date: 2022-08-26 09:49:00 +0900
+title: Vimium
+date: 2022-08-26T09:49:00
 fc-calendar: Gregorian Calendar
 fc-date: 2022-08-26
 aliases: 
-tags: [chrome, extension, vim]
+tags:
+  - chrome
+  - extension
+  - vim
 categories: Vim
+updated: 2025-01-07T00:35
 ---
 
 ## Overview

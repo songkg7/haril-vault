@@ -1,13 +1,13 @@
 ---
 title: Localstack
-date: 2024-05-30 14:13:00 +0900
+date: 2024-05-30T14:13:00
 aliases: 
 tags:
   - test
   - aws
   - sqs
 categories: 
-updated: 2024-06-16 00:58:45 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## Docker compose 사용시 초기화 스크립트

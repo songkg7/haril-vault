@@ -1,11 +1,11 @@
 ---
 title: LMDB
-date: 2023-10-16 23:10:00 +0900
+date: 2023-10-16T23:10:00
 aliases: 
 tags:
   - database
 categories: 
-updated: 2023-10-16 23:10:57 +0900
+updated: 2025-01-07T00:35
 ---
 
 LMDB는 Lightning Memory-Mapped Database의 약자로, 오픈소스이고 읽기 중심 작업에 최적화된 고성능 키-값 스토어입니다. LMDB는 Symas Corporation에서 개발되었으며 2011년에 출시되었습니다.

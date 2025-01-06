@@ -1,15 +1,15 @@
 ---
 title: JobRepository
-date: 2022-08-17 16:56:00 +0900
+date: 2022-08-17T16:56:00
 publish: false
 fc-calendar: Gregorian Calendar
 fc-date: 2022-08-17
-aliases: null
+aliases: 
 tags:
   - batch
   - job
 categories: Spring
-updated: 2023-08-19 12:37:53 +0900
+updated: 2025-01-07T00:35
 ---
 
 JobRepository 는 배치 처리 정보를 담고 있는 매커니즘입니다. 어떤 Job 이 실행되었으며 몇 번 실행되었고 언제 끝났는지 등 배치 처리에 대한 메타 데이터를 저장합니다.

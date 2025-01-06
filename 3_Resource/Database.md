@@ -1,10 +1,11 @@
 ---
-title: "Database"
-date: 2023-02-09 16:35:00 +0900
+title: Database
+date: 2023-02-09T16:35:00
 aliases: DB
-tags: [database]
+tags:
+  - database
 categories: 
-updated: 2023-07-04 16:53:27 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## 데이터베이스 관리 시스템

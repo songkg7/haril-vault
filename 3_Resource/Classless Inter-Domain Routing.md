@@ -1,6 +1,6 @@
 ---
 title: CIDR
-date: 2024-04-02 10:44:00 +0900
+date: 2024-04-02T10:44:00
 aliases:
   - CIDR
 tags:
@@ -9,7 +9,7 @@ tags:
   - ip
   - ipv4
 categories: 
-updated: 2024-10-05 11:44:36 +0900
+updated: 2025-01-07T00:35
 ---
 
 [[Network|Network]]

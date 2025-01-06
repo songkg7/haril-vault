@@ -1,6 +1,6 @@
 ---
 title: Docker Study Chapter 9
-date: 2023-11-01 12:39:00 +0900
+date: 2023-11-01T12:39:00
 aliases: 
 tags:
   - docker
@@ -10,7 +10,7 @@ tags:
   - monitoring
   - observability
 categories: 
-updated: 2023-11-03 11:59:37 +0900
+updated: 2025-01-07T00:35
 ---
 
 # 컨테이너 모니터링으로 투명성 있는 애플리케이션 만들기

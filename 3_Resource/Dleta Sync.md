@@ -1,11 +1,11 @@
 ---
 title: 델타 동기화
-date: 2023-05-29 19:48:00 +0900
-aliases: null
+date: 2023-05-29T19:48:00
+aliases: 
 tags:
   - sync
-categories: null
-updated: 2023-08-19 12:37:58 +0900
+categories: 
+updated: 2025-01-07T00:35
 ---
 
 ## 델타 동기화란?

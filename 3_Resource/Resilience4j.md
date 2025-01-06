@@ -1,12 +1,12 @@
 ---
 title: Resilience4j
-date: 2024-04-02 16:19:00 +0900
+date: 2024-04-02T16:19:00
 aliases: 
 tags:
   - rate-limit
   - circuit-breaker
 categories: 
-updated: 2024-04-08 22:06:56 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## Resilience4j 란

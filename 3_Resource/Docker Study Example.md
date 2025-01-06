@@ -1,6 +1,6 @@
 ---
 title: Docker study example
-date: 2023-10-13 22:08:00 +0900
+date: 2023-10-13T22:08:00
 aliases: 
 tags:
   - docker
@@ -8,7 +8,7 @@ tags:
   - example
   - study
 categories: 
-updated: 2023-10-15 08:59:40 +0900
+updated: 2025-01-07T00:35
 related: "[[Docker|Docker]]"
 ---
 

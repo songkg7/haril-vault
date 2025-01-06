@@ -1,10 +1,10 @@
 ---
 title: Java Native Interface
-date: 2023-12-08 14:35:00 +0900
+date: 2023-12-08T14:35:00
 aliases:
   - JNI
 tags:
   - java
 categories: 
-updated: 2023-12-08 14:35:52 +0900
+updated: 2025-01-07T00:35
 ---

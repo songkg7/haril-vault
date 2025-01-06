@@ -1,9 +1,12 @@
 ---
-title: "scale out 에서 session 불일치 이슈"
-date: 2022-12-27 23:29:00 +0900
+title: scale out 에서 session 불일치 이슈
+date: 2022-12-27T23:29:00
 aliases: 
-tags: [session, load-balancing]
+tags:
+  - session
+  - load-balancing
 categories: 
+updated: 2025-01-07T00:35
 ---
 
 ## Overview

@@ -1,12 +1,12 @@
 ---
 title: Soft delete using JPA
-date: 2023-07-19 09:07:00 +0900
-aliases: null
+date: 2023-07-19T09:07:00
+aliases: 
 tags:
   - jpa
   - soft-delete
-categories: null
-updated: 2023-08-26 13:39:44 +0900
+categories: 
+updated: 2025-01-07T00:35
 ---
 
 ## JPA 에서 Soft delete 를 구현하려면?

@@ -1,13 +1,13 @@
 ---
 title: Redis
-date: 2023-01-26 10:34:00 +0900
+date: 2023-01-26T10:34:00
 aliases: 
 tags:
   - nosql
   - momory
   - grid
 categories: 
-updated: 2024-04-18 22:04:25 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## What is Redis?

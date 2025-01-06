@@ -1,6 +1,6 @@
 ---
 title: Code convention 과 개발자가 지켜야할 수칙에 관하여
-date: 2022-08-20 13:18:00 +0900
+date: 2022-08-20T13:18:00
 publish: false
 fc-calendar: Gregorian Calendar
 fc-date: 2022-08-20
@@ -8,7 +8,7 @@ aliases:
 tags:
   - convention
 categories: 
-updated: 2024-10-18 21:28:27 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## Overview

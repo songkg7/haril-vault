@@ -1,12 +1,12 @@
 ---
 title: Impl naming 을 피해야하는 이유
-date: 2022-08-18 12:45:00 +0900
+date: 2022-08-18T12:45:00
 publish: false
 aliases: 
 tags:
   - convention
 categories: 
-updated: 2023-09-16 11:16:47 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## Impl Naming

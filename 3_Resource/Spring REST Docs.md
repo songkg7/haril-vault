@@ -1,14 +1,14 @@
 ---
 title: Spring REST Docs
-date: 2022-11-04 18:59:00 +0900
-aliases: null
+date: 2022-11-04T18:59:00
+aliases: 
 tags:
   - java
   - documentation
   - docs
   - test
 categories: Spring
-updated: 2023-08-08 21:47:00 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## Overview

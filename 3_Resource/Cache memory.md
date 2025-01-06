@@ -1,6 +1,6 @@
 ---
 title: Cache memory
-date: 2022-08-14 02:28:00 +0900
+date: 2022-08-14T02:28:00
 publish: false
 fc-calendar: Gregorian Calendar
 fc-date: 2022-08-14
@@ -8,7 +8,7 @@ aliases: []
 tags:
   - cache
 categories: Computer science
-updated: 2024-02-21 10:58:56 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## Cache memory

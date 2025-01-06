@@ -1,14 +1,14 @@
 ---
 title: GitLab CI vs Jenkins
-date: 2023-06-21 11:44:00 +0900
-aliases: null
+date: 2023-06-21T11:44:00
+aliases: 
 tags:
   - gitlab
   - jenkins
   - cicd
   - batch
-categories: null
-updated: 2023-08-19 12:37:46 +0900
+categories: 
+updated: 2025-01-07T00:35
 ---
 
 [[GitLab]] CI 와 [[Jenkins]] 를 비교해보는 글

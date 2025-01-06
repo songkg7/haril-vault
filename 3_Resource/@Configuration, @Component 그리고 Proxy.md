@@ -1,7 +1,7 @@
 ---
 title: "@Configuration, @Component 그리고 Proxy"
-date: 2023-01-24 01:53:00 +0900
-aliases: null
+date: 2023-01-24T01:53:00
+aliases: 
 tags:
   - java
   - annotation
@@ -10,8 +10,8 @@ tags:
   - spring
   - cglib
   - jdkdynamicproxy
-categories: null
-updated: 2023-08-19 12:38:16 +0900
+categories: 
+updated: 2025-01-07T00:35
 ---
 
 너무 방대한 주제를 한 번에 다루려다 보니 글의 중심을 잡기 어려워서 다음 세 개의 글로 분리

@@ -1,9 +1,14 @@
 ---
-title: "Arc"
-date: 2023-04-06 20:27:00 +0900
+title: Arc
+date: 2023-04-06T20:27:00
 aliases: 
-tags: [arc, browser, chromium, awesome]
+tags:
+  - arc
+  - browser
+  - chromium
+  - awesome
 categories: 
+updated: 2025-01-07T00:35
 ---
 
 %%draft: 2023-04-06%%

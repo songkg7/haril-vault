@@ -1,6 +1,6 @@
 ---
 title: REST API
-date: 2022-08-19 17:46:00 +0900
+date: 2022-08-19T17:46:00
 publish: false
 fc-calendar: Gregorian Calendar
 fc-date: 2022-08-19
@@ -10,7 +10,7 @@ tags:
   - api
   - restful
 categories: 
-updated: 2023-10-19 11:32:34 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## REST 란?

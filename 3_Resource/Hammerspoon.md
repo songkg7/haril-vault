@@ -1,15 +1,15 @@
 ---
 title: Hammerspoon
-date: 2023-02-02 09:37:00 +0900
-aliases: null
+date: 2023-02-02T09:37:00
+aliases: 
 tags:
   - hammerspoon
   - tool
   - keymap
   - lua
   - vim
-categories: null
-updated: 2023-08-19 12:38:00 +0900
+categories: 
+updated: 2025-01-07T00:35
 ---
 
 ```bash

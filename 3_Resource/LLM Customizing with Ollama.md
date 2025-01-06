@@ -1,13 +1,13 @@
 ---
 title: LLM Customizing with Ollama
-date: 2024-11-11 23:23:00 +0900
+date: 2024-11-11T23:23:00
 aliases: 
 tags:
   - ai
   - ollama
   - llm
 description: 
-updated: 2024-11-12 21:58:35 +0900
+updated: 2025-01-07T00:35
 ---
 
 - gguf 파일을 Modelfile 에 얹어서 `ollama create {name} -f Modelfile`

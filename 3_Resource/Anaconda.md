@@ -1,10 +1,10 @@
 ---
 title: Anaconda
-date: 2023-08-19 21:06:00 +0900
-aliases: null
+date: 2023-08-19T21:06:00
+aliases: 
 tags: python
-categories: null
-updated: 2023-08-19 21:06:05 +0900
+categories: 
+updated: 2025-01-07T00:35
 ---
 
 ## What is Anaconda?

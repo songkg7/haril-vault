@@ -1,13 +1,13 @@
 ---
 title: Java Collection Framework
-date: 2022-08-18 15:27:00 +0900
+date: 2022-08-18T15:27:00
 publish: false
 aliases:
   - JCF
 tags:
   - java, collection
 categories: Java
-updated: 2024-05-17 11:06:02 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## Overview

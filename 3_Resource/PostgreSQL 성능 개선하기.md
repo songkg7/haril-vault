@@ -1,12 +1,12 @@
 ---
 title: PostgreSQL 성능 개선하기
-date: 2023-01-25 09:54:00 +0900
-aliases: null
+date: 2023-01-25T09:54:00
+aliases: 
 tags:
   - postgresql
   - rdb
-categories: null
-updated: 2023-08-19 12:37:51 +0900
+categories: 
+updated: 2025-01-07T00:35
 ---
 
 [[PostgreSQL]]

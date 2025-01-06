@@ -1,6 +1,6 @@
 ---
 title: JVM Compressed OOPS
-date: 2023-10-12 17:34:00 +0900
+date: 2023-10-12T17:34:00
 aliases: 
 tags:
   - jvm
@@ -8,7 +8,7 @@ tags:
   - heap
   - elasticsearch
 categories: 
-updated: 2024-01-05 17:56:14 +0900
+updated: 2025-01-07T00:35
 ---
 
 JVM 기반의 애플리케이션은 STW 를 고민하게 된다. heap 을 많이 잡는다면 성능이 잘 나올 것 같은 느낌이 있지만 그렇지 않다.

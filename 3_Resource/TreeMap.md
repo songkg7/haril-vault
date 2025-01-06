@@ -1,6 +1,6 @@
 ---
 title: TreeMap
-date: 2023-09-17 21:17:00 +0900
+date: 2023-09-17T21:17:00
 aliases: 
 tags:
   - java
@@ -9,7 +9,7 @@ tags:
   - red-black
   - data-structure
 categories: 
-updated: 2023-09-18 11:20:03 +0900
+updated: 2025-01-07T00:35
 ---
 [[Java|Java]] 의 [[Map]] 은 인터페이스이다. TreeMap 은 Map 인터페이스의 구현체 중 하나이다.
 

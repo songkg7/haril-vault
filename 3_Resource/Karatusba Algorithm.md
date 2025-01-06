@@ -1,11 +1,11 @@
 ---
 title: Karatusba
-date: 2023-12-06 22:19:00 +0900
+date: 2023-12-06T22:19:00
 aliases: 
 tags:
   - algorithm
 categories: 
-updated: 2023-12-06 22:19:57 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## Karatusba

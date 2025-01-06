@@ -1,10 +1,11 @@
 ---
-title: "뉴스 피드 시스템 설계"
-date: 2023-05-12 20:28:00 +0900
+title: 뉴스 피드 시스템 설계
+date: 2023-05-12T20:28:00
 aliases: 
-tags: [system-architecture]
+tags:
+  - system-architecture
 categories: 
-updated: 2023-05-15 22:46:04 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## 문제 이해 및 설계 범위 확정

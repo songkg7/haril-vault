@@ -1,11 +1,11 @@
 ---
 title: Pair Programming Game
-date: 2023-08-18 16:30:00 +0900
+date: 2023-08-18T16:30:00
 aliases: 
 tags:
   - study
 categories: 
-updated: 2024-10-05 11:44:36 +0900
+updated: 2025-01-07T00:35
 related: "[[Kotlin|Kotlin]]"
 ---
 

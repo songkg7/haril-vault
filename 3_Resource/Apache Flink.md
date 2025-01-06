@@ -1,13 +1,13 @@
 ---
 title: Apache Flink
-date: 2024-10-08 09:31:00 +0900
+date: 2024-10-08T09:31:00
 aliases: 
 tags:
   - streaming
   - flink
 categories: 
 description: 
-updated: 2024-10-29 13:41:34 +0900
+updated: 2025-01-07T00:35
 ---
 
 ```java

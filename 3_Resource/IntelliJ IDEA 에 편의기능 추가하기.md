@@ -1,13 +1,13 @@
 ---
 title: IntelliJ IDEA 에 편의기능 추가하기
-date: 2023-02-09 17:07:00 +0900
-aliases: null
+date: 2023-02-09T17:07:00
+aliases: 
 tags:
   - intellj
   - vim
   - ideavim
-categories: null
-updated: 2023-08-19 12:37:58 +0900
+categories: 
+updated: 2025-01-07T00:35
 ---
 
 ## Overview

@@ -1,11 +1,11 @@
 ---
 title: git history
-date: 2024-03-13 17:17:00 +0900
+date: 2024-03-13T17:17:00
 aliases: 
 tags:
   - git
 categories: 
-updated: 2024-03-13 18:07:27 +0900
+updated: 2025-01-07T00:35
 ---
 
 [[Git|Git]]

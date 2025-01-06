@@ -1,6 +1,6 @@
 ---
 title: Batch Processing
-date: 2023-11-28 17:14:00 +0900
+date: 2023-11-28T17:14:00
 aliases: 
 tags:
   - batch
@@ -8,7 +8,7 @@ tags:
   - livid
   - map-reduce
 categories: 
-updated: 2023-12-05 20:52:15 +0900
+updated: 2025-01-07T00:35
 ---
 
 # 일괄 처리

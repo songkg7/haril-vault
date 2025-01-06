@@ -1,9 +1,12 @@
 ---
-title: "Replica Set of MongoDB"
-date: 2022-12-15 20:03:00 +0900
+title: Replica Set of MongoDB
+date: 2022-12-15T20:03:00
 aliases: 
-tags: [mongodb, replica]
+tags:
+  - mongodb
+  - replica
 categories: MongoDB
+updated: 2025-01-07T00:35
 ---
 
 ## Overview

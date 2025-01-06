@@ -1,13 +1,13 @@
 ---
 title: git fatal bad object HEAD
-date: 2022-11-10 21:03:00 +0900
-aliases: null
+date: 2022-11-10T21:03:00
+aliases: 
 tags:
   - git
   - error
   - solution
-categories: null
-updated: 2023-08-19 12:37:53 +0900
+categories: 
+updated: 2025-01-07T00:35
 ---
 
 icloud 에 repository 를 백업한 상태로 사용하다보면 가끔 원인불명의 오류로 `fatal: bad object HEAD` 라는 에러가 출력될 때가 있다. 이럴 땐 대부분의 git command 가 말을 듣지 않는데 해결 방법을 적어본다.

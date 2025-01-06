@@ -1,9 +1,10 @@
 ---
-title: "Gitlab 에서 GCP Kubernetes 연동하기"
-date: 2022-11-24 17:47:00 +0900
+title: Gitlab 에서 GCP Kubernetes 연동하기
+date: 2022-11-24T17:47:00
 aliases: 
 tags: 
 categories: 
+updated: 2025-01-07T00:35
 ---
 
 [[GitLab]]

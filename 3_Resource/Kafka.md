@@ -1,12 +1,12 @@
 ---
 title: Kafka
-date: 2024-08-15 21:47:00 +0900
+date: 2024-08-15T21:47:00
 aliases: 
 tags:
   - kafka
 categories: 
 description: 
-updated: 2024-08-16 15:10:33 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## Monitoring

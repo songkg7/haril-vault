@@ -1,13 +1,13 @@
 ---
 title: difftastic
-date: 2022-11-09 12:53:00 +0900
+date: 2022-11-09T12:53:00
 aliases: 
 tags:
   - tool
   - git
   - diff
 categories: 
-updated: 2024-02-22 17:57:25 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## Overview

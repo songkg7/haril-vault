@@ -1,6 +1,6 @@
 ---
 title: Sort Merge Join
-date: 2023-09-04 13:36:00 +0900
+date: 2023-09-04T13:36:00
 aliases: []
 tags:
   - rdb
@@ -8,7 +8,7 @@ tags:
   - sort
   - merge
 categories: 
-updated: 2023-09-04 13:36:58 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## Links

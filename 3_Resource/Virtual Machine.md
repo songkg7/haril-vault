@@ -1,12 +1,12 @@
 ---
 title: Virtual Machine
-date: 2023-10-07 14:38:00 +0900
+date: 2023-10-07T14:38:00
 aliases:
   - VM
 tags:
   - vm
 categories: 
-updated: 2024-02-11 16:25:51 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## 가상머신이란

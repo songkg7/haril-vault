@@ -1,13 +1,13 @@
 ---
 title: axion-release-plugin
-date: 2024-12-28 00:00:00 +0900
+date: 2024-12-28T00:00:00
 aliases: 
 tags:
   - gradle
   - tag
   - release
 description: 
-updated: 2024-12-28T00:04
+updated: 2025-01-07T00:35
 ---
 
 [GitHub - allegro/axion-release-plugin: Gradle release & version management plugin.](https://github.com/allegro/axion-release-plugin)

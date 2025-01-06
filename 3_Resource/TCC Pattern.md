@@ -1,12 +1,12 @@
 ---
 title: TCC Pattern
-date: 2024-01-27 14:43:00 +0900
+date: 2024-01-27T14:43:00
 aliases: 
 tags:
   - distribution
   - 2pc
 categories: 
-updated: 2024-10-05 11:44:36 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## TCC 패턴이란?

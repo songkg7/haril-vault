@@ -1,6 +1,6 @@
 ---
 title: Docker Study Chapter 21
-date: 2023-12-15 19:09:00 +0900
+date: 2023-12-15T19:09:00
 aliases: 
 tags:
   - docker
@@ -9,7 +9,7 @@ tags:
   - async
   - marp
 categories: 
-updated: 2023-12-17 09:10:46 +0900
+updated: 2025-01-07T00:35
 ---
 
 # 메세지 큐를 이용한 비동기 통신

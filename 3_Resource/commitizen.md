@@ -1,11 +1,11 @@
 ---
 title: commitizen
-date: 2024-10-30 13:58:00 +0900
+date: 2024-10-30T13:58:00
 aliases: 
 tags:
   - git
 description: 
-updated: 2024-12-12T11:02
+updated: 2025-01-07T00:35
 ---
 
 ## Custom

@@ -1,6 +1,6 @@
 ---
 title: Strategy pattern
-date: 2022-08-18 11:11:00 +0900
+date: 2022-08-18T11:11:00
 publish: false
 fc-calendar: Gregorian Calendar
 fc-date: 2022-08-18
@@ -11,7 +11,7 @@ tags:
   - kotest
 categories:
   - Design pattern
-updated: 2023-09-04 11:57:33 +0900
+updated: 2025-01-07T00:35
 ---
 
 # Strategy pattern

@@ -1,6 +1,6 @@
 ---
 title: Docker Study Chapter 20
-date: 2023-12-15 18:15:00 +0900
+date: 2023-12-15T18:15:00
 aliases: 
 tags:
   - docker
@@ -8,7 +8,7 @@ tags:
   - reverse-proxy
   - nginx
 categories: 
-updated: 2023-12-16 14:34:07 +0900
+updated: 2025-01-07T00:35
 ---
 
 [[NginX]] 에 초점을 맞추고 설명되어 있는 챕터, 도커로 관리하는 Nginx 에 가깝다.

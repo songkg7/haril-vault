@@ -1,13 +1,13 @@
 ---
 title: MySQL Gap Lock
-date: 2023-10-02 16:35:00 +0900
+date: 2023-10-02T16:35:00
 aliases: 
 tags:
   - mysql
   - lock
   - rdb
 categories: 
-updated: 2023-10-02 16:35:17 +0900
+updated: 2025-01-07T00:35
 related: "[[MySQL|MySQL]]"
 ---
 

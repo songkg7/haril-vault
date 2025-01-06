@@ -1,10 +1,10 @@
 ---
 title: How to Generate QnA using OpenAI API
-date: 2023-07-29 16:54:00 +0900
-aliases: null
+date: 2023-07-29T16:54:00
+aliases: 
 tags: openai, qna, kotlin, side-project
-categories: null
-updated: 2023-08-01 21:43:02 +0900
+categories: 
+updated: 2025-01-07T00:35
 ---
 
 ## Goal

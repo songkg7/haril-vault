@@ -1,12 +1,16 @@
 ---
-title: "ArrayList"
-date: 2022-08-18 15:46:00 +0900
+title: ArrayList
+date: 2022-08-18T15:46:00
 publish: false
 fc-calendar: Gregorian Calendar
 fc-date: 2022-08-18
 aliases: 
-tags: [java]
-categories: [Data structure, Java]
+tags:
+  - java
+categories:
+  - Data structure
+  - Java
+updated: 2025-01-07T00:35
 ---
 
 ## Overview

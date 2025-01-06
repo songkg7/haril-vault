@@ -1,13 +1,13 @@
 ---
 title: JPA N + 1 Issue
-date: 2023-09-03 15:01:00 +0900
+date: 2023-09-03T15:01:00
 aliases:
   - N + 1
 tags:
   - jpa
   - orm
 categories: 
-updated: 2023-09-03 16:09:43 +0900
+updated: 2025-01-07T00:35
 ---
 
 연관관계를 사용하다보면 발생할 수 있는 문제.

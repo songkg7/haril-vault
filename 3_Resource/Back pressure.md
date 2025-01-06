@@ -1,13 +1,13 @@
 ---
 title: Back pressure
-date: 2024-02-04 18:32:00 +0900
+date: 2024-02-04T18:32:00
 aliases: 
 tags:
   - back-pressure
   - webflux
   - reactor
 categories: 
-updated: 2024-02-04 18:32:40 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## Back pressure in Spring WebFlux

@@ -1,7 +1,7 @@
 ---
 title: Amazon S3 mocking
-date: 2023-02-23 15:54:00 +0900
-aliases: null
+date: 2023-02-23T15:54:00
+aliases: 
 tags:
   - test
   - aws
@@ -10,8 +10,8 @@ tags:
   - mock
   - adobe
   - s3mock
-categories: null
-updated: 2023-08-19 12:38:00 +0900
+categories: 
+updated: 2025-01-07T00:35
 ---
 
 AWS SDK 를 사용하여 S3 를 테스트할 수 있는 방법을 고민해보고 정리합니다.

@@ -1,6 +1,6 @@
 ---
 title: Spring MVC
-date: 2022-08-19 17:59:00 +0900
+date: 2022-08-19T17:59:00
 publish: false
 fc-calendar: Gregorian Calendar
 fc-date: 2022-08-19
@@ -14,7 +14,7 @@ tags:
   - model
   - view
 categories: Spring
-updated: 2023-10-19 11:32:34 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## Links

@@ -1,10 +1,10 @@
 ---
 title: 개취콘 후기
-date: 2023-08-27 13:33:00 +0900
-aliases: null
+date: 2023-08-27T13:33:00
+aliases: 
 tags: conference, jumpit
-categories: null
-updated: 2023-08-27 16:49:52 +0900
+categories: 
+updated: 2025-01-07T00:35
 ---
 
 ## 강연1. 손진규 님

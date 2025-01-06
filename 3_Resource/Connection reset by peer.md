@@ -1,12 +1,12 @@
 ---
 title: Connection reset by peer
-date: 2023-12-15 10:35:00 +0900
+date: 2023-12-15T10:35:00
 aliases: 
 tags:
   - debug
   - webclient
 categories: 
-updated: 2024-04-16 10:19:09 +0900
+updated: 2025-01-07T00:35
 ---
 
 # Connection reset by peer 문제 해결하기

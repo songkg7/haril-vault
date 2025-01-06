@@ -1,12 +1,12 @@
 ---
 title: Docker Study Chapter 14
-date: 2023-11-16 16:37:00 +0900
+date: 2023-11-16T16:37:00
 aliases: 
 tags:
   - docker
   - study
 categories: 
-updated: 2023-11-18 12:31:26 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## 업그레이드와 롤백을 이용한 업데이트 자동화

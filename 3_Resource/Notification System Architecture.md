@@ -1,10 +1,12 @@
 ---
-title: "알림 시스템 설계"
-date: 2023-05-15 10:19:00 +0900
+title: 알림 시스템 설계
+date: 2023-05-15T10:19:00
 aliases: 
-tags: [notification, system-architecture]
+tags:
+  - notification
+  - system-architecture
 categories: 
-updated: 2023-05-15 19:47:54 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## 문제 이해 및 설계 범위 확정

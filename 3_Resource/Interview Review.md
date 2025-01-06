@@ -1,10 +1,10 @@
 ---
 title: Toss Interview Review
-date: 2023-08-17 16:22:00 +0900
+date: 2023-08-17T16:22:00
 aliases: 
 tags: 
 categories: 
-updated: 2024-01-27 14:46:11 +0900
+updated: 2025-01-07T00:35
 ---
 
 ### MSA 에서 트랜잭션 원자성을 보장하는 법

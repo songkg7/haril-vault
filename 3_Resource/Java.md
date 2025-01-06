@@ -1,6 +1,6 @@
 ---
 title: Java
-date: 2022-08-14 00:33:00 +0900
+date: 2022-08-14T00:33:00
 aliases: 
 tags:
   - backend
@@ -8,7 +8,7 @@ tags:
   - programming-language
   - jvm
 categories: Java
-updated: 2024-10-05 11:44:43 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## Overview

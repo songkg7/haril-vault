@@ -1,6 +1,6 @@
 ---
 title: Testcontainers Best Practice
-date: 2024-10-04 15:51:00 +0900
+date: 2024-10-04T15:51:00
 aliases: 
 tags:
   - test
@@ -8,7 +8,7 @@ tags:
   - kotlin
 categories: 
 description: 
-updated: 2024-10-04 17:21:47 +0900
+updated: 2025-01-07T00:35
 ---
 
 [[Testcontainers]]

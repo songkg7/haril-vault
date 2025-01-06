@@ -1,13 +1,13 @@
 ---
 title: System Design Case
-date: 2023-10-02 20:31:00 +0900
+date: 2023-10-02T20:31:00
 aliases: 
 tags:
   - system-architecture
   - architecture
   - interview
 categories: 
-updated: 2024-03-15 22:54:11 +0900
+updated: 2025-01-07T00:34
 ---
 
 ## System Design Case Studies

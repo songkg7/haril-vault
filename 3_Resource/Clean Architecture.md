@@ -1,13 +1,13 @@
 ---
 title: Clean Architecture
-date: 2022-09-13 13:44:00 +0900
+date: 2022-09-13T13:44:00
 fc-calendar: Gregorian Calendar
 fc-date: 2022-09-13
-aliases: null
+aliases: 
 tags:
   - book
-categories: null
-updated: 2023-08-19 12:37:38 +0900
+categories: 
+updated: 2025-01-07T00:35
 ---
 
 ## Chapter. 16

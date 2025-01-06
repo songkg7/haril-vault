@@ -1,13 +1,13 @@
 ---
 title: Closure of Java
-date: 2023-10-19 10:14:00 +0900
+date: 2023-10-19T10:14:00
 aliases: 
 tags:
   - java
   - lambda
   - closure
 categories: 
-updated: 2023-10-19 10:14:34 +0900
+updated: 2025-01-07T00:35
 ---
 
 공식적으로 Java 에서는 [[Closure]] 라는 개념이 없다.

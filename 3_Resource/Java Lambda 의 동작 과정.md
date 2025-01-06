@@ -1,13 +1,13 @@
 ---
 title: Java Lambda 의 동작 과정
-date: 2023-11-01 13:50:00 +0900
+date: 2023-11-01T13:50:00
 aliases: 
 tags:
   - java
   - bytecode
   - compile
 categories: 
-updated: 2023-11-01 16:33:10 +0900
+updated: 2025-01-07T00:35
 ---
 
 ```java

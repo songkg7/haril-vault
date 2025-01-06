@@ -1,10 +1,10 @@
 ---
 title: Export Jupyter to Html
-date: 2023-08-24 20:53:00 +0900
-aliases: null
+date: 2023-08-24T20:53:00
+aliases: 
 tags: python, jupyter, dataspell
-categories: null
-updated: 2023-08-24 20:53:40 +0900
+categories: 
+updated: 2025-01-07T00:35
 ---
 
 ```bash

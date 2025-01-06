@@ -1,11 +1,11 @@
 ---
 title: containerd
-date: 2023-10-07 14:41:00 +0900
+date: 2023-10-07T14:41:00
 aliases: 
 tags:
   - container
 categories: 
-updated: 2023-10-07 14:41:10 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## conainerd 란 무엇일까

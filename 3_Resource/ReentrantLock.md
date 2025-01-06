@@ -1,12 +1,12 @@
 ---
 title: ReentrantLock
-date: 2024-02-29 11:21:00 +0900
+date: 2024-02-29T11:21:00
 aliases: 
 tags:
   - lock
   - concurrency
 categories: 
-updated: 2024-04-15 13:11:33 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## ReentrantLock 이란

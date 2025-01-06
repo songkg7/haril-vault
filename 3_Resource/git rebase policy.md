@@ -1,12 +1,12 @@
 ---
 title: git rebase policy
-date: 2024-10-15 13:36:00 +0900
+date: 2024-10-15T13:36:00
 aliases: 
 tags:
   - git
   - rebase
 description: 
-updated: 2024-10-15 13:36:26 +0900
+updated: 2025-01-07T00:35
 ---
 
 [[Git]]

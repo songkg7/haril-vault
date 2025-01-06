@@ -1,6 +1,6 @@
 ---
 title: Sync Async and Blocking Non-blocking
-date: 2023-10-09 14:36:00 +0900
+date: 2023-10-09T14:36:00
 aliases: 
 tags:
   - sync
@@ -8,7 +8,7 @@ tags:
   - blocking
   - non-blocking
 categories: 
-updated: 2024-04-21 15:53:23 +0900
+updated: 2025-01-07T00:35
 ---
 
 동기 비동기와 블록킹 논블로킹은 유사하면서 다르다. 핵심 키워드는 **제어권**과 **결과에 대한 관심**이다.

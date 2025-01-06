@@ -1,11 +1,11 @@
 ---
 title: Zipkin
-date: 2024-10-18 13:21:00 +0900
+date: 2024-10-18T13:21:00
 aliases: 
 tags:
   - tracing
 description: 
-updated: 2024-10-18 13:21:50 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## Content

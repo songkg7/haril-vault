@@ -1,12 +1,12 @@
 ---
 title: release-it
-date: 2024-12-27 23:57:00 +0900
+date: 2024-12-27T23:57:00
 aliases: 
 tags:
   - release
   - tag
 description: 
-updated: 2024-12-27T23:59
+updated: 2025-01-07T00:35
 ---
 
 [GitHub - release-it/release-it: 🚀 Automate versioning and package publishing](https://github.com/release-it/release-it)

@@ -1,13 +1,13 @@
 ---
 title: MethodInvokingTaskletAdapter
-date: 2022-08-17 10:20:00 +0900
-aliases: null
+date: 2022-08-17T10:20:00
+aliases: 
 tags:
   - batch
   - step
   - tasklet
 categories: Spring
-updated: 2023-08-19 12:37:58 +0900
+updated: 2025-01-07T00:35
 ---
 
 [[Spring Batch]]

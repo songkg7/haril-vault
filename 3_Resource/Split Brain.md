@@ -1,13 +1,13 @@
 ---
 title: Split Brain
-date: 2023-11-20 13:21:00 +0900
+date: 2023-11-20T13:21:00
 aliases: 
 tags:
   - distribute
   - split-brain
   - problem
 categories: 
-updated: 2023-11-20 13:21:44 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## 분산 시스템에서의 스플릿 브레인 문제

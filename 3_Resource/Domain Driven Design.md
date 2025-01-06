@@ -1,13 +1,13 @@
 ---
 title: Domain Driven Design
-date: 2023-12-19 20:16:00 +0900
+date: 2023-12-19T20:16:00
 aliases:
   - DDD
 tags:
   - architecture
   - domain
 categories: 
-updated: 2023-12-19 20:16:51 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## What is DDD?

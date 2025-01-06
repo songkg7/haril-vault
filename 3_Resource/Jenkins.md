@@ -1,13 +1,13 @@
 ---
 title: Jenkins
-date: 2022-11-17 01:39:00 +0900
+date: 2022-11-17T01:39:00
 aliases: 
 tags:
   - ci
   - cd
   - jenkins
 categories: DevOps
-updated: 2023-11-11 00:14:24 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## Overview

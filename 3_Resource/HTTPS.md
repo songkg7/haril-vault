@@ -1,6 +1,6 @@
 ---
 title: HTTPS
-date: 2022-08-16 13:23:00 +0900
+date: 2022-08-16T13:23:00
 publish: false
 aliases: 
 tags:
@@ -8,7 +8,7 @@ tags:
   - https
   - network
 categories: Network
-updated: 2024-06-09 14:17:32 +0900
+updated: 2025-01-07T00:35
 ---
 
 # HTTP (HyperText Transfer Protocol)

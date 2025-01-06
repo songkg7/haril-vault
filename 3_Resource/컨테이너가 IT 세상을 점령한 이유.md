@@ -1,13 +1,13 @@
 ---
 title: 컨테이너가 IT 세상을 점령한 이유
-date: 2023-10-07 12:17:00 +0900
+date: 2023-10-07T12:17:00
 aliases: 
 tags:
   - docker
   - container
   - study
 categories: 
-updated: 2023-10-07 14:12:30 +0900
+updated: 2025-01-07T00:35
 related: "[[Docker|Docker]]"
 ---
 

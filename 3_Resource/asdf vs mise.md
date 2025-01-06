@@ -1,13 +1,13 @@
 ---
 title: asdf vs mise
-date: 2024-05-14 14:34:00 +0900
+date: 2024-05-14T14:34:00
 aliases: 
 tags:
   - asdf
   - mise
   - package-manager
 categories: 
-updated: 2024-06-27 23:37:24 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## asdf

@@ -1,12 +1,12 @@
 ---
 title: asdf
-date: 2023-11-02 18:03:00 +0900
+date: 2023-11-02T18:03:00
 aliases: 
 tags:
   - tool
   - version-manager
 categories: 
-updated: 2023-11-02 18:03:34 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## Install

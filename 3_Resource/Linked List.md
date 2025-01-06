@@ -1,6 +1,6 @@
 ---
 title: LinkedList
-date: 2022-08-18 11:28:00 +0900
+date: 2022-08-18T11:28:00
 publish: false
 fc-calendar: Gregorian Calendar
 fc-date: 2022-08-18
@@ -11,7 +11,7 @@ tags:
   - list
 categories:
   - Data structure
-updated: 2023-08-19 12:37:58 +0900
+updated: 2025-01-07T00:35
 ---
 
 # LinkedList

@@ -1,11 +1,11 @@
 ---
 title: Sharded Cluster
-date: 2022-12-16 21:49:00 +0900
-aliases: null
+date: 2022-12-16T21:49:00
+aliases: 
 tags:
   - mongodb
 categories: MongoDB
-updated: 2023-08-08 21:41:25 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## Concept

@@ -1,6 +1,6 @@
 ---
 title: 분산시스템의 골칫거리
-date: 2023-10-24 09:18:00 +0900
+date: 2023-10-24T09:18:00
 aliases: 
 tags:
   - distribution
@@ -8,7 +8,7 @@ tags:
   - timeout
   - network
 categories: 
-updated: 2023-10-24 19:05:42 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## 결함과 부분 장애

@@ -1,12 +1,12 @@
 ---
 title: network packet ppt
-date: 2024-04-10 22:25:00 +0900
+date: 2024-04-10T22:25:00
 aliases: 
 tags:
   - packet
   - ppt
 categories: 
-updated: 2024-04-14 19:38:33 +0900
+updated: 2025-01-07T00:35
 ---
 
 # Week 1. 네트워크와 친해지기 with Wireshark

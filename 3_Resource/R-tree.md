@@ -1,6 +1,6 @@
 ---
 title: R-tree
-date: 2024-01-21 22:14:00 +0900
+date: 2024-01-21T22:14:00
 aliases: 
 tags:
   - r-tree
@@ -8,7 +8,7 @@ tags:
   - gist
   - geometry
 categories: 
-updated: 2024-02-06 16:06:28 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## R-tree 란?

@@ -1,11 +1,11 @@
 ---
 title: PostgreSQL Index Management
-date: 2023-07-16 14:12:00 +0900
-aliases: null
+date: 2023-07-16T14:12:00
+aliases: 
 tags:
   - postgresql
   - index
   - tuple
-categories: null
-updated: 2023-08-19 12:34:39 +0900
+categories: 
+updated: 2025-01-07T00:35
 ---
