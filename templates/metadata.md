@@ -1,7 +1,8 @@
 ---
-title: {{title}}
-date: {{date}} {{time}}:00 +0900
+title: <% tp.file.title %>
+date: <% tp.file.creation_date("yyyy-MM-DDTHH:mm:ss") %>
 aliases: 
 tags: 
-description:
+description: 
+updated: 2025-01-07T00:28
 ---

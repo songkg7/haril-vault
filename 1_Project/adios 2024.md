@@ -1,0 +1,42 @@
+---
+title: adios 2024
+date: 2025-01-03T15:56:00
+aliases: 
+tags: 
+description: 
+updated: 2025-01-07T00:22
+---
+2024 회고
+
+2024년에 쓴 글 리스트 뽑기
+
+
+```dataview
+LIST
+FROM -"daily"
+WHERE date = date(2025-01-03)
+SORT date asc
+```
+
+```dataview
+TABLE tags, date
+FROM -"daily" and "1_Project"
+WHERE title = "adios 2024"
+LIMIT 10
+```
+
+- 블로그 플랫폼 이동
+- 이직
+- 스터디 리드 후기
+- 투자
+- 회고를 해야하는 타이밍
+    - 특별한 날은 없다. 적절한 날도 없다. 모든 날 모든 순간이 소중하기 때문. 그냥 지금 하면 된다.
+
+2025 계획
+
+- 대외 커뮤니티 활동을 줄일 것
+- 내실을 다지는 시간
+- 안식년
+- 영어 공부에 집중
+- AI 를 위한 수학 공부 비중을 늘릴 것
+- 
