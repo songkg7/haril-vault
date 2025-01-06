@@ -1,13 +1,13 @@
 ---
 title: Spring Cloud AWS
-date: 2024-10-31 23:05:00 +0900
+date: 2024-10-31T23:05:00
 aliases: 
 tags:
   - aws
   - spring
   - cloud
 description: 
-updated: 2024-10-31 23:05:26 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## Overview

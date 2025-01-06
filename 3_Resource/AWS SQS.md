@@ -1,13 +1,13 @@
 ---
 title: AWS SQS
-date: 2024-06-04 10:58:00 +0900
+date: 2024-06-04T10:58:00
 aliases: 
 tags:
   - sqs
   - message-queue
   - aws
 categories: 
-updated: 2024-06-26 13:23:22 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## SQS 란?

@@ -1,16 +1,16 @@
 ---
 title: Tasklet
-date: 2022-08-17 10:15:00 +0900
+date: 2022-08-17T10:15:00
 publish: false
 fc-calendar: Gregorian Calendar
 fc-date: 2022-08-17
-aliases: null
+aliases: 
 tags:
   - step
   - batch
   - tasklet
 categories: Spring
-updated: 2023-08-19 12:37:54 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## Tasklet

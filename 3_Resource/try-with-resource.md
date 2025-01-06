@@ -1,12 +1,12 @@
 ---
 title: try-with-resource
-date: 2023-10-16 15:36:00 +0900
+date: 2023-10-16T15:36:00
 aliases: 
 tags:
   - resource
   - file
 categories: 
-updated: 2023-11-23 17:18:18 +0900
+updated: 2025-01-07T00:35
 ---
 움
 ## Java 7 이전의 try-catch-finally

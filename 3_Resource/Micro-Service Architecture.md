@@ -1,11 +1,11 @@
 ---
 title: MSA
-date: 2024-01-31 13:57:00 +0900
+date: 2024-01-31T13:57:00
 aliases:
   - MSA
 tags: 
 categories: 
-updated: 2024-10-05 11:44:36 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## MSA 란?

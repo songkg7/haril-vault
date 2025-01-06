@@ -1,11 +1,11 @@
 ---
 title: Vim
-date: 2022-10-21 15:30:00 +0900
+date: 2022-10-21T15:30:00
 aliases: 
 tags:
   - vim
 categories: 
-updated: 2024-10-31 10:13:06 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## Overview

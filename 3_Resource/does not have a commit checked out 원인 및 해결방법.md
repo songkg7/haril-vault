@@ -1,11 +1,14 @@
 ---
-title: "does not have a commit checked out 원인 및 해결방법"
-date: 2022-08-28 15:39:00 +0900
+title: does not have a commit checked out 원인 및 해결방법
+date: 2022-08-28T15:39:00
 fc-calendar: Gregorian Calendar
 fc-date: 2022-08-28
 aliases: 
-tags: [git, error]
+tags:
+  - git
+  - error
 categories: Git
+updated: 2025-01-07T00:35
 ---
 
 [[Git]]

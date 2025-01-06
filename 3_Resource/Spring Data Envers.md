@@ -1,6 +1,6 @@
 ---
 title: Spring Data Envers
-date: 2023-04-29 14:23:00 +0900
+date: 2023-04-29T14:23:00
 aliases: Envers
 tags:
   - history
@@ -9,7 +9,7 @@ tags:
   - regulatory
   - debugging
 categories: Spring
-updated: 2023-12-04 22:57:54 +0900
+updated: 2025-01-07T00:35
 ---
 
 Spring Data Envers: A Powerful Tool for Auditing Data Changes in Applications

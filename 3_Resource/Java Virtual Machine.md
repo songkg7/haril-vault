@@ -1,12 +1,12 @@
 ---
 title: JVM
-date: 2023-07-16 13:54:00 +0900
+date: 2023-07-16T13:54:00
 aliases: JVM
 tags:
   - jvm
   - java
 categories: Java
-updated: 2023-10-19 15:18:42 +0900
+updated: 2025-01-07T00:35
 ---
 
 ![](https://blog.kakaocdn.net/dn/q2muK/btsfOIC1X3k/SaECNzbfZFZQTGKK4Kf6BK/img.png)

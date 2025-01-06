@@ -1,6 +1,6 @@
 ---
 title: Stream Process
-date: 2023-12-19 18:44:00 +0900
+date: 2023-12-19T18:44:00
 aliases: 
 tags:
   - stream
@@ -9,7 +9,7 @@ tags:
   - message-queue
   - kafka
 categories: 
-updated: 2023-12-19 21:16:54 +0900
+updated: 2025-01-07T00:35
 ---
 
 # 스트림 처리

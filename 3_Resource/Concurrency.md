@@ -1,13 +1,13 @@
 ---
 title: 동시성
-date: 2023-08-09 21:24:00 +0900
+date: 2023-08-09T21:24:00
 aliases:
   - 동시성
 tags:
   - transaction
   - lock
 categories: 
-updated: 2024-06-10 00:40:55 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## 동시성에 대한 정의

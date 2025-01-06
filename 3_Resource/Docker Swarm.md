@@ -1,12 +1,12 @@
 ---
 title: Docker Swarm
-date: 2023-05-13 18:26:00 +0900
-aliases: null
+date: 2023-05-13T18:26:00
+aliases: 
 tags:
   - docker
   - swarm
-categories: null
-updated: 2023-08-19 12:38:04 +0900
+categories: 
+updated: 2025-01-07T00:35
 ---
 
 [[Docker|Docker]]

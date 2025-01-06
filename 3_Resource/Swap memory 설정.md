@@ -1,13 +1,13 @@
 ---
 title: Swap memory 설정
-date: 2023-01-20 09:39:00 +0900
-aliases: null
+date: 2023-01-20T09:39:00
+aliases: 
 tags:
   - linux
   - memory
   - swap
-categories: null
-updated: 2023-08-19 12:37:58 +0900
+categories: 
+updated: 2025-01-07T00:35
 ---
 
 [[AWS EC2]] 는 기본적으로 swap memory 가 할당되어 있지 않다. 메모리가 충분할 경우에는 굳이 할당할 필요가 없지만 만약 기본 메모리가 부족하다면, swap memory 를 할당해주면 좀 더 쾌적한 환경을 구성할 수 있다.

@@ -1,6 +1,6 @@
 ---
 title: Kubernetes
-date: 2022-08-20 14:09:00 +0900
+date: 2022-08-20T14:09:00
 fc-calendar: Gregorian Calendar
 fc-date: 2022-08-20
 aliases: k8s
@@ -11,7 +11,7 @@ tags:
   - cloud
 categories:
   - Kubernetes
-updated: 2024-10-05 11:44:43 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## Overview

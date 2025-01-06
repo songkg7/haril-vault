@@ -1,10 +1,10 @@
 ---
 title: JVM stack and frame
-date: 2023-08-08 16:20:00 +0900
+date: 2023-08-08T16:20:00
 aliases: 
 tags: jvm, stack
 categories: 
-updated: 2023-12-07 15:43:44 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## JVM Stack

@@ -1,10 +1,10 @@
 ---
 title: fd
-date: 2023-08-22 16:46:00 +0900
-aliases: null
+date: 2023-08-22T16:46:00
+aliases: 
 tags: find, fd, linux, search
-categories: null
-updated: 2023-08-22 17:37:52 +0900
+categories: 
+updated: 2025-01-07T00:35
 ---
 
 `find` 보다 최대 8배 빠른 rust 기반 search 툴

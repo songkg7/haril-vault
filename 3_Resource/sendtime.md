@@ -1,9 +1,10 @@
 ---
-title: "sendtime"
-date: 2022-11-18 14:05:00 +0900
+title: sendtime
+date: 2022-11-18T14:05:00
 aliases: 
 tags: 
 categories: 
+updated: 2025-01-07T00:35
 ---
 
 최초 가입시 가이드가 꽤나 인상적. 프론트에 신경을 많이 쓴 듯.

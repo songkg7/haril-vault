@@ -1,7 +1,7 @@
 ---
 title: Docker Study Chapter 7
-date: 2023-10-23 17:56:00 +0900
-updated: 2023-10-29 08:56:20 +0900
+date: 2023-10-23T17:56:00
+updated: 2025-01-07T00:35
 aliases: 
 tags:
   - docker

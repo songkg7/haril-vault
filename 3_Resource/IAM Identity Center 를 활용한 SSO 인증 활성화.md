@@ -1,6 +1,6 @@
 ---
 title: IAM Identity Center 를 활용한 SSO 인증 활성화
-date: 2023-11-07 11:38:00 +0900
+date: 2023-11-07T11:38:00
 aliases: 
 tags:
   - sso
@@ -8,7 +8,7 @@ tags:
   - aws
   - iam
 categories: 
-updated: 2023-11-07 11:38:47 +0900
+updated: 2025-01-07T00:35
 ---
 
 IAM Identity Center는 AWS Identity and Access Management(IAM) 서비스를 사용하여 SSO(Single Sign-On) 인증을 활성화하는 기능을 제공한다. SSO 인증을 활성화하면 사용자는 로컬에서 별도의 access key를 사용하지 않고도 AWS 리소스에 접근할 수 있다.

@@ -1,10 +1,10 @@
 ---
-title: "Systemctl"
-date: 2023-05-24 20:23:00 +0900
+title: Systemctl
+date: 2023-05-24T20:23:00
 aliases: 
 tags: 
 categories: 
-updated: 2023-05-24 20:26:19 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## Systemctl 이란

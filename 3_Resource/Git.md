@@ -1,11 +1,11 @@
 ---
 title: Git
-date: 2022-11-10 21:08:00 +0900
+date: 2022-11-10T21:08:00
 aliases: 
 tags:
   - git
 categories: 
-updated: 2024-08-14 09:44:00 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## Overview

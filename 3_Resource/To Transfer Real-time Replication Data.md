@@ -1,6 +1,6 @@
 ---
 title: 실시간 복제데이터를 이관시키는 방법
-date: 2023-09-22 09:49:00 +0900
+date: 2023-09-22T09:49:00
 aliases: 
 tags:
   - migration
@@ -14,7 +14,7 @@ tags:
   - csv
   - cdc
 categories: 
-updated: 2023-09-22 09:49:56 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## Summary

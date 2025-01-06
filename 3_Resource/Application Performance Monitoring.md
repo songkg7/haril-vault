@@ -1,10 +1,10 @@
 ---
 title: APM
-date: 2023-08-08 21:42:00 +0900
+date: 2023-08-08T21:42:00
 aliases: APM
 tags: apm, monitoring
-categories: null
-updated: 2023-08-08 21:44:18 +0900
+categories: 
+updated: 2025-01-07T00:35
 ---
 
 ## What is APM?

@@ -1,7 +1,7 @@
 ---
 title: Bean Scope
-date: 2023-07-15 14:24:00 +0900
-aliases: null
+date: 2023-07-15T14:24:00
+aliases: 
 tags:
   - spring
   - bean
@@ -9,7 +9,7 @@ tags:
   - singleton
   - prototype
 categories: Spring
-updated: 2023-08-19 12:38:08 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## Bean Scope(빈 스코프)

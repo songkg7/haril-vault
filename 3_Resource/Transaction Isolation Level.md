@@ -1,13 +1,13 @@
 ---
 title: Transaction Isolation Level
-date: 2024-06-09 17:28:00 +0900
+date: 2024-06-09T17:28:00
 aliases: 
 tags:
   - database
   - transaction
   - isolation
 categories: 
-updated: 2024-06-09 18:16:11 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## 트랜잭션 격리 레벨이란?

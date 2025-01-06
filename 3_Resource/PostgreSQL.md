@@ -1,6 +1,6 @@
 ---
 title: PostgreSQL
-date: 2023-09-27 15:25:00 +0900
+date: 2023-09-27T15:25:00
 aliases:
   - postgres
   - psql
@@ -9,7 +9,7 @@ tags:
   - rdb
   - database
 categories: 
-updated: 2024-04-09 09:42:53 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## Indexes In PostgreSQL

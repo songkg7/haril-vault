@@ -1,10 +1,11 @@
 ---
-title: "Java Image Builder"
-date: 2023-04-29 22:23:00 +0900
+title: Java Image Builder
+date: 2023-04-29T22:23:00
 aliases: JIB
-tags: [docker]
+tags:
+  - docker
 categories: 
-updated: 2023-05-10 21:58:04 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## JIB?

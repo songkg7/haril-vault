@@ -1,11 +1,11 @@
 ---
 title: Call by Value VS Call by Reference In Java
-date: 2023-12-01 10:49:00 +0900
+date: 2023-12-01T10:49:00
 aliases: 
 tags:
   - java
 categories: 
-updated: 2023-12-01 10:49:57 +0900
+updated: 2025-01-07T00:35
 ---
 
 [[Java]] 는 Call by Reference 개념이 존재하지 않는다. Java 에서는 C 와는 달리 개발자가 포인터를 통해 메모리에 직접 접근할 수 없다. 원시값이 복사되느냐 주소값이 복사되느냐의 차이만 있을 뿐이다.

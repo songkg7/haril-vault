@@ -1,13 +1,13 @@
 ---
 title: mise
-date: 2024-12-05 23:36:00 +0900
+date: 2024-12-05T23:36:00
 aliases: 
 tags:
   - mise
   - python
   - package-manager
 description: 
-updated: 2024-12-05T23:38
+updated: 2025-01-07T00:35
 ---
 
 ## [[Python]]

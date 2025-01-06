@@ -1,12 +1,12 @@
 ---
 title: Managed vs Unmanaged
-date: 2023-11-05 19:17:00 +0900
+date: 2023-11-05T19:17:00
 aliases: 
 tags:
   - cs
   - programming-language
 categories: Computer science
-updated: 2023-11-05 19:17:37 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## Managed 언어

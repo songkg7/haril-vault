@@ -1,10 +1,10 @@
 ---
 title: CDC
-date: 2023-08-11 10:14:00 +0900
+date: 2023-08-11T10:14:00
 aliases: CDC
 tags: cdc, event, distribute
-categories: null
-updated: 2023-08-11 17:16:24 +0900
+categories: 
+updated: 2025-01-07T00:35
 ---
 
 ## CDC 의 개념과 동작 방식

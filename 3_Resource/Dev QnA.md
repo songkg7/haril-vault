@@ -1,10 +1,11 @@
 ---
-title: "개발 질문 모음"
-date: 2023-05-18 16:55:00 +0900
+title: 개발 질문 모음
+date: 2023-05-18T16:55:00
 aliases: 
-tags: [qna]
+tags:
+  - qna
 categories: 
-updated: 2023-05-18 22:52:27 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## Q

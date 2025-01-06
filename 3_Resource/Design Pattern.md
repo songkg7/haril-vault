@@ -1,11 +1,11 @@
 ---
 title: Design Pattern
-date: 2023-09-04 11:57:00 +0900
+date: 2023-09-04T11:57:00
 aliases: []
 tags:
   - design-pattern
 categories: 
-updated: 2023-09-04 11:57:40 +0900
+updated: 2025-01-07T00:35
 ---
 
 디자인 패턴은 공통된 설계 문제들을 해결하기 위해 마련된 일종의 설계 원칙에 가깝다.

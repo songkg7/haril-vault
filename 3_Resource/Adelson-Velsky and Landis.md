@@ -1,6 +1,6 @@
 ---
 title: AVL Tree
-date: 2023-09-17 21:06:00 +0900
+date: 2023-09-17T21:06:00
 aliases:
   - AVL Tree
 tags:
@@ -8,7 +8,7 @@ tags:
   - balanced
   - data-structure
 categories: 
-updated: 2023-09-17 21:06:34 +0900
+updated: 2025-01-07T00:35
 ---
 
 스스로 균형을 유지하는 이진탐색트리([[Binary Search Tree]]) 이다. Adelson-Velsky and Landis (AVL) 트리는 스스로 균형을 유지하는 이진탐색트리이다. AVL 트리는 1962년에 Soviet mathematicians인 Georgy Adelson-Velsky와 Evgenii Landis에 의해 개발되었다.

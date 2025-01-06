@@ -1,13 +1,13 @@
 ---
 title: Docker Study Chapter 16
-date: 2023-11-24 18:44:00 +0900
+date: 2023-11-24T18:44:00
 aliases: 
 tags:
   - docker
   - study
   - buildx
 categories: 
-updated: 2023-11-26 09:19:14 +0900
+updated: 2025-01-07T00:35
 ---
 
 # Multi Platform Support

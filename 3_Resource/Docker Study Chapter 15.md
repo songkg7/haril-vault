@@ -1,13 +1,13 @@
 ---
 title: Docker Study Chapter 15
-date: 2023-11-26 08:21:00 +0900
+date: 2023-11-26T08:21:00
 aliases: 
 tags:
   - docker
   - security
   - study
 categories: 
-updated: 2023-11-26 08:54:11 +0900
+updated: 2025-01-07T00:35
 ---
 
 # 보안 원격 접근 및 CI/CD 를 위한 도커 설정

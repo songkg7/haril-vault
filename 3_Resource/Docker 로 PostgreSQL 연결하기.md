@@ -1,13 +1,13 @@
 ---
 title: Docker 로 PostgreSQL 연결하기
-date: 2023-10-31 10:45:00 +0900
+date: 2023-10-31T10:45:00
 aliases: 
 tags:
   - docker
   - postgresql
   - postgis
 categories: 
-updated: 2023-10-31 14:28:14 +0900
+updated: 2025-01-07T00:35
 ---
 
 - [[Docker|Docker]]

@@ -1,6 +1,6 @@
 ---
 title: 왜 데이터베이스는 B-tree 를 인덱스 알고리즘으로 사용할까
-date: 2023-09-12 20:19:00 +0900
+date: 2023-09-12T20:19:00
 aliases: []
 tags:
   - b-tree
@@ -8,7 +8,7 @@ tags:
   - db
   - index
 categories: 
-updated: 2023-09-17 21:11:40 +0900
+updated: 2025-01-07T00:35
 ---
 
 ### 레드블랙트리와의 비교

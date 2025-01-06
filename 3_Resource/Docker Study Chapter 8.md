@@ -1,6 +1,6 @@
 ---
 title: Docker Study Chapter 8
-date: 2023-10-25 13:34:00 +0900
+date: 2023-10-25T13:34:00
 aliases: 
 tags:
   - study
@@ -8,7 +8,7 @@ tags:
   - health-check
   - dependency
 categories: 
-updated: 2023-10-29 09:48:21 +0900
+updated: 2025-01-07T00:35
 related: "[[Docker|Docker]]"
 ---
 

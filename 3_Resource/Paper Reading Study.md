@@ -1,12 +1,12 @@
 ---
 title: Paper Reading Study
-date: 2024-06-18 11:17:00 +0900
+date: 2024-06-18T11:17:00
 aliases: 
 tags:
   - study
   - paper
 categories: 
-updated: 2024-06-18 13:40:41 +0900
+updated: 2025-01-07T00:35
 ---
 
 1. **Dynamo - Amazon’s Highly Available Key Value Store**:

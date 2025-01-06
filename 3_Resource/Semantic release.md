@@ -1,13 +1,13 @@
 ---
 title: Semantic release
-date: 2022-11-03 14:14:00 +0900
+date: 2022-11-03T14:14:00
 aliases: 
 tags:
   - release
   - automation
   - semantic-version
 categories: 
-updated: 2023-10-21 14:50:35 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## Overview

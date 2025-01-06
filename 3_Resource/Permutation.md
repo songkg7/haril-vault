@@ -1,12 +1,12 @@
 ---
 title: 순열
-date: 2024-05-29 00:19:00 +0900
+date: 2024-05-29T00:19:00
 aliases: 
 tags:
   - algorithm
   - permutation
 categories: 
-updated: 2024-10-05 11:44:36 +0900
+updated: 2025-01-07T00:35
 ---
 
 [[Implement Combination in Java|Java 로 조합 구현하기]]

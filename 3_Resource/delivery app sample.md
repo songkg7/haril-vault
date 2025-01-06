@@ -1,10 +1,12 @@
 ---
-title: "delivery app sample"
-date: 2023-04-05 09:46:00 +0900
+title: delivery app sample
+date: 2023-04-05T09:46:00
 aliases: 
-tags: [jpa, kotlin]
+tags:
+  - jpa
+  - kotlin
 categories: 
-updated: 2023-05-10 21:56:29 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## Overview

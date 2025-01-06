@@ -1,12 +1,12 @@
 ---
 title: Kotest
-date: 2022-10-19 17:21:00 +0900
+date: 2022-10-19T17:21:00
 aliases: 
 tags:
   - kotlin
   - test
 categories: 
-updated: 2023-09-06 21:12:13 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## Overview

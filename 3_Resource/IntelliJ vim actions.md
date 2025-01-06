@@ -1,13 +1,13 @@
 ---
 title: IntelliJ vim actions
-date: 2022-08-26 10:25:00 +0900
-aliases: null
+date: 2022-08-26T10:25:00
+aliases: 
 tags:
   - vim
   - intellij
   - ideavim
-categories: null
-updated: 2023-08-19 12:38:16 +0900
+categories: 
+updated: 2025-01-07T00:35
 ---
 
 [[IntelliJ 에서 vim 사용하기|IdeaVim]]

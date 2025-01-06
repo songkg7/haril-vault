@@ -1,11 +1,15 @@
 ---
-title: "WebFlux tutorial"
-date: 2022-09-03 11:10:00 +0900
+title: WebFlux tutorial
+date: 2022-09-03T11:10:00
 fc-calendar: Gregorian Calendar
 fc-date: 2022-09-03
 aliases: 
-tags: [kotlin, webflux, spring]
+tags:
+  - kotlin
+  - webflux
+  - spring
 categories: Spring
+updated: 2025-01-07T00:35
 ---
 
 ## Overview

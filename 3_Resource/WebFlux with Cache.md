@@ -1,10 +1,10 @@
 ---
-title: "WebFlux with Cache"
-date: 2023-06-20 16:31:00 +0900
+title: WebFlux with Cache
+date: 2023-06-20T16:31:00
 aliases: 
 tags: 
 categories: 
-updated: 2023-06-20 21:06:43 +0900
+updated: 2025-01-07T00:35
 ---
 
 Spring MVC 에서 자주 사용되는 `@Cacheable` 은 [[Spring WebFlux|WebFlux]] 에서는 제대로 동작하지 않는다.

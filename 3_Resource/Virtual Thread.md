@@ -1,6 +1,6 @@
 ---
 title: Virtual Thread
-date: 2023-12-12 19:00:00 +0900
+date: 2023-12-12T19:00:00
 aliases: 
 tags:
   - java
@@ -9,7 +9,7 @@ tags:
   - loom-project
   - jdk21
 categories: 
-updated: 2024-03-07 15:58:42 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## 배경

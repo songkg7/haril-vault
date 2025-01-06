@@ -1,6 +1,6 @@
 ---
 title: ARM processor
-date: 2022-08-16 10:12:00 +0900
+date: 2022-08-16T10:12:00
 publish: false
 fc-calendar: Gregorian Calendar
 fc-date: 2022-08-16
@@ -9,7 +9,7 @@ tags:
   - arm
   - processor
 categories: Computer science
-updated: 2023-08-19 12:38:06 +0900
+updated: 2025-01-07T00:35
 ---
 
 # Processor(프로세서)?

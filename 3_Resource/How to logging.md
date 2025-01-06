@@ -1,11 +1,11 @@
 ---
 title: Log 를 잘 남기는 법
-date: 2023-05-22 15:38:00 +0900
-aliases: null
+date: 2023-05-22T15:38:00
+aliases: 
 tags:
   - log
-categories: null
-updated: 2023-08-19 12:37:48 +0900
+categories: 
+updated: 2025-01-07T00:35
 ---
 
 - `printStackTrace` 는 사용하지 않는다.

@@ -1,10 +1,13 @@
 ---
-title: "R2DBC"
-date: 2023-07-04 10:26:00 +0900
+title: R2DBC
+date: 2023-07-04T10:26:00
 aliases: 
-tags: [async, non-blocking, db]
+tags:
+  - async
+  - non-blocking
+  - db
 categories: 
-updated: 2023-07-04 10:28:00 +0900
+updated: 2025-01-07T00:35
 ---
 
 R2DBC (Reactive Relational Database Connectivity) is a specification for building non-blocking database drivers in Java. It provides an asynchronous and reactive programming model for interacting with relational databases.

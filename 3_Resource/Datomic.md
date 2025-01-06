@@ -1,11 +1,11 @@
 ---
 title: Datomic
-date: 2023-10-16 23:09:00 +0900
+date: 2023-10-16T23:09:00
 aliases: 
 tags:
   - database
 categories: 
-updated: 2023-10-16 23:09:49 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## 데이토믹이란

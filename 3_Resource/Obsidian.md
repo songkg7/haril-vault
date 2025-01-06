@@ -1,10 +1,13 @@
 ---
-title: "Obsidian"
-date: 2023-07-26 21:22:00 +0900
+title: Obsidian
+date: 2023-07-26T21:22:00
 aliases: 
-tags: [obsidian, markdown, editor]
+tags:
+  - obsidian
+  - markdown
+  - editor
 categories: 
-updated: 2023-07-26 21:23:33 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## What is Obsidian?

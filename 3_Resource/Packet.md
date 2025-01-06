@@ -1,11 +1,11 @@
 ---
 title: Packet
-date: 2024-04-13 14:17:00 +0900
+date: 2024-04-13T14:17:00
 aliases: 
 tags:
   - network
 categories: 
-updated: 2024-04-13 14:17:22 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## 패킷이란?

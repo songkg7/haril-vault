@@ -1,12 +1,12 @@
 ---
 title: Tech interview
-date: 2022-12-25 17:53:00 +0900
+date: 2022-12-25T17:53:00
 aliases: 
 tags:
   - interview
   - question
 categories: 
-updated: 2024-03-25 17:08:34 +0900
+updated: 2025-01-07T00:34
 ---
 
 [인터뷰에서 물어봐야할 질문](https://okky.kr/articles/1374725)

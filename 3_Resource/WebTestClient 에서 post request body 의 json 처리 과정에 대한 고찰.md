@@ -1,14 +1,14 @@
 ---
 title: WebTestClient 에서 post request body 테스트
-date: 2022-10-19 18:40:00 +0900
-aliases: null
+date: 2022-10-19T18:40:00
+aliases: 
 tags:
   - kotlin
   - kotest
   - webflux
   - webtestclinet
-categories: null
-updated: 2023-08-19 12:38:10 +0900
+categories: 
+updated: 2025-01-07T00:35
 ---
 
 ## Enviroment

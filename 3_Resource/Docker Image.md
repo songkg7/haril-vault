@@ -1,6 +1,6 @@
 ---
 title: docker image
-date: 2023-10-13 20:58:00 +0900
+date: 2023-10-13T20:58:00
 aliases: 
 tags:
   - docker
@@ -8,7 +8,7 @@ tags:
   - image
   - study
 categories: 
-updated: 2023-12-16 13:55:38 +0900
+updated: 2025-01-07T00:35
 related: "[[Docker|Docker]]"
 ---
 

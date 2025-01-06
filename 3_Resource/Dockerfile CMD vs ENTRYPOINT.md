@@ -1,9 +1,13 @@
 ---
-title: "Dockerfile CMD vs ENV"
-date: 2022-10-21 16:07:00 +0900
+title: Dockerfile CMD vs ENV
+date: 2022-10-21T16:07:00
 aliases: 
-tags: [docker, cmd, env]
+tags:
+  - docker
+  - cmd
+  - env
 categories: 
+updated: 2025-01-07T00:35
 ---
 
 [[Docker]]

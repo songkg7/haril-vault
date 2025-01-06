@@ -1,10 +1,10 @@
 ---
 title: Circuit Breaker
-date: 2024-04-02 16:18:00 +0900
+date: 2024-04-02T16:18:00
 aliases: 
 tags: 
 categories: 
-updated: 2024-04-16 15:42:43 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## Circuit breaker 란?

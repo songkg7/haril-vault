@@ -1,13 +1,13 @@
 ---
 title: OpenFeign
-date: 2024-04-25 14:04:00 +0900
+date: 2024-04-25T14:04:00
 aliases: 
 tags:
   - spring
   - cloud
   - feign
 categories: 
-updated: 2024-04-25 14:04:02 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## Spring Cloud Open Feign 이란?

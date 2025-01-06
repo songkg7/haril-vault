@@ -1,6 +1,6 @@
 ---
 title: 터미널에 배너 출력하기
-date: 2024-01-10 11:13:00 +0900
+date: 2024-01-10T11:13:00
 aliases: 
 tags:
   - terminal
@@ -9,7 +9,7 @@ tags:
   - lolcat
   - ascii-art
 categories: 
-updated: 2024-10-05 11:44:36 +0900
+updated: 2025-01-07T00:35
 ---
 
 figlet 과 lolcat 을 활용하면 터미널 세션을 시작할 때 문구가 출력되게 할 수 있다.

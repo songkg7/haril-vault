@@ -1,10 +1,10 @@
 ---
 title: Java 로 조합 구현하기
-date: 2024-05-20 11:59:00 +0900
+date: 2024-05-20T11:59:00
 aliases: 
 tags: 
 categories: 
-updated: 2024-05-29 00:21:39 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## Backtrack

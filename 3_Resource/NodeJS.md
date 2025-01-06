@@ -1,11 +1,17 @@
 ---
-title: "NodeJS"
-date: 2022-09-06 20:53:00 +0900
+title: NodeJS
+date: 2022-09-06T20:53:00
 fc-calendar: Gregorian Calendar
 fc-date: 2022-09-06
 aliases: 
-tags: [nodejs, javascript, server, backend]
-categories: [NodeJS]
+tags:
+  - nodejs
+  - javascript
+  - server
+  - backend
+categories:
+  - NodeJS
+updated: 2025-01-07T00:35
 ---
 
 [[JavaScript]]

@@ -1,10 +1,10 @@
 ---
 title: LunarVim Trouble shooting
-date: 2024-05-21 23:02:00 +0900
+date: 2024-05-21T23:02:00
 aliases: 
 tags: 
 categories: 
-updated: 2024-05-21 23:02:04 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## nvim-treesitter

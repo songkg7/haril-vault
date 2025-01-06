@@ -1,13 +1,13 @@
 ---
 title: Chirpy blog 관리하기
-date: 2022-10-22 15:04:00 +0900
-aliases: null
+date: 2022-10-22T15:04:00
+aliases: 
 tags:
   - blog
   - chirpy
   - jekyll
-categories: null
-updated: 2023-08-19 12:38:00 +0900
+categories: 
+updated: 2025-01-07T00:35
 ---
 
 ## Overview

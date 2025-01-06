@@ -1,6 +1,6 @@
 ---
 title: GitButler
-date: 2024-02-15 22:05:00 +0900
+date: 2024-02-15T22:05:00
 aliases: 
 tags:
   - git
@@ -8,7 +8,7 @@ tags:
   - tauri
   - version-control
 categories: 
-updated: 2024-02-15 22:21:47 +0900
+updated: 2025-01-07T00:35
 ---
 
 Git branch 관리의 새로운 패러다임을 제시하는 branch management tool.

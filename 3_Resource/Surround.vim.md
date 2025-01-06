@@ -1,12 +1,12 @@
 ---
 title: Surround.vim
-date: 2022-09-05 16:59:00 +0900
+date: 2022-09-05T16:59:00
 aliases: 
 tags:
   - vim
   - plugin
 categories: Vim
-updated: 2024-03-13 17:43:05 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## Tip

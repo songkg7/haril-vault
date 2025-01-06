@@ -1,9 +1,10 @@
 ---
-title: "WebFlux Json decoding error"
-date: 2022-12-05 10:32:00 +0900
+title: WebFlux Json decoding error
+date: 2022-12-05T10:32:00
 aliases: 
 tags: 
 categories: 
+updated: 2025-01-07T00:35
 ---
 
 [[Spring WebFlux|WebFlux]]

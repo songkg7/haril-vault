@@ -1,12 +1,12 @@
 ---
 title: Selector
-date: 2024-02-13 14:38:00 +0900
+date: 2024-02-13T14:38:00
 aliases: 
 tags:
   - nio
   - non-blocking
 categories: 
-updated: 2024-02-13 14:38:24 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## Selector 란?

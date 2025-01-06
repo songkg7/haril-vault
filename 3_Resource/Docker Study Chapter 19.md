@@ -1,13 +1,13 @@
 ---
 title: Docker Study Chapter 19
-date: 2023-12-08 16:50:00 +0900
+date: 2023-12-08T16:50:00
 aliases: 
 tags:
   - docker
   - study
   - log
 categories: 
-updated: 2023-12-16 14:14:42 +0900
+updated: 2025-01-07T00:35
 ---
 
 # 도커를 이용한 로그 생성 및 관리

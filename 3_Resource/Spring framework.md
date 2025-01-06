@@ -1,6 +1,6 @@
 ---
 title: Spring framework
-date: 2021-04-15 23:31:00 +0900
+date: 2021-04-15T23:31:00
 tags:
   - java
   - framework
@@ -8,7 +8,7 @@ tags:
   - spring
 categories: Spring
 publish: false
-updated: 2024-06-09 17:05:41 +0900
+updated: 2025-01-07T00:35
 aliases:
   - Spring
 ---

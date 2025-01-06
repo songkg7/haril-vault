@@ -1,12 +1,12 @@
 ---
 title: Pandas
-date: 2024-08-13 14:25:00 +0900
+date: 2024-08-13T14:25:00
 aliases: 
 tags:
   - python
 categories: 
 description: 
-updated: 2024-08-13 14:25:44 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## What is Pandas?

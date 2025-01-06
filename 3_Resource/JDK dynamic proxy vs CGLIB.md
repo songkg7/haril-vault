@@ -1,6 +1,6 @@
 ---
 title: JDK dynamic proxy vs CGLIB
-date: 2023-02-05 15:56:00 +0900
+date: 2023-02-05T15:56:00
 aliases: 
 tags:
   - java
@@ -8,7 +8,7 @@ tags:
   - cglib
   - jdk-dynamic-proxy
 categories: 
-updated: 2024-06-09 21:10:16 +0900
+updated: 2025-01-07T00:35
 ---
 
 - JDK Dynamic proxy

@@ -1,12 +1,12 @@
 ---
 title: Springboot LocalCache
-date: 2023-06-14 10:09:00 +0900
+date: 2023-06-14T10:09:00
 aliases: 
 tags:
   - cache
   - spring
 categories: 
-updated: 2023-12-04 22:53:25 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## Introduction to Spring Boot Local Cache

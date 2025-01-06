@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # 변환할 디렉터리 지정 (예: ./target_folder)
-TARGET_DIR="./1_Project"
+TARGET_DIR="./3_Resource"
 
 # 파일 확장자 지정 (모든 파일 대상으로 하려면 * 사용)
 FILE_EXT="*"

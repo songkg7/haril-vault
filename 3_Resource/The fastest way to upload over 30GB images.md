@@ -1,10 +1,10 @@
 ---
 title: The fastest way to upload over 30GB images
-date: 2024-05-14 10:17:00 +0900
+date: 2024-05-14T10:17:00
 aliases: 
 tags: 
 categories: 
-updated: 2024-05-14 10:17:13 +0900
+updated: 2025-01-07T00:35
 ---
 
 - 10년 이상된 컴퓨터의 데이터를 정리하고 있었음

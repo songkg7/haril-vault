@@ -1,13 +1,13 @@
 ---
 title: Docker Study Chapter 17
-date: 2023-12-02 17:32:00 +0900
+date: 2023-12-02T17:32:00
 aliases: 
 tags:
   - docker
   - study
   - optimize
 categories: 
-updated: 2023-12-02 18:52:13 +0900
+updated: 2025-01-07T00:35
 ---
 
 # 도커 이미지 최적화하기: 보안, 용량, 속도

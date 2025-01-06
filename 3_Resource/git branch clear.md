@@ -1,13 +1,13 @@
 ---
 title: git branch clear
-date: 2023-12-02 20:33:00 +0900
+date: 2023-12-02T20:33:00
 aliases: 
 tags:
   - git
   - gh
   - poi
 categories: 
-updated: 2024-10-05 11:44:36 +0900
+updated: 2025-01-07T00:35
 ---
 
 [[GitHub]] 의 CLI 인 `gh` 를 사용하면 로컬의 브랜치를 쉽게 정리할 수 있다.

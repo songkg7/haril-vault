@@ -1,13 +1,13 @@
 ---
 title: Language Switch in Mac
-date: 2024-06-21 17:29:00 +0900
+date: 2024-06-21T17:29:00
 aliases: 
 tags:
   - trouble-shooting
   - language
   - switcher
 categories: 
-updated: 2024-06-21 17:59:18 +0900
+updated: 2025-01-07T00:35
 ---
 
 ```bash

@@ -1,13 +1,13 @@
 ---
 title: Pros and cons using vim
-date: 2024-03-31 22:35:00 +0900
+date: 2024-03-31T22:35:00
 aliases: 
 tags:
   - vim
   - pros
   - cons
 categories: 
-updated: 2024-03-31 23:01:40 +0900
+updated: 2025-01-07T00:35
 ---
 
 ### 단점

@@ -1,11 +1,15 @@
 ---
-title: "Data directory 변경하기"
-date: 2022-08-22 20:46:00 +0900
+title: Data directory 변경하기
+date: 2022-08-22T20:46:00
 fc-calendar: Gregorian Calendar
 fc-date: 2022-08-22
 aliases: 
-tags: [teamcity, directory, configuration]
+tags:
+  - teamcity
+  - directory
+  - configuration
 categories: TeamCity
+updated: 2025-01-07T00:35
 ---
 
 [[TeamCity]]의 기본 directory path 는 `/var/lib/teamcity/.BuildServer` 이다. 하지만 artifact 를 포함한 파일들은 용량이 큰 경우가 있기 때문에 [[AWS EBS]] 같은 외부 파일 Storage 를 활용하면 더욱 효과적으로 로그 및 파일 기록이 가능하다.

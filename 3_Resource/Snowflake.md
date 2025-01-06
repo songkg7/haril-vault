@@ -1,11 +1,11 @@
 ---
 title: Snowflake
-date: 2023-06-17 19:41:00 +0900
-aliases: null
+date: 2023-06-17T19:41:00
+aliases: 
 tags:
   - id
-categories: null
-updated: 2023-08-19 12:37:54 +0900
+categories: 
+updated: 2025-01-07T00:35
 ---
 
 ## 스노우플레이크란?

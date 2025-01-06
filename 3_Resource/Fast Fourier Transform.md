@@ -1,12 +1,12 @@
 ---
 title: Fast Fourier Transform
-date: 2023-12-06 22:07:00 +0900
+date: 2023-12-06T22:07:00
 aliases:
   - FFT
 tags:
   - math
 categories: 
-updated: 2024-10-05 11:44:36 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## 고속 푸리에 변환

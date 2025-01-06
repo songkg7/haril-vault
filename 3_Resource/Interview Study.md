@@ -1,13 +1,13 @@
 ---
 title: Interview Study
-date: 2023-12-02 19:19:00 +0900
+date: 2023-12-02T19:19:00
 aliases: 
 tags:
   - study
   - livid
   - interview
 categories: 
-updated: 2024-04-07 22:03:50 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## 장소

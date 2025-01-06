@@ -1,10 +1,12 @@
 ---
-title: "Web Crawler 설계"
-date: 2023-05-08 19:31:00 +0900
+title: Web Crawler 설계
+date: 2023-05-08T19:31:00
 aliases: 
-tags: [crawler, system-architecture]
+tags:
+  - crawler
+  - system-architecture
 categories: 
-updated: 2023-05-08 20:04:55 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## 웹 크롤러

@@ -1,14 +1,14 @@
 ---
 title: Spring AOP
-date: 2022-08-16 17:05:00 +0900
+date: 2022-08-16T17:05:00
 publish: false
-aliases: null
+aliases: 
 tags:
   - aop
   - aspect
   - spring
 categories: Spring
-updated: 2023-08-19 12:38:06 +0900
+updated: 2025-01-07T00:35
 ---
 
 [[Spring framework|Spring]]

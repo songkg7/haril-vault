@@ -1,11 +1,11 @@
 ---
 title: Toom Cook 3way
-date: 2023-12-06 22:23:00 +0900
+date: 2023-12-06T22:23:00
 aliases: 
 tags:
   - algorithm
 categories: 
-updated: 2023-12-06 22:23:21 +0900
+updated: 2025-01-07T00:35
 ---
 
 Toom-Cook 3-Way는 안드레이 톰과 스테픈 쿡이 제안한 곱셈 알고리즘인 Toom–Cook 알고리즘의 일종입니다.  Toom-Cook 알고리즘은 큰 두 정수를 곱할 때 사용됩니다.  Toom-Cook 3-Way는 최적의 평가 및 보간 시퀀스를 구현합니다. Toom-Cook 3-Way는 매우 효율적이며 작은 나눗셈 하나만 필요합니다. 

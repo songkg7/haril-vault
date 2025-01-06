@@ -1,14 +1,14 @@
 ---
 title: AceJump
-date: 2023-01-12 17:16:00 +0900
-aliases: null
+date: 2023-01-12T17:16:00
+aliases: 
 tags:
   - vim
   - plugin
   - acejump
   - easymotion
-categories: null
-updated: 2023-08-19 12:37:50 +0900
+categories: 
+updated: 2025-01-07T00:35
 ---
 
 [[Vim]]

@@ -1,11 +1,11 @@
 ---
 title: Random Interview Depence
-date: 2023-07-21 10:12:00 +0900
-aliases: null
+date: 2023-07-21T10:12:00
+aliases: 
 tags:
   - side-project
-categories: null
-updated: 2023-08-19 12:37:54 +0900
+categories: 
+updated: 2025-01-07T00:35
 ---
 
 ## 해결하고자 하는 문제

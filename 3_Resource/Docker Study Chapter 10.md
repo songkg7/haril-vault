@@ -1,13 +1,13 @@
 ---
 title: Docker Study Chapter 10
-date: 2023-11-03 08:49:00 +0900
+date: 2023-11-03T08:49:00
 aliases: 
 tags:
   - docker
   - study
   - docker-compose
 categories: 
-updated: 2023-11-04 01:22:07 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## 도커 컴포즈로 여러 개의 애플리케이션 배포하기

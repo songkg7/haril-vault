@@ -1,12 +1,12 @@
 ---
 title: 낙관적 락
-date: 2023-07-10 12:37:00 +0900
+date: 2023-07-10T12:37:00
 aliases: 
 tags:
   - database
   - transaction
 categories: 
-updated: 2024-06-09 17:27:32 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## What is Optimistic Lock?

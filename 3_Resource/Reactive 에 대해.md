@@ -1,13 +1,13 @@
 ---
 title: Reactive 에 대해
-date: 2022-08-21 12:10:00 +0900
+date: 2022-08-21T12:10:00
 fc-calendar: Gregorian Calendar
 fc-date: 2022-08-21
 aliases: 
 tags:
   - reactive
 categories: 
-updated: 2023-10-09 14:47:26 +0900
+updated: 2025-01-07T00:35
 ---
 
 **Reactive** 라는 용어는 변화에 반응하는 것을 중심에 두고 만든 프로그래밍 모델을 의미한다. Non-blocking 은 작업을 기다리기보다 완료되거나 데이터를 사용할 수 있게 되면 반응하므로, 이 말대로면 Non-blocking 도 reactive 다.

@@ -1,13 +1,13 @@
 ---
 title: SAGA Pattern
-date: 2023-08-11 17:38:00 +0900
+date: 2023-08-11T17:38:00
 aliases: 
 tags:
   - msa
   - distribute
   - transaction
 categories: 
-updated: 2024-09-23 09:14:39 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## 분산 트랜잭션 처리 패턴

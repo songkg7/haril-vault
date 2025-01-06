@@ -1,12 +1,12 @@
 ---
 title: Docker Study Chapter 11
-date: 2023-11-10 23:37:00 +0900
+date: 2023-11-10T23:37:00
 aliases: 
 tags:
   - docker
   - study
 categories: 
-updated: 2023-11-11 00:14:46 +0900
+updated: 2025-01-07T00:35
 ---
 
 - dind, dood 에 대한 설명

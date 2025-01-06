@@ -1,12 +1,12 @@
 ---
 title: Feature Toggle
-date: 2024-04-02 17:54:00 +0900
+date: 2024-04-02T17:54:00
 aliases: 
 tags:
   - feature-toggle
   - feature-flag
 categories: 
-updated: 2024-04-02 17:54:04 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## Feature Toggle 이란?

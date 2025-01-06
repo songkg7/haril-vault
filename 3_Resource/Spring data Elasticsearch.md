@@ -1,6 +1,6 @@
 ---
 title: Elasticsearch
-date: 2022-09-20 17:36:00 +0900
+date: 2022-09-20T17:36:00
 fc-calendar: Gregorian Calendar
 fc-date: 2022-09-20
 aliases: 
@@ -10,7 +10,7 @@ tags:
   - elk
   - kotlin
 categories: 
-updated: 2023-09-19 22:53:41 +0900
+updated: 2025-01-07T00:35
 ---
 
 > [!INFO] 이 아티클의 메인 언어는 Kotlin 입니다.

@@ -1,6 +1,6 @@
 ---
 title: Spring MVC Traffic Testing 2
-date: 2023-12-13 15:40:00 +0900
+date: 2023-12-13T15:40:00
 aliases: 
 tags:
   - spring
@@ -14,7 +14,7 @@ tags:
   - k6
   - c10k
 categories: 
-updated: 2024-02-20 22:05:48 +0900
+updated: 2025-01-07T00:35
 ---
 
 TOC

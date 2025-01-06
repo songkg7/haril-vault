@@ -1,6 +1,6 @@
 ---
 title: Secure Socket Layer
-date: 2023-11-01 09:58:00 +0900
+date: 2023-11-01T09:58:00
 aliases:
   - SSL
 tags:
@@ -8,7 +8,7 @@ tags:
   - socket
   - network
 categories: 
-updated: 2024-10-05 11:44:36 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## SSL 이란

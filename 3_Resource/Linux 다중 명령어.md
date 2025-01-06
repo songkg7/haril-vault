@@ -1,9 +1,13 @@
 ---
-title: "linux 다중 명령어"
-date: 2022-11-17 09:56:00 +0900
+title: linux 다중 명령어
+date: 2022-11-17T09:56:00
 aliases: 
-tags: [linux, terminal, command]
+tags:
+  - linux
+  - terminal
+  - command
 categories: 
+updated: 2025-01-07T00:35
 ---
 
 [[Linux]]

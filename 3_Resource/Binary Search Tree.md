@@ -1,6 +1,6 @@
 ---
 title: Binary Search Tree
-date: 2023-09-17 21:00:00 +0900
+date: 2023-09-17T21:00:00
 aliases:
   - BST
 tags:
@@ -10,7 +10,7 @@ tags:
   - sort
   - binary
 categories: 
-updated: 2023-09-18 18:00:29 +0900
+updated: 2025-01-07T00:35
 ---
 
 이진탐색트리(Binary Search [[Tree]], BST) 는 왼쪽 자식은 부모보다 작고 오른쪽 자식은 부모보다 큰 이진트리([[Binary Tree|Binary Tree]]) 이다.

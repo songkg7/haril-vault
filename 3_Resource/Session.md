@@ -1,11 +1,11 @@
 ---
 title: Session
-date: 2023-11-01 09:55:00 +0900
+date: 2023-11-01T09:55:00
 aliases: 
 tags:
   - session
 categories: 
-updated: 2024-02-02 17:36:13 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## 세션이란?

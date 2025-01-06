@@ -1,10 +1,10 @@
 ---
 title: NvChad + Neovide 로 fancy 한 개발환경 만들기
-date: 2022-12-11 16:28:00 +0900
-aliases: null
-tags: null
-categories: null
-updated: 2023-08-19 12:37:41 +0900
+date: 2022-12-11T16:28:00
+aliases: 
+tags: 
+categories: 
+updated: 2025-01-07T00:35
 ---
 
 ## Overview

@@ -1,9 +1,12 @@
 ---
-title: "MongoDB 배포시 고려사항"
-date: 2022-12-18 19:11:00 +0900
+title: MongoDB 배포시 고려사항
+date: 2022-12-18T19:11:00
 aliases: 
-tags: [mongodb, nosql]
+tags:
+  - mongodb
+  - nosql
 categories: MongoDB
+updated: 2025-01-07T00:35
 ---
 
 [[MongoDB]]

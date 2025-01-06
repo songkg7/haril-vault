@@ -1,13 +1,13 @@
 ---
 title: Docker Engine
-date: 2023-10-15 09:57:00 +0900
+date: 2023-10-15T09:57:00
 aliases: []
 tags:
   - docker
   - engine
   - container
 categories: 
-updated: 2024-02-03 16:58:50 +0900
+updated: 2025-01-07T00:35
 related: "[[Docker|Docker]]"
 ---
 

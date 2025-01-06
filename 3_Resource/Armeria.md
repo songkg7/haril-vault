@@ -1,9 +1,14 @@
 ---
-title: "Armeria"
-date: 2022-11-06 13:49:00 +0900
+title: Armeria
+date: 2022-11-06T13:49:00
 aliases: 
-tags: [msa, framework, line, micro-service-architecture]
+tags:
+  - msa
+  - framework
+  - line
+  - micro-service-architecture
 categories: 
+updated: 2025-01-07T00:35
 ---
 
 ## Overview

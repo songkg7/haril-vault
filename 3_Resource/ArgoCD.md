@@ -1,12 +1,12 @@
 ---
 title: ArgoCD
-date: 2024-08-07 11:18:00 +0900
+date: 2024-08-07T11:18:00
 aliases: 
 tags:
   - cicd
 categories: 
 description: 
-updated: 2024-08-07 11:18:26 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## ArgoCD 의 특징

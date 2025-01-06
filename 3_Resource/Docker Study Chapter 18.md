@@ -1,13 +1,13 @@
 ---
 title: Docker Study Chapter 18
-date: 2023-12-02 18:52:00 +0900
+date: 2023-12-02T18:52:00
 aliases: 
 tags:
   - docker
   - study
   - livid
 categories: 
-updated: 2024-10-05 11:44:36 +0900
+updated: 2025-01-07T00:35
 ---
 
 # 컨테이너의 애플리케이션 설정 관리

@@ -1,6 +1,6 @@
 ---
 title: Snapshot Isolation
-date: 2024-06-09 17:37:00 +0900
+date: 2024-06-09T17:37:00
 aliases: 
 tags:
   - transaction
@@ -8,7 +8,7 @@ tags:
   - isolation
   - write-skew
 categories: 
-updated: 2024-06-09 17:37:08 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## Snapshot Isolation(SI)

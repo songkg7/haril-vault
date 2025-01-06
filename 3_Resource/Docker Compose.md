@@ -1,12 +1,12 @@
 ---
 title: Docker Compose
-date: 2023-02-11 23:59:00 +0900
+date: 2023-02-11T23:59:00
 aliases: 
 tags:
   - docker
   - devops
 categories: DevOps
-updated: 2023-10-23 17:58:33 +0900
+updated: 2025-01-07T00:35
 ---
 
 > [!warning] Docker Compose V2

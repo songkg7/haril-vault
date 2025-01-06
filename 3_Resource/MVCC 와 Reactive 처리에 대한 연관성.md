@@ -1,15 +1,15 @@
 ---
 title: MVCC 와 Reactive 처리에 대한 연관성
-date: 2023-01-28 19:15:00 +0900
-aliases: null
+date: 2023-01-28T19:15:00
+aliases: 
 tags:
   - nosql
   - reactive
   - non-blocking
   - mvcc
   - rdb
-categories: null
-updated: 2023-08-19 12:38:06 +0900
+categories: 
+updated: 2025-01-07T00:35
 ---
 
 ## MVCC 란?

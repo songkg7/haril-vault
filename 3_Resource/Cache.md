@@ -1,11 +1,11 @@
 ---
 title: Cache
-date: 2024-02-21 10:59:00 +0900
+date: 2024-02-21T10:59:00
 aliases: 
 tags:
   - cache
 categories: 
-updated: 2024-04-18 21:51:11 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## Cache 의 개념

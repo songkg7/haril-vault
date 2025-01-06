@@ -1,9 +1,12 @@
 ---
-title: "MongoDB Atlas"
-date: 2022-12-22 21:18:00 +0900
+title: MongoDB Atlas
+date: 2022-12-22T21:18:00
 aliases: 
-tags: [mongodb, cloud]
+tags:
+  - mongodb
+  - cloud
 categories: MongoDB
+updated: 2025-01-07T00:35
 ---
 
 ## Overview

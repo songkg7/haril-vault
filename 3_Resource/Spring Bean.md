@@ -1,10 +1,12 @@
 ---
-title: "Spring Bean"
-date: 2023-06-07 10:57:00 +0900
+title: Spring Bean
+date: 2023-06-07T10:57:00
 aliases: Bean
-tags: [spring, dependency]
+tags:
+  - spring
+  - dependency
 categories: Spring
-updated: 2023-06-07 10:58:58 +0900
+updated: 2025-01-07T00:35
 ---
 
 

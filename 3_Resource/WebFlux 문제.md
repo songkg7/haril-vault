@@ -1,5 +1,5 @@
 ---
-updated: 2023-08-05 18:22:21 +0900
+updated: 2025-01-07T00:35
 ---
 
 1. Spring WebFlux는 전통적인 Spring MVC의 대체제인가요? "O" 또는 "X"로 설명하세요.

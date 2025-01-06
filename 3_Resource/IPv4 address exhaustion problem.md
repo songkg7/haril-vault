@@ -1,13 +1,13 @@
 ---
 title: IPv4 address exhaustion problem
-date: 2024-04-02 10:52:00 +0900
+date: 2024-04-02T10:52:00
 aliases: 
 tags:
   - ip
   - ipv4
   - network
 categories: 
-updated: 2024-10-05 11:44:36 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## IP 주소 고갈 문제

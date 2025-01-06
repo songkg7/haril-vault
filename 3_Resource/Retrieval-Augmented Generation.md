@@ -1,6 +1,6 @@
 ---
 title: Retrieval-Augmented Generation
-date: 2024-08-20 14:28:00 +0900
+date: 2024-08-20T14:28:00
 aliases:
   - RAG
 tags:
@@ -8,7 +8,7 @@ tags:
   - llm
 categories: 
 description: 
-updated: 2024-11-11 23:27:29 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## RAG의 기본 개념

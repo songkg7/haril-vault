@@ -1,11 +1,11 @@
 ---
 title: Network
-date: 2022-08-16 13:43:00 +0900
+date: 2022-08-16T13:43:00
 aliases: 
 tags:
   - network
 categories: Network
-updated: 2024-03-09 10:26:42 +0900
+updated: 2025-01-07T00:35
 ---
 
 # 네트워크란 무엇인가?

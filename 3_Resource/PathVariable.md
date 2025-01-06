@@ -1,10 +1,10 @@
 ---
-title: "PathVariable"
-date: 2023-04-20 00:10:00 +0900
+title: PathVariable
+date: 2023-04-20T00:10:00
 aliases: 
 tags: 
 categories: 
-updated: 2023-04-20 00:11:32 +0900
+updated: 2025-01-07T00:35
 ---
 
 [[Spring MVC|Spring MVC]]

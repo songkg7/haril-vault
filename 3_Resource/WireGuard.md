@@ -1,12 +1,12 @@
 ---
 title: WireGuard
-date: 2024-02-19 10:17:00 +0900
+date: 2024-02-19T10:17:00
 aliases: 
 tags:
   - vpn
   - network
 categories: 
-updated: 2024-02-19 10:17:52 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## What is WireGuard

@@ -1,13 +1,13 @@
 ---
 title: Red-Black Tree
-date: 2023-09-17 20:51:00 +0900
+date: 2023-09-17T20:51:00
 aliases: 
 tags:
   - tree
   - red-black
   - algorithm
 categories: 
-updated: 2023-09-17 21:16:43 +0900
+updated: 2025-01-07T00:35
 ---
 
 레드블랙트리(RedBlack-Tree) 는 이진트리([[Binary Tree]])의 일종으로 노드에 색깔을 부여하여 균형을 유지하는 트리 자료구조이다.

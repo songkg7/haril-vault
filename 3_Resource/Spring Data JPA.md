@@ -1,7 +1,7 @@
 ---
 title: Spring Data JPA
-date: 2023-04-09 17:50:00 +0900
-aliases: null
+date: 2023-04-09T17:50:00
+aliases: 
 tags:
   - spring
   - jpa
@@ -9,7 +9,7 @@ tags:
   - hibernate
 categories:
   - Spring
-updated: 2023-08-19 12:37:45 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## Overview

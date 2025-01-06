@@ -1,10 +1,10 @@
 ---
 title: Spring Batch 와 Transaction 의 상관관계
-date: 2023-08-26 13:59:00 +0900
-aliases: null
+date: 2023-08-26T13:59:00
+aliases: 
 tags: spring-batch, transaction, job, batch
 categories: Spring
-updated: 2023-08-26 14:09:41 +0900
+updated: 2025-01-07T00:35
 ---
 
 [[Spring Batch]] 에서 [[Job]] 을 [[Transaction]] 안에서 실행하려고 하면 다음과 같은 에러를 만나게 된다.

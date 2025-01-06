@@ -1,10 +1,12 @@
 ---
-title: "CentOS"
-date: 2023-05-24 20:06:00 +0900
+title: CentOS
+date: 2023-05-24T20:06:00
 aliases: 
-tags: [linux, centos]
+tags:
+  - linux
+  - centos
 categories: 
-updated: 2023-05-24 20:09:43 +0900
+updated: 2025-01-07T00:35
 ---
 
 CentOS is a free and open-source Linux distribution that is based on the Red Hat Enterprise Linux (RHEL) operating system. It is designed for enterprise-level server environments and provides a stable, secure, and reliable platform for hosting critical applications and services.

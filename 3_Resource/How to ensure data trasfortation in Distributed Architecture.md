@@ -1,6 +1,6 @@
 ---
 title: 분산 시스템에서의 데이터 전달 보장 방법
-date: 2023-09-04 10:35:00 +0900
+date: 2023-09-04T10:35:00
 aliases: []
 tags:
   - distribution
@@ -10,7 +10,7 @@ tags:
   - rdb
   - transaction
 categories: 
-updated: 2023-09-04 10:35:01 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## 분산 시스템에서 데이터 전달 보장 방법

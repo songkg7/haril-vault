@@ -1,11 +1,11 @@
 ---
 title: Differences between versions of HTTP
-date: 2024-03-11 13:47:00 +0900
+date: 2024-03-11T13:47:00
 aliases: 
 tags:
   - http
 categories: 
-updated: 2024-03-19 17:56:05 +0900
+updated: 2025-01-07T00:35
 ---
 
 HTTP 는 현재 3.0까지 존재한다. 각 버전 별 어떤 차이점이 존재하는지 알아보자.

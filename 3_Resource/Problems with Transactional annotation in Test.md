@@ -1,14 +1,14 @@
 ---
 title: 트랜잭션 테스트 코드의 어려움
-date: 2023-07-19 23:38:00 +0900
-aliases: null
+date: 2023-07-19T23:38:00
+aliases: 
 tags:
   - spring
   - transaction
   - transactional
   - test
-categories: null
-updated: 2023-08-26 13:39:44 +0900
+categories: 
+updated: 2025-01-07T00:35
 ---
 
 ## `@Transactional` 테스트의 문제점

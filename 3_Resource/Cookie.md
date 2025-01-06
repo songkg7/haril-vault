@@ -1,13 +1,13 @@
 ---
 title: Cookie
-date: 2023-11-01 09:59:00 +0900
+date: 2023-11-01T09:59:00
 aliases: 
 tags:
   - cookie
   - browser
   - client
 categories: 
-updated: 2024-10-05 11:44:36 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## 쿠키란?

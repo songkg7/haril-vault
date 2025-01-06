@@ -1,11 +1,11 @@
 ---
 title: DinD 와 DooD
-date: 2023-05-24 19:42:00 +0900
-aliases: null
+date: 2023-05-24T19:42:00
+aliases: 
 tags:
   - docker
-categories: null
-updated: 2023-08-19 12:37:58 +0900
+categories: 
+updated: 2025-01-07T00:35
 ---
 
 ## Overview

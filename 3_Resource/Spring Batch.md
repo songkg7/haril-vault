@@ -1,13 +1,13 @@
 ---
 title: Spring Batch
-date: 2022-08-17 08:53:00 +0900
+date: 2022-08-17T08:53:00
 publish: false
-aliases: null
+aliases: 
 tags:
   - spring
   - batch
 categories: Spring
-updated: 2023-08-26 13:59:04 +0900
+updated: 2025-01-07T00:35
 ---
 
 [[Spring framework|Spring]]

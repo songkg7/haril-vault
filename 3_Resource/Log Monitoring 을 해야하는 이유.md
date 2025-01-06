@@ -1,12 +1,12 @@
 ---
 title: Log Monitoring 을 해야하는 이유
-date: 2023-05-18 11:06:00 +0900
-aliases: null
+date: 2023-05-18T11:06:00
+aliases: 
 tags:
   - log
   - monitoring
-categories: null
-updated: 2023-08-19 12:38:08 +0900
+categories: 
+updated: 2025-01-07T00:35
 ---
 
 1. 로그 모니터링이란?

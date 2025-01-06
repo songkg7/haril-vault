@@ -1,10 +1,10 @@
 ---
 title: ULID
-date: 2023-05-01 22:45:00 +0900
-aliases: null
-tags: null
-categories: null
-updated: 2023-08-19 12:38:06 +0900
+date: 2023-05-01T22:45:00
+aliases: 
+tags: 
+categories: 
+updated: 2025-01-07T00:35
 ---
 
 ULID 란?

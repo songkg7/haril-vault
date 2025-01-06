@@ -1,9 +1,10 @@
 ---
-title: "GitLab code review"
-date: 2022-12-31 01:07:00 +0900
+title: GitLab code review
+date: 2022-12-31T01:07:00
 aliases: 
 tags: 
 categories: 
+updated: 2025-01-07T00:35
 ---
 
 [[GitLab]]

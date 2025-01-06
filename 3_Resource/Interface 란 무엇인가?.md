@@ -1,10 +1,14 @@
 ---
-title: "Interface 란 무엇인가?"
-date: 2023-01-22 21:09:00 +0900
+title: Interface 란 무엇인가?
+date: 2023-01-22T21:09:00
 aliases: 
-tags: [java, interface, architecture, oop]
+tags:
+  - java
+  - interface
+  - architecture
+  - oop
 categories: 
-updated: 2023-07-16 23:44:52 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## Overview

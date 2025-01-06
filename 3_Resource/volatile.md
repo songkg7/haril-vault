@@ -1,6 +1,6 @@
 ---
 title: volatile
-date: 2024-03-21 15:24:00 +0900
+date: 2024-03-21T15:24:00
 aliases: 
 tags:
   - java
@@ -9,7 +9,7 @@ tags:
   - cache
   - concurrency
 categories: 
-updated: 2024-03-21 15:24:43 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## Java 에서의 volatile

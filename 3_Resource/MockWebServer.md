@@ -1,9 +1,14 @@
 ---
-title: "MockWebServer"
-date: 2022-11-11 13:36:00 +0900
+title: MockWebServer
+date: 2022-11-11T13:36:00
 aliases: 
-tags: [mockwebserver, mock, test, api]
+tags:
+  - mockwebserver
+  - mock
+  - test
+  - api
 categories: 
+updated: 2025-01-07T00:35
 ---
 
 [[Spring WebFlux|WebFlux]]

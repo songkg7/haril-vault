@@ -1,11 +1,11 @@
 ---
 title: Things that change when you write a document first
-date: 2024-10-11 10:34:00 +0900
+date: 2024-10-11T10:34:00
 aliases: 
 tags: 
 categories: 
 description: 
-updated: 2024-10-11 10:55:42 +0900
+updated: 2025-01-07T00:34
 ---
 
 개발을 시작하기 전 개발해야할 내용에 대해 글 쓰기

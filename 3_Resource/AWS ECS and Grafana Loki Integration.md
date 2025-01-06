@@ -1,6 +1,6 @@
 ---
 title: AWS ECS and Grafana Loki Integration
-date: 2024-02-22 11:02:00 +0900
+date: 2024-02-22T11:02:00
 aliases: 
 tags:
   - log
@@ -8,7 +8,7 @@ tags:
   - grafana
   - ecs
 categories: 
-updated: 2024-02-28 13:29:52 +0900
+updated: 2025-01-07T00:35
 ---
 
 AWS ECS 의 로그를 Grafana [[Loki]] 로 보내기 위해 작성

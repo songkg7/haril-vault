@@ -1,13 +1,13 @@
 ---
 title: EC2 인스턴스에 이미지 배포하기
-date: 2023-11-09 17:38:00 +0900
+date: 2023-11-09T17:38:00
 aliases: 
 tags:
   - ec2
   - aws
   - infrastructure
 categories: 
-updated: 2024-10-05 11:44:36 +0900
+updated: 2025-01-07T00:35
 ---
 
 ### EC2 인스턴스에 이미지 배포하기

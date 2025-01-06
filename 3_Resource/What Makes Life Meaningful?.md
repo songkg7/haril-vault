@@ -1,13 +1,13 @@
 ---
 title: What Makes Life Meaningful?
-date: 2023-11-23 23:05:00 +0900
+date: 2023-11-23T23:05:00
 aliases: 
 tags:
   - essay
   - philosophy
   - insight
 categories: Essay
-updated: 2023-11-23 23:22:46 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## 무엇이 인생을 의미있게 만드는가

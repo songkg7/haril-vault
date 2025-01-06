@@ -1,6 +1,6 @@
 ---
 title: Diffusion Model
-date: 2024-11-26 11:29:00 +0900
+date: 2024-11-26T11:29:00
 aliases: 
 tags:
   - ai
@@ -8,7 +8,7 @@ tags:
   - image
   - generation
 description: 
-updated: 2024-11-26 11:29:55 +0900
+updated: 2025-01-07T00:35
 ---
 
 - [Diffusion Model 설명 - 기초부터 응용까지](https://ffighting.net/deep-learning-paper-review/diffusion-model/diffusion-model-basic/#google_vignette)

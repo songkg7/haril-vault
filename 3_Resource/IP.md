@@ -1,6 +1,6 @@
 ---
 title: IP
-date: 2022-08-16 12:50:00 +0900
+date: 2022-08-16T12:50:00
 publish: false
 fc-calendar: Gregorian Calendar
 fc-date: 2022-08-16
@@ -11,7 +11,7 @@ tags:
 categories:
   - Computer science
   - Network
-updated: 2024-04-02 10:42:57 +0900
+updated: 2025-01-07T00:35
 ---
 
 [[Network]]

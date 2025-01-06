@@ -1,11 +1,11 @@
 ---
 title: LXC
-date: 2023-10-19 14:42:00 +0900
+date: 2023-10-19T14:42:00
 aliases:
   - LXC
 tags: 
 categories: 
-updated: 2023-10-19 14:42:29 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## LXC란

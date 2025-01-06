@@ -1,11 +1,11 @@
 ---
 title: unit test
-date: 2023-12-22 23:56:00 +0900
+date: 2023-12-22T23:56:00
 aliases: 
 tags:
   - test
 categories: 
-updated: 2023-12-22 23:56:06 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## 유닛 테스트란?

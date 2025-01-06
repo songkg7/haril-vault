@@ -1,12 +1,12 @@
 ---
 title: Geographic Coordinate System
-date: 2024-08-09 15:57:00 +0900
+date: 2024-08-09T15:57:00
 aliases: 
 tags:
   - geographic
 categories: 
 description: 
-updated: 2024-08-09 15:57:52 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## Reference

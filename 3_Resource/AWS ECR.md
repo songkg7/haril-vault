@@ -1,10 +1,10 @@
 ---
 title: AWS ECR
-date: 2023-11-09 17:37:00 +0900
+date: 2023-11-09T17:37:00
 aliases: 
 tags: 
 categories: 
-updated: 2024-10-05 11:44:36 +0900
+updated: 2025-01-07T00:35
 ---
 
 ### ECR registry 생성

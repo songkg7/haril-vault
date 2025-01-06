@@ -1,6 +1,6 @@
 ---
 title: Docker Study Chapter 6
-date: 2023-10-21 15:45:00 +0900
+date: 2023-10-21T15:45:00
 aliases: 
 tags:
   - docker
@@ -8,7 +8,7 @@ tags:
   - volume
   - persistence
 categories: Docker
-updated: 2024-10-05 11:44:44 +0900
+updated: 2025-01-07T00:35
 ---
 
 # Chapter 6

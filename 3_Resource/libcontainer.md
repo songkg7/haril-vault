@@ -1,11 +1,11 @@
 ---
 title: libcontainer
-date: 2023-10-19 14:50:00 +0900
+date: 2023-10-19T14:50:00
 aliases: 
 tags:
   - docker
 categories: 
-updated: 2023-10-19 14:50:48 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## Libcontainer 란

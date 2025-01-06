@@ -1,6 +1,6 @@
 ---
 title: PostgreSQL Dump
-date: 2024-01-09 15:36:00 +0900
+date: 2024-01-09T15:36:00
 aliases: 
 tags:
   - postgresql
@@ -11,7 +11,7 @@ tags:
   - pg_dump
   - pg_restore
 categories: 
-updated: 2024-10-05 11:44:36 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## Condition

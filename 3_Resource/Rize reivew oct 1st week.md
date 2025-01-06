@@ -1,13 +1,13 @@
 ---
 title: Rize reivew oct 1st week
-date: 2024-10-06 20:06:00 +0900
+date: 2024-10-06T20:06:00
 aliases: 
 tags:
   - rize
   - review
 categories: 
 description: 
-updated: 2024-10-06 20:06:06 +0900
+updated: 2025-01-07T00:35
 ---
 
 - 연휴 및 휴가가 끼어있어서 전체 focus 타임이 좀 감소

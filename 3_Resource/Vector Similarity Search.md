@@ -1,6 +1,6 @@
 ---
 title: 벡터 유사도 검색
-date: 2024-08-14 16:24:00 +0900
+date: 2024-08-14T16:24:00
 aliases: 
 tags:
   - vector
@@ -8,7 +8,7 @@ tags:
   - machine-learning
 categories: 
 description: 
-updated: 2024-08-14 16:24:44 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## Reference

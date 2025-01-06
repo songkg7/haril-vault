@@ -1,10 +1,12 @@
 ---
-title: "WebFilter"
-date: 2023-01-30 13:51:00 +0900
+title: WebFilter
+date: 2023-01-30T13:51:00
 aliases: 
-tags: [webflux, filter]
+tags:
+  - webflux
+  - filter
 categories: 
-updated: 2023-06-20 21:57:37 +0900
+updated: 2025-01-07T00:35
 ---
 
 [[Spring WebFlux|WebFlux]]

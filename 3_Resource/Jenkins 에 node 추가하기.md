@@ -1,6 +1,6 @@
 ---
 title: Jenkins 에 node 추가하기
-date: 2022-12-30 11:27:00 +0900
+date: 2022-12-30T11:27:00
 aliases: 
 tags:
   - jenkins
@@ -8,7 +8,7 @@ tags:
   - ssh
   - linux
 categories: 
-updated: 2024-01-17 11:21:44 +0900
+updated: 2025-01-07T00:35
 ---
 
 [[Jenkins]] 에 node 를 추가하게 되면 Jenkins 자체의 부하를 줄이고 서버 자원을 효율적으로 활용할 수 있게 된다.

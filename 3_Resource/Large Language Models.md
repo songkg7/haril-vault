@@ -1,13 +1,13 @@
 ---
 title: Large Language Models
-date: 2024-08-14 23:46:00 +0900
+date: 2024-08-14T23:46:00
 aliases:
   - LLM
 tags:
   - ai
 categories: 
 description: 
-updated: 2024-08-14 23:46:50 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## LLM(Large Language Model) 이란

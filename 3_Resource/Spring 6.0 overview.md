@@ -1,9 +1,12 @@
 ---
-title: "Spring 6.0"
-date: 2022-10-28 09:51:00 +0900
+title: Spring 6.0
+date: 2022-10-28T09:51:00
 aliases: 
-tags: [spring, springboot]
+tags:
+  - spring
+  - springboot
 categories: Spring
+updated: 2025-01-07T00:35
 ---
 
 [[Spring framework|Spring]]

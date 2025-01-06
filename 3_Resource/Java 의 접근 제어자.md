@@ -1,6 +1,6 @@
 ---
 title: Java 의 접근 제어자
-date: 2023-11-05 19:29:00 +0900
+date: 2023-11-05T19:29:00
 aliases: 
 tags:
   - java
@@ -8,7 +8,7 @@ tags:
   - syntax
   - access-modifier
 categories: 
-updated: 2023-11-05 19:29:17 +0900
+updated: 2025-01-07T00:35
 ---
 
 Java에서는 접근 제어자를 사용하여 클래스, 변수, 메서드 등의 접근 범위를 지정할 수 있습니다. 접근 제어자는 다음과 같이 4가지 종류가 있습니다.

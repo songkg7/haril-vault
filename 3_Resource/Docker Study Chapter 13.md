@@ -1,13 +1,13 @@
 ---
 title: Docker Study Chapter 13
-date: 2023-11-16 11:16:00 +0900
+date: 2023-11-16T11:16:00
 aliases: 
 tags:
   - docker
   - study
   - swarm
 categories: 
-updated: 2023-11-19 08:58:29 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## 도커 스웜 스택으로 분산 애플리케이션 배포하기

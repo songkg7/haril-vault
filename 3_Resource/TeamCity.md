@@ -1,6 +1,6 @@
 ---
 title: TeamCity
-date: 2022-08-20 13:26:00 +0900
+date: 2022-08-20T13:26:00
 fc-calendar: Gregorian Calendar
 fc-date: 2022-08-20
 aliases: 
@@ -10,7 +10,7 @@ tags:
   - teamcity
   - jetbrains
 categories: DevOps
-updated: 2024-07-17 10:37:04 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## Overview

@@ -1,12 +1,12 @@
 ---
 title: Vim 유용한 단축키
-date: 2023-01-19 19:42:00 +0900
-aliases: null
+date: 2023-01-19T19:42:00
+aliases: 
 tags:
   - vim
   - ideavim
-categories: null
-updated: 2023-08-19 12:37:48 +0900
+categories: 
+updated: 2025-01-07T00:35
 ---
 
 ```

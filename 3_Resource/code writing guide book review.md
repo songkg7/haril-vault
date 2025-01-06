@@ -1,12 +1,12 @@
 ---
 title: code writing guide book review
-date: 2024-11-02 00:53:00 +0900
+date: 2024-11-02T00:53:00
 aliases: 
 tags:
   - review
   - book
 description: 
-updated: 2024-11-02 00:53:49 +0900
+updated: 2025-01-07T00:35
 ---
 
 코드 작성 가이드 리뷰

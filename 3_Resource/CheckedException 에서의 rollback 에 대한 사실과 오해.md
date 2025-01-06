@@ -1,16 +1,16 @@
 ---
 title: CheckedException 에서의 rollback 에 대한 사실과 오해
-date: 2022-09-05 15:52:00 +0900
+date: 2022-09-05T15:52:00
 fc-calendar: Gregorian Calendar
 fc-date: 2022-09-05
-aliases: null
+aliases: 
 tags:
   - checked-exception
   - unchecked-exception
   - java
   - transaction
-categories: null
-updated: 2023-08-08 21:47:55 +0900
+categories: 
+updated: 2025-01-07T00:35
 ---
 
 ## Overview

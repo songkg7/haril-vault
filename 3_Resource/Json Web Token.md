@@ -1,13 +1,13 @@
 ---
 title: Json Web Token
-date: 2024-03-10 22:14:00 +0900
+date: 2024-03-10T22:14:00
 aliases:
   - JWT
 tags:
   - json
   - authentication
 categories: 
-updated: 2024-03-10 22:14:16 +0900
+updated: 2025-01-07T00:35
 ---
 
 > OpenAI 로 생성된 글입니다.

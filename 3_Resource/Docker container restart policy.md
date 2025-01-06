@@ -1,12 +1,14 @@
 ---
-title: "Docker container restart policy"
-date: 2022-09-13 11:58:00 +0900
+title: Docker container restart policy
+date: 2022-09-13T11:58:00
 fc-calendar: Gregorian Calendar
 fc-date: 2022-09-13
 aliases: 
-tags: [docker, restart]
+tags:
+  - docker
+  - restart
 categories: 
-updated: 2023-05-09 12:20:19 +0900
+updated: 2025-01-07T00:35
 ---
 
 [[Docker|Docker]] container 기반으로 서비스를 운영하다보면 컨테이너가 중지될때가 있을 수 있다. 이럴 때 컨테이너를 수동으로 재시작하지 않아도 스스로 시작된다면 관리부담이 줄어들지 않을까? 이런 고민에서 등장한 것이 restart policy 이다.

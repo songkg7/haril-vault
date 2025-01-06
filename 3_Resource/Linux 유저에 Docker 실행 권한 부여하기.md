@@ -1,12 +1,12 @@
 ---
 title: Linux 유저에 Docker 실행 권한 부여하기
-date: 2023-03-16 11:28:00 +0900
+date: 2023-03-16T11:28:00
 aliases: 
 tags:
   - linux
   - docker
 categories: 
-updated: 2024-07-11 14:57:37 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## add user

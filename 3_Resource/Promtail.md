@@ -1,6 +1,6 @@
 ---
 title: Promtail
-date: 2024-01-18 15:47:00 +0900
+date: 2024-01-18T15:47:00
 aliases: 
 tags:
   - monitoring
@@ -8,7 +8,7 @@ tags:
   - promtail
   - log
 categories: 
-updated: 2024-10-05 11:44:36 +0900
+updated: 2025-01-07T00:35
 ---
 
 경량 log 수집기. 로그를 [[Loki]] 로 전송하고 [[Grafana]] 등으로 모니터링할 수 있다.

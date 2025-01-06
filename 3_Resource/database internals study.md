@@ -1,11 +1,11 @@
 ---
 title: database internals study
-date: 2024-07-04 19:14:00 +0900
+date: 2024-07-04T19:14:00
 aliases: 
 tags: 
 categories: 
 description: 
-updated: 2024-12-01T22:05
+updated: 2025-01-07T00:35
 created: 2024-11-28T17:44
 ---
 

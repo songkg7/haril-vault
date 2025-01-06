@@ -1,6 +1,6 @@
 ---
 title: AsynchronousFileChannel
-date: 2024-02-13 16:53:00 +0900
+date: 2024-02-13T16:53:00
 aliases: 
 tags:
   - java
@@ -8,7 +8,7 @@ tags:
   - file
   - channel
 categories: 
-updated: 2024-02-13 16:53:43 +0900
+updated: 2025-01-07T00:35
 ---
 
 java.io 의 InputStream OutputStream 은 단방향이며, 파일의 경우 블로킹되는 단점도 있다. 만약 사이즈가 큰 파일의 경우는 블로킹이 큰 단점이 될 수 있기에 java.nio 부터는 비동기 I/O 를 지원하는 `AsynchronousChannel` 을 사용할 수 있다. 이번 글에서는 그 중에 파일과 관련된 Channel 인 `AsnycronousFileChannel` 의 간략한 사용법을 적어본다.

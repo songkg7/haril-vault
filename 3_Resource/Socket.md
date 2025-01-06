@@ -1,12 +1,12 @@
 ---
 title: Socket
-date: 2023-10-01 16:08:00 +0900
+date: 2023-10-01T16:08:00
 aliases: 
 tags:
   - socket
   - network
 categories: Network
-updated: 2024-04-14 12:04:31 +0900
+updated: 2025-01-07T00:35
 ---
 
 ## Socket 의 본질에 대한 이해
