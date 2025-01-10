@@ -8,15 +8,16 @@ tags:
   - kotlin
 categories: 
 description: 
-updated: 2025-01-07T00:35
+updated: 2025-01-09T07:38
 ---
 
 [[Testcontainers]]
 
 1. abstract class 로 분리해서 컨테이너 재활용하기
-2. 최대한 가벼운 이미지 사용하기
-3. latest 대신 버전 명시해서 사용하기
-4. ci/cd 레벨에서 cache 하기
+2. wait 정책으로 안정성 개선하기
+3. 최대한 가벼운 이미지 사용하기
+4. latest 대신 버전 명시해서 사용하기
+5. ci/cd 레벨에서 cache 하기
 
 간단한 CRUD 예제
 
