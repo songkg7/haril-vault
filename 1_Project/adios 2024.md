@@ -4,8 +4,10 @@ date: 2025-01-03T15:56:00+0900
 aliases: 
 tags:
   - remind
+  - reminiscence
+  - retrospection
 description: 
-updated: 2025-01-11T22:37
+updated: 2025-01-11T22:41
 ---
 
 ## Overview
