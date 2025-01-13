@@ -6,8 +6,8 @@ tags:
   - remind
   - reminiscence
   - retrospection
-description: 
-updated: 2025-01-13T16:11
+description: 2024년 회고
+updated: 2025-01-13T16:12
 published: 2025-01-12
 ---
 
@@ -23,7 +23,7 @@ published: 2025-01-12
 
 자신만의 공간이 필요하다. 개발자건 비개발자건 어떤 수단을 쓰더라도 플랫폼에 종속되지 않는, 자신만의 공간이 필요하다. 그래서 도메인을 구매했다. 어느 플랫폼으로 가더라도 항상 사람들을 모을 수 있도록.
 
-도메인이 고정되니 온전히 나만의 공간이 생긴 것 같아서 아주 만족스럽다. 블로그 플랫폼은 [[Docusaurus]] 로 정했다. 이유는 [Jekyll 블로그를 Docusaurus 로 이사하기 \| HARIL](https://haril.dev/blog/2024/07/22/Blog-Migration-to-Docusaurus-from-Jekyll) 에 자세한 이유가 나와있다.
+도메인이 고정되니 온전히 나만의 공간이 생긴 것 같아서 아주 만족스럽다. 블로그 플랫폼은 [[Docusaurus]] 로 정했다. 이유는 [Jekyll 블로그를 Docusaurus 로 이사하기](https://haril.dev/blog/2024/07/22/Blog-Migration-to-Docusaurus-from-Jekyll) 에 자세한 이유가 나와있다.
 
 디자인이 메인 업무는 아니다보니 자잘한 버그들이 아직 메인페이지에 남아있다. 천천히 조금씩 시간을 들여 개선해나갈 예정이다.
 
