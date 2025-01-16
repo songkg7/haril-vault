@@ -1,25 +1,20 @@
 {
   "main": {
-    "id": "d503aec4618136a4",
+    "id": "72aeccdf3d469ffa",
     "type": "split",
     "children": [
       {
-        "id": "ab7c5e3c0c2d8ce9",
+        "id": "b9b9b0c538e03bff",
         "type": "tabs",
         "children": [
           {
-            "id": "54137e971e651ed7",
+            "id": "6fd92d7716d61dac",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "1_Project/adiós 2024.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "adiós 2024"
+              "title": "New tab"
             }
           }
         ]
@@ -28,11 +23,11 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "38385cc94ed25f31",
+    "id": "f12f7f8ab53553ff",
     "type": "mobile-drawer",
     "children": [
       {
-        "id": "ac20dea215f22793",
+        "id": "0ab0445052d336ab",
         "type": "leaf",
         "state": {
           "type": "file-explorer",
@@ -44,7 +39,7 @@
         }
       },
       {
-        "id": "4353318ac7b23044",
+        "id": "b937356407cafc9e",
         "type": "leaf",
         "state": {
           "type": "search",
@@ -61,7 +56,7 @@
         }
       },
       {
-        "id": "df28e318ab69f125",
+        "id": "411c7618f553659d",
         "type": "leaf",
         "state": {
           "type": "tag",
@@ -74,21 +69,7 @@
         }
       },
       {
-        "id": "9bd9bb08745acf86",
-        "type": "leaf",
-        "state": {
-          "type": "all-properties",
-          "state": {
-            "sortOrder": "frequency",
-            "showSearch": false,
-            "searchQuery": ""
-          },
-          "icon": "lucide-archive",
-          "title": "All properties"
-        }
-      },
-      {
-        "id": "0239f11f6a1cbe4e",
+        "id": "2c49aa739896052d",
         "type": "leaf",
         "state": {
           "type": "bookmarks",
@@ -101,16 +82,15 @@
     "currentTab": 0
   },
   "right": {
-    "id": "021047b8ef0e1017",
+    "id": "98fba83d8dd700e8",
     "type": "mobile-drawer",
     "children": [
       {
-        "id": "afc8f674b36a3141",
+        "id": "76367a918277b271",
         "type": "leaf",
         "state": {
           "type": "backlink",
           "state": {
-            "file": "daily/2024-12-03.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -124,12 +104,11 @@
         }
       },
       {
-        "id": "3cc5acb510439060",
+        "id": "ff33f4374d05ce2f",
         "type": "leaf",
         "state": {
           "type": "outgoing-link",
           "state": {
-            "file": "daily/2024-12-03.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           },
@@ -138,25 +117,13 @@
         }
       },
       {
-        "id": "5a1927a309246fe3",
+        "id": "66e2392ef542fdae",
         "type": "leaf",
         "state": {
           "type": "outline",
-          "state": {
-            "file": "daily/2024-12-03.md"
-          },
+          "state": {},
           "icon": "lucide-list",
           "title": "Outline"
-        }
-      },
-      {
-        "id": "670968176f3c4d60",
-        "type": "leaf",
-        "state": {
-          "type": "calendar",
-          "state": {},
-          "icon": "lucide-file",
-          "title": "Plugin no longer active"
         }
       }
     ],
@@ -169,26 +136,56 @@
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
-      "command-palette:Open command palette": false,
-      "markdown-importer:Open format converter": false,
-      "workspaces:Manage workspace layouts": false,
-      "table-editor-obsidian:Advanced Tables Toolbar": false,
-      "templater-obsidian:Templater": false,
-      "obsidian-git:Open Git source control": false,
-      "obsidian-markdown-formatting-assistant-plugin:Open Markdown Formatting Assistant": false,
-      "obsidian-projects:Open projects": false,
-      "obsidian-excalidraw-plugin:Create new drawing": false,
-      "obsidian-kanban:Create new board": false
+      "command-palette:Open command palette": false
     }
   },
-  "active": "54137e971e651ed7",
+  "active": "6fd92d7716d61dac",
   "lastOpenFiles": [
-    "daily/2024-12-13.md",
-    "4_Archive/Easy devtools version management, mise.md",
-    "3_Resource/mise.md",
-    "3_Resource/asdf vs mise.md",
-    "daily/2024-12-05.md",
-    "daily/2024-12-03.md",
-    "202412051202.md"
+    "cleanup.sh",
+    "attachments/localdatetime-format-with-webflux/스크린샷 2022-11-29 오후 9.52.51.png",
+    "attachments/localdatetime-format-with-webflux/스크린샷 2022-11-29 오후 8.56.56.png",
+    "attachments/localdatetime-format-with-webflux/스크린샷 2022-11-29 오후 9.18.20.png",
+    "attachments/localdatetime-format-with-webflux/스크린샷 2022-11-29 오후 9.55.22.png",
+    "attachments/localdatetime-format-with-webflux/스크린샷 2022-11-29 오후 10.07.30.png",
+    "attachments/localdatetime-format-with-webflux/스크린샷 2022-11-29 오후 8.56.16.png",
+    "attachments/localdatetime-format-with-webflux/스크린샷 2022-11-29 오후 8.54.07.png",
+    "attachments/Screenshot 2023-02-03 오후 4.48.23.png",
+    "attachments/스크린샷 2022-11-09 오후 1.00.44.png",
+    "attachments/Screenshot 2023-02-03 오후 12.59.54.png",
+    "attachments/localdatetime-format-with-webflux",
+    "attachments/GitButler main preview.mp4",
+    "attachments",
+    "4_Archive/Journey to a multi-connect server.md",
+    "4_Archive/Image optimazation for SEO.md",
+    "4_Archive/WebFlux 에서 Date type 을 url parameter 로 사용하기.md",
+    "4_Archive/Garbage Collection.md",
+    "4_Archive/JdbcItemReader sortKeys 설정시 주의사항.md",
+    "4_Archive/Java Hello World Deepdive 3.md",
+    "4_Archive/Refactor O2 using desgin pattern.md",
+    "4_Archive/Optimize query when using composite key.md",
+    "4_Archive/Java Hello World Deepdive 2.md",
+    "4_Archive/Keybase - key generation error.md",
+    "4_Archive/Journey with Devlog 2022-2023.md",
+    "4_Archive/Spatial index.md",
+    "4_Archive/mac 키보드 반복 활성화.md",
+    "4_Archive/Operate Jenkins using Docker.md",
+    "4_Archive/blog posting pipeline.md",
+    "4_Archive/Fixture Monkey.md",
+    "4_Archive/How to capturing packet with termshark.md",
+    "4_Archive/코드 작성 가이드 review.md",
+    "4_Archive/develop obsidian plugin.md",
+    "4_Archive/URL Shortener.md",
+    "4_Archive/Spring MVC Traffic Testing.md",
+    "4_Archive/Google cloud kubernetes 를 local 에서 접근하기.md",
+    "4_Archive/if(kakaoAI) 2024 Report.md",
+    "4_Archive/network study.md",
+    "4_Archive/Fixture Monkey 0.4.x.md",
+    "4_Archive",
+    "templates",
+    "1_Project",
+    "convert_date_format.sh",
+    "2_Area",
+    "Excalidraw",
+    "3_Resource/Excalidraw"
   ]
 }
