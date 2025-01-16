@@ -1,6 +1,7 @@
 ---
 kanban-plugin: board
-updated: 2025-01-09T07:34
+updated: 2025-01-16T12:51
+created: 2025-01-16T12:38
 ---
 
 ## Plan
@@ -17,7 +18,6 @@ updated: 2025-01-09T07:34
 ## Writing
 
 - [ ] [[Testcontainers Best Practice]]
-- [ ] [[adios 2024]]
 
 
 ## Publish
@@ -25,6 +25,7 @@ updated: 2025-01-09T07:34
 **Complete**
 - [x] [[Easy organizing of annoying dummy files|script 활용 tip - conflict cleaner]] @{2024-10-13} ✅ 2024-10-14
 - [x] [[코드 작성 가이드 review|길벗 도서 리뷰]] ✅ 2025-01-09
+- [x] [[adios 2024]] ✅ 2025-01-16
 - [x] [[Naver DAN 24 Review]] ✅ 2024-11-23
 - [x] [[KafkaKRU review]] ✅ 2024-11-23
 
