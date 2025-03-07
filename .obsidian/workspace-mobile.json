@@ -11,10 +11,24 @@
             "id": "6fd92d7716d61dac",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "1_Project/Application Performance Monitoring.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "Application Performance Monitoring"
             }
           }
         ]
@@ -32,7 +46,8 @@
         "state": {
           "type": "file-explorer",
           "state": {
-            "sortOrder": "alphabetical"
+            "sortOrder": "alphabetical",
+            "autoReveal": false
           },
           "icon": "lucide-folder-closed",
           "title": "Files"
@@ -77,6 +92,20 @@
           "icon": "lucide-bookmark",
           "title": "Bookmarks"
         }
+      },
+      {
+        "id": "d728a2649f05c025",
+        "type": "leaf",
+        "state": {
+          "type": "all-properties",
+          "state": {
+            "sortOrder": "frequency",
+            "showSearch": false,
+            "searchQuery": ""
+          },
+          "icon": "lucide-archive",
+          "title": "All properties"
+        }
       }
     ],
     "currentTab": 0
@@ -91,6 +120,7 @@
         "state": {
           "type": "backlink",
           "state": {
+            "file": "1_Project/Application Performance Monitoring.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -125,12 +155,31 @@
           "icon": "lucide-list",
           "title": "Outline"
         }
+      },
+      {
+        "id": "88a467b8e3eb932e",
+        "type": "leaf",
+        "state": {
+          "type": "calendar",
+          "state": {},
+          "icon": "calendar-with-checkmark",
+          "title": "Calendar"
+        }
       }
     ],
     "currentTab": 0
   },
   "left-ribbon": {
     "hiddenItems": {
+      "markdown-importer:Open format converter": false,
+      "workspaces:Manage workspace layouts": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
+      "templater-obsidian:Templater": false,
+      "obsidian-git:Open Git source control": false,
+      "obsidian-markdown-formatting-assistant-plugin:Open Markdown Formatting Assistant": false,
+      "obsidian-projects:Open projects": false,
+      "obsidian-excalidraw-plugin:Create new drawing": false,
+      "obsidian-kanban:Create new board": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
@@ -141,6 +190,12 @@
   },
   "active": "6fd92d7716d61dac",
   "lastOpenFiles": [
+    "1_Project/Consideration of the appropriate type with the ID of Entity.md",
+    "1_Project/Network Monitoring CLI tools.md",
+    "1_Project/MacOS Settings Guide.md",
+    "1_Project/O2 2.0 Project.md",
+    "1_Project/Testcontainers.md",
+    "1_Project/알아두면 쓸데있는 개발자 도구.md",
     "cleanup.sh",
     "attachments/localdatetime-format-with-webflux/스크린샷 2022-11-29 오후 9.52.51.png",
     "attachments/localdatetime-format-with-webflux/스크린샷 2022-11-29 오후 8.56.56.png",
@@ -175,17 +230,11 @@
     "4_Archive/코드 작성 가이드 review.md",
     "4_Archive/develop obsidian plugin.md",
     "4_Archive/URL Shortener.md",
-    "4_Archive/Spring MVC Traffic Testing.md",
-    "4_Archive/Google cloud kubernetes 를 local 에서 접근하기.md",
-    "4_Archive/if(kakaoAI) 2024 Report.md",
-    "4_Archive/network study.md",
-    "4_Archive/Fixture Monkey 0.4.x.md",
     "4_Archive",
     "templates",
     "1_Project",
     "convert_date_format.sh",
     "2_Area",
-    "Excalidraw",
-    "3_Resource/Excalidraw"
+    "Excalidraw"
   ]
 }

@@ -1,8 +1,7 @@
 ---
 title: {{title}}
 date: {{date}}T{{time}}
-aliases: 
-tags: 
+tags: daily
 description: 
 ---
 
