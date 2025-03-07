@@ -2,6 +2,7 @@
   "pinned": [
     "file-explorer:move-file",
     "workspaces:save-and-load",
-    "daily-notes"
+    "daily-notes",
+    "templater-obsidian:insert-templater"
   ]
 }
