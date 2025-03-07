@@ -9,7 +9,7 @@ tags:
   - uuid
   - long
 categories: 
-updated: 2025-01-07T00:32
+updated: 2025-02-16T23:26
 ---
 
 ## Overview
@@ -75,6 +75,10 @@ ULID 는 UUID 의 단점을 극복하기 위해 등장했다.
 
 - 비교적 짧은 길이를 가진다
 - 만들 수 있는 최대 시간폭이 정해져있기에(bit 할당에 따라 다르지만 약 70년), 마이그레이션 전략이 필요할 수 있다
+
+### H3
+
+
 
 ## Conclusion
 

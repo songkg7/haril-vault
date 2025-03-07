@@ -1313,9 +1313,14 @@ var O2SettingTab = class extends import_obsidian.PluginSettingTab {
   }
 };
 
+// src/FilenameConverter.ts
+var convertFileName = (filename) => filename.replace(".md", "").replace(/\s/g, "-").replace(/[^a-zA-Z0-9-\uAC00-\uD7A3]/g, "");
+var removeTempPrefix = (filename) => filename.replace("o2-temp", "");
+
 // src/jekyll/settings/JekyllSettings.ts
 var JekyllSettings = class {
   pathReplacer(year, month, day, title) {
+    title = convertFileName(title);
     return `${year}-${month}-${day}-${title}.md`;
   }
   constructor() {
@@ -1361,6 +1366,9 @@ var JekyllSettings = class {
   }
   targetPath() {
     return `${this._jekyllPath}/_posts`;
+  }
+  targetSubPath(folder) {
+    return `${this._jekyllPath}/${folder}`;
   }
   resourcePath() {
     return `${this._jekyllPath}/${this._jekyllRelativeResourcePath}`;
@@ -1414,12 +1422,6 @@ var convertWikiLink = (input) => input.replace(ObsidianRegex.WIKI_LINK, (match, 
 // src/ResourceLinkConverter.ts
 var import_fs = __toESM(require("fs"));
 var import_obsidian2 = require("obsidian");
-
-// src/FilenameConverter.ts
-var convertFileName = (filename) => filename.replace(".md", "").replace(/\s/g, "-").replace(/[^a-zA-Z0-9-\uAC00-\uD7A3]/g, "");
-var removeTempPrefix = (filename) => filename.replace("o2-temp", "");
-
-// src/ResourceLinkConverter.ts
 var ResourceLinkConverter = class {
   constructor(fileName, resourcePath, absolutePath, attachmentsFolder, relativeResourcePath, liquidFilterOptions) {
     this.fileName = fileName;
@@ -9175,11 +9177,22 @@ async function convertToChirpy(plugin) {
       );
       const result = ConverterChain.create().chaining(frontMatterConverter).chaining(resourceLinkConverter).chaining(curlyBraceConverter).chaining(new WikiLinkConverter()).chaining(new CalloutConverter()).chaining(new FootnotesConverter()).chaining(new CommentsConverter()).chaining(new EmbedsConverter()).converting(await plugin.app.vault.read(file));
       await plugin.app.vault.modify(file, result);
-      await moveFiles(
-        `${vaultAbsolutePath(plugin)}/${plugin.obsidianPathSettings.readyFolder}`,
-        settings.targetPath(),
-        settings.pathReplacer
-      ).then(() => new import_obsidian4.Notice("Moved files to Chirpy successfully.", 5e3));
+      const path2 = file.path;
+      const directory = path2.substring(0, path2.lastIndexOf("/"));
+      const folder = directory.substring(directory.lastIndexOf("/") + 1);
+      if (folder !== plugin.obsidianPathSettings.readyFolder) {
+        await moveFiles(
+          `${vaultAbsolutePath(plugin)}/${plugin.obsidianPathSettings.readyFolder}/${folder}`,
+          settings.targetSubPath(folder),
+          settings.pathReplacer
+        ).then(() => new import_obsidian4.Notice("Moved files to Chirpy successfully.", 5e3));
+      } else {
+        await moveFiles(
+          `${vaultAbsolutePath(plugin)}/${plugin.obsidianPathSettings.readyFolder}`,
+          settings.targetPath(),
+          settings.pathReplacer
+        ).then(() => new import_obsidian4.Notice("Moved files to Chirpy successfully.", 5e3));
+      }
     }
   } catch (e2) {
     console.error(e2);
