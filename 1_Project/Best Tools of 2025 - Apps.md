@@ -9,7 +9,7 @@ tags:
   - lecture
 categories: 
 description: 
-updated: 2025-03-15T23:41
+updated: 2025-03-16T00:01
 ---
 
 ## Overview
@@ -102,11 +102,13 @@ Warp 를 사용하지만 새로운 도구는 항상 살펴본다. Ghostty 는 �
 
 [Homerow — Keyboard shortcuts for every button in macOS](https://www.homerow.app/)
 
+마우스없이 vim 방식으로 Mac 을 제어할 수 있다. 유료지만, vim 유저라면 굉장히 유용하다.
+
 ## Apidog
 
 [Apidog An integrated platform for API design, debugging, development, mock, and testing](https://apidog.com/)
 
-postman 은 많은 사람들이 사용하는 유명한 도구지만, 보안 패치가 꽤 오래 진행이 안되는 등의 문제가 많아서 그다지 정이 가지 않았다. 차라리 HTTPie 나 curl 등의 CLI 를 쓰거나, IDE 내에서 제공하는 `.http` 파일을 사용하는걸 추천하게 될 정도. 외부 요인으로 인해 선택의 여지가 없는게 아니라면 Postman 보다는 다른 도구를 살펴보길 권해본다.
+Postman 은 많은 사람들이 사용하는 유명한 도구지만, 보안 패치가 꽤 오래 진행이 안되는 등의 문제가 많아서 그다지 정이 가지 않았다. 차라리 HTTPie 나 curl 등의 CLI 를 쓰거나, IDE 내에서 제공하는 `.http` 파일을 사용하는걸 추천하게 될 정도. 외부 요인으로 인해 선택의 여지가 없는게 아니라면 Postman 보다는 다른 도구를 살펴보길 권해본다.
 
 그 다른 도구가 바로 Apidog 이다. 처음 봤을 때 세련된 UI/UX 에 한 번 놀랐고, 문서를 편리하게 생성할 수 있는 점에 두 번 놀랐다. 사용법 자체는 Postman 과 크게 다르지 않으니, 금방 적응할 수 있을 것이라 생각한다.
 
