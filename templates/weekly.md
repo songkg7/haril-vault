@@ -14,3 +14,12 @@ description:
 ### WIL
 
 ### Total
+
+---
+
+```dataview
+list
+from "daily"
+where file.ctime < file.ctime - dur(1 week)
+sort date
+```
