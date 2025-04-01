@@ -1076,7 +1076,7 @@ var import_obsidian7 = require("obsidian");
 // src/settings.ts
 var import_obsidian = require("obsidian");
 
-// src/docusaurus/DateExtractionPattern.ts
+// src/platforms/docusaurus/DateExtractionPattern.ts
 var DateExtractionPattern = {
   // default pattern
   SINGLE: {
@@ -1313,11 +1313,11 @@ var O2SettingTab = class extends import_obsidian.PluginSettingTab {
   }
 };
 
-// src/FilenameConverter.ts
+// src/core/converters/FilenameConverter.ts
 var convertFileName = (filename) => filename.replace(".md", "").replace(/\s/g, "-").replace(/[^a-zA-Z0-9-\uAC00-\uD7A3]/g, "");
 var removeTempPrefix = (filename) => filename.replace("o2-temp", "");
 
-// src/jekyll/settings/JekyllSettings.ts
+// src/platforms/jekyll/settings/JekyllSettings.ts
 var JekyllSettings = class {
   pathReplacer(year, month, day, title) {
     title = convertFileName(title);
@@ -1378,9 +1378,10 @@ var JekyllSettings = class {
   }
 };
 
-// src/docusaurus/settings/DocusaurusSettings.ts
+// src/platforms/docusaurus/settings/DocusaurusSettings.ts
 var DocusaurusSettings = class {
   constructor() {
+    this.dateExtractionPattern = "FOLDER_NAMED_BY_DATE";
     this.pathReplacer = (year, month, day, title) => {
       const patternInterface = DateExtractionPattern[this.dateExtractionPattern];
       return patternInterface.replacer(year, month, day, title);
@@ -1397,6 +1398,9 @@ var DocusaurusSettings = class {
   }
 };
 
+// src/platforms/jekyll/chirpy.ts
+var import_obsidian4 = require("obsidian");
+
 // src/core/ObsidianRegex.ts
 var ObsidianRegex = {
   ATTACHMENT_LINK: /!\[\[([^|\]]+)\.(\w+)\|?(\d*)x?(\d*)]](\n{0,2}(_.*_))?/g,
@@ -1408,7 +1412,7 @@ var ObsidianRegex = {
   DOUBLE_CURLY_BRACES: /{{(.*?)}}/g
 };
 
-// src/WikiLinkConverter.ts
+// src/core/converters/WikiLinkConverter.ts
 var WikiLinkConverter = class {
   convert(input) {
     return input.replace(
@@ -1419,7 +1423,7 @@ var WikiLinkConverter = class {
 };
 var convertWikiLink = (input) => input.replace(ObsidianRegex.WIKI_LINK, (match, p1, p2) => p2 ? p2 : p1);
 
-// src/ResourceLinkConverter.ts
+// src/core/converters/ResourceLinkConverter.ts
 var import_fs = __toESM(require("fs"));
 var import_obsidian2 = require("obsidian");
 var ResourceLinkConverter = class {
@@ -1484,10 +1488,7 @@ function convertImageCaption(caption) {
 ${caption}`;
 }
 
-// src/jekyll/chirpy.ts
-var import_obsidian4 = require("obsidian");
-
-// src/CalloutConverter.ts
+// src/core/converters/CalloutConverter.ts
 var CalloutConverter = class {
   convert(input) {
     return convertCalloutSyntaxToChirpy(input);
@@ -1728,11 +1729,11 @@ var YAML_NODE_KINDS = [
   "sequence",
   "mapping"
 ];
-function compileStyleAliases(map2) {
+function compileStyleAliases(map3) {
   var result = {};
-  if (map2 !== null) {
-    Object.keys(map2).forEach(function(style) {
-      map2[style].forEach(function(alias) {
+  if (map3 !== null) {
+    Object.keys(map3).forEach(function(style) {
+      map3[style].forEach(function(alias) {
         result[String(alias)] = style;
       });
     });
@@ -2195,9 +2196,9 @@ var merge = new type("tag:yaml.org,2002:merge", {
 var BASE64_MAP = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=\n\r";
 function resolveYamlBinary(data) {
   if (data === null) return false;
-  var code, idx, bitlen = 0, max = data.length, map2 = BASE64_MAP;
+  var code, idx, bitlen = 0, max = data.length, map3 = BASE64_MAP;
   for (idx = 0; idx < max; idx++) {
-    code = map2.indexOf(data.charAt(idx));
+    code = map3.indexOf(data.charAt(idx));
     if (code > 64) continue;
     if (code < 0) return false;
     bitlen += 6;
@@ -2205,14 +2206,14 @@ function resolveYamlBinary(data) {
   return bitlen % 8 === 0;
 }
 function constructYamlBinary(data) {
-  var idx, tailbits, input = data.replace(/[\r\n=]/g, ""), max = input.length, map2 = BASE64_MAP, bits = 0, result = [];
+  var idx, tailbits, input = data.replace(/[\r\n=]/g, ""), max = input.length, map3 = BASE64_MAP, bits = 0, result = [];
   for (idx = 0; idx < max; idx++) {
     if (idx % 4 === 0 && idx) {
       result.push(bits >> 16 & 255);
       result.push(bits >> 8 & 255);
       result.push(bits & 255);
     }
-    bits = bits << 6 | map2.indexOf(input.charAt(idx));
+    bits = bits << 6 | map3.indexOf(input.charAt(idx));
   }
   tailbits = max % 4 * 6;
   if (tailbits === 0) {
@@ -2228,32 +2229,32 @@ function constructYamlBinary(data) {
   return new Uint8Array(result);
 }
 function representYamlBinary(object) {
-  var result = "", bits = 0, idx, tail, max = object.length, map2 = BASE64_MAP;
+  var result = "", bits = 0, idx, tail, max = object.length, map3 = BASE64_MAP;
   for (idx = 0; idx < max; idx++) {
     if (idx % 3 === 0 && idx) {
-      result += map2[bits >> 18 & 63];
-      result += map2[bits >> 12 & 63];
-      result += map2[bits >> 6 & 63];
-      result += map2[bits & 63];
+      result += map3[bits >> 18 & 63];
+      result += map3[bits >> 12 & 63];
+      result += map3[bits >> 6 & 63];
+      result += map3[bits & 63];
     }
     bits = (bits << 8) + object[idx];
   }
   tail = max % 3;
   if (tail === 0) {
-    result += map2[bits >> 18 & 63];
-    result += map2[bits >> 12 & 63];
-    result += map2[bits >> 6 & 63];
-    result += map2[bits & 63];
+    result += map3[bits >> 18 & 63];
+    result += map3[bits >> 12 & 63];
+    result += map3[bits >> 6 & 63];
+    result += map3[bits & 63];
   } else if (tail === 2) {
-    result += map2[bits >> 10 & 63];
-    result += map2[bits >> 4 & 63];
-    result += map2[bits << 2 & 63];
-    result += map2[64];
+    result += map3[bits >> 10 & 63];
+    result += map3[bits >> 4 & 63];
+    result += map3[bits << 2 & 63];
+    result += map3[64];
   } else if (tail === 1) {
-    result += map2[bits >> 2 & 63];
-    result += map2[bits << 4 & 63];
-    result += map2[64];
-    result += map2[64];
+    result += map3[bits >> 2 & 63];
+    result += map3[bits << 4 & 63];
+    result += map3[64];
+    result += map3[64];
   }
   return result;
 }
@@ -3573,14 +3574,14 @@ var DEPRECATED_BOOLEANS_SYNTAX = [
   "OFF"
 ];
 var DEPRECATED_BASE60_SYNTAX = /^[-+]?[0-9_]+(?::[0-9_]+)+(?:\.[0-9_]*)?$/;
-function compileStyleMap(schema2, map2) {
+function compileStyleMap(schema2, map3) {
   var result, keys, index, length, tag, style, type2;
-  if (map2 === null) return {};
+  if (map3 === null) return {};
   result = {};
-  keys = Object.keys(map2);
+  keys = Object.keys(map3);
   for (index = 0, length = keys.length; index < length; index += 1) {
     tag = keys[index];
-    style = String(map2[tag]);
+    style = String(map3[tag]);
     if (tag.slice(0, 2) === "!!") {
       tag = "tag:yaml.org,2002:" + tag.slice(2);
     }
@@ -4184,129 +4185,149 @@ var jsYaml = {
 };
 var js_yaml_default = jsYaml;
 
-// src/FrontMatterConverter.ts
-var parseFrontMatter = (content) => {
-  if (!content.startsWith("---")) {
-    return [{}, content];
+// src/core/types/types.ts
+var left = (e2) => ({
+  _tag: "Left",
+  value: e2
+});
+var right = (a2) => ({
+  _tag: "Right",
+  value: a2
+});
+var isLeft = (ma) => ma._tag === "Left";
+var isRight = (ma) => ma._tag === "Right";
+var fold = (onLeft, onRight) => (ma) => isLeft(ma) ? onLeft(ma.value) : onRight(ma.value);
+var map2 = (f2) => (ma) => isLeft(ma) ? ma : right(f2(ma.value));
+var chain = (f2) => (ma) => ma._tag === "Left" ? ma : f2(ma.value);
+
+// src/core/fp.ts
+function pipe(a2, ...fns) {
+  return fns.reduce((acc, fn) => fn(acc), a2);
+}
+
+// src/core/converters/FrontMatterConverter.ts
+var isNullOrEmpty = (str2) => !str2 || typeof str2 === "string" && str2.trim().length === 0;
+var formatDate = (date) => {
+  if (typeof date === "string") return date;
+  if (date instanceof Date) {
+    return date.toISOString().split("T")[0];
   }
-  const endOfFrontMatter = content.indexOf("---", 3);
+  return String(date);
+};
+var formatAuthorList = (authors) => {
+  const authorList = authors.split(",").map((author) => author.trim());
+  return authorList.length > 1 ? `[${authorList.join(", ")}]` : authorList[0];
+};
+var extractFrontMatter = (content) => {
+  if (!content.startsWith("---\n")) {
+    return right({ frontMatter: {}, body: content });
+  }
+  const endOfFrontMatter = content.indexOf("\n---", 3);
   if (endOfFrontMatter === -1) {
-    return [{}, content];
+    return right({ frontMatter: {}, body: content });
   }
-  const frontMatterLines = content.substring(3, endOfFrontMatter);
-  const body = content.substring(endOfFrontMatter + 3).trimStart();
+  const frontMatterLines = content.substring(4, endOfFrontMatter);
+  const body = content.substring(endOfFrontMatter + 4).trimStart();
   try {
-    const frontMatter = js_yaml_default.load(frontMatterLines);
-    return [frontMatter, body];
+    const frontMatter = js_yaml_default.load(frontMatterLines, {
+      schema: js_yaml_default.JSON_SCHEMA
+    });
+    return right({ frontMatter: frontMatter || {}, body });
   } catch (e2) {
-    console.error(e2);
-    return [{}, content];
+    return left({
+      type: "PARSE_ERROR",
+      message: `Failed to parse front matter: ${e2 instanceof Error ? e2.message : "Unknown error"}`
+    });
   }
 };
-var join = (result, body) => `---
-${Object.entries(result).map(([key, value]) => `${key}: ${value}`).join("\n")}
+var formatTitle = (frontMatter) => {
+  if (!frontMatter.title) return frontMatter;
+  return {
+    ...frontMatter,
+    title: frontMatter.title.startsWith('"') ? frontMatter.title : `"${frontMatter.title}"`
+  };
+};
+var formatCategories = (frontMatter) => {
+  if (!frontMatter.categories) return frontMatter;
+  const categories = JSON.stringify(frontMatter.categories).startsWith("[") ? JSON.stringify(frontMatter.categories).replace(/,/g, ", ").replace(/"/g, "") : frontMatter.categories;
+  return { ...frontMatter, categories };
+};
+var formatAuthors = (frontMatter) => {
+  if (!frontMatter.authors) return frontMatter;
+  const authors = frontMatter.authors;
+  if (authors.startsWith("[") && authors.endsWith("]")) return frontMatter;
+  return {
+    ...frontMatter,
+    authors: formatAuthorList(authors)
+  };
+};
+var formatTags = (frontMatter) => {
+  if (!frontMatter.tags) return frontMatter;
+  const tags = Array.isArray(frontMatter.tags) ? `[${frontMatter.tags.join(", ")}]` : frontMatter.tags ? `[${frontMatter.tags}]` : "[]";
+  return { ...frontMatter, tags };
+};
+var handleMermaid = (result) => ({
+  ...result,
+  frontMatter: result.body.match(/```mermaid/) ? { ...result.frontMatter, mermaid: "true" } : result.frontMatter
+});
+var convertImagePath = (postTitle, resourcePath) => (imagePath) => `/${resourcePath}/${postTitle}/${imagePath}`;
+var handleImageFrontMatter = (isEnable, fileName, resourcePath) => (frontMatter) => {
+  if (!isEnable || !frontMatter.image) return frontMatter;
+  const match = ObsidianRegex.ATTACHMENT_LINK.exec(frontMatter.image);
+  const processedImage = match ? `${match[1]}.${match[2]}` : frontMatter.image;
+  const finalImage = convertImagePath(fileName, resourcePath)(processedImage);
+  return { ...frontMatter, image: finalImage };
+};
+var handleDateFrontMatter = (isEnable) => (frontMatter) => {
+  if (!isEnable || isNullOrEmpty(frontMatter.updated)) return frontMatter;
+  const { updated, ...rest } = frontMatter;
+  return { ...rest, date: formatDate(updated) };
+};
+var serializeFrontMatter = (result) => {
+  if (Object.keys(result.frontMatter).length === 0) {
+    return result.body;
+  }
+  return `---
+${Object.entries(result.frontMatter).map(([key, value]) => `${key}: ${value}`).join("\n")}
 ---
 
-${body}`;
-var convert = (frontMatter) => {
-  var _a;
-  const fm = { ...frontMatter };
-  fm.title = ((_a = fm.title) == null ? void 0 : _a.startsWith('"')) ? fm.title : `"${fm.title}"`;
-  if (fm.categories && JSON.stringify(fm.categories).startsWith("[")) {
-    fm.categories = `${JSON.stringify(fm.categories).replace(/,/g, ", ").replace(/"/g, "")}`;
-  }
-  if (fm.authors) {
-    const authorList = fm.authors.split(",").map((author) => author.trim());
-    fm.authors = authorList.length > 1 ? `[${authorList.join(", ")}]` : authorList[0];
-  }
-  if (fm.tags) {
-    fm.tags = Array.isArray(fm.tags) ? `[${fm.tags.join(", ")}]` : `[${fm.tags}]`;
-  }
-  return fm;
+${result.body}`;
 };
-var FrontMatterConverter = class {
-  constructor(fileName, resourcePath, isEnableBanner = false, isEnableUpdateFrontmatterTimeOnEdit = false) {
-    this.fileName = fileName;
-    this.resourcePath = resourcePath;
-    this.isEnableBanner = isEnableBanner;
-    this.isEnableUpdateFrontmatterTimeOnEdit = isEnableUpdateFrontmatterTimeOnEdit;
-  }
-  parseFrontMatter(content) {
-    return parseFrontMatter(content);
-  }
-  convert(input) {
-    const [frontMatter, body] = this.parseFrontMatter(input);
-    if (Object.keys(frontMatter).length === 0) {
-      return input;
-    }
-    if (body.match(/```mermaid/)) {
-      frontMatter.mermaid = true.toString();
-    }
-    const result = convert(
-      convertImageFrontMatter(
-        this.isEnableBanner,
-        this.fileName,
-        this.resourcePath,
-        replaceDateFrontMatter(
-          { ...frontMatter },
-          this.isEnableUpdateFrontmatterTimeOnEdit
-        )
-      )
+var convertFrontMatter = (input, options = {}) => {
+  const {
+    fileName = "",
+    resourcePath = "",
+    isEnableBanner = false,
+    isEnableUpdateFrontmatterTimeOnEdit = false,
+    authors
+  } = options;
+  const processFrontMatter2 = (frontMatter) => {
+    const withTitle = formatTitle(frontMatter);
+    const withCategories = formatCategories(withTitle);
+    const withAuthors = formatAuthors(withCategories);
+    const withTags = formatTags(withAuthors);
+    const withImage = handleImageFrontMatter(
+      isEnableBanner,
+      fileName,
+      resourcePath
+    )(withTags);
+    const withDate = handleDateFrontMatter(isEnableUpdateFrontmatterTimeOnEdit)(
+      withImage
     );
-    return join(result, body);
-  }
-};
-function convertImageFrontMatter(isEnable, fileName, resourcePath, frontMatter) {
-  if (!isEnable) {
-    return frontMatter;
-  }
-  if (!frontMatter.image) {
-    return frontMatter;
-  }
-  const match = ObsidianRegex.ATTACHMENT_LINK.exec(frontMatter.image);
-  if (match) {
-    frontMatter.image = `${match[1]}.${match[2]}`;
-  }
-  frontMatter.image = convertImagePath(
-    fileName,
-    frontMatter.image,
-    resourcePath
+    return authors ? { ...withDate, authors: formatAuthorList(authors) } : withDate;
+  };
+  return pipe(
+    extractFrontMatter(input),
+    map2((result) => ({
+      ...result,
+      frontMatter: processFrontMatter2(result.frontMatter)
+    })),
+    map2(handleMermaid),
+    map2(serializeFrontMatter)
   );
-  return frontMatter;
-}
-function convertImagePath(postTitle, imagePath, resourcePath) {
-  return `/${resourcePath}/${postTitle}/${imagePath}`;
-}
-function replaceDateFrontMatter(frontMatter, isEnable) {
-  if (!isEnable || frontMatter.updated === void 0) {
-    return frontMatter;
-  }
-  if (frontMatter.updated.length > 0) {
-    frontMatter.date = frontMatter.updated;
-    delete frontMatter.updated;
-  }
-  return frontMatter;
-}
-var convertFrontMatter = (input, authors) => {
-  const [frontMatter, body] = parseFrontMatter(input);
-  if (Object.keys(frontMatter).length === 0) {
-    return input;
-  }
-  if (frontMatter.updated) {
-    frontMatter.date = frontMatter.updated;
-    delete frontMatter.updated;
-  }
-  delete frontMatter["aliases"];
-  delete frontMatter["published"];
-  if (authors) {
-    delete frontMatter["authors"];
-    delete frontMatter["author"];
-    frontMatter.authors = authors;
-  }
-  return join(convert({ ...frontMatter }), body);
 };
 
-// src/utils.ts
+// src/core/utils/utils.ts
 var import_obsidian3 = require("obsidian");
 
 // node_modules/@js-temporal/polyfill/dist/index.esm.js
@@ -8981,7 +9002,7 @@ for (const e2 of Zt) {
   (t2.configurable || t2.enumerable || t2.writable) && (t2.configurable = false, t2.enumerable = false, t2.writable = false, Object.defineProperty(e2, "prototype", t2));
 }
 
-// src/utils.ts
+// src/core/utils/utils.ts
 var import_fs2 = __toESM(require("fs"));
 var import_path = __toESM(require("path"));
 var TEMP_PREFIX = "o2-temp.";
@@ -9037,7 +9058,8 @@ var archiving = async (plugin) => {
   }
   const readyFiles = getFilesInReady(plugin);
   readyFiles.forEach((file) => {
-    plugin.app.fileManager.renameFile(
+    var _a;
+    (_a = plugin.app.fileManager) == null ? void 0 : _a.renameFile(
       file,
       file.path.replace(
         plugin.obsidianPathSettings.readyFolder,
@@ -9080,7 +9102,7 @@ var parseLocalDate = (date) => {
   };
 };
 
-// src/FootnotesConverter.ts
+// src/core/converters/FootnotesConverter.ts
 var FootnotesConverter = class {
   convert(input) {
     return input.replace(ObsidianRegex.SIMPLE_FOOTNOTE, (match, key) => {
@@ -9114,7 +9136,7 @@ var ConverterChain = class _ConverterChain {
   }
 };
 
-// src/CommentsConverter.ts
+// src/core/converters/CommentsConverter.ts
 var CommentsConverter = class {
   convert(input) {
     return input.replace(
@@ -9128,14 +9150,14 @@ var convertComments = (input) => input.replace(
   (match, comments) => `<!--${comments}-->`
 );
 
-// src/EmbedsConverter.ts
+// src/core/converters/EmbedsConverter.ts
 var EmbedsConverter = class {
   convert(input) {
     return input.replace(ObsidianRegex.EMBEDDED_LINK, "$1");
   }
 };
 
-// src/CurlyBraceConverter.ts
+// src/core/converters/CurlyBraceConverter.ts
 var CurlyBraceConverter = class {
   constructor(isEnable = false) {
     this.isEnable = isEnable;
@@ -9151,19 +9173,26 @@ var CurlyBraceConverter = class {
   }
 };
 
-// src/jekyll/chirpy.ts
+// src/platforms/jekyll/chirpy.ts
 async function convertToChirpy(plugin) {
   const settings = plugin.jekyll;
   try {
     const markdownFiles = await copyMarkdownFile(plugin);
     for (const file of markdownFiles) {
       const fileName = convertFileName(file.name);
-      const frontMatterConverter = new FrontMatterConverter(
-        fileName,
-        settings.jekyllRelativeResourcePath,
-        settings.isEnableBanner,
-        settings.isEnableUpdateFrontmatterTimeOnEdit
-      );
+      const fileContent = await plugin.app.vault.read(file);
+      const frontMatterResult = await convertFrontMatter(fileContent);
+      if (isLeft(frontMatterResult)) {
+        console.error(
+          "Front matter conversion failed:",
+          frontMatterResult.value
+        );
+        continue;
+      }
+      if (!isRight(frontMatterResult)) {
+        console.error("Unexpected front matter conversion result");
+        continue;
+      }
       const resourceLinkConverter = new ResourceLinkConverter(
         fileName,
         settings.resourcePath(),
@@ -9175,7 +9204,7 @@ async function convertToChirpy(plugin) {
       const curlyBraceConverter = new CurlyBraceConverter(
         settings.isEnableCurlyBraceConvertMode
       );
-      const result = ConverterChain.create().chaining(frontMatterConverter).chaining(resourceLinkConverter).chaining(curlyBraceConverter).chaining(new WikiLinkConverter()).chaining(new CalloutConverter()).chaining(new FootnotesConverter()).chaining(new CommentsConverter()).chaining(new EmbedsConverter()).converting(await plugin.app.vault.read(file));
+      const result = ConverterChain.create().chaining(resourceLinkConverter).chaining(curlyBraceConverter).chaining(new WikiLinkConverter()).chaining(new CalloutConverter()).chaining(new FootnotesConverter()).chaining(new CommentsConverter()).chaining(new EmbedsConverter()).converting(frontMatterResult.value);
       await plugin.app.vault.modify(file, result);
       const path2 = file.path;
       const directory = path2.substring(0, path2.lastIndexOf("/"));
@@ -9200,55 +9229,126 @@ async function convertToChirpy(plugin) {
   }
 }
 
-// src/docusaurus/docusaurus.ts
+// src/platforms/docusaurus/docusaurus.ts
 var import_obsidian5 = require("obsidian");
-var markPublished = async (plugin) => {
-  const filesInReady = getFilesInReady(plugin);
-  for (const file of filesInReady) {
+var getCurrentDate = () => (/* @__PURE__ */ new Date()).toISOString().split("T")[0];
+var convertContent = (value) => pipe(
+  value,
+  convertWikiLink,
+  convertFootnotes,
+  convertDocusaurusCallout,
+  convertComments
+);
+var processFrontMatter = async (plugin, file, published) => {
+  try {
     await plugin.app.fileManager.processFrontMatter(file, (fm) => {
-      if (fm.published) {
-        return fm;
+      if (published) {
+        fm.published = published;
       }
-      fm.published = (/* @__PURE__ */ new Date()).toISOString().split("T")[0];
       return fm;
+    });
+    return right(published || getCurrentDate());
+  } catch (error) {
+    return left({
+      type: "PROCESS_ERROR",
+      message: `Failed to process front matter: ${error instanceof Error ? error.message : "Unknown error"}`
     });
   }
 };
-var checkPublished = async (plugin, file) => {
-  let publishedDate = (/* @__PURE__ */ new Date()).toISOString().split("T")[0];
-  await plugin.app.fileManager.processFrontMatter(file, (fm) => {
-    if (fm.published) {
-      publishedDate = fm.published;
-      return fm;
-    }
-  });
-  return publishedDate;
-};
-var convertToDocusaurus = async (plugin) => {
-  const markdownFiles = await copyMarkdownFile(plugin);
-  for (const file of markdownFiles) {
-    const publishedDate = await checkPublished(plugin, file);
-    const contents = await plugin.app.vault.read(file);
-    const result = convertComments(
-      convertDocusaurusCallout(
-        convertFootnotes(
-          convertWikiLink(
-            convertFrontMatter(contents, plugin.docusaurus.authors)
-          )
-        )
-      )
-    );
-    await plugin.app.vault.modify(file, result).then(() => {
-      new import_obsidian5.Notice("Converted to Docusaurus successfully.", 5e3);
+var readFileContent = async (plugin, file) => {
+  try {
+    const content = await plugin.app.vault.read(file);
+    return right(content);
+  } catch (error) {
+    return left({
+      type: "READ_ERROR",
+      message: `Failed to read file: ${error instanceof Error ? error.message : "Unknown error"}`
     });
+  }
+};
+var writeFileContent = async (plugin, file, content) => {
+  try {
+    await plugin.app.vault.modify(file, content);
+    return right(void 0);
+  } catch (error) {
+    return left({
+      type: "WRITE_ERROR",
+      message: `Failed to write file: ${error instanceof Error ? error.message : "Unknown error"}`
+    });
+  }
+};
+var moveToDocusaurus = async (plugin, publishedDate) => {
+  try {
     await moveFiles(
       `${vaultAbsolutePath(plugin)}/${plugin.obsidianPathSettings.readyFolder}`,
       plugin.docusaurus.targetPath(),
       plugin.docusaurus.pathReplacer,
       parseLocalDate(publishedDate)
-    ).then(async () => await markPublished(plugin));
+    );
+    return right(void 0);
+  } catch (error) {
+    return left({
+      type: "MOVE_ERROR",
+      message: `Failed to move files: ${error instanceof Error ? error.message : "Unknown error"}`
+    });
   }
-  new import_obsidian5.Notice("Moved files to Docusaurus successfully.", 5e3);
+};
+var showNotice = (message, duration = 5e3) => {
+  new import_obsidian5.Notice(message, duration);
+};
+var markPublished = async (plugin) => {
+  const filesInReady = getFilesInReady(plugin);
+  const currentDate = getCurrentDate();
+  for (const file of filesInReady) {
+    const result = await processFrontMatter(plugin, file, currentDate);
+    fold(
+      (error) => showNotice(`Failed to mark as published: ${error.message}`),
+      () => {
+      }
+    )(result);
+  }
+};
+var convertToDocusaurus = async (plugin) => {
+  const markdownFiles = await copyMarkdownFile(plugin);
+  for (const file of markdownFiles) {
+    const publishedDateResult = await processFrontMatter(plugin, file);
+    const contentResult = await readFileContent(plugin, file);
+    const conversionResult = pipe(
+      contentResult,
+      chain(
+        (content) => convertFrontMatter(content, {
+          authors: plugin.docusaurus.authors
+        })
+      ),
+      map2((content) => convertContent(content))
+    );
+    const writeResult = await pipe(
+      conversionResult,
+      fold(
+        (error) => {
+          showNotice(`Conversion failed: ${error.message}`);
+          return Promise.resolve(left(error));
+        },
+        (content) => writeFileContent(plugin, file, content)
+      )
+    );
+    fold(
+      (error) => showNotice(`Failed to save changes: ${error.message}`),
+      () => showNotice("Converted to Docusaurus successfully.")
+    )(writeResult);
+    const publishedDate = fold(
+      () => getCurrentDate(),
+      (date) => date
+    )(publishedDateResult);
+    const moveResult = await moveToDocusaurus(plugin, publishedDate);
+    fold(
+      (error) => showNotice(`Failed to move files: ${error.message}`),
+      async () => {
+        await markPublished(plugin);
+        showNotice("Moved files to Docusaurus successfully.");
+      }
+    )(moveResult);
+  }
 };
 
 // src/core/validation.ts
@@ -9309,6 +9409,11 @@ var validation_default = async (plugin) => {
 };
 
 // src/main.ts
+var DEFAULT_SETTINGS = {
+  obsidianPathSettings: new ObsidianPathSettings(),
+  jekyll: new JekyllSettings(),
+  docusaurus: new DocusaurusSettings()
+};
 var O2Plugin = class extends import_obsidian7.Plugin {
   async onload() {
     await this.loadSettings();
@@ -9333,14 +9438,21 @@ var O2Plugin = class extends import_obsidian7.Plugin {
   onunload() {
   }
   async loadSettings() {
+    const data = await this.loadData();
     this.obsidianPathSettings = Object.assign(
       new ObsidianPathSettings(),
-      await this.loadData()
+      DEFAULT_SETTINGS.obsidianPathSettings,
+      data == null ? void 0 : data.obsidianPathSettings
     );
-    this.jekyll = Object.assign(new JekyllSettings(), await this.loadData());
+    this.jekyll = Object.assign(
+      new JekyllSettings(),
+      DEFAULT_SETTINGS.jekyll,
+      data == null ? void 0 : data.jekyll
+    );
     this.docusaurus = Object.assign(
       new DocusaurusSettings(),
-      await this.loadData()
+      DEFAULT_SETTINGS.docusaurus,
+      data == null ? void 0 : data.docusaurus
     );
   }
   async saveSettings() {
