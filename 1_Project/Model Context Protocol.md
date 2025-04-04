@@ -1,11 +1,12 @@
 ---
-title: MCP
+title: Model Context Protocol
 date: 2025-03-15T20:43:37+09:00
-aliases: 
+aliases:
+  - MCP
 tags:
   - ai
 description: 
-updated: 2025-04-03T23:50
+updated: 2025-04-04T10:17
 ---
 
 ## MCP Server
