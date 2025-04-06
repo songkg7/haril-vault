@@ -28,5 +28,6 @@
   "obsidian-front-matter-title-plugin",
   "obsidian-auto-link-title",
   "obsidian-kanban",
-  "cm-editor-syntax-highlight-obsidian"
+  "cm-editor-syntax-highlight-obsidian",
+  "obsidian-local-rest-api"
 ]
