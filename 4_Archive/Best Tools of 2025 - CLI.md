@@ -5,7 +5,7 @@ aliases:
 tags:
   - cli
 description: 
-updated: 2025-03-30T14:15
+updated: 2025-04-09T00:28
 published: 2025-03-30
 ---
 
