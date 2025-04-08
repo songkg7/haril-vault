@@ -20,6 +20,6 @@ description:
 ```dataview
 list
 from "daily"
-where file.ctime < file.ctime - dur(1 week)
+where file.ctime < <% tp.date.now("YYYY-MM-DD") %> - dur(1 week)
 sort date
 ```
