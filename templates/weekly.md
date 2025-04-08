@@ -18,8 +18,8 @@ description:
 ---
 
 ```dataview
-list
-from "daily"
-where file.ctime < <% tp.date.now("YYYY-MM-DD") %> - dur(1 week)
-sort date
+LIST
+FROM !"templates"
+WHERE date >= <% tp.date.now("YYYY-MM-DD") %> - dur(1 week)
+SORT date desc
 ```
