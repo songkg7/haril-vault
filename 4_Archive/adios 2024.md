@@ -1,13 +1,13 @@
 ---
 title: adios 2024
-date: 2025-01-03T15:56:00+0900
+date: 2025-01-03T15:56:00
 aliases: 
 tags:
   - remind
   - reminiscence
   - retrospection
 description: 2024년 회고
-updated: 2025-04-09T00:28
+updated: 2025-04-09T00:56
 published: 2025-01-12
 ---
 

@@ -87,5 +87,14 @@
   "workspace:goto-tab-7": [],
   "workspace:goto-tab-8": [],
   "workspace:goto-last-tab": [],
-  "quick-latex:addInlineMath": []
+  "quick-latex:addInlineMath": [],
+  "templater-obsidian:create-templates/metadata.md": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "N"
+    }
+  ],
+  "file-explorer:new-file": []
 }
