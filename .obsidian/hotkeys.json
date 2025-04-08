@@ -96,5 +96,13 @@
       "key": "N"
     }
   ],
-  "file-explorer:new-file": []
+  "file-explorer:new-file": [],
+  "templater-obsidian:create-templates/new file template.md": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "N"
+    }
+  ]
 }
