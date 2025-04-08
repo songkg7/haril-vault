@@ -6,7 +6,7 @@ tags:
   - vim
   - nvim
 description: 
-updated: 2025-04-02T01:18
+updated: 2025-04-09T00:28
 ---
 
 [Getting Started](https://docs.astronvim.com/)

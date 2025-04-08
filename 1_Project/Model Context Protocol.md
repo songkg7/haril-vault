@@ -6,7 +6,7 @@ aliases:
 tags:
   - ai
 description: 
-updated: 2025-04-07T13:22
+updated: 2025-04-09T00:27
 ---
 
 ## What is MCP?

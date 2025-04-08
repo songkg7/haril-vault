@@ -7,7 +7,7 @@ tags:
   - reminiscence
   - retrospection
 description: 2024년 회고
-updated: 2025-01-13T16:12
+updated: 2025-04-09T00:28
 published: 2025-01-12
 ---
 
