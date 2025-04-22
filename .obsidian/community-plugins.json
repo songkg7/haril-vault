@@ -29,5 +29,7 @@
   "obsidian-auto-link-title",
   "obsidian-kanban",
   "cm-editor-syntax-highlight-obsidian",
-  "obsidian-local-rest-api"
+  "obsidian-local-rest-api",
+  "obsidian-outliner",
+  "tag-wrangler"
 ]
