@@ -5,8 +5,8 @@
   "accentColor": "#8a5cf5",
   "baseFontSize": 14,
   "monospaceFontFamily": "Monaspace Krypton,D2Coding ligature",
-  "textFontFamily": "Rubik,Nanum Gothic,Noto Sans KR",
-  "interfaceFontFamily": "Rubik,Noto Sans KR",
+  "textFontFamily": "42dot Sans,Rubik,Nanum Gothic,Noto Sans KR",
+  "interfaceFontFamily": "Rubik,42dot Sans,Noto Sans KR",
   "nativeMenus": true,
   "enabledCssSnippets": [
     "heading"
