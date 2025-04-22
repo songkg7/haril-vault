@@ -5,7 +5,7 @@ aliases:
 tags:
   - ai
 description: 
-updated: 2025-04-22T23:22
+updated: 2025-04-23T00:25
 ---
 
 ## Overview
@@ -23,6 +23,8 @@ updated: 2025-04-22T23:22
 ## Contents
 
 ### 서버 개발자의 미래
+
+- [[Model Context Protocol|MCP]] 나 [[Agent2Agent]]
 
 ### Vibe coding 에 대한 생각
 
