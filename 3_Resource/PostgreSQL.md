@@ -4,12 +4,13 @@ date: 2023-09-27T15:25:00
 aliases:
   - postgres
   - psql
+  - pg
 tags:
   - postgresql
   - rdb
   - database
 categories: 
-updated: 2025-01-07T00:35
+updated: 2025-04-24T11:21
 ---
 
 ## Indexes In PostgreSQL
