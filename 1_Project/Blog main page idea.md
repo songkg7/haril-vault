@@ -4,10 +4,10 @@ date: 2024-11-08T17:23:00
 aliases: 
 tags: 
 description: 
-updated: 2025-01-07T00:32
+updated: 2025-04-24T12:14
 ---
 
-- 화면을 가득 채우는 이미지
+- [x] 화면을 가득 채우는 이미지
 
 ## UI
 
