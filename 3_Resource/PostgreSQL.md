@@ -10,7 +10,7 @@ tags:
   - rdb
   - database
 categories: 
-updated: 2025-04-24T11:21
+updated: 2025-04-30T19:40
 ---
 
 ## Indexes In PostgreSQL
@@ -65,14 +65,15 @@ Repeatable Read 일 때, 일반적인 RDB 라면 언두 영역의 데이터가 �
 
 ## Reference
 
-- https://techblog.woowahan.com/9478/
-- https://techblog.woowahan.com/6550/
-- https://d2.naver.com/helloworld/227936
-- https://dev.to/mahmoudhossam917/indexes-in-postgresql-1hob
-- https://aws.amazon.com/ko/blogs/database/multi-tenant-data-isolation-with-postgresql-row-level-security/
-- https://github.com/jojoldu/postgresql-in-action
-- https://chrisjune-13837.medium.com/db-postgresql-lock-%ED%8C%8C%ED%97%A4%EC%B9%98%EA%B8%B0-57d37ebe057
-- https://github.com/junhkang/postgresql
+- [PostgreSQL Vacuum에 대한 거의 모든 것 \| 우아한형제들 기술블로그](https://techblog.woowahan.com/9478/)
+- [Aurora MySQL vs Aurora PostgreSQL \| 우아한형제들 기술블로그](https://techblog.woowahan.com/6550/)
+- [NAVER D2](https://d2.naver.com/helloworld/227936)
+- [Indexes in PostgreSQL - DEV Community](https://dev.to/mahmoudhossam917/indexes-in-postgresql-1hob)
+- [Multi-tenant data isolation with PostgreSQL Row Level Security \| AWS Database Blog](https://aws.amazon.com/ko/blogs/database/multi-tenant-data-isolation-with-postgresql-row-level-security/)
+- [GitHub - jojoldu/postgresql-in-action: PostgreSQL Tips](https://github.com/jojoldu/postgresql-in-action)
+- [Postgresql Lock 파헤치기\| by chrisjune \| Medium](https://chrisjune-13837.medium.com/db-postgresql-lock-%ED%8C%8C%ED%97%A4%EC%B9%98%EA%B8%B0-57d37ebe057)
+- [카프카 핵심 가이드 \| 그웬 샤피라 - 교보문고](https://product.kyobobook.co.kr/detail/S000201464167)
+- [7 Crucial PostgreSQL Best Practices - Speak Data Science](https://speakdatascience.com/postgresql-best-practices/?ref=dailydev)
 
 ## Links
 
