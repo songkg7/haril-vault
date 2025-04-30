@@ -1,11 +1,13 @@
 ---
 title: {{title}}
-date: {{date}}T{{time}}
+date: <% tp.file.creation_date("YYYY-MM-DDTHH:mm") %>
 tags: weekly
 description: 
 ---
 
 ### Good
+
+<% tp.file.cursor() %>
 
 ### Bad
 
@@ -20,6 +22,6 @@ description:
 ```dataview
 LIST
 FROM !"templates"
-WHERE date >= <% tp.date.now("YYYY-MM-DD") %> - dur(1 week)
+WHERE date >= date(<% tp.date.now("YYYY-MM-DD") %>) - dur(1 week)
 SORT date desc
 ```
