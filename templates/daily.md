@@ -7,8 +7,6 @@ description:
 
 ## Memo
 
-<% tp.file.cursor() %>
-
 ## Daily Scrum
 
 {{date}}
