@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1_Project/Kafka schema registry.md",
+                "file": "daily/2025-06-19.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,7 +28,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "Kafka schema registry"
+              "title": "2025-06-19"
             }
           }
         ]
@@ -171,6 +171,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "random-note:Open random note": false,
       "obsidian-excalidraw-plugin:New drawing": false,
       "markdown-importer:Open format converter": false,
       "workspaces:Manage workspace layouts": false,
