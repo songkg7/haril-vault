@@ -5,7 +5,8 @@ aliases:
 tags:
   - git
 description: 
-updated: 2025-07-06T10:39
+updated: 2025-07-06T10:44
+published: 2025-07-06
 ---
 
 ## TL;DR
@@ -23,9 +24,7 @@ updated: 2025-07-06T10:39
 
 [[Git]] 에는 이런 경우를 위해 조건별로 설정파일을 다르게 적용할 수 있는 방법을 제공한다. 바로 [includeIf](https://git-scm.com/docs/git-config#_includes) 이다. `include` 는 마치 모듈화처럼 외부 파일을 git 설정에 포함시키는 것인데, 여기에 조건식을 적용하여 특정 조건을 만족하는 경우에만 설정 파일이 포함되도록 하는 것이다.
 
-현재 재직 중인 회사에서는 커밋 시 이메일과 이름을 체크하는 rule 이 있기 때문에, 이를 지켜주지 않으면 커밋 할 수 없다.
-
-![](https://i.imgur.com/LcrIug8.png)
+몇몇 회사에서는 커밋 시 이메일과 이름을 체크하는 rule 이 있기 때문에, 이를 지켜주지 않으면 커밋 할 수 없다.
 
 ```bash
 # ~/projects/company

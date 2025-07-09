@@ -5,7 +5,7 @@ aliases:
 tags:
   - formatter
 description: 
-updated: 2025-06-25T00:30
+updated: 2025-07-09T22:19
 ---
 
 ## Contents
@@ -96,3 +96,58 @@ npm install --save-dev lint-staged
 ## Reference
 
 - [spotless/plugin-gradle/README.md at main · diffplug/spotless · GitHub](https://github.com/diffplug/spotless/blob/main/plugin-gradle/README.md)
+
+## Next step
+
+stage 상태인 파일에만 spotless 적용하기
+
+```bash
+#!/bin/bash
+
+BLUE='\e[1;34m'
+RESET='\e[0m'
+
+printf "${BLUE}> Running Spotless style check...${RESET}\n"
+
+# Creaate a patch file
+GIT_STASH_FILE="stash.patch"
+
+# Stash unstaged changes
+git diff > "$GIT_STASH_FILE"
+
+# add the patch so it is not stashed
+git add "$GIT_STASH_FILE"
+
+# stash untracked files
+git stash -k
+
+# apply spotless
+./gradlew spotlessApply --daemon
+
+# re-add any changes that spotless created
+git add -u
+
+# store the last exit code
+RESULT=$?
+
+if test -f "$GIT_STASH_FILE";
+then
+  printf "$GIT_STASH_FILE has been found\n"
+
+    # apply the patch
+    git apply stash.patch --allow-empty
+
+    # delete the patch and re-add that to the index
+    rm -f stash.patch
+    git add stash.patch
+else
+    printf "$GIT_STASH_FILE has not been found\n"
+fi
+
+# delete the WIP stash
+git stash drop
+
+# return the exit code
+exit $RESULT
+```
+ 

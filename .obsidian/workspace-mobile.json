@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "daily/2025-06-19.md",
+                "file": "daily/2025-W28.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,7 +28,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "2025-06-19"
+              "title": "2025-W28"
             }
           }
         ]
@@ -192,6 +192,7 @@
   },
   "active": "6fd92d7716d61dac",
   "lastOpenFiles": [
+    "daily/2025-06-19.md",
     "daily/2025-05-08.md",
     "1_Project/Application Performance Monitoring.md",
     "1_Project/Consideration of the appropriate type with the ID of Entity.md",
@@ -231,7 +232,6 @@
     "4_Archive/blog posting pipeline.md",
     "4_Archive/Fixture Monkey.md",
     "4_Archive/How to capturing packet with termshark.md",
-    "4_Archive/코드 작성 가이드 review.md",
     "4_Archive",
     "templates",
     "1_Project",
