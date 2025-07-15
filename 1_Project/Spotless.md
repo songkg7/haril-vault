@@ -5,7 +5,7 @@ aliases:
 tags:
   - formatter
 description: 
-updated: 2025-07-09T22:19
+updated: 2025-07-10T12:48
 ---
 
 ## Contents
@@ -104,12 +104,12 @@ stage 상태인 파일에만 spotless 적용하기
 ```bash
 #!/bin/bash
 
-BLUE='\e[1;34m'
-RESET='\e[0m'
+BLUE=$'\e[1;34m'
+RESET=$'\e[0m'
 
-printf "${BLUE}> Running Spotless style check...${RESET}\n"
+printf "%s> Running Spotless style check...%s\n\n" "$BLUE" "$RESET"
 
-# Creaate a patch file
+# Create a patch file
 GIT_STASH_FILE="stash.patch"
 
 # Stash unstaged changes
@@ -132,7 +132,7 @@ RESULT=$?
 
 if test -f "$GIT_STASH_FILE";
 then
-  printf "$GIT_STASH_FILE has been found\n"
+  printf "%s has been found\n" "$GIT_STASH_FILE"
 
     # apply the patch
     git apply stash.patch --allow-empty
@@ -141,7 +141,7 @@ then
     rm -f stash.patch
     git add stash.patch
 else
-    printf "$GIT_STASH_FILE has not been found\n"
+    printf "%s has not been found\n" "$GIT_STASH_FILE"
 fi
 
 # delete the WIP stash
