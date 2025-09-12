@@ -9,7 +9,7 @@ tags:
   - ideavim
   - intellij
 categories: Vim
-updated: 2025-01-07T00:35
+updated: 2025-09-03T12:27
 ---
 
 intelliJ 에서는 [[Vim]] 을 위해 `ideaVim` 이라는 플러그인을 제공한다.
@@ -68,6 +68,10 @@ nmap <C-]> gt
 When using vim with [[IntelliJ]],  you can:
 
 - You can use a key as a shotcut that is not usually used as a shotcut. For example, you can edit keymap TAB + C for create changelist.
+
+## Troubleshooting
+
+- [https://youtrack.jetbrains.com/issue/VIM-3628/Escape-key-no-longer-exits-multiple-cursors-carets](https://youtrack.jetbrains.com/issue/VIM-3628/Escape-key-no-longer-exits-multiple-cursors-carets)
 
 ## Reference
 
