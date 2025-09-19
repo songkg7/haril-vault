@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "daily/2025-W28.md",
+                "file": "private/h.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,7 +28,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "2025-W28"
+              "title": "h"
             }
           }
         ]
@@ -171,6 +171,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "bases:Create new base": false,
       "random-note:Open random note": false,
       "obsidian-excalidraw-plugin:New drawing": false,
       "markdown-importer:Open format converter": false,
@@ -192,6 +193,7 @@
   },
   "active": "6fd92d7716d61dac",
   "lastOpenFiles": [
+    "daily/2025-W28.md",
     "daily/2025-06-19.md",
     "daily/2025-05-08.md",
     "1_Project/Application Performance Monitoring.md",
@@ -231,7 +233,6 @@
     "4_Archive/Operate Jenkins using Docker.md",
     "4_Archive/blog posting pipeline.md",
     "4_Archive/Fixture Monkey.md",
-    "4_Archive/How to capturing packet with termshark.md",
     "4_Archive",
     "templates",
     "1_Project",
