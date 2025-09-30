@@ -22,5 +22,5 @@ todo
 ```dataview
 task
 from "daily"
-where !completed AND date(file.name) <= date(this.file.name) - dur(1 day)
+where !checked AND date(file.name) <= date(this.file.name) - dur(1 day)
 ```
