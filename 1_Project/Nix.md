@@ -6,7 +6,7 @@ tags:
   - package-manager
   - os
 description:
-updated: 2025-09-28T23:43
+updated: 2025-10-06T19:14
 ---
 
 Nix = language, package manager, and ci buildkit
@@ -28,6 +28,23 @@ Nix = language, package manager, and ci buildkit
 - slack 같은 GUI 를 관리할 때 앱 메타정보가 변경되면서 crash 가 잦으므로, GUI 만 [[Homebrew]] 로 관리하는 것도 방법이 될 수 있겠다.
     - nix 에서 homebrew 와의 연동을 지원하므로, 직접 brew 명령을 쳐야할 필요는 없다. 정의된 casks 에 대해서만 nix 가 brew 로 설치한다.
 - [[Homebrew]] module 에 버그가 있다. arm64 architecture 를 인식하지 못하고 homebrew prefix 를 잘못 설정한다.
+    - determinate-nix 를 사용할 경우에만 발생하는 문제로 보인다.
+    - 정확한 원인을 파악하지 못했기 때문에 다음에 다시 실험해보자.
+- agenix 를 사용하면 민감한 정보도 관리할 수 있다. 다만 기본적으로 nix 는 재현가능한 불변성을 추구하므로, 수정이 필요하면 system rebuild 를 해야 한다.
+    - mise + chezmoi 로 관리하는만큼의 편리함은 기대하기 어렵다.
+    - 자주 수정되지 않는 변수라면 Nix 로 쓸 수 있겠다.
+- agenix 로 민감정보를 관리하려면,
+    - secrets.nix 에 어떤 이름으로 사용할건지, 어떤 public key 를 사용할건지 정의
+    - age.nix 를 수정하여 secret 정의
+    - 사용할 prrograms 에서 age.nix 에 정의된 값으로 사용
+    - credential 내용을 수정하려면 `agenix -e secret.age` 로 수정
+- chezmoi 는 `chezmoi add --encrypted <file.name>` 이면 끝인데 agenix 이건 너무 불편하지 않나?
+    - `chezmoi --edit file.name` 으로 바로 편집 화면이 열린다.
+    - 마찬가지로 age 를 사용하여 암호화 복호화를 처리한다.
+- 하이브리드로 사용할 경우 불편한 점이 있을까?
+    - PoC 나 언어 버전을 명시해두는 mise config 처럼 자주 변경되는 파일은 nix 로 관리하면 불변 symbolic link 특성상 너무 불편하다.
+    - [[chezmoi, awesome dotfile manager|chezmoi]] 와 병행하면서 변경되는 수준에 따라 나눠서 관리하는게 좋겠다.
+- 반면 chezmoi 는 항상 파일을 통째로 관리해야하는데, Nix 는 파일의 특정 부분만 환경별로 변경하는 등 매우 유연하게 관리할 수 있는 점은 장점이다.
 
 ## 단점
 
@@ -54,6 +71,14 @@ Determinate Nix Installer
 
 ```bash
 curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
+```
+
+## features
+
+### file copy
+
+```nix
+home.file."target-path".source = ./original-file
 ```
 
 ## Conclusion
