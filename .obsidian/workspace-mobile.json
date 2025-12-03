@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1_Project/woowacon 2025.md",
+                "file": "daily/2025-11-07.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,10 +28,35 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "woowacon 2025"
+              "title": "2025-11-07"
+            }
+          },
+          {
+            "id": "931d8b77124b0a8d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "3_Resource/Political bias research.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "Political bias research"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -191,8 +216,11 @@
       "periodic-notes:Open today": false
     }
   },
-  "active": "acfe8003032f870b",
+  "active": "931d8b77124b0a8d",
   "lastOpenFiles": [
+    "3_Resource/Political bias research.md",
+    "daily/2025-11-07.md",
+    "1_Project/woowacon 2025.md",
     "daily/2025-10-27.md",
     "3_Resource/woowacon 2025.md",
     "3_Resource/bookclub 2nd.md",
@@ -230,9 +258,6 @@
     "4_Archive/Refactor O2 using desgin pattern.md",
     "4_Archive/Optimize query when using composite key.md",
     "4_Archive/Java Hello World Deepdive 2.md",
-    "4_Archive/Keybase - key generation error.md",
-    "4_Archive/Journey with Devlog 2022-2023.md",
-    "4_Archive/Spatial index.md",
     "4_Archive",
     "templates",
     "1_Project",
