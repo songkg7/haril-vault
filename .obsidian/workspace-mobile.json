@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "daily/2025-11-07.md",
+                "file": "daily/2025-12-05.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,7 +28,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "2025-11-07"
+              "title": "2025-12-05"
             }
           },
           {
@@ -55,8 +55,7 @@
               "title": "Political bias research"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -216,10 +215,11 @@
       "periodic-notes:Open today": false
     }
   },
-  "active": "931d8b77124b0a8d",
+  "active": "acfe8003032f870b",
   "lastOpenFiles": [
-    "3_Resource/Political bias research.md",
     "daily/2025-11-07.md",
+    "3_Resource/Political bias research.md",
+    "daily/2025-12-04.md",
     "1_Project/woowacon 2025.md",
     "daily/2025-10-27.md",
     "3_Resource/woowacon 2025.md",
@@ -257,7 +257,6 @@
     "4_Archive/Java Hello World Deepdive 3.md",
     "4_Archive/Refactor O2 using desgin pattern.md",
     "4_Archive/Optimize query when using composite key.md",
-    "4_Archive/Java Hello World Deepdive 2.md",
     "4_Archive",
     "templates",
     "1_Project",
