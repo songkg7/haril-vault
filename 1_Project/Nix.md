@@ -6,7 +6,7 @@ tags:
   - package-manager
   - os
 description:
-updated: 2025-10-06T19:14
+updated: 2025-12-13T16:53
 ---
 
 Nix = language, package manager, and ci buildkit
@@ -32,7 +32,9 @@ Nix = language, package manager, and ci buildkit
     - 정확한 원인을 파악하지 못했기 때문에 다음에 다시 실험해보자.
 - agenix 를 사용하면 민감한 정보도 관리할 수 있다. 다만 기본적으로 nix 는 재현가능한 불변성을 추구하므로, 수정이 필요하면 system rebuild 를 해야 한다.
     - mise + chezmoi 로 관리하는만큼의 편리함은 기대하기 어렵다.
+        - 수정될 때마다 rebuild 를 해야하는데, 빌드가 꽤 걸린다.
     - 자주 수정되지 않는 변수라면 Nix 로 쓸 수 있겠다.
+    - [[NixOS]] 나 다른 [[Linux]] 를 사용하고 있다면, user 나 group 까지 제어할 수 있어서 꽤 유용하다.
 - agenix 로 민감정보를 관리하려면,
     - secrets.nix 에 어떤 이름으로 사용할건지, 어떤 public key 를 사용할건지 정의
     - age.nix 를 수정하여 secret 정의
