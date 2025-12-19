@@ -1,3 +1,6 @@
+---
+updated: 2025-12-19T21:30
+---
 # Repository Guidelines
 
 ## Project Structure & Module Organization
@@ -17,3 +20,9 @@ Git history favors timestamped backups (`vault backup: 2025-10-28 20:58:17`). Fo
 
 ## Security & Configuration Tips
 Redact personal data before syncing. Keep private credentials in the `private/` directory and exclude them from sharing. Verify Obsidian plug-in settings in `ready/` documentation before enabling new extensions, and capture configuration changes in that folder for future reference.
+
+## Tools
+
+- use fd, instead of find
+- use ripgrep, instead of grep
+
