@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "daily/2025-12-05.md",
+                "file": "private/2025 annual review prompt.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,7 +28,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "2025-12-05"
+              "title": "2025 annual review prompt"
             }
           },
           {
@@ -217,6 +217,7 @@
   },
   "active": "acfe8003032f870b",
   "lastOpenFiles": [
+    "daily/2025-12-05.md",
     "daily/2025-11-07.md",
     "3_Resource/Political bias research.md",
     "daily/2025-12-04.md",
@@ -256,7 +257,6 @@
     "4_Archive/JdbcItemReader sortKeys 설정시 주의사항.md",
     "4_Archive/Java Hello World Deepdive 3.md",
     "4_Archive/Refactor O2 using desgin pattern.md",
-    "4_Archive/Optimize query when using composite key.md",
     "4_Archive",
     "templates",
     "1_Project",
