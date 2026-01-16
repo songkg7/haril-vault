@@ -4,7 +4,7 @@ date: 2026-01-01T22:37:10+09:00
 aliases:
 tags:
 description:
-updated: 2026-01-02T11:17
+updated: 2026-01-03T22:09
 ---
 
 Table of contents
@@ -120,3 +120,15 @@ Table of contents
     - 기술서적은 독서로 취급 안함
 
 ## 2026년에는
+
+- NotebookLM 을 통해 논문을 직접 읽는 것도 좋을 듯
+
+---
+
+- stop
+    - 우선순위 낮은거에 너무 연연하지 않기
+- keep
+    - 영어, 일본어 공부
+- start
+    - 개인 경쟁력 확보
+    - 운동
