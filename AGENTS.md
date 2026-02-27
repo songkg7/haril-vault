@@ -1,28 +1,132 @@
 ---
-updated: 2025-12-19T21:30
+updated: 2026-02-25T02:17
 ---
-# Repository Guidelines
+# AGENTS.md — haril-vault 운영 가이드 (심층분석 반영)
 
-## Project Structure & Module Organization
-Content lives in Markdown under context-specific folders. Use `1_Project` for active initiatives with subpages per deliverable, `2_Area` for ongoing responsibilities, `3_Resource` for reference material, and `4_Archive` for retired notes. Daily journals stay in `daily` with filenames such as `2025-10-28.md`. Media belongs in `attachments/`, while whiteboard sketches go in `Excalidraw/`. Utility scripts (`cleanup.sh`, `convert_date_format.sh`) reside at the repository root; avoid editing them without coordination.
+_Updated: 2026-02-25_
 
-## Build, Test, and Development Commands
-Run scripts from the vault root: `bash cleanup.sh` purges conflict-marked files via `gum`, `fd`, and `trash-cli`; install those dependencies first. `bash convert_date_format.sh` normalizes timestamps within `daily/`. Use `git status` to confirm Obsidian sync noise before committing. There is no build pipeline; keep commands lightweight and reproducible.
+이 문서는 이 Vault를 다루는 사람/에이전트가 **어디에 무엇을 저장할지** 빠르게 판단하도록 만든 운영 기준이다.
 
-## Coding Style & Naming Conventions
-Write Markdown with clear headings, lists, and callouts for action items. Keep front matter minimal and in YAML when required. Prefer ISO dates (`YYYY-MM-DD`) for files and titles, and organize meeting notes as `<project>-<topic>-<date>.md`. Shell scripts should remain POSIX-compatible, use two-space indentation, and include concise comments ahead of non-trivial logic. Store screenshots or binary assets in `attachments/` and link relatively.
+---
 
-## Testing Guidelines
-There is no automated test suite; validate shell utilities manually. Before pushing, run `shellcheck cleanup.sh convert_date_format.sh` and spot-check a sample file produced by each script. When adding new automation, include a dry-run flag or sample invocation in the note describing it so others can reproduce the verification steps.
+## 1) Vault 구조 분석 요약
 
-## Commit & Pull Request Guidelines
-Git history favors timestamped backups (`vault backup: 2025-10-28 20:58:17`). Follow that format for routine snapshots. For substantive edits, use `<area>: <concise summary>`—for example, `daily: add standup notes`. Pull requests should explain scope, note any scripts touched, and mention follow-up tasks. Link related Obsidian notes or issue trackers, and include screenshots when visual changes affect attachments or Excalidraw canvases.
+현재 Vault는 PARA 기반이지만 실제 사용은 아래처럼 분포됨:
 
-## Security & Configuration Tips
-Redact personal data before syncing. Keep private credentials in the `private/` directory and exclude them from sharing. Verify Obsidian plug-in settings in `ready/` documentation before enabling new extensions, and capture configuration changes in that folder for future reference.
+- `1_Project` : 7개 md (활성 프로젝트)
+- `2_Area` : 8개 md (지속 책임 영역)
+- `3_Resource` : 515개 md (**지식 저장소 핵심**)
+- `4_Archive` : 66개 md (종결/보관)
+- `daily` : 383개 md (일지 축적)
+- `private` : 110개 md + canvas 1개 (민감 자료)
+- `attachments` : 174개 파일 (이미지/바이너리)
+- `templates` : 6개 md
+- `copilot/copilot-custom-prompts` : 15개 md
+- `Excalidraw` : 4개 md + 기타 파일
+- `ready` : 비어 있음
+- `Inbox` : 삭제됨 (2026-02-25, 비어 있어 정리)
 
-## Tools
+### 해석
 
-- use fd, instead of find
-- use ripgrep, instead of grep
+1. 이 Vault의 중심은 `3_Resource + daily + private`.
+2. PARA 이름은 갖췄지만, 실제로는 **Resource 중심의 아카이브형 저장 패턴**.
+3. 임시 수집함(`Inbox`)보다 바로 분류 저장하는 운영이 더 적합.
 
+---
+
+## 2) 폴더별 역할 (권장 단일 규칙)
+
+### `1_Project/`
+- 종료 시점이 있는 일(예: quant 대시보드 개선)
+- 산출물, TODO, 회의노트, 결정 로그 포함
+- 종료되면 `4_Archive`로 이동
+
+### `2_Area/`
+- 종료되지 않는 책임 영역(건강, 재무, 커리어, 시스템 운영 등)
+- 정책/체크리스트/반복 루틴 기록
+
+### `3_Resource/`
+- 참고자료/리서치/링크 정리/장소 리스트
+- 이번 유튜브 카페 정리 노트처럼 “재활용 가능한 정보” 저장
+
+### `4_Archive/`
+- 더 이상 활성 관리하지 않는 프로젝트/영역 노트
+- 원문 보존 목적, 최소 수정
+
+### `daily/`
+- 당일 로그(사건, 작업, 회고)
+- 장기 참조 가치가 생기면 주기적으로 `2_Area`/`3_Resource`로 승격
+
+### `private/`
+- 민감정보(개인, 계정, 비공개 문서)
+- 외부 공유/자동 게시 금지
+
+### `attachments/`
+- 이미지, PDF, 기타 바이너리 파일만 저장
+- md 본문에는 상대경로 링크 사용
+
+### `templates/`
+- 템플릿 원본만 저장
+- 실제 노트는 템플릿 복제 후 각 목적 폴더에 배치
+
+### `ready/`
+- 현재 비활성. 사용 의도 정의 전까지 비워두기 권장
+
+---
+
+## 3) 파일 배치 결정 트리
+
+새 노트 작성 시 아래 순서로 판단:
+
+1. **마감/종료 시점 있는가?**
+   - 예: `1_Project`
+2. **지속 관리 책임인가?**
+   - 예: `2_Area`
+3. **참고용 지식인가?**
+   - 예: `3_Resource`
+4. **당일 기록인가?**
+   - 예: `daily/YYYY/...`
+5. **민감정보인가?**
+   - 예: `private`
+
+`Inbox` 같은 임시 폴더를 만들기보다 **최초 저장 시점에 목적 폴더로 바로 저장**한다.
+
+---
+
+## 4) 네이밍 규칙 (권장)
+
+- 날짜형: `YYYY-MM-DD - 제목.md`
+- 프로젝트 문서: `[프로젝트명] - [주제].md`
+- 리소스 문서: `[카테고리] - [주제].md` 또는 날짜+주제
+- 파일명은 검색 친화적으로 한국어/영어 혼용 가능, 특수문자 최소화
+
+---
+
+## 5) 정리 루틴 (주 1회 권장)
+
+1. `daily` 최근 7일 검토
+2. 승격 대상 이동
+   - 일회성 로그 → 유지
+   - 재사용 지식 → `3_Resource`
+   - 실행 책임/운영 규칙 → `2_Area`
+3. 오래된 프로젝트 점검 후 `4_Archive` 이동
+4. 첨부파일 고아 링크(미참조 attachment) 점검
+
+---
+
+## 6) 에이전트 작업 원칙
+
+- 민감 데이터는 `private` 우선
+- 구조 변경(폴더 삭제/대량 이동) 전에는 의도 확인
+- 첨부파일 삭제는 참조 링크 점검 후 수행
+- 대규모 정리는 한 번에 하지 말고 단계적으로 수행
+
+---
+
+## 7) 현재 반영된 최신 상태
+
+- `Inbox` 제거됨
+- 유튜브 카페 장소 정리 노트는 `3_Resource`에 위치:
+  - `3_Resource/2026-02-25 - 유튜브 쇼츠 카페 장소 정리.md`
+
+필요하면 다음 단계로 `3_Resource` 내부도 카테고리 하위 폴더(예: `Travel`, `Tech`, `Finance`)로 2차 구조화를 진행한다.

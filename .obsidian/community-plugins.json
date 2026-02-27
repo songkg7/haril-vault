@@ -30,5 +30,6 @@
   "cm-editor-syntax-highlight-obsidian",
   "obsidian-local-rest-api",
   "obsidian-outliner",
-  "tag-wrangler"
+  "tag-wrangler",
+  "copilot"
 ]

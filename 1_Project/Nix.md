@@ -6,8 +6,12 @@ tags:
   - package-manager
   - os
 description:
-updated: 2025-12-13T16:53
+updated: 2026-02-02T14:10
 ---
+
+[[sops-nix]]
+
+[GitHub - Mic92/sops-nix: Atomic secret provisioning for NixOS based on sops](https://github.com/Mic92/sops-nix)
 
 Nix = language, package manager, and ci buildkit
 

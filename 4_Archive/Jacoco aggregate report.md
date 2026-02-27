@@ -3,18 +3,14 @@ title: Jacoco aggregate report
 date: 2022-09-28T15:03:00
 fc-calendar: Gregorian Calendar
 fc-date: 2022-09-28
-aliases: 
+aliases:
 tags:
   - test
   - jacoco
   - java
-categories: 
-updated: 2025-01-07T00:36
+categories:
+updated: 2026-01-30T16:59
 ---
-
-[[Java]]
-
-[[Jacoco]]
 
 ## Overview
 
@@ -152,3 +148,8 @@ project(':coverage-report') {
     }
 }
 ```
+
+
+- [[Java]]
+- [[Jacoco]]
+- [[Kover]]

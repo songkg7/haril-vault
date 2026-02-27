@@ -4,7 +4,7 @@ date: 2026-01-01T22:37:10+09:00
 aliases:
 tags:
 description:
-updated: 2026-01-03T22:09
+updated: 2026-02-07T17:50
 ---
 
 Table of contents
@@ -122,6 +122,7 @@ Table of contents
 ## 2026년에는
 
 - NotebookLM 을 통해 논문을 직접 읽는 것도 좋을 듯
+- AI 로 인해 새로운 것들을 공부하기 너무 쉬워졌다. 평소 관심있던 알고리즘 기반 자동 투자를 실험해보고 평가해보기 좋은 때 아닐까?  
 
 ---
 
@@ -132,3 +133,4 @@ Table of contents
 - start
     - 개인 경쟁력 확보
     - 운동
+    - 퀀트 투자 실험
