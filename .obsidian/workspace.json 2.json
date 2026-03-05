@@ -1,0 +1,315 @@
+{
+  "main": {
+    "id": "8b2d049a473b2b7c",
+    "type": "split",
+    "children": [
+      {
+        "id": "c3a9c89971f9607a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "da376b249d40e428",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "daily/2026-02-25.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "2026-02-25"
+            }
+          },
+          {
+            "id": "a1cf2811de75e227",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "daily/2026-02-27.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "2026-02-27"
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "250c8b9bc24e94d0",
+    "type": "split",
+    "children": [
+      {
+        "id": "c1b31a39a9ae592d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a376e1c6cb0c746c",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "4b77d260e901348b",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "agenix",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "594121ad0f29cb0c",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "right": {
+    "id": "c27e6bcdc228dafc",
+    "type": "split",
+    "children": [
+      {
+        "id": "251a8e9714b558ef",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "59e1b36c81de222f",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "daily/2025-04-23.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for 2025-04-23"
+            }
+          },
+          {
+            "id": "3c474f595cfad4fc",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "private/Standard Menu.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Standard Menu"
+            }
+          },
+          {
+            "id": "1650c596152dad67",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "f8c6f70e2bba6f75",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "a9216048a2f6919f",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "daily/2025-10-31.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of 2025-10-31"
+            }
+          },
+          {
+            "id": "1026ac70050c6e97",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {},
+              "icon": "lucide-ghost",
+              "title": "calendar"
+            }
+          },
+          {
+            "id": "2324e9553dd2df5f",
+            "type": "leaf",
+            "state": {
+              "type": "advanced-tables-toolbar",
+              "state": {},
+              "icon": "lucide-ghost",
+              "title": "advanced-tables-toolbar"
+            }
+          },
+          {
+            "id": "ca57dfe566b8fb20",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "lucide-ghost",
+              "title": "git-view"
+            }
+          }
+        ],
+        "currentTab": 7
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "bases:Create new base": false,
+      "random-note:Open random note": false,
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "markdown-importer:Open format converter": false,
+      "workspaces:Manage workspace layouts": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
+      "templater-obsidian:Templater": false,
+      "obsidian-git:Open Git source control": false,
+      "obsidian-markdown-formatting-assistant-plugin:Open Markdown Formatting Assistant": false,
+      "marp:Marp: Open Preview": false,
+      "obsidian-projects:Open projects": false,
+      "obsidian-excalidraw-plugin:New drawing": false,
+      "obsidian-kanban:Create new board": false,
+      "copilot:Open Copilot Chat": false,
+      "periodic-notes:Open today": false
+    }
+  },
+  "active": "a1cf2811de75e227",
+  "lastOpenFiles": [
+    "3_Resource/livid ai bot.md",
+    "daily/2026-02-28.md",
+    "AGENTS.md",
+    "3_Resource/Deep Research/2026-02-27 RSIBollingerHybrid vs Baselines (15Min, Nasdaq30).md",
+    "daily/2026-02-25.md",
+    "daily/2026-02-19.md",
+    "daily/2026-02-27.md",
+    "3_Resource/Deep Research/2026-02-27 Quant Backtest Improvement Experiment Matrix.md",
+    "3_Resource/Deep Research/2026-02-27 Quant Backtest Strategy Decomposition.md",
+    "3_Resource/Deep Research",
+    "1_Project/2026 desk setup.md",
+    "daily/2026-02-26.md",
+    "3_Resource/퀀트 실험.md",
+    "private/ticket driven development.md",
+    "3_Resource/Spotless.md",
+    "3_Resource/Project Sotheby.md",
+    "1_Project/퀀트 실험.md",
+    "3_Resource/2026-02-25 - 유튜브 쇼츠 카페 장소 정리.md",
+    "Inbox/2026-02-25 - 유튜브 쇼츠 카페 장소 정리.md",
+    "Inbox",
+    "daily/2026-02-23.md",
+    "daily/2026-02-20.md",
+    "_tmp_openclaw_test.md",
+    "daily/2026-02-13.md",
+    "daily/2025/2025-07-24.md",
+    "daily/2026-02-12.md",
+    "daily/2026-02-11.md",
+    "daily/2026-02-10.md",
+    "copilot/copilot-custom-prompts",
+    "copilot",
+    "daily/2025/Pasted image 20251104183557.png",
+    "daily/Pasted image 20251104183557_1_1.png",
+    "daily/Pasted image 20251104183557_1.png",
+    "daily/2025",
+    "fetch_jira_details.py",
+    "jira_jql_tickets.txt",
+    "fetch_jira_tickets_v2.sh",
+    "fetch_jira_tickets.sh",
+    "private/jira_2025_kyungkeun_song.json",
+    "attachments/CleanShot 2025-11-04 at 18.30.14@2x.png",
+    "private/CleanShot 2025-07-15 at 10.25.21@2x.png",
+    "attachments/CleanShot 2025-07-15 at 10.25.21@2x.png",
+    "attachments/딸깍.webp",
+    "attachments/CleanShot 2025-04-23 at 11.23.18@2x.png",
+    "Excalidraw 2/image resizing architecture - streaming.png",
+    "attachments 2/localdatetime-format-with-webflux/스크린샷 2022-11-29 오후 9.55.22.png",
+    "private/Productivity RoadMap.canvas"
+  ]
+}
