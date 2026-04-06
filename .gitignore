@@ -9,6 +9,7 @@ daily/
 .obsidian/plugins/various-complements/histories.json
 .DS_Store
 .trash/
+.claude
 
 .obsidian/plugins/obsidian-textgenerator-plugin
 .obsidian/text-generator.json
