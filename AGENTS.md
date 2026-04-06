@@ -50,41 +50,41 @@ Git history shows a backup-first pattern, mainly `vault backup: YYYY-MM-DD HH:MM
 
 ## LLM Wiki Operations
 
-이 vault는 Karpathy LLM Wiki 패턴을 따른다. LLM은 아래 워크플로에 따라 위키를 유지보수한다.
+This vault follows the Karpathy LLM Wiki pattern. The LLM maintains the wiki according to the workflows below.
 
-### Ingest (새 자료 추가)
-0. 원본 자료를 `raw/`에 저장한다 (불변, 수정 금지). 네이밍: `YYYY-MM-DD - 원본제목.md`.
-1. 소스를 읽고 핵심 내용을 파악한다.
-2. `index.md`를 읽어 기존 관련 페이지를 확인한다.
-3. 관련 페이지가 있으면 내용을 통합/업데이트한다.
-4. **모순 확인**: 새 자료가 기존 페이지와 상충하면 양쪽에 모순을 명시하고, 어느 쪽이 최신인지 표기한다.
-5. 새 페이지가 필요하면 `3_Resource/`에 생성한다 (중첩 디렉토리 금지).
-6. 관련 페이지에 `[[wikilink]]` 크로스레퍼런스를 추가한다.
-7. `index.md`의 해당 카테고리에 항목을 추가/업데이트한다.
-8. `log.md`에 ingest 기록을 append 한다.
+### Ingest (Add New Source)
+0. Save the original source to `raw/` (immutable, never modify). Naming: `YYYY-MM-DD - Original Title.md`.
+1. Read the source and identify key takeaways.
+2. Read `index.md` to find existing related pages.
+3. If related pages exist, integrate and update their content.
+4. **Contradiction check**: If the new source conflicts with existing pages, annotate both sides with the contradiction and which is more recent.
+5. If a new page is needed, create it in `3_Resource/` (no nested directories).
+6. Add `[[wikilink]]` cross-references to related pages.
+7. Add or update the entry in the appropriate category of `index.md`.
+8. Append an ingest record to `log.md`.
 
-### Query (질문 → 저장)
-1. `index.md`를 먼저 읽어 관련 페이지를 찾는다.
-2. 관련 페이지를 읽고 답변을 합성한다. **답변에는 출처 페이지를 `[[wikilink]]`로 인용한다.**
-3. 답변이 재사용 가치가 높으면 사용자 확인 후 새 위키 페이지로 저장한다.
-4. 저장 시 `index.md`에 항목 추가하고, 관련 페이지에 크로스레퍼런스도 추가한다.
-5. `log.md`에 query 기록을 append 한다.
+### Query (Question → Save)
+1. Read `index.md` first to find relevant pages.
+2. Read relevant pages and synthesize an answer. **Cite source pages using `[[wikilink]]`.**
+3. If the answer has high reuse value, save it as a new wiki page after user confirmation.
+4. When saving, add an entry to `index.md` and add cross-references to related pages.
+5. Append a query record to `log.md`.
 
-### Lint (건강 점검)
-1. 고아 페이지 탐지: 다른 페이지에서 링크되지 않은 노트.
-2. 오래된 정보: `updated` 또는 `ingested` 날짜가 6개월 이상 된 페이지 목록.
-3. 누락된 크로스레퍼런스: 관련 주제인데 서로 링크 안 된 페이지.
-4. 모순 탐지: 서로 다른 페이지에서 상충하는 내용.
-5. 누락된 개념 페이지: 여러 페이지에서 언급되지만 독립 페이지가 없는 개념.
-6. Data gap: 웹 검색으로 채울 수 있는 정보 공백 식별.
-7. index.md 누락: 페이지가 존재하나 index.md에 등록되지 않은 것.
-8. 결과를 사용자에게 보고하고 `log.md`에 기록.
-9. 자동화: `bash lint.sh`로 기본 탐지 실행 가능.
-10. 참고: 존재하지 않는 파일로의 `[[wikilink]]`는 Obsidian stub이므로 문제가 아님.
+### Lint (Health Check)
+1. Orphan pages: notes not linked from any other page.
+2. Stale information: pages with `updated` or `ingested` date older than 6 months.
+3. Missing cross-references: related topics that are not linked to each other.
+4. Contradiction detection: conflicting claims across different pages.
+5. Missing concept pages: concepts mentioned in multiple pages but lacking a dedicated page.
+6. Data gaps: information voids that could be filled with a web search.
+7. Index gaps: pages that exist but are not registered in `index.md`.
+8. Report results to the user and record in `log.md`.
+9. Automation: run `bash lint.sh` for basic detection.
+10. Note: `[[wikilink]]` to non-existent files are Obsidian stubs, not errors.
 
 ### Meta Documents
-- `index.md`: 전체 위키 카탈로그. LLM은 탐색 시 이 파일을 먼저 읽는다.
-- `log.md`: 시간순 활동 기록. 모든 ingest/query/lint 후 append.
+- `index.md`: Full wiki catalog. The LLM reads this file first when exploring the vault.
+- `log.md`: Chronological activity log. Append after every ingest, query, and lint.
 
 ## Security & Configuration Tips
 
