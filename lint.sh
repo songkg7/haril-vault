@@ -79,4 +79,37 @@ fi
 echo "  → 총 ${missing_count}개 미등록 페이지"
 echo ""
 
+# 4. Missing Concept Pages: [[wikilink]]가 3회 이상 등장하지만 파일이 없는 경우
+echo "=== Missing Concept Pages (3회 이상 참조되지만 파일이 없는 개념) ==="
+missing_concept_count=0
+# 모든 md 파일에서 [[...]] 링크 추출
+rg -oN '\[\[([^\]|]+)' --glob "*.md" 2>/dev/null \
+  | sed 's/.*\[\[//' \
+  | sort | uniq -c | sort -rn \
+  | while read count name; do
+    [ "$count" -lt 3 ] && break
+    # raw/, templates/, .obsidian/ 참조는 스킵
+    case "$name" in
+      raw/*|templates/*|.obsidian/*|attachments/*) continue ;;
+    esac
+    # 파일 존재 여부 확인 (3_Resource, 1_Project, 2_Area)
+    found=0
+    for dir in 3_Resource 1_Project 2_Area; do
+      if [ -f "${dir}/${name}.md" ]; then
+        found=1
+        break
+      fi
+    done
+    # 루트에도 확인
+    if [ "$found" -eq 0 ] && [ -f "${name}.md" ]; then
+      found=1
+    fi
+    if [ "$found" -eq 0 ]; then
+      echo "  💡 [[${name}]] (${count}회 참조)"
+      missing_concept_count=$((missing_concept_count + 1))
+    fi
+  done
+echo "  → 후보 페이지 리포트 완료"
+echo ""
+
 echo "=== Lint 완료 ==="

@@ -1,5 +1,5 @@
 ---
-updated: 2026-04-06T10:58
+updated: 2026-04-06T23:30
 ---
 
 # Repository Guidelines
@@ -53,6 +53,9 @@ Git history shows a backup-first pattern, mainly `vault backup: YYYY-MM-DD HH:MM
 This vault follows the Karpathy LLM Wiki pattern. The LLM maintains the wiki according to the workflows below.
 
 ### Ingest (Add New Source)
+
+One source typically touches 10–15 wiki pages. Don't just file the source — integrate it across the wiki.
+
 0. Save the original source to `raw/` (immutable, never modify). Naming: `YYYY-MM-DD - Original Title.md`.
 1. Read the source and identify key takeaways.
 2. Read `index.md` to find existing related pages.
@@ -66,9 +69,10 @@ This vault follows the Karpathy LLM Wiki pattern. The LLM maintains the wiki acc
 ### Query (Question → Save)
 1. Read `index.md` first to find relevant pages.
 2. Read relevant pages and synthesize an answer. **Cite source pages using `[[wikilink]]`.**
-3. If the answer has high reuse value, save it as a new wiki page after user confirmation.
-4. When saving, add an entry to `index.md` and add cross-references to related pages.
-5. Append a query record to `log.md`.
+3. Answers can take various forms: markdown pages, comparison tables, slide decks (Marp), or charts — choose the format that best serves the question.
+4. If the answer has high reuse value, save it as a new wiki page after user confirmation.
+5. When saving, add an entry to `index.md` and add cross-references to related pages.
+6. Append a query record to `log.md`.
 
 ### Lint (Health Check)
 1. Orphan pages: notes not linked from any other page.
@@ -76,7 +80,7 @@ This vault follows the Karpathy LLM Wiki pattern. The LLM maintains the wiki acc
 3. Missing cross-references: related topics that are not linked to each other.
 4. Contradiction detection: conflicting claims across different pages.
 5. Missing concept pages: concepts mentioned in multiple pages but lacking a dedicated page.
-6. Data gaps: information voids that could be filled with a web search.
+6. Data gaps: information voids that could be filled with a web search. Suggest specific searches when gaps are found.
 7. Index gaps: pages that exist but are not registered in `index.md`.
 8. Report results to the user and record in `log.md`.
 9. Automation: run `bash lint.sh` for basic detection.
@@ -84,7 +88,12 @@ This vault follows the Karpathy LLM Wiki pattern. The LLM maintains the wiki acc
 
 ### Meta Documents
 - `index.md`: Full wiki catalog. The LLM reads this file first when exploring the vault.
-- `log.md`: Chronological activity log. Append after every ingest, query, and lint.
+- `log.md`: Chronological activity log. Append after every ingest, query, and lint. Use `## [YYYY-MM-DD] type | Title` format so entries are parseable (`grep "^## \[" log.md | tail -5`).
+
+### Tips
+- Obsidian graph view shows wiki shape — hubs, orphans, and connection density at a glance.
+- `[[wikilink]]` to non-existent files are Obsidian stubs (click to create), not errors.
+- The vault is a git repo — use `git log` and `git diff` to track wiki evolution over time.
 
 ## Security & Configuration Tips
 
