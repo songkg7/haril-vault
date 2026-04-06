@@ -12,7 +12,7 @@
   "promptDelete": false,
   "newFileLocation": "folder",
   "newFileFolderPath": "3_Resource",
-  "readableLineLength": false,
+  "readableLineLength": true,
   "showIndentGuide": true,
   "lineWrap": true,
   "rightToLeft": false,
