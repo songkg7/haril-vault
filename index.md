@@ -2,7 +2,7 @@
 title: Vault Index
 tags:
   - meta
-updated: 2026-04-06T11:24
+updated: 2026-04-06T20:49
 ---
 
 # Vault Index
@@ -324,7 +324,7 @@ LLM이 vault를 탐색할 때 이 파일을 먼저 읽는다. 카테고리별로
 - [[Transaction]] — 트랜잭션 ACID 개요
 - [[Transaction Isolation Level]] — 트랜잭션 격리 레벨 비교
 - [[Transactional Outbox Pattern]] — 트랜잭셔널 아웃박스 패턴
-- [[What is DBA?]] — 데이터베이스 관리자(DBA) 역할과 업무
+- [[What is DBA?|DBA]] — 데이터베이스 관리자(DBA) 역할과 업무
 - [[Why is Database index implemented in B-Tree|왜 데이터베이스는 B-tree 를 인덱스 알고리즘으로 사용할까]] — DB 인덱스에 B-Tree 사용 이유
 - [[데이터 무결성을 유지하는 다양한 방법]] — PostgreSQL 데이터 무결성 유지
 - [[데이터베이스 개론 스터디]] — 데이터베이스 개론 스터디 정리

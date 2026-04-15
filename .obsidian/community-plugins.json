@@ -15,7 +15,6 @@
   "update-time-on-edit",
   "obsidian-textgenerator-plugin",
   "obsidian-tasks-plugin",
-  "marp",
   "obsidian-list-callouts",
   "obsidian-imgur-plugin",
   "obsidian-projects",
@@ -31,5 +30,6 @@
   "obsidian-local-rest-api",
   "obsidian-outliner",
   "tag-wrangler",
-  "copilot"
+  "copilot",
+  "marp-slides"
 ]
